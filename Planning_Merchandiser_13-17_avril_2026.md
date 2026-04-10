@@ -1,115 +1,138 @@
 # Planning Merchandiser — Semaine du 13 au 17 avril 2026
 
 **Base** : Zone d'activité Nord 33, 5377 Baillonville
-**Horaire** : 8h30 – 16h30
-**Durée visite** : 30 min par magasin
-
-> 🔴 = Urgence rouge | 🟡 = Urgence jaune/orange
+**Horaire** : 8h30 – 16h30 | **Durée visite** : 30 min/magasin
+**Source** : Displays Teatower B2B — clients avec "OUI" en Urgence Visite
 
 ---
 
-## LUNDI 13/04 — Brabant Wallon Ouest + Namur (5 visites)
+## LUNDI 13/04 — Province de Namur (5 visites)
 
-| Heure estimée | Magasin | Adresse | Tél | Remarques |
+| Heure | Magasin | Adresse | Tél | Remarques |
 |:---:|---|---|---|---|
 | 8h30 | 🚗 Départ Baillonville | | | |
-| ~9h00 | 🟡 AD Delhaize Gembloux | Chaussée de Wavre 42A, 5030 Gembloux | 081 61 38 44 | Contact : Chalot Simon |
-| ~9h55 | 🟡 Delhaize Incourt | Chau. de Namur 89, 1315 Incourt | 010/88.72.90 | Contact : Jérôme DEBUS |
-| ~10h45 | 🔴 Intermarché Braine l'Alleud | Pl. Saint-Sébastien 15, 1420 Braine-l'Alleud | 023 84 09 28 | ⚠️ Nouveau gérant — Jérôme doit reprendre contact avant passage |
-| ~11h30 | 🔴 Delhaize Braine l'Alleud | Rue de la Graignette 5, 1420 Braine-l'Alleud | 0471/45 51 73 | ⚠️ Stand by — Coraline et Romain souhaitent être contactés |
-| ~12h15 | 🔴 Delhaize Waterloo | Bd Henri Rolin 7, 1410 Waterloo | 02 351 32 42 | ⚠️ Moins de vente, pense arrêter. Le responsable attend des nouvelles. Voir suivi Jérôme |
-| ~14h00 | 🚗 Retour Baillonville | | | |
+| ~8h45 | AD Delhaize Ciney | Chemin de Crahiat 18A, 5590 Ciney | 083 21 27 55 | Contact : Donnay David |
+| ~9h25 | Carrefour Market de Ciney | Rue du Commerce 44, 5590 Ciney | 083 21 21 63 | Contact : Eric Watelet. ⚠️ Voir si Jérôme a pris contact suite à sa demande (merchandiser 19/01/2026) |
+| ~10h15 | Hyper Carrefour de Jambes | Av. du Prince de Liège 57-59, 5100 Jambes | 081/33.20.11 | ⚠️ Passage demandé par le magasin. Demandent des balisages à coller sur languettes + arrêts rayon. Voir suivi merchandiser 02/03 |
+| ~11h05 | AD Delhaize Fernelmont | Rue d'Eghezée 16, 5380 Fernelmont | 081 83 04 50 | |
+| ~13h00 | AD Delhaize Sombreffe | Chau. de Gembloux 25, 5140 Sombreffe | 071 88 60 08 | Contact : Sylvie Salteur. ⚠️ **LUNDI : ouvre à 13h !** Personne de contact : Angélique ou Louise |
+| ~14h20 | 🚗 Retour Baillonville | | | |
 
-**Itinéraire** : Baillonville → Gembloux → Incourt → Braine l'Alleud (x2) → Waterloo → retour E411
-**Distance** : ~190 km | **Retour estimé** : ~14h00
+**Itinéraire** : Baillonville → Ciney (x2) → Jambes → Fernelmont → pause midi → Sombreffe (13h) → retour E42
+**Distance** : ~170 km | **Retour** : ~14h20
 
 ---
 
-## MARDI 14/04 — Brabant Wallon Est + Liège (4 visites)
+## MARDI 14/04 — Marche + Liège Est / Verviers (6 visites)
 
-| Heure estimée | Magasin | Adresse | Tél | Remarques |
+| Heure | Magasin | Adresse | Tél | Remarques |
 |:---:|---|---|---|---|
 | 8h30 | 🚗 Départ Baillonville | | | |
-| ~9h45 | 🔴 Carrefour market Genval | Rue de la Bruyère 215, 1332 Rixensart | — | ⚠️ Pas commandé depuis avril 2025 — vérifier la situation |
-| ~10h25 | 🔴 Intermarché Genval | Square des Papeteries 40, 1330 Rixensart | 026/54 19 57 | |
-| ~11h05 | 🔴 Intermarché Rixensart | Av. J.F. Kennedy 2/4, 1330 Rixensart | 02/395 30 69 | |
-| ~12h30 | 🟡 Delhaize Soumagne | Av. de la Résistance 322, 4630 Soumagne | 043 45 97 50 | Contact : Serge. ⚠️ Absent les mercredis |
-| ~14h00 | 🚗 Retour Baillonville | | | |
+| ~8h50 | Carrefour Hyper Marche | Chaussée de Liège 41, 6900 Marche-en-Famenne | 084/32 07 11 | ⚠️ **Passage uniquement le MARDI** |
+| ~10h10 | AD Delhaize Spa | Av. Reine Astrid 244, 4900 Spa | 087/795210 | Contact : Arnaud |
+| ~10h55 | Delhaize Heusy | Av. de Spa 66, 4802 Heusy | 087 22 14 75 | Contact : Nicolas Crotteux. Demander Mr Crotteux ou Mme Simar pour implantation |
+| ~11h35 | Intermarché Heusy | Chaussée de Theux 55, 4802 Heusy | 0472/092390 | Contact : Caroline Leidgens |
+| ~12h35 | AD Dolhain | Av. Reine Astrid 3, 4831 Bilstain-Limbourg | 087 76 01 76 | Demander Sophie ou Nicole, sinon Anaïs |
+| ~13h20 | Delhaize Welkenraedt | Rue Gérard Delvoye 3A, 4840 Welkenraedt | 087/88 04 29 | Contact : Anaïs / Mme Fernandes. ⚠️ Pas de visite le mercredi |
+| ~15h10 | 🚗 Retour Baillonville | | | |
 
-**Itinéraire** : Baillonville → E411 → Rixensart/Genval (x3) → E40 est → Soumagne → retour E25/E42
-**Distance** : ~230 km | **Retour estimé** : ~14h00
+**Itinéraire** : Baillonville → Marche → Spa → Heusy (x2) → pause midi → Dolhain → Welkenraedt → retour E42
+**Distance** : ~220 km | **Retour** : ~15h10
 
 ---
 
-## MERCREDI 15/04 — Bruxelles Sud / Uccle + Alsemberg (5 visites)
+## MERCREDI 15/04 — Liège Centre / Ouest (5 visites)
 
-| Heure estimée | Magasin | Adresse | Tél | Remarques |
+| Heure | Magasin | Adresse | Tél | Remarques |
 |:---:|---|---|---|---|
 | 8h30 | 🚗 Départ Baillonville | | | |
-| ~10h00 | 🔴 Delhaize Alsemberg | Steenweg naar Eigenbrakel 34, 1652 Beersel | 023 81 31 38 | |
-| ~10h45 | 🔴 Delhaize Mozart (Uccle) | Chau. d'Alsemberg 505, 1180 Uccle | 023 45 75 53 | ⚠️ Commande annulée, pas assez de place. Client à relancer |
-| ~11h30 | 🔴 Delhaize De Fré (Uccle) | Av. De Fré 94, 1180 Uccle | 023 74 41 75 | ⚠️ Le client regarde s'il continue. Contacter Madame Turk avant passage |
-| ~12h15 | 🔴 Delhaize Fort Jaco (Uccle) | Chau. de Waterloo 1363, 1180 Uccle | 023 72 11 01 | |
-| ~13h00 | 🔴 Intermarché Uccle | Rue Vanderkindere 121, 1180 Uccle | 022 19 23 16 | ⚠️ Demander Mme Norma. Jérôme doit prendre contact — ils voudraient reprendre la marchandise |
-| ~14h45 | 🚗 Retour Baillonville | | | |
+| ~9h20 | Intermarché Villers-le-Bouillet | Rue du Château d'eau 1, 4530 Villers-le-Bouillet | 085 31 69 11 | Contact : Johan ou Christophe. ⚠️ **Mercredi ou vendredi matin**. Prendre un nouveau display. Client demande visite toutes les 3 semaines |
+| ~10h05 | Intermarché Faimes | Rue de Huy 27, 4317 Faimes | 019/67 83 78 | |
+| ~11h00 | Delhaize Fragnée | Rue de Fragnée 41, 4000 Liège | 042 52 87 63 | ⚠️ **Pas le lundi.** Demander Mme Bastin ou Mme Hicter. Veut agrandir et passer en rayon — voir si Jérôme doit passer |
+| ~11h40 | Intermarché Liège Cointe | Bd Gustave Kleyer 3, 4000 Liège | 042 50 34 82 | Contact : Mossay Shannen. Cadar envoyé par mail le 16/02 |
+| ~12h45 | Delhaize Embourg | Voie de l'Ardenne 57, 4053 Chaudfontaine | 0468 37 62 65 | Contact : Kevin Demarteau |
+| ~14h25 | 🚗 Retour Baillonville | | | |
 
-**Itinéraire** : Baillonville → E411 → Alsemberg → Uccle (4 magasins dans un rayon de 2 km) → retour E411
-**Distance** : ~210 km | **Retour estimé** : ~14h45
+**Itinéraire** : Baillonville → Villers-le-Bouillet → Faimes → Liège Fragnée → Cointe → pause midi → Embourg → retour E25/E42
+**Distance** : ~180 km | **Retour** : ~14h25
 
 ---
 
-## JEUDI 16/04 — Bruxelles Est / Centre (4 visites)
+## JEUDI 16/04 — Brabant Wallon (6 visites)
 
-| Heure estimée | Magasin | Adresse | Tél | Remarques |
+| Heure | Magasin | Adresse | Tél | Remarques |
 |:---:|---|---|---|---|
 | 8h30 | 🚗 Départ Baillonville | | | |
-| ~10h00 | 🔴 Delhaize Boondael (Ixelles) | Av. du Bois de la Cambre 120, 1050 Ixelles | 02 672 89 48 | ⚠️ Petit panier tourniquet. Jérôme doit prendre contact. Voir visite Gilles 23/02 |
-| ~10h45 | 🟡 Carrefour Express CHIREC (Auderghem) | Bd du Triomphe 201, 1160 Auderghem | 022 80 40 49 | Contact : Gaspard Daxhelet |
-| ~11h45 | 🔴 Delhaize LEOPOLD III (Evere) | Rue de Genève 2, 1140 Evere | 0475/53 99 00 | |
-| ~12h30 | 🔴 Intermarché Monnaie (Bruxelles) | Rue de l'Evêque 30, 1000 Bruxelles | 0465/56 29 31 | Contact : Bart |
-| ~14h15 | 🚗 Retour Baillonville | | | |
+| ~9h40 | Hypermarché Carrefour Bierges | Bd de l'Europe 3, 1301 Bierges | 010/23.18.50 | Contact : Alizée Urbain. ⚠️ **Mardi ou jeudi uniquement. Horaire visite : 6h – 11h45** |
+| ~10h25 | Carrefour Market Waterloo | Drève de Richelle 10, 1410 Waterloo | 023/52 02 11 | Contact : Eric Darte. ⚠️ **Visite de 6h à 12h uniquement** |
+| ~11h10 | Carrefour Express Petits Champs | Chaussée de Bruxelles 63, 1410 Waterloo | 023 54 35 22 | Contact : Mr Serge. Voir suivi merchandiser (4 références en magasin) |
+| ~11h55 | Proxy Delhaize Lillois | Grand'Route 350, 1428 Lillois | 023 84 48 83 | Contact : Mme Céline Vandamme |
+| ~12h55 | Proxy Delhaize Maransart | Route de l'Etat 217, 1380 Lasne | 026 33 13 25 | Contact : Marion Delannoy. ⚠️ Lundi après 10h, autres jours sans préférence |
+| ~13h40 | Carrefour Express Rhode-Saint-Genèse | Chaussée de Waterloo 230, 1640 Rhode-Saint-Genèse | 024 66 68 41 | Contact : Gilles Virgo. Voir suivi merchandiser (3 références en magasin) |
+| ~15h25 | 🚗 Retour Baillonville | | | |
 
-**Itinéraire** : Baillonville → E411 → Ixelles → Auderghem → Evere → Centre → retour E411
-**Distance** : ~210 km | **Retour estimé** : ~14h15
-
----
-
-## VENDREDI 17/04 — Libre / Rattrapage
-
-Journée disponible pour :
-- Rattraper des visites non réalisées en semaine
-- Rappels téléphoniques aux clients en stand-by
-- Tâches administratives
+**Itinéraire** : Baillonville → E411 → Bierges → Waterloo (x2) → Lillois → pause midi → Maransart → Rhode-St-Genèse → retour E411
+**Distance** : ~200 km | **Retour** : ~15h25
 
 ---
 
-## Récapitulatif de la semaine
+## VENDREDI 17/04 — Hainaut + Bruxelles (5 visites)
 
-| Jour | Zone | 🔴 | 🟡 | Total | Km | Retour |
-|------|------|:---:|:---:|:---:|:---:|:---:|
-| Lundi | BW Ouest + Namur | 3 | 2 | 5 | ~190 km | ~14h00 |
-| Mardi | BW Est + Liège | 3 | 1 | 4 | ~230 km | ~14h00 |
-| Mercredi | Bruxelles Sud/Uccle | 5 | 0 | 5 | ~210 km | ~14h45 |
-| Jeudi | Bruxelles Est/Centre | 3 | 1 | 4 | ~210 km | ~14h15 |
-| Vendredi | Libre / Rattrapage | — | — | — | — | — |
-| **Total** | | **14** | **4** | **18** | **~840 km** | |
+| Heure | Magasin | Adresse | Tél | Remarques |
+|:---:|---|---|---|---|
+| 8h30 | 🚗 Départ Baillonville | | | |
+| ~9h40 | Hyper Carrefour Mons | Place des Grands Prés 1, 7000 Mons | 065 32 36 44 | Contact : Christophe Solheid. Plus en display mais en TG dans le fond du magasin |
+| ~10h50 | Intermarché Gerpinnes | Rte de Philippeville 196, 6280 Gerpinnes | 0498 37 65 03 | Contact : Elodie Botte. Géraldine ou Max pour signature bon de commande |
+| ~12h10 | Intermarché Forest | Chau. d'Alsemberg 303/309, 1190 Forest | 023 46 46 14 | |
+| ~13h20 | Carrefour Market Uccle Bascule | Chau. de Waterloo 719, 1180 Bruxelles | 0488/87 95 21 | Contact : Carmen |
+| ~14h15 | Carrefour Market Woluwe | Rue Saint-Lambert 202, 1200 Woluwe-Saint-Lambert | 0477/17 84 07 | Contact : Jordan |
+| ~16h00 | 🚗 Retour Baillonville | | | |
+
+**Itinéraire** : Baillonville → Mons → Gerpinnes → pause midi → Forest → Uccle → Woluwe → retour E411
+**Distance** : ~310 km | **Retour** : ~16h00
 
 ---
 
-## Clients retirés du planning (STOP / Collaboration arrêtée)
+## Récapitulatif
 
-| Magasin | Raison |
-|---------|--------|
-| AD Leuze (Eghezée) | Stop — pas assez de vente |
-| Intermarché Eghezée | Stop — réorganisation du magasin |
-| Intermarché Andenne | Stop la gamme Teatower — new gérant |
-| Intermarché Bois de Villers | Arrêt collaboration (mail 23/01/2026) |
-| Delhaize Haccourt | Refuse de remettre le display en place |
-| Delhaize Hankar | Ne continue pas la collaboration |
-| Carrefour Market Bertrix | Plus de passage avant retour par mail |
-| Intermarché Couillet | Arrête — plus de vol que de vente |
-| Intermarché Farcienne | Fermeture définitive du magasin |
-| Intermarché Gozée | Client perdu — plus intéressé par la gamme |
-| Intermarché Lambusart | Client perdu — plus intéressé par la gamme |
+| Jour | Zone | Visites | Km | Retour |
+|------|------|:---:|:---:|:---:|
+| Lundi | Namur | 5 | ~170 km | ~14h20 |
+| Mardi | Marche + Liège Est | 6 | ~220 km | ~15h10 |
+| Mercredi | Liège Centre/Ouest | 5 | ~180 km | ~14h25 |
+| Jeudi | Brabant Wallon | 6 | ~200 km | ~15h25 |
+| Vendredi | Hainaut + Bruxelles | 5 | ~310 km | ~16h00 |
+| **Total** | | **27** | **~1080 km** | |
 
-> **Note** : Carrefour Market Liège Laveu (🟡) non planifié — la remarque indique "rappeler dans 4 semaines", pas de visite physique nécessaire.
+---
+
+## Clients "OUI" non planifiés cette semaine (21)
+
+Retirés par ordre de priorité décroissante (les derniers de la liste) :
+
+| # | Magasin | Province | Raison |
+|---|---------|----------|--------|
+| 29 | Proxy Delhaize Etterbeek | Bruxelles | Capacité semaine dépassée |
+| 30 | AD Delhaize Rochefort | Namur | Capacité semaine dépassée |
+| 31 | Carrefour Market La Chasse | Bruxelles | Capacité semaine dépassée |
+| 32 | Delhaize Barvaux | Luxembourg | Capacité semaine dépassée |
+| 33 | Delhaize de Marche | Luxembourg | Capacité semaine dépassée |
+| 34 | Hyper Carrefour Arlon | Luxembourg | Capacité semaine dépassée |
+| 35 | AD Delhaize Fosses-la-Ville | Namur | Capacité semaine dépassée |
+| 36 | Delhaize de Bouge | Namur | Capacité semaine dépassée |
+| 37 | Intermarché Bouge | Namur | Capacité semaine dépassée |
+| 38 | Intermarché Naninne | Namur | Capacité semaine dépassée |
+| 39 | Delhaize Ottignies | Brabant Wallon | Capacité semaine dépassée |
+| 40 | Hyper Carrefour Waterloo Mont St Jean | Brabant Wallon | Capacité semaine dépassée |
+| 41 | Proxy Delhaize Bosvoorde | Bruxelles | Capacité semaine dépassée |
+| 42 | Delhaize Barchon | Liège | Capacité semaine dépassée |
+| 43 | Delhaize Bois-de-breux | Liège | Capacité semaine dépassée |
+| 44 | Hyper Carrefour Boncelles | Liège | Capacité semaine dépassée |
+| 45 | Intermarché Hamoir | Liège | Capacité semaine dépassée |
+| 46 | Intermarché Herve | Liège | Capacité semaine dépassée |
+| 47 | Proxy Delhaize Saint-Séverin / Nandrin | Liège | Capacité semaine dépassée |
+| 48 | Carrefour Hyper Fléron | Liège | Capacité semaine dépassée |
+
+> **+ Proxy Delhaize Ferrières** (position 19 dans la liste) : non planifiable cette semaine car contrainte "pas le mercredi" et incompatible avec les autres jours Liège géographiquement.
+
+> **Recommandation** : ces 21 clients sont à planifier en priorité la semaine suivante (20-24 avril).
