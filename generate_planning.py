@@ -275,20 +275,21 @@ def main():
     print(f"  Scored {len(clients)} clients.", file=sys.stderr)
 
     # ── 6-8. Build weekly planning ───────────────────────────────────────────
-    # Sort clients: most overdue first, then by tier (A > B > C > D), then by total_ca desc
     tier_rank = {"A": 0, "B": 1, "C": 2, "D": 3}
-    clients.sort(key=lambda c: (
-        -c["days_overdue"],
-        tier_rank.get(c["tier"], 9),
-        -c["total_ca"],
-    ))
 
     # Group by zone
     zone_clients = defaultdict(list)
     for c in clients:
         zone_clients[c["zone"]].append(c)
 
-    # Build day assignments: 5 days (Mon-Fri), ~6 visits per day max
+    # Sort each zone: overdue first, then tier, then CA
+    for zone_name in zone_clients:
+        zone_clients[zone_name].sort(key=lambda c: (
+            -c["days_overdue"],
+            tier_rank.get(c["tier"], 9),
+            -c["total_ca"],
+        ))
+
     DAYS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
     # Next Monday from today
     days_until_monday = (7 - TODAY.weekday()) % 7
@@ -302,26 +303,71 @@ def main():
     planning = {d: [] for d in DAYS}
     scheduled_ids = set()
 
-    # Flatten the ordered list by zone priority, keeping urgency order within zone
-    ordered_queue = []
-    for zone_name in ZONE_ORDER:
-        for c in zone_clients.get(zone_name, []):
-            ordered_queue.append(c)
+    # ── Zone-day mapping ────────────────────────────────────────────────────
+    # Reserve specific days for geographic zones to guarantee coverage.
+    # Proximity to Baillonville (5377): Namur closest, then Liège, then BW, etc.
+    ZONE_DAY_MAP = {
+        "Lundi":    ["Namur"],
+        "Mardi":    ["Namur", "Luxembourg/Hainaut Sud"],
+        "Mercredi": ["Liege"],
+        "Jeudi":    ["Brabant Wallon", "Liege"],
+        "Vendredi": ["Bruxelles", "Hainaut", "Autre"],
+    }
 
-    # Assign to days
-    day_idx = 0
-    for c in ordered_queue:
-        if day_idx >= len(DAYS):
-            break
-        day_name = DAYS[day_idx]
-        if len(planning[day_name]) >= MAX_VISITS_PER_DAY:
-            day_idx += 1
-            if day_idx >= len(DAYS):
+    # ── Priority scoring for selection ──────────────────────────────────────
+    def visit_priority(c):
+        """Higher = more urgent to visit this week."""
+        score = 0
+        # Overdue clients get massive priority
+        score += c["days_overdue"] * 10
+        # Tier A/B approaching deadline (>70% of max freq) should be included
+        if c["tier"] in ("A", "B", "C"):
+            _, max_freq = TIER_FREQ[c["tier"]]
+            if c["days_since_last"] is not None:
+                pct = c["days_since_last"] / max_freq
+                if pct > 0.7:
+                    score += pct * 50
+        # Tier bonus (A > B > C > D)
+        tier_bonus = {"A": 40, "B": 20, "C": 5, "D": 0}
+        score += tier_bonus.get(c["tier"], 0)
+        # CA bonus
+        score += min(c["total_ca"] / 200, 30)
+        return score
+
+    # ── Fill each day ───────────────────────────────────────────────────────
+    for day_name in DAYS:
+        zones_for_day = ZONE_DAY_MAP[day_name]
+        candidates = []
+        for z in zones_for_day:
+            for c in zone_clients.get(z, []):
+                if c["id"] not in scheduled_ids and c["tier"] != "D":
+                    candidates.append(c)
+
+        # Sort by priority (highest first)
+        candidates.sort(key=lambda c: -visit_priority(c))
+
+        # Pick top N
+        for c in candidates[:MAX_VISITS_PER_DAY]:
+            planning[day_name].append(c)
+            scheduled_ids.add(c["id"])
+
+    # ── Fill remaining slots with best overdue from any zone ────────────────
+    all_remaining = [c for c in clients if c["id"] not in scheduled_ids and c["tier"] != "D"]
+    all_remaining.sort(key=lambda c: -visit_priority(c))
+
+    for day_name in DAYS:
+        while len(planning[day_name]) < MAX_VISITS_PER_DAY and all_remaining:
+            # Find best remaining client compatible with this day's zones
+            added = False
+            for i, c in enumerate(all_remaining):
+                if c["id"] not in scheduled_ids:
+                    planning[day_name].append(c)
+                    scheduled_ids.add(c["id"])
+                    all_remaining.pop(i)
+                    added = True
+                    break
+            if not added:
                 break
-            day_name = DAYS[day_idx]
-
-        planning[day_name].append(c)
-        scheduled_ids.add(c["id"])
 
     # ── 9. Output as Markdown ────────────────────────────────────────────────
     week_start = week_monday
@@ -334,6 +380,14 @@ def main():
         visits = planning[day_name]
         if not visits:
             continue
+
+        # Sort visits within the day: Hyper first (morning constraint)
+        def is_hyper(c):
+            n = c["name"].lower()
+            return "hyper" in n or "hypermar" in n
+        visits.sort(key=lambda c: (0 if is_hyper(c) else 1))
+        planning[day_name] = visits
+
         day_date = week_start + timedelta(days=day_i)
         print(f"\n## {day_name} {day_date.strftime('%d/%m/%Y')}\n")
 

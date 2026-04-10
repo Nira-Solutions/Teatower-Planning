@@ -58,6 +58,11 @@ Les remarques merchandiser sont dans le champ `comment` (Notes internes) de chaq
 
 **Tu DOIS respecter ces contraintes** lors de la planification (ne pas planifier un magasin un jour interdit).
 
+## Règles de planification
+
+- **Les Hyper (Carrefour Hyper, Hypermarché) doivent TOUJOURS être visités le matin** (premiers dans la journée, avant 12h). Les merchandisers ne sont pas acceptés l'après-midi dans les hypers.
+- Respecter les contraintes horaires des remarques (ex: "visite 6h-12h", "pas le jeudi", "mardi uniquement")
+
 ## Ce que tu sais faire
 
 1. **Générer un planning hebdomadaire** : tire les données Odoo, calcule les priorités, génère un planning optimisé sur 5 jours. Exécute `generate_planning.py` dans le dossier du projet.
