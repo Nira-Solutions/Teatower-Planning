@@ -27,7 +27,7 @@ Base : **Baillonville** (Zone d'activite Nord 33, 5377) | Horaire : **8h30 - 16h
 - **Bouge** — Contact : Dany Decoster
 - **Belgrade** — Contact : Stephanie
 
-[Ouvrir l'itineraire Google Maps](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+de+la+Forge+34,+5650+Walcourt/Avenue+de+Belle+Mine+7,+5300+Andenne/Rue+Binam%C3%A9+Bajart+1,+5170+Bois-de-Villers/Chauss%C3%A9e+de+Dinant+127,+5537+Anh%C3%A9e/Chauss%C3%A9e+de+Louvain+257,+5000+Bouge/All%C3%A9e+des+Ormes+15,+5001+Belgrade/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
+> ### [Itineraire Lundi](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+de+la+Forge+34,+5650+Walcourt/Avenue+de+Belle+Mine+7,+5300+Andenne/Rue+Binam%C3%A9+Bajart+1,+5170+Bois-de-Villers/Chauss%C3%A9e+de+Dinant+127,+5537+Anh%C3%A9e/Chauss%C3%A9e+de+Louvain+257,+5000+Bouge/All%C3%A9e+des+Ormes+15,+5001+Belgrade/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
 
 ---
 
@@ -49,7 +49,7 @@ Base : **Baillonville** (Zone d'activite Nord 33, 5377) | Horaire : **8h30 - 16h
 - **Barvaux** — Contact : Nathalie Warnier
 - **Beauraing** — Contact : Therese. Personne responsable du rayon : Alison
 
-[Ouvrir l'itineraire Google Maps](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Route+de+Philippeville+196,+6280+Gerpinnes/Chauss%C3%A9e+de+Recogne+88,+6840+Neufch%C3%A2teau/Place+Albert+1er+16,+6820+Florenville/Rue+de+Marche+112-114,+5580+Rochefort/Route+de+Marche+26,+6940+Barvaux/Rue+de+Rochefort+37,+5570+Beauraing/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
+> ### [Itineraire Mardi](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Route+de+Philippeville+196,+6280+Gerpinnes/Chauss%C3%A9e+de+Recogne+88,+6840+Neufch%C3%A2teau/Place+Albert+1er+16,+6820+Florenville/Rue+de+Marche+112-114,+5580+Rochefort/Route+de+Marche+26,+6940+Barvaux/Rue+de+Rochefort+37,+5570+Beauraing/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
 
 ---
 
@@ -71,7 +71,7 @@ Base : **Baillonville** (Zone d'activite Nord 33, 5377) | Horaire : **8h30 - 16h
 - **Fragnee** — Pas de visite les lundis. Demander Mme Bastin ou Mme Hicter. Veut agrandir et passer en rayon
 - **Embourg** — Contact : Kevin Demarteau
 
-[Ouvrir l'itineraire Google Maps](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+du+Condroz+16,+4100+Boncelles/Rue+Albert+1er+2,+4280+Hannut/Rue+de+Huy+27,+4317+Faimes/Avenue+Reine+Astrid+5,+4650+Herve/Rue+de+Fragn%C3%A9e+41,+4000+Li%C3%A8ge/Voie+de+l'Ardenne+57,+4053+Embourg/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
+> ### [Itineraire Mercredi](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+du+Condroz+16,+4100+Boncelles/Rue+Albert+1er+2,+4280+Hannut/Rue+de+Huy+27,+4317+Faimes/Avenue+Reine+Astrid+5,+4650+Herve/Rue+de+Fragn%C3%A9e+41,+4000+Li%C3%A8ge/Voie+de+l'Ardenne+57,+4053+Embourg/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
 
 ---
 
@@ -94,7 +94,7 @@ Base : **Baillonville** (Zone d'activite Nord 33, 5377) | Horaire : **8h30 - 16h
 - **Jodoigne** — NOUVEAU CLIENT. Contact : Mr David. Ok suivi merchandiser
 - **Butgenbach** — Contact : Mme Boemer. Pas de visite le mercredi. Toujours voir la responsable avant de remplir
 
-[Ouvrir l'itineraire Google Maps](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+Charlemagne+7,+1348+Louvain-la-Neuve/Chauss%C3%A9e+de+Namur+89,+1315+Incourt/Chauss%C3%A9e+de+Waterloo+230,+1640+Rhode-Saint-Gen%C3%A8se/Chauss%C3%A9e+de+Louvain+126,+1300+Wavre/Chauss%C3%A9e+de+Wavre+90c,+1370+Jodoigne/Monschauer+Strabe+9,+4750+B%C3%BCtgenbach/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
+> ### [Itineraire Jeudi](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+Charlemagne+7,+1348+Louvain-la-Neuve/Chauss%C3%A9e+de+Namur+89,+1315+Incourt/Chauss%C3%A9e+de+Waterloo+230,+1640+Rhode-Saint-Gen%C3%A8se/Chauss%C3%A9e+de+Louvain+126,+1300+Wavre/Chauss%C3%A9e+de+Wavre+90c,+1370+Jodoigne/Monschauer+Strabe+9,+4750+B%C3%BCtgenbach/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
 
 ---
 
@@ -116,7 +116,7 @@ Base : **Baillonville** (Zone d'activite Nord 33, 5377) | Horaire : **8h30 - 16h
 - **Bastogne** — Contact : Fabienne Antoine. Se presenter le matin
 - **CHIREC** — Contact : Gaspard Daxhelet
 
-[Ouvrir l'itineraire Google Maps](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+des+Champs+39,+1040+Bruxelles/Rue+Vanderkindere+121,+1180+Uccle/Chauss%C3%A9e+d'Alsemberg+303,+1190+Forest/Avenue+du+Bois+de+la+Cambre+120,+1050+Ixelles/Route+de+Marche+149,+6600+Bastogne/Boulevard+du+Triomphe+201,+1160+Auderghem/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
+> ### [Itineraire Vendredi](https://www.google.com/maps/dir/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville/Rue+des+Champs+39,+1040+Bruxelles/Rue+Vanderkindere+121,+1180+Uccle/Chauss%C3%A9e+d'Alsemberg+303,+1190+Forest/Avenue+du+Bois+de+la+Cambre+120,+1050+Ixelles/Route+de+Marche+149,+6600+Bastogne/Boulevard+du+Triomphe+201,+1160+Auderghem/Zone+d'activit%C3%A9+Nord+33,+5377+Baillonville)
 
 ---
 
