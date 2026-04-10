@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 import sys
 import re
+from urllib.parse import quote
 
 # ── Odoo connection ──────────────────────────────────────────────────────────
 URL = "https://tea-tree.odoo.com"
@@ -72,6 +73,9 @@ TIER_FREQ = {
 
 # Exclusion patterns (central/corporate accounts, not physical stores)
 EXCLUDE_NAMES = ["Delhaize Le Lion", "Carrefour Belgium"]
+
+# Merchandiser home base
+HOME_ADDRESS = "Zone d'activité Nord 33, 5377 Baillonville, Belgique"
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 def safe_str(val, default=""):
@@ -452,6 +456,17 @@ def main():
 
             print(f"| {time_str} | {v['name']} | {addr} | {v['phone']} | {v['tier']} | {dsl}{overdue_flag} | {ca_str} | {remark} |")
             current_time += VISIT_DURATION + TRAVEL_BUFFER
+
+        # Generate Google Maps route link (home → visits → home)
+        waypoints = [HOME_ADDRESS]
+        for v in visits:
+            addr_full = f"{safe_str(v['street'])}, {safe_str(v['zip'])} {safe_str(v['city'])}, Belgique"
+            waypoints.append(addr_full)
+        waypoints.append(HOME_ADDRESS)
+        gmaps_path = "/".join(quote(w, safe="") for w in waypoints)
+        gmaps_url = f"https://www.google.com/maps/dir/{gmaps_path}"
+
+        print(f"\n**[Ouvrir l'itineraire dans Google Maps]({gmaps_url})**")
 
     # ── 10. Summary table ────────────────────────────────────────────────────
     print("\n---\n")
