@@ -66,6 +66,7 @@ TIER_FREQ = {
     "A": (15, 20),
     "B": (25, 35),
     "C": (40, 50),
+    "NEW": (7, 14),
     "D": (None, None),
 }
 
@@ -117,17 +118,19 @@ def main():
 
     # ── 1. Pull GMS clients (tag 27) ────────────────────────────────────────
     print("Fetching GMS clients (tag_id=27)...", file=sys.stderr)
+    PARTNER_FIELDS = ["id", "name", "street", "city", "zip", "phone", "mobile",
+                      "email", "comment", "create_date"]
     partners = search_read(
         "res.partner",
         [["category_id", "in", [GMS_TAG_ID]], ["is_company", "=", True]],
-        ["id", "name", "street", "city", "zip", "phone", "mobile", "email", "comment"],
+        PARTNER_FIELDS,
     )
     # Also fetch partners that are not companies but have the tag (some stores
     # might be contacts). We'll merge and deduplicate.
     partners_contacts = search_read(
         "res.partner",
         [["category_id", "in", [GMS_TAG_ID]], ["is_company", "=", False]],
-        ["id", "name", "street", "city", "zip", "phone", "mobile", "email", "comment"],
+        PARTNER_FIELDS,
     )
     seen_ids = {p["id"] for p in partners}
     for p in partners_contacts:
@@ -182,11 +185,30 @@ def main():
         ords = orders_by_partner.get(pid, [])
         num_orders = len(ords)
 
+        # Detect new clients by create_date
+        create_date_str = safe_str(p.get("create_date"))
+        is_new = False
+        days_since_created = 9999
+        if create_date_str:
+            try:
+                created = datetime.strptime(create_date_str[:10], "%Y-%m-%d")
+                days_since_created = (TODAY - created).days
+                if days_since_created <= 60:
+                    is_new = True
+            except ValueError:
+                pass
+
         if num_orders == 0:
-            # Skip truly inactive (no orders AND no comment)
-            if not comment:
+            if is_new:
+                # New client (< 60 days) with no orders yet → needs first visit
+                tier = "NEW"
+            elif comment:
+                # Has remarks but no orders → dormant but tracked
+                tier = "D"
+            else:
+                # No orders, no remarks, not new → skip
                 continue
-            # Tier D — dormant / never ordered
+
             clients.append({
                 "id": pid,
                 "name": name,
@@ -202,8 +224,10 @@ def main():
                 "ca_per_order": 0.0,
                 "order_frequency": None,
                 "days_since_last": None,
-                "days_overdue": 0,
-                "tier": "D",
+                "days_overdue": 50 if is_new else 0,  # NEW clients get high urgency
+                "days_since_created": days_since_created,
+                "tier": tier,
+                "is_new": is_new,
             })
             continue
 
@@ -253,6 +277,11 @@ def main():
         else:
             days_overdue = 0
 
+        # New clients with few orders (< 3) get a boost: treat as Tier B minimum
+        # to ensure follow-up visits while the relationship is being established
+        if is_new and num_orders <= 3 and tier in ("C", "D"):
+            tier = "B"
+
         clients.append({
             "id": pid,
             "name": name,
@@ -270,9 +299,13 @@ def main():
             "days_since_last": days_since_last,
             "days_overdue": days_overdue,
             "tier": tier,
+            "is_new": is_new,
+            "days_since_created": days_since_created,
         })
 
-    print(f"  Scored {len(clients)} clients.", file=sys.stderr)
+    # Count new clients
+    new_count = sum(1 for c in clients if c.get("is_new"))
+    print(f"  Scored {len(clients)} clients ({new_count} nouveaux < 60j).", file=sys.stderr)
 
     # ── 6-8. Build weekly planning ───────────────────────────────────────────
     tier_rank = {"A": 0, "B": 1, "C": 2, "D": 3}
@@ -318,6 +351,9 @@ def main():
     def visit_priority(c):
         """Higher = more urgent to visit this week."""
         score = 0
+        # NEW clients get high priority (first visit / relationship building)
+        if c.get("is_new"):
+            score += 80
         # Overdue clients get massive priority
         score += c["days_overdue"] * 10
         # Tier A/B approaching deadline (>70% of max freq) should be included
@@ -328,7 +364,7 @@ def main():
                 if pct > 0.7:
                     score += pct * 50
         # Tier bonus (A > B > C > D)
-        tier_bonus = {"A": 40, "B": 20, "C": 5, "D": 0}
+        tier_bonus = {"A": 40, "B": 20, "C": 5, "D": 0, "NEW": 60}
         score += tier_bonus.get(c["tier"], 0)
         # CA bonus
         score += min(c["total_ca"] / 200, 30)
@@ -340,7 +376,7 @@ def main():
         candidates = []
         for z in zones_for_day:
             for c in zone_clients.get(z, []):
-                if c["id"] not in scheduled_ids and c["tier"] != "D":
+                if c["id"] not in scheduled_ids and c["tier"] not in ("D",):
                     candidates.append(c)
 
         # Sort by priority (highest first)
@@ -403,7 +439,14 @@ def main():
             time_str = current_time.strftime("%Hh%M")
             addr = f"{safe_str(v['street'])}, {safe_str(v['zip'])} {safe_str(v['city'])}"
             dsl = f"{v['days_since_last']}j" if v['days_since_last'] is not None else "jamais"
-            overdue_flag = " **OVERDUE**" if v["days_overdue"] > 0 else ""
+            if v.get("is_new") and v["num_orders"] == 0:
+                overdue_flag = " **NOUVEAU**"
+            elif v.get("is_new"):
+                overdue_flag = " **NOUVEAU**" + (" **OVERDUE**" if v["days_overdue"] > 0 else "")
+            elif v["days_overdue"] > 0:
+                overdue_flag = " **OVERDUE**"
+            else:
+                overdue_flag = ""
             ca_str = f"{v['ca_per_order']:.0f} EUR" if v["ca_per_order"] else "-"
             remark = truncate(v["comment"], 50)
 
@@ -424,7 +467,7 @@ def main():
 
     print("| Tier | Total clients | Planifies cette semaine | Frequence cible |")
     print("|------|--------------|------------------------|-----------------|")
-    for t in ["A", "B", "C", "D"]:
+    for t in ["A", "B", "C", "NEW", "D"]:
         freq = TIER_FREQ[t]
         freq_str = f"{freq[0]}-{freq[1]}j" if freq[0] else "sur demande"
         print(f"| {t} | {tier_counts[t]} | {tier_scheduled[t]} | {freq_str} |")
