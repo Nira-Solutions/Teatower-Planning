@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T11:50:00",
+  "updated": "2026-04-14T12:15:21",
   "tasks": [
     {
       "id": "t001",
@@ -69,6 +69,14 @@
       "started": null,
       "request": "Nicolas → la page ne se met pas à jour, câbler les agents",
       "finished": "2026-04-14T11:50"
+    },
+    {
+      "id": "t009",
+      "agent": "stock-manager",
+      "task": "MAJ transferts internes magasins après modif règles min/max",
+      "status": "in_progress",
+      "started": "2026-04-14T12:15",
+      "request": "Nicolas → réappro magasin, règles modifiées, refaire transferts"
     }
   ]
 }
