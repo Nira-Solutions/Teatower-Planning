@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:00:30",
+  "updated": "2026-04-14T15:05:33",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2952,6 +2952,14 @@
       "started": "2026-04-14T14:56",
       "request": "Nicolas → rapport lettrages manquants",
       "finished": "2026-04-14T15:00"
+    },
+    {
+      "id": "t021",
+      "agent": "odoo",
+      "task": "Se documenter sur Odoo 18 FR et produire une base de connaissance",
+      "status": "in_progress",
+      "started": "2026-04-14T15:05",
+      "request": "Nicolas → documente-toi sur https://www.odoo.com/documentation/18.0/fr/"
     }
   ]
 }
