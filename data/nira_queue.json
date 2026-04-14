@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:56:56",
+  "updated": "2026-04-14T15:00:17",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2938,10 +2938,11 @@
     {
       "id": "t019",
       "agent": "marketing",
-      "task": "Établir les codes de marque Teatower à partir du site",
-      "status": "in_progress",
+      "task": "Codes de marque Teatower établis : positionnement + visuels + ton + 2 quick-wins",
+      "status": "done",
       "started": "2026-04-14T14:56",
-      "request": "Nira → demande au dir. marketing d'établir les codes Teatower sur base du site"
+      "request": "Nira → demande au dir. marketing d'établir les codes Teatower sur base du site",
+      "finished": "2026-04-14T15:00"
     },
     {
       "id": "t020",
