@@ -1,0 +1,1911 @@
+{
+  "tt_root_id": 8,
+  "n_locs_tt": 1536,
+  "n_quants_neg": 296,
+  "total_qty_neg": -220256.77,
+  "total_value_neg": -34123.916938,
+  "by_subloc": [
+    {
+      "loc": "TT/Stock/PICK",
+      "n": 12,
+      "qty": -141509.0
+    },
+    {
+      "loc": "TT/Stock",
+      "n": 111,
+      "qty": -76748.77
+    },
+    {
+      "loc": "TT/Stock/PICK/A-10-00",
+      "n": 2,
+      "qty": -600.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-09-00-00-01",
+      "n": 2,
+      "qty": -500.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-04-02",
+      "n": 1,
+      "qty": -200.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-06-00-01-02",
+      "n": 11,
+      "qty": -92.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-01-00-00-01",
+      "n": 5,
+      "qty": -74.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-05-00-00-03",
+      "n": 1,
+      "qty": -71.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-02-00-01-03",
+      "n": 1,
+      "qty": -44.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-06-00-00-01",
+      "n": 5,
+      "qty": -25.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-22-00-00-01",
+      "n": 3,
+      "qty": -21.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-01-02",
+      "n": 1,
+      "qty": -20.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-25-00-01-02",
+      "n": 4,
+      "qty": -19.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-16-00-00-02",
+      "n": 3,
+      "qty": -18.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-07-00-00-01",
+      "n": 2,
+      "qty": -15.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-05-00-00-01",
+      "n": 3,
+      "qty": -12.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-07-00-00-04",
+      "n": 3,
+      "qty": -12.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-08-00-01-02",
+      "n": 2,
+      "qty": -12.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-07-00-01-03",
+      "n": 2,
+      "qty": -10.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-04-00-01-02",
+      "n": 2,
+      "qty": -10.0
+    },
+    {
+      "loc": "TT/Stock/PICK/D-01-01",
+      "n": 2,
+      "qty": -10.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-14-00-02-02",
+      "n": 1,
+      "qty": -10.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-14-00",
+      "n": 1,
+      "qty": -10.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-04-00",
+      "n": 5,
+      "qty": -10.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-12-00",
+      "n": 1,
+      "qty": -10.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-05-00-01-02",
+      "n": 3,
+      "qty": -9.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-14-01",
+      "n": 6,
+      "qty": -8.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-07-00-02-01",
+      "n": 1,
+      "qty": -8.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-16-00-00-01",
+      "n": 2,
+      "qty": -8.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-12-00-00-02",
+      "n": 1,
+      "qty": -8.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-10-00-02-02",
+      "n": 2,
+      "qty": -7.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-23-00-01-02",
+      "n": 1,
+      "qty": -7.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-15-00-01-02",
+      "n": 2,
+      "qty": -5.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-26-00-01-01",
+      "n": 1,
+      "qty": -5.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-03-00-00-01",
+      "n": 1,
+      "qty": -5.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-05-00-01-01",
+      "n": 3,
+      "qty": -4.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-08-00-00-01",
+      "n": 1,
+      "qty": -4.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-06-00-01-01",
+      "n": 1,
+      "qty": -4.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-02-00-00-02",
+      "n": 3,
+      "qty": -4.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-21-00-01-02",
+      "n": 1,
+      "qty": -4.0
+    },
+    {
+      "loc": "TT/Stock/PICK/E-09-00",
+      "n": 1,
+      "qty": -4.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-02-00-00-04",
+      "n": 2,
+      "qty": -3.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-07-00-00-03",
+      "n": 1,
+      "qty": -3.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-04-00-01-02",
+      "n": 1,
+      "qty": -3.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-07-00-01-04",
+      "n": 1,
+      "qty": -3.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-08-00-01-04",
+      "n": 1,
+      "qty": -3.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-12-00-01-01",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-24-00-00-02",
+      "n": 2,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-21-00-01-01",
+      "n": 2,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-16-00-01-01",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-09-00-01-01",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-17-00-01-01",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-18-00-00-02",
+      "n": 2,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-28-00-01-02",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-13-00-00-02",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-14-00-01-02",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-04-00-01-01",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-22-00-02-02",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-11-00-01-02",
+      "n": 2,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-01-00-01-01",
+      "n": 2,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-14-00-00-01",
+      "n": 2,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-01-00-01-02",
+      "n": 2,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-21-00-01-02",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-13-00-00-02",
+      "n": 1,
+      "qty": -2.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-07-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-18-00-01-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-28-00-00-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-08-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-05-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-20-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-22-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-27-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-21-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-06-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-09-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-11-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-16-00-01-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-05-00-00-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-28-00-01-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-19-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-01-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-07-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-19-00-01-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-03-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-02-00-01-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-11-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-11-00-00-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-19-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-13-00-01-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-15-00-01-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-05-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-13-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-12-00-00-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-22-00-00-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-17-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-15-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-04-00-00-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-14-00-00-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-03-00-00-04",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-20-00",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-04-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/D-11-00",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-02-00-01-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-13-00-01-02",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-11-00",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/C-06-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-22-03",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-14-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-12-00-00-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-09-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/B-08-00-02-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-13-01",
+      "n": 1,
+      "qty": -1.0
+    },
+    {
+      "loc": "TT/Stock/PICK/A-12-00-02-02",
+      "n": 1,
+      "qty": -1.0
+    }
+  ],
+  "top15_quants": [
+    {
+      "code": "E0628",
+      "name": "Oasis du désert - BIO (Echantillon)",
+      "loc": "TT/Stock/PICK",
+      "qty": -45269.0,
+      "val": -7243.04,
+      "reserved": 0.0,
+      "in_date": "2026-03-24 13:23:02"
+    },
+    {
+      "code": "E0279",
+      "name": "Le panier de grand maman (Echantillon)",
+      "loc": "TT/Stock/PICK",
+      "qty": -24574.0,
+      "val": -3931.84,
+      "reserved": 0.0,
+      "in_date": "2026-02-13 08:09:20"
+    },
+    {
+      "code": "E0121",
+      "name": "Lady Dodo (Echantillon)",
+      "loc": "TT/Stock/PICK",
+      "qty": -23005.0,
+      "val": -3910.8500000000004,
+      "reserved": 0.0,
+      "in_date": "2026-02-13 08:09:20"
+    },
+    {
+      "code": "E0666",
+      "name": "English Breakfast  (Echantillon)",
+      "loc": "TT/Stock/PICK",
+      "qty": -21000.0,
+      "val": -0.0,
+      "reserved": 0.0,
+      "in_date": "2026-02-13 08:09:20"
+    },
+    {
+      "code": "E0626",
+      "name": "Sencha - BIO (Echantillon)",
+      "loc": "TT/Stock/PICK",
+      "qty": -13881.0,
+      "val": -2082.15,
+      "reserved": 0.0,
+      "in_date": "2026-01-19 15:50:55"
+    },
+    {
+      "code": "E0880",
+      "name": "Blue Earl Grey BIO (Echantillon)",
+      "loc": "TT/Stock/PICK",
+      "qty": -13760.0,
+      "val": -2614.4,
+      "reserved": 0.0,
+      "in_date": "2026-01-19 15:50:55"
+    },
+    {
+      "code": "E0301",
+      "name": "Tisane tropicale (Echantillon)",
+      "loc": "TT/Stock",
+      "qty": -11660.0,
+      "val": -1982.2,
+      "reserved": 0.0,
+      "in_date": "2025-12-08 09:01:54"
+    },
+    {
+      "code": "C0019",
+      "name": "sachet Teatower Classique",
+      "loc": "TT/Stock",
+      "qty": -9030.0,
+      "val": -0.0,
+      "reserved": 0.0,
+      "in_date": "2026-04-07 10:15:35"
+    },
+    {
+      "code": "E0913",
+      "name": "Féérie d'Hivers - échantillon",
+      "loc": "TT/Stock",
+      "qty": -6888.0,
+      "val": -0.0,
+      "reserved": 0.0,
+      "in_date": "2025-11-28 10:23:03"
+    },
+    {
+      "code": "E0732",
+      "name": "Gourmandise de Noël (Echantillon)",
+      "loc": "TT/Stock",
+      "qty": -5162.0,
+      "val": -774.3,
+      "reserved": 0.0,
+      "in_date": "2025-11-25 07:30:35"
+    },
+    {
+      "code": "E0711",
+      "name": "Offrande des Rois Mages (Echantillon)",
+      "loc": "TT/Stock",
+      "qty": -5162.0,
+      "val": -774.3,
+      "reserved": 0.0,
+      "in_date": "2025-11-25 07:30:35"
+    },
+    {
+      "code": "E0891",
+      "name": "Trésor des lutins (Echantillon)",
+      "loc": "TT/Stock",
+      "qty": -5162.0,
+      "val": -877.5400000000001,
+      "reserved": 0.0,
+      "in_date": "2025-11-25 07:30:35"
+    },
+    {
+      "code": "E0778",
+      "name": "Spéculoos & Cie (Echantillon)",
+      "loc": "TT/Stock",
+      "qty": -2590.0,
+      "val": -440.3,
+      "reserved": 0.0,
+      "in_date": "2025-10-13 12:12:46"
+    },
+    {
+      "code": "E0600",
+      "name": "La lampe merveilleuse (Echantillon)",
+      "loc": "TT/Stock",
+      "qty": -2590.0,
+      "val": -440.3,
+      "reserved": 0.0,
+      "in_date": "2025-10-13 12:12:46"
+    },
+    {
+      "code": "E0845",
+      "name": "Mamy Granny - BIO (Echantillon)",
+      "loc": "TT/Stock",
+      "qty": -2590.0,
+      "val": -440.3,
+      "reserved": 0.0,
+      "in_date": "2025-10-13 12:12:46"
+    }
+  ],
+  "top5_invest": [
+    {
+      "code": "E0628",
+      "name": "Oasis du désert - BIO (Echantillon)",
+      "qty_neg_total": -45269.0,
+      "neg_locs": [
+        [
+          "TT/Stock/PICK",
+          -45269.0
+        ]
+      ],
+      "moves": [
+        {
+          "date": "2025-11-04",
+          "kind": "INT",
+          "ref": "TT/STOR/00371",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 25000.0,
+          "delta": 25000.0,
+          "cum_after": 25000.0,
+          "origin": "P00312"
+        },
+        {
+          "date": "2025-11-19",
+          "kind": "INT",
+          "ref": "TT/STOR/00395",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 36765.0,
+          "delta": 36765.0,
+          "cum_after": 61765.0,
+          "origin": "P00224"
+        },
+        {
+          "date": "2025-11-24",
+          "kind": "MO",
+          "ref": "TT/MO/02715",
+          "src": "Virtual Locations/Production",
+          "dst": "TT/Stock",
+          "qty": 15000.0,
+          "delta": 15000.0,
+          "cum_after": 76765.0,
+          "origin": "TT/MO/02715"
+        },
+        {
+          "date": "2025-12-08",
+          "kind": "SO",
+          "ref": "TT/PICK/05685",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 15000.0,
+          "delta": -15000.0,
+          "cum_after": 61765.0,
+          "origin": "S04070"
+        },
+        {
+          "date": "2025-12-08",
+          "kind": "SO",
+          "ref": "TT/PICK/05584",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 40000.0,
+          "delta": -40000.0,
+          "cum_after": 21765.0,
+          "origin": "S04467"
+        },
+        {
+          "date": "2025-12-16",
+          "kind": "MOraw",
+          "ref": "TT/MO/02895",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 498.0,
+          "delta": -498.0,
+          "cum_after": 21267.0,
+          "origin": "TT/MO/02895"
+        },
+        {
+          "date": "2026-01-08",
+          "kind": "MOraw",
+          "ref": "TT/MO/03076",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 144.0,
+          "delta": -144.0,
+          "cum_after": 21123.0,
+          "origin": "TT/MO/03076"
+        },
+        {
+          "date": "2026-01-14",
+          "kind": "MOraw",
+          "ref": "TT/MO/03112",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 105.0,
+          "delta": -105.0,
+          "cum_after": 21018.0,
+          "origin": "TT/MO/03112"
+        },
+        {
+          "date": "2026-01-27",
+          "kind": "INT",
+          "ref": "TT/STOR/00502",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 50400.0,
+          "delta": 50400.0,
+          "cum_after": 71418.0,
+          "origin": "P00340"
+        },
+        {
+          "date": "2026-02-04",
+          "kind": "MOraw",
+          "ref": "TT/MO/02910",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 90.0,
+          "delta": -90.0,
+          "cum_after": 71328.0,
+          "origin": "OP/13636,TT/MO/02910"
+        },
+        {
+          "date": "2026-02-12",
+          "kind": "MOraw",
+          "ref": "TT/MO/03309",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 432.0,
+          "delta": -432.0,
+          "cum_after": 70896.0,
+          "origin": "OP/13636,TT/MO/03309"
+        },
+        {
+          "date": "2026-02-13",
+          "kind": "SO",
+          "ref": "TT/PICK/07201",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 26500.0,
+          "delta": -26500.0,
+          "cum_after": 44396.0,
+          "origin": "S04920"
+        },
+        {
+          "date": "2026-03-06",
+          "kind": "MOraw",
+          "ref": "TT/MO/03425",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 312.0,
+          "delta": -312.0,
+          "cum_after": 44084.0,
+          "origin": "OP/13636,TT/MO/03425"
+        },
+        {
+          "date": "2026-03-20",
+          "kind": "INT",
+          "ref": "WAT/INT/00158",
+          "src": "TT/Stock",
+          "dst": "WAT/Stock",
+          "qty": 500.0,
+          "delta": -500.0,
+          "cum_after": 43584.0,
+          "origin": "-"
+        },
+        {
+          "date": "2026-03-24",
+          "kind": "MO",
+          "ref": "TT/MO/03777",
+          "src": "Virtual Locations/Production",
+          "dst": "TT/Stock",
+          "qty": 20000.0,
+          "delta": 20000.0,
+          "cum_after": 63584.0,
+          "origin": "TT/MO/03777"
+        },
+        {
+          "date": "2026-03-24",
+          "kind": "SO",
+          "ref": "TT/PICK/08197",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 20000.0,
+          "delta": -20000.0,
+          "cum_after": 43584.0,
+          "origin": "S04979"
+        },
+        {
+          "date": "2026-04-01",
+          "kind": "INT",
+          "ref": "TT/STOR/00622",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 22500.0,
+          "delta": 22500.0,
+          "cum_after": 66084.0,
+          "origin": "P00399"
+        },
+        {
+          "date": "2026-04-01",
+          "kind": "INT",
+          "ref": "TT/STOR/00624",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 22500.0,
+          "delta": 22500.0,
+          "cum_after": 88584.0,
+          "origin": "P00399"
+        },
+        {
+          "date": "2026-04-02",
+          "kind": "INT",
+          "ref": "TT/STOR/00625",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 18000.0,
+          "delta": 18000.0,
+          "cum_after": 106584.0,
+          "origin": "P00399"
+        },
+        {
+          "date": "2026-04-10",
+          "kind": "MOraw",
+          "ref": "TT/MO/03924",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 21875.0,
+          "delta": -21875.0,
+          "cum_after": 84709.0,
+          "origin": "TT/MO/03924"
+        }
+      ]
+    },
+    {
+      "code": "E0279",
+      "name": "Le panier de grand maman (Echantillon)",
+      "qty_neg_total": -25074.0,
+      "neg_locs": [
+        [
+          "TT/Stock/PICK/B-09-00-00-01",
+          -300.0
+        ],
+        [
+          "TT/Stock/PICK/C-04-02",
+          -200.0
+        ],
+        [
+          "TT/Stock/PICK",
+          -24574.0
+        ]
+      ],
+      "moves": [
+        {
+          "date": "2025-08-12",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "Virtual Locations/Inventory adjustment",
+          "dst": "TT/Stock/PICK/C-09-00",
+          "qty": 16250.0,
+          "delta": 16250.0,
+          "cum_after": 16250.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-12",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock/PICK/E-32-00",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 22000.0,
+          "delta": -22000.0,
+          "cum_after": -5750.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-14",
+          "kind": "MOraw",
+          "ref": "TT/MO/01459",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 480.0,
+          "delta": -480.0,
+          "cum_after": -6230.0,
+          "origin": "OP/13636,TT/MO/01459"
+        },
+        {
+          "date": "2025-08-27",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "Virtual Locations/Inventory adjustment",
+          "dst": "TT/Stock/PICK/A-10-01",
+          "qty": 1998.0,
+          "delta": 1998.0,
+          "cum_after": -4232.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-27",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock/PICK/A-10-00",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 1998.0,
+          "delta": -1998.0,
+          "cum_after": -6230.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-27",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "Virtual Locations/Inventory adjustment",
+          "dst": "TT/Stock/PICK/A-10-00",
+          "qty": 1998.0,
+          "delta": 1998.0,
+          "cum_after": -4232.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-27",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock/PICK/A-10-01",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 1998.0,
+          "delta": -1998.0,
+          "cum_after": -6230.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-27",
+          "kind": "SO",
+          "ref": "TT/PICK/02769",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 300.0,
+          "delta": -300.0,
+          "cum_after": -6530.0,
+          "origin": "S02467"
+        },
+        {
+          "date": "2025-09-08",
+          "kind": "SO",
+          "ref": "TT/PICK/02913",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 200.0,
+          "delta": -200.0,
+          "cum_after": -6730.0,
+          "origin": "S02595"
+        },
+        {
+          "date": "2025-10-07",
+          "kind": "SO",
+          "ref": "TT/PICK/03612",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 300.0,
+          "delta": -300.0,
+          "cum_after": -7030.0,
+          "origin": "S03316"
+        },
+        {
+          "date": "2025-11-03",
+          "kind": "SO",
+          "ref": "TT/PICK/04140",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 50000.0,
+          "delta": -50000.0,
+          "cum_after": -57030.0,
+          "origin": "S03825"
+        },
+        {
+          "date": "2025-11-04",
+          "kind": "SO",
+          "ref": "TT/PICK/04340",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 5150.0,
+          "delta": -5150.0,
+          "cum_after": -62180.0,
+          "origin": "S03986"
+        },
+        {
+          "date": "2025-12-16",
+          "kind": "MOraw",
+          "ref": "TT/MO/02895",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 498.0,
+          "delta": -498.0,
+          "cum_after": -62678.0,
+          "origin": "TT/MO/02895"
+        },
+        {
+          "date": "2026-01-08",
+          "kind": "MOraw",
+          "ref": "TT/MO/03076",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 144.0,
+          "delta": -144.0,
+          "cum_after": -62822.0,
+          "origin": "TT/MO/03076"
+        },
+        {
+          "date": "2026-01-14",
+          "kind": "MOraw",
+          "ref": "TT/MO/03112",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 105.0,
+          "delta": -105.0,
+          "cum_after": -62927.0,
+          "origin": "TT/MO/03112"
+        },
+        {
+          "date": "2026-01-27",
+          "kind": "INT",
+          "ref": "TT/STOR/00502",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 25000.0,
+          "delta": 25000.0,
+          "cum_after": -37927.0,
+          "origin": "P00340"
+        },
+        {
+          "date": "2026-02-04",
+          "kind": "MOraw",
+          "ref": "TT/MO/02910",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 90.0,
+          "delta": -90.0,
+          "cum_after": -38017.0,
+          "origin": "OP/13636,TT/MO/02910"
+        },
+        {
+          "date": "2026-02-12",
+          "kind": "MOraw",
+          "ref": "TT/MO/03309",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 432.0,
+          "delta": -432.0,
+          "cum_after": -38449.0,
+          "origin": "OP/13636,TT/MO/03309"
+        },
+        {
+          "date": "2026-02-13",
+          "kind": "SO",
+          "ref": "TT/PICK/07201",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 25000.0,
+          "delta": -25000.0,
+          "cum_after": -63449.0,
+          "origin": "S04920"
+        },
+        {
+          "date": "2026-03-06",
+          "kind": "MOraw",
+          "ref": "TT/MO/03425",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 312.0,
+          "delta": -312.0,
+          "cum_after": -63761.0,
+          "origin": "OP/13636,TT/MO/03425"
+        }
+      ]
+    },
+    {
+      "code": "E0121",
+      "name": "Lady Dodo (Echantillon)",
+      "qty_neg_total": -23205.0,
+      "neg_locs": [
+        [
+          "TT/Stock/PICK/A-10-00",
+          -200.0
+        ],
+        [
+          "TT/Stock/PICK",
+          -23005.0
+        ]
+      ],
+      "moves": [
+        {
+          "date": "2025-09-17",
+          "kind": "MOraw",
+          "ref": "TT/MO/01706",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 432.0,
+          "delta": -432.0,
+          "cum_after": -432.0,
+          "origin": "TT/MO/01706"
+        },
+        {
+          "date": "2025-09-19",
+          "kind": "MOraw",
+          "ref": "TT/MO/01719",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 279.0,
+          "delta": -279.0,
+          "cum_after": -711.0,
+          "origin": "TT/MO/01719"
+        },
+        {
+          "date": "2025-09-25",
+          "kind": "MOraw",
+          "ref": "TT/MO/01764",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 216.0,
+          "delta": -216.0,
+          "cum_after": -927.0,
+          "origin": "TT/MO/01764"
+        },
+        {
+          "date": "2025-10-02",
+          "kind": "MOraw",
+          "ref": "TT/MO/01818",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 204.0,
+          "delta": -204.0,
+          "cum_after": -1131.0,
+          "origin": "TT/MO/01818"
+        },
+        {
+          "date": "2025-10-08",
+          "kind": "MOraw",
+          "ref": "TT/MO/01909",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 243.0,
+          "delta": -243.0,
+          "cum_after": -1374.0,
+          "origin": "TT/MO/01909"
+        },
+        {
+          "date": "2025-10-09",
+          "kind": "MOraw",
+          "ref": "TT/MO/01917",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 216.0,
+          "delta": -216.0,
+          "cum_after": -1590.0,
+          "origin": "TT/MO/01917"
+        },
+        {
+          "date": "2025-10-13",
+          "kind": "MOraw",
+          "ref": "TT/MO/01945",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 216.0,
+          "delta": -216.0,
+          "cum_after": -1806.0,
+          "origin": "TT/MO/01945"
+        },
+        {
+          "date": "2025-10-23",
+          "kind": "INT",
+          "ref": "TT/STOR/00345",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 12500.0,
+          "delta": 12500.0,
+          "cum_after": 10694.0,
+          "origin": "P00224"
+        },
+        {
+          "date": "2025-11-03",
+          "kind": "SO",
+          "ref": "TT/PICK/04140",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 12500.0,
+          "delta": -12500.0,
+          "cum_after": -1806.0,
+          "origin": "S03825"
+        },
+        {
+          "date": "2025-11-04",
+          "kind": "INT",
+          "ref": "TT/STOR/00371",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 15000.0,
+          "delta": 15000.0,
+          "cum_after": 13194.0,
+          "origin": "P00312"
+        },
+        {
+          "date": "2025-11-04",
+          "kind": "SO",
+          "ref": "TT/PICK/04340",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 5000.0,
+          "delta": -5000.0,
+          "cum_after": 8194.0,
+          "origin": "S03986"
+        },
+        {
+          "date": "2025-12-16",
+          "kind": "MOraw",
+          "ref": "TT/MO/02895",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 498.0,
+          "delta": -498.0,
+          "cum_after": 7696.0,
+          "origin": "TT/MO/02895"
+        },
+        {
+          "date": "2026-01-08",
+          "kind": "MOraw",
+          "ref": "TT/MO/03076",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 144.0,
+          "delta": -144.0,
+          "cum_after": 7552.0,
+          "origin": "TT/MO/03076"
+        },
+        {
+          "date": "2026-01-14",
+          "kind": "MOraw",
+          "ref": "TT/MO/03112",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 105.0,
+          "delta": -105.0,
+          "cum_after": 7447.0,
+          "origin": "TT/MO/03112"
+        },
+        {
+          "date": "2026-01-19",
+          "kind": "SO",
+          "ref": "TT/PICK/06687",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 14505.0,
+          "delta": -14505.0,
+          "cum_after": -7058.0,
+          "origin": "S04762"
+        },
+        {
+          "date": "2026-01-27",
+          "kind": "INT",
+          "ref": "TT/STOR/00502",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 10000.0,
+          "delta": 10000.0,
+          "cum_after": 2942.0,
+          "origin": "P00340"
+        },
+        {
+          "date": "2026-02-04",
+          "kind": "MOraw",
+          "ref": "TT/MO/02910",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 90.0,
+          "delta": -90.0,
+          "cum_after": 2852.0,
+          "origin": "OP/13636,TT/MO/02910"
+        },
+        {
+          "date": "2026-02-12",
+          "kind": "MOraw",
+          "ref": "TT/MO/03309",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 432.0,
+          "delta": -432.0,
+          "cum_after": 2420.0,
+          "origin": "OP/13636,TT/MO/03309"
+        },
+        {
+          "date": "2026-02-13",
+          "kind": "SO",
+          "ref": "TT/PICK/07201",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 8500.0,
+          "delta": -8500.0,
+          "cum_after": -6080.0,
+          "origin": "S04920"
+        },
+        {
+          "date": "2026-03-06",
+          "kind": "MOraw",
+          "ref": "TT/MO/03425",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 312.0,
+          "delta": -312.0,
+          "cum_after": -6392.0,
+          "origin": "OP/13636,TT/MO/03425"
+        }
+      ]
+    },
+    {
+      "code": "E0666",
+      "name": "English Breakfast  (Echantillon)",
+      "qty_neg_total": -21400.0,
+      "neg_locs": [
+        [
+          "TT/Stock/PICK/A-10-00",
+          -400.0
+        ],
+        [
+          "TT/Stock/PICK",
+          -21000.0
+        ]
+      ],
+      "moves": [
+        {
+          "date": "2025-08-12",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "Virtual Locations/Inventory adjustment",
+          "dst": "TT/Stock/PICK/A-23-01",
+          "qty": 1500.0,
+          "delta": 1500.0,
+          "cum_after": 1500.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-12",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock/PICK/C-09-00",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 1500.0,
+          "delta": -1500.0,
+          "cum_after": 0.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-12",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 8500.0,
+          "delta": -8500.0,
+          "cum_after": -8500.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-14",
+          "kind": "MOraw",
+          "ref": "TT/MO/01459",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 480.0,
+          "delta": -480.0,
+          "cum_after": -8980.0,
+          "origin": "OP/13636,TT/MO/01459"
+        },
+        {
+          "date": "2025-09-08",
+          "kind": "SO",
+          "ref": "TT/PICK/02913",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 200.0,
+          "delta": -200.0,
+          "cum_after": -9180.0,
+          "origin": "S02595"
+        },
+        {
+          "date": "2025-09-10",
+          "kind": "SO",
+          "ref": "TT/PICK/02994",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 200.0,
+          "delta": -200.0,
+          "cum_after": -9380.0,
+          "origin": "S02677"
+        },
+        {
+          "date": "2025-10-23",
+          "kind": "INT",
+          "ref": "TT/STOR/00345",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 20000.0,
+          "delta": 20000.0,
+          "cum_after": 10620.0,
+          "origin": "P00224"
+        },
+        {
+          "date": "2025-11-03",
+          "kind": "SO",
+          "ref": "TT/PICK/04140",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 20000.0,
+          "delta": -20000.0,
+          "cum_after": -9380.0,
+          "origin": "S03825"
+        },
+        {
+          "date": "2025-11-04",
+          "kind": "INT",
+          "ref": "TT/STOR/00371",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 12500.0,
+          "delta": 12500.0,
+          "cum_after": 3120.0,
+          "origin": "P00312"
+        },
+        {
+          "date": "2025-12-16",
+          "kind": "MOraw",
+          "ref": "TT/MO/02895",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 498.0,
+          "delta": -498.0,
+          "cum_after": 2622.0,
+          "origin": "TT/MO/02895"
+        },
+        {
+          "date": "2026-01-08",
+          "kind": "MOraw",
+          "ref": "TT/MO/03076",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 144.0,
+          "delta": -144.0,
+          "cum_after": 2478.0,
+          "origin": "TT/MO/03076"
+        },
+        {
+          "date": "2026-01-14",
+          "kind": "MOraw",
+          "ref": "TT/MO/03112",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 105.0,
+          "delta": -105.0,
+          "cum_after": 2373.0,
+          "origin": "TT/MO/03112"
+        },
+        {
+          "date": "2026-01-19",
+          "kind": "SO",
+          "ref": "TT/PICK/06687",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 12500.0,
+          "delta": -12500.0,
+          "cum_after": -10127.0,
+          "origin": "S04762"
+        },
+        {
+          "date": "2026-01-27",
+          "kind": "INT",
+          "ref": "TT/STOR/00502",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 10000.0,
+          "delta": 10000.0,
+          "cum_after": -127.0,
+          "origin": "P00340"
+        },
+        {
+          "date": "2026-02-04",
+          "kind": "MOraw",
+          "ref": "TT/MO/02910",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 90.0,
+          "delta": -90.0,
+          "cum_after": -217.0,
+          "origin": "OP/13636,TT/MO/02910"
+        },
+        {
+          "date": "2026-02-12",
+          "kind": "MOraw",
+          "ref": "TT/MO/03309",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 432.0,
+          "delta": -432.0,
+          "cum_after": -649.0,
+          "origin": "OP/13636,TT/MO/03309"
+        },
+        {
+          "date": "2026-02-13",
+          "kind": "SO",
+          "ref": "TT/PICK/07201",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 8500.0,
+          "delta": -8500.0,
+          "cum_after": -9149.0,
+          "origin": "S04920"
+        },
+        {
+          "date": "2026-03-06",
+          "kind": "MOraw",
+          "ref": "TT/MO/03425",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 312.0,
+          "delta": -312.0,
+          "cum_after": -9461.0,
+          "origin": "OP/13636,TT/MO/03425"
+        },
+        {
+          "date": "2026-04-01",
+          "kind": "INT",
+          "ref": "TT/STOR/00621",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 21000.0,
+          "delta": 21000.0,
+          "cum_after": 11539.0,
+          "origin": "P00399"
+        },
+        {
+          "date": "2026-04-02",
+          "kind": "INT",
+          "ref": "TT/STOR/00631",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 4500.0,
+          "delta": 4500.0,
+          "cum_after": 16039.0,
+          "origin": "P00399"
+        }
+      ]
+    },
+    {
+      "code": "E0626",
+      "name": "Sencha - BIO (Echantillon)",
+      "qty_neg_total": -13881.0,
+      "neg_locs": [
+        [
+          "TT/Stock/PICK",
+          -13881.0
+        ]
+      ],
+      "moves": [
+        {
+          "date": "2025-03-31",
+          "kind": "INT",
+          "ref": "Migration v14 > v18 (Administrator)",
+          "src": "Virtual Locations/Inventory adjustment",
+          "dst": "TT/Stock/PICK/MIGRATION_V14",
+          "qty": 290.0,
+          "delta": 290.0,
+          "cum_after": 290.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-04-28",
+          "kind": "INT",
+          "ref": "TT/STOR/00049",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 20000.0,
+          "delta": 20000.0,
+          "cum_after": 20290.0,
+          "origin": "P00017"
+        },
+        {
+          "date": "2025-05-22",
+          "kind": "MOraw",
+          "ref": "TT/MO/00725",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 507.0,
+          "delta": -507.0,
+          "cum_after": 19783.0,
+          "origin": "OP/13636,TT/MO/00725"
+        },
+        {
+          "date": "2025-05-22",
+          "kind": "MOraw",
+          "ref": "TT/MO/00874",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 264.0,
+          "delta": -264.0,
+          "cum_after": 19519.0,
+          "origin": "OP/13638,TT/MO/00874"
+        },
+        {
+          "date": "2025-05-23",
+          "kind": "MOraw",
+          "ref": "TT/MO/00926",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 240.0,
+          "delta": -240.0,
+          "cum_after": 19279.0,
+          "origin": "TT/MO/00926"
+        },
+        {
+          "date": "2025-06-18",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 17753.0,
+          "delta": -17753.0,
+          "cum_after": 1526.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-06-18",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock/PICK/MIGRATION_V14",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 26.0,
+          "delta": -26.0,
+          "cum_after": 1500.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-07-03",
+          "kind": "INT",
+          "ref": "TT/OUT/01638",
+          "src": "TT/Stock",
+          "dst": "Partners/Customers",
+          "qty": 2000.0,
+          "delta": -2000.0,
+          "cum_after": -500.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-07-09",
+          "kind": "INT",
+          "ref": "TT/OUT/01639",
+          "src": "TT/Stock",
+          "dst": "Partners/Customers",
+          "qty": 2000.0,
+          "delta": -2000.0,
+          "cum_after": -2500.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-08-08",
+          "kind": "INT",
+          "ref": "TT/STOR/00177",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 25000.0,
+          "delta": 25000.0,
+          "cum_after": 22500.0,
+          "origin": "P00104"
+        },
+        {
+          "date": "2025-08-12",
+          "kind": "INT",
+          "ref": "Quantité de produit mise à jour",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Inventory adjustment",
+          "qty": 22500.0,
+          "delta": -22500.0,
+          "cum_after": 0.0,
+          "origin": "-"
+        },
+        {
+          "date": "2025-10-23",
+          "kind": "INT",
+          "ref": "TT/STOR/00345",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 12500.0,
+          "delta": 12500.0,
+          "cum_after": 12500.0,
+          "origin": "P00224"
+        },
+        {
+          "date": "2025-11-03",
+          "kind": "SO",
+          "ref": "TT/PICK/04140",
+          "src": "TT/Stock",
+          "dst": "TT/Sortie",
+          "qty": 12500.0,
+          "delta": -12500.0,
+          "cum_after": 0.0,
+          "origin": "S03825"
+        },
+        {
+          "date": "2025-11-04",
+          "kind": "INT",
+          "ref": "TT/STOR/00371",
+          "src": "TT/Entrée",
+          "dst": "TT/Stock",
+          "qty": 15000.0,
+          "delta": 15000.0,
+          "cum_after": 15000.0,
+          "origin": "P00312"
+        },
+        {
+          "date": "2026-01-08",
+          "kind": "MOraw",
+          "ref": "TT/MO/03076",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 144.0,
+          "delta": -144.0,
+          "cum_after": 14856.0,
+          "origin": "TT/MO/03076"
+        },
+        {
+          "date": "2026-01-14",
+          "kind": "MOraw",
+          "ref": "TT/MO/03112",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 105.0,
+          "delta": -105.0,
+          "cum_after": 14751.0,
+          "origin": "TT/MO/03112"
+        },
+        {
+          "date": "2026-01-19",
+          "kind": "SO",
+          "ref": "TT/PICK/06687",
+          "src": "TT/Stock/PICK",
+          "dst": "TT/Sortie",
+          "qty": 13881.0,
+          "delta": -13881.0,
+          "cum_after": 870.0,
+          "origin": "S04762"
+        },
+        {
+          "date": "2026-02-04",
+          "kind": "MOraw",
+          "ref": "TT/MO/02910",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 90.0,
+          "delta": -90.0,
+          "cum_after": 780.0,
+          "origin": "OP/13636,TT/MO/02910"
+        },
+        {
+          "date": "2026-02-12",
+          "kind": "MOraw",
+          "ref": "TT/MO/03309",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 432.0,
+          "delta": -432.0,
+          "cum_after": 348.0,
+          "origin": "OP/13636,TT/MO/03309"
+        },
+        {
+          "date": "2026-03-06",
+          "kind": "MOraw",
+          "ref": "TT/MO/03425",
+          "src": "TT/Stock",
+          "dst": "Virtual Locations/Production",
+          "qty": 312.0,
+          "delta": -312.0,
+          "cum_after": 36.0,
+          "origin": "OP/13636,TT/MO/03425"
+        }
+      ]
+    }
+  ],
+  "patterns_90d": {
+    "counts": {
+      "MO_consume": 1895,
+      "SO_out": 1598,
+      "internal_to_mag": 1166,
+      "internal_intra_tt": 289,
+      "other_out": 52
+    },
+    "qty": {
+      "MO_consume": 218597.77000000002,
+      "SO_out": 16913.0,
+      "internal_to_mag": 7850.22,
+      "internal_intra_tt": 10644.329999999998,
+      "other_out": 2017.09
+    },
+    "total_moves_out": 5000
+  }
+}
