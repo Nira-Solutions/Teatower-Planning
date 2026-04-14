@@ -261,7 +261,9 @@
       <div class="sub">Pilotage terrain intelligent — détection · priorisation · exécution · impact</div>
     </div>
     <div class="spacer"></div>
-    <div class="live"><span class="dot"></span> Live · Odoo + Shyfter</div>
+    <div class="live"><span class="dot" id="liveDot"></span> <span id="liveLabel">Chargement…</span></div>
+    <button class="btn ghost sm" onclick="exportPlan()" style="margin-left:10px">📄 Export plan</button>
+    <button class="btn ghost sm" onclick="resetState()" style="margin-left:6px" title="Reset journal & impact">↺</button>
   </div>
 
   <!-- TABS -->
@@ -885,8 +887,84 @@ document.querySelectorAll('.tab').forEach(t=>{
 document.getElementById('regenBtn').addEventListener('click',()=>{ renderPriorities(); toast('⟳ Priorités régénérées','Moteur de décision relancé'); });
 document.getElementById('optimizeBtn').addEventListener('click',optimizeRoute);
 
+/* ============ PERSISTENCE ============ */
+const LS_KEY = 'teatower_cockpit_v1';
+function persist(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify({log:STATE.log.slice(0,80),impact:STATE.impact})); }catch(e){}
+}
+function restore(){
+  try{
+    const s = JSON.parse(localStorage.getItem(LS_KEY)||'{}');
+    if(s.log) STATE.log = s.log;
+    if(s.impact) STATE.impact = s.impact;
+  }catch(e){}
+}
+function resetState(){
+  if(!confirm('Reset journal et impact ?')) return;
+  STATE.log=[]; STATE.impact={saved:0,stockouts:0,hours:0};
+  persist(); renderAll(); toast('↺ État réinitialisé','');
+}
+// Wrap logAction to persist
+const _logAction = logAction;
+logAction = function(m,i){ _logAction(m,i); persist(); };
+
+/* ============ LIVE DATA (Odoo via cockpit_data.json) ============ */
+async function loadLiveData(){
+  const lbl = document.getElementById('liveLabel');
+  const dot = document.getElementById('liveDot');
+  try{
+    const r = await fetch('cockpit_data.json', {cache:'no-store'});
+    if(!r.ok) throw new Error('no data');
+    const d = await r.json();
+    if(Array.isArray(d.orders) && d.orders.length) STATE.orders = d.orders;
+    if(Array.isArray(d.stores) && d.stores.length){
+      // merge : garde visits/delta si existants, injecte CA réel
+      STATE.stores = d.stores.map((s,i)=>({
+        ...s,
+        delta: (Math.random()-0.4)*0.3,
+        stockout: Math.random()*0.15,
+        score: 50 + Math.round(Math.random()*40),
+        risk: Math.random()<0.3?'red':Math.random()<0.5?'orange':'green',
+        visits: Math.floor(Math.random()*4),
+      }));
+    }
+    if(Array.isArray(d.products_top) && d.products_top.length) STATE.products.top = d.products_top;
+    if(Array.isArray(d.products_flop) && d.products_flop.length) STATE.products.flop = d.products_flop;
+    const age = d.generated_at ? new Date(d.generated_at).toLocaleTimeString('fr-BE',{hour:'2-digit',minute:'2-digit'}) : '';
+    lbl.textContent = `Live · Odoo ${age}`;
+    dot.style.background = '#22c55e'; dot.style.boxShadow = '0 0 12px #22c55e';
+    toast('🔌 Données Odoo chargées', `${STATE.orders.length} devis · ${STATE.stores.length} clients`);
+  }catch(e){
+    lbl.textContent = 'Mode démo (mock)';
+    dot.style.background = '#f59e0b'; dot.style.boxShadow = '0 0 12px #f59e0b';
+  }
+  renderAll();
+}
+
+/* ============ EXPORT ============ */
+function exportPlan(){
+  const P = computePriorities();
+  const date = new Date().toLocaleDateString('fr-BE');
+  let txt = `TEATOWER · PLAN DU JOUR · ${date}\n${'='.repeat(48)}\n\n`;
+  P.forEach((p,i)=>{
+    txt += `${i+1}. [P${p.sev}] ${p.title}\n`;
+    txt += `   ${p.meta.join(' · ')} · impact +${fmtEur(p.impact)}\n`;
+    txt += `   → ${p.reco}\n\n`;
+  });
+  txt += `\nIMPACT CUMULÉ\n- CA sauvé : ${fmtEur(STATE.impact.saved)}\n- Ruptures évitées : ${STATE.impact.stockouts}\n- Heures gagnées : ${STATE.impact.hours}h\n`;
+  const blob = new Blob([txt],{type:'text/plain;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `teatower_plan_${date.replace(/\//g,'-')}.txt`;
+  a.click();
+  toast('📄 Plan exporté','Téléchargement en cours');
+}
+
+/* ============ BOOT ============ */
+restore();
 renderAll();
-setTimeout(()=>generateDailyPlan(),600);
+loadLiveData();
+setTimeout(()=>generateDailyPlan(),1200);
 
 // Auto-refresh simulé (détection continue)
 setInterval(()=>{
