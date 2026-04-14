@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T12:19:33",
+  "updated": "2026-04-14T12:20:36",
   "tasks": [
     {
       "id": "t001",
@@ -89,6 +89,14 @@
       "finished": "2026-04-14T12:19",
       "request": "Nicolas → règle : update only, pas de doublon",
       "result": "LIEGE/INT/00192 annulé (3 moves ré-attachés à LIEGE/INT/00191). NAM/INT/01513 annulé (2 moves mergés dans NAM/INT/01512 : V0734 6→11, V0846 6→11). Règle dure appliquée : update only."
+    },
+    {
+      "id": "t011",
+      "agent": "nira",
+      "task": "Audit CRM — leads 'Nouveaux' avec infos client manquantes",
+      "status": "in_progress",
+      "started": "2026-04-14T12:20",
+      "request": "Nicolas → check cartes colonne Nouveaux leads, infos manquantes"
     }
   ]
 }
