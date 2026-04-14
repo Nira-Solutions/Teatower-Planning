@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:11:35",
+  "updated": "2026-04-14T14:32:04",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2897,6 +2897,14 @@
       "started": "2026-04-14T14:04",
       "request": "Nicolas → fait l'inventaire ciblé",
       "finished": "2026-04-14T14:11"
+    },
+    {
+      "id": "t016",
+      "agent": "product-data",
+      "task": "MAJ photos tous produits Odoo (pack I0/V0, accessoire, échantillon/matière)",
+      "status": "in_progress",
+      "started": "2026-04-14T14:32",
+      "request": "Nicolas → choisir la photo la plus cohérente par ref"
     }
   ]
 }
