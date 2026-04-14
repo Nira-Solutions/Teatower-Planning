@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:13:32",
+  "updated": "2026-04-14T15:18:36",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2966,9 +2966,10 @@
       "id": "t022",
       "agent": "compta",
       "task": "Analyse 165 paiements à rapprocher + proposition lettrage auto",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T15:06",
-      "request": "Nicolas → 165 payments à rapprocher, tu peux les lettrer ?"
+      "request": "Nicolas → 165 payments à rapprocher, tu peux les lettrer ?",
+      "finished": "2026-04-14T15:18"
     },
     {
       "id": "t023",
