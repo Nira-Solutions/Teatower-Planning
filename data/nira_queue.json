@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:04:37",
+  "updated": "2026-04-14T14:11:35",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2892,10 +2892,11 @@
     {
       "id": "t015",
       "agent": "odoo",
-      "task": "Nettoyage 58 produits en déficit agrégé sur TT/Stock",
-      "status": "in_progress",
+      "task": "Inventaire TT/Stock terminé : 0 produit en déficit agrégé (-35K€ → 0€)",
+      "status": "done",
       "started": "2026-04-14T14:04",
-      "request": "Nicolas → fait l'inventaire ciblé"
+      "request": "Nicolas → fait l'inventaire ciblé",
+      "finished": "2026-04-14T14:11"
     }
   ]
 }
