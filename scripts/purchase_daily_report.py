@@ -72,6 +72,14 @@ def fetch_data(call):
                   {"fields": ["id", "partner_id", "product_id", "product_tmpl_id",
                               "price", "delay", "date_end", "min_qty", "sequence"]})
 
+    product_ids = list({l["product_id"][0] for l in lines if l.get("product_id")})
+    product_map = {}
+    if product_ids:
+        prods = call("product.product", "search_read",
+                     [[("id", "in", product_ids)]],
+                     {"fields": ["id", "product_tmpl_id"]})
+        product_map = {p["id"]: p["product_tmpl_id"][0] for p in prods if p.get("product_tmpl_id")}
+
     products_missing = call("product.template", "search_read",
                             [[("purchase_ok", "=", True),
                               ("type", "in", ["consu", "product"]),
@@ -79,10 +87,10 @@ def fetch_data(call):
                               ("active", "=", True)]],
                             {"fields": ["id", "name", "default_code"], "limit": 50})
 
-    return pos, lines, sinfos, products_missing, today
+    return pos, lines, sinfos, products_missing, product_map, today
 
 
-def detect_anomalies(pos, lines, sinfos, products_missing, today):
+def detect_anomalies(pos, lines, sinfos, products_missing, product_map, today):
     by_po = {p["id"]: p for p in pos}
     received_lines = [l for l in lines if l["qty_received"] and l["qty_received"] > 0]
 
@@ -99,11 +107,7 @@ def detect_anomalies(pos, lines, sinfos, products_missing, today):
         if not po or not po.get("partner_id") or not l.get("product_id"):
             continue
         partner_id = po["partner_id"][0]
-        tmpl_id = None
-        for s in sinfos:
-            if s["product_id"] and s["product_id"][0] == l["product_id"][0]:
-                tmpl_id = s["product_tmpl_id"][0] if s["product_tmpl_id"] else None
-                break
+        tmpl_id = product_map.get(l["product_id"][0])
         if tmpl_id is None:
             continue
         key = (partner_id, tmpl_id)
@@ -410,8 +414,8 @@ def main():
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
     call = connect()
-    pos, lines, sinfos, products_missing, today = fetch_data(call)
-    anomalies = detect_anomalies(pos, lines, sinfos, products_missing, today)
+    pos, lines, sinfos, products_missing, product_map, today = fetch_data(call)
+    anomalies = detect_anomalies(pos, lines, sinfos, products_missing, product_map, today)
     apply_updates(call, anomalies, dry_run=args.dry_run)
 
     md = render_report(date, anomalies)
