@@ -254,43 +254,62 @@
     color: #6b7280; font-weight: 600; min-width: 62px; text-align: right;
   }
 
-  /* ELO */
+  /* RL-style rank */
   .elo-row {
-    display: flex; gap: 8px; align-items: center;
+    display: flex; gap: 10px; align-items: center;
     margin-bottom: 12px; font-size: 0.78rem;
+    background: #0f1117; padding: 8px 10px; border-radius: 10px;
+    color: #e5e7eb;
   }
-  .elo-tier {
-    font-weight: 800; padding: 3px 10px; border-radius: 14px;
-    display: inline-flex; gap: 5px; align-items: center;
-    font-family: 'SF Mono', Consolas, monospace;
-    border: 1px solid;
+  .rank-shield {
+    width: 38px; height: 42px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
   }
-  .tier-bronze   { color: #9a3412; background: #fed7aa; border-color: #fb923c; }
-  .tier-silver   { color: #374151; background: #e5e7eb; border-color: #9ca3af; }
-  .tier-gold     { color: #78350f; background: #fde68a; border-color: #d97706; }
-  .tier-platinum { color: #134e4a; background: #ccfbf1; border-color: #14b8a6; }
-  .tier-diamond  { color: #1e3a8a; background: #bfdbfe; border-color: #3b82f6; }
-  .tier-master   { color: #581c87; background: #e9d5ff; border-color: #a855f7; }
-  .tier-grandmaster {
-    color: #fff; background: linear-gradient(135deg, #fbbf24, #dc2626, #7c3aed);
-    border-color: #fff;
-    animation: gmShine 3s linear infinite;
-    background-size: 200% 200%;
+  .rank-shield svg { width: 100%; height: 100%; }
+  .rank-info { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+  .rank-name {
+    font-weight: 800; font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    line-height: 1;
   }
-  @keyframes gmShine {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  .rank-mmr {
+    font-family: 'SF Mono', monospace; font-size: 0.7rem;
+    color: #9ca3af; font-weight: 600;
   }
-  .elo-delta {
-    font-size: 0.72rem; font-family: 'SF Mono', monospace; font-weight: 700;
+  .rank-mmr .delta-up   { color: #4ade80; margin-left: 6px; }
+  .rank-mmr .delta-down { color: #f87171; margin-left: 6px; }
+  .rank-pips {
+    display: flex; gap: 3px; margin-top: 2px;
   }
-  .elo-delta.up   { color: #059669; }
-  .elo-delta.down { color: #dc2626; }
-  .elo-wr {
-    font-size: 0.7rem; color: #9ca3af; font-family: 'SF Mono', monospace;
-    margin-left: auto;
+  .pip {
+    width: 14px; height: 5px; border-radius: 2px;
+    background: rgba(255,255,255,0.12);
+    transition: background 0.4s;
   }
+  .pip.on { background: var(--rank-color, #fff); box-shadow: 0 0 6px var(--rank-color, #fff); }
+  .rank-wr {
+    font-size: 0.68rem; color: #9ca3af;
+    font-family: 'SF Mono', monospace;
+    text-align: right; line-height: 1.2;
+  }
+  .rank-wr .w { color: #4ade80; }
+  .rank-wr .l { color: #f87171; }
+
+  /* SSL animated */
+  .rank-shield.ssl svg { animation: sslSpin 4s linear infinite; }
+  @keyframes sslSpin {
+    0%, 100% { filter: drop-shadow(0 0 6px #fff) hue-rotate(0deg); }
+    50%      { filter: drop-shadow(0 0 12px #c084fc) hue-rotate(180deg); }
+  }
+  .rank-name.ssl {
+    background: linear-gradient(90deg, #fbbf24, #f87171, #c084fc, #60a5fa, #fbbf24);
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sslText 3s linear infinite;
+  }
+  @keyframes sslText { to { background-position: -300% 0; } }
 
   .stats-row {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
@@ -471,7 +490,7 @@
     <div class="lb-slot" id="lb-1"><span class="lb-rank r1">🥇</span><div><div class="lb-agent-name">—</div><div class="lb-xp">0 XP</div></div></div>
     <div class="lb-slot" id="lb-2"><span class="lb-rank r2">🥈</span><div><div class="lb-agent-name">—</div><div class="lb-xp">0 XP</div></div></div>
     <div class="lb-slot" id="lb-3"><span class="lb-rank r3">🥉</span><div><div class="lb-agent-name">—</div><div class="lb-xp">0 XP</div></div></div>
-    <div class="lb-period">ELO<br>ranking</div>
+    <div class="lb-period">RL<br>ranking</div>
   </div>
 </div>
 
@@ -932,14 +951,82 @@
       last10,
     };
   }
+  // Rocket-League style tiers : 8 tiers x 3 divisions, each div = 4 pips
+  // Range : 800 -> 2400+, 22 ranks of ~70 ELO + SSL above
+  const RL_TIERS = [
+    { name: 'BRONZE',         color: '#c08552', stroke: '#8b5a2b' },
+    { name: 'SILVER',         color: '#d1d5db', stroke: '#6b7280' },
+    { name: 'GOLD',           color: '#fbbf24', stroke: '#b45309' },
+    { name: 'PLATINUM',       color: '#67e8f9', stroke: '#0e7490' },
+    { name: 'DIAMOND',        color: '#60a5fa', stroke: '#1d4ed8' },
+    { name: 'CHAMPION',       color: '#c084fc', stroke: '#7e22ce' },
+    { name: 'GRAND CHAMPION', color: '#f87171', stroke: '#991b1b' },
+  ];
+  const ROMAN = ['I', 'II', 'III'];
+  const RL_BASE = 800;
+  const DIV_SIZE = 70;          // 70 ELO par division
+  const SSL_THRESHOLD = RL_BASE + 7 * 3 * DIV_SIZE; // 800 + 1470 = 2270
+
+  function rlRank(rating) {
+    if (rating >= SSL_THRESHOLD) {
+      return {
+        ssl: true,
+        name: 'SUPERSONIC LEGEND',
+        division: '',
+        tierIdx: 7,
+        color: '#ffffff',
+        stroke: '#c084fc',
+        pipFill: 4,
+      };
+    }
+    const above = Math.max(0, rating - RL_BASE);
+    const totalDiv = Math.min(20, Math.floor(above / DIV_SIZE)); // 0..20 (7 tiers x 3 = 21)
+    const tierIdx = Math.min(6, Math.floor(totalDiv / 3));
+    const divIdx = totalDiv - tierIdx * 3; // 0,1,2
+    const tier = RL_TIERS[tierIdx];
+    // pips = progress within current division (4 pips)
+    const inDiv = above - totalDiv * DIV_SIZE;
+    const pipFill = Math.max(0, Math.min(4, Math.floor(inDiv / (DIV_SIZE / 4)) + 1));
+    return {
+      ssl: false,
+      name: tier.name,
+      division: ROMAN[divIdx],
+      tierIdx,
+      color: tier.color,
+      stroke: tier.stroke,
+      pipFill,
+    };
+  }
+
+  function shieldSvg(rank) {
+    const c = rank.color, s = rank.stroke;
+    return `
+      <svg viewBox="0 0 40 44" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g${rank.tierIdx}" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="${c}"/>
+            <stop offset="100%" stop-color="${s}"/>
+          </linearGradient>
+        </defs>
+        <path d="M20 2 L36 7 L36 22 Q36 36 20 42 Q4 36 4 22 L4 7 Z"
+              fill="url(#g${rank.tierIdx})" stroke="${s}" stroke-width="1.5"/>
+        <path d="M20 2 L36 7 L36 22 Q36 36 20 42 Q4 36 4 22 L4 7 Z"
+              fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"
+              transform="scale(0.85) translate(3.5, 3.5)"/>
+        <text x="20" y="26" font-family="Inter, sans-serif" font-size="13"
+              font-weight="900" fill="#fff" text-anchor="middle"
+              stroke="${s}" stroke-width="0.5">${rank.division || '★'}</text>
+      </svg>`;
+  }
+
+  // Backwards compat for leaderboard
   function tierOf(rating) {
-    if (rating >= 2200) return { key: 'grandmaster', label: 'GRANDMASTER', icon: '⭐' };
-    if (rating >= 2000) return { key: 'master',      label: 'MASTER',      icon: '👑' };
-    if (rating >= 1800) return { key: 'diamond',     label: 'DIAMOND',     icon: '💠' };
-    if (rating >= 1600) return { key: 'platinum',    label: 'PLATINUM',    icon: '💎' };
-    if (rating >= 1400) return { key: 'gold',        label: 'GOLD',        icon: '🥇' };
-    if (rating >= 1200) return { key: 'silver',      label: 'SILVER',      icon: '🥈' };
-    return                     { key: 'bronze',      label: 'BRONZE',      icon: '🥉' };
+    const r = rlRank(rating);
+    return {
+      key: r.ssl ? 'ssl' : r.name.toLowerCase().replace(/ /g, '-'),
+      label: r.ssl ? r.name : `${r.name} ${r.division}`,
+      icon: r.ssl ? '⭐' : ['🟫','⬜','🟨','🟦','🟪','🟪','🟥'][r.tierIdx] || '⭐',
+    };
   }
 
   // Persistent tracking of seen tasks (to detect new completions / level-ups)
@@ -1005,9 +1092,13 @@
           <span class="xp-text"></span>
         </div>
         <div class="elo-row">
-          <span class="elo-tier"></span>
-          <span class="elo-delta"></span>
-          <span class="elo-wr"></span>
+          <div class="rank-shield"></div>
+          <div class="rank-info">
+            <div class="rank-name"></div>
+            <div class="rank-mmr"></div>
+            <div class="rank-pips"></div>
+          </div>
+          <div class="rank-wr"></div>
         </div>
         <div class="stats-row">
           ${meta.stats.map(s => `
@@ -1024,18 +1115,32 @@
     card.querySelector('.xp-fill').style.width = pct + '%';
     card.querySelector('.xp-text').textContent = `${xpInLvl}/${xpNext} XP`;
 
-    // ELO
+    // RL Rank
     const elo = computeElo(tasks);
-    const tier = tierOf(elo.rating);
-    const tierEl = card.querySelector('.elo-tier');
-    tierEl.className = 'elo-tier tier-' + tier.key;
-    tierEl.innerHTML = `${tier.icon} ${tier.label} · ${elo.rating}`;
-    const deltaEl = card.querySelector('.elo-delta');
+    const rank = rlRank(elo.rating);
+    const shieldEl = card.querySelector('.rank-shield');
+    shieldEl.classList.toggle('ssl', rank.ssl);
+    shieldEl.innerHTML = shieldSvg(rank);
+    shieldEl.style.setProperty('--rank-color', rank.color);
+
+    const nameEl = card.querySelector('.rank-name');
+    nameEl.classList.toggle('ssl', rank.ssl);
+    nameEl.style.color = rank.color;
+    nameEl.textContent = rank.ssl ? rank.name : `${rank.name} ${rank.division}`;
+
     const delta = elo.rating - ELO_START;
-    deltaEl.className = 'elo-delta ' + (delta >= 0 ? 'up' : 'down');
-    deltaEl.textContent = (delta >= 0 ? '+' : '') + delta;
-    card.querySelector('.elo-wr').textContent =
-      elo.matches ? `${elo.wins}W-${elo.losses}L · ${elo.wr}%` : 'no match';
+    card.querySelector('.rank-mmr').innerHTML =
+      `${elo.rating} MMR <span class="${delta >= 0 ? 'delta-up' : 'delta-down'}">${delta >= 0 ? '+' : ''}${delta}</span>`;
+
+    const pipsEl = card.querySelector('.rank-pips');
+    pipsEl.style.setProperty('--rank-color', rank.color);
+    pipsEl.innerHTML = [0,1,2,3].map(i =>
+      `<span class="pip ${i < rank.pipFill ? 'on' : ''}"></span>`
+    ).join('');
+
+    card.querySelector('.rank-wr').innerHTML = elo.matches
+      ? `<span class="w">${elo.wins}W</span> <span class="l">${elo.losses}L</span><br>${elo.wr}%`
+      : 'no match';
 
     // active glow
     const active = tasks.some(t => t.status === 'in_progress');
@@ -1067,7 +1172,7 @@
   function renderLeaderboard(byAgent) {
     const scores = Object.keys(AGENT_META).map(agent => {
       const elo = computeElo(byAgent[agent] || []);
-      return { agent, elo: elo.rating, tier: tierOf(elo.rating) };
+      return { agent, elo: elo.rating, rank: rlRank(elo.rating) };
     }).sort((a, b) => b.elo - a.elo);
 
     for (let i = 0; i < 3; i++) {
@@ -1077,8 +1182,9 @@
       if (!s) continue;
       slot.querySelector('.lb-agent-name').textContent =
         AGENT_LABEL[s.agent] || s.agent;
-      slot.querySelector('.lb-xp').textContent =
-        `${s.tier.icon} ${s.elo} ELO`;
+      const label = s.rank.ssl ? s.rank.name : `${s.rank.name} ${s.rank.division}`;
+      slot.querySelector('.lb-xp').innerHTML =
+        `<span style="color:${s.rank.color}">${label}</span> · ${s.elo} MMR`;
     }
   }
 
