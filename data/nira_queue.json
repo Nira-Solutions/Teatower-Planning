@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:32:04",
+  "updated": "2026-04-14T14:33:36",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2905,6 +2905,14 @@
       "status": "in_progress",
       "started": "2026-04-14T14:32",
       "request": "Nicolas → choisir la photo la plus cohérente par ref"
+    },
+    {
+      "id": "t017",
+      "agent": "product-data",
+      "task": "Refresh photos product.template (I0/V0/C0/P0/D0/E0)",
+      "status": "in_progress",
+      "started": "2026-04-14T14:33",
+      "request": "Nira -> mettre à jour image_1920 de tous les produits actifs selon règles pack/coffret/accessoire/display/matière"
     }
   ]
 }
