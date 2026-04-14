@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:33:36",
+  "updated": "2026-04-14T14:38:13",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2909,10 +2909,11 @@
     {
       "id": "t017",
       "agent": "product-data",
-      "task": "Refresh photos product.template (I0/V0/C0/P0/D0/E0)",
-      "status": "in_progress",
+      "task": "Photos refresh: 160 MAJ (V0=54, I0=51, E0=54, D0=1), 1226 à faire manuellement faute de sources",
+      "status": "done",
       "started": "2026-04-14T14:33",
-      "request": "Nira -> mettre à jour image_1920 de tous les produits actifs selon règles pack/coffret/accessoire/display/matière"
+      "request": "Nira -> mettre à jour image_1920 de tous les produits actifs selon règles pack/coffret/accessoire/display/matière",
+      "finished": "2026-04-14T14:38"
     }
   ]
 }
