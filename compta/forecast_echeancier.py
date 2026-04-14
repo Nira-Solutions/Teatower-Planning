@@ -14,18 +14,29 @@ Sortie :
 
 import argparse
 import sys
+import urllib.request
 import xmlrpc.client
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 
-import gspread
-from google.oauth2.service_account import Credentials
+try:
+    import gspread
+    from google.oauth2.service_account import Credentials
+    _HAS_GSPREAD = True
+except ImportError:
+    _HAS_GSPREAD = False
+
+import openpyxl
+from openpyxl.styles import Font, PatternFill, Alignment
 
 # ─── Config ───────────────────────────────────────────────────────────────
 
 SA_KEY = Path(__file__).parent / "google_service_account.json"
 SHEET_ID = "1tpQQ5vTr5ekQesJKmkJi86cq9dG7sIFZ"
+SHEET_XLSX_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=xlsx"
+LOCAL_SNAPSHOT = Path(__file__).parent / "paiements_nicolas.xlsx"
+LOCAL_FORECAST = Path(__file__).parent / "forecast_odoo.xlsx"
 FORECAST_TAB = "Forecast Odoo"
 ECHEANCIER_TAB = "Échéancier"
 BUDGET_TABS = ["Budget Q1 2026", "Budget Q2 2026", "Budget Q3 2026", "Budget Q4 2026"]
@@ -325,15 +336,19 @@ def write_forecast(gc, rows, echeancier_weeks):
 
 def print_dry_run(rows, weeks):
     now = datetime.today()
-    j7 = sum(r["montant"] for r in rows if r["date"] <= now + timedelta(days=7))
-    j30 = sum(r["montant"] for r in rows if r["date"] <= now + timedelta(days=30))
+    overdue = sum(r["montant"] for r in rows if r["date"] < now)
+    n_overdue = sum(1 for r in rows if r["date"] < now)
+    j7 = sum(r["montant"] for r in rows if now <= r["date"] <= now + timedelta(days=7))
+    j30 = sum(r["montant"] for r in rows if now <= r["date"] <= now + timedelta(days=30))
     total = sum(r["montant"] for r in rows)
 
     print()
     print("=" * 80)
-    print(f"DRY-RUN — aucune écriture dans Google Sheet")
+    print(f"DRY-RUN — aucune écriture")
     print("=" * 80)
-    print(f"Totaux : J+7 {j7:,.2f} EUR · J+30 {j30:,.2f} EUR · Total {total:,.2f} EUR ({len(rows)} lignes)")
+    print(f"⚠ En retard (date échéance passée) : {overdue:,.2f} EUR sur {n_overdue} factures")
+    print(f"À payer — J+7 : {j7:,.2f} EUR  |  J+30 : {j30:,.2f} EUR")
+    print(f"Total forecast : {total:,.2f} EUR ({len(rows)} lignes)")
     print()
 
     # Vue hebdo
@@ -364,11 +379,189 @@ def print_dry_run(rows, weeks):
     print()
 
 
+# ─── Mode local (sans Google Cloud) ──────────────────────────────────────
+
+def download_snapshot():
+    print(f"→ Téléchargement du Sheet via URL publique…")
+    urllib.request.urlretrieve(SHEET_XLSX_URL, LOCAL_SNAPSHOT)
+    print(f"  Sauvegardé : {LOCAL_SNAPSHOT}")
+
+
+def read_echeancier_weeks_local(wb):
+    # Fuzzy match sur le nom (accents peuvent différer selon l'encodage)
+    tab = None
+    for name in wb.sheetnames:
+        if "ch" in name.lower() and "ancier" in name.lower():
+            tab = name
+            break
+    if not tab:
+        return {}
+    ws = wb[tab]
+    weeks = defaultdict(lambda: {"out": 0.0, "in": 0.0, "items": []})
+    for row in ws.iter_rows(values_only=True):
+        if not row or len(row) < 12:
+            continue
+        week_label = str(row[0] or "").strip()
+        if not week_label.upper().startswith("WEEK"):
+            continue
+        try:
+            out = float(str(row[6] or 0).replace(",", ".").replace(" ", ""))
+        except (ValueError, TypeError):
+            out = 0.0
+        try:
+            inv = float(str(row[11] or 0).replace(",", ".").replace(" ", ""))
+        except (ValueError, TypeError):
+            inv = 0.0
+        weeks[week_label]["out"] += out
+        weeks[week_label]["in"] += inv
+    return dict(weeks)
+
+
+def read_budget_prepaid_local(wb):
+    prepaid = []
+    for tab in BUDGET_TABS:
+        if tab not in wb.sheetnames:
+            continue
+        ws = wb[tab]
+        rows = list(ws.iter_rows(values_only=True))
+        if not rows:
+            continue
+        headers = [str(h or "").strip() for h in rows[0]]
+        idx = {h.lower(): i for i, h in enumerate(headers)}
+        for row in rows[1:]:
+            if not row or not any(row):
+                continue
+            def g(key):
+                for k in idx:
+                    if key in k:
+                        return row[idx[k]]
+                return None
+            terms = str(g("payement") or g("payment") or "").lower()
+            cost = g("coût") or g("cout") or g("cost") or 0
+            try:
+                cost = float(str(cost).replace(",", ".").replace(" ", ""))
+            except (ValueError, TypeError):
+                cost = 0.0
+            if cost and "prepaid" in terms:
+                prepaid.append({
+                    "quarter": tab,
+                    "type": g("type") or "",
+                    "fournisseur": g("fournisseur") or g("détail") or g("detail") or "",
+                    "montant": cost,
+                    "detail": g("détail") or g("detail") or "",
+                })
+    return prepaid
+
+
+def write_local_xlsx(rows, weeks):
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = FORECAST_TAB
+
+    now = datetime.today()
+    j7 = sum(r["montant"] for r in rows if r["date"] <= now + timedelta(days=7))
+    j30 = sum(r["montant"] for r in rows if r["date"] <= now + timedelta(days=30))
+    total = sum(r["montant"] for r in rows)
+
+    bold = Font(bold=True)
+    blue = PatternFill("solid", fgColor="D9E7F5")
+    title = Font(bold=True, size=13)
+
+    ws["A1"] = f"Forecast Odoo — généré {now.strftime('%Y-%m-%d %H:%M')} ({len(rows)} lignes)"
+    ws["A1"].font = title
+    ws["A2"] = f"À payer J+7 : {j7:,.2f} EUR   |   J+30 : {j30:,.2f} EUR   |   Total : {total:,.2f} EUR"
+    ws["A2"].font = bold
+
+    # Vue hebdo
+    r = 4
+    ws.cell(r, 1, "VUE HEBDOMADAIRE (comparaison avec Échéancier manuel)").font = bold
+    ws.cell(r, 1).fill = blue
+    r += 1
+    headers = ["Semaine", "OUT Odoo prévu", "OUT Échéancier manuel", "Écart", "Nb lignes Odoo"]
+    for i, h in enumerate(headers):
+        c = ws.cell(r, i+1, h); c.font = bold; c.fill = blue
+    r += 1
+
+    by_week = defaultdict(lambda: {"total": 0.0, "items": []})
+    for row in rows:
+        by_week[row["week"]]["total"] += row["montant"]
+        by_week[row["week"]]["items"].append(row)
+    week_order = sorted(by_week.keys(),
+                        key=lambda w: min(row["date"] for row in by_week[w]["items"]))
+
+    for w in week_order:
+        out_odoo = by_week[w]["total"]
+        manual = abs(weeks.get(w, {}).get("out", 0.0))
+        ecart = out_odoo - manual if manual else None
+        ws.cell(r, 1, w)
+        ws.cell(r, 2, round(out_odoo, 2))
+        ws.cell(r, 3, round(manual, 2) if manual else "—")
+        ws.cell(r, 4, round(ecart, 2) if ecart is not None else "n/a")
+        ws.cell(r, 5, len(by_week[w]["items"]))
+        r += 1
+
+    r += 2
+    ws.cell(r, 1, "DÉTAIL LIGNE À LIGNE").font = bold
+    ws.cell(r, 1).fill = blue
+    r += 1
+    detail_headers = ["Date échéance", "Semaine", "Bénéficiaire", "Montant", "Source", "Référence", "Statut"]
+    for i, h in enumerate(detail_headers):
+        c = ws.cell(r, i+1, h); c.font = bold; c.fill = blue
+    r += 1
+    for row in rows:
+        ws.cell(r, 1, row["date"].strftime("%Y-%m-%d"))
+        ws.cell(r, 2, row["week"])
+        ws.cell(r, 3, row["beneficiaire"])
+        ws.cell(r, 4, round(row["montant"], 2))
+        ws.cell(r, 5, row["source"])
+        ws.cell(r, 6, row["reference"])
+        ws.cell(r, 7, row["statut"])
+        r += 1
+
+    # Auto-size cols
+    for col in ws.columns:
+        length = max((len(str(c.value)) for c in col if c.value), default=12)
+        ws.column_dimensions[col[0].column_letter].width = min(length + 2, 45)
+
+    wb.save(LOCAL_FORECAST)
+    print(f"✓ Fichier généré : {LOCAL_FORECAST}")
+    print(f"  → Ouvre-le, copie le contenu, colle dans un nouvel onglet 'Forecast Odoo' de ton Google Sheet")
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--test", action="store_true", help="Teste l'accès Google Sheets uniquement")
-    p.add_argument("--dry-run", action="store_true", help="Affiche le résultat sans écrire dans le Sheet")
+    p.add_argument("--dry-run", action="store_true", help="Affiche le résultat sans écrire")
+    p.add_argument("--local", action="store_true",
+                   help="Pas besoin de service account. Télécharge le Sheet public, écrit un .xlsx local à coller à la main.")
     args = p.parse_args()
+
+    if args.local:
+        download_snapshot()
+        wb = openpyxl.load_workbook(LOCAL_SNAPSHOT, data_only=True)
+        weeks = read_echeancier_weeks_local(wb)
+        budget = read_budget_prepaid_local(wb)
+        print(f"  Échéancier : {len(weeks)} semaines, Budget prepaid : {len(budget)} lignes")
+
+        print("→ Lecture Odoo…")
+        call = odoo_call()
+        dues = read_odoo_dues(call)
+        recs = detect_recurrents_odoo(call)
+        print(f"  {len(dues)} factures ouvertes, {len(recs)} récurrents projetés")
+
+        rows = build_rows(dues, recs, budget)
+
+        if args.dry_run:
+            print_dry_run(rows, weeks)
+            return
+
+        write_local_xlsx(rows, weeks)
+        return
+
+    if not _HAS_GSPREAD:
+        sys.exit("❌ gspread non installé et pas de mode --local demandé.\n"
+                 "   Soit : pip install gspread google-auth\n"
+                 "   Soit : relance avec --local (sans Google Cloud)")
 
     if args.test:
         test_access()
