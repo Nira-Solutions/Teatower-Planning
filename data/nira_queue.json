@@ -1,0 +1,10 @@
+{
+  "updated": "2026-04-14T11:00:00",
+  "tasks": [
+    {"id": "t001", "agent": "stock-manager", "task": "Analyse réappro WAT semaine 16", "status": "in_progress", "started": "2026-04-14T10:42", "request": "Nira → check orderpoints WAT, lister besoins urgents"},
+    {"id": "t002", "agent": "purchase", "task": "Import PO Kirchner 24610873", "status": "done", "started": "2026-04-14T09:15", "finished": "2026-04-14T09:28", "request": "Nicolas → traiter le PDF Kirchner du matin"},
+    {"id": "t003", "agent": "planning", "task": "Planning semaine 17 (20–24 avril)", "status": "pending", "started": null, "request": "Nira → préparer planning merchandiser"},
+    {"id": "t004", "agent": "merchandiser", "task": "Upload visite Carrefour Ciney 13/04", "status": "done", "started": "2026-04-13T16:20", "finished": "2026-04-13T17:05", "request": "Nicolas → upload dossier Merchandiser 130426"},
+    {"id": "t005", "agent": "support-order", "task": "Devis Intermarché Jambes S05381", "status": "in_progress", "started": "2026-04-14T10:55", "request": "orders/ → PDF reçu client"}
+  ]
+}
