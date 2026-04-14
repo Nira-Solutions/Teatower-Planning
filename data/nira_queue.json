@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:05:33",
+  "updated": "2026-04-14T15:06:06",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2960,6 +2960,14 @@
       "status": "in_progress",
       "started": "2026-04-14T15:05",
       "request": "Nicolas → documente-toi sur https://www.odoo.com/documentation/18.0/fr/"
+    },
+    {
+      "id": "t022",
+      "agent": "compta",
+      "task": "Analyse 165 paiements à rapprocher + proposition lettrage auto",
+      "status": "in_progress",
+      "started": "2026-04-14T15:06",
+      "request": "Nicolas → 165 payments à rapprocher, tu peux les lettrer ?"
     }
   ]
 }
