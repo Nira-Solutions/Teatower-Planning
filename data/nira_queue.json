@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:00:17",
+  "updated": "2026-04-14T15:00:30",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2948,9 +2948,10 @@
       "id": "t020",
       "agent": "compta",
       "task": "Rapport lignes non lettrées (bank + factures ouvertes)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T14:56",
-      "request": "Nicolas → rapport lettrages manquants"
+      "request": "Nicolas → rapport lettrages manquants",
+      "finished": "2026-04-14T15:00"
     }
   ]
 }
