@@ -404,14 +404,14 @@
       </div>
       <div>
         <h3>Purchase</h3>
-        <span class="cmd">/po-kirchner</span>
+        <span class="cmd">/po-kirchner · rapport 7h</span>
       </div>
     </div>
-    <p class="desc">PDF confirmation Kirchner Fischer → fichier Excel d'import Odoo pour le bon de commande d'achat.</p>
+    <p class="desc">Rapport quotidien d'anomalies achats (7h00 → mail) : retards PO, écarts prix fournisseur, délais réels, RFQ dormantes, factures manquantes. Met à jour auto <code>product.supplierinfo</code> prix & délais. Traite aussi PO Kirchner.</p>
     <div class="queue" data-queue="purchase"></div>
     <div class="triggers">
       <strong>Déclencheurs</strong>
-      <code>PO Kirchner</code><code>prix fournisseur</code>
+      <code>achats</code><code>PO Kirchner</code><code>prix fournisseur</code><code>délai réception</code><code>anomalie achat</code>
     </div>
   </div>
 
