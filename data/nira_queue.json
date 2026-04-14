@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:43:31",
+  "updated": "2026-04-14T14:48:44",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2923,6 +2923,16 @@
       "status": "in_progress",
       "started": "2026-04-14T14:43",
       "request": "Nicolas → compléter photos via Shopify"
+    },
+    {
+      "id": "c2d3cbf6-d25e-40f0-8a2f-4cb5ac935086",
+      "agent": "product-data",
+      "task": "Scrape Shopify teatower.com pour completer photos Odoo (1226 produits sans photo)",
+      "status": "done",
+      "started": "2026-04-14T14:44:15",
+      "request": "Matching SKU->default_code + fallback fuzzy, upload image_1920 batch 50, log output/product_photos_shopify_log.json",
+      "finished": "2026-04-14T14:48:44",
+      "result": "271 photos Shopify uploadees sur Odoo (248 SKU exact + 23 fuzzy), 955 refs sans match (dont 161 sans default_code, 125 E0, 100 A1)"
     }
   ]
 }
