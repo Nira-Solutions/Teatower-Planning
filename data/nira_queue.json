@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T13:30:17",
+  "updated": "2026-04-14T13:32:04",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2879,6 +2879,14 @@
       "started": "2026-04-14T13:27",
       "request": "Nicolas → pourquoi certains stocks sont négatifs ?",
       "finished": "2026-04-14T13:30"
+    },
+    {
+      "id": "t014",
+      "agent": "odoo",
+      "task": "Focus TT/Stock : pourquoi cette location est en négatif",
+      "status": "in_progress",
+      "started": "2026-04-14T13:32",
+      "request": "Nicolas → pourquoi les TT/Stock sont négatifs ?"
     }
   ]
 }
