@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T13:32:04",
+  "updated": "2026-04-14T13:35:11",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2883,10 +2883,11 @@
     {
       "id": "t014",
       "agent": "odoo",
-      "task": "Focus TT/Stock : pourquoi cette location est en négatif",
-      "status": "in_progress",
+      "task": "TT/Stock négatif diagnostiqué : désynchro parent↔cellules + 1-step picking",
+      "status": "done",
       "started": "2026-04-14T13:32",
-      "request": "Nicolas → pourquoi les TT/Stock sont négatifs ?"
+      "request": "Nicolas → pourquoi les TT/Stock sont négatifs ?",
+      "finished": "2026-04-14T13:35"
     }
   ]
 }
