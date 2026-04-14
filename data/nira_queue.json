@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:25:54",
+  "updated": "2026-04-14T15:39:23",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2983,10 +2983,11 @@
     {
       "id": "t024",
       "agent": "sales-crm",
-      "task": "Tag Horeca/Shopify/Amazon/B2B Direct sur partenaires (plan analytique)",
-      "status": "in_progress",
+      "task": "Tagging canaux Odoo : 3501 clients tagués (GMS 110, Horeca 80, B2B 336, Shopify 2975)",
+      "status": "done",
       "started": "2026-04-14T15:25",
-      "request": "Nicolas → lance le tagging des canaux restants"
+      "request": "Nicolas → lance le tagging des canaux restants",
+      "finished": "2026-04-14T15:39"
     }
   ]
 }
