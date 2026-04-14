@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:38:13",
+  "updated": "2026-04-14T14:38:36",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2902,9 +2902,10 @@
       "id": "t016",
       "agent": "product-data",
       "task": "MAJ photos tous produits Odoo (pack I0/V0, accessoire, échantillon/matière)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T14:32",
-      "request": "Nicolas → choisir la photo la plus cohérente par ref"
+      "request": "Nicolas → choisir la photo la plus cohérente par ref",
+      "finished": "2026-04-14T14:38"
     },
     {
       "id": "t017",
