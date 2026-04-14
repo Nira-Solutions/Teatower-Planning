@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T12:22:03",
+  "updated": "2026-04-14T12:24:51",
   "tasks": [
     {
       "id": "t001",
@@ -98,6 +98,14 @@
       "started": "2026-04-14T12:20",
       "request": "Nicolas → check cartes colonne Nouveaux leads, infos manquantes",
       "finished": "2026-04-14T12:22"
+    },
+    {
+      "id": "t012",
+      "agent": "nira",
+      "task": "Enrichissement TVA + emails 109 leads CRM (KBO/BCE + scraping)",
+      "status": "in_progress",
+      "started": "2026-04-14T12:24",
+      "request": "Nicolas → trouver TVA et emails manquants"
     }
   ]
 }
