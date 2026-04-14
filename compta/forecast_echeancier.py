@@ -323,9 +323,51 @@ def write_forecast(gc, rows, echeancier_weeks):
 
 # ─── Main ─────────────────────────────────────────────────────────────────
 
+def print_dry_run(rows, weeks):
+    now = datetime.today()
+    j7 = sum(r["montant"] for r in rows if r["date"] <= now + timedelta(days=7))
+    j30 = sum(r["montant"] for r in rows if r["date"] <= now + timedelta(days=30))
+    total = sum(r["montant"] for r in rows)
+
+    print()
+    print("=" * 80)
+    print(f"DRY-RUN — aucune écriture dans Google Sheet")
+    print("=" * 80)
+    print(f"Totaux : J+7 {j7:,.2f} EUR · J+30 {j30:,.2f} EUR · Total {total:,.2f} EUR ({len(rows)} lignes)")
+    print()
+
+    # Vue hebdo
+    by_week = defaultdict(lambda: {"total": 0.0, "n": 0})
+    for r in rows:
+        by_week[r["week"]]["total"] += r["montant"]
+        by_week[r["week"]]["n"] += 1
+    week_order = sorted(by_week.keys(),
+                        key=lambda w: min(r["date"] for r in rows if r["week"] == w))
+
+    print(f"{'Semaine':<10} {'Odoo prévu':>14} {'Manuel':>14} {'Écart':>14} {'Lignes':>8}")
+    print("-" * 64)
+    for w in week_order[:20]:
+        out_odoo = by_week[w]["total"]
+        manual = abs(weeks.get(w, {}).get("out", 0.0))
+        ecart = out_odoo - manual
+        manual_str = f"{manual:,.2f}" if manual else "—"
+        ecart_str = f"{ecart:+,.2f}" if manual else "n/a"
+        print(f"{w:<10} {out_odoo:>14,.2f} {manual_str:>14} {ecart_str:>14} {by_week[w]['n']:>8}")
+
+    print()
+    print(f"Détail — 15 premières échéances :")
+    print("-" * 80)
+    for r in rows[:15]:
+        print(f"  {r['date'].strftime('%Y-%m-%d')} | {r['beneficiaire'][:30]:<30} | {r['montant']:>10,.2f} | {r['source']}")
+    if len(rows) > 15:
+        print(f"  … +{len(rows)-15} autres lignes")
+    print()
+
+
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--test", action="store_true")
+    p.add_argument("--test", action="store_true", help="Teste l'accès Google Sheets uniquement")
+    p.add_argument("--dry-run", action="store_true", help="Affiche le résultat sans écrire dans le Sheet")
     args = p.parse_args()
 
     if args.test:
@@ -348,6 +390,10 @@ def main():
 
     print("→ Génération…")
     rows = build_rows(dues, recs, budget)
+
+    if args.dry_run:
+        print_dry_run(rows, weeks)
+        return
 
     print("→ Écriture…")
     write_forecast(gc, rows, weeks)
