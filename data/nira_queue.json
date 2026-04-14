@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T12:30:43",
+  "updated": "2026-04-14T12:32:20",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2866,9 +2866,10 @@
       "id": "t012",
       "agent": "nira",
       "task": "Enrichissement TVA + emails 109 leads CRM (KBO/BCE + scraping)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T12:24",
-      "request": "Nicolas → trouver TVA et emails manquants"
+      "request": "Nicolas → trouver TVA et emails manquants",
+      "finished": "2026-04-14T12:32"
     }
   ]
 }
