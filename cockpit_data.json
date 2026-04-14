@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-04-14T20:21:34.309832",
+  "source": "odoo-live",
+  "orders": [
+    {
+      "id": "S05210",
+      "client": "Mix F&B SRL",
+      "amount": 1238,
+      "dueH": 48,
+      "status": "pending"
+    },
+    {
+      "id": "S05157",
+      "client": "Nouvel Air Coiffure",
+      "amount": 72,
+      "dueH": 0,
+      "status": "pending"
+    }
+  ],
+  "stores": [
+    {
+      "id": "P2912",
+      "name": "Delhaize Le Lion S.A",
+      "ca30": 7753,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P6596",
+      "name": "Carrefour Belgium - Corporate Village",
+      "ca30": 5618,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P3286",
+      "name": "Vilna Gaon S.R.L",
+      "ca30": 4072,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P7027",
+      "name": "Va.S.Co, Invoice Address",
+      "ca30": 4000,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P5509",
+      "name": "Cafes Delahaut, Facturation",
+      "ca30": 3202,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P121875",
+      "name": "INTERMADIS SA - Intermarché Hannut, Invo",
+      "ca30": 2080,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P5725",
+      "name": "Carrefour Market Remouchamps, Invoice Ad",
+      "ca30": 1934,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P5626",
+      "name": "Vanderlinden SA - Maud VANDERLINDEN, Inv",
+      "ca30": 1856,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P5620",
+      "name": "Café Ventuno, Ventuno SA",
+      "ca30": 1688,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    },
+    {
+      "id": "P5634",
+      "name": "Sorescol S.A., Di Michele Sabrina",
+      "ca30": 1665,
+      "delta": 0.0,
+      "stockout": 0.0,
+      "score": 70,
+      "risk": "green",
+      "visits": 0
+    }
+  ],
+  "products_top": [
+    {
+      "sku": "P4609",
+      "name": "[HC250628] Oasis du désert_ BE-BIO-01 25",
+      "units": 665,
+      "ca": 5073,
+      "delta": 0.0
+    },
+    {
+      "sku": "P7060",
+      "name": "[Service] Service",
+      "units": 1,
+      "ca": 4072,
+      "delta": 0.0
+    },
+    {
+      "sku": "P4381",
+      "name": "[E0628] Oasis du désert - BIO (Echantill",
+      "units": 20000,
+      "ca": 4000,
+      "delta": 0.0
+    },
+    {
+      "sku": "P4601",
+      "name": "[HC250279] Le panier de grand maman 25 e",
+      "units": 449,
+      "ca": 3576,
+      "delta": 0.0
+    },
+    {
+      "sku": "P4613",
+      "name": "[HC250669] Vert Jasmin 25 enveloppes",
+      "units": 432,
+      "ca": 3402,
+      "delta": 0.0
+    }
+  ],
+  "products_flop": [
+    {
+      "sku": "P7670",
+      "name": "10% sur votre commande",
+      "rot": 0.1,
+      "stock": 0,
+      "act": "à analyser"
+    },
+    {
+      "sku": "P7361",
+      "name": "5% sur produits spécifiques",
+      "rot": 0.07,
+      "stock": 0,
+      "act": "à analyser"
+    },
+    {
+      "sku": "P7691",
+      "name": "20% sur votre commande",
+      "rot": 0.2,
+      "stock": 0,
+      "act": "à analyser"
+    },
+    {
+      "sku": "P7402",
+      "name": "[DISC] Discount",
+      "rot": 0.5,
+      "stock": 0,
+      "act": "à analyser"
+    },
+    {
+      "sku": "P7418",
+      "name": "[shopifydiscountproduct] Shopify Discoun",
+      "rot": 25.7,
+      "stock": 0,
+      "act": "à analyser"
+    }
+  ]
+}
