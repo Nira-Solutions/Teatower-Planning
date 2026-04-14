@@ -1,0 +1,2807 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forecast Odoo — Teatower Compta</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; background: #f5f3ee; color: #1f2937; padding: 40px 24px; }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+  h1 { color: #1a4d3a; font-size: 1.9rem; margin-bottom: 6px; }
+  .sub { color: #6b7280; font-size: 0.92rem; margin-bottom: 28px; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .kpi { background: #fff; border: 1px solid #e5e0d5; border-radius: 12px; padding: 18px 22px; }
+  .kpi-label { font-size: 0.72rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .kpi-value { font-size: 1.6rem; font-weight: 700; color: #1a4d3a; }
+  .kpi.warn { border-left: 4px solid #dc2626; }
+  .kpi.warn .kpi-value { color: #dc2626; }
+  .section { background: #fff; border: 1px solid #e5e0d5; border-radius: 12px; padding: 20px 24px; margin-bottom: 22px; }
+  .section h2 { color: #1a4d3a; font-size: 1.15rem; margin-bottom: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th { text-align: left; padding: 10px 12px; color: #6b7280; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e5e0d5; background: #faf8f3; }
+  td { padding: 9px 12px; border-bottom: 1px solid #f0ede3; }
+  tr:hover td { background: #faf8f3; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; font-family: 'SF Mono', Consolas, monospace; }
+  .pos { color: #059669; font-weight: 600; }
+  .neg { color: #dc2626; font-weight: 600; }
+  .muted { color: #9ca3af; }
+  .src { font-size: 0.78rem; color: #4b5563; }
+  tr.overdue td { background: #fef2f2; }
+  tr.overdue td:first-child { border-left: 3px solid #dc2626; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+  .tab-btn { padding: 7px 16px; border-radius: 8px; background: #fff; border: 1px solid #e5e0d5; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #4b5563; }
+  .tab-btn.active { background: #1a4d3a; color: #fff; border-color: #1a4d3a; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  input.filter { padding: 8px 12px; border: 1px solid #e5e0d5; border-radius: 8px; font-size: 0.88rem; width: 280px; margin-bottom: 12px; }
+  footer { text-align: center; color: #9ca3af; font-size: 0.82rem; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e0d5; }
+  @media (max-width: 768px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head><body><div class="wrap">
+
+<h1>💰 Forecast Odoo — Compta Teatower</h1>
+<div class="sub">Généré 14/04/2026 à 11:44 · 341 échéances · agent <strong>Compta</strong></div>
+
+<div class="kpis">
+  <div class="kpi warn">
+    <div class="kpi-label">⚠ En retard (à lettrer)</div>
+    <div class="kpi-value">413 759,44 €</div>
+    <div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">257 factures</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">À payer J+7</div>
+    <div class="kpi-value">27 840,82 €</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">À payer J+30</div>
+    <div class="kpi-value">95 584,93 €</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Total forecast</div>
+    <div class="kpi-value">656 251,34 €</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('weekly', this)">Vue hebdomadaire</button>
+  <button class="tab-btn" onclick="showTab('detail', this)">Détail des 341 échéances</button>
+  <button class="tab-btn" onclick="showTab('overdue', this)">⚠ En retard (257)</button>
+</div>
+
+<div class="tab-content active" id="tab-weekly">
+  <div class="section">
+    <h2>Vue hebdomadaire — comparaison Odoo vs Échéancier manuel</h2>
+    <table>
+      <thead><tr>
+        <th>Semaine</th><th style="text-align:right">OUT Odoo prévu</th>
+        <th style="text-align:right">OUT Échéancier manuel</th>
+        <th style="text-align:right">Écart</th>
+        <th style="text-align:right">Nb lignes</th>
+      </tr></thead>
+      <tbody><tr>
+            <td><strong>WEEK 2</strong></td>
+            <td class="num">10 705,77</td>
+            <td class="num">46 074,24</td>
+            <td class="num neg">-35 368,47</td>
+            <td class="num">10</td>
+        </tr><tr>
+            <td><strong>WEEK 3</strong></td>
+            <td class="num">8 613,90</td>
+            <td class="num">17 170,59</td>
+            <td class="num neg">-8 556,69</td>
+            <td class="num">11</td>
+        </tr><tr>
+            <td><strong>WEEK 6</strong></td>
+            <td class="num">22 045,13</td>
+            <td class="num">7 146,89</td>
+            <td class="num pos">+14 898,24</td>
+            <td class="num">10</td>
+        </tr><tr>
+            <td><strong>WEEK 8</strong></td>
+            <td class="num">1 150,31</td>
+            <td class="num">12 459,14</td>
+            <td class="num neg">-11 308,83</td>
+            <td class="num">4</td>
+        </tr><tr>
+            <td><strong>WEEK 10</strong></td>
+            <td class="num">21 452,73</td>
+            <td class="num">39 136,83</td>
+            <td class="num neg">-17 684,10</td>
+            <td class="num">10</td>
+        </tr><tr>
+            <td><strong>WEEK 11</strong></td>
+            <td class="num">1 224,47</td>
+            <td class="num">7 999,66</td>
+            <td class="num neg">-6 775,19</td>
+            <td class="num">10</td>
+        </tr><tr>
+            <td><strong>WEEK 15</strong></td>
+            <td class="num">14 079,16</td>
+            <td class="num">37 291,00</td>
+            <td class="num neg">-23 211,84</td>
+            <td class="num">20</td>
+        </tr><tr>
+            <td><strong>WEEK 16</strong></td>
+            <td class="num">11 918,54</td>
+            <td class="num">15 870,46</td>
+            <td class="num neg">-3 951,92</td>
+            <td class="num">12</td>
+        </tr><tr>
+            <td><strong>WEEK 19</strong></td>
+            <td class="num">14 063,96</td>
+            <td class="num">69 925,50</td>
+            <td class="num neg">-55 861,54</td>
+            <td class="num">4</td>
+        </tr><tr>
+            <td><strong>WEEK 20</strong></td>
+            <td class="num">3 542,75</td>
+            <td class="num">5 645,66</td>
+            <td class="num neg">-2 102,91</td>
+            <td class="num">8</td>
+        </tr><tr>
+            <td><strong>WEEK 21</strong></td>
+            <td class="num">10 914,90</td>
+            <td class="num">12 103,16</td>
+            <td class="num neg">-1 188,26</td>
+            <td class="num">5</td>
+        </tr><tr>
+            <td><strong>WEEK 22</strong></td>
+            <td class="num">15 309,71</td>
+            <td class="num">7 622,00</td>
+            <td class="num pos">+7 687,71</td>
+            <td class="num">9</td>
+        </tr><tr>
+            <td><strong>WEEK 23</strong></td>
+            <td class="num">2 944,98</td>
+            <td class="num">26 197,91</td>
+            <td class="num neg">-23 252,93</td>
+            <td class="num">3</td>
+        </tr><tr>
+            <td><strong>WEEK 24</strong></td>
+            <td class="num">18 396,95</td>
+            <td class="num">29 077,84</td>
+            <td class="num neg">-10 680,89</td>
+            <td class="num">7</td>
+        </tr><tr>
+            <td><strong>WEEK 25</strong></td>
+            <td class="num">5 805,34</td>
+            <td class="num">3 786,79</td>
+            <td class="num pos">+2 018,55</td>
+            <td class="num">4</td>
+        </tr><tr>
+            <td><strong>WEEK 26</strong></td>
+            <td class="num">18 751,94</td>
+            <td class="num">10 000,00</td>
+            <td class="num pos">+8 751,94</td>
+            <td class="num">6</td>
+        </tr><tr>
+            <td><strong>WEEK 27</strong></td>
+            <td class="num">109 431,06</td>
+            <td class="num">41 694,07</td>
+            <td class="num pos">+67 736,99</td>
+            <td class="num">17</td>
+        </tr><tr>
+            <td><strong>WEEK 31</strong></td>
+            <td class="num">598,18</td>
+            <td class="num">33 609,68</td>
+            <td class="num neg">-33 011,50</td>
+            <td class="num">2</td>
+        </tr><tr>
+            <td><strong>WEEK 32</strong></td>
+            <td class="num">145,20</td>
+            <td class="num">32 654,21</td>
+            <td class="num neg">-32 509,01</td>
+            <td class="num">1</td>
+        </tr><tr>
+            <td><strong>WEEK 33</strong></td>
+            <td class="num">1 056,40</td>
+            <td class="num">31 840,93</td>
+            <td class="num neg">-30 784,53</td>
+            <td class="num">2</td>
+        </tr><tr>
+            <td><strong>WEEK 35</strong></td>
+            <td class="num">743,64</td>
+            <td class="num">28 725,14</td>
+            <td class="num neg">-27 981,50</td>
+            <td class="num">2</td>
+        </tr><tr>
+            <td><strong>WEEK 36</strong></td>
+            <td class="num">0,01</td>
+            <td class="num">37 700,80</td>
+            <td class="num neg">-37 700,79</td>
+            <td class="num">1</td>
+        </tr><tr>
+            <td><strong>WEEK 37</strong></td>
+            <td class="num">400,28</td>
+            <td class="num">17 028,57</td>
+            <td class="num neg">-16 628,29</td>
+            <td class="num">1</td>
+        </tr><tr>
+            <td><strong>WEEK 38</strong></td>
+            <td class="num">22,99</td>
+            <td class="num">14 509,33</td>
+            <td class="num neg">-14 486,34</td>
+            <td class="num">1</td>
+        </tr><tr>
+            <td><strong>WEEK 39</strong></td>
+            <td class="num">0,01</td>
+            <td class="num">47 834,97</td>
+            <td class="num neg">-47 834,96</td>
+            <td class="num">1</td>
+        </tr><tr>
+            <td><strong>WEEK 40</strong></td>
+            <td class="num">327,57</td>
+            <td class="num">30 105,00</td>
+            <td class="num neg">-29 777,43</td>
+            <td class="num">2</td>
+        </tr><tr>
+            <td><strong>WEEK 41</strong></td>
+            <td class="num">1 588,47</td>
+            <td class="num">19 492,76</td>
+            <td class="num neg">-17 904,29</td>
+            <td class="num">4</td>
+        </tr><tr>
+            <td><strong>WEEK 42</strong></td>
+            <td class="num">934,82</td>
+            <td class="num">9 590,04</td>
+            <td class="num neg">-8 655,22</td>
+            <td class="num">3</td>
+        </tr><tr>
+            <td><strong>WEEK 43</strong></td>
+            <td class="num">641,04</td>
+            <td class="num">14 254,46</td>
+            <td class="num neg">-13 613,42</td>
+            <td class="num">2</td>
+        </tr><tr>
+            <td><strong>WEEK 44</strong></td>
+            <td class="num">2 314,61</td>
+            <td class="num">3 822,80</td>
+            <td class="num neg">-1 508,19</td>
+            <td class="num">8</td>
+        </tr><tr>
+            <td><strong>WEEK 45</strong></td>
+            <td class="num">16 556,06</td>
+            <td class="num">39 753,12</td>
+            <td class="num neg">-23 197,06</td>
+            <td class="num">11</td>
+        </tr><tr>
+            <td><strong>WEEK 46</strong></td>
+            <td class="num">3 469,83</td>
+            <td class="num">33 260,69</td>
+            <td class="num neg">-29 790,86</td>
+            <td class="num">5</td>
+        </tr><tr>
+            <td><strong>WEEK 47</strong></td>
+            <td class="num">8 609,43</td>
+            <td class="num">4 901,94</td>
+            <td class="num pos">+3 707,49</td>
+            <td class="num">9</td>
+        </tr><tr>
+            <td><strong>WEEK 48</strong></td>
+            <td class="num">16 037,20</td>
+            <td class="num">18 359,61</td>
+            <td class="num neg">-2 322,41</td>
+            <td class="num">10</td>
+        </tr><tr>
+            <td><strong>WEEK 49</strong></td>
+            <td class="num">14 951,51</td>
+            <td class="num">38 821,71</td>
+            <td class="num neg">-23 870,20</td>
+            <td class="num">7</td>
+        </tr><tr>
+            <td><strong>WEEK 50</strong></td>
+            <td class="num">29 319,05</td>
+            <td class="num">21 354,65</td>
+            <td class="num pos">+7 964,40</td>
+            <td class="num">9</td>
+        </tr><tr>
+            <td><strong>WEEK 51</strong></td>
+            <td class="num">3 306,44</td>
+            <td class="num">13 995,91</td>
+            <td class="num neg">-10 689,47</td>
+            <td class="num">7</td>
+        </tr><tr>
+            <td><strong>WEEK 52</strong></td>
+            <td class="num">8 389,56</td>
+            <td class="num">13 000,00</td>
+            <td class="num neg">-4 610,44</td>
+            <td class="num">4</td>
+        </tr><tr>
+            <td><strong>WEEK 1</strong></td>
+            <td class="num">21 346,32</td>
+            <td class="num">10 655,04</td>
+            <td class="num pos">+10 691,28</td>
+            <td class="num">10</td>
+        </tr><tr>
+            <td><strong>WEEK 4</strong></td>
+            <td class="num">4 464,21</td>
+            <td class="num">20 705,04</td>
+            <td class="num neg">-16 240,83</td>
+            <td class="num">4</td>
+        </tr><tr>
+            <td><strong>WEEK 5</strong></td>
+            <td class="num">6 687,63</td>
+            <td class="num">5 646,60</td>
+            <td class="num pos">+1 041,03</td>
+            <td class="num">4</td>
+        </tr><tr>
+            <td><strong>WEEK 7</strong></td>
+            <td class="num">7 286,79</td>
+            <td class="num">9 787,99</td>
+            <td class="num neg">-2 501,20</td>
+            <td class="num">7</td>
+        </tr><tr>
+            <td><strong>WEEK 9</strong></td>
+            <td class="num">8 099,64</td>
+            <td class="num">6 382,33</td>
+            <td class="num pos">+1 717,31</td>
+            <td class="num">5</td>
+        </tr><tr>
+            <td><strong>WEEK 12</strong></td>
+            <td class="num">10 707,63</td>
+            <td class="num">12 178,44</td>
+            <td class="num neg">-1 470,81</td>
+            <td class="num">5</td>
+        </tr><tr>
+            <td><strong>WEEK 13</strong></td>
+            <td class="num">17 098,78</td>
+            <td class="num">1 053,00</td>
+            <td class="num pos">+16 045,78</td>
+            <td class="num">11</td>
+        </tr><tr>
+            <td><strong>WEEK 14</strong></td>
+            <td class="num">112 523,96</td>
+            <td class="num">14 153,47</td>
+            <td class="num pos">+98 370,49</td>
+            <td class="num">24</td>
+        </tr><tr>
+            <td><strong>WEEK 17</strong></td>
+            <td class="num">40 675,08</td>
+            <td class="num">7 905,36</td>
+            <td class="num pos">+32 769,72</td>
+            <td class="num">13</td>
+        </tr><tr>
+            <td><strong>WEEK 18</strong></td>
+            <td class="num">27 597,40</td>
+            <td class="num">6 916,85</td>
+            <td class="num pos">+20 680,55</td>
+            <td class="num">16</td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-detail">
+  <div class="section">
+    <h2>Détail ligne à ligne</h2>
+    <input class="filter" placeholder="Filtrer par bénéficiaire…" oninput="filterTable(this, 'detail-tbody')">
+    <table>
+      <thead><tr>
+        <th>Date</th><th>Semaine</th><th>Bénéficiaire</th>
+        <th style="text-align:right">Montant</th><th>Source</th><th>Réf</th>
+      </tr></thead>
+      <tbody id="detail-tbody"><tr class="overdue">
+            <td>2025-01-08</td>
+            <td>WEEK 2</td>
+            <td>Mailchimp</td>
+            <td class="num">437,47</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA333</td>
+        </tr><tr class="overdue">
+            <td>2025-01-15</td>
+            <td>WEEK 3</td>
+            <td>Serrurerie Roba</td>
+            <td class="num">647,97</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/04/0114</td>
+        </tr><tr class="overdue">
+            <td>2025-02-08</td>
+            <td>WEEK 6</td>
+            <td>Mailchimp</td>
+            <td class="num">438,92</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA332</td>
+        </tr><tr class="overdue">
+            <td>2025-02-19</td>
+            <td>WEEK 8</td>
+            <td>Mailchimp</td>
+            <td class="num">23,69</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA331</td>
+        </tr><tr class="overdue">
+            <td>2025-02-22</td>
+            <td>WEEK 8</td>
+            <td>RESA S.A.</td>
+            <td class="num">1 043,44</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/05/0086</td>
+        </tr><tr class="overdue">
+            <td>2025-03-08</td>
+            <td>WEEK 10</td>
+            <td>Mailchimp</td>
+            <td class="num">587,35</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA329</td>
+        </tr><tr class="overdue">
+            <td>2025-03-11</td>
+            <td>WEEK 11</td>
+            <td>Batipro Matériaux</td>
+            <td class="num">6,21</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/04/0062</td>
+        </tr><tr class="overdue">
+            <td>2025-04-08</td>
+            <td>WEEK 15</td>
+            <td>Mailchimp</td>
+            <td class="num">577,10</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA328</td>
+        </tr><tr class="overdue">
+            <td>2025-04-15</td>
+            <td>WEEK 16</td>
+            <td>Labrique Frédéric Robert</td>
+            <td class="num">45,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/04/0014</td>
+        </tr><tr class="overdue">
+            <td>2025-05-08</td>
+            <td>WEEK 19</td>
+            <td>Mailchimp</td>
+            <td class="num">560,77</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA327</td>
+        </tr><tr class="overdue">
+            <td>2025-05-12</td>
+            <td>WEEK 20</td>
+            <td>RESA S.A.</td>
+            <td class="num">521,72</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/04/0110</td>
+        </tr><tr class="overdue">
+            <td>2025-05-13</td>
+            <td>WEEK 20</td>
+            <td>Amazon PL</td>
+            <td class="num">51,64</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/05/0062</td>
+        </tr><tr class="overdue">
+            <td>2025-05-15</td>
+            <td>WEEK 20</td>
+            <td>Labrique Frédéric Robert</td>
+            <td class="num">45,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/04/0056</td>
+        </tr><tr class="overdue">
+            <td>2025-05-16</td>
+            <td>WEEK 20</td>
+            <td>Labrique Frédéric Robert</td>
+            <td class="num">45,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA345</td>
+        </tr><tr class="overdue">
+            <td>2025-05-23</td>
+            <td>WEEK 21</td>
+            <td>Amazon DE</td>
+            <td class="num">390,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/04/0117</td>
+        </tr><tr class="overdue">
+            <td>2025-05-23</td>
+            <td>WEEK 21</td>
+            <td>Cdm de Poyoux Sarts</td>
+            <td class="num">330,45</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/05/0033</td>
+        </tr><tr class="overdue">
+            <td>2025-05-27</td>
+            <td>WEEK 22</td>
+            <td>Happy Family Wouip</td>
+            <td class="num">59,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/05/0091</td>
+        </tr><tr class="overdue">
+            <td>2025-05-31</td>
+            <td>WEEK 22</td>
+            <td>Mollie B.V.</td>
+            <td class="num">151,64</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/05/0051</td>
+        </tr><tr class="overdue">
+            <td>2025-06-06</td>
+            <td>WEEK 23</td>
+            <td>C'est bon, c'est wallon ASBL</td>
+            <td class="num">16,94</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/05/0031</td>
+        </tr><tr class="overdue">
+            <td>2025-06-08</td>
+            <td>WEEK 23</td>
+            <td>Mailchimp</td>
+            <td class="num">555,70</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA326</td>
+        </tr><tr class="overdue">
+            <td>2025-06-10</td>
+            <td>WEEK 24</td>
+            <td>Retif Belgium S.A</td>
+            <td class="num">2 262,47</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/05/0082</td>
+        </tr><tr class="overdue">
+            <td>2025-06-12</td>
+            <td>WEEK 24</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">249,53</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA156</td>
+        </tr><tr class="overdue">
+            <td>2025-06-19</td>
+            <td>WEEK 25</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">260,10</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA21</td>
+        </tr><tr class="overdue">
+            <td>2025-06-24</td>
+            <td>WEEK 26</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">94,62</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA220</td>
+        </tr><tr class="overdue">
+            <td>2025-06-26</td>
+            <td>WEEK 26</td>
+            <td>Elis Belgium S.A</td>
+            <td class="num">92,95</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA133</td>
+        </tr><tr class="overdue">
+            <td>2025-06-30</td>
+            <td>WEEK 27</td>
+            <td>Tea Touch</td>
+            <td class="num">30 000,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/06/0020</td>
+        </tr><tr class="overdue">
+            <td>2025-06-30</td>
+            <td>WEEK 27</td>
+            <td>Maxime Stas de Richelle, Dominique Roulez & Sophie Jemelka</td>
+            <td class="num">531,42</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA117</td>
+        </tr><tr class="overdue">
+            <td>2025-07-01</td>
+            <td>WEEK 27</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">520,20</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/25-26/07/0006</td>
+        </tr><tr class="overdue">
+            <td>2025-07-30</td>
+            <td>WEEK 31</td>
+            <td>Gestanet</td>
+            <td class="num">77,98</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">BILL/24-25/06/0037</td>
+        </tr><tr class="overdue">
+            <td>2025-08-01</td>
+            <td>WEEK 31</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">520,20</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA130</td>
+        </tr><tr class="overdue">
+            <td>2025-08-07</td>
+            <td>WEEK 32</td>
+            <td>Odoo</td>
+            <td class="num">145,20</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA17</td>
+        </tr><tr class="overdue">
+            <td>2025-08-11</td>
+            <td>WEEK 33</td>
+            <td>RESA S.A.</td>
+            <td class="num">521,72</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA84</td>
+        </tr><tr class="overdue">
+            <td>2025-08-15</td>
+            <td>WEEK 33</td>
+            <td>Gestanet</td>
+            <td class="num">534,68</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA232</td>
+        </tr><tr class="overdue">
+            <td>2025-08-25</td>
+            <td>WEEK 35</td>
+            <td>Baloise Belgium S.A</td>
+            <td class="num">443,60</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA159</td>
+        </tr><tr class="overdue">
+            <td>2025-08-26</td>
+            <td>WEEK 35</td>
+            <td>Pixart Printing S.A</td>
+            <td class="num">300,04</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA272</td>
+        </tr><tr class="overdue">
+            <td>2025-09-03</td>
+            <td>WEEK 36</td>
+            <td>Electrabel</td>
+            <td class="num">0,01</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA53</td>
+        </tr><tr class="overdue">
+            <td>2025-09-08</td>
+            <td>WEEK 37</td>
+            <td>Mailchimp</td>
+            <td class="num">400,28</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA323</td>
+        </tr><tr class="overdue">
+            <td>2025-09-16</td>
+            <td>WEEK 38</td>
+            <td>C'est bon, c'est wallon ASBL</td>
+            <td class="num">22,99</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA141</td>
+        </tr><tr class="overdue">
+            <td>2025-09-26</td>
+            <td>WEEK 39</td>
+            <td>Pixart Printing S.A</td>
+            <td class="num">0,01</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA243</td>
+        </tr><tr class="overdue">
+            <td>2025-09-30</td>
+            <td>WEEK 40</td>
+            <td>Mailchimp</td>
+            <td class="num">146,07</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA322</td>
+        </tr><tr class="overdue">
+            <td>2025-10-03</td>
+            <td>WEEK 40</td>
+            <td>Electrabel</td>
+            <td class="num">181,50</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA190</td>
+        </tr><tr class="overdue">
+            <td>2025-10-06</td>
+            <td>WEEK 41</td>
+            <td>B2CK</td>
+            <td class="num">290,40</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA187</td>
+        </tr><tr class="overdue">
+            <td>2025-10-08</td>
+            <td>WEEK 41</td>
+            <td>Mailchimp</td>
+            <td class="num">690,21</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA321</td>
+        </tr><tr class="overdue">
+            <td>2025-10-09</td>
+            <td>WEEK 41</td>
+            <td>Auto 5</td>
+            <td class="num">18,89</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA214</td>
+        </tr><tr class="overdue">
+            <td>2025-10-10</td>
+            <td>WEEK 41</td>
+            <td>Atos Worldline N.V</td>
+            <td class="num">588,97</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA142</td>
+        </tr><tr class="overdue">
+            <td>2025-10-13</td>
+            <td>WEEK 42</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">356,54</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA218</td>
+        </tr><tr class="overdue">
+            <td>2025-10-15</td>
+            <td>WEEK 42</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">96,24</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA213</td>
+        </tr><tr class="overdue">
+            <td>2025-10-15</td>
+            <td>WEEK 42</td>
+            <td>Gastroback Gmbh</td>
+            <td class="num">482,04</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA222</td>
+        </tr><tr class="overdue">
+            <td>2025-10-20</td>
+            <td>WEEK 43</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">144,66</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA556</td>
+        </tr><tr class="overdue">
+            <td>2025-10-22</td>
+            <td>WEEK 43</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">496,38</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA206</td>
+        </tr><tr class="overdue">
+            <td>2025-10-27</td>
+            <td>WEEK 44</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">238,77</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA276</td>
+        </tr><tr class="overdue">
+            <td>2025-10-29</td>
+            <td>WEEK 44</td>
+            <td>Optimal Recover</td>
+            <td class="num">46,29</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA204</td>
+        </tr><tr class="overdue">
+            <td>2025-10-30</td>
+            <td>WEEK 44</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">1 281,75</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA209</td>
+        </tr><tr class="overdue">
+            <td>2025-10-31</td>
+            <td>WEEK 44</td>
+            <td>GOOGLE CLOUD EMEA LIMITED</td>
+            <td class="num">338,11</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA241</td>
+        </tr><tr class="overdue">
+            <td>2025-10-31</td>
+            <td>WEEK 44</td>
+            <td>Krëfel</td>
+            <td class="num">94,95</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA277</td>
+        </tr><tr class="overdue">
+            <td>2025-10-31</td>
+            <td>WEEK 44</td>
+            <td>Easyplug S.R.L. /Ez Charge</td>
+            <td class="num">72,60</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA197</td>
+        </tr><tr class="overdue">
+            <td>2025-11-01</td>
+            <td>WEEK 44</td>
+            <td>Electrabel</td>
+            <td class="num">191,50</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA223</td>
+        </tr><tr class="overdue">
+            <td>2025-11-02</td>
+            <td>WEEK 44</td>
+            <td>Electrabel</td>
+            <td class="num">50,64</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA285</td>
+        </tr><tr class="overdue">
+            <td>2025-11-03</td>
+            <td>WEEK 45</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">301,01</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA278</td>
+        </tr><tr class="overdue">
+            <td>2025-11-03</td>
+            <td>WEEK 45</td>
+            <td>Auto 5</td>
+            <td class="num">8,98</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA228</td>
+        </tr><tr class="overdue">
+            <td>2025-11-04</td>
+            <td>WEEK 45</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">1 408,28</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA257</td>
+        </tr><tr class="overdue">
+            <td>2025-11-04</td>
+            <td>WEEK 45</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">10 794,13</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA256</td>
+        </tr><tr class="overdue">
+            <td>2025-11-04</td>
+            <td>WEEK 45</td>
+            <td>Auto 5</td>
+            <td class="num">49,90</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA224</td>
+        </tr><tr class="overdue">
+            <td>2025-11-05</td>
+            <td>WEEK 45</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">2 715,70</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA253</td>
+        </tr><tr class="overdue">
+            <td>2025-11-05</td>
+            <td>WEEK 45</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">37,73</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA238</td>
+        </tr><tr class="overdue">
+            <td>2025-11-07</td>
+            <td>WEEK 45</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">801,94</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA251</td>
+        </tr><tr class="overdue">
+            <td>2025-11-07</td>
+            <td>WEEK 45</td>
+            <td>Quartier Latin</td>
+            <td class="num">404,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA358</td>
+        </tr><tr class="overdue">
+            <td>2025-11-08</td>
+            <td>WEEK 45</td>
+            <td>Proximus</td>
+            <td class="num">7,99</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA280</td>
+        </tr><tr class="overdue">
+            <td>2025-11-08</td>
+            <td>WEEK 45</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">26,40</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA237</td>
+        </tr><tr class="overdue">
+            <td>2025-11-10</td>
+            <td>WEEK 46</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">444,92</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA245</td>
+        </tr><tr class="overdue">
+            <td>2025-11-14</td>
+            <td>WEEK 46</td>
+            <td>Palmabel</td>
+            <td class="num">998,69</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA269</td>
+        </tr><tr class="overdue">
+            <td>2025-11-14</td>
+            <td>WEEK 46</td>
+            <td>SRL AD PESAGE</td>
+            <td class="num">1 960,90</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA559</td>
+        </tr><tr class="overdue">
+            <td>2025-11-15</td>
+            <td>WEEK 46</td>
+            <td>OVH</td>
+            <td class="num">51,46</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA247</td>
+        </tr><tr class="overdue">
+            <td>2025-11-16</td>
+            <td>WEEK 46</td>
+            <td>Orga Havelange</td>
+            <td class="num">13,86</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA344</td>
+        </tr><tr class="overdue">
+            <td>2025-11-17</td>
+            <td>WEEK 47</td>
+            <td>Auto 5</td>
+            <td class="num">1 332,20</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA261</td>
+        </tr><tr class="overdue">
+            <td>2025-11-17</td>
+            <td>WEEK 47</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">519,70</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA560</td>
+        </tr><tr class="overdue">
+            <td>2025-11-17</td>
+            <td>WEEK 47</td>
+            <td>Shopify</td>
+            <td class="num">999,62</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA281</td>
+        </tr><tr class="overdue">
+            <td>2025-11-19</td>
+            <td>WEEK 47</td>
+            <td>Bevergam</td>
+            <td class="num">2 238,46</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA266</td>
+        </tr><tr class="overdue">
+            <td>2025-11-20</td>
+            <td>WEEK 47</td>
+            <td>Namur Centreville</td>
+            <td class="num">40,50</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA236</td>
+        </tr><tr class="overdue">
+            <td>2025-11-21</td>
+            <td>WEEK 47</td>
+            <td>Gastroback Gmbh</td>
+            <td class="num">1 618,80</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA282</td>
+        </tr><tr class="overdue">
+            <td>2025-11-21</td>
+            <td>WEEK 47</td>
+            <td>CARGLASS</td>
+            <td class="num">141,99</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA377</td>
+        </tr><tr class="overdue">
+            <td>2025-11-23</td>
+            <td>WEEK 47</td>
+            <td>Electrabel</td>
+            <td class="num">30,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA305</td>
+        </tr><tr class="overdue">
+            <td>2025-11-23</td>
+            <td>WEEK 47</td>
+            <td>Pluxee Belgium</td>
+            <td class="num">1 688,16</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA246</td>
+        </tr><tr class="overdue">
+            <td>2025-11-24</td>
+            <td>WEEK 48</td>
+            <td>Brico Belgium Sa</td>
+            <td class="num">44,50</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA363</td>
+        </tr><tr class="overdue">
+            <td>2025-11-24</td>
+            <td>WEEK 48</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">328,92</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA284</td>
+        </tr><tr class="overdue">
+            <td>2025-11-26</td>
+            <td>WEEK 48</td>
+            <td>Tasco S.P.R.L.</td>
+            <td class="num">3 481,78</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA258</td>
+        </tr><tr class="overdue">
+            <td>2025-11-28</td>
+            <td>WEEK 48</td>
+            <td>Lux Green</td>
+            <td class="num">56,70</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA365</td>
+        </tr><tr class="overdue">
+            <td>2025-11-28</td>
+            <td>WEEK 48</td>
+            <td>Intrum</td>
+            <td class="num">76,74</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA373</td>
+        </tr><tr class="overdue">
+            <td>2025-11-28</td>
+            <td>WEEK 48</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">3 144,95</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA306</td>
+        </tr><tr class="overdue">
+            <td>2025-11-28</td>
+            <td>WEEK 48</td>
+            <td>Van Mossel Westlease</td>
+            <td class="num">1 655,28</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA268</td>
+        </tr><tr class="overdue">
+            <td>2025-11-28</td>
+            <td>WEEK 48</td>
+            <td>Sinas Gmbh & Co</td>
+            <td class="num">1 904,42</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA290</td>
+        </tr><tr class="overdue">
+            <td>2025-11-30</td>
+            <td>WEEK 48</td>
+            <td>Boxmaker B.V.B.A.</td>
+            <td class="num">4 314,18</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA291</td>
+        </tr><tr class="overdue">
+            <td>2025-11-30</td>
+            <td>WEEK 48</td>
+            <td>Boxmaker B.V.B.A.</td>
+            <td class="num">1 029,73</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA288</td>
+        </tr><tr class="overdue">
+            <td>2025-12-02</td>
+            <td>WEEK 49</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">10 857,65</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA362</td>
+        </tr><tr class="overdue">
+            <td>2025-12-02</td>
+            <td>WEEK 49</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">1 777,55</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA361</td>
+        </tr><tr class="overdue">
+            <td>2025-12-04</td>
+            <td>WEEK 49</td>
+            <td>EPS MONIZZE SA-NV</td>
+            <td class="num">0,36</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA403</td>
+        </tr><tr class="overdue">
+            <td>2025-12-04</td>
+            <td>WEEK 49</td>
+            <td>Pihard Guillaume</td>
+            <td class="num">630,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA239</td>
+        </tr><tr class="overdue">
+            <td>2025-12-06</td>
+            <td>WEEK 49</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">92,22</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA389</td>
+        </tr><tr class="overdue">
+            <td>2025-12-06</td>
+            <td>WEEK 49</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">1 225,81</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA240</td>
+        </tr><tr class="overdue">
+            <td>2025-12-08</td>
+            <td>WEEK 50</td>
+            <td>La Source Locations</td>
+            <td class="num">859,10</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA375</td>
+        </tr><tr class="overdue">
+            <td>2025-12-08</td>
+            <td>WEEK 50</td>
+            <td>Odoo</td>
+            <td class="num">437,43</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA259</td>
+        </tr><tr class="overdue">
+            <td>2025-12-09</td>
+            <td>WEEK 50</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">19 399,77</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA458</td>
+        </tr><tr class="overdue">
+            <td>2025-12-09</td>
+            <td>WEEK 50</td>
+            <td>Vilna Gaon S.R.L</td>
+            <td class="num">1 149,50</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA380</td>
+        </tr><tr class="overdue">
+            <td>2025-12-11</td>
+            <td>WEEK 50</td>
+            <td>Iservices Belgique</td>
+            <td class="num">53,87</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA386</td>
+        </tr><tr class="overdue">
+            <td>2025-12-12</td>
+            <td>WEEK 50</td>
+            <td>ING Equipment Lease Belgium</td>
+            <td class="num">2 299,22</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA397</td>
+        </tr><tr class="overdue">
+            <td>2025-12-12</td>
+            <td>WEEK 50</td>
+            <td>ING Equipment Lease Belgium</td>
+            <td class="num">2 299,22</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA396</td>
+        </tr><tr class="overdue">
+            <td>2025-12-12</td>
+            <td>WEEK 50</td>
+            <td>ING Equipment Lease Belgium</td>
+            <td class="num">2 299,22</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA398</td>
+        </tr><tr class="overdue">
+            <td>2025-12-13</td>
+            <td>WEEK 50</td>
+            <td>RESA S.A.</td>
+            <td class="num">521,72</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA566</td>
+        </tr><tr class="overdue">
+            <td>2025-12-15</td>
+            <td>WEEK 51</td>
+            <td>Adrianne Buttiens</td>
+            <td class="num">30,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA477</td>
+        </tr><tr class="overdue">
+            <td>2025-12-15</td>
+            <td>WEEK 51</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">547,62</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA392</td>
+        </tr><tr class="overdue">
+            <td>2025-12-16</td>
+            <td>WEEK 51</td>
+            <td>Van Mossel Westlease</td>
+            <td class="num">827,64</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA399</td>
+        </tr><tr class="overdue">
+            <td>2025-12-17</td>
+            <td>WEEK 51</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">35,57</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA453</td>
+        </tr><tr class="overdue">
+            <td>2025-12-17</td>
+            <td>WEEK 51</td>
+            <td>Shopify</td>
+            <td class="num">686,04</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA262</td>
+        </tr><tr class="overdue">
+            <td>2025-12-18</td>
+            <td>WEEK 51</td>
+            <td>JM Bruneau Belgium</td>
+            <td class="num">40,12</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA384</td>
+        </tr><tr class="overdue">
+            <td>2025-12-20</td>
+            <td>WEEK 51</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">1 139,45</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA343</td>
+        </tr><tr class="overdue">
+            <td>2025-12-22</td>
+            <td>WEEK 52</td>
+            <td>Fanchon Sa</td>
+            <td class="num">5 319,92</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA418</td>
+        </tr><tr class="overdue">
+            <td>2025-12-24</td>
+            <td>WEEK 52</td>
+            <td>ING Equipment Lease Belgium</td>
+            <td class="num">2 299,22</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA457</td>
+        </tr><tr class="overdue">
+            <td>2025-12-27</td>
+            <td>WEEK 52</td>
+            <td>Bureau Veritas Commodities Antwerp NV</td>
+            <td class="num">14,17</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA402</td>
+        </tr><tr class="overdue">
+            <td>2025-12-28</td>
+            <td>WEEK 52</td>
+            <td>SD Worx People Solutions</td>
+            <td class="num">756,25</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA359</td>
+        </tr><tr class="overdue">
+            <td>2025-12-30</td>
+            <td>WEEK 1</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">123,42</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA430</td>
+        </tr><tr class="overdue">
+            <td>2025-12-31</td>
+            <td>WEEK 1</td>
+            <td>ING Belgique SA</td>
+            <td class="num">22,08</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA492</td>
+        </tr><tr class="overdue">
+            <td>2025-12-31</td>
+            <td>WEEK 1</td>
+            <td>GOOGLE CLOUD EMEA LIMITED</td>
+            <td class="num">367,92</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA535</td>
+        </tr><tr class="overdue">
+            <td>2025-12-31</td>
+            <td>WEEK 1</td>
+            <td>Pluxee Belgium</td>
+            <td class="num">1 564,35</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA407</td>
+        </tr><tr class="overdue">
+            <td>2026-01-01</td>
+            <td>WEEK 1</td>
+            <td>Belfius Banque-Bank</td>
+            <td class="num">3,86</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA537</td>
+        </tr><tr class="overdue">
+            <td>2026-01-01</td>
+            <td>WEEK 1</td>
+            <td>ING Belgique SA</td>
+            <td class="num">9,68</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA536</td>
+        </tr><tr class="overdue">
+            <td>2026-01-01</td>
+            <td>WEEK 1</td>
+            <td>Baloise Belgium S.A</td>
+            <td class="num">1 339,85</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA439</td>
+        </tr><tr class="overdue">
+            <td>2026-01-01</td>
+            <td>WEEK 1</td>
+            <td>Belfius Banque-Bank</td>
+            <td class="num">2,99</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA540</td>
+        </tr><tr class="overdue">
+            <td>2026-01-03</td>
+            <td>WEEK 1</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">17 112,72</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA467</td>
+        </tr><tr class="overdue">
+            <td>2026-01-03</td>
+            <td>WEEK 1</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">799,45</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA390</td>
+        </tr><tr class="overdue">
+            <td>2026-01-06</td>
+            <td>WEEK 2</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">0,01</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA445</td>
+        </tr><tr class="overdue">
+            <td>2026-01-07</td>
+            <td>WEEK 2</td>
+            <td>Mount Everest Tea Company Gmbh</td>
+            <td class="num">4 360,69</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA462</td>
+        </tr><tr class="overdue">
+            <td>2026-01-07</td>
+            <td>WEEK 2</td>
+            <td>EDENRED BELGIUM</td>
+            <td class="num">0,37</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA466</td>
+        </tr><tr class="overdue">
+            <td>2026-01-07</td>
+            <td>WEEK 2</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">171,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA388</td>
+        </tr><tr class="overdue">
+            <td>2026-01-08</td>
+            <td>WEEK 2</td>
+            <td>Proximus</td>
+            <td class="num">606,68</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA400</td>
+        </tr><tr class="overdue">
+            <td>2026-01-08</td>
+            <td>WEEK 2</td>
+            <td>Proximus</td>
+            <td class="num">150,01</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA401</td>
+        </tr><tr class="overdue">
+            <td>2026-01-08</td>
+            <td>WEEK 2</td>
+            <td>Belgium Parcels Service</td>
+            <td class="num">2 082,10</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA409</td>
+        </tr><tr class="overdue">
+            <td>2026-01-09</td>
+            <td>WEEK 2</td>
+            <td>Sinas Gmbh & Co</td>
+            <td class="num">674,91</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA387</td>
+        </tr><tr class="overdue">
+            <td>2026-01-11</td>
+            <td>WEEK 2</td>
+            <td>Boxmaker B.V.B.A.</td>
+            <td class="num">2 222,53</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA428</td>
+        </tr><tr class="overdue">
+            <td>2026-01-12</td>
+            <td>WEEK 3</td>
+            <td>Electrabel</td>
+            <td class="num">100,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA420</td>
+        </tr><tr class="overdue">
+            <td>2026-01-14</td>
+            <td>WEEK 3</td>
+            <td>Electrabel</td>
+            <td class="num">455,63</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA423</td>
+        </tr><tr class="overdue">
+            <td>2026-01-15</td>
+            <td>WEEK 3</td>
+            <td>APAQ-W</td>
+            <td class="num">152,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA446</td>
+        </tr><tr class="overdue">
+            <td>2026-01-15</td>
+            <td>WEEK 3</td>
+            <td>Sendcloud B.V.</td>
+            <td class="num">175,10</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA538</td>
+        </tr><tr class="overdue">
+            <td>2026-01-15</td>
+            <td>WEEK 3</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">755,02</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA408</td>
+        </tr><tr class="overdue">
+            <td>2026-01-16</td>
+            <td>WEEK 3</td>
+            <td>Limepack ApS</td>
+            <td class="num">452,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA486</td>
+        </tr><tr class="overdue">
+            <td>2026-01-16</td>
+            <td>WEEK 3</td>
+            <td>Shopify</td>
+            <td class="num">777,43</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA539</td>
+        </tr><tr class="overdue">
+            <td>2026-01-16</td>
+            <td>WEEK 3</td>
+            <td>Shopify</td>
+            <td class="num">777,43</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA412</td>
+        </tr><tr class="overdue">
+            <td>2026-01-17</td>
+            <td>WEEK 3</td>
+            <td>Van Mossel Westlease</td>
+            <td class="num">837,73</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA463</td>
+        </tr><tr class="overdue">
+            <td>2026-01-17</td>
+            <td>WEEK 3</td>
+            <td>Newpharma</td>
+            <td class="num">3 483,59</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA415</td>
+        </tr><tr class="overdue">
+            <td>2026-01-20</td>
+            <td>WEEK 4</td>
+            <td>Fanchon Sa</td>
+            <td class="num">2 100,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA498</td>
+        </tr><tr class="overdue">
+            <td>2026-01-20</td>
+            <td>WEEK 4</td>
+            <td>Bevergam</td>
+            <td class="num">2 300,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA497</td>
+        </tr><tr class="overdue">
+            <td>2026-01-20</td>
+            <td>WEEK 4</td>
+            <td>ING Belgique SA</td>
+            <td class="num">14,52</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA532</td>
+        </tr><tr class="overdue">
+            <td>2026-01-24</td>
+            <td>WEEK 4</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">49,69</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA510</td>
+        </tr><tr class="overdue">
+            <td>2026-01-26</td>
+            <td>WEEK 5</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">0,01</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA500</td>
+        </tr><tr class="overdue">
+            <td>2026-01-30</td>
+            <td>WEEK 5</td>
+            <td>Belgium Parcels Service</td>
+            <td class="num">1 206,61</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA455</td>
+        </tr><tr class="overdue">
+            <td>2026-01-30</td>
+            <td>WEEK 5</td>
+            <td>Bpost S.A</td>
+            <td class="num">5 440,32</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-01-31</td>
+            <td>WEEK 5</td>
+            <td>ING Belgique SA</td>
+            <td class="num">40,69</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA533</td>
+        </tr><tr class="overdue">
+            <td>2026-02-02</td>
+            <td>WEEK 6</td>
+            <td>Zaprinta - Eventus SPRL</td>
+            <td class="num">1 412,68</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA524</td>
+        </tr><tr class="overdue">
+            <td>2026-02-03</td>
+            <td>WEEK 6</td>
+            <td>Bevergam</td>
+            <td class="num">2 300,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA544</td>
+        </tr><tr class="overdue">
+            <td>2026-02-03</td>
+            <td>WEEK 6</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">11 469,40</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA522</td>
+        </tr><tr class="overdue">
+            <td>2026-02-03</td>
+            <td>WEEK 6</td>
+            <td>Fanchon Sa</td>
+            <td class="num">3 100,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA543</td>
+        </tr><tr class="overdue">
+            <td>2026-02-03</td>
+            <td>WEEK 6</td>
+            <td>Fortamps</td>
+            <td class="num">3 000,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA545</td>
+        </tr><tr class="overdue">
+            <td>2026-02-04</td>
+            <td>WEEK 6</td>
+            <td>Happy Family Wouip</td>
+            <td class="num">112,56</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA686</td>
+        </tr><tr class="overdue">
+            <td>2026-02-08</td>
+            <td>WEEK 6</td>
+            <td>Proximus</td>
+            <td class="num">188,97</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA493</td>
+        </tr><tr class="overdue">
+            <td>2026-02-08</td>
+            <td>WEEK 6</td>
+            <td>ING Belgique SA</td>
+            <td class="num">0,61</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA687</td>
+        </tr><tr class="overdue">
+            <td>2026-02-08</td>
+            <td>WEEK 6</td>
+            <td>Proximus</td>
+            <td class="num">21,99</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA688</td>
+        </tr><tr class="overdue">
+            <td>2026-02-09</td>
+            <td>WEEK 7</td>
+            <td>PIECES EXPRESS</td>
+            <td class="num">59,48</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA593</td>
+        </tr><tr class="overdue">
+            <td>2026-02-11</td>
+            <td>WEEK 7</td>
+            <td>Fanchon Sa</td>
+            <td class="num">500,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA582</td>
+        </tr><tr class="overdue">
+            <td>2026-02-11</td>
+            <td>WEEK 7</td>
+            <td>NIAS Liège</td>
+            <td class="num">97,03</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA594</td>
+        </tr><tr class="overdue">
+            <td>2026-02-11</td>
+            <td>WEEK 7</td>
+            <td>Fanchon Sa</td>
+            <td class="num">500,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA583</td>
+        </tr><tr class="overdue">
+            <td>2026-02-11</td>
+            <td>WEEK 7</td>
+            <td>Nasa Corporation</td>
+            <td class="num">4 921,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA581</td>
+        </tr><tr class="overdue">
+            <td>2026-02-12</td>
+            <td>WEEK 7</td>
+            <td>Worldline</td>
+            <td class="num">602,17</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA689</td>
+        </tr><tr class="overdue">
+            <td>2026-02-15</td>
+            <td>WEEK 7</td>
+            <td>Shopify</td>
+            <td class="num">607,11</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA534</td>
+        </tr><tr class="overdue">
+            <td>2026-02-16</td>
+            <td>WEEK 8</td>
+            <td>Action Belgium BVBA</td>
+            <td class="num">46,88</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA671</td>
+        </tr><tr class="overdue">
+            <td>2026-02-17</td>
+            <td>WEEK 8</td>
+            <td>Sixt Belgium</td>
+            <td class="num">36,30</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA749</td>
+        </tr><tr class="overdue">
+            <td>2026-02-23</td>
+            <td>WEEK 9</td>
+            <td>NIAS Liège</td>
+            <td class="num">10,98</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA640</td>
+        </tr><tr class="overdue">
+            <td>2026-02-23</td>
+            <td>WEEK 9</td>
+            <td>BUREAU VALLÉE LIÈGE</td>
+            <td class="num">18,60</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA691</td>
+        </tr><tr class="overdue">
+            <td>2026-02-28</td>
+            <td>WEEK 9</td>
+            <td>ING Belgique SA</td>
+            <td class="num">31,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA670</td>
+        </tr><tr class="overdue">
+            <td>2026-03-01</td>
+            <td>WEEK 9</td>
+            <td>Easyfairs Belgium</td>
+            <td class="num">2 598,74</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA366</td>
+        </tr><tr class="overdue">
+            <td>2026-03-01</td>
+            <td>WEEK 9</td>
+            <td>Bpost S.A</td>
+            <td class="num">5 440,32</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-03-03</td>
+            <td>WEEK 10</td>
+            <td>Easyplug S.R.L. /Ez Charge</td>
+            <td class="num">281,85</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA573</td>
+        </tr><tr class="overdue">
+            <td>2026-03-04</td>
+            <td>WEEK 10</td>
+            <td>Fanchon Sa</td>
+            <td class="num">500,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA622</td>
+        </tr><tr class="overdue">
+            <td>2026-03-04</td>
+            <td>WEEK 10</td>
+            <td>Fanchon Sa</td>
+            <td class="num">3 100,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA621</td>
+        </tr><tr class="overdue">
+            <td>2026-03-04</td>
+            <td>WEEK 10</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">10 794,47</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA713</td>
+        </tr><tr class="overdue">
+            <td>2026-03-04</td>
+            <td>WEEK 10</td>
+            <td>Fortamps</td>
+            <td class="num">3 000,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA623</td>
+        </tr><tr class="overdue">
+            <td>2026-03-04</td>
+            <td>WEEK 10</td>
+            <td>Bevergam</td>
+            <td class="num">2 300,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA620</td>
+        </tr><tr class="overdue">
+            <td>2026-03-04</td>
+            <td>WEEK 10</td>
+            <td>Van Mossel Westlease</td>
+            <td class="num">834,37</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-03-07</td>
+            <td>WEEK 10</td>
+            <td>156 Veritas Waterloo</td>
+            <td class="num">7,50</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA692</td>
+        </tr><tr class="overdue">
+            <td>2026-03-07</td>
+            <td>WEEK 10</td>
+            <td>Amazon EU S.à r.l., Succursale Belge</td>
+            <td class="num">47,19</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA700</td>
+        </tr><tr class="overdue">
+            <td>2026-03-09</td>
+            <td>WEEK 11</td>
+            <td>ING Belgique SA</td>
+            <td class="num">0,61</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA659</td>
+        </tr><tr class="overdue">
+            <td>2026-03-10</td>
+            <td>WEEK 11</td>
+            <td>Shyfter SA</td>
+            <td class="num">47,19</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA661</td>
+        </tr><tr class="overdue">
+            <td>2026-03-10</td>
+            <td>WEEK 11</td>
+            <td>Aurélie Thibaut, Aurélie Thibaut</td>
+            <td class="num">20,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA654</td>
+        </tr><tr class="overdue">
+            <td>2026-03-11</td>
+            <td>WEEK 11</td>
+            <td>Proximus</td>
+            <td class="num">26,61</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA693</td>
+        </tr><tr class="overdue">
+            <td>2026-03-11</td>
+            <td>WEEK 11</td>
+            <td>Proximus</td>
+            <td class="num">211,13</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA694</td>
+        </tr><tr class="overdue">
+            <td>2026-03-13</td>
+            <td>WEEK 11</td>
+            <td>STASSE NETTOYAGE SRL</td>
+            <td class="num">160,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA681</td>
+        </tr><tr class="overdue">
+            <td>2026-03-13</td>
+            <td>WEEK 11</td>
+            <td>Worldline</td>
+            <td class="num">578,89</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA680</td>
+        </tr><tr class="overdue">
+            <td>2026-03-13</td>
+            <td>WEEK 11</td>
+            <td>Gaston shop SRL - Maxime HAZEE</td>
+            <td class="num">169,23</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-03-15</td>
+            <td>WEEK 11</td>
+            <td>Pluxee Belgium</td>
+            <td class="num">4,60</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA709</td>
+        </tr><tr class="overdue">
+            <td>2026-03-18</td>
+            <td>WEEK 12</td>
+            <td>ELECTROPIECES</td>
+            <td class="num">119,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA707</td>
+        </tr><tr class="overdue">
+            <td>2026-03-20</td>
+            <td>WEEK 12</td>
+            <td>Anthropic, PBC</td>
+            <td class="num">180,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA753</td>
+        </tr><tr class="overdue">
+            <td>2026-03-20</td>
+            <td>WEEK 12</td>
+            <td>ING Belgique SA</td>
+            <td class="num">14,52</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA803</td>
+        </tr><tr class="overdue">
+            <td>2026-03-21</td>
+            <td>WEEK 12</td>
+            <td>Tasco S.P.R.L.</td>
+            <td class="num">877,72</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA685</td>
+        </tr><tr class="overdue">
+            <td>2026-03-21</td>
+            <td>WEEK 12</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">9 516,39</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA802</td>
+        </tr><tr class="overdue">
+            <td>2026-03-25</td>
+            <td>WEEK 13</td>
+            <td>IN BW S.C.R.L.</td>
+            <td class="num">149,57</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA667</td>
+        </tr><tr class="overdue">
+            <td>2026-03-25</td>
+            <td>WEEK 13</td>
+            <td>Nasa Deutschland Gmbh</td>
+            <td class="num">1 048,25</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA756</td>
+        </tr><tr class="overdue">
+            <td>2026-03-25</td>
+            <td>WEEK 13</td>
+            <td>IN BW S.C.R.L.</td>
+            <td class="num">142,51</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA668</td>
+        </tr><tr class="overdue">
+            <td>2026-03-25</td>
+            <td>WEEK 13</td>
+            <td>IN BW S.C.R.L.</td>
+            <td class="num">142,51</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA666</td>
+        </tr><tr class="overdue">
+            <td>2026-03-27</td>
+            <td>WEEK 13</td>
+            <td>CESI</td>
+            <td class="num">1 727,54</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA762</td>
+        </tr><tr class="overdue">
+            <td>2026-03-27</td>
+            <td>WEEK 13</td>
+            <td>Fortamps</td>
+            <td class="num">3 000,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA758</td>
+        </tr><tr class="overdue">
+            <td>2026-03-29</td>
+            <td>WEEK 13</td>
+            <td>Passion Chocolat</td>
+            <td class="num">1 484,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA797</td>
+        </tr><tr class="overdue">
+            <td>2026-03-29</td>
+            <td>WEEK 13</td>
+            <td>C'est bon, c'est wallon ASBL</td>
+            <td class="num">471,90</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA740</td>
+        </tr><tr class="overdue">
+            <td>2026-03-29</td>
+            <td>WEEK 13</td>
+            <td>Pouch Direct / Reclosable Packaging Bv</td>
+            <td class="num">7 287,83</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA761</td>
+        </tr><tr class="overdue">
+            <td>2026-03-29</td>
+            <td>WEEK 13</td>
+            <td>C'est bon, c'est wallon ASBL</td>
+            <td class="num">39,93</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA739</td>
+        </tr><tr class="overdue">
+            <td>2026-03-29</td>
+            <td>WEEK 13</td>
+            <td>SD Worx People Solutions</td>
+            <td class="num">1 604,74</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA720</td>
+        </tr><tr class="overdue">
+            <td>2026-03-30</td>
+            <td>WEEK 14</td>
+            <td>bpost S.A. de droit public</td>
+            <td class="num">2 961,84</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA701</td>
+        </tr><tr class="overdue">
+            <td>2026-03-30</td>
+            <td>WEEK 14</td>
+            <td>Easyplug S.R.L. /Ez Charge</td>
+            <td class="num">303,90</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA634</td>
+        </tr><tr class="overdue">
+            <td>2026-03-30</td>
+            <td>WEEK 14</td>
+            <td>Belgium Parcels Service</td>
+            <td class="num">1 643,69</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA632</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">2 841,33</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA789</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>ING Belgique SA</td>
+            <td class="num">31,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA787</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">6 046,70</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA562</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">11 057,84</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA564</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>Limepack ApS</td>
+            <td class="num">452,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA764</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">12 319,63</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA791</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">750,41</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA790</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>Cellmade / Prison De Marche</td>
+            <td class="num">279,45</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA783</td>
+        </tr><tr class="overdue">
+            <td>2026-03-31</td>
+            <td>WEEK 14</td>
+            <td>Bpost S.A</td>
+            <td class="num">5 440,32</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>ORKC</td>
+            <td class="num">5 750,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA779</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Studio Treize</td>
+            <td class="num">4 000,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">Packaging Hallowen + Noël</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Pouch direct</td>
+            <td class="num">4 500,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">doypack Hallowen + Noël</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Affiches et communications</td>
+            <td class="num">1 500,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">Affiches et communications</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Décorations magasins</td>
+            <td class="num">1 000,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">Décorations magasins</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Event B2B</td>
+            <td class="num">1 500,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">Event B2B</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Event B2C</td>
+            <td class="num">4 000,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">Event B2C</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Shooting photo</td>
+            <td class="num">2 000,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">Shooting photo</td>
+        </tr><tr class="overdue">
+            <td>2026-04-01</td>
+            <td>WEEK 14</td>
+            <td>Boxmaker / Mount Everest / autres</td>
+            <td class="num">40 000,00</td>
+            <td class="src">Budget Q2 2026 prepaid</td>
+            <td class="muted">Coffrets de Noel partie 1</td>
+        </tr><tr class="overdue">
+            <td>2026-04-02</td>
+            <td>WEEK 14</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">263,18</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA746</td>
+        </tr><tr class="overdue">
+            <td>2026-04-03</td>
+            <td>WEEK 14</td>
+            <td>Van Mossel Westlease</td>
+            <td class="num">834,37</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-04-05</td>
+            <td>WEEK 14</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">3 048,30</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA698</td>
+        </tr><tr class="overdue">
+            <td>2026-04-07</td>
+            <td>WEEK 15</td>
+            <td>alan Colette</td>
+            <td class="num">59,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA766</td>
+        </tr><tr class="overdue">
+            <td>2026-04-08</td>
+            <td>WEEK 15</td>
+            <td>alan Colette</td>
+            <td class="num">7,05</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA804</td>
+        </tr><tr class="overdue">
+            <td>2026-04-08</td>
+            <td>WEEK 15</td>
+            <td>Proximus</td>
+            <td class="num">32,79</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA682</td>
+        </tr><tr class="overdue">
+            <td>2026-04-08</td>
+            <td>WEEK 15</td>
+            <td>Proximus</td>
+            <td class="num">666,95</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA683</td>
+        </tr><tr class="overdue">
+            <td>2026-04-08</td>
+            <td>WEEK 15</td>
+            <td>Vilna Gaon S.R.L</td>
+            <td class="num">723,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA772</td>
+        </tr><tr class="overdue">
+            <td>2026-04-08</td>
+            <td>WEEK 15</td>
+            <td>Jean Noel Tilman</td>
+            <td class="num">2 168,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA771</td>
+        </tr><tr class="overdue">
+            <td>2026-04-09</td>
+            <td>WEEK 15</td>
+            <td>Fanchon Sa</td>
+            <td class="num">3 100,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA807</td>
+        </tr><tr class="overdue">
+            <td>2026-04-09</td>
+            <td>WEEK 15</td>
+            <td>Fanchon Sa</td>
+            <td class="num">500,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA805</td>
+        </tr><tr class="overdue">
+            <td>2026-04-09</td>
+            <td>WEEK 15</td>
+            <td>Bevergam</td>
+            <td class="num">2 300,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA806</td>
+        </tr><tr class="overdue">
+            <td>2026-04-09</td>
+            <td>WEEK 15</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">793,86</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA801</td>
+        </tr><tr class="overdue">
+            <td>2026-04-09</td>
+            <td>WEEK 15</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">0,10</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA809</td>
+        </tr><tr class="overdue">
+            <td>2026-04-09</td>
+            <td>WEEK 15</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">1,11</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA810</td>
+        </tr><tr class="overdue">
+            <td>2026-04-09</td>
+            <td>WEEK 15</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">63,68</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA811</td>
+        </tr><tr class="overdue">
+            <td>2026-04-10</td>
+            <td>WEEK 15</td>
+            <td>SD Worx Secrétariat Social (SD ASBL)</td>
+            <td class="num">0,45</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA813</td>
+        </tr><tr class="overdue">
+            <td>2026-04-10</td>
+            <td>WEEK 15</td>
+            <td>Mister Minit Marche en Famenne</td>
+            <td class="num">52,01</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA665</td>
+        </tr><tr class="overdue">
+            <td>2026-04-11</td>
+            <td>WEEK 15</td>
+            <td>LIZY Belgium</td>
+            <td class="num">723,41</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA773</td>
+        </tr><tr class="overdue">
+            <td>2026-04-11</td>
+            <td>WEEK 15</td>
+            <td>Electrabel</td>
+            <td class="num">100,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA755</td>
+        </tr><tr class="overdue">
+            <td>2026-04-11</td>
+            <td>WEEK 15</td>
+            <td>Tasco S.P.R.L.</td>
+            <td class="num">2 041,42</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-04-12</td>
+            <td>WEEK 15</td>
+            <td>Gaston shop SRL - Maxime HAZEE</td>
+            <td class="num">169,23</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="overdue">
+            <td>2026-04-13</td>
+            <td>WEEK 16</td>
+            <td>Radius Business Solutions (Belgium)</td>
+            <td class="num">444,48</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA814</td>
+        </tr><tr class="">
+            <td>2026-04-15</td>
+            <td>WEEK 16</td>
+            <td>Pluxee Belgium</td>
+            <td class="num">3,88</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA785</td>
+        </tr><tr class="">
+            <td>2026-04-15</td>
+            <td>WEEK 16</td>
+            <td>Buttie</td>
+            <td class="num">7 148,68</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA784</td>
+        </tr><tr class="">
+            <td>2026-04-15</td>
+            <td>WEEK 16</td>
+            <td>Lyreco Belgium</td>
+            <td class="num">285,07</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA765</td>
+        </tr><tr class="">
+            <td>2026-04-15</td>
+            <td>WEEK 16</td>
+            <td>Rajapack Benelux S.A</td>
+            <td class="num">499,19</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-04-16</td>
+            <td>WEEK 16</td>
+            <td>Shopify</td>
+            <td class="num">628,47</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA752</td>
+        </tr><tr class="">
+            <td>2026-04-16</td>
+            <td>WEEK 16</td>
+            <td>Dethlefsen & Balk Gmbh</td>
+            <td class="num">166,15</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA741</td>
+        </tr><tr class="">
+            <td>2026-04-16</td>
+            <td>WEEK 16</td>
+            <td>NOWJOBS NV</td>
+            <td class="num">468,67</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA778</td>
+        </tr><tr class="">
+            <td>2026-04-17</td>
+            <td>WEEK 16</td>
+            <td>Rajapack Benelux S.A</td>
+            <td class="num">772,71</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA745</td>
+        </tr><tr class="">
+            <td>2026-04-19</td>
+            <td>WEEK 16</td>
+            <td>Mount Everest Tea Company Gmbh</td>
+            <td class="num">376,09</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA718</td>
+        </tr><tr class="">
+            <td>2026-04-19</td>
+            <td>WEEK 16</td>
+            <td>Mount Everest Tea Company Gmbh</td>
+            <td class="num">1 080,15</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA721</td>
+        </tr><tr class="">
+            <td>2026-04-20</td>
+            <td>WEEK 17</td>
+            <td>ING Equipment Lease Belgium</td>
+            <td class="num">2 299,22</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA774</td>
+        </tr><tr class="">
+            <td>2026-04-20</td>
+            <td>WEEK 17</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">1 198,65</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA743</td>
+        </tr><tr class="">
+            <td>2026-04-20</td>
+            <td>WEEK 17</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">1 108,10</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA723</td>
+        </tr><tr class="">
+            <td>2026-04-20</td>
+            <td>WEEK 17</td>
+            <td>Nira Solutions</td>
+            <td class="num">11 493,79</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA775</td>
+        </tr><tr class="">
+            <td>2026-04-21</td>
+            <td>WEEK 17</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">312,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA737</td>
+        </tr><tr class="">
+            <td>2026-04-22</td>
+            <td>WEEK 17</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">536,60</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA735</td>
+        </tr><tr class="">
+            <td>2026-04-22</td>
+            <td>WEEK 17</td>
+            <td>Fortamps</td>
+            <td class="num">3 000,00</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-04-23</td>
+            <td>WEEK 17</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">6 105,30</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA734</td>
+        </tr><tr class="">
+            <td>2026-04-23</td>
+            <td>WEEK 17</td>
+            <td>Electrabel</td>
+            <td class="num">147,81</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA769</td>
+        </tr><tr class="">
+            <td>2026-04-23</td>
+            <td>WEEK 17</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">11 969,66</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA506</td>
+        </tr><tr class="">
+            <td>2026-04-24</td>
+            <td>WEEK 17</td>
+            <td>Pluxee Belgium</td>
+            <td class="num">1 696,27</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA808</td>
+        </tr><tr class="">
+            <td>2026-04-26</td>
+            <td>WEEK 17</td>
+            <td>SD Worx People Solutions</td>
+            <td class="num">51,43</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA799</td>
+        </tr><tr class="">
+            <td>2026-04-26</td>
+            <td>WEEK 17</td>
+            <td>SD Worx People Solutions</td>
+            <td class="num">756,25</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA798</td>
+        </tr><tr class="">
+            <td>2026-04-28</td>
+            <td>WEEK 18</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">1 184,85</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA733</td>
+        </tr><tr class="">
+            <td>2026-04-29</td>
+            <td>WEEK 18</td>
+            <td>Electrabel</td>
+            <td class="num">230,48</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA815</td>
+        </tr><tr class="">
+            <td>2026-04-29</td>
+            <td>WEEK 18</td>
+            <td>La Lumière</td>
+            <td class="num">1 694,85</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA793</td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>Newpharma</td>
+            <td class="num">597,74</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA782</td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>Fiduciaire Jean-François Denis</td>
+            <td class="num">508,20</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA788</td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>Easyplug S.R.L. /Ez Charge</td>
+            <td class="num">311,43</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA781</td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>bpost S.A. de droit public</td>
+            <td class="num">3 149,17</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA780</td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>Belgium Parcels Service</td>
+            <td class="num">2 219,79</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA786</td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>ORKC</td>
+            <td class="num">5 750,00</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>Belgium Parcels Service</td>
+            <td class="num">1 912,62</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>Cellmade / Prison De Marche</td>
+            <td class="num">907,38</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>Easyplug S.R.L. /Ez Charge</td>
+            <td class="num">284,01</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-04-30</td>
+            <td>WEEK 18</td>
+            <td>bpost S.A. de droit public</td>
+            <td class="num">3 417,64</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-02</td>
+            <td>WEEK 18</td>
+            <td>Boxmaker B.V.B.A.</td>
+            <td class="num">2 222,53</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA776</td>
+        </tr><tr class="">
+            <td>2026-05-03</td>
+            <td>WEEK 18</td>
+            <td>Boxmaker B.V.B.A.</td>
+            <td class="num">2 372,34</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-03</td>
+            <td>WEEK 18</td>
+            <td>Van Mossel Westlease</td>
+            <td class="num">834,37</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-04</td>
+            <td>WEEK 19</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">518,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA732</td>
+        </tr><tr class="">
+            <td>2026-05-06</td>
+            <td>WEEK 19</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">12 938,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA724</td>
+        </tr><tr class="">
+            <td>2026-05-10</td>
+            <td>WEEK 19</td>
+            <td>Shyfter SA</td>
+            <td class="num">47,19</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA812</td>
+        </tr><tr class="">
+            <td>2026-05-11</td>
+            <td>WEEK 20</td>
+            <td>Tasco S.P.R.L.</td>
+            <td class="num">2 041,42</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-12</td>
+            <td>WEEK 20</td>
+            <td>Gaston shop SRL - Maxime HAZEE</td>
+            <td class="num">169,23</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-13</td>
+            <td>WEEK 20</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">169,55</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA731</td>
+        </tr><tr class="">
+            <td>2026-05-15</td>
+            <td>WEEK 20</td>
+            <td>Rajapack Benelux S.A</td>
+            <td class="num">499,19</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-19</td>
+            <td>WEEK 21</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">373,24</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA736</td>
+        </tr><tr class="">
+            <td>2026-05-22</td>
+            <td>WEEK 21</td>
+            <td>Fortamps</td>
+            <td class="num">3 000,00</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-24</td>
+            <td>WEEK 21</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">6 821,21</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA730</td>
+        </tr><tr class="">
+            <td>2026-05-25</td>
+            <td>WEEK 22</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">2 025,90</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA729</td>
+        </tr><tr class="">
+            <td>2026-05-27</td>
+            <td>WEEK 22</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">801,52</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA712</td>
+        </tr><tr class="">
+            <td>2026-05-30</td>
+            <td>WEEK 22</td>
+            <td>ORKC</td>
+            <td class="num">5 750,00</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-30</td>
+            <td>WEEK 22</td>
+            <td>Belgium Parcels Service</td>
+            <td class="num">1 912,62</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-30</td>
+            <td>WEEK 22</td>
+            <td>Cellmade / Prison De Marche</td>
+            <td class="num">907,38</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-30</td>
+            <td>WEEK 22</td>
+            <td>Easyplug S.R.L. /Ez Charge</td>
+            <td class="num">284,01</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-05-30</td>
+            <td>WEEK 22</td>
+            <td>bpost S.A. de droit public</td>
+            <td class="num">3 417,64</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-02</td>
+            <td>WEEK 23</td>
+            <td>Boxmaker B.V.B.A.</td>
+            <td class="num">2 372,34</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-09</td>
+            <td>WEEK 24</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">7 154,84</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA727</td>
+        </tr><tr class="">
+            <td>2026-06-09</td>
+            <td>WEEK 24</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">4 639,50</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA726</td>
+        </tr><tr class="">
+            <td>2026-06-09</td>
+            <td>WEEK 24</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">1 550,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA725</td>
+        </tr><tr class="">
+            <td>2026-06-10</td>
+            <td>WEEK 24</td>
+            <td>Tasco S.P.R.L.</td>
+            <td class="num">2 041,42</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-14</td>
+            <td>WEEK 24</td>
+            <td>Rajapack Benelux S.A</td>
+            <td class="num">499,19</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-15</td>
+            <td>WEEK 25</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">2 143,60</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA747</td>
+        </tr><tr class="">
+            <td>2026-06-15</td>
+            <td>WEEK 25</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">401,64</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA748</td>
+        </tr><tr class="">
+            <td>2026-06-21</td>
+            <td>WEEK 25</td>
+            <td>Fortamps</td>
+            <td class="num">3 000,00</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-24</td>
+            <td>WEEK 26</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">1 742,75</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA800</td>
+        </tr><tr class="">
+            <td>2026-06-28</td>
+            <td>WEEK 26</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">16 508,07</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA796</td>
+        </tr><tr class="">
+            <td>2026-06-28</td>
+            <td>WEEK 26</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">184,00</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA795</td>
+        </tr><tr class="">
+            <td>2026-06-28</td>
+            <td>WEEK 26</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">129,55</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA794</td>
+        </tr><tr class="">
+            <td>2026-06-29</td>
+            <td>WEEK 27</td>
+            <td>Kirchner, Fischer & Co GmbH</td>
+            <td class="num">11 735,45</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA792</td>
+        </tr><tr class="">
+            <td>2026-06-29</td>
+            <td>WEEK 27</td>
+            <td>ORKC</td>
+            <td class="num">5 750,00</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-29</td>
+            <td>WEEK 27</td>
+            <td>Belgium Parcels Service</td>
+            <td class="num">1 912,62</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-29</td>
+            <td>WEEK 27</td>
+            <td>Cellmade / Prison De Marche</td>
+            <td class="num">907,38</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-29</td>
+            <td>WEEK 27</td>
+            <td>Easyplug S.R.L. /Ez Charge</td>
+            <td class="num">284,01</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-06-29</td>
+            <td>WEEK 27</td>
+            <td>bpost S.A. de droit public</td>
+            <td class="num">3 417,64</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-07-01</td>
+            <td>WEEK 27</td>
+            <td>Studio Treize</td>
+            <td class="num">2 000,00</td>
+            <td class="src">Budget Q3 2026 prepaid</td>
+            <td class="muted">Packaging Hallowen + Noël</td>
+        </tr><tr class="">
+            <td>2026-07-01</td>
+            <td>WEEK 27</td>
+            <td>Affiches et communications</td>
+            <td class="num">1 500,00</td>
+            <td class="src">Budget Q3 2026 prepaid</td>
+            <td class="muted">Affiches et communications</td>
+        </tr><tr class="">
+            <td>2026-07-01</td>
+            <td>WEEK 27</td>
+            <td>Décorations magasins</td>
+            <td class="num">1 000,00</td>
+            <td class="src">Budget Q3 2026 prepaid</td>
+            <td class="muted">Décorations magasins</td>
+        </tr><tr class="">
+            <td>2026-07-01</td>
+            <td>WEEK 27</td>
+            <td>Event B2B</td>
+            <td class="num">1 500,00</td>
+            <td class="src">Budget Q3 2026 prepaid</td>
+            <td class="muted">Event B2B</td>
+        </tr><tr class="">
+            <td>2026-07-01</td>
+            <td>WEEK 27</td>
+            <td>Event B2C</td>
+            <td class="num">4 000,00</td>
+            <td class="src">Budget Q3 2026 prepaid</td>
+            <td class="muted">Event B2C</td>
+        </tr><tr class="">
+            <td>2026-07-01</td>
+            <td>WEEK 27</td>
+            <td>Shooting photo</td>
+            <td class="num">2 000,00</td>
+            <td class="src">Budget Q3 2026 prepaid</td>
+            <td class="muted">Shooting photo</td>
+        </tr><tr class="">
+            <td>2026-07-01</td>
+            <td>WEEK 27</td>
+            <td>Boxmaker / Mount Everest / autres</td>
+            <td class="num">40 000,00</td>
+            <td class="src">Budget Q3 2026 prepaid</td>
+            <td class="muted">Coffrets de Noel partie 2</td>
+        </tr><tr class="">
+            <td>2026-07-02</td>
+            <td>WEEK 27</td>
+            <td>Boxmaker B.V.B.A.</td>
+            <td class="num">2 372,34</td>
+            <td class="src">Odoo — récurrent mensuel projeté</td>
+            <td class="muted"></td>
+        </tr><tr class="">
+            <td>2026-11-30</td>
+            <td>WEEK 49</td>
+            <td>GOOGLE CLOUD EMEA LIMITED</td>
+            <td class="num">367,92</td>
+            <td class="src">Odoo — facture posted</td>
+            <td class="muted">RESA372</td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-overdue">
+  <div class="section">
+    <h2>Factures en retard (à lettrer en priorité)</h2>
+    <p class="sub">Ces factures sont probablement déjà payées (carte/SEPA) mais non rapprochées dans Odoo. L'agent Compta peut les lettrer.</p>
+    <table>
+      <thead><tr>
+        <th>Date éch.</th><th>Bénéficiaire</th>
+        <th style="text-align:right">Montant</th><th>Réf</th>
+      </tr></thead>
+      <tbody>
+        <tr class="overdue"><td>2026-04-01</td><td>Boxmaker / Mount Everest / autres</td><td class="num">40 000,00</td><td class="muted">Coffrets de Noel partie 1</td></tr><tr class="overdue"><td>2025-06-30</td><td>Tea Touch</td><td class="num">30 000,00</td><td class="muted">BILL/24-25/06/0020</td></tr><tr class="overdue"><td>2025-12-09</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">19 399,77</td><td class="muted">RESA458</td></tr><tr class="overdue"><td>2026-01-03</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">17 112,72</td><td class="muted">RESA467</td></tr><tr class="overdue"><td>2026-03-31</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">12 319,63</td><td class="muted">RESA791</td></tr><tr class="overdue"><td>2026-02-03</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">11 469,40</td><td class="muted">RESA522</td></tr><tr class="overdue"><td>2026-03-31</td><td>Kirchner, Fischer & Co GmbH</td><td class="num">11 057,84</td><td class="muted">RESA564</td></tr><tr class="overdue"><td>2025-12-02</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">10 857,65</td><td class="muted">RESA362</td></tr><tr class="overdue"><td>2026-03-04</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">10 794,47</td><td class="muted">RESA713</td></tr><tr class="overdue"><td>2025-11-04</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">10 794,13</td><td class="muted">RESA256</td></tr><tr class="overdue"><td>2026-03-21</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">9 516,39</td><td class="muted">RESA802</td></tr><tr class="overdue"><td>2026-03-29</td><td>Pouch Direct / Reclosable Packaging Bv</td><td class="num">7 287,83</td><td class="muted">RESA761</td></tr><tr class="overdue"><td>2026-03-31</td><td>Kirchner, Fischer & Co GmbH</td><td class="num">6 046,70</td><td class="muted">RESA562</td></tr><tr class="overdue"><td>2026-04-01</td><td>ORKC</td><td class="num">5 750,00</td><td class="muted">RESA779</td></tr><tr class="overdue"><td>2026-01-30</td><td>Bpost S.A</td><td class="num">5 440,32</td><td class="muted"></td></tr><tr class="overdue"><td>2026-03-01</td><td>Bpost S.A</td><td class="num">5 440,32</td><td class="muted"></td></tr><tr class="overdue"><td>2026-03-31</td><td>Bpost S.A</td><td class="num">5 440,32</td><td class="muted"></td></tr><tr class="overdue"><td>2025-12-22</td><td>Fanchon Sa</td><td class="num">5 319,92</td><td class="muted">RESA418</td></tr><tr class="overdue"><td>2026-02-11</td><td>Nasa Corporation</td><td class="num">4 921,00</td><td class="muted">RESA581</td></tr><tr class="overdue"><td>2026-04-01</td><td>Pouch direct</td><td class="num">4 500,00</td><td class="muted">doypack Hallowen + Noël</td></tr><tr class="overdue"><td>2026-01-07</td><td>Mount Everest Tea Company Gmbh</td><td class="num">4 360,69</td><td class="muted">RESA462</td></tr><tr class="overdue"><td>2025-11-30</td><td>Boxmaker B.V.B.A.</td><td class="num">4 314,18</td><td class="muted">RESA291</td></tr><tr class="overdue"><td>2026-04-01</td><td>Studio Treize</td><td class="num">4 000,00</td><td class="muted">Packaging Hallowen + Noël</td></tr><tr class="overdue"><td>2026-04-01</td><td>Event B2C</td><td class="num">4 000,00</td><td class="muted">Event B2C</td></tr><tr class="overdue"><td>2026-01-17</td><td>Newpharma</td><td class="num">3 483,59</td><td class="muted">RESA415</td></tr><tr class="overdue"><td>2025-11-26</td><td>Tasco S.P.R.L.</td><td class="num">3 481,78</td><td class="muted">RESA258</td></tr><tr class="overdue"><td>2025-11-28</td><td>Dethlefsen & Balk Gmbh</td><td class="num">3 144,95</td><td class="muted">RESA306</td></tr><tr class="overdue"><td>2026-02-03</td><td>Fanchon Sa</td><td class="num">3 100,00</td><td class="muted">RESA543</td></tr><tr class="overdue"><td>2026-03-04</td><td>Fanchon Sa</td><td class="num">3 100,00</td><td class="muted">RESA621</td></tr><tr class="overdue"><td>2026-04-09</td><td>Fanchon Sa</td><td class="num">3 100,00</td><td class="muted">RESA807</td></tr><tr class="overdue"><td>2026-04-05</td><td>Dethlefsen & Balk Gmbh</td><td class="num">3 048,30</td><td class="muted">RESA698</td></tr><tr class="overdue"><td>2026-02-03</td><td>Fortamps</td><td class="num">3 000,00</td><td class="muted">RESA545</td></tr><tr class="overdue"><td>2026-03-04</td><td>Fortamps</td><td class="num">3 000,00</td><td class="muted">RESA623</td></tr><tr class="overdue"><td>2026-03-27</td><td>Fortamps</td><td class="num">3 000,00</td><td class="muted">RESA758</td></tr><tr class="overdue"><td>2026-03-30</td><td>bpost S.A. de droit public</td><td class="num">2 961,84</td><td class="muted">RESA701</td></tr><tr class="overdue"><td>2026-03-31</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">2 841,33</td><td class="muted">RESA789</td></tr><tr class="overdue"><td>2025-11-05</td><td>Dethlefsen & Balk Gmbh</td><td class="num">2 715,70</td><td class="muted">RESA253</td></tr><tr class="overdue"><td>2026-03-01</td><td>Easyfairs Belgium</td><td class="num">2 598,74</td><td class="muted">RESA366</td></tr><tr class="overdue"><td>2026-01-20</td><td>Bevergam</td><td class="num">2 300,00</td><td class="muted">RESA497</td></tr><tr class="overdue"><td>2026-02-03</td><td>Bevergam</td><td class="num">2 300,00</td><td class="muted">RESA544</td></tr><tr class="overdue"><td>2026-03-04</td><td>Bevergam</td><td class="num">2 300,00</td><td class="muted">RESA620</td></tr><tr class="overdue"><td>2026-04-09</td><td>Bevergam</td><td class="num">2 300,00</td><td class="muted">RESA806</td></tr><tr class="overdue"><td>2025-12-12</td><td>ING Equipment Lease Belgium</td><td class="num">2 299,22</td><td class="muted">RESA397</td></tr><tr class="overdue"><td>2025-12-12</td><td>ING Equipment Lease Belgium</td><td class="num">2 299,22</td><td class="muted">RESA396</td></tr><tr class="overdue"><td>2025-12-12</td><td>ING Equipment Lease Belgium</td><td class="num">2 299,22</td><td class="muted">RESA398</td></tr><tr class="overdue"><td>2025-12-24</td><td>ING Equipment Lease Belgium</td><td class="num">2 299,22</td><td class="muted">RESA457</td></tr><tr class="overdue"><td>2025-06-10</td><td>Retif Belgium S.A</td><td class="num">2 262,47</td><td class="muted">BILL/24-25/05/0082</td></tr><tr class="overdue"><td>2025-11-19</td><td>Bevergam</td><td class="num">2 238,46</td><td class="muted">RESA266</td></tr><tr class="overdue"><td>2026-01-11</td><td>Boxmaker B.V.B.A.</td><td class="num">2 222,53</td><td class="muted">RESA428</td></tr><tr class="overdue"><td>2026-04-08</td><td>Jean Noel Tilman</td><td class="num">2 168,00</td><td class="muted">RESA771</td></tr><tr class="overdue"><td>2026-01-20</td><td>Fanchon Sa</td><td class="num">2 100,00</td><td class="muted">RESA498</td></tr><tr class="overdue"><td>2026-01-08</td><td>Belgium Parcels Service</td><td class="num">2 082,10</td><td class="muted">RESA409</td></tr><tr class="overdue"><td>2026-04-11</td><td>Tasco S.P.R.L.</td><td class="num">2 041,42</td><td class="muted"></td></tr><tr class="overdue"><td>2026-04-01</td><td>Shooting photo</td><td class="num">2 000,00</td><td class="muted">Shooting photo</td></tr><tr class="overdue"><td>2025-11-14</td><td>SRL AD PESAGE</td><td class="num">1 960,90</td><td class="muted">RESA559</td></tr><tr class="overdue"><td>2025-11-28</td><td>Sinas Gmbh & Co</td><td class="num">1 904,42</td><td class="muted">RESA290</td></tr><tr class="overdue"><td>2025-12-02</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">1 777,55</td><td class="muted">RESA361</td></tr><tr class="overdue"><td>2026-03-27</td><td>CESI</td><td class="num">1 727,54</td><td class="muted">RESA762</td></tr><tr class="overdue"><td>2025-11-23</td><td>Pluxee Belgium</td><td class="num">1 688,16</td><td class="muted">RESA246</td></tr><tr class="overdue"><td>2025-11-28</td><td>Van Mossel Westlease</td><td class="num">1 655,28</td><td class="muted">RESA268</td></tr><tr class="overdue"><td>2026-03-30</td><td>Belgium Parcels Service</td><td class="num">1 643,69</td><td class="muted">RESA632</td></tr><tr class="overdue"><td>2025-11-21</td><td>Gastroback Gmbh</td><td class="num">1 618,80</td><td class="muted">RESA282</td></tr><tr class="overdue"><td>2026-03-29</td><td>SD Worx People Solutions</td><td class="num">1 604,74</td><td class="muted">RESA720</td></tr><tr class="overdue"><td>2025-12-31</td><td>Pluxee Belgium</td><td class="num">1 564,35</td><td class="muted">RESA407</td></tr><tr class="overdue"><td>2026-04-01</td><td>Affiches et communications</td><td class="num">1 500,00</td><td class="muted">Affiches et communications</td></tr><tr class="overdue"><td>2026-04-01</td><td>Event B2B</td><td class="num">1 500,00</td><td class="muted">Event B2B</td></tr><tr class="overdue"><td>2026-03-29</td><td>Passion Chocolat</td><td class="num">1 484,00</td><td class="muted">RESA797</td></tr><tr class="overdue"><td>2026-02-02</td><td>Zaprinta - Eventus SPRL</td><td class="num">1 412,68</td><td class="muted">RESA524</td></tr><tr class="overdue"><td>2025-11-04</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">1 408,28</td><td class="muted">RESA257</td></tr><tr class="overdue"><td>2026-01-01</td><td>Baloise Belgium S.A</td><td class="num">1 339,85</td><td class="muted">RESA439</td></tr><tr class="overdue"><td>2025-11-17</td><td>Auto 5</td><td class="num">1 332,20</td><td class="muted">RESA261</td></tr><tr class="overdue"><td>2025-10-30</td><td>NOWJOBS NV</td><td class="num">1 281,75</td><td class="muted">RESA209</td></tr><tr class="overdue"><td>2025-12-06</td><td>Dethlefsen & Balk Gmbh</td><td class="num">1 225,81</td><td class="muted">RESA240</td></tr><tr class="overdue"><td>2026-01-30</td><td>Belgium Parcels Service</td><td class="num">1 206,61</td><td class="muted">RESA455</td></tr><tr class="overdue"><td>2025-12-09</td><td>Vilna Gaon S.R.L</td><td class="num">1 149,50</td><td class="muted">RESA380</td></tr><tr class="overdue"><td>2025-12-20</td><td>Dethlefsen & Balk Gmbh</td><td class="num">1 139,45</td><td class="muted">RESA343</td></tr><tr class="overdue"><td>2026-03-25</td><td>Nasa Deutschland Gmbh</td><td class="num">1 048,25</td><td class="muted">RESA756</td></tr><tr class="overdue"><td>2025-02-22</td><td>RESA S.A.</td><td class="num">1 043,44</td><td class="muted">BILL/24-25/05/0086</td></tr><tr class="overdue"><td>2025-11-30</td><td>Boxmaker B.V.B.A.</td><td class="num">1 029,73</td><td class="muted">RESA288</td></tr><tr class="overdue"><td>2026-04-01</td><td>Décorations magasins</td><td class="num">1 000,00</td><td class="muted">Décorations magasins</td></tr><tr class="overdue"><td>2025-11-17</td><td>Shopify</td><td class="num">999,62</td><td class="muted">RESA281</td></tr><tr class="overdue"><td>2025-11-14</td><td>Palmabel</td><td class="num">998,69</td><td class="muted">RESA269</td></tr><tr class="overdue"><td>2026-03-21</td><td>Tasco S.P.R.L.</td><td class="num">877,72</td><td class="muted">RESA685</td></tr><tr class="overdue"><td>2025-12-08</td><td>La Source Locations</td><td class="num">859,10</td><td class="muted">RESA375</td></tr><tr class="overdue"><td>2026-01-17</td><td>Van Mossel Westlease</td><td class="num">837,73</td><td class="muted">RESA463</td></tr><tr class="overdue"><td>2026-03-04</td><td>Van Mossel Westlease</td><td class="num">834,37</td><td class="muted"></td></tr><tr class="overdue"><td>2026-04-03</td><td>Van Mossel Westlease</td><td class="num">834,37</td><td class="muted"></td></tr><tr class="overdue"><td>2025-12-16</td><td>Van Mossel Westlease</td><td class="num">827,64</td><td class="muted">RESA399</td></tr><tr class="overdue"><td>2025-11-07</td><td>Dethlefsen & Balk Gmbh</td><td class="num">801,94</td><td class="muted">RESA251</td></tr><tr class="overdue"><td>2026-01-03</td><td>Dethlefsen & Balk Gmbh</td><td class="num">799,45</td><td class="muted">RESA390</td></tr><tr class="overdue"><td>2026-04-09</td><td>NOWJOBS NV</td><td class="num">793,86</td><td class="muted">RESA801</td></tr><tr class="overdue"><td>2026-01-16</td><td>Shopify</td><td class="num">777,43</td><td class="muted">RESA539</td></tr><tr class="overdue"><td>2026-01-16</td><td>Shopify</td><td class="num">777,43</td><td class="muted">RESA412</td></tr><tr class="overdue"><td>2025-12-28</td><td>SD Worx People Solutions</td><td class="num">756,25</td><td class="muted">RESA359</td></tr><tr class="overdue"><td>2026-01-15</td><td>Dethlefsen & Balk Gmbh</td><td class="num">755,02</td><td class="muted">RESA408</td></tr><tr class="overdue"><td>2026-03-31</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">750,41</td><td class="muted">RESA790</td></tr><tr class="overdue"><td>2026-04-11</td><td>LIZY Belgium</td><td class="num">723,41</td><td class="muted">RESA773</td></tr><tr class="overdue"><td>2026-04-08</td><td>Vilna Gaon S.R.L</td><td class="num">723,00</td><td class="muted">RESA772</td></tr><tr class="overdue"><td>2025-10-08</td><td>Mailchimp</td><td class="num">690,21</td><td class="muted">RESA321</td></tr><tr class="overdue"><td>2025-12-17</td><td>Shopify</td><td class="num">686,04</td><td class="muted">RESA262</td></tr><tr class="overdue"><td>2026-01-09</td><td>Sinas Gmbh & Co</td><td class="num">674,91</td><td class="muted">RESA387</td></tr><tr class="overdue"><td>2026-04-08</td><td>Proximus</td><td class="num">666,95</td><td class="muted">RESA683</td></tr><tr class="overdue"><td>2025-01-15</td><td>Serrurerie Roba</td><td class="num">647,97</td><td class="muted">BILL/24-25/04/0114</td></tr><tr class="overdue"><td>2025-12-04</td><td>Pihard Guillaume</td><td class="num">630,00</td><td class="muted">RESA239</td></tr><tr class="overdue"><td>2026-02-15</td><td>Shopify</td><td class="num">607,11</td><td class="muted">RESA534</td></tr><tr class="overdue"><td>2026-01-08</td><td>Proximus</td><td class="num">606,68</td><td class="muted">RESA400</td></tr><tr class="overdue"><td>2026-02-12</td><td>Worldline</td><td class="num">602,17</td><td class="muted">RESA689</td></tr><tr class="overdue"><td>2025-10-10</td><td>Atos Worldline N.V</td><td class="num">588,97</td><td class="muted">RESA142</td></tr><tr class="overdue"><td>2025-03-08</td><td>Mailchimp</td><td class="num">587,35</td><td class="muted">RESA329</td></tr><tr class="overdue"><td>2026-03-13</td><td>Worldline</td><td class="num">578,89</td><td class="muted">RESA680</td></tr><tr class="overdue"><td>2025-04-08</td><td>Mailchimp</td><td class="num">577,10</td><td class="muted">RESA328</td></tr><tr class="overdue"><td>2025-05-08</td><td>Mailchimp</td><td class="num">560,77</td><td class="muted">RESA327</td></tr><tr class="overdue"><td>2025-06-08</td><td>Mailchimp</td><td class="num">555,70</td><td class="muted">RESA326</td></tr><tr class="overdue"><td>2025-12-15</td><td>Radius Business Solutions (Belgium)</td><td class="num">547,62</td><td class="muted">RESA392</td></tr><tr class="overdue"><td>2025-08-15</td><td>Gestanet</td><td class="num">534,68</td><td class="muted">RESA232</td></tr><tr class="overdue"><td>2025-06-30</td><td>Maxime Stas de Richelle, Dominique Roulez & Sophie Jemelka</td><td class="num">531,42</td><td class="muted">RESA117</td></tr><tr class="overdue"><td>2025-05-12</td><td>RESA S.A.</td><td class="num">521,72</td><td class="muted">BILL/24-25/04/0110</td></tr><tr class="overdue"><td>2025-08-11</td><td>RESA S.A.</td><td class="num">521,72</td><td class="muted">RESA84</td></tr><tr class="overdue"><td>2025-12-13</td><td>RESA S.A.</td><td class="num">521,72</td><td class="muted">RESA566</td></tr><tr class="overdue"><td>2025-07-01</td><td>NOWJOBS NV</td><td class="num">520,20</td><td class="muted">BILL/25-26/07/0006</td></tr><tr class="overdue"><td>2025-08-01</td><td>NOWJOBS NV</td><td class="num">520,20</td><td class="muted">RESA130</td></tr><tr class="overdue"><td>2025-11-17</td><td>Radius Business Solutions (Belgium)</td><td class="num">519,70</td><td class="muted">RESA560</td></tr><tr class="overdue"><td>2026-02-11</td><td>Fanchon Sa</td><td class="num">500,00</td><td class="muted">RESA582</td></tr><tr class="overdue"><td>2026-02-11</td><td>Fanchon Sa</td><td class="num">500,00</td><td class="muted">RESA583</td></tr><tr class="overdue"><td>2026-03-04</td><td>Fanchon Sa</td><td class="num">500,00</td><td class="muted">RESA622</td></tr><tr class="overdue"><td>2026-04-09</td><td>Fanchon Sa</td><td class="num">500,00</td><td class="muted">RESA805</td></tr><tr class="overdue"><td>2025-10-22</td><td>Lyreco Belgium</td><td class="num">496,38</td><td class="muted">RESA206</td></tr><tr class="overdue"><td>2025-10-15</td><td>Gastroback Gmbh</td><td class="num">482,04</td><td class="muted">RESA222</td></tr><tr class="overdue"><td>2026-03-29</td><td>C'est bon, c'est wallon ASBL</td><td class="num">471,90</td><td class="muted">RESA740</td></tr><tr class="overdue"><td>2026-01-14</td><td>Electrabel</td><td class="num">455,63</td><td class="muted">RESA423</td></tr><tr class="overdue"><td>2026-01-16</td><td>Limepack ApS</td><td class="num">452,00</td><td class="muted">RESA486</td></tr><tr class="overdue"><td>2026-03-31</td><td>Limepack ApS</td><td class="num">452,00</td><td class="muted">RESA764</td></tr><tr class="overdue"><td>2025-11-10</td><td>Radius Business Solutions (Belgium)</td><td class="num">444,92</td><td class="muted">RESA245</td></tr><tr class="overdue"><td>2026-04-13</td><td>Radius Business Solutions (Belgium)</td><td class="num">444,48</td><td class="muted">RESA814</td></tr><tr class="overdue"><td>2025-08-25</td><td>Baloise Belgium S.A</td><td class="num">443,60</td><td class="muted">RESA159</td></tr><tr class="overdue"><td>2025-02-08</td><td>Mailchimp</td><td class="num">438,92</td><td class="muted">RESA332</td></tr><tr class="overdue"><td>2025-01-08</td><td>Mailchimp</td><td class="num">437,47</td><td class="muted">RESA333</td></tr><tr class="overdue"><td>2025-12-08</td><td>Odoo</td><td class="num">437,43</td><td class="muted">RESA259</td></tr><tr class="overdue"><td>2025-11-07</td><td>Quartier Latin</td><td class="num">404,00</td><td class="muted">RESA358</td></tr><tr class="overdue"><td>2025-09-08</td><td>Mailchimp</td><td class="num">400,28</td><td class="muted">RESA323</td></tr><tr class="overdue"><td>2025-05-23</td><td>Amazon DE</td><td class="num">390,00</td><td class="muted">BILL/24-25/04/0117</td></tr><tr class="overdue"><td>2025-12-31</td><td>GOOGLE CLOUD EMEA LIMITED</td><td class="num">367,92</td><td class="muted">RESA535</td></tr><tr class="overdue"><td>2025-10-13</td><td>Lyreco Belgium</td><td class="num">356,54</td><td class="muted">RESA218</td></tr><tr class="overdue"><td>2025-10-31</td><td>GOOGLE CLOUD EMEA LIMITED</td><td class="num">338,11</td><td class="muted">RESA241</td></tr><tr class="overdue"><td>2025-05-23</td><td>Cdm de Poyoux Sarts</td><td class="num">330,45</td><td class="muted">BILL/24-25/05/0033</td></tr><tr class="overdue"><td>2025-11-24</td><td>Radius Business Solutions (Belgium)</td><td class="num">328,92</td><td class="muted">RESA284</td></tr><tr class="overdue"><td>2026-03-30</td><td>Easyplug S.R.L. /Ez Charge</td><td class="num">303,90</td><td class="muted">RESA634</td></tr><tr class="overdue"><td>2025-11-03</td><td>Radius Business Solutions (Belgium)</td><td class="num">301,01</td><td class="muted">RESA278</td></tr><tr class="overdue"><td>2025-08-26</td><td>Pixart Printing S.A</td><td class="num">300,04</td><td class="muted">RESA272</td></tr><tr class="overdue"><td>2025-10-06</td><td>B2CK</td><td class="num">290,40</td><td class="muted">RESA187</td></tr><tr class="overdue"><td>2026-03-03</td><td>Easyplug S.R.L. /Ez Charge</td><td class="num">281,85</td><td class="muted">RESA573</td></tr><tr class="overdue"><td>2026-03-31</td><td>Cellmade / Prison De Marche</td><td class="num">279,45</td><td class="muted">RESA783</td></tr><tr class="overdue"><td>2026-04-02</td><td>NOWJOBS NV</td><td class="num">263,18</td><td class="muted">RESA746</td></tr><tr class="overdue"><td>2025-06-19</td><td>NOWJOBS NV</td><td class="num">260,10</td><td class="muted">RESA21</td></tr><tr class="overdue"><td>2025-06-12</td><td>NOWJOBS NV</td><td class="num">249,53</td><td class="muted">RESA156</td></tr><tr class="overdue"><td>2025-10-27</td><td>Radius Business Solutions (Belgium)</td><td class="num">238,77</td><td class="muted">RESA276</td></tr><tr class="overdue"><td>2026-03-11</td><td>Proximus</td><td class="num">211,13</td><td class="muted">RESA694</td></tr><tr class="overdue"><td>2025-11-01</td><td>Electrabel</td><td class="num">191,50</td><td class="muted">RESA223</td></tr><tr class="overdue"><td>2026-02-08</td><td>Proximus</td><td class="num">188,97</td><td class="muted">RESA493</td></tr><tr class="overdue"><td>2025-10-03</td><td>Electrabel</td><td class="num">181,50</td><td class="muted">RESA190</td></tr><tr class="overdue"><td>2026-03-20</td><td>Anthropic, PBC</td><td class="num">180,00</td><td class="muted">RESA753</td></tr><tr class="overdue"><td>2026-01-15</td><td>Sendcloud B.V.</td><td class="num">175,10</td><td class="muted">RESA538</td></tr><tr class="overdue"><td>2026-01-07</td><td>Dethlefsen & Balk Gmbh</td><td class="num">171,00</td><td class="muted">RESA388</td></tr><tr class="overdue"><td>2026-03-13</td><td>Gaston shop SRL - Maxime HAZEE</td><td class="num">169,23</td><td class="muted"></td></tr><tr class="overdue"><td>2026-04-12</td><td>Gaston shop SRL - Maxime HAZEE</td><td class="num">169,23</td><td class="muted"></td></tr><tr class="overdue"><td>2026-03-13</td><td>STASSE NETTOYAGE SRL</td><td class="num">160,00</td><td class="muted">RESA681</td></tr><tr class="overdue"><td>2026-01-15</td><td>APAQ-W</td><td class="num">152,00</td><td class="muted">RESA446</td></tr><tr class="overdue"><td>2025-05-31</td><td>Mollie B.V.</td><td class="num">151,64</td><td class="muted">BILL/24-25/05/0051</td></tr><tr class="overdue"><td>2026-01-08</td><td>Proximus</td><td class="num">150,01</td><td class="muted">RESA401</td></tr><tr class="overdue"><td>2026-03-25</td><td>IN BW S.C.R.L.</td><td class="num">149,57</td><td class="muted">RESA667</td></tr><tr class="overdue"><td>2025-09-30</td><td>Mailchimp</td><td class="num">146,07</td><td class="muted">RESA322</td></tr><tr class="overdue"><td>2025-08-07</td><td>Odoo</td><td class="num">145,20</td><td class="muted">RESA17</td></tr><tr class="overdue"><td>2025-10-20</td><td>Radius Business Solutions (Belgium)</td><td class="num">144,66</td><td class="muted">RESA556</td></tr><tr class="overdue"><td>2026-03-25</td><td>IN BW S.C.R.L.</td><td class="num">142,51</td><td class="muted">RESA668</td></tr><tr class="overdue"><td>2026-03-25</td><td>IN BW S.C.R.L.</td><td class="num">142,51</td><td class="muted">RESA666</td></tr><tr class="overdue"><td>2025-11-21</td><td>CARGLASS</td><td class="num">141,99</td><td class="muted">RESA377</td></tr><tr class="overdue"><td>2025-12-30</td><td>Lyreco Belgium</td><td class="num">123,42</td><td class="muted">RESA430</td></tr><tr class="overdue"><td>2026-03-18</td><td>ELECTROPIECES</td><td class="num">119,00</td><td class="muted">RESA707</td></tr><tr class="overdue"><td>2026-02-04</td><td>Happy Family Wouip</td><td class="num">112,56</td><td class="muted">RESA686</td></tr><tr class="overdue"><td>2026-01-12</td><td>Electrabel</td><td class="num">100,00</td><td class="muted">RESA420</td></tr><tr class="overdue"><td>2026-04-11</td><td>Electrabel</td><td class="num">100,00</td><td class="muted">RESA755</td></tr><tr class="overdue"><td>2026-02-11</td><td>NIAS Liège</td><td class="num">97,03</td><td class="muted">RESA594</td></tr><tr class="overdue"><td>2025-10-15</td><td>Lyreco Belgium</td><td class="num">96,24</td><td class="muted">RESA213</td></tr><tr class="overdue"><td>2025-10-31</td><td>Krëfel</td><td class="num">94,95</td><td class="muted">RESA277</td></tr><tr class="overdue"><td>2025-06-24</td><td>Lyreco Belgium</td><td class="num">94,62</td><td class="muted">RESA220</td></tr><tr class="overdue"><td>2025-06-26</td><td>Elis Belgium S.A</td><td class="num">92,95</td><td class="muted">RESA133</td></tr><tr class="overdue"><td>2025-12-06</td><td>Lyreco Belgium</td><td class="num">92,22</td><td class="muted">RESA389</td></tr><tr class="overdue"><td>2025-07-30</td><td>Gestanet</td><td class="num">77,98</td><td class="muted">BILL/24-25/06/0037</td></tr><tr class="overdue"><td>2025-11-28</td><td>Intrum</td><td class="num">76,74</td><td class="muted">RESA373</td></tr><tr class="overdue"><td>2025-10-31</td><td>Easyplug S.R.L. /Ez Charge</td><td class="num">72,60</td><td class="muted">RESA197</td></tr><tr class="overdue"><td>2026-04-09</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">63,68</td><td class="muted">RESA811</td></tr><tr class="overdue"><td>2026-02-09</td><td>PIECES EXPRESS</td><td class="num">59,48</td><td class="muted">RESA593</td></tr><tr class="overdue"><td>2025-05-27</td><td>Happy Family Wouip</td><td class="num">59,00</td><td class="muted">BILL/24-25/05/0091</td></tr><tr class="overdue"><td>2026-04-07</td><td>alan Colette</td><td class="num">59,00</td><td class="muted">RESA766</td></tr><tr class="overdue"><td>2025-11-28</td><td>Lux Green</td><td class="num">56,70</td><td class="muted">RESA365</td></tr><tr class="overdue"><td>2025-12-11</td><td>Iservices Belgique</td><td class="num">53,87</td><td class="muted">RESA386</td></tr><tr class="overdue"><td>2026-04-10</td><td>Mister Minit Marche en Famenne</td><td class="num">52,01</td><td class="muted">RESA665</td></tr><tr class="overdue"><td>2025-05-13</td><td>Amazon PL</td><td class="num">51,64</td><td class="muted">BILL/24-25/05/0062</td></tr><tr class="overdue"><td>2025-11-15</td><td>OVH</td><td class="num">51,46</td><td class="muted">RESA247</td></tr><tr class="overdue"><td>2025-11-02</td><td>Electrabel</td><td class="num">50,64</td><td class="muted">RESA285</td></tr><tr class="overdue"><td>2025-11-04</td><td>Auto 5</td><td class="num">49,90</td><td class="muted">RESA224</td></tr><tr class="overdue"><td>2026-01-24</td><td>Lyreco Belgium</td><td class="num">49,69</td><td class="muted">RESA510</td></tr><tr class="overdue"><td>2026-03-07</td><td>Amazon EU S.à r.l., Succursale Belge</td><td class="num">47,19</td><td class="muted">RESA700</td></tr><tr class="overdue"><td>2026-03-10</td><td>Shyfter SA</td><td class="num">47,19</td><td class="muted">RESA661</td></tr><tr class="overdue"><td>2026-02-16</td><td>Action Belgium BVBA</td><td class="num">46,88</td><td class="muted">RESA671</td></tr><tr class="overdue"><td>2025-10-29</td><td>Optimal Recover</td><td class="num">46,29</td><td class="muted">RESA204</td></tr><tr class="overdue"><td>2025-04-15</td><td>Labrique Frédéric Robert</td><td class="num">45,00</td><td class="muted">BILL/24-25/04/0014</td></tr><tr class="overdue"><td>2025-05-15</td><td>Labrique Frédéric Robert</td><td class="num">45,00</td><td class="muted">BILL/24-25/04/0056</td></tr><tr class="overdue"><td>2025-05-16</td><td>Labrique Frédéric Robert</td><td class="num">45,00</td><td class="muted">RESA345</td></tr><tr class="overdue"><td>2025-11-24</td><td>Brico Belgium Sa</td><td class="num">44,50</td><td class="muted">RESA363</td></tr><tr class="overdue"><td>2026-01-31</td><td>ING Belgique SA</td><td class="num">40,69</td><td class="muted">RESA533</td></tr><tr class="overdue"><td>2025-11-20</td><td>Namur Centreville</td><td class="num">40,50</td><td class="muted">RESA236</td></tr><tr class="overdue"><td>2025-12-18</td><td>JM Bruneau Belgium</td><td class="num">40,12</td><td class="muted">RESA384</td></tr><tr class="overdue"><td>2026-03-29</td><td>C'est bon, c'est wallon ASBL</td><td class="num">39,93</td><td class="muted">RESA739</td></tr><tr class="overdue"><td>2025-11-05</td><td>Lyreco Belgium</td><td class="num">37,73</td><td class="muted">RESA238</td></tr><tr class="overdue"><td>2026-02-17</td><td>Sixt Belgium</td><td class="num">36,30</td><td class="muted">RESA749</td></tr><tr class="overdue"><td>2025-12-17</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">35,57</td><td class="muted">RESA453</td></tr><tr class="overdue"><td>2026-04-08</td><td>Proximus</td><td class="num">32,79</td><td class="muted">RESA682</td></tr><tr class="overdue"><td>2026-02-28</td><td>ING Belgique SA</td><td class="num">31,00</td><td class="muted">RESA670</td></tr><tr class="overdue"><td>2026-03-31</td><td>ING Belgique SA</td><td class="num">31,00</td><td class="muted">RESA787</td></tr><tr class="overdue"><td>2025-11-23</td><td>Electrabel</td><td class="num">30,00</td><td class="muted">RESA305</td></tr><tr class="overdue"><td>2025-12-15</td><td>Adrianne Buttiens</td><td class="num">30,00</td><td class="muted">RESA477</td></tr><tr class="overdue"><td>2026-03-11</td><td>Proximus</td><td class="num">26,61</td><td class="muted">RESA693</td></tr><tr class="overdue"><td>2025-11-08</td><td>Lyreco Belgium</td><td class="num">26,40</td><td class="muted">RESA237</td></tr><tr class="overdue"><td>2025-02-19</td><td>Mailchimp</td><td class="num">23,69</td><td class="muted">RESA331</td></tr><tr class="overdue"><td>2025-09-16</td><td>C'est bon, c'est wallon ASBL</td><td class="num">22,99</td><td class="muted">RESA141</td></tr><tr class="overdue"><td>2025-12-31</td><td>ING Belgique SA</td><td class="num">22,08</td><td class="muted">RESA492</td></tr><tr class="overdue"><td>2026-02-08</td><td>Proximus</td><td class="num">21,99</td><td class="muted">RESA688</td></tr><tr class="overdue"><td>2026-03-10</td><td>Aurélie Thibaut, Aurélie Thibaut</td><td class="num">20,00</td><td class="muted">RESA654</td></tr><tr class="overdue"><td>2025-10-09</td><td>Auto 5</td><td class="num">18,89</td><td class="muted">RESA214</td></tr><tr class="overdue"><td>2026-02-23</td><td>BUREAU VALLÉE LIÈGE</td><td class="num">18,60</td><td class="muted">RESA691</td></tr><tr class="overdue"><td>2025-06-06</td><td>C'est bon, c'est wallon ASBL</td><td class="num">16,94</td><td class="muted">BILL/24-25/05/0031</td></tr><tr class="overdue"><td>2026-01-20</td><td>ING Belgique SA</td><td class="num">14,52</td><td class="muted">RESA532</td></tr><tr class="overdue"><td>2026-03-20</td><td>ING Belgique SA</td><td class="num">14,52</td><td class="muted">RESA803</td></tr><tr class="overdue"><td>2025-12-27</td><td>Bureau Veritas Commodities Antwerp NV</td><td class="num">14,17</td><td class="muted">RESA402</td></tr><tr class="overdue"><td>2025-11-16</td><td>Orga Havelange</td><td class="num">13,86</td><td class="muted">RESA344</td></tr><tr class="overdue"><td>2026-02-23</td><td>NIAS Liège</td><td class="num">10,98</td><td class="muted">RESA640</td></tr><tr class="overdue"><td>2026-01-01</td><td>ING Belgique SA</td><td class="num">9,68</td><td class="muted">RESA536</td></tr><tr class="overdue"><td>2025-11-03</td><td>Auto 5</td><td class="num">8,98</td><td class="muted">RESA228</td></tr><tr class="overdue"><td>2025-11-08</td><td>Proximus</td><td class="num">7,99</td><td class="muted">RESA280</td></tr><tr class="overdue"><td>2026-03-07</td><td>156 Veritas Waterloo</td><td class="num">7,50</td><td class="muted">RESA692</td></tr><tr class="overdue"><td>2026-04-08</td><td>alan Colette</td><td class="num">7,05</td><td class="muted">RESA804</td></tr><tr class="overdue"><td>2025-03-11</td><td>Batipro Matériaux</td><td class="num">6,21</td><td class="muted">BILL/24-25/04/0062</td></tr><tr class="overdue"><td>2026-03-15</td><td>Pluxee Belgium</td><td class="num">4,60</td><td class="muted">RESA709</td></tr><tr class="overdue"><td>2026-01-01</td><td>Belfius Banque-Bank</td><td class="num">3,86</td><td class="muted">RESA537</td></tr><tr class="overdue"><td>2026-01-01</td><td>Belfius Banque-Bank</td><td class="num">2,99</td><td class="muted">RESA540</td></tr><tr class="overdue"><td>2026-04-09</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">1,11</td><td class="muted">RESA810</td></tr><tr class="overdue"><td>2026-02-08</td><td>ING Belgique SA</td><td class="num">0,61</td><td class="muted">RESA687</td></tr><tr class="overdue"><td>2026-03-09</td><td>ING Belgique SA</td><td class="num">0,61</td><td class="muted">RESA659</td></tr><tr class="overdue"><td>2026-04-10</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">0,45</td><td class="muted">RESA813</td></tr><tr class="overdue"><td>2026-01-07</td><td>EDENRED BELGIUM</td><td class="num">0,37</td><td class="muted">RESA466</td></tr><tr class="overdue"><td>2025-12-04</td><td>EPS MONIZZE SA-NV</td><td class="num">0,36</td><td class="muted">RESA403</td></tr><tr class="overdue"><td>2026-04-09</td><td>SD Worx Secrétariat Social (SD ASBL)</td><td class="num">0,10</td><td class="muted">RESA809</td></tr><tr class="overdue"><td>2025-09-03</td><td>Electrabel</td><td class="num">0,01</td><td class="muted">RESA53</td></tr><tr class="overdue"><td>2025-09-26</td><td>Pixart Printing S.A</td><td class="num">0,01</td><td class="muted">RESA243</td></tr><tr class="overdue"><td>2026-01-06</td><td>Lyreco Belgium</td><td class="num">0,01</td><td class="muted">RESA445</td></tr><tr class="overdue"><td>2026-01-26</td><td>Radius Business Solutions (Belgium)</td><td class="num">0,01</td><td class="muted">RESA500</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>Teatower · agent Compta · régénérer via <code>python compta/forecast_echeancier.py --local</code></footer>
+
+</div>
+<script>
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+function filterTable(input, tbodyId) {
+  const q = input.value.toLowerCase();
+  document.querySelectorAll('#' + tbodyId + ' tr').forEach(tr => {
+    tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body></html>
