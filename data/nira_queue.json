@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T12:17:56",
+  "updated": "2026-04-14T12:19:33",
   "tasks": [
     {
       "id": "t001",
@@ -84,9 +84,11 @@
       "id": "t010",
       "agent": "stock-manager",
       "task": "Corriger doublons transferts LIEGE+NAM → merger dans existants",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T12:17",
-      "request": "Nicolas → règle : update only, pas de doublon"
+      "finished": "2026-04-14T12:19",
+      "request": "Nicolas → règle : update only, pas de doublon",
+      "result": "LIEGE/INT/00192 annulé (3 moves ré-attachés à LIEGE/INT/00191). NAM/INT/01513 annulé (2 moves mergés dans NAM/INT/01512 : V0734 6→11, V0846 6→11). Règle dure appliquée : update only."
     }
   ]
 }
