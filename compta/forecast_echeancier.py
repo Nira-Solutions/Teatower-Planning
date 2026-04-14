@@ -37,6 +37,7 @@ SHEET_ID = "1tpQQ5vTr5ekQesJKmkJi86cq9dG7sIFZ"
 SHEET_XLSX_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=xlsx"
 LOCAL_SNAPSHOT = Path(__file__).parent / "paiements_nicolas.xlsx"
 LOCAL_FORECAST = Path(__file__).parent / "forecast_odoo.xlsx"
+HTML_FORECAST = Path(__file__).parent.parent / "forecast_odoo.html"
 FORECAST_TAB = "Forecast Odoo"
 ECHEANCIER_TAB = "Échéancier"
 BUDGET_TABS = ["Budget Q1 2026", "Budget Q2 2026", "Budget Q3 2026", "Budget Q4 2026"]
@@ -524,8 +525,193 @@ def write_local_xlsx(rows, weeks):
         ws.column_dimensions[col[0].column_letter].width = min(length + 2, 45)
 
     wb.save(LOCAL_FORECAST)
-    print(f"✓ Fichier généré : {LOCAL_FORECAST}")
-    print(f"  → Ouvre-le, copie le contenu, colle dans un nouvel onglet 'Forecast Odoo' de ton Google Sheet")
+    print(f"✓ Fichier xlsx généré : {LOCAL_FORECAST}")
+    write_html(rows, weeks)
+
+
+def write_html(rows, weeks):
+    now = datetime.today()
+    overdue_rows = [r for r in rows if r["date"] < now]
+    upcoming_rows = [r for r in rows if r["date"] >= now]
+    overdue = sum(r["montant"] for r in overdue_rows)
+    j7 = sum(r["montant"] for r in rows if now <= r["date"] <= now + timedelta(days=7))
+    j30 = sum(r["montant"] for r in rows if now <= r["date"] <= now + timedelta(days=30))
+    total = sum(r["montant"] for r in rows)
+
+    by_week = defaultdict(lambda: {"total": 0.0, "items": []})
+    for r in rows:
+        by_week[r["week"]]["total"] += r["montant"]
+        by_week[r["week"]]["items"].append(r)
+    week_order = sorted(by_week.keys(),
+                        key=lambda w: min(r["date"] for r in by_week[w]["items"]))
+
+    fmt = lambda x: f"{x:,.2f}".replace(",", " ").replace(".", ",")
+
+    weekly_rows = ""
+    for w in week_order:
+        out_odoo = by_week[w]["total"]
+        manual = abs(weeks.get(w, {}).get("out", 0.0))
+        ecart = out_odoo - manual if manual else None
+        ecart_class = ""
+        if ecart is not None:
+            ecart_class = "pos" if ecart > 0 else "neg"
+        weekly_rows += f"""<tr>
+            <td><strong>{w}</strong></td>
+            <td class="num">{fmt(out_odoo)}</td>
+            <td class="num">{fmt(manual) if manual else '<span class="muted">—</span>'}</td>
+            <td class="num {ecart_class}">{f"{ecart:+,.2f}".replace(",", " ").replace(".", ",") if ecart is not None else '<span class="muted">n/a</span>'}</td>
+            <td class="num">{len(by_week[w]["items"])}</td>
+        </tr>"""
+
+    detail_rows = ""
+    for r in sorted(rows, key=lambda x: x["date"]):
+        overdue_flag = r["date"] < now
+        cls = "overdue" if overdue_flag else ""
+        detail_rows += f"""<tr class="{cls}">
+            <td>{r["date"].strftime("%Y-%m-%d")}</td>
+            <td>{r["week"]}</td>
+            <td>{r["beneficiaire"]}</td>
+            <td class="num">{fmt(r["montant"])}</td>
+            <td class="src">{r["source"]}</td>
+            <td class="muted">{r["reference"]}</td>
+        </tr>"""
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forecast Odoo — Teatower Compta</title>
+<style>
+  * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+  body {{ font-family: -apple-system, Segoe UI, Roboto, sans-serif; background: #f5f3ee; color: #1f2937; padding: 40px 24px; }}
+  .wrap {{ max-width: 1200px; margin: 0 auto; }}
+  h1 {{ color: #1a4d3a; font-size: 1.9rem; margin-bottom: 6px; }}
+  .sub {{ color: #6b7280; font-size: 0.92rem; margin-bottom: 28px; }}
+  .kpis {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }}
+  .kpi {{ background: #fff; border: 1px solid #e5e0d5; border-radius: 12px; padding: 18px 22px; }}
+  .kpi-label {{ font-size: 0.72rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }}
+  .kpi-value {{ font-size: 1.6rem; font-weight: 700; color: #1a4d3a; }}
+  .kpi.warn {{ border-left: 4px solid #dc2626; }}
+  .kpi.warn .kpi-value {{ color: #dc2626; }}
+  .section {{ background: #fff; border: 1px solid #e5e0d5; border-radius: 12px; padding: 20px 24px; margin-bottom: 22px; }}
+  .section h2 {{ color: #1a4d3a; font-size: 1.15rem; margin-bottom: 14px; }}
+  table {{ width: 100%; border-collapse: collapse; font-size: 0.88rem; }}
+  th {{ text-align: left; padding: 10px 12px; color: #6b7280; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e5e0d5; background: #faf8f3; }}
+  td {{ padding: 9px 12px; border-bottom: 1px solid #f0ede3; }}
+  tr:hover td {{ background: #faf8f3; }}
+  .num {{ text-align: right; font-variant-numeric: tabular-nums; font-family: 'SF Mono', Consolas, monospace; }}
+  .pos {{ color: #059669; font-weight: 600; }}
+  .neg {{ color: #dc2626; font-weight: 600; }}
+  .muted {{ color: #9ca3af; }}
+  .src {{ font-size: 0.78rem; color: #4b5563; }}
+  tr.overdue td {{ background: #fef2f2; }}
+  tr.overdue td:first-child {{ border-left: 3px solid #dc2626; }}
+  .tabs {{ display: flex; gap: 6px; margin-bottom: 14px; }}
+  .tab-btn {{ padding: 7px 16px; border-radius: 8px; background: #fff; border: 1px solid #e5e0d5; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #4b5563; }}
+  .tab-btn.active {{ background: #1a4d3a; color: #fff; border-color: #1a4d3a; }}
+  .tab-content {{ display: none; }}
+  .tab-content.active {{ display: block; }}
+  input.filter {{ padding: 8px 12px; border: 1px solid #e5e0d5; border-radius: 8px; font-size: 0.88rem; width: 280px; margin-bottom: 12px; }}
+  footer {{ text-align: center; color: #9ca3af; font-size: 0.82rem; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e0d5; }}
+  @media (max-width: 768px) {{ .kpis {{ grid-template-columns: repeat(2, 1fr); }} }}
+</style>
+</head><body><div class="wrap">
+
+<h1>💰 Forecast Odoo — Compta Teatower</h1>
+<div class="sub">Généré {now.strftime("%d/%m/%Y à %H:%M")} · {len(rows)} échéances · agent <strong>Compta</strong></div>
+
+<div class="kpis">
+  <div class="kpi warn">
+    <div class="kpi-label">⚠ En retard (à lettrer)</div>
+    <div class="kpi-value">{fmt(overdue)} €</div>
+    <div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">{len(overdue_rows)} factures</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">À payer J+7</div>
+    <div class="kpi-value">{fmt(j7)} €</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">À payer J+30</div>
+    <div class="kpi-value">{fmt(j30)} €</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Total forecast</div>
+    <div class="kpi-value">{fmt(total)} €</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('weekly', this)">Vue hebdomadaire</button>
+  <button class="tab-btn" onclick="showTab('detail', this)">Détail des {len(rows)} échéances</button>
+  <button class="tab-btn" onclick="showTab('overdue', this)">⚠ En retard ({len(overdue_rows)})</button>
+</div>
+
+<div class="tab-content active" id="tab-weekly">
+  <div class="section">
+    <h2>Vue hebdomadaire — comparaison Odoo vs Échéancier manuel</h2>
+    <table>
+      <thead><tr>
+        <th>Semaine</th><th style="text-align:right">OUT Odoo prévu</th>
+        <th style="text-align:right">OUT Échéancier manuel</th>
+        <th style="text-align:right">Écart</th>
+        <th style="text-align:right">Nb lignes</th>
+      </tr></thead>
+      <tbody>{weekly_rows}</tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-detail">
+  <div class="section">
+    <h2>Détail ligne à ligne</h2>
+    <input class="filter" placeholder="Filtrer par bénéficiaire…" oninput="filterTable(this, 'detail-tbody')">
+    <table>
+      <thead><tr>
+        <th>Date</th><th>Semaine</th><th>Bénéficiaire</th>
+        <th style="text-align:right">Montant</th><th>Source</th><th>Réf</th>
+      </tr></thead>
+      <tbody id="detail-tbody">{detail_rows}</tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-overdue">
+  <div class="section">
+    <h2>Factures en retard (à lettrer en priorité)</h2>
+    <p class="sub">Ces factures sont probablement déjà payées (carte/SEPA) mais non rapprochées dans Odoo. L'agent Compta peut les lettrer.</p>
+    <table>
+      <thead><tr>
+        <th>Date éch.</th><th>Bénéficiaire</th>
+        <th style="text-align:right">Montant</th><th>Réf</th>
+      </tr></thead>
+      <tbody>
+        {"".join(f'<tr class="overdue"><td>{r["date"].strftime("%Y-%m-%d")}</td><td>{r["beneficiaire"]}</td><td class="num">{fmt(r["montant"])}</td><td class="muted">{r["reference"]}</td></tr>' for r in sorted(overdue_rows, key=lambda x: -x["montant"]))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>Teatower · agent Compta · régénérer via <code>python compta/forecast_echeancier.py --local</code></footer>
+
+</div>
+<script>
+function showTab(name, btn) {{
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}}
+function filterTable(input, tbodyId) {{
+  const q = input.value.toLowerCase();
+  document.querySelectorAll('#' + tbodyId + ' tr').forEach(tr => {{
+    tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+  }});
+}}
+</script>
+</body></html>"""
+
+    with open(HTML_FORECAST, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"✓ HTML généré : {HTML_FORECAST}")
 
 
 def main():
