@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:11:09",
+  "updated": "2026-04-14T15:13:32",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2969,6 +2969,14 @@
       "status": "in_progress",
       "started": "2026-04-14T15:06",
       "request": "Nicolas → 165 payments à rapprocher, tu peux les lettrer ?"
+    },
+    {
+      "id": "t023",
+      "agent": "odoo",
+      "task": "Audit config Odoo Teatower : recommandations d'amélioration",
+      "status": "in_progress",
+      "started": "2026-04-14T15:13",
+      "request": "Nicolas → analyse ma config Odoo, dis-moi quoi améliorer"
     }
   ]
 }
