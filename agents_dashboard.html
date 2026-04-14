@@ -208,6 +208,156 @@
   .compta        { --accent: #0891b2; --accent-bg: #cffafe; }
   .sales-crm     { --accent: #c026d3; --accent-bg: #fae8ff; }
 
+  /* === RPG mode === */
+  .class-badge {
+    display: inline-block; font-size: 0.66rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    background: #1a4d3a; color: #fff;
+    padding: 2px 7px; border-radius: 4px; margin-left: 6px;
+    vertical-align: middle;
+  }
+  .lvl-row {
+    display: flex; align-items: center; gap: 10px;
+    margin: -4px 0 12px 0;
+  }
+  .lvl-badge {
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: 0.72rem; font-weight: 800;
+    color: #fff; background: var(--accent);
+    padding: 3px 9px; border-radius: 6px;
+    min-width: 56px; text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  }
+  .xp-bar {
+    flex: 1; height: 10px; background: #eee7d8;
+    border-radius: 5px; overflow: hidden; position: relative;
+    border: 1px solid #e5e0d5;
+  }
+  .xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-bg) 100%);
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+  }
+  .xp-fill::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    animation: shine 2.5s infinite;
+  }
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .xp-text {
+    font-size: 0.7rem; font-family: 'SF Mono', Consolas, monospace;
+    color: #6b7280; font-weight: 600; min-width: 62px; text-align: right;
+  }
+
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+    margin-bottom: 12px;
+  }
+  .stat-pill {
+    background: #faf8f3; border: 1px solid #e5e0d5;
+    border-radius: 6px; padding: 5px 7px;
+    font-size: 0.7rem; color: #4b5563;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .stat-pill .stat-emoji { font-size: 0.9rem; }
+  .stat-pill .stat-val {
+    font-weight: 800; color: var(--accent); font-family: 'SF Mono', monospace;
+  }
+
+  /* Active glow */
+  .agent.is-active {
+    box-shadow: 0 0 0 2px var(--accent), 0 8px 24px rgba(0,0,0,0.08);
+    animation: pulseGlow 2.2s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 2px var(--accent), 0 8px 24px rgba(0,0,0,0.08); }
+    50%      { box-shadow: 0 0 0 4px var(--accent), 0 12px 32px rgba(0,0,0,0.14); }
+  }
+  .agent.is-active .avatar {
+    animation: avatarBounce 1.6s ease-in-out infinite;
+  }
+  @keyframes avatarBounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+  }
+
+  /* Level-up effect */
+  .lvl-up-burst {
+    position: absolute; top: 14px; right: 16px;
+    font-size: 0.75rem; font-weight: 800;
+    color: #fff; background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    padding: 4px 10px; border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
+    animation: lvlUp 3s ease-out forwards;
+    pointer-events: none; z-index: 5;
+  }
+  @keyframes lvlUp {
+    0%   { transform: translateY(10px) scale(0.5); opacity: 0; }
+    15%  { transform: translateY(-4px) scale(1.15); opacity: 1; }
+    30%  { transform: translateY(0) scale(1); }
+    80%  { opacity: 1; }
+    100% { transform: translateY(-16px); opacity: 0; }
+  }
+
+  /* Leaderboard */
+  .leaderboard-wrap { max-width: 1200px; margin: 0 auto 28px; }
+  .leaderboard {
+    background: linear-gradient(135deg, #1a4d3a 0%, #2a6e52 100%);
+    color: #fff; border-radius: 14px; padding: 18px 24px;
+    display: grid; grid-template-columns: auto repeat(3, 1fr) auto; gap: 18px;
+    align-items: center; position: relative; overflow: hidden;
+  }
+  .leaderboard::before {
+    content: '⚔️'; position: absolute; right: -10px; bottom: -30px;
+    font-size: 140px; opacity: 0.07; transform: rotate(-15deg);
+  }
+  .lb-title {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.2px;
+    color: #c8a96e; font-weight: 800;
+  }
+  .lb-title strong { display: block; font-size: 1.1rem; color: #fff; margin-top: 3px; }
+  .lb-slot {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px; padding: 10px 14px;
+    display: flex; align-items: center; gap: 10px;
+    transition: transform 0.3s;
+  }
+  .lb-slot:hover { transform: translateY(-2px); }
+  .lb-rank {
+    font-size: 1.4rem; font-weight: 800;
+    font-family: 'SF Mono', Consolas, monospace;
+  }
+  .lb-rank.r1 { color: #fbbf24; }
+  .lb-rank.r2 { color: #d1d5db; }
+  .lb-rank.r3 { color: #d97706; }
+  .lb-agent-name { font-weight: 700; font-size: 0.95rem; }
+  .lb-xp { font-size: 0.75rem; color: #c8a96e; font-family: 'SF Mono', monospace; }
+  .lb-period {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;
+    color: #c8a96e; opacity: 0.8;
+  }
+
+  /* Sound toggle */
+  .sound-toggle {
+    position: fixed; bottom: 20px; right: 20px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #1a4d3a; color: #fff;
+    border: none; cursor: pointer; font-size: 1.2rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    z-index: 1000; transition: transform 0.15s;
+  }
+  .sound-toggle:hover { transform: scale(1.08); }
+
+  @media (max-width: 768px) {
+    .leaderboard { grid-template-columns: 1fr; text-align: center; }
+    .leaderboard::before { display: none; }
+    .stats-row { grid-template-columns: repeat(3, 1fr); }
+  }
+
   footer {
     max-width: 1200px; margin: 48px auto 0; text-align: center;
     color: #9ca3af; font-size: 0.85rem;
@@ -269,10 +419,21 @@
 </header>
 
 <div class="stats">
-  <div class="stat"><div class="stat-value" id="stat-agents">6</div><div class="stat-label">Agents</div></div>
+  <div class="stat"><div class="stat-value" id="stat-agents">8</div><div class="stat-label">Agents</div></div>
   <div class="stat"><div class="stat-value" id="stat-running">0</div><div class="stat-label">En cours</div></div>
   <div class="stat"><div class="stat-value" id="stat-pending">0</div><div class="stat-label">En attente</div></div>
   <div class="stat"><div class="stat-value" id="stat-done">0</div><div class="stat-label">Terminés (24h)</div></div>
+</div>
+
+<!-- Leaderboard hebdo -->
+<div class="leaderboard-wrap">
+  <div class="leaderboard" id="leaderboard">
+    <div class="lb-title">Hall of<strong>Fame</strong></div>
+    <div class="lb-slot" id="lb-1"><span class="lb-rank r1">🥇</span><div><div class="lb-agent-name">—</div><div class="lb-xp">0 XP</div></div></div>
+    <div class="lb-slot" id="lb-2"><span class="lb-rank r2">🥈</span><div><div class="lb-agent-name">—</div><div class="lb-xp">0 XP</div></div></div>
+    <div class="lb-slot" id="lb-3"><span class="lb-rank r3">🥉</span><div><div class="lb-agent-name">—</div><div class="lb-xp">0 XP</div></div></div>
+    <div class="lb-period">7 derniers<br>jours</div>
+  </div>
 </div>
 
 <!-- NIRA — agent principal -->
@@ -564,6 +725,8 @@
 
 </div>
 
+<button class="sound-toggle" id="sound-toggle" title="Son on/off">🔔</button>
+
 <footer>Teatower · Nicolas Raes · propulsé par Nira + Claude Code</footer>
 
 <script>
@@ -634,8 +797,170 @@
     ).length;
   }
 
-  loadQueue();
-  setInterval(loadQueue, 15000);
+  // === RPG config ===
+  const AGENT_META = {
+    'purchase':      { class: 'Trader',      stats: [['💰','Deal',9],  ['⚡','Speed',7], ['🛡️','Accuracy',8]] },
+    'planning':      { class: 'Tactician',   stats: [['📅','Tempo',9], ['🗺️','Vision',8],['⚔️','Routes',7]] },
+    'merchandiser':  { class: 'Scout',       stats: [['📸','Field',9], ['🏃','Speed',8], ['🎯','Precision',7]] },
+    'stock-manager': { class: 'Warden',      stats: [['📦','Stock',9], ['🔢','Math',9],  ['🚚','Logistics',7]] },
+    'support-order': { class: 'Clerk',       stats: [['📝','Writ',9],  ['👂','Listen',8],['⚡','Speed',8]] },
+    'compta':        { class: 'Treasurer',   stats: [['💶','Gold',9],  ['🧮','Count',9], ['📊','Audit',8]] },
+    'sales-crm':     { class: 'Diplomat',    stats: [['🤝','Charm',9], ['📞','Reach',8], ['🎯','Close',7]] }
+  };
+  const AGENT_LABEL = {
+    'purchase': 'Purchase', 'planning': 'Planning', 'merchandiser': 'Merchandiser',
+    'stock-manager': 'Stock Manager', 'support-order': 'Support Order',
+    'compta': 'Compta', 'sales-crm': 'Sales-CRM'
+  };
+
+  // XP formula : 10 XP per done task, level = 1 + floor(sqrt(xp/25))
+  function lvlFromXp(xp) {
+    return 1 + Math.floor(Math.sqrt(xp / 25));
+  }
+  function xpForLvl(lvl) {
+    return 25 * (lvl - 1) * (lvl - 1);
+  }
+
+  // Persistent tracking of seen tasks (to detect new completions / level-ups)
+  const seenDone = new Set(JSON.parse(localStorage.getItem('seenDone') || '[]'));
+  const lastLvl  = JSON.parse(localStorage.getItem('lastLvl') || '{}');
+
+  let soundOn = localStorage.getItem('soundOn') !== 'false';
+  const soundBtn = document.getElementById('sound-toggle');
+  function refreshSoundIcon() { soundBtn.textContent = soundOn ? '🔔' : '🔕'; }
+  refreshSoundIcon();
+  soundBtn.onclick = () => {
+    soundOn = !soundOn;
+    localStorage.setItem('soundOn', soundOn);
+    refreshSoundIcon();
+    if (soundOn) playDing(660);
+  };
+
+  function playDing(freq = 880) {
+    if (!soundOn) return;
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.6);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(); o.stop(ctx.currentTime + 0.6);
+    } catch (e) {}
+  }
+  function playLvlUp() {
+    if (!soundOn) return;
+    [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => playDing(f), i * 110));
+  }
+
+  function renderRpg(agentId, tasks) {
+    const card = document.querySelector(`[data-agent="${agentId}"]`);
+    if (!card) return;
+    const meta = AGENT_META[agentId];
+    if (!meta) return;
+
+    const done = tasks.filter(t => t.status === 'done');
+    const xp = done.length * 10;
+    const lvl = lvlFromXp(xp);
+    const xpInLvl = xp - xpForLvl(lvl);
+    const xpNext  = xpForLvl(lvl + 1) - xpForLvl(lvl);
+    const pct = Math.min(100, Math.round(xpInLvl * 100 / xpNext));
+
+    // Inject once
+    const head = card.querySelector('.agent-head');
+    if (head && !card.querySelector('.class-badge')) {
+      head.querySelector('h3').insertAdjacentHTML('beforeend',
+        `<span class="class-badge">${meta.class}</span>`);
+    }
+    let rpg = card.querySelector('.rpg-block');
+    if (!rpg) {
+      rpg = document.createElement('div');
+      rpg.className = 'rpg-block';
+      rpg.innerHTML = `
+        <div class="lvl-row">
+          <span class="lvl-badge"></span>
+          <div class="xp-bar"><div class="xp-fill"></div></div>
+          <span class="xp-text"></span>
+        </div>
+        <div class="stats-row">
+          ${meta.stats.map(s => `
+            <div class="stat-pill">
+              <span class="stat-emoji">${s[0]}</span>
+              <span>${s[1]}</span>
+              <span class="stat-val">${s[2]}</span>
+            </div>`).join('')}
+        </div>`;
+      head.insertAdjacentElement('afterend', rpg);
+    }
+
+    card.querySelector('.lvl-badge').textContent = `LVL ${lvl}`;
+    card.querySelector('.xp-fill').style.width = pct + '%';
+    card.querySelector('.xp-text').textContent = `${xpInLvl}/${xpNext} XP`;
+
+    // active glow
+    const active = tasks.some(t => t.status === 'in_progress');
+    card.classList.toggle('is-active', active);
+
+    // detect new completions & level-ups
+    let newDone = 0;
+    done.forEach(t => {
+      const key = `${agentId}:${t.id}`;
+      if (!seenDone.has(key)) {
+        seenDone.add(key); newDone++;
+      }
+    });
+    if (newDone > 0) {
+      playDing();
+    }
+    if (lastLvl[agentId] && lvl > lastLvl[agentId]) {
+      // Level-up burst
+      const burst = document.createElement('div');
+      burst.className = 'lvl-up-burst';
+      burst.textContent = `LVL UP → ${lvl} ✨`;
+      card.appendChild(burst);
+      setTimeout(() => burst.remove(), 3000);
+      playLvlUp();
+    }
+    lastLvl[agentId] = lvl;
+  }
+
+  function renderLeaderboard(byAgent) {
+    const weekAgo = Date.now() - 7 * 86400000;
+    const scores = Object.entries(byAgent).map(([agent, tasks]) => {
+      const xp = tasks.filter(t =>
+        t.status === 'done' && t.finished && new Date(t.finished).getTime() > weekAgo
+      ).length * 10;
+      return { agent, xp };
+    }).sort((a, b) => b.xp - a.xp);
+
+    for (let i = 0; i < 3; i++) {
+      const slot = document.getElementById(`lb-${i + 1}`);
+      if (!slot) continue;
+      const s = scores[i];
+      slot.querySelector('.lb-agent-name').textContent =
+        s && s.xp > 0 ? (AGENT_LABEL[s.agent] || s.agent) : '—';
+      slot.querySelector('.lb-xp').textContent = s ? `${s.xp} XP` : '0 XP';
+    }
+  }
+
+  const _origLoad = loadQueue;
+  async function loadQueueRpg() {
+    await _origLoad();
+    try {
+      const res = await fetch('data/nira_queue.json?t=' + Date.now());
+      const data = res.ok ? await res.json() : { tasks: [] };
+      const byAgent = {};
+      data.tasks.forEach(t => { (byAgent[t.agent] = byAgent[t.agent] || []).push(t); });
+      Object.keys(AGENT_META).forEach(a => renderRpg(a, byAgent[a] || []));
+      renderLeaderboard(byAgent);
+      localStorage.setItem('seenDone', JSON.stringify([...seenDone].slice(-500)));
+      localStorage.setItem('lastLvl', JSON.stringify(lastLvl));
+    } catch (e) {}
+  };
+
+  loadQueueRpg();
+  setInterval(loadQueueRpg, 15000);
 </script>
 
 </body>
