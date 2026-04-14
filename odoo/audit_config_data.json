@@ -1,0 +1,2349 @@
+{
+  "warehouses_routes": {
+    "warehouses": [
+      {
+        "id": 1,
+        "name": "Teatower",
+        "code": "TT",
+        "reception_steps": "two_steps",
+        "delivery_steps": "pick_ship",
+        "lot_stock_id": [
+          8,
+          "TT/Stock"
+        ],
+        "in_type_id": [
+          1,
+          "Teatower: Réceptions"
+        ],
+        "out_type_id": [
+          2,
+          "Teatower: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Stock Merchandiser",
+        "code": "GMS",
+        "reception_steps": "one_step",
+        "delivery_steps": "ship_only",
+        "lot_stock_id": [
+          2737,
+          "GMS/Stock"
+        ],
+        "in_type_id": [
+          12,
+          "Stock Merchandiser: Réceptions"
+        ],
+        "out_type_id": [
+          13,
+          "Stock Merchandiser: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Magasin Liège",
+        "code": "LIEGE",
+        "reception_steps": "one_step",
+        "delivery_steps": "ship_only",
+        "lot_stock_id": [
+          4524,
+          "LIEGE/Stock"
+        ],
+        "in_type_id": [
+          24,
+          "Magasin Liège: Réceptions"
+        ],
+        "out_type_id": [
+          25,
+          "Magasin Liège: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Magasin Waterloo",
+        "code": "WAT",
+        "reception_steps": "one_step",
+        "delivery_steps": "ship_only",
+        "lot_stock_id": [
+          4532,
+          "WAT/Stock"
+        ],
+        "in_type_id": [
+          38,
+          "Magasin Waterloo: Réceptions"
+        ],
+        "out_type_id": [
+          39,
+          "Magasin Waterloo: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Magasin Namur",
+        "code": "NAM",
+        "reception_steps": "one_step",
+        "delivery_steps": "ship_only",
+        "lot_stock_id": [
+          4540,
+          "NAM/Stock"
+        ],
+        "in_type_id": [
+          50,
+          "Magasin Namur: Réceptions"
+        ],
+        "out_type_id": [
+          51,
+          "Magasin Namur: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      },
+      {
+        "id": 6,
+        "name": "POP-UP STORE",
+        "code": "POP",
+        "reception_steps": "one_step",
+        "delivery_steps": "ship_only",
+        "lot_stock_id": [
+          4575,
+          "POP/Stock"
+        ],
+        "in_type_id": [
+          62,
+          "POP-UP STORE: Réceptions"
+        ],
+        "out_type_id": [
+          63,
+          "POP-UP STORE: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Commerciaux",
+        "code": "Sales",
+        "reception_steps": "one_step",
+        "delivery_steps": "ship_only",
+        "lot_stock_id": [
+          4583,
+          "Sales/Stock"
+        ],
+        "in_type_id": [
+          74,
+          "Commerciaux: Réceptions"
+        ],
+        "out_type_id": [
+          75,
+          "Commerciaux: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "OPALYA",
+        "code": "OPA",
+        "reception_steps": "two_steps",
+        "delivery_steps": "ship_only",
+        "lot_stock_id": [
+          4699,
+          "OPA/Stock"
+        ],
+        "in_type_id": [
+          86,
+          "OPALYA: Réceptions"
+        ],
+        "out_type_id": [
+          87,
+          "OPALYA: Bons de livraison"
+        ],
+        "active": true,
+        "company_id": [
+          1,
+          "Teatower"
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "id": 35,
+        "name": "Réapprovisionnement POP-UP",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": false,
+        "sequence": 0
+      },
+      {
+        "id": 44,
+        "name": "Réapprovisionnement NAMUR",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": false,
+        "sequence": 0
+      },
+      {
+        "id": 41,
+        "name": "Stock Merchandiser : Réapprovisionner le produit depuis Tea Tree",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "sequence": 0
+      },
+      {
+        "id": 40,
+        "name": "Stock Merchandiser (copie) : Réapprovisionner le produit depuis Tea Tree",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "sequence": 0
+      },
+      {
+        "id": 28,
+        "name": "Magasin Namur : Réapprovisionner le produit depuis Tea Tree",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "sequence": 0
+      },
+      {
+        "id": 12,
+        "name": "Réapprovisionnement GMS",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": false,
+        "sequence": 0
+      },
+      {
+        "id": 13,
+        "name": "Stock Merchandiser : Réapprovisionner le produit depuis Tea Tree",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "sequence": 0
+      },
+      {
+        "id": 42,
+        "name": "Réapprovisionnement GMS",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": false,
+        "sequence": 0
+      },
+      {
+        "id": 18,
+        "name": "Teatower - Liège : Réapprovisionner le produit depuis Tea Tree",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "sequence": 0
+      },
+      {
+        "id": 23,
+        "name": "Magasin Waterloo : Réapprovisionner le produit depuis Tea Tree",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "sequence": 0
+      },
+      {
+        "id": 29,
+        "name": "Réapprovisionnement WAT",
+        "active": true,
+        "warehouse_ids": [
+          1
+        ],
+        "product_selectable": true,
+        "product_categ_selectable": false,
+        "sequence": 0
+      },
+      {
+        "id": 43,
+        "name": "Réapprovisionnement LIEGE",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": false,
+        "sequence": 0
+      },
+      {
+        "id": 34,
+        "name": "Magasin Waterloo (copie) : Réapprovisionner le produit depuis Tea Tree",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "sequence": 0
+      },
+      {
+        "id": 24,
+        "name": "Magasin Namur: Recevoir en 1 étape (stock)",
+        "active": true,
+        "warehouse_ids": [
+          5
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 45,
+        "name": "OPALYA: Recevoir en 2 étapes (emplacement d'entrée + stock)",
+        "active": true,
+        "warehouse_ids": [
+          8
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 19,
+        "name": "Magasin Waterloo: Recevoir en 1 étape (stock)",
+        "active": true,
+        "warehouse_ids": [
+          4
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 30,
+        "name": "Magasin Waterloo (copie): Recevoir en 1 étape (stock)",
+        "active": true,
+        "warehouse_ids": [
+          6
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 8,
+        "name": "Stock Merchandiser: Recevoir en 1 étape (stock)",
+        "active": true,
+        "warehouse_ids": [
+          2
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 14,
+        "name": "Teatower - Liège: Recevoir en 1 étape (stock)",
+        "active": true,
+        "warehouse_ids": [
+          3
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 2,
+        "name": "My Company: Receive in 1 step (stock)",
+        "active": true,
+        "warehouse_ids": [
+          1
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 36,
+        "name": "Stock Merchandiser (copie): Recevoir en 1 étape (stock)",
+        "active": true,
+        "warehouse_ids": [
+          7
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 9
+      },
+      {
+        "id": 46,
+        "name": "OPALYA: Livrer en 1 étape (expédition)",
+        "active": true,
+        "warehouse_ids": [
+          8
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 25,
+        "name": "Magasin Namur: Livrer en 1 étape (expédition)",
+        "active": true,
+        "warehouse_ids": [
+          5
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 9,
+        "name": "Stock Merchandiser: Livrer en 1 étape (expédition)",
+        "active": true,
+        "warehouse_ids": [
+          2
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 37,
+        "name": "Stock Merchandiser (copie): Livrer en 1 étape (expédition)",
+        "active": true,
+        "warehouse_ids": [
+          7
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 31,
+        "name": "Magasin Waterloo (copie): Livrer en 1 étape (expédition)",
+        "active": true,
+        "warehouse_ids": [
+          6
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 20,
+        "name": "Magasin Waterloo: Livrer en 1 étape (expédition)",
+        "active": true,
+        "warehouse_ids": [
+          4
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 3,
+        "name": "My Company: Deliver in 1 step (ship)",
+        "active": true,
+        "warehouse_ids": [
+          1
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 15,
+        "name": "Teatower - Liège: Livrer en 1 étape (expédition)",
+        "active": true,
+        "warehouse_ids": [
+          3
+        ],
+        "product_selectable": false,
+        "product_categ_selectable": true,
+        "sequence": 10
+      },
+      {
+        "id": 4,
+        "name": "My Company: Cross-Dock",
+        "active": true,
+        "warehouse_ids": [],
+        "product_selectable": false,
+        "product_categ_selectable": false,
+        "sequence": 20
+      }
+    ],
+    "picking_types": [
+      {
+        "id": 1,
+        "name": "Réceptions",
+        "code": "incoming",
+        "sequence_code": "IN",
+        "default_location_src_id": [
+          4,
+          "Partners/Vendors"
+        ],
+        "default_location_dest_id": [
+          9,
+          "TT/Entrée"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": false,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 6,
+        "name": "Stockage",
+        "code": "internal",
+        "sequence_code": "STOR",
+        "default_location_src_id": [
+          9,
+          "TT/Entrée"
+        ],
+        "default_location_dest_id": [
+          8,
+          "TT/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 7,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          8,
+          "TT/Stock"
+        ],
+        "default_location_dest_id": [
+          8,
+          "TT/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 3,
+        "name": "Transfert",
+        "code": "internal",
+        "sequence_code": "PICK",
+        "default_location_src_id": [
+          8,
+          "TT/Stock"
+        ],
+        "default_location_dest_id": [
+          11,
+          "TT/Sortie"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 2,
+        "name": "Bons de livraison",
+        "code": "outgoing",
+        "sequence_code": "OUT",
+        "default_location_src_id": [
+          11,
+          "TT/Sortie"
+        ],
+        "default_location_dest_id": [
+          5,
+          "Partners/Customers"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 11,
+        "name": "Fabrication",
+        "code": "mrp_operation",
+        "sequence_code": "MO",
+        "default_location_src_id": [
+          8,
+          "TT/Stock"
+        ],
+        "default_location_dest_id": [
+          8,
+          "TT/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 18,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          2737,
+          "GMS/Stock"
+        ],
+        "default_location_dest_id": [
+          2737,
+          "GMS/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          2,
+          "Stock Merchandiser"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 30,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          4524,
+          "LIEGE/Stock"
+        ],
+        "default_location_dest_id": [
+          4524,
+          "LIEGE/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          3,
+          "Magasin Liège"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 35,
+        "name": "Commandes du PdV",
+        "code": "outgoing",
+        "sequence_code": "POS",
+        "default_location_src_id": [
+          4524,
+          "LIEGE/Stock"
+        ],
+        "default_location_dest_id": [
+          5,
+          "Partners/Customers"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 37,
+        "name": "Commandes du PdV",
+        "code": "outgoing",
+        "sequence_code": "POS",
+        "default_location_src_id": [
+          4524,
+          "LIEGE/Stock"
+        ],
+        "default_location_dest_id": [
+          5,
+          "Partners/Customers"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          3,
+          "Magasin Liège"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 44,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          4532,
+          "WAT/Stock"
+        ],
+        "default_location_dest_id": [
+          4532,
+          "WAT/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          4,
+          "Magasin Waterloo"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 49,
+        "name": "Commandes du PdV",
+        "code": "outgoing",
+        "sequence_code": "POS",
+        "default_location_src_id": [
+          4532,
+          "WAT/Stock"
+        ],
+        "default_location_dest_id": [
+          5,
+          "Partners/Customers"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          4,
+          "Magasin Waterloo"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 56,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          4540,
+          "NAM/Stock"
+        ],
+        "default_location_dest_id": [
+          4540,
+          "NAM/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          5,
+          "Magasin Namur"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 61,
+        "name": "Commandes du PdV",
+        "code": "outgoing",
+        "sequence_code": "POS",
+        "default_location_src_id": [
+          4540,
+          "NAM/Stock"
+        ],
+        "default_location_dest_id": [
+          5,
+          "Partners/Customers"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          5,
+          "Magasin Namur"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 68,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          4575,
+          "POP/Stock"
+        ],
+        "default_location_dest_id": [
+          4575,
+          "POP/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          6,
+          "POP-UP STORE"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 73,
+        "name": "Commandes du PdV",
+        "code": "outgoing",
+        "sequence_code": "POS",
+        "default_location_src_id": [
+          4575,
+          "POP/Stock"
+        ],
+        "default_location_dest_id": [
+          5,
+          "Partners/Customers"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          6,
+          "POP-UP STORE"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 74,
+        "name": "Réceptions",
+        "code": "incoming",
+        "sequence_code": "IN",
+        "default_location_src_id": [
+          4,
+          "Partners/Vendors"
+        ],
+        "default_location_dest_id": [
+          4583,
+          "Sales/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": false,
+        "warehouse_id": [
+          7,
+          "Commerciaux"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 80,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          4583,
+          "Sales/Stock"
+        ],
+        "default_location_dest_id": [
+          4583,
+          "Sales/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          7,
+          "Commerciaux"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 86,
+        "name": "Réceptions",
+        "code": "incoming",
+        "sequence_code": "IN",
+        "default_location_src_id": [
+          4,
+          "Partners/Vendors"
+        ],
+        "default_location_dest_id": [
+          4700,
+          "OPA/Entrée"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": false,
+        "warehouse_id": [
+          8,
+          "OPALYA"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 91,
+        "name": "Stockage",
+        "code": "internal",
+        "sequence_code": "STOR",
+        "default_location_src_id": [
+          4700,
+          "OPA/Entrée"
+        ],
+        "default_location_dest_id": [
+          4699,
+          "OPA/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          8,
+          "OPALYA"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 92,
+        "name": "Transferts internes",
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          4699,
+          "OPA/Stock"
+        ],
+        "default_location_dest_id": [
+          4699,
+          "OPA/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          8,
+          "OPALYA"
+        ],
+        "active": true,
+        "show_operations": false
+      },
+      {
+        "id": 23,
+        "name": "Stock GMS",
+        "code": "outgoing",
+        "sequence_code": "GMS",
+        "default_location_src_id": [
+          8,
+          "TT/Stock"
+        ],
+        "default_location_dest_id": [
+          2737,
+          "GMS/Stock"
+        ],
+        "reservation_method": "at_confirm",
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "warehouse_id": [
+          1,
+          "Teatower"
+        ],
+        "active": true,
+        "show_operations": false
+      }
+    ],
+    "categories": [
+      {
+        "id": 76,
+        "complete_name": "",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 1,
+        "complete_name": "All",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": [
+          3,
+          "Closest Location"
+        ]
+      },
+      {
+        "id": 66,
+        "complete_name": "All / Accessoires",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 58,
+        "complete_name": "All / Autre",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 65,
+        "complete_name": "All / Coffret",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 68,
+        "complete_name": "All / Composante",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 72,
+        "complete_name": "All / Deliveries",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 3,
+        "complete_name": "All / Expenses",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 55,
+        "complete_name": "All / Fruits",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 67,
+        "complete_name": "All / Horeca",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 71,
+        "complete_name": "All / Matière Première",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 57,
+        "complete_name": "All / Maté",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 62,
+        "complete_name": "All / Oolong",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 56,
+        "complete_name": "All / Plantes",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 70,
+        "complete_name": "All / Pu Erh",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 69,
+        "complete_name": "All / Rooibos",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 2,
+        "complete_name": "All / Saleable",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 74,
+        "complete_name": "All / Saleable / PoS",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 61,
+        "complete_name": "All / Thé Blanc",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 64,
+        "complete_name": "All / Thé Noir",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 59,
+        "complete_name": "All / Thé Vert",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 73,
+        "complete_name": "All / Thés glacés",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 75,
+        "complete_name": "All / noel 2025",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 60,
+        "complete_name": "All / Échantillons",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 63,
+        "complete_name": "All / Épices",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 93,
+        "complete_name": "Bottles",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 89,
+        "complete_name": "Cadeau",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 79,
+        "complete_name": "accessoire pour le thé",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 86,
+        "complete_name": "accessoires pour le thé",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 91,
+        "complete_name": "coffret découverte thé",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 96,
+        "complete_name": "coffret découverte thé | thé noir naturel | thé noir earl grey | thé vert naturel | thé vert sencha",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 90,
+        "complete_name": "coffret découverte thé | thé vert naturel | infusion aux fruits",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 87,
+        "complete_name": "coffret découverte thé | théière en verre | maté naturel",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 95,
+        "complete_name": "infusion aux fruits | thé vert naturel | thé noir naturel | infusion sans théine",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 98,
+        "complete_name": "infusion aux épices | infusion sans théine",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 81,
+        "complete_name": "infusion sans théine",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 88,
+        "complete_name": "rooibos chai | infusion bio | thé noir naturel | thé pu-erh vieilli | thé noir earl grey",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 82,
+        "complete_name": "tasse à thé",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 83,
+        "complete_name": "thé glacé | infusion aux fruits",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 84,
+        "complete_name": "thé glacé | infusion bio | rooibos nature | thé vert bio",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 94,
+        "complete_name": "thé glacé | thé noir earl grey | thé noir parfumé | thé vert bio",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 85,
+        "complete_name": "thé glacé | thé vert parfumé | thé à la menthe | thé vert bio",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 101,
+        "complete_name": "thé noir naturel",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 97,
+        "complete_name": "thé noir parfumé | thé noir bio",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 80,
+        "complete_name": "thé vert matcha | accessoire pour le thé",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 92,
+        "complete_name": "thé vert matcha | coffret découverte thé | thé vert naturel | thé énergisant",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 99,
+        "complete_name": "thé vert naturel | infusion sans théine",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 77,
+        "complete_name": "thé vert naturel | thé vert matcha | thé vert bio | thé énergisant",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 78,
+        "complete_name": "thé vert naturel | thé vert matcha | thé énergisant",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      },
+      {
+        "id": 100,
+        "complete_name": "thé vert parfumé",
+        "property_cost_method": "standard",
+        "property_valuation": "manual_periodic",
+        "property_stock_valuation_account_id": false,
+        "removal_strategy_id": false
+      }
+    ]
+  },
+  "orderpoints": {
+    "total": 1715,
+    "orphans_inactive": 0,
+    "doublons": 0,
+    "by_location": {
+      "TT/Stock": 526,
+      "LIEGE/Stock": 378,
+      "NAM/Stock": 370,
+      "WAT/Stock": 362,
+      "GMS/Stock": 47,
+      "POP/Stock": 30,
+      "Sales/Stock": 1,
+      "TT/Entrée": 1
+    },
+    "mto_route_count": 0,
+    "sample_orphan": []
+  },
+  "products": {
+    "tpl_total": 1687,
+    "tpl_active": 1687,
+    "prod_total": 1687,
+    "prod_active": 1687,
+    "by_type": {
+      "consu|storable=True": 1451,
+      "service|storable=False": 70,
+      "consu|storable=False": 166
+    },
+    "no_supplier": 698,
+    "zero_cost": 594,
+    "no_barcode": 752,
+    "no_default_code": 209,
+    "dup_default_code": 1,
+    "sample_dup_codes": [
+      "MP_1V0253"
+    ],
+    "with_variants": 2,
+    "sample_no_supplier": [
+      "05V0846",
+      "05V0879",
+      false,
+      false,
+      false,
+      "05V0279",
+      "05V0709",
+      "05V0638",
+      "05V0828",
+      "05V0822",
+      false,
+      false,
+      "ATELIER-TT-LIEGE",
+      "MP_1V0706",
+      "V0706",
+      "I0706",
+      "E0706",
+      "E0890",
+      "E0835",
+      false
+    ]
+  },
+  "mrp": {
+    "bom_total": 803,
+    "by_type": {
+      "normal": 797,
+      "phantom": 6
+    },
+    "bom_with_inactive_comp": 0,
+    "mo_total": 2407,
+    "mo_stale_30d": 27
+  },
+  "sales": {
+    "total": 7657,
+    "draft": 11,
+    "sent": 0,
+    "cancel": 90,
+    "done_12mo": 7276,
+    "no_client_order_ref": 965,
+    "pricelists": 6,
+    "pricelists_active": 6,
+    "payterms": 16,
+    "carriers": 9,
+    "pricelist_names": [
+      "Par défaut",
+      "Newsletter 5%",
+      "Odoo x Shopify PriceList",
+      "Newsletter 5% (EUR)5413393800242",
+      "Newsletter 5% (EUR)",
+      "Merchandiser"
+    ]
+  },
+  "purchase": {
+    "po_total": 459,
+    "rfq_dormant_30d": 4,
+    "po_done_12mo": 355,
+    "supplierinfo_total": 1529,
+    "supplierinfo_delay_0": 1011
+  },
+  "accounting": {
+    "journals": 25,
+    "journals_detail": [
+      {
+        "code": "INV",
+        "type": "sale"
+      },
+      {
+        "code": "INV1",
+        "type": "sale"
+      },
+      {
+        "code": "INV2",
+        "type": "sale"
+      },
+      {
+        "code": "INV3",
+        "type": "sale"
+      },
+      {
+        "code": "BILL",
+        "type": "purchase"
+      },
+      {
+        "code": "BNK1",
+        "type": "bank"
+      },
+      {
+        "code": "MISC",
+        "type": "general"
+      },
+      {
+        "code": "MOL",
+        "type": "bank"
+      },
+      {
+        "code": "CSH2",
+        "type": "cash"
+      },
+      {
+        "code": "CSH3",
+        "type": "cash"
+      },
+      {
+        "code": "CSH4",
+        "type": "cash"
+      },
+      {
+        "code": "CSH5",
+        "type": "cash"
+      },
+      {
+        "code": "LIE",
+        "type": "cash"
+      },
+      {
+        "code": "LIEGE",
+        "type": "cash"
+      },
+      {
+        "code": "NAMUR",
+        "type": "cash"
+      },
+      {
+        "code": "POP",
+        "type": "cash"
+      },
+      {
+        "code": "AMO",
+        "type": "general"
+      },
+      {
+        "code": "BO",
+        "type": "general"
+      },
+      {
+        "code": "CABA",
+        "type": "general"
+      },
+      {
+        "code": "EXCH",
+        "type": "general"
+      },
+      {
+        "code": "POSS",
+        "type": "general"
+      },
+      {
+        "code": "SAL",
+        "type": "general"
+      },
+      {
+        "code": "STJ",
+        "type": "general"
+      },
+      {
+        "code": "TVA",
+        "type": "general"
+      },
+      {
+        "code": "INV4",
+        "type": "sale"
+      }
+    ],
+    "taxes_active": 84,
+    "taxes_sample": [
+      {
+        "name": "6% TTC BE",
+        "amount": 6.0,
+        "use": "sale"
+      },
+      {
+        "name": "21% TTC BE",
+        "amount": 21.0,
+        "use": "sale"
+      },
+      {
+        "name": "21%",
+        "amount": 21.0,
+        "use": "sale"
+      },
+      {
+        "name": "12%",
+        "amount": 12.0,
+        "use": "sale"
+      },
+      {
+        "name": "6%",
+        "amount": 6.0,
+        "use": "sale"
+      },
+      {
+        "name": "0%",
+        "amount": 0.0,
+        "use": "sale"
+      },
+      {
+        "name": "0% Cocont",
+        "amount": 0.0,
+        "use": "sale"
+      },
+      {
+        "name": "0% EU S",
+        "amount": 0.0,
+        "use": "sale"
+      },
+      {
+        "name": "0% EU M",
+        "amount": 0.0,
+        "use": "sale"
+      },
+      {
+        "name": "0% EU T",
+        "amount": 0.0,
+        "use": "sale"
+      },
+      {
+        "name": "0% EX",
+        "amount": 0.0,
+        "use": "sale"
+      },
+      {
+        "name": "21% M",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "12% M",
+        "amount": 12.0,
+        "use": "purchase"
+      },
+      {
+        "name": "6% M",
+        "amount": 6.0,
+        "use": "purchase"
+      },
+      {
+        "name": "0% M",
+        "amount": 0.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% S.TTC",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% S.TTC",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% S",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% G",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "12% G",
+        "amount": 12.0,
+        "use": "purchase"
+      },
+      {
+        "name": "6% S",
+        "amount": 6.0,
+        "use": "purchase"
+      },
+      {
+        "name": "6% G",
+        "amount": 6.0,
+        "use": "purchase"
+      },
+      {
+        "name": "0% S",
+        "amount": 0.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% IG",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% M.Cocont",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% S.Cocont",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% IG.Cocont",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% D50",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "21% D35",
+        "amount": 21.0,
+        "use": "purchase"
+      },
+      {
+        "name": "19.0% DE TVA",
+        "amount": 19.0,
+        "use": "sale"
+      }
+    ],
+    "moves_posted": 24304,
+    "open_invoices": 339,
+    "open_invoices_over_60d": 132,
+    "analytic_plans": 0
+  },
+  "automations": {
+    "cron_total": 53,
+    "cron_active": 53,
+    "cron_list": [
+      {
+        "name": "Account Report Followup; Execute followup",
+        "every": "1 days",
+        "nextcall": "2026-04-15 02:00:53",
+        "active": true
+      },
+      {
+        "name": "Account automatic transfers: Perform transfers",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:27:57",
+        "active": true
+      },
+      {
+        "name": "Account: Journal online Waiting Synchronization",
+        "every": "5 minutes",
+        "nextcall": "2026-04-14 13:12:58",
+        "active": true
+      },
+      {
+        "name": "Account: Journal online sync",
+        "every": "12 hours",
+        "nextcall": "2026-04-14 14:27:58",
+        "active": true
+      },
+      {
+        "name": "Account: Journal online sync cleanup unused connections",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:27:58",
+        "active": true
+      },
+      {
+        "name": "Account: Journal online sync reminder",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:27:58",
+        "active": true
+      },
+      {
+        "name": "Account: Post draft entries with auto_post enabled and accounting date up to today",
+        "every": "1 days",
+        "nextcall": "2026-04-15 02:00:51",
+        "active": true
+      },
+      {
+        "name": "Account: Update payment status",
+        "every": "6 hours",
+        "nextcall": "2026-04-14 15:16:31",
+        "active": true
+      },
+      {
+        "name": "Amazon: sync delivery orders",
+        "every": "30 minutes",
+        "nextcall": "2026-04-14 13:28:43",
+        "active": true
+      },
+      {
+        "name": "Amazon: sync feeds",
+        "every": "9999 months",
+        "nextcall": "2859-02-26 13:54:12",
+        "active": true
+      },
+      {
+        "name": "Base: Auto-vacuum internal data",
+        "every": "1 days",
+        "nextcall": "2026-04-15 12:49:50",
+        "active": true
+      },
+      {
+        "name": "Base: Portal Users Deletion",
+        "every": "1 days",
+        "nextcall": "2026-04-15 12:49:50",
+        "active": true
+      },
+      {
+        "name": "CRM: enrich leads (IAP)",
+        "every": "1 hours",
+        "nextcall": "2026-04-14 13:47:17",
+        "active": true
+      },
+      {
+        "name": "Calendar: Event Reminder",
+        "every": "1 days",
+        "nextcall": "2026-04-14 13:47:13",
+        "active": true
+      },
+      {
+        "name": "Currency: rate update",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:27:57",
+        "active": true
+      },
+      {
+        "name": "Digest Emails",
+        "every": "1 days",
+        "nextcall": "2026-04-14 16:27:44",
+        "active": true
+      },
+      {
+        "name": "Discuss: channel member unmute",
+        "every": "1 days",
+        "nextcall": "2026-04-15 08:23:43",
+        "active": true
+      },
+      {
+        "name": "Discuss: users settings unmute",
+        "every": "1 days",
+        "nextcall": "2026-04-15 08:23:43",
+        "active": true
+      },
+      {
+        "name": "Emipro: Auto Delete Connector Queues",
+        "every": "1 days",
+        "nextcall": "2026-04-15 10:41:45",
+        "active": true
+      },
+      {
+        "name": "Google Calendar: synchronization",
+        "every": "12 hours",
+        "nextcall": "2026-04-14 15:22:03",
+        "active": true
+      },
+      {
+        "name": "HR Employee: check work permit validity",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:32:11",
+        "active": true
+      },
+      {
+        "name": "Invoice OCR: Update All Status",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:28:03",
+        "active": true
+      },
+      {
+        "name": "Invoice OCR: Validate Invoices",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:28:03",
+        "active": true
+      },
+      {
+        "name": "MPS: replenish automated schedules",
+        "every": "1 days",
+        "nextcall": "2026-04-14 15:23:51",
+        "active": true
+      },
+      {
+        "name": "Mail Marketing: Process queue",
+        "every": "1 days",
+        "nextcall": "2026-04-15 09:33:40",
+        "active": true
+      },
+      {
+        "name": "Mail: Email Queue Manager",
+        "every": "1 hours",
+        "nextcall": "2026-04-14 13:23:43",
+        "active": true
+      },
+      {
+        "name": "Mail: Post scheduled messages",
+        "every": "1 days",
+        "nextcall": "2026-04-15 08:23:43",
+        "active": true
+      },
+      {
+        "name": "Mail: send web push notification",
+        "every": "1 days",
+        "nextcall": "2026-04-15 08:23:43",
+        "active": true
+      },
+      {
+        "name": "Notification: Delete Notifications older than 6 Month",
+        "every": "1 days",
+        "nextcall": "2026-04-15 08:23:43",
+        "active": true
+      },
+      {
+        "name": "Notification: Notify scheduled messages",
+        "every": "1 hours",
+        "nextcall": "2026-04-14 13:23:43",
+        "active": true
+      },
+      {
+        "name": "Odoo x Shopify : Shopify Auto Export Stock",
+        "every": "15 minutes",
+        "nextcall": "2026-04-14 13:15:00",
+        "active": true
+      },
+      {
+        "name": "PEPPOL: retrieve new documents",
+        "every": "12 hours",
+        "nextcall": "2026-04-14 13:58:17",
+        "active": true
+      },
+      {
+        "name": "PEPPOL: update message status",
+        "every": "12 hours",
+        "nextcall": "2026-04-14 13:58:17",
+        "active": true
+      },
+      {
+        "name": "PEPPOL: update participant status",
+        "every": "6 hours",
+        "nextcall": "2026-04-14 13:58:17",
+        "active": true
+      },
+      {
+        "name": "Partner Autocomplete: Sync with remote DB",
+        "every": "1 hours",
+        "nextcall": "2026-04-14 13:23:47",
+        "active": true
+      },
+      {
+        "name": "Planning: generate next recurring shifts",
+        "every": "1 weeks",
+        "nextcall": "2026-04-21 13:04:06",
+        "active": true
+      },
+      {
+        "name": "Procurement: run scheduler",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:29:39",
+        "active": true
+      },
+      {
+        "name": "Product Images: Get product images from Google",
+        "every": "9999 months",
+        "nextcall": "2858-07-01 10:23:57",
+        "active": true
+      },
+      {
+        "name": "Publisher: Update Notification",
+        "every": "1 weeks",
+        "nextcall": "2026-04-20 08:23:43",
+        "active": true
+      },
+      {
+        "name": "Purchase reminder",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:29:42",
+        "active": true
+      },
+      {
+        "name": "SMS: SMS Queue Manager",
+        "every": "1 hours",
+        "nextcall": "2026-04-14 13:23:47",
+        "active": true
+      },
+      {
+        "name": "Sale Pdf Quote Builder: assign form fields to documents post upgrade",
+        "every": "9999 months",
+        "nextcall": "2858-05-25 14:28:03",
+        "active": true
+      },
+      {
+        "name": "Sales: Send pending emails",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:28:01",
+        "active": true
+      },
+      {
+        "name": "Send account reports automatically",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:29:49",
+        "active": true
+      },
+      {
+        "name": "Send invoices automatically",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:27:51",
+        "active": true
+      },
+      {
+        "name": "Shopify Import Product Image Explicitly",
+        "every": "50 minutes",
+        "nextcall": "2026-04-14 13:51:48",
+        "active": true
+      },
+      {
+        "name": "Shopify: Process Export Stock Queue",
+        "every": "15 minutes",
+        "nextcall": "2026-04-14 13:14:48",
+        "active": true
+      },
+      {
+        "name": "Shopify: Process Orders Queue",
+        "every": "10 minutes",
+        "nextcall": "2026-04-14 13:13:53",
+        "active": true
+      },
+      {
+        "name": "Shopify: Process Products Queue",
+        "every": "10 minutes",
+        "nextcall": "2026-04-14 13:22:45",
+        "active": true
+      },
+      {
+        "name": "Sign: Send mail reminder",
+        "every": "1 days",
+        "nextcall": "2026-04-15 10:00:00",
+        "active": true
+      },
+      {
+        "name": "Snailmail: process letters queue",
+        "every": "1 hours",
+        "nextcall": "2026-04-14 13:23:48",
+        "active": true
+      },
+      {
+        "name": "Try to reconcile automatically your statement lines",
+        "every": "1 days",
+        "nextcall": "2026-04-14 14:27:52",
+        "active": true
+      },
+      {
+        "name": "Users: Notify About Unregistered Users",
+        "every": "1 days",
+        "nextcall": "2026-04-15 08:23:44",
+        "active": true
+      }
+    ],
+    "base_automation": 0,
+    "mail_servers": [],
+    "fetchmail": []
+  },
+  "sequences": {
+    "total": 233,
+    "dup_prefix": [
+      "Liege bis/",
+      "Liège/",
+      "Namur/",
+      "POP-UP STORE/",
+      "Waterloo/",
+      "COPIE/MO/",
+      "COPIE/SFP/",
+      "COPIE/PC/",
+      "COPIE/POS/"
+    ],
+    "sample": [
+      {
+        "code": "account.payment",
+        "prefix": "PAY",
+        "pad": 5,
+        "impl": "standard"
+      },
+      {
+        "code": "stock.picking",
+        "prefix": "INT/",
+        "pad": 5,
+        "impl": "standard"
+      },
+      {
+        "code": "purchase.order",
+        "prefix": "P",
+        "pad": 5,
+        "impl": "standard"
+      },
+      {
+        "code": "sale.order",
+        "prefix": "S",
+        "pad": 5,
+        "impl": "standard"
+      }
+    ]
+  },
+  "users": {
+    "users_total": 13,
+    "internal": 12,
+    "portal": 1,
+    "active_internal": 12,
+    "companies": 1,
+    "internal_list": [
+      {
+        "name": "Administrator",
+        "login": "admin",
+        "active": true,
+        "groups": 66
+      },
+      {
+        "name": "Apps",
+        "login": "apps@teatower.com",
+        "active": true,
+        "groups": 62
+      },
+      {
+        "name": "Magasin Liege",
+        "login": "magasinliege@teatower.com",
+        "active": true,
+        "groups": 57
+      },
+      {
+        "name": "Magasin Namur",
+        "login": "magasinnamur@teatower.com",
+        "active": true,
+        "groups": 56
+      },
+      {
+        "name": "Magasin Waterloo",
+        "login": "magasinwaterloo@teatower.com",
+        "active": true,
+        "groups": 57
+      },
+      {
+        "name": "Nicolas Raes",
+        "login": "nicolas.raes@teatower.com",
+        "active": true,
+        "groups": 65
+      },
+      {
+        "name": "Stephan Pire",
+        "login": "stephan.pire@teatower.com",
+        "active": true,
+        "groups": 58
+      },
+      {
+        "name": "adrianne.buttiens@noenature.com",
+        "login": "adrianne.buttiens@teatower.com",
+        "active": true,
+        "groups": 66
+      },
+      {
+        "name": "aurelie.thibaut@noenature.com",
+        "login": "aurelie.thibaut@teatower.com",
+        "active": true,
+        "groups": 58
+      },
+      {
+        "name": "factures@noenature.com",
+        "login": "factures@noenature.com",
+        "active": true,
+        "groups": 63
+      },
+      {
+        "name": "jerome.carlier@teatower.com",
+        "login": "jerome.carlier@teatower.com",
+        "active": true,
+        "groups": 56
+      },
+      {
+        "name": "logistique@noenature.com",
+        "login": "info@teatower.com",
+        "active": true,
+        "groups": 58
+      }
+    ]
+  },
+  "modules": {
+    "installed": 236,
+    "apps": 24,
+    "shopify": [
+      "shopify_ept"
+    ],
+    "amazon": [
+      "sale_amazon"
+    ],
+    "apps_list": [
+      "sale_management",
+      "account",
+      "crm",
+      "stock",
+      "accountant",
+      "purchase",
+      "point_of_sale",
+      "mrp",
+      "mass_mailing",
+      "web_studio",
+      "documents",
+      "hr",
+      "shopify_ept",
+      "sign",
+      "planning",
+      "mail",
+      "contacts",
+      "calendar",
+      "mass_mailing_sms",
+      "iot",
+      "stock_barcode",
+      "hr_skills",
+      "delivery_sendcloud",
+      "sale_amazon"
+    ]
+  },
+  "data_quality": {
+    "partners_total": 33529,
+    "customers_no_contact": 1631,
+    "dup_vat": 51,
+    "dup_email": 1000,
+    "sample_dup_vat": [
+      {
+        "vat": "BE0308357159",
+        "count": 2
+      },
+      {
+        "vat": "BE0316381138",
+        "count": 2
+      },
+      {
+        "vat": "BE0423055008",
+        "count": 2
+      },
+      {
+        "vat": "BE0428586085",
+        "count": 2
+      },
+      {
+        "vat": "BE0433231197",
+        "count": 2
+      },
+      {
+        "vat": "BE0433444401",
+        "count": 2
+      },
+      {
+        "vat": "BE0433683139",
+        "count": 2
+      },
+      {
+        "vat": "BE0438215811",
+        "count": 2
+      },
+      {
+        "vat": "BE0439908559",
+        "count": 2
+      },
+      {
+        "vat": "BE0440040696",
+        "count": 2
+      }
+    ],
+    "sample_dup_email": [
+      {
+        "email": "1310francine@gmail.com",
+        "count": 2
+      },
+      {
+        "email": "3283250@gmail.com",
+        "count": 2
+      },
+      {
+        "email": "Amandineduvivier9@gmail.com",
+        "count": 2
+      },
+      {
+        "email": "B.Schmerbeck@web.de",
+        "count": 2
+      },
+      {
+        "email": "C.renard@isbm.be",
+        "count": 2
+      },
+      {
+        "email": "Clemenceguissard@hotmail.com",
+        "count": 2
+      },
+      {
+        "email": "Elisabeth.nelissen2013@gmail.com",
+        "count": 2
+      },
+      {
+        "email": "Fabipiot62@gmail.com",
+        "count": 2
+      },
+      {
+        "email": "Fabrice.rasir@gmail.com",
+        "count": 2
+      },
+      {
+        "email": "Fzmacaux@gmail.com",
+        "count": 2
+      }
+    ]
+  }
+}
