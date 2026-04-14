@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T12:15:21",
+  "updated": "2026-04-14T12:17:00",
   "tasks": [
     {
       "id": "t001",
@@ -74,9 +74,11 @@
       "id": "t009",
       "agent": "stock-manager",
       "task": "MAJ transferts internes magasins après modif règles min/max",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T12:15",
-      "request": "Nicolas → réappro magasin, règles modifiées, refaire transferts"
+      "finished": "2026-04-14T12:17",
+      "request": "Nicolas → réappro magasin, règles modifiées, refaire transferts",
+      "result": "WAT 0 créé (2 existants, tout en rupture TT) — LIEGE 1 créé 3 lignes 14u — NAM 1 créé 2 lignes 10u. 80 refs en alerte rupture TT (collection Noël V0711/V0732/V0891/V0913 à relancer fournisseur)."
     }
   ]
 }
