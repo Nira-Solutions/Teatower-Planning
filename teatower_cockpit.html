@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Teatower Cockpit — Pilotage Terrain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#0f1419; --panel:#161d26; --panel2:#1c2530; --border:#2a3441;
+    --ink:#e6edf3; --ink-dim:#8b96a5; --muted:#5a6573;
+    --accent:#10b981; --accent2:#f59e0b; --danger:#ef4444; --warn:#f97316;
+    --info:#3b82f6; --ok:#22c55e;
+    --gold:#fbbf24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); min-height:100vh;
+    font-size:14px; line-height:1.5;
+  }
+  .app{max-width:1440px;margin:0 auto;padding:20px 24px 60px}
+
+  /* HEADER */
+  .topbar{
+    display:flex;align-items:center;gap:20px;padding:16px 20px;
+    background:linear-gradient(135deg,#0d6b47 0%,#1a4d3a 100%);
+    border-radius:14px;margin-bottom:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.3);
+  }
+  .topbar h1{font-size:1.3rem;font-weight:700;letter-spacing:-0.3px}
+  .topbar .sub{color:rgba(255,255,255,0.75);font-size:0.82rem;margin-top:2px}
+  .topbar .spacer{flex:1}
+  .topbar .live{
+    display:flex;align-items:center;gap:8px;
+    background:rgba(0,0,0,0.25);padding:6px 12px;border-radius:999px;
+    font-size:0.78rem;font-weight:600;
+  }
+  .live .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;
+    box-shadow:0 0 12px #22c55e;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+
+  /* TABS */
+  .tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid var(--border)}
+  .tab{
+    padding:12px 20px;background:transparent;border:none;color:var(--ink-dim);
+    font-size:0.9rem;font-weight:600;cursor:pointer;position:relative;
+    border-radius:8px 8px 0 0;transition:color .15s;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--accent)}
+  .tab.active::after{
+    content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;
+    background:var(--accent);
+  }
+  .tab .badge{
+    display:inline-block;background:var(--danger);color:#fff;
+    font-size:0.68rem;padding:1px 7px;border-radius:999px;margin-left:6px;
+    font-weight:700;vertical-align:middle;
+  }
+
+  /* KPI ROW */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .kpi{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:12px;padding:18px 20px;position:relative;overflow:hidden;
+  }
+  .kpi .lbl{font-size:0.72rem;color:var(--ink-dim);text-transform:uppercase;
+    letter-spacing:0.8px;margin-bottom:8px;font-weight:600}
+  .kpi .val{font-size:1.9rem;font-weight:800;letter-spacing:-0.5px;line-height:1}
+  .kpi .delta{font-size:0.8rem;margin-top:8px;font-weight:600}
+  .kpi .delta.up{color:var(--ok)}
+  .kpi .delta.down{color:var(--danger)}
+  .kpi.risk{border-left:3px solid var(--danger)}
+  .kpi.risk .val{color:#fca5a5}
+  .kpi.warn{border-left:3px solid var(--warn)}
+  .kpi.warn .val{color:#fdba74}
+  .kpi.info{border-left:3px solid var(--info)}
+  .kpi.info .val{color:#93c5fd}
+  .kpi.ok{border-left:3px solid var(--ok)}
+  .kpi.ok .val{color:#86efac}
+
+  /* LAYOUT */
+  .grid-main{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin-bottom:20px}
+  .card{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:12px;padding:20px;
+  }
+  .card h3{
+    font-size:0.95rem;font-weight:700;margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .card h3 .count{
+    background:var(--panel2);color:var(--ink-dim);
+    font-size:0.72rem;padding:2px 8px;border-radius:999px;font-weight:600;
+  }
+  .card h3 .ico{font-size:1.1rem}
+
+  /* PRIORITIES */
+  .prio{
+    display:flex;align-items:center;gap:14px;padding:14px;
+    border:1px solid var(--border);border-radius:10px;margin-bottom:10px;
+    background:var(--panel2);transition:all .15s;
+  }
+  .prio:hover{border-color:var(--accent);transform:translateX(2px)}
+  .prio .sev{
+    width:36px;height:36px;border-radius:10px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.1rem;font-weight:800;
+  }
+  .prio.p1 .sev{background:rgba(239,68,68,0.15);color:#fca5a5}
+  .prio.p2 .sev{background:rgba(249,115,22,0.15);color:#fdba74}
+  .prio.p3 .sev{background:rgba(59,130,246,0.15);color:#93c5fd}
+  .prio .body{flex:1;min-width:0}
+  .prio .title{font-weight:700;font-size:0.92rem;margin-bottom:3px}
+  .prio .meta{font-size:0.78rem;color:var(--ink-dim);display:flex;gap:14px;flex-wrap:wrap}
+  .prio .meta .tag{color:var(--ink-dim)}
+  .prio .meta .impact{color:var(--gold);font-weight:700}
+  .prio .reco{
+    font-size:0.8rem;color:var(--accent);margin-top:6px;font-weight:500;
+  }
+  .btn{
+    background:var(--accent);color:#04281d;border:none;
+    padding:8px 14px;border-radius:8px;font-size:0.82rem;font-weight:700;
+    cursor:pointer;transition:all .15s;flex-shrink:0;
+  }
+  .btn:hover{background:#34d399;transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.sm{padding:5px 10px;font-size:0.74rem}
+
+  /* PLANNING */
+  .planning{display:grid;grid-template-columns:90px repeat(5,1fr);gap:6px;font-size:0.78rem}
+  .planning .hd{color:var(--ink-dim);font-weight:600;padding:8px 4px;text-align:center}
+  .planning .ag-name{
+    color:var(--ink);font-weight:600;padding:10px 6px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .planning .ag-dot{width:8px;height:8px;border-radius:50%}
+  .planning .slot{
+    background:var(--panel2);border:1px dashed var(--border);
+    border-radius:6px;padding:8px 6px;min-height:52px;font-size:0.72rem;
+    cursor:move;transition:all .15s;
+  }
+  .planning .slot.filled{border-style:solid;background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.3)}
+  .planning .slot.over{background:rgba(239,68,68,0.1);border-color:var(--danger)}
+  .planning .slot .s-title{font-weight:700;color:var(--ink);margin-bottom:2px}
+  .planning .slot .s-meta{color:var(--ink-dim);font-size:0.68rem}
+
+  /* LISTS */
+  .list-row{
+    display:grid;align-items:center;gap:12px;padding:11px 12px;
+    border-bottom:1px solid var(--border);font-size:0.86rem;
+  }
+  .list-row:last-child{border:none}
+  .list-row:hover{background:var(--panel2)}
+  .store-row{grid-template-columns:1fr 80px 80px 70px 90px}
+  .agent-row{grid-template-columns:1fr 90px 1fr 90px}
+  .chip{
+    display:inline-block;padding:2px 8px;border-radius:999px;
+    font-size:0.7rem;font-weight:700;letter-spacing:0.3px;
+  }
+  .chip.red{background:rgba(239,68,68,0.15);color:#fca5a5}
+  .chip.orange{background:rgba(249,115,22,0.15);color:#fdba74}
+  .chip.green{background:rgba(34,197,94,0.15);color:#86efac}
+  .chip.blue{background:rgba(59,130,246,0.15);color:#93c5fd}
+  .bar{
+    height:6px;background:var(--panel2);border-radius:999px;overflow:hidden;
+  }
+  .bar > span{display:block;height:100%;background:var(--accent);border-radius:999px}
+  .bar.warn > span{background:var(--warn)}
+  .bar.danger > span{background:var(--danger)}
+
+  /* TABLES */
+  table{width:100%;border-collapse:collapse;font-size:0.86rem}
+  th{
+    text-align:left;padding:10px 12px;color:var(--ink-dim);
+    font-weight:600;font-size:0.74rem;text-transform:uppercase;letter-spacing:0.6px;
+    border-bottom:1px solid var(--border);
+  }
+  td{padding:12px;border-bottom:1px solid var(--border)}
+  tr:last-child td{border:none}
+  tr:hover td{background:var(--panel2)}
+  .rank{font-weight:800;color:var(--gold);width:32px}
+
+  /* INSIGHTS */
+  .insight{
+    padding:12px 14px;border-left:3px solid var(--accent);
+    background:var(--panel2);border-radius:8px;margin-bottom:10px;
+  }
+  .insight .hd{font-weight:700;font-size:0.88rem;margin-bottom:4px;display:flex;gap:8px;align-items:center}
+  .insight .hd .tag{font-size:0.68rem;padding:1px 7px;border-radius:4px;font-weight:700}
+  .insight .bd{font-size:0.82rem;color:var(--ink-dim)}
+  .insight.positive{border-left-color:var(--ok)}
+  .insight.positive .hd .tag{background:rgba(34,197,94,0.18);color:#86efac}
+  .insight.negative{border-left-color:var(--danger)}
+  .insight.negative .hd .tag{background:rgba(239,68,68,0.18);color:#fca5a5}
+  .insight.neutral .hd .tag{background:rgba(59,130,246,0.18);color:#93c5fd}
+
+  /* PANE */
+  .pane{display:none}
+  .pane.active{display:block}
+
+  /* TOAST */
+  .toast-zone{position:fixed;top:20px;right:20px;z-index:1000;display:flex;flex-direction:column;gap:10px}
+  .toast{
+    background:var(--panel);border:1px solid var(--accent);
+    border-left:3px solid var(--accent);
+    padding:12px 18px;border-radius:10px;min-width:280px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+    animation:slideIn .3s ease-out;
+  }
+  @keyframes slideIn{from{transform:translateX(120%)}to{transform:translateX(0)}}
+  .toast .t-hd{font-weight:700;font-size:0.86rem;margin-bottom:3px}
+  .toast .t-bd{font-size:0.78rem;color:var(--ink-dim)}
+
+  /* ACTIONS LOG */
+  .log-entry{
+    font-size:0.78rem;padding:8px 0;border-bottom:1px dashed var(--border);
+    display:flex;gap:10px;align-items:baseline;
+  }
+  .log-entry .t{color:var(--muted);font-variant-numeric:tabular-nums;flex-shrink:0}
+  .log-entry .m{color:var(--ink)}
+  .log-entry .i{color:var(--gold);font-weight:700;margin-left:auto}
+
+  /* SCENARIO */
+  .scenario{
+    background:var(--panel2);border:1px dashed var(--border);
+    padding:16px;border-radius:10px;margin-top:12px;
+  }
+  .scenario h4{font-size:0.85rem;margin-bottom:10px;color:var(--ink)}
+  .scenario .row{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+  .scenario input,.scenario select{
+    background:var(--panel);color:var(--ink);border:1px solid var(--border);
+    padding:6px 10px;border-radius:6px;font-size:0.82rem;
+  }
+  .scenario .out{
+    margin-top:10px;padding:10px;border-radius:8px;
+    background:rgba(16,185,129,0.08);color:var(--ok);font-size:0.84rem;
+    border:1px solid rgba(16,185,129,0.3);
+  }
+
+  .flex{display:flex;align-items:center;gap:10px}
+  .spc{flex:1}
+  .muted{color:var(--ink-dim)}
+  .mb0{margin-bottom:0}
+  .back-link{
+    display:inline-block;margin-bottom:14px;color:var(--ink-dim);
+    text-decoration:none;font-size:0.82rem;
+  }
+  .back-link:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="app">
+  <a href="agents_dashboard.html" class="back-link">← Agents Teatower</a>
+
+  <!-- HEADER -->
+  <div class="topbar">
+    <div>
+      <h1>🧭 Teatower Cockpit</h1>
+      <div class="sub">Pilotage terrain intelligent — détection · priorisation · exécution · impact</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="live"><span class="dot"></span> Live · Odoo + Shyfter</div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" data-pane="dashboard">📊 Dashboard</button>
+    <button class="tab" data-pane="stores">🏪 Magasins <span class="badge" id="storeBadge">3</span></button>
+    <button class="tab" data-pane="products">📦 Produits</button>
+    <button class="tab" data-pane="vendors">👥 Vendeurs</button>
+    <button class="tab" data-pane="impact">💰 Impact</button>
+  </div>
+
+  <!-- =========== PANE: DASHBOARD =========== -->
+  <div class="pane active" id="pane-dashboard">
+
+    <div class="kpis">
+      <div class="kpi risk">
+        <div class="lbl">CA à risque (7j)</div>
+        <div class="val" id="kpiRisk">—</div>
+        <div class="delta down" id="kpiRiskDelta">↗ ruptures en hausse</div>
+      </div>
+      <div class="kpi warn">
+        <div class="lbl">Magasins critiques</div>
+        <div class="val" id="kpiStores">—</div>
+        <div class="delta" id="kpiStoresDelta">/ 42 actifs</div>
+      </div>
+      <div class="kpi info">
+        <div class="lbl">Commandes urgentes</div>
+        <div class="val" id="kpiOrders">—</div>
+        <div class="delta" id="kpiOrdersDelta">à valider &lt; 24h</div>
+      </div>
+      <div class="kpi ok">
+        <div class="lbl">Charge agents</div>
+        <div class="val" id="kpiLoad">—</div>
+        <div class="delta" id="kpiLoadDelta">capacité terrain</div>
+      </div>
+    </div>
+
+    <div class="grid-main">
+      <!-- PRIORITIES -->
+      <div class="card">
+        <h3><span class="ico">🔥</span> Priorités du jour <span class="count" id="prioCount">0</span>
+          <span class="spc"></span>
+          <button class="btn ghost sm" id="regenBtn">⟳ regénérer</button>
+        </h3>
+        <div id="prioList"></div>
+      </div>
+
+      <!-- PLANNING -->
+      <div class="card">
+        <h3><span class="ico">📅</span> Planning agents · semaine en cours
+          <span class="spc"></span>
+          <button class="btn ghost sm" id="optimizeBtn">⚡ optimiser tournée</button>
+        </h3>
+        <div class="planning" id="planning"></div>
+        <div class="muted" style="font-size:0.74rem;margin-top:10px">Glissez une tâche entre agents pour réassigner · rouge = surcharge</div>
+      </div>
+    </div>
+
+    <div class="grid-main">
+      <!-- STORES STATUS -->
+      <div class="card">
+        <h3><span class="ico">🏪</span> Vue magasins <span class="count">8</span>
+          <span class="spc"></span>
+          <button class="btn ghost sm" onclick="switchTab('stores')">voir tout →</button>
+        </h3>
+        <div id="storeList"></div>
+      </div>
+
+      <!-- AGENTS LOAD -->
+      <div class="card">
+        <h3><span class="ico">👤</span> Charge agents <span class="count">5</span></h3>
+        <div id="agentList"></div>
+      </div>
+    </div>
+
+    <!-- SCENARIO + LOG -->
+    <div class="grid-main">
+      <div class="card">
+        <h3><span class="ico">🧪</span> Simulation scénarios</h3>
+        <div class="muted" style="font-size:0.82rem;margin-bottom:10px">Testez l'impact avant d'exécuter.</div>
+        <div class="scenario">
+          <h4>Et si...</h4>
+          <div class="row">
+            <label class="muted">Scénario :</label>
+            <select id="scenType">
+              <option value="visit">Planifier visite urgente</option>
+              <option value="reassign">Réassigner 3 tâches</option>
+              <option value="bundle">Bundler 2 commandes GMS</option>
+              <option value="stockout">Laisser rupture en cours</option>
+            </select>
+            <button class="btn sm" onclick="simulateScenario()">Simuler</button>
+          </div>
+          <div class="out" id="scenOut">Choisissez un scénario et cliquez Simuler.</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3><span class="ico">📋</span> Journal d'actions <span class="count" id="logCount">0</span></h3>
+        <div id="logList" style="max-height:240px;overflow-y:auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========== PANE: STORES =========== -->
+  <div class="pane" id="pane-stores">
+    <div class="card" style="margin-bottom:16px">
+      <h3><span class="ico">🤖</span> Agent Responsable Magasins · insights temps réel</h3>
+      <div id="storeInsights"></div>
+    </div>
+    <div class="card">
+      <h3><span class="ico">🏪</span> Ranking magasins · score global</h3>
+      <table>
+        <thead><tr>
+          <th>#</th><th>Magasin</th><th>CA 30j</th><th>Δ vs M-1</th>
+          <th>Rupture</th><th>Score</th><th>Risque</th><th>Action</th>
+        </tr></thead>
+        <tbody id="storeTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- =========== PANE: PRODUCTS =========== -->
+  <div class="pane" id="pane-products">
+    <div class="grid-main">
+      <div class="card">
+        <h3><span class="ico">🚀</span> Top 10 produits · 30j</h3>
+        <table><thead><tr><th>#</th><th>Produit</th><th>Ventes</th><th>CA</th><th>Δ</th></tr></thead>
+          <tbody id="prodTop"></tbody></table>
+      </div>
+      <div class="card">
+        <h3><span class="ico">📉</span> Flop 5 · à relancer</h3>
+        <table><thead><tr><th>#</th><th>Produit</th><th>Rotation</th><th>Stock</th><th>Action</th></tr></thead>
+          <tbody id="prodFlop"></tbody></table>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3><span class="ico">🔗</span> Corrélations produit × magasin</h3>
+      <div id="corrList"></div>
+    </div>
+  </div>
+
+  <!-- =========== PANE: VENDORS =========== -->
+  <div class="pane" id="pane-vendors">
+    <div class="card" style="margin-bottom:16px">
+      <div class="muted" style="font-size:0.82rem">Source : Shyfter · CA attribué via visites + implantations × uplift mesuré</div>
+    </div>
+    <div class="card">
+      <h3><span class="ico">🏆</span> Classement vendeurs · 30j</h3>
+      <table>
+        <thead><tr>
+          <th>#</th><th>Vendeur</th><th>Visites</th><th>Heures</th>
+          <th>CA attribué</th><th>Uplift moyen</th><th>Performance</th>
+        </tr></thead>
+        <tbody id="vendorTable"></tbody>
+      </table>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3><span class="ico">💡</span> Insights vendeurs</h3>
+      <div id="vendorInsights"></div>
+    </div>
+  </div>
+
+  <!-- =========== PANE: IMPACT =========== -->
+  <div class="pane" id="pane-impact">
+    <div class="kpis">
+      <div class="kpi ok">
+        <div class="lbl">CA sauvé (30j)</div>
+        <div class="val" id="impactSaved">—</div>
+        <div class="delta up">actions priorités</div>
+      </div>
+      <div class="kpi ok">
+        <div class="lbl">Ruptures évitées</div>
+        <div class="val" id="impactStockouts">—</div>
+        <div class="delta up">anticipées par alerte</div>
+      </div>
+      <div class="kpi info">
+        <div class="lbl">Temps gagné</div>
+        <div class="val" id="impactHours">—</div>
+        <div class="delta">vs workflow manuel</div>
+      </div>
+      <div class="kpi ok">
+        <div class="lbl">ROI cockpit</div>
+        <div class="val" id="impactRoi">—</div>
+        <div class="delta up">€ sauvé / € coût agent</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>📈 Historique impact · 30 derniers jours</h3>
+      <div id="impactHistory"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-zone" id="toastZone"></div>
+
+<script>
+/* ============================================================
+   TEATOWER COCKPIT — frontend prototype
+   Data layer : in-memory store (prêt à brancher JSON-RPC Odoo / Shyfter)
+   ============================================================ */
+
+const STATE = {
+  stores: [
+    {id:'WAT',name:'Delhaize Waterloo',ca30:8420,delta:-0.18,stockout:0.12,score:52,risk:'red',visits:2},
+    {id:'LIE',name:'Spar Manhay (Lambertdis)',ca30:6100,delta:+0.08,stockout:0.04,score:78,risk:'green',visits:1},
+    {id:'NAM',name:'Carrefour Namur',ca30:12480,delta:-0.05,stockout:0.08,score:71,risk:'orange',visits:3},
+    {id:'LGE',name:'Delhaize Liège Guillemins',ca30:9850,delta:+0.12,stockout:0.02,score:86,risk:'green',visits:2},
+    {id:'BRU',name:'AD Ixelles',ca30:5240,delta:-0.24,stockout:0.18,score:41,risk:'red',visits:0},
+    {id:'ANT',name:'Carrefour Anvers',ca30:11200,delta:+0.03,stockout:0.06,score:74,risk:'green',visits:2},
+    {id:'CHA',name:'AD Charleroi',ca30:4680,delta:-0.15,stockout:0.14,score:48,risk:'red',visits:1},
+    {id:'MON',name:'Delhaize Mons',ca30:7320,delta:+0.02,stockout:0.05,score:75,risk:'green',visits:2},
+  ],
+  agents:[
+    {id:'jer',name:'Jérôme C.',role:'Commercial',color:'#10b981',load:0.72,tasks:6,hoursWeek:38},
+    {id:'aur',name:'Aurélie',role:'Support vente',color:'#3b82f6',load:0.55,tasks:4,hoursWeek:30},
+    {id:'mer',name:'Merch équipe',role:'Merchandiser',color:'#f59e0b',load:0.95,tasks:9,hoursWeek:45},
+    {id:'nic',name:'Nicolas R.',role:'Direction',color:'#ef4444',load:1.10,tasks:11,hoursWeek:52},
+    {id:'ext',name:'Extra freelance',role:'Terrain',color:'#a855f7',load:0.30,tasks:2,hoursWeek:16},
+  ],
+  orders:[
+    {id:'SO2214',client:'Radisson Hub',amount:4200,dueH:6,status:'pending'},
+    {id:'SO2209',client:'Lepanier Grand-Maman',amount:820,dueH:18,status:'pending'},
+    {id:'SO2207',client:'AD Ixelles',amount:1640,dueH:30,status:'pending'},
+  ],
+  products:{
+    top:[
+      {sku:'TT-EARL',name:'Earl Grey Premium 100g',units:842,ca:6736,delta:+0.14},
+      {sku:'TT-ROOI',name:'Rooibos Vanille 80g',units:620,ca:4340,delta:+0.09},
+      {sku:'TT-GREEN',name:'Thé vert Jasmin 90g',units:588,ca:4116,delta:+0.22},
+      {sku:'TT-CHAI',name:'Chai Masala 100g',units:512,ca:4096,delta:+0.05},
+      {sku:'TT-BOX',name:'Coffret découverte 6',units:210,ca:5460,delta:+0.31},
+    ],
+    flop:[
+      {sku:'TT-HIBI',name:'Hibiscus brut 60g',rot:0.12,stock:680,act:'relance GMS'},
+      {sku:'TT-FENN',name:'Infusion fenouil 50g',rot:0.08,stock:420,act:'retirer AD'},
+      {sku:'TT-OOL',name:'Oolong 70g',rot:0.15,stock:310,act:'A+ content Amazon'},
+      {sku:'TT-MINT',name:'Menthe poivrée 60g',rot:0.18,stock:520,act:'bundle coffret'},
+      {sku:'TT-VAN',name:'Vanille pure 40g',rot:0.10,stock:260,act:'photo refresh'},
+    ],
+    corr:[
+      {txt:'🟢 Earl Grey surperforme à Namur (+34%) vs moyenne réseau',type:'pos'},
+      {txt:'🔴 Rooibos sous-performe à AD Ixelles (-42%) · corrélé à vendeur ext non formé',type:'neg'},
+      {txt:'🔵 Coffret Découverte : +58% quand Jérôme visite dans les 7j',type:'pos'},
+      {txt:'🟠 Thé vert Jasmin : rupture fréquente Anvers · réassort seuil trop bas',type:'neg'},
+    ]
+  },
+  vendors:[
+    {name:'Jérôme C.',visits:24,hours:152,ca:48200,uplift:0.18,score:92},
+    {name:'Aurélie',visits:12,hours:96,ca:18400,uplift:0.09,score:74},
+    {name:'Merch équipe',visits:38,hours:180,ca:29600,uplift:0.11,score:81},
+    {name:'Extra freelance',visits:8,hours:48,ca:6800,uplift:0.03,score:52},
+  ],
+  vendorInsights:[
+    {type:'positive',hd:'🏆 Jérôme génère 2.6× le CA moyen',bd:'Uplift +18% · concentrer sur comptes stratégiques Radisson & Carrefour'},
+    {type:'negative',hd:'⚠️ Extra freelance sous-performe',bd:'Uplift +3% seulement · prévoir formation 1/2 journée ou rotation'},
+    {type:'neutral',hd:'📊 Aurélie gère le support mais manque de temps visite',bd:'Dégager 8h/sem pour 4 visites ciblées = +9K€ estimés/mois'},
+  ],
+  log:[],
+  impact:{saved:0,stockouts:0,hours:0},
+};
+
+/* ============ DECISION ENGINE ============ */
+function computePriorities(){
+  const P = [];
+  // Stock critique
+  STATE.stores.forEach(s=>{
+    if(s.stockout > 0.10){
+      const impact = Math.round(s.ca30 * s.stockout * 0.6);
+      P.push({
+        id:'st-'+s.id,
+        type:'stockout',
+        sev: s.stockout>0.15?1:2,
+        title:`Rupture imminente · ${s.name}`,
+        meta:[`taux ${(s.stockout*100).toFixed(0)}%`,`CA 30j ${s.ca30}€`],
+        impact, urgency:0.9, risk:s.stockout,
+        reco:`Transfert TT/Stock → ${s.id}/Stock + alerter merch`,
+        action:{fn:'scheduleVisit',args:[s.id]}
+      });
+    }
+  });
+  // Commandes urgentes
+  STATE.orders.forEach(o=>{
+    if(o.dueH < 24){
+      P.push({
+        id:'or-'+o.id,
+        type:'order',
+        sev: o.dueH<8?1:2,
+        title:`Commande ${o.id} · ${o.client}`,
+        meta:[`${o.amount}€`,`échéance ${o.dueH}h`],
+        impact:o.amount, urgency:1-(o.dueH/24), risk:0.5,
+        reco:`Valider devis Odoo + attacher PDF source`,
+        action:{fn:'validateOrder',args:[o.id]}
+      });
+    }
+  });
+  // Surcharge agent
+  STATE.agents.forEach(a=>{
+    if(a.load > 1){
+      P.push({
+        id:'ag-'+a.id,
+        type:'overload',
+        sev: a.load>1.2?1:2,
+        title:`Surcharge · ${a.name}`,
+        meta:[`${a.tasks} tâches`,`${Math.round(a.load*100)}% capacité`],
+        impact: 2000, urgency:0.7, risk:a.load-1,
+        reco:`Réassigner 2 tâches vers Extra freelance`,
+        action:{fn:'reassignTask',args:[a.id]}
+      });
+    }
+  });
+  // Magasin en baisse
+  STATE.stores.forEach(s=>{
+    if(s.delta < -0.15){
+      const impact = Math.round(s.ca30 * Math.abs(s.delta));
+      P.push({
+        id:'drop-'+s.id,
+        type:'drop',
+        sev:2,
+        title:`Baisse ventes · ${s.name}`,
+        meta:[`${(s.delta*100).toFixed(0)}% vs M-1`,`CA ${s.ca30}€`],
+        impact, urgency:0.6, risk:Math.abs(s.delta),
+        reco:`Visite Jérôme + refresh linéaire sous 7j`,
+        action:{fn:'scheduleVisit',args:[s.id]}
+      });
+    }
+  });
+  // Score priority_score = impact × urgence × risque
+  P.forEach(p=>p.score = p.impact * p.urgency * (1+p.risk));
+  P.sort((a,b)=>b.score-a.score);
+  return P.slice(0,6);
+}
+
+/* ============ ACTIONS ============ */
+function logAction(msg,impact){
+  const t = new Date().toLocaleTimeString('fr-BE',{hour:'2-digit',minute:'2-digit'});
+  STATE.log.unshift({t,msg,impact:impact||0});
+  if(impact){ STATE.impact.saved += impact; }
+  renderLog();
+  renderImpact();
+}
+function toast(hd,bd){
+  const z = document.getElementById('toastZone');
+  const el = document.createElement('div');
+  el.className='toast';
+  el.innerHTML=`<div class="t-hd">${hd}</div><div class="t-bd">${bd}</div>`;
+  z.appendChild(el);
+  setTimeout(()=>el.remove(),3800);
+}
+function reassignTask(agentId){
+  const a = STATE.agents.find(x=>x.id===agentId);
+  const e = STATE.agents.find(x=>x.id==='ext');
+  if(a && e){ a.tasks -= 2; a.load = Math.max(0.3,a.load-0.2); e.tasks += 2; e.load += 0.15; }
+  logAction(`Réassignation : 2 tâches ${a?.name} → ${e?.name}`, 1500);
+  toast('✅ Tâches réassignées',`${a?.name} soulagé (${a?.tasks} tâches restantes)`);
+  renderAll();
+}
+function scheduleVisit(storeId){
+  const s = STATE.stores.find(x=>x.id===storeId);
+  if(s){ s.visits++; s.stockout = Math.max(0, s.stockout-0.05); s.score = Math.min(100, s.score+6); }
+  logAction(`Visite planifiée → ${s?.name}`, Math.round((s?.ca30||0)*0.08));
+  toast('📅 Visite planifiée',`${s?.name} · sous 7j`);
+  STATE.impact.stockouts++;
+  renderAll();
+}
+function validateOrder(oid){
+  const o = STATE.orders.find(x=>x.id===oid);
+  if(o){ o.status='validated'; STATE.orders = STATE.orders.filter(x=>x.id!==oid); }
+  logAction(`Commande ${oid} validée dans Odoo`, o?.amount||0);
+  toast('✅ Commande validée',`${oid} · PDF source attaché`);
+  renderAll();
+}
+function optimizeRoute(){
+  STATE.agents.forEach(a=>{
+    if(a.load>1) a.load = Math.max(0.85, a.load-0.12);
+    if(a.load<0.4) a.load = Math.min(0.7, a.load+0.12);
+  });
+  STATE.impact.hours += 4;
+  logAction(`Tournée optimisée · équilibrage charge`, 800);
+  toast('⚡ Tournée optimisée','Charge équilibrée · 4h économisées/sem');
+  renderAll();
+}
+
+/* ============ STORE AGENT (Responsable Magasins) ============ */
+function generateStoreInsights(){
+  const out=[];
+  STATE.stores.forEach(s=>{
+    if(s.delta < -0.15) out.push({type:'negative',hd:`📉 ${s.name} en baisse de ${Math.abs(s.delta*100).toFixed(0)}%`,bd:`Reco : planifier visite + audit facing · impact estimé ${Math.round(s.ca30*Math.abs(s.delta))}€/mois`});
+    if(s.stockout > 0.12) out.push({type:'negative',hd:`🚨 Rupture critique ${s.name}`,bd:`Taux ${(s.stockout*100).toFixed(0)}% · transfert prioritaire TT/Stock`});
+    if(s.delta > 0.10 && s.visits >=2) out.push({type:'positive',hd:`🚀 ${s.name} surperforme +${(s.delta*100).toFixed(0)}%`,bd:`Corrélation visite : ${s.visits} visites ce mois · répliquer schéma`});
+  });
+  // Vendeur booster
+  out.push({type:'positive',hd:'💪 Jérôme booste 3 magasins',bd:'Uplift +18% sur Namur, Liège, Mons · prioriser Radisson'});
+  return out.slice(0,6);
+}
+function scoreStores(){ return [...STATE.stores].sort((a,b)=>b.score-a.score); }
+
+/* ============ SIMULATION ============ */
+function simulateScenario(){
+  const t = document.getElementById('scenType').value;
+  const out = document.getElementById('scenOut');
+  let r;
+  if(t==='visit') r = `✅ Visite urgente · +2 800€ CA estimé · -60% risque rupture sur 7j · coût 1 journée terrain (320€) · ROI 8.75×`;
+  else if(t==='reassign') r = `✅ Réassignation 3 tâches Merch → Extra · débloque 12h critiques · évite retard implantation Spar (impact 1 500€)`;
+  else if(t==='bundle') r = `✅ Bundle 2 commandes GMS · -1 livraison (80€ logistique) · -2h admin · client gagne 48h délai`;
+  else r = `❌ Si rupture laissée 7j : -1 240€ CA direct + risque déréférencement AD Ixelles (impact annuel 18K€)`;
+  out.textContent = r;
+}
+
+/* ============ AUTO DAILY PLAN ============ */
+function generateDailyPlan(){
+  const prios = computePriorities();
+  logAction(`Plan du jour généré · ${prios.length} priorités détectées`);
+  toast('🧠 Plan du jour prêt',`${prios.length} actions recommandées par ordre d'impact`);
+}
+
+/* ============ RENDER ============ */
+function fmtEur(n){ return n.toLocaleString('fr-BE',{maximumFractionDigits:0})+'€'; }
+function pctChip(d){
+  const v = (d*100).toFixed(0);
+  const cls = d>0.05?'green':d<-0.05?'red':'blue';
+  return `<span class="chip ${cls}">${d>0?'+':''}${v}%</span>`;
+}
+function riskChip(r){
+  const map={red:['red','critique'],orange:['orange','surveiller'],green:['green','sain']};
+  const [c,l]=map[r]||['blue','—']; return `<span class="chip ${c}">${l}</span>`;
+}
+
+function renderKPIs(){
+  const risk = STATE.stores.reduce((a,s)=>a+s.ca30*s.stockout,0);
+  const critical = STATE.stores.filter(s=>s.risk==='red').length;
+  const urgent = STATE.orders.filter(o=>o.dueH<24).length;
+  const avgLoad = STATE.agents.reduce((a,x)=>a+x.load,0)/STATE.agents.length;
+  document.getElementById('kpiRisk').textContent = fmtEur(risk);
+  document.getElementById('kpiStores').textContent = critical;
+  document.getElementById('kpiStoresDelta').textContent = `/ ${STATE.stores.length} actifs`;
+  document.getElementById('kpiOrders').textContent = urgent;
+  document.getElementById('kpiLoad').textContent = Math.round(avgLoad*100)+'%';
+  document.getElementById('storeBadge').textContent = critical;
+}
+
+function renderPriorities(){
+  const P = computePriorities();
+  const el = document.getElementById('prioList');
+  document.getElementById('prioCount').textContent = P.length;
+  if(!P.length){ el.innerHTML='<div class="muted" style="padding:20px;text-align:center">✨ Aucune urgence. Belle journée.</div>'; return; }
+  el.innerHTML = P.map(p=>`
+    <div class="prio p${p.sev}">
+      <div class="sev">P${p.sev}</div>
+      <div class="body">
+        <div class="title">${p.title}</div>
+        <div class="meta">
+          ${p.meta.map(m=>`<span class="tag">${m}</span>`).join('')}
+          <span class="impact">+${fmtEur(p.impact)} impact</span>
+        </div>
+        <div class="reco">💡 ${p.reco}</div>
+      </div>
+      <button class="btn" onclick="${p.action.fn}('${p.action.args[0]}')">Exécuter</button>
+    </div>
+  `).join('');
+}
+
+function renderPlanning(){
+  const days=['Lun','Mar','Mer','Jeu','Ven'];
+  const el = document.getElementById('planning');
+  const tasks = {
+    jer:['Visite Namur','Call Radisson','','Visite Liège','Revue pipeline'],
+    aur:['Support AD','','Relance B2B','Support AD','Newsletter'],
+    mer:['Implant Spar','Implant Spar','Réassort WAT','Réassort LGE','Audit BRU'],
+    nic:['Dir ops','Call fournisseur','Board Nira','Call Radisson','Compta'],
+    ext:['','Visite CHA','','','Visite MON'],
+  };
+  let html = `<div class="hd"></div>` + days.map(d=>`<div class="hd">${d}</div>`).join('');
+  STATE.agents.forEach(a=>{
+    html += `<div class="ag-name"><span class="ag-dot" style="background:${a.color}"></span>${a.name}</div>`;
+    tasks[a.id].forEach((t,i)=>{
+      const over = a.load>1 && t;
+      html += `<div class="slot ${t?'filled':''} ${over?'over':''}" draggable="${!!t}" data-agent="${a.id}" data-day="${i}">
+        ${t?`<div class="s-title">${t}</div><div class="s-meta">${a.role}</div>`:'<span class="muted" style="font-size:0.7rem">libre</span>'}
+      </div>`;
+    });
+  });
+  el.innerHTML = html;
+
+  // drag & drop
+  el.querySelectorAll('.slot[draggable="true"]').forEach(s=>{
+    s.addEventListener('dragstart',e=>e.dataTransfer.setData('text/plain',JSON.stringify({a:s.dataset.agent,d:s.dataset.day,html:s.innerHTML})));
+  });
+  el.querySelectorAll('.slot').forEach(s=>{
+    s.addEventListener('dragover',e=>{e.preventDefault();s.style.outline='2px dashed #10b981'});
+    s.addEventListener('dragleave',()=>s.style.outline='');
+    s.addEventListener('drop',e=>{
+      e.preventDefault(); s.style.outline='';
+      const d = JSON.parse(e.dataTransfer.getData('text/plain'));
+      s.innerHTML = d.html; s.classList.add('filled');
+      toast('↔ Tâche déplacée',`Réassignée vers ${STATE.agents.find(a=>a.id===s.dataset.agent)?.name}`);
+      logAction(`Drag&drop : tâche ${d.a} → ${s.dataset.agent} jour ${s.dataset.day}`,500);
+    });
+  });
+}
+
+function renderStores(){
+  const el = document.getElementById('storeList');
+  const sorted = [...STATE.stores].sort((a,b)=>a.score-b.score).slice(0,5);
+  el.innerHTML = sorted.map(s=>`
+    <div class="list-row store-row">
+      <div>
+        <div style="font-weight:600">${s.name}</div>
+        <div class="muted" style="font-size:0.74rem">${s.visits} visite(s) · 30j</div>
+      </div>
+      <div>${fmtEur(s.ca30)}</div>
+      <div>${pctChip(s.delta)}</div>
+      <div class="muted">${(s.stockout*100).toFixed(0)}%</div>
+      <div>${riskChip(s.risk)}</div>
+    </div>
+  `).join('');
+}
+
+function renderAgents(){
+  const el = document.getElementById('agentList');
+  el.innerHTML = STATE.agents.map(a=>{
+    const pct = Math.min(100,Math.round(a.load*100));
+    const cls = a.load>1?'danger':a.load>0.8?'warn':'';
+    return `<div class="list-row agent-row">
+      <div>
+        <div style="font-weight:600">${a.name}</div>
+        <div class="muted" style="font-size:0.74rem">${a.role}</div>
+      </div>
+      <div class="muted">${a.tasks} tâches</div>
+      <div><div class="bar ${cls}"><span style="width:${pct}%"></span></div></div>
+      <div style="text-align:right;font-weight:700;color:${a.load>1?'#fca5a5':'var(--ink)'}">${pct}%</div>
+    </div>`;
+  }).join('');
+}
+
+function renderLog(){
+  const el = document.getElementById('logList');
+  document.getElementById('logCount').textContent = STATE.log.length;
+  if(!STATE.log.length){ el.innerHTML='<div class="muted" style="padding:12px">Aucune action pour l\'instant.</div>'; return; }
+  el.innerHTML = STATE.log.slice(0,30).map(l=>`
+    <div class="log-entry">
+      <span class="t">${l.t}</span>
+      <span class="m">${l.msg}</span>
+      ${l.impact?`<span class="i">+${fmtEur(l.impact)}</span>`:''}
+    </div>`).join('');
+}
+
+function renderStoresPane(){
+  // insights
+  const ins = generateStoreInsights();
+  document.getElementById('storeInsights').innerHTML = ins.map(i=>`
+    <div class="insight ${i.type}">
+      <div class="hd">${i.hd}<span class="tag">${i.type==='positive'?'OPPORTUNITÉ':i.type==='negative'?'ALERTE':'INFO'}</span></div>
+      <div class="bd">${i.bd}</div>
+    </div>`).join('');
+
+  // table
+  const ranked = scoreStores();
+  document.getElementById('storeTable').innerHTML = ranked.map((s,i)=>`
+    <tr>
+      <td class="rank">#${i+1}</td>
+      <td><b>${s.name}</b></td>
+      <td>${fmtEur(s.ca30)}</td>
+      <td>${pctChip(s.delta)}</td>
+      <td>${(s.stockout*100).toFixed(0)}%</td>
+      <td><div class="bar ${s.score<60?'danger':s.score<75?'warn':''}"><span style="width:${s.score}%"></span></div></td>
+      <td>${riskChip(s.risk)}</td>
+      <td><button class="btn sm" onclick="scheduleVisit('${s.id}')">Visite</button></td>
+    </tr>`).join('');
+}
+
+function renderProductsPane(){
+  document.getElementById('prodTop').innerHTML = STATE.products.top.map((p,i)=>`
+    <tr><td class="rank">#${i+1}</td><td><b>${p.name}</b><br><span class="muted" style="font-size:0.72rem">${p.sku}</span></td>
+    <td>${p.units}</td><td>${fmtEur(p.ca)}</td><td>${pctChip(p.delta)}</td></tr>`).join('');
+  document.getElementById('prodFlop').innerHTML = STATE.products.flop.map((p,i)=>`
+    <tr><td class="rank">#${i+1}</td><td><b>${p.name}</b><br><span class="muted" style="font-size:0.72rem">${p.sku}</span></td>
+    <td><span class="chip red">${p.rot}</span></td><td>${p.stock}</td><td><span class="chip blue">${p.act}</span></td></tr>`).join('');
+  document.getElementById('corrList').innerHTML = STATE.products.corr.map(c=>`
+    <div class="insight ${c.type==='pos'?'positive':'negative'}"><div class="bd">${c.txt}</div></div>`).join('');
+}
+
+function renderVendorsPane(){
+  document.getElementById('vendorTable').innerHTML = STATE.vendors.map((v,i)=>`
+    <tr><td class="rank">#${i+1}</td><td><b>${v.name}</b></td>
+    <td>${v.visits}</td><td>${v.hours}h</td>
+    <td><b>${fmtEur(v.ca)}</b></td>
+    <td>${pctChip(v.uplift)}</td>
+    <td><div class="bar ${v.score<60?'danger':v.score<75?'warn':''}"><span style="width:${v.score}%"></span></div></td></tr>`).join('');
+  document.getElementById('vendorInsights').innerHTML = STATE.vendorInsights.map(i=>`
+    <div class="insight ${i.type}"><div class="hd">${i.hd}</div><div class="bd">${i.bd}</div></div>`).join('');
+}
+
+function renderImpact(){
+  document.getElementById('impactSaved').textContent = fmtEur(STATE.impact.saved || 18420);
+  document.getElementById('impactStockouts').textContent = (STATE.impact.stockouts||12);
+  document.getElementById('impactHours').textContent = (STATE.impact.hours||32)+'h';
+  const roi = ((STATE.impact.saved||18420)/3200).toFixed(1);
+  document.getElementById('impactRoi').textContent = roi+'×';
+  const hist = [
+    ['S-4',4200,3],['S-3',5100,4],['S-2',3800,2],['S-1',5320,3]
+  ];
+  document.getElementById('impactHistory').innerHTML = `<table><thead><tr><th>Semaine</th><th>CA sauvé</th><th>Ruptures évitées</th><th>Évolution</th></tr></thead><tbody>
+    ${hist.map(([w,c,s],i)=>`<tr><td>${w}</td><td><b>${fmtEur(c)}</b></td><td>${s}</td><td>${i>0?pctChip((c-hist[i-1][1])/hist[i-1][1]):'—'}</td></tr>`).join('')}
+    </tbody></table>`;
+}
+
+function renderAll(){
+  renderKPIs(); renderPriorities(); renderPlanning();
+  renderStores(); renderAgents(); renderLog();
+  renderStoresPane(); renderProductsPane(); renderVendorsPane(); renderImpact();
+}
+
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.pane===name));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('active',p.id==='pane-'+name));
+}
+
+/* ============ BOOT ============ */
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>switchTab(t.dataset.pane));
+});
+document.getElementById('regenBtn').addEventListener('click',()=>{ renderPriorities(); toast('⟳ Priorités régénérées','Moteur de décision relancé'); });
+document.getElementById('optimizeBtn').addEventListener('click',optimizeRoute);
+
+renderAll();
+setTimeout(()=>generateDailyPlan(),600);
+
+// Auto-refresh simulé (détection continue)
+setInterval(()=>{
+  STATE.stores.forEach(s=>{ if(Math.random()<0.15) s.stockout = Math.min(0.25, s.stockout + (Math.random()-0.5)*0.02); });
+  renderKPIs();
+},15000);
+</script>
+</body>
+</html>
