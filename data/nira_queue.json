@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:24:47",
+  "updated": "2026-04-14T15:25:54",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2979,6 +2979,14 @@
       "started": "2026-04-14T15:13",
       "request": "Nicolas → analyse ma config Odoo, dis-moi quoi améliorer",
       "finished": "2026-04-14T15:24"
+    },
+    {
+      "id": "t024",
+      "agent": "sales-crm",
+      "task": "Tag Horeca/Shopify/Amazon/B2B Direct sur partenaires (plan analytique)",
+      "status": "in_progress",
+      "started": "2026-04-14T15:25",
+      "request": "Nicolas → lance le tagging des canaux restants"
     }
   ]
 }
