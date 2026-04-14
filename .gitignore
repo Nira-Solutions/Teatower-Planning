@@ -1,0 +1,8 @@
+compta/google_service_account.json
+*.key.json
+.env
+.env.local
+__pycache__/
+*.pyc
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
