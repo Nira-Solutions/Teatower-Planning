@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T13:35:11",
+  "updated": "2026-04-14T14:04:37",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2888,6 +2888,14 @@
       "started": "2026-04-14T13:32",
       "request": "Nicolas → pourquoi les TT/Stock sont négatifs ?",
       "finished": "2026-04-14T13:35"
+    },
+    {
+      "id": "t015",
+      "agent": "odoo",
+      "task": "Nettoyage 58 produits en déficit agrégé sur TT/Stock",
+      "status": "in_progress",
+      "started": "2026-04-14T14:04",
+      "request": "Nicolas → fait l'inventaire ciblé"
     }
   ]
 }
