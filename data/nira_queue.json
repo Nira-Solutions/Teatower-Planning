@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T12:32:20",
+  "updated": "2026-04-14T13:27:27",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2870,6 +2870,14 @@
       "started": "2026-04-14T12:24",
       "request": "Nicolas → trouver TVA et emails manquants",
       "finished": "2026-04-14T12:32"
+    },
+    {
+      "id": "t013",
+      "agent": "odoo",
+      "task": "Audit stocks négatifs : causes et corrections",
+      "status": "in_progress",
+      "started": "2026-04-14T13:27",
+      "request": "Nicolas → pourquoi certains stocks sont négatifs ?"
     }
   ]
 }
