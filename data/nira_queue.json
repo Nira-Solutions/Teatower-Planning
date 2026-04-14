@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T14:48:44",
+  "updated": "2026-04-14T14:49:23",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2920,9 +2920,10 @@
       "id": "t018",
       "agent": "product-data",
       "task": "Scrape photos Shopify teatower.com → Odoo pour 1226 refs restantes",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T14:43",
-      "request": "Nicolas → compléter photos via Shopify"
+      "request": "Nicolas → compléter photos via Shopify",
+      "finished": "2026-04-14T14:49"
     },
     {
       "id": "c2d3cbf6-d25e-40f0-8a2f-4cb5ac935086",
