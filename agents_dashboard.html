@@ -548,6 +548,115 @@
     padding: 1px 6px; border-radius: 4px;
     border: 1px solid #e5e0d5; color: #1a4d3a;
   }
+
+  /* === Control bar === */
+  .controls-wrap { max-width: 1200px; margin: 0 auto 20px; }
+  .controls {
+    background: #fff; border: 1px solid #e5e0d5; border-radius: 12px;
+    padding: 12px 16px; display: flex; gap: 12px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .controls input[type="search"] {
+    flex: 1; min-width: 200px;
+    border: 1px solid #e5e0d5; border-radius: 8px;
+    padding: 8px 12px; font-size: 0.88rem; font-family: inherit;
+    background: #faf8f3;
+  }
+  .controls input[type="search"]:focus { outline: none; border-color: #1a4d3a; background: #fff; }
+  .controls select {
+    border: 1px solid #e5e0d5; border-radius: 8px;
+    padding: 8px 10px; font-size: 0.82rem; background: #faf8f3;
+    font-family: inherit; cursor: pointer;
+  }
+  .controls .chip {
+    font-size: 0.72rem; font-weight: 700;
+    padding: 6px 12px; border-radius: 999px;
+    background: #faf8f3; border: 1px solid #e5e0d5;
+    color: #4b5563; cursor: pointer; text-transform: uppercase;
+    letter-spacing: 0.4px; transition: all 0.15s;
+  }
+  .chip:hover { background: #eee7d8; }
+  .chip.on { background: #1a4d3a; color: #fff; border-color: #1a4d3a; }
+  .controls .icon-btn {
+    width: 36px; height: 36px; border-radius: 8px;
+    border: 1px solid #e5e0d5; background: #faf8f3;
+    cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { background: #eee7d8; }
+
+  .agent .cmd { cursor: pointer; position: relative; transition: transform 0.12s; }
+  .agent .cmd:hover { transform: scale(1.04); filter: brightness(1.05); }
+  .agent .cmd::after { content: ' 📋'; font-size: 0.68rem; opacity: 0.55; }
+  .agent-footer-actions {
+    display: flex; gap: 8px; margin-top: 10px;
+    padding-top: 10px; border-top: 1px solid #eee7d8;
+  }
+  .agent-footer-actions a, .agent-footer-actions button {
+    flex: 1; font-size: 0.7rem; font-weight: 700;
+    padding: 6px 10px; border-radius: 6px;
+    background: var(--accent-bg); color: var(--accent);
+    border: 1px solid var(--accent);
+    text-align: center; text-decoration: none;
+    cursor: pointer; font-family: inherit;
+    text-transform: uppercase; letter-spacing: 0.3px;
+    transition: all 0.15s;
+  }
+  .agent-footer-actions a:hover, .agent-footer-actions button:hover {
+    background: var(--accent); color: #fff;
+  }
+  .agent.hidden { display: none; }
+  .agent.highlighted { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 40px rgba(26, 77, 58, 0.25); }
+
+  .toast {
+    position: fixed; bottom: 80px; right: 20px; z-index: 2000;
+    background: #1a4d3a; color: #fff;
+    padding: 12px 18px; border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    font-size: 0.88rem; font-weight: 600;
+    animation: toastIn 0.25s ease, toastOut 0.25s ease 2.2s forwards;
+  }
+  @keyframes toastIn  { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes toastOut { to { transform: translateY(20px); opacity: 0; } }
+
+  /* === Dark mode === */
+  body.dark { background: #0f1117; color: #e5e7eb; }
+  body.dark header { border-bottom-color: #1f2937; }
+  body.dark .title h1 { color: #fbbf24; }
+  body.dark .title p { color: #9ca3af; }
+  body.dark .stat { background: #1a1f2e; border-color: #1f2937; }
+  body.dark .stat-value { color: #fbbf24; }
+  body.dark .stat-label { color: #9ca3af; }
+  body.dark .controls, body.dark .feed, body.dark .agent, body.dark .step {
+    background: #1a1f2e; border-color: #1f2937; color: #e5e7eb;
+  }
+  body.dark .controls input[type="search"],
+  body.dark .controls select,
+  body.dark .chip,
+  body.dark .icon-btn { background: #0f1117; border-color: #1f2937; color: #e5e7eb; }
+  body.dark .agent h3 { color: #fbbf24; }
+  body.dark .desc { color: #d1d5db; }
+  body.dark .queue { background: #0f1117; border-color: #1f2937; }
+  body.dark .queue li { color: #d1d5db; border-top-color: #1f2937; }
+  body.dark .triggers { border-top-color: #1f2937; }
+  body.dark .triggers code { background: #0f1117; border-color: #1f2937; color: #d1d5db; }
+  body.dark .step h4 { color: #fbbf24; }
+  body.dark .step p { color: #d1d5db; }
+  body.dark .step code { background: #0f1117; border-color: #1f2937; color: #fbbf24; }
+  body.dark .feed-item { background: #0f1117; border-color: #1f2937; }
+  body.dark .feed-item:hover { background: #1a1f2e; }
+  body.dark .feed-task { color: #e5e7eb; }
+  body.dark .workflow-title, body.dark .section-title { color: #9ca3af; }
+  body.dark footer { color: #6b7280; border-top-color: #1f2937; }
+
+  /* === Print / PDF === */
+  @media print {
+    body { background: #fff; padding: 20px; }
+    .controls-wrap, .sound-toggle, .feed-filter, .agent-footer-actions { display: none !important; }
+    .agent { break-inside: avoid; page-break-inside: avoid; box-shadow: none; }
+    .nira { box-shadow: none; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -566,6 +675,28 @@
   <div class="stat"><div class="stat-value" id="stat-pending">0</div><div class="stat-label">En attente</div></div>
   <div class="stat"><div class="stat-value" id="stat-done">0</div><div class="stat-label">Terminés (24h)</div></div>
   <div class="stat stat-hours"><div class="stat-value" id="stat-hours">0</div><div class="stat-label">Heures gagnées</div></div>
+</div>
+
+<!-- Control bar -->
+<div class="controls-wrap">
+  <div class="controls">
+    <input type="search" id="agent-search" placeholder="🔍 Rechercher un agent (nom, déclencheur, description)…">
+    <div id="domain-chips" style="display:flex;gap:6px;flex-wrap:wrap;">
+      <button class="chip on" data-domain="all">Tous</button>
+      <button class="chip" data-domain="ops">Ops</button>
+      <button class="chip" data-domain="finance">Finance</button>
+      <button class="chip" data-domain="commerce">Commerce</button>
+      <button class="chip" data-domain="tech">Tech</button>
+    </div>
+    <select id="agent-sort" title="Trier">
+      <option value="default">Ordre par défaut</option>
+      <option value="name">A→Z</option>
+      <option value="mmr">MMR (meilleur)</option>
+      <option value="recent">Dernière activité</option>
+    </select>
+    <button class="icon-btn" id="dark-toggle" title="Dark mode">🌙</button>
+    <button class="icon-btn" id="print-btn" title="Exporter PDF">🖨️</button>
+  </div>
 </div>
 
 <!-- Feed du jour -->
@@ -1563,6 +1694,153 @@
 
   loadQueueRpg();
   setInterval(loadQueueRpg, 15000);
+
+  // =============================================================
+  // === ENHANCEMENTS : search, filter, sort, dark, copy, logs ===
+  // =============================================================
+  (function enhanceDashboard() {
+    const DOMAINS = {
+      'support-order': 'commerce', 'sales-crm': 'commerce', 'marketing': 'commerce', 'merchandiser': 'commerce',
+      'purchase': 'ops', 'stock-manager': 'ops', 'planning': 'ops', 'production': 'ops',
+      'compta': 'finance', 'data-bi': 'finance',
+      'odoo': 'tech', 'product-data': 'tech',
+    };
+    const LOG_FOLDERS = { 'compta': 'compta/LOG.md', 'production': 'production/LOG.md', 'purchase': 'purchase/LOG.md' };
+    const PROMPT_FOR = {
+      'support-order': '@support-order traite les bons de commande dans orders/',
+      'purchase': '@purchase lance le rapport achats quotidien',
+      'planning': '@planning-teatower construit le planning merchandiser de la semaine',
+      'stock-manager': '@stock-manager analyse les stocks et propose les réappros',
+      'compta': '@compta lance le lettrage bancaire sur les derniers relevés',
+      'merchandiser': '@upload-merchandiser upload les PDFs du dossier Merchandiser/ vers Odoo',
+      'odoo': '@odoo audit / debug du flux [à préciser]',
+      'sales-crm': '@sales-crm structure l\'agenda commercial et enrichit les fiches CRM',
+      'production': '@production analyse les MO, BoM, orderpoints fabriqués',
+      'marketing': '@marketing pilote Shopify / Amazon / newsletters',
+      'data-bi': '@data-bi produit les KPI business hebdo',
+      'product-data': '@product-data crée/modifie une fiche produit Teatower',
+    };
+
+    function toast(msg) {
+      const t = document.createElement('div');
+      t.className = 'toast'; t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 2800);
+    }
+
+    // --- Copy prompt on .cmd click + inject footer actions per card
+    document.querySelectorAll('.agent').forEach(card => {
+      const agent = card.dataset.agent;
+      card.dataset.domain = DOMAINS[agent] || 'other';
+
+      const cmd = card.querySelector('.cmd');
+      if (cmd && PROMPT_FOR[agent]) {
+        cmd.title = 'Clic = copier le prompt de lancement';
+        cmd.addEventListener('click', () => {
+          navigator.clipboard.writeText(PROMPT_FOR[agent])
+            .then(() => toast(`✅ Prompt copié — ${agent}`))
+            .catch(() => toast('❌ Copie impossible'));
+        });
+      }
+
+      // Inject footer actions (launch + log link if applicable)
+      const footer = document.createElement('div');
+      footer.className = 'agent-footer-actions';
+      const launch = document.createElement('button');
+      launch.textContent = '🚀 Copier prompt';
+      launch.onclick = () => {
+        const p = PROMPT_FOR[agent] || `@${agent}`;
+        navigator.clipboard.writeText(p).then(() => toast(`✅ Prompt copié — ${agent}`));
+      };
+      footer.appendChild(launch);
+
+      if (LOG_FOLDERS[agent]) {
+        const logLink = document.createElement('a');
+        logLink.href = LOG_FOLDERS[agent];
+        logLink.target = '_blank';
+        logLink.textContent = '📜 Voir log';
+        footer.appendChild(logLink);
+      }
+      card.appendChild(footer);
+    });
+
+    // --- Search
+    const searchInput = document.getElementById('agent-search');
+    let currentDomain = 'all';
+    function applyFilter() {
+      const q = (searchInput.value || '').toLowerCase().trim();
+      document.querySelectorAll('.agent').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const d = card.dataset.domain;
+        const matchQ = !q || text.includes(q);
+        const matchD = currentDomain === 'all' || d === currentDomain;
+        card.classList.toggle('hidden', !(matchQ && matchD));
+      });
+    }
+    searchInput.addEventListener('input', applyFilter);
+
+    document.querySelectorAll('#domain-chips .chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('#domain-chips .chip').forEach(c => c.classList.remove('on'));
+        chip.classList.add('on');
+        currentDomain = chip.dataset.domain;
+        applyFilter();
+      });
+    });
+
+    // --- Sort
+    const grid = document.getElementById('agents-grid');
+    const originalOrder = [...grid.children];
+    document.getElementById('agent-sort').addEventListener('change', (e) => {
+      const mode = e.target.value;
+      let sorted;
+      if (mode === 'default') {
+        sorted = originalOrder;
+      } else if (mode === 'name') {
+        sorted = [...originalOrder].sort((a, b) =>
+          a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent));
+      } else if (mode === 'mmr') {
+        sorted = [...originalOrder].sort((a, b) => {
+          const mmrA = parseInt((a.querySelector('.rank-mmr')?.textContent.match(/\d+/) || [0])[0]);
+          const mmrB = parseInt((b.querySelector('.rank-mmr')?.textContent.match(/\d+/) || [0])[0]);
+          return mmrB - mmrA;
+        });
+      } else if (mode === 'recent') {
+        sorted = [...originalOrder].sort((a, b) => {
+          const hasActiveA = a.classList.contains('is-active') ? 1 : 0;
+          const hasActiveB = b.classList.contains('is-active') ? 1 : 0;
+          return hasActiveB - hasActiveA;
+        });
+      }
+      sorted.forEach(el => grid.appendChild(el));
+    });
+
+    // --- Dark mode
+    const darkBtn = document.getElementById('dark-toggle');
+    if (localStorage.getItem('dashDark') === '1') {
+      document.body.classList.add('dark');
+      darkBtn.textContent = '☀️';
+    }
+    darkBtn.addEventListener('click', () => {
+      const on = document.body.classList.toggle('dark');
+      darkBtn.textContent = on ? '☀️' : '🌙';
+      localStorage.setItem('dashDark', on ? '1' : '0');
+    });
+
+    // --- Print / PDF
+    document.getElementById('print-btn').addEventListener('click', () => window.print());
+
+    // --- Nira hover → highlight all sub-agents
+    const niraEl = document.querySelector('.nira');
+    if (niraEl) {
+      niraEl.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.agent').forEach(c => c.classList.add('highlighted'));
+      });
+      niraEl.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.agent').forEach(c => c.classList.remove('highlighted'));
+      });
+    }
+  })();
 </script>
 
 </body>
