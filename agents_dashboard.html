@@ -413,6 +413,67 @@
     color: #c8a96e; opacity: 0.8;
   }
 
+  /* Daily feed */
+  .feed-wrap { max-width: 1200px; margin: 0 auto 28px; }
+  .feed {
+    background: #fff; border: 1px solid #e5e0d5; border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .feed-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: 1px solid #eee7d8;
+  }
+  .feed-title {
+    font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 1.2px; color: #1a4d3a; font-weight: 800;
+  }
+  .feed-title strong { font-size: 1.05rem; margin-left: 6px; color: #1a4d3a; }
+  .feed-count {
+    font-family: 'SF Mono', monospace; font-size: 0.78rem;
+    color: #c8a96e; font-weight: 700;
+  }
+  .feed-list { display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow-y: auto; }
+  .feed-item {
+    display: grid; grid-template-columns: 44px 1fr auto; gap: 12px;
+    align-items: center;
+    padding: 8px 10px; border-radius: 8px;
+    background: #faf8f3; border: 1px solid #eee7d8;
+    transition: all 0.2s;
+  }
+  .feed-item:hover { background: #fff; border-color: var(--feed-accent, #c8a96e); transform: translateX(3px); }
+  .feed-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--feed-bg, #faf8f3);
+    border: 2px solid var(--feed-accent, #c8a96e);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 800;
+  }
+  .feed-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .feed-agent {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.4px; color: var(--feed-accent, #1a4d3a);
+  }
+  .feed-task {
+    font-size: 0.88rem; color: #1f2937;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .feed-time {
+    font-family: 'SF Mono', monospace; font-size: 0.72rem;
+    color: #9ca3af; text-align: right;
+  }
+  .feed-empty {
+    text-align: center; padding: 28px;
+    color: #9ca3af; font-size: 0.9rem; font-style: italic;
+  }
+  .feed-filter {
+    font-size: 0.72rem; color: #6b7280;
+    background: none; border: 1px solid #e5e0d5; border-radius: 5px;
+    padding: 3px 9px; cursor: pointer; margin-left: 4px;
+    font-family: inherit;
+  }
+  .feed-filter.active { background: #1a4d3a; color: #fff; border-color: #1a4d3a; }
+
   /* Sound toggle */
   .sound-toggle {
     position: fixed; bottom: 20px; right: 20px;
@@ -495,6 +556,26 @@
   <div class="stat"><div class="stat-value" id="stat-running">0</div><div class="stat-label">En cours</div></div>
   <div class="stat"><div class="stat-value" id="stat-pending">0</div><div class="stat-label">En attente</div></div>
   <div class="stat"><div class="stat-value" id="stat-done">0</div><div class="stat-label">Terminés (24h)</div></div>
+</div>
+
+<!-- Feed du jour -->
+<div class="feed-wrap">
+  <div class="feed">
+    <div class="feed-head">
+      <div>
+        <span class="feed-title">📋 Feed</span>
+        <strong id="feed-date">aujourd'hui</strong>
+      </div>
+      <div>
+        <button class="feed-filter active" data-filter="today">Aujourd'hui</button>
+        <button class="feed-filter" data-filter="7d">7 jours</button>
+        <span class="feed-count" id="feed-count">0 actions</span>
+      </div>
+    </div>
+    <div class="feed-list" id="feed-list">
+      <div class="feed-empty">Chargement…</div>
+    </div>
+  </div>
 </div>
 
 <!-- Leaderboard hebdo -->
@@ -1225,6 +1306,83 @@
     lastLvl[agentId] = lvl;
   }
 
+  // === Feed du jour ===
+  let feedFilter = 'today';
+  document.querySelectorAll('.feed-filter').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.feed-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      feedFilter = btn.dataset.filter;
+      loadQueueRpg();
+    };
+  });
+
+  function renderFeed(tasks) {
+    const list = document.getElementById('feed-list');
+    const count = document.getElementById('feed-count');
+    const dateEl = document.getElementById('feed-date');
+
+    const now = new Date();
+    const start = feedFilter === 'today'
+      ? new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime()
+      : now.getTime() - 7 * 86400000;
+
+    dateEl.textContent = feedFilter === 'today'
+      ? now.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })
+      : '7 derniers jours';
+
+    const items = tasks
+      .filter(t => t.status === 'done' && t.finished && new Date(t.finished).getTime() >= start)
+      .filter(t => !t.id.startsWith('h_'))  // exclure historique backfill
+      .sort((a, b) => new Date(b.finished) - new Date(a.finished));
+
+    count.textContent = `${items.length} action${items.length > 1 ? 's' : ''}`;
+
+    if (!items.length) {
+      list.innerHTML = `<div class="feed-empty">Rien à signaler ${feedFilter === 'today' ? "aujourd'hui" : 'sur 7 jours'}. ☕</div>`;
+      return;
+    }
+
+    // palette par agent (lit les CSS vars)
+    const css = getComputedStyle(document.documentElement);
+    function agentColor(agent) {
+      const card = document.querySelector(`[data-agent="${agent}"]`);
+      if (!card) return { accent: '#1a4d3a', bg: '#faf8f3' };
+      const s = getComputedStyle(card);
+      return {
+        accent: s.getPropertyValue('--accent').trim() || '#1a4d3a',
+        bg:     s.getPropertyValue('--accent-bg').trim() || '#faf8f3',
+      };
+    }
+
+    function fmtTime(iso) {
+      const d = new Date(iso);
+      const diff = (Date.now() - d.getTime()) / 60000;
+      if (diff < 1) return "à l'instant";
+      if (diff < 60) return `il y a ${Math.round(diff)} min`;
+      if (diff < 1440) return `il y a ${Math.round(diff / 60)}h`;
+      return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' }) +
+             ' · ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    const initial = a => (AGENT_LABEL[a] || a).split(/[\s-]+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+
+    list.innerHTML = items.slice(0, 60).map(t => {
+      const c = agentColor(t.agent);
+      const label = AGENT_LABEL[t.agent] || t.agent;
+      const task = (t.task || '').replace(/</g, '&lt;');
+      return `
+        <div class="feed-item" style="--feed-accent:${c.accent};--feed-bg:${c.bg}">
+          <div class="feed-avatar" style="color:${c.accent}">${initial(t.agent)}</div>
+          <div class="feed-body">
+            <span class="feed-agent">${label}</span>
+            <span class="feed-task" title="${task}">${task}</span>
+          </div>
+          <span class="feed-time">${fmtTime(t.finished)}</span>
+        </div>`;
+    }).join('');
+  }
+
   function renderLeaderboard(byAgent) {
     const scores = Object.keys(AGENT_META).map(agent => {
       const elo = computeElo(byAgent[agent] || []);
@@ -1254,6 +1412,7 @@
       data.tasks.forEach(t => { (byAgent[t.agent] = byAgent[t.agent] || []).push(t); });
       Object.keys(AGENT_META).forEach(a => renderRpg(a, byAgent[a] || []));
       renderLeaderboard(byAgent);
+      renderFeed(data.tasks || []);
       localStorage.setItem('seenDone', JSON.stringify([...seenDone].slice(-500)));
       localStorage.setItem('lastLvl', JSON.stringify(lastLvl));
     } catch (e) {}
