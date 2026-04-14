@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:06:06",
+  "updated": "2026-04-14T15:11:09",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2956,10 +2956,11 @@
     {
       "id": "t021",
       "agent": "odoo",
-      "task": "Se documenter sur Odoo 18 FR et produire une base de connaissance",
-      "status": "in_progress",
+      "task": "Base connaissance Odoo 18 établie (KNOWLEDGE_BASE.md, 21 URLs, 10 snippets)",
+      "status": "done",
       "started": "2026-04-14T15:05",
-      "request": "Nicolas → documente-toi sur https://www.odoo.com/documentation/18.0/fr/"
+      "request": "Nicolas → documente-toi sur https://www.odoo.com/documentation/18.0/fr/",
+      "finished": "2026-04-14T15:11"
     },
     {
       "id": "t022",
