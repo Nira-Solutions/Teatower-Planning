@@ -31,12 +31,18 @@
 
   .stats {
     max-width: 1200px; margin: 0 auto 36px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;
   }
   .stat {
     background: #fff; padding: 18px 22px;
     border-radius: 12px; border: 1px solid #e5e0d5;
   }
+  .stat.stat-hours {
+    background: linear-gradient(135deg, #1a4d3a 0%, #0d6b47 100%);
+    border: none; color: #fff;
+  }
+  .stat.stat-hours .stat-value { color: #fbbf24; font-size: 1.9rem; }
+  .stat.stat-hours .stat-label { color: rgba(255,255,255,0.9); }
   .stat-value { font-size: 1.5rem; font-weight: 700; color: #1a4d3a; }
   .stat-label {
     font-size: 0.75rem; color: #6b7280;
@@ -559,6 +565,7 @@
   <div class="stat"><div class="stat-value" id="stat-running">0</div><div class="stat-label">En cours</div></div>
   <div class="stat"><div class="stat-value" id="stat-pending">0</div><div class="stat-label">En attente</div></div>
   <div class="stat"><div class="stat-value" id="stat-done">0</div><div class="stat-label">Terminés (24h)</div></div>
+  <div class="stat stat-hours"><div class="stat-value" id="stat-hours">0</div><div class="stat-label">Heures gagnées</div></div>
 </div>
 
 <!-- Feed du jour -->
@@ -1128,6 +1135,27 @@
     document.getElementById('stat-done').textContent = all.filter(t =>
       t.status === 'done' && t.finished && new Date(t.finished).getTime() > dayAgo
     ).length;
+
+    // Heures gagnées — estimation par type d'agent (minutes humaines évitées par tâche accomplie)
+    const MIN_SAVED = {
+      'compta': 45,          // rapport, lettrage, forecast
+      'purchase': 35,        // analyse PO, maj prix
+      'planning': 90,        // planning hebdo merchandiser
+      'stock-manager': 50,   // analyse stocks, transferts
+      'merchandiser': 60,    // upload + BC par magasin
+      'support-order': 20,   // par devis créé
+      'sales-crm': 40,       // enrichissement / audit
+      'product-data': 75,    // photos / fiches produit
+      'odoo': 60,            // debug / config
+      'nira': 15,            // orchestration
+      'production': 40,
+      'marketing': 45,
+      'data-bi': 50
+    };
+    const doneAll = all.filter(t => t.status === 'done');
+    const totalMin = doneAll.reduce((acc, t) => acc + (MIN_SAVED[t.agent] || 20), 0);
+    const hours = Math.round(totalMin / 60 * 10) / 10;
+    document.getElementById('stat-hours').textContent = hours.toLocaleString('fr-FR') + 'h';
   }
 
   // === RPG config ===
