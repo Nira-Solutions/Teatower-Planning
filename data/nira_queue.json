@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T12:20:36",
+  "updated": "2026-04-14T12:22:03",
   "tasks": [
     {
       "id": "t001",
@@ -94,9 +94,10 @@
       "id": "t011",
       "agent": "nira",
       "task": "Audit CRM — leads 'Nouveaux' avec infos client manquantes",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-14T12:20",
-      "request": "Nicolas → check cartes colonne Nouveaux leads, infos manquantes"
+      "request": "Nicolas → check cartes colonne Nouveaux leads, infos manquantes",
+      "finished": "2026-04-14T12:22"
     }
   ]
 }
