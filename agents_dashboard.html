@@ -206,6 +206,7 @@
   .stock         { --accent: #9333ea; --accent-bg: #ede9fe; }
   .support-order { --accent: #e11d48; --accent-bg: #ffe4e6; }
   .compta        { --accent: #0891b2; --accent-bg: #cffafe; }
+  .sales-crm     { --accent: #c026d3; --accent-bg: #fae8ff; }
 
   footer {
     max-width: 1200px; margin: 48px auto 0; text-align: center;
@@ -526,6 +527,38 @@
     <div class="triggers">
       <strong>Déclencheurs</strong>
       <code>upload</code><code>dossier Merchandiser</code>
+    </div>
+  </div>
+
+  <div class="agent sales-crm" data-agent="sales-crm">
+    <div class="agent-head">
+      <div class="avatar">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="42" r="22" fill="#f3d4e8"/>
+          <path d="M28 40 Q28 18 50 18 Q72 18 72 40 Q62 30 50 32 Q38 30 28 40" fill="#701a75"/>
+          <circle cx="41" cy="44" r="2.5" fill="#1f2937"/>
+          <circle cx="59" cy="44" r="2.5" fill="#1f2937"/>
+          <path d="M42 55 Q50 60 58 55" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 100 Q22 72 50 72 Q78 72 78 100 Z" fill="#c026d3"/>
+          <rect x="44" y="72" width="12" height="10" fill="#f3d4e8"/>
+          <rect x="34" y="82" width="32" height="16" rx="2" fill="#fff" stroke="#86198f" stroke-width="1.5"/>
+          <line x1="38" y1="86" x2="62" y2="86" stroke="#86198f" stroke-width="1"/>
+          <line x1="38" y1="90" x2="58" y2="90" stroke="#86198f" stroke-width="1"/>
+          <line x1="38" y1="94" x2="54" y2="94" stroke="#86198f" stroke-width="1"/>
+          <circle cx="70" cy="32" r="8" fill="#fbbf24" stroke="#86198f" stroke-width="1.5"/>
+          <text x="70" y="35" font-family="monospace" font-size="9" font-weight="700" fill="#86198f" text-anchor="middle">€</text>
+        </svg>
+      </div>
+      <div>
+        <h3>Sales-CRM</h3>
+        <span class="cmd">/sales-crm</span>
+      </div>
+    </div>
+    <p class="desc">Enrichit crm.lead/res.partner, structure l'agenda des commerciaux (Jérôme Carlier), détecte les clients 1+ commande à relancer. <strong>Demande autorisation avant toute écriture CRM.</strong></p>
+    <div class="queue" data-queue="sales-crm"></div>
+    <div class="triggers">
+      <strong>Déclencheurs</strong>
+      <code>CRM</code><code>lead</code><code>relance</code><code>agenda commercial</code><code>Jérôme</code>
     </div>
   </div>
 
