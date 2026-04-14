@@ -86,15 +86,16 @@
   .nira p { font-size: 1rem; opacity: 0.95; max-width: 640px; line-height: 1.55; }
   .agent .role {
     display: inline-block;
-    background: var(--accent-bg);
-    color: var(--accent);
-    padding: 2px 10px;
+    background: var(--accent-bg, #f3f4f6);
+    color: var(--accent, #374151);
+    padding: 3px 10px;
     border-radius: 999px;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    margin: 4px 0 2px 0;
+    margin: 6px 0 4px 0;
+    border: 1px solid var(--accent, #d1d5db);
   }
   .nira .cta {
     background: #fff; color: #1a4d3a;
@@ -837,14 +838,18 @@
     <div class="agent-head">
       <div class="avatar">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#dcfce7"/>
-          <rect x="28" y="36" width="44" height="44" rx="3" fill="#fff" stroke="#15803d" stroke-width="2.5"/>
-          <rect x="28" y="36" width="44" height="9" fill="#15803d"/>
-          <path d="M40 36 Q40 26 50 26 Q60 26 60 36" fill="none" stroke="#15803d" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M50 52 Q44 60 50 70 Q56 60 50 52 Z" fill="#15803d"/>
-          <path d="M50 70 L50 76" stroke="#15803d" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="74" cy="30" r="12" fill="#15803d" stroke="#fff" stroke-width="2"/>
-          <text x="74" y="34" font-family="'SF Mono',Consolas,monospace" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">V0</text>
+          <circle cx="50" cy="42" r="22" fill="#dcfce7"/>
+          <path d="M28 42 Q28 20 50 20 Q72 20 72 42 Q62 32 50 34 Q38 32 28 42" fill="#14532d"/>
+          <circle cx="41" cy="44" r="2.5" fill="#1f2937"/>
+          <circle cx="59" cy="44" r="2.5" fill="#1f2937"/>
+          <path d="M42 55 Q50 60 58 55" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 100 Q22 72 50 72 Q78 72 78 100 Z" fill="#15803d"/>
+          <rect x="44" y="72" width="12" height="10" fill="#dcfce7"/>
+          <rect x="34" y="80" width="32" height="18" rx="2" fill="#fff" stroke="#14532d" stroke-width="1.5"/>
+          <rect x="34" y="80" width="32" height="5" fill="#14532d"/>
+          <path d="M50 90 Q47 94 50 97 Q53 94 50 90 Z" fill="#15803d"/>
+          <circle cx="74" cy="30" r="10" fill="#fbbf24" stroke="#14532d" stroke-width="1.5"/>
+          <text x="74" y="34" font-family="'SF Mono',Consolas,monospace" font-size="9" font-weight="700" fill="#14532d" text-anchor="middle">V0</text>
         </svg>
       </div>
       <div>
