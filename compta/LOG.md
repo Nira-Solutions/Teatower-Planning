@@ -1,5 +1,15 @@
 # LOG Compta Teatower
 
+## 2026-04-15 — Rapport commandes expédiées non facturées
+
+- Type : analyse / rapport
+- Source : sale.order (state: sale/done, invoice_status: to invoice, picking outgoing: done)
+- Résultat : 70 SO to_invoice identifiées, dont 70 avec au moins un outgoing picking done
+- Montant total HT : 14 173,10 EUR
+- Rapport : compta/reports/shipped_not_invoiced_2026-04-15.md
+- Top 3 : The Torrefactory Project Sa (1 950 EUR) / Carrefour Belgium (1 646 EUR) / Moulins Burette (1 406 EUR)
+- Alerte : 34 commandes e-commerce de déc. 2025 (> 120 jours) non régularisées
+
 ## 2026-04-14 — Rapprochement bancaire ING (165 lignes)
 
 ### Identification des 165
@@ -40,3 +50,4 @@ Critères : même montant exact (écart ≤ 0,01 EUR), même partenaire (direct 
 
 ### Fichiers générés
 - `compta/review/lettrages_review_2026-04-14.md` — détail des 27 cas en attente
+| 2026-04-14 | 367 | - |
