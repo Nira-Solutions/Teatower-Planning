@@ -1,5 +1,18 @@
 # LOG Compta Teatower
 
+## 2026-04-15 — Batch facturation : TRANSPORT + Posting + Envoi
+
+- Type : correction transport + validation + envoi batch
+- Lignes TRANSPORT ajoutées : 2 nouvelles factures draft créées (Odoo 36236, 36237) pour S05403 (Volle Gas) et S05375 (Carrefour Remouchamps) — 10 EUR HT chacune, produit [TRANSPORT], compte 700000, TVA 21%
+- Les 7 autres lignes TRANSPORT des SO concernés étaient déjà facturées (qty_inv=1)
+- action_post : 36 factures postées (IDs 36200–36237, hors avoirs 36223/36235) — 0 échec
+- Numéros attribués : INV/2026/02055 à INV/2026/02090
+- Montant total HT batch complet : 14 581,15 EUR | TTC : 15 482,38 EUR
+- Envoi Peppol : 14 factures (Van Der Valk, ILLICO RESTO, Europadrinks, Delhaize x2, Pascal CHERAIN, Moulins Burette, Cafés Antillia, Spinée SA, All in One, SRL Tartine, Au Comptoir Local, Smart fridges, Carrefour Remouchamps TRANSPORT)
+- Envoi email : 21 factures
+- Non envoyé : 1 (INV/2026/02077 — Clotuche Caroline Suzanne, id=122331, pas d'email ni Peppol)
+- Rapport mis à jour : compta/reports/invoicing_batch_2026-04-15.md
+
 ## 2026-04-15 — Batch facturation (34 factures draft créées)
 
 - Type : création factures clients batch
