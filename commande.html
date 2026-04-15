@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nouvelle commande — Teatower</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #2d7a5a;
+    --accent-dark: #1a4d3a;
+    --accent-light: #4ade80;
+    --bg-card: #ffffff;
+    --bg-subtle: #f4f6f8;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --danger: #dc2626;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background:
+      radial-gradient(ellipse at top left, rgba(100,116,139,0.18), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(30,41,59,0.55), transparent 65%),
+      linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #0b1120 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 32px 16px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  header {
+    display: flex; align-items: center; gap: 20px;
+    padding-bottom: 24px; margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  header img { width: 56px; height: 56px; object-fit: contain; }
+  header h1 { color: #fff; font-size: 1.6rem; letter-spacing: -0.3px; }
+  header p { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-top: 2px; }
+
+  .card {
+    background: var(--bg-card); border-radius: 16px; padding: 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 8px; align-items: end; }
+
+  label {
+    display: block; font-size: 0.8rem; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.4px; margin-bottom: 6px;
+  }
+  input, textarea, select {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--border);
+    border-radius: 8px; font-size: 0.95rem; font-family: inherit;
+    background: #fff; color: var(--text);
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(45,122,90,0.15);
+  }
+  textarea { resize: vertical; min-height: 70px; }
+
+  .section {
+    margin-top: 24px; padding-top: 20px;
+    border-top: 1px dashed var(--border);
+  }
+  .section h2 {
+    font-size: 1rem; color: var(--accent-dark);
+    margin-bottom: 14px; font-weight: 700;
+  }
+
+  .line-row { background: var(--bg-subtle); padding: 12px; border-radius: 10px; margin-bottom: 10px; }
+  .line-row input { background: #fff; }
+  .btn-del {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--danger); padding: 8px 10px; border-radius: 8px;
+    cursor: pointer; font-size: 0.85rem;
+  }
+  .btn-del:hover { background: #fef2f2; border-color: var(--danger); }
+
+  .btn {
+    padding: 10px 18px; border: none; border-radius: 8px;
+    font-weight: 600; font-size: 0.95rem; cursor: pointer;
+    font-family: inherit; transition: all 0.15s;
+  }
+  .btn-secondary {
+    background: var(--bg-subtle); color: var(--accent-dark);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { background: #e5e7eb; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,77,58,0.35); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  .footer-actions {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border);
+  }
+
+  .total-box {
+    font-size: 1.05rem; color: var(--text);
+  }
+  .total-box strong { color: var(--accent-dark); font-size: 1.3rem; }
+
+  .status {
+    margin-top: 16px; padding: 14px; border-radius: 10px;
+    font-size: 0.95rem; display: none;
+  }
+  .status.ok { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; display: block; }
+  .status.err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; display: block; }
+  .status.info { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; display: block; }
+
+  .file-drop {
+    border: 2px dashed var(--border); border-radius: 10px;
+    padding: 20px; text-align: center; cursor: pointer;
+    background: var(--bg-subtle); color: var(--text-muted);
+    transition: all 0.15s;
+  }
+  .file-drop.has-file { border-color: var(--accent); color: var(--accent-dark); background: #ecfdf5; }
+  .file-drop input { display: none; }
+
+  @media (max-width: 720px) {
+    .grid, .grid-3 { grid-template-columns: 1fr; }
+    .line-row .grid-3 > div:last-child { justify-self: end; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="data/Logo_TeaTower_CarreBlanc.png" alt="Teatower">
+    <div>
+      <h1>Nouvelle commande client</h1>
+      <p>Formulaire d'upload direct vers Odoo</p>
+    </div>
+  </header>
+
+  <form id="order-form" class="card" onsubmit="submitOrder(event)">
+    <div class="grid">
+      <div>
+        <label>Nom du client *</label>
+        <input id="client_name" type="text" required placeholder="Ex : Cafés Delahaut">
+      </div>
+      <div>
+        <label>Référence commande client</label>
+        <input id="client_ref" type="text" placeholder="Ex : PO00312">
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:14px">
+      <div>
+        <label>Date de livraison souhaitée</label>
+        <input id="delivery_date" type="date">
+      </div>
+      <div>
+        <label>Votre email (pour confirmation) *</label>
+        <input id="contact_email" type="email" required placeholder="vous@teatower.com">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Lignes de commande</h2>
+      <div id="lines"></div>
+      <button type="button" class="btn btn-secondary" onclick="addLine()">+ Ajouter une ligne</button>
+    </div>
+
+    <div class="section">
+      <h2>Fichier source (optionnel)</h2>
+      <label class="file-drop" id="file-drop">
+        <input type="file" id="source_file" accept=".pdf,.xlsx,.xls,.csv,.png,.jpg,.jpeg,.eml,.msg">
+        <span id="file-label">Glissez un PDF / Excel / photo ici — ou cliquez pour sélectionner</span>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Notes</h2>
+      <textarea id="notes" placeholder="Instructions, conditions particulières..."></textarea>
+    </div>
+
+    <div class="footer-actions">
+      <div class="total-box">
+        Total estimé : <strong id="total">0,00 €</strong>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submit-btn">Envoyer la commande</button>
+    </div>
+
+    <div id="status" class="status"></div>
+  </form>
+</div>
+
+<datalist id="products-dl"></datalist>
+
+<script>
+  const PROXY_URL = "REPLACE_WITH_DENO_URL";   // ex: https://teatower-orders.deno.dev/submit
+  const SHARED_SECRET = "REPLACE_WITH_SECRET"; // anti-abus simple
+
+  let PRODUCTS = [];
+  const skuToName = {};
+
+  fetch("data/products.json")
+    .then(r => r.json())
+    .then(list => {
+      PRODUCTS = list;
+      const dl = document.getElementById("products-dl");
+      list.forEach(p => {
+        skuToName[p.sku] = p.name;
+        const opt = document.createElement("option");
+        opt.value = p.sku;
+        opt.label = p.name;
+        dl.appendChild(opt);
+      });
+    })
+    .catch(() => {
+      document.getElementById("status").className = "status err";
+      document.getElementById("status").textContent = "Impossible de charger la liste produits.";
+    });
+
+  let lineIdx = 0;
+  function addLine() {
+    lineIdx++;
+    const id = "l" + lineIdx;
+    const div = document.createElement("div");
+    div.className = "line-row";
+    div.id = id;
+    div.innerHTML = `
+      <div class="grid-3">
+        <div>
+          <label>SKU *</label>
+          <input type="text" list="products-dl" class="sku" required
+                 oninput="resolveName('${id}'); computeTotal()" placeholder="SKU Teatower">
+          <div class="sku-name" style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;min-height:18px"></div>
+        </div>
+        <div>
+          <label>Quantité *</label>
+          <input type="number" class="qty" min="1" value="1" step="1" required oninput="computeTotal()">
+        </div>
+        <div>
+          <label>Prix unitaire (€) *</label>
+          <input type="number" class="price" min="0" step="0.01" required oninput="computeTotal()" placeholder="0.00">
+        </div>
+        <div>
+          <label>Remise %</label>
+          <input type="number" class="disc" min="0" max="100" step="0.1" value="0" oninput="computeTotal()">
+        </div>
+        <div>
+          <button type="button" class="btn-del" onclick="document.getElementById('${id}').remove(); computeTotal()">✕</button>
+        </div>
+      </div>
+    `;
+    document.getElementById("lines").appendChild(div);
+  }
+
+  function resolveName(rowId) {
+    const row = document.getElementById(rowId);
+    const sku = row.querySelector(".sku").value.trim();
+    const label = row.querySelector(".sku-name");
+    label.textContent = skuToName[sku] || (sku ? "⚠️ SKU inconnu" : "");
+    label.style.color = skuToName[sku] ? "var(--text-muted)" : (sku ? "var(--danger)" : "var(--text-muted)");
+  }
+
+  function computeTotal() {
+    let total = 0;
+    document.querySelectorAll(".line-row").forEach(r => {
+      const qty = parseFloat(r.querySelector(".qty").value) || 0;
+      const price = parseFloat(r.querySelector(".price").value) || 0;
+      const disc = parseFloat(r.querySelector(".disc").value) || 0;
+      total += qty * price * (1 - disc / 100);
+    });
+    document.getElementById("total").textContent =
+      total.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+  }
+
+  document.getElementById("source_file").addEventListener("change", e => {
+    const drop = document.getElementById("file-drop");
+    const label = document.getElementById("file-label");
+    if (e.target.files.length) {
+      drop.classList.add("has-file");
+      label.textContent = "📎 " + e.target.files[0].name;
+    } else {
+      drop.classList.remove("has-file");
+      label.textContent = "Glissez un PDF / Excel / photo ici — ou cliquez pour sélectionner";
+    }
+  });
+
+  async function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result.split(",")[1]);
+      r.onerror = reject;
+      r.readAsDataURL(file);
+    });
+  }
+
+  async function submitOrder(e) {
+    e.preventDefault();
+    const btn = document.getElementById("submit-btn");
+    const status = document.getElementById("status");
+    btn.disabled = true;
+    status.className = "status info";
+    status.textContent = "Envoi en cours…";
+
+    const lines = [];
+    let invalid = false;
+    document.querySelectorAll(".line-row").forEach(r => {
+      const sku = r.querySelector(".sku").value.trim();
+      const qty = parseFloat(r.querySelector(".qty").value);
+      const price = parseFloat(r.querySelector(".price").value);
+      const disc = parseFloat(r.querySelector(".disc").value) || 0;
+      if (!sku || !qty || price === null || price === undefined || isNaN(price)) invalid = true;
+      lines.push({ sku, qty, price, discount: disc });
+    });
+    if (!lines.length || invalid) {
+      status.className = "status err";
+      status.textContent = "Ajoute au moins une ligne valide (SKU + quantité + prix).";
+      btn.disabled = false;
+      return;
+    }
+
+    const fileInput = document.getElementById("source_file");
+    let fileData = null;
+    if (fileInput.files.length) {
+      const f = fileInput.files[0];
+      fileData = {
+        name: f.name,
+        content_b64: await fileToBase64(f),
+      };
+    }
+
+    const payload = {
+      secret: SHARED_SECRET,
+      order: {
+        submitted_at: new Date().toISOString(),
+        client_name: document.getElementById("client_name").value.trim(),
+        client_ref: document.getElementById("client_ref").value.trim(),
+        delivery_date: document.getElementById("delivery_date").value || null,
+        contact_email: document.getElementById("contact_email").value.trim(),
+        notes: document.getElementById("notes").value.trim(),
+        lines,
+      },
+      source_file: fileData,
+    };
+
+    try {
+      const res = await fetch(PROXY_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || ("HTTP " + res.status));
+      status.className = "status ok";
+      status.innerHTML = `✅ Commande envoyée (réf. <b>${data.order_id || "—"}</b>).
+        Traitement Odoo en cours, confirmation par email d'ici quelques minutes.`;
+      document.getElementById("order-form").reset();
+      document.getElementById("lines").innerHTML = "";
+      addLine();
+      computeTotal();
+    } catch (err) {
+      status.className = "status err";
+      status.textContent = "❌ Échec de l'envoi : " + err.message;
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  addLine();
+</script>
+</body>
+</html>
