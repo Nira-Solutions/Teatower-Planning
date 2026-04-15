@@ -1,5 +1,18 @@
 # LOG Compta Teatower
 
+## 2026-04-15 — Batch facturation S05405–S05409
+
+- Type : création + posting + envoi batch (5 SO)
+- Source : S05405 / S05406 / S05407 / S05408 / S05409 — tous state=sale, tous entièrement livrés
+- Méthode : sale.advance.payment.inv wizard (delivered), action_post, account.move.send.wizard
+- Factures créées : 5 (IDs Odoo 36242–36246)
+- Numéros attribués : INV/2026/02092 à INV/2026/02096
+- Montant total HT : 1 240,03 EUR | TTC : 1 314,43 EUR
+- Envoi Peppol : 2 factures — S05405 (BARVO/Carrefour Barvaux, uuid 8caf61ac) + S05408 (GIMALEX/Delhaize Fragnée, uuid 9766cd23) — statut : processing
+- Envoi email : 3 factures — S05406 (SA VILLERSEM), S05407 (SA Faimine), S05409 (DelEmbourg)
+- Fallback email : S05406 + S05409 (Peppol EAS/endpoint configurés sur partenaire mais invoice_sending_method non défini)
+- Rapport : compta/reports/batch_S05405_S05409_2026-04-15.md
+
 ## 2026-04-15 — Batch facturation : TRANSPORT + Posting + Envoi
 
 - Type : correction transport + validation + envoi batch
