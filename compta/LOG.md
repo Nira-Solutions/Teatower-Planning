@@ -1,5 +1,19 @@
 # LOG Compta Teatower
 
+## 2026-04-15 — Batch facturation (34 factures draft créées)
+
+- Type : création factures clients batch
+- Source : sale.order invoice_status=to_invoice, state=sale/done (85 SO scannés)
+- Méthode : sale.advance.payment.inv wizard, mode "delivered" (qty_delivered)
+- Factures draft créées : 34 (IDs Odoo 36200–36234 sauf 36223/36235 qui sont des avoirs)
+- Montant total HT : 14 561,15 EUR | TTC : 15 461,18 EUR
+- Exclus Amazon : 36 SO (741,40 EUR HT) — détectés via origin "Amazon Order"
+- Exclus 0 EUR : 5 SO (Marketing Teatower, Newpharma, Laetitia Mariette, Perte marchandise)
+- Exclus sans livraison : 8 SO (3 403,22 EUR HT en attente livraison)
+- Avoirs draft détectés : 2 (36223 ann philippe verhelle, 36235 Lidwine Fetten) — à examiner
+- Rapport : compta/reports/invoicing_batch_2026-04-15.md
+- Statut : DRAFT — Nicolas doit valider (action_post) avant envoi
+
 ## 2026-04-15 — Rapport commandes expédiées non facturées
 
 - Type : analyse / rapport
