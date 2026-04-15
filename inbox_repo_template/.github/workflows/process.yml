@@ -1,0 +1,44 @@
+name: Process pending orders
+
+on:
+  push:
+    paths:
+      - 'inbox/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: process-orders
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Process inbox
+        env:
+          ODOO_URL: ${{ secrets.ODOO_URL }}
+          ODOO_DB: ${{ secrets.ODOO_DB }}
+          ODOO_USER: ${{ secrets.ODOO_USER }}
+          ODOO_PWD: ${{ secrets.ODOO_PWD }}
+        run: python scripts/process.py
+
+      - name: Commit archive + error markers
+        run: |
+          git config user.name "teatower-orders-bot"
+          git config user.email "orders-bot@teatower.com"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add -A
+            git commit -m "process: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          else
+            echo "nothing to commit"
+          fi
