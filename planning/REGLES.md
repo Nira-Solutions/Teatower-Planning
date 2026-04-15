@@ -4,7 +4,26 @@
 
 ---
 
-## 1. Clients en statut "Arret" — EXCLUSION TOTALE
+## 1. Devis non confirmés — JAMAIS dans le planning
+
+**Règle dure** : un `sale.order` en état `draft` (devis) ou `sent` (devis envoyé) ne peut **pas** être la base d'une entrée de planning merchandiser (implantation, remplissage, visite).
+
+- Seuls les **bons de commande confirmés** sont planifiables : `sale.order.state` ∈ { `sale`, `done` }.
+- S'applique même si le devis contient des notes, commentaires ou un brief détaillé.
+- **Raison** : un devis peut être annulé ou modifié. Planifier une implantation sur un devis fait perdre du temps au merchandiser si la commande ne se transforme pas en SO confirmée.
+
+### Procédure
+
+1. Avant d'ajouter une visite liée à un SO (queue ou planning hebdo) : **vérifier `state`** via XML-RPC.
+   - `sale` / `done` → OK, planifiable.
+   - `draft` / `sent` → **refuser l'entrée**, attendre confirmation du SO.
+   - `cancel` → refuser et retirer toute entrée existante.
+2. Si un devis se trouve dans une queue (`planning/queue_*.md`) ou dans le planning publié, **le retirer** et logger dans `planning/LOG.md`.
+3. Une fois le devis confirmé (passage à `sale`), l'entrée peut être (re-)créée normalement.
+
+---
+
+## 2. Clients en statut "Arret" — EXCLUSION TOTALE
 
 **Source officielle** : `C:\Users\FlowUP\Downloads\Claude\Claude\Teatower\Displays Teatower B2B (1).xlsx`
 
@@ -34,7 +53,7 @@
 
 ---
 
-## 2. Autres règles (rappel depuis la skill)
+## 3. Autres règles (rappel depuis la skill)
 
 - **Base** : Zone d'activité Nord 33, 5377 Baillonville
 - **Horaire** : 8h30 – 16h30 (retour obligatoire à 16h30)
