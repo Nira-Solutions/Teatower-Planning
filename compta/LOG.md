@@ -1,5 +1,14 @@
 # LOG Compta Teatower
 
+## 2026-04-15 — Batch S05405-S05409 : correction renvoi Peppol (3 factures)
+
+- Type : correction invoice_sending_method + renvoi Peppol
+- Partenaires mis à jour (invoice_sending_method -> peppol) : SA VILLERSEM (115879), DelEmbourg invoice addr (5733), DelEmbourg parent (2909), SA Faimine invoice addr (9196), SA Faimine parent (3210)
+- INV/2026/02094 (DelEmbourg) — peppol_state=processing | uuid=2dc8107b-51cc-45dc-98f8-62aeab83dd4c
+- INV/2026/02095 (SA Faimine) — peppol_state=processing | uuid=a4cf80f7-24c5-4b50-a50d-d6a915855a2c
+- INV/2026/02096 (SA VILLERSEM) — peppol_state=processing | uuid=f58a082f-029c-48c1-972d-ef807690dfa2
+- Rapport : compta/reports/batch_S05405_S05409_2026-04-15.md
+
 ## 2026-04-15 — Batch facturation S05405–S05409
 
 - Type : création + posting + envoi batch (5 SO)
