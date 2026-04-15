@@ -282,6 +282,32 @@
   .task-log.open{display:block}
   #bridgeDot.ok{color:#7fd99a}
   #bridgeDot.ko{color:#ff7f7f}
+
+  .boutiques-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:980px){.boutiques-grid{grid-template-columns:1fr}}
+  .boutique-card{
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    padding:20px;display:flex;flex-direction:column;gap:10px;
+  }
+  .boutique-card h4{font-size:1.05rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .boutique-card .city{color:var(--ink-dim);font-size:0.78rem;text-transform:uppercase;letter-spacing:.05em}
+  .boutique-card .ca{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:1.6rem;color:var(--accent);font-weight:600;margin-top:4px}
+  .boutique-card .grid-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .boutique-card .mini{background:var(--panel2);border-radius:8px;padding:8px 10px}
+  .boutique-card .mini .l{font-size:0.7rem;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.05em}
+  .boutique-card .mini .v{font-weight:600;color:var(--ink);font-size:0.95rem;margin-top:2px}
+  .boutique-card .alerts{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+  .pill{padding:3px 10px;border-radius:999px;font-size:0.7rem;font-weight:600}
+  .pill.red{background:#3d1e1e;color:#ff7f7f} .pill.green{background:#1e3d2a;color:#7fd99a}
+  .pill.orange{background:#3d2e1e;color:#d9a77f} .pill.blue{background:#1e3a5f;color:#6fb3ff}
+  .funnel-step{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px dashed var(--border)}
+  .funnel-step:last-child{border-bottom:none}
+  .funnel-bar{flex:1;height:8px;background:var(--panel2);border-radius:999px;overflow:hidden}
+  .funnel-bar .fb-fill{height:100%;background:linear-gradient(90deg,#6fb3ff,#7fd99a);border-radius:999px}
+  .country-row{display:flex;align-items:center;gap:10px;padding:6px 0}
+  .country-row .flag{font-size:1.3rem;width:30px}
+  .country-row .name{flex:1;color:var(--ink)}
+  .country-row .pct{color:var(--accent);font-weight:600}
 </style>
 </head>
 <body>
@@ -307,6 +333,9 @@
     <button class="tab" data-pane="products">📦 Produits</button>
     <button class="tab" data-pane="vendors">👥 Vendeurs</button>
     <button class="tab" data-pane="impact">💰 Impact</button>
+    <button class="tab" data-pane="boutiques">🏬 Mes boutiques</button>
+    <button class="tab" data-pane="b2b">🏢 B2B</button>
+    <button class="tab" data-pane="ecom">🛒 E-commerce</button>
     <button class="tab" data-pane="actions">⚡ Actions agents <span class="badge" id="bridgeDot" title="Bridge status">●</span></button>
   </div>
 
@@ -487,6 +516,110 @@
     <div class="card">
       <h3>📈 Historique impact · 30 derniers jours</h3>
       <div id="impactHistory"></div>
+    </div>
+  </div>
+
+
+  <!-- =========== PANE: MES BOUTIQUES =========== -->
+  <div class="pane" id="pane-boutiques">
+    <div class="kpis">
+      <div class="kpi ok"><div class="lbl">CA boutiques (7j)</div><div class="val" id="boutCA">—</div><div class="delta up" id="boutCADelta">vs S-1</div></div>
+      <div class="kpi info"><div class="lbl">Tickets totaux</div><div class="val" id="boutTickets">—</div><div class="delta">cumul 3 boutiques</div></div>
+      <div class="kpi info"><div class="lbl">Panier moyen</div><div class="val" id="boutBasket">—</div><div class="delta">€ par ticket</div></div>
+      <div class="kpi warn"><div class="lbl">Ruptures actives</div><div class="val" id="boutStockouts">—</div><div class="delta down">SKU à réappro</div></div>
+    </div>
+    <div class="boutiques-grid" id="boutiquesGrid"></div>
+    <div class="card" style="margin-top:16px">
+      <h3><span class="ico">🏆</span> Top SKU boutiques · 7j</h3>
+      <table>
+        <thead><tr><th>#</th><th>SKU</th><th>WAT</th><th>LIEGE</th><th>NAM</th><th>Total</th><th>Marge</th></tr></thead>
+        <tbody id="boutTopSku"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- =========== PANE: B2B =========== -->
+  <div class="pane" id="pane-b2b">
+    <div class="kpis">
+      <div class="kpi info"><div class="lbl">CA B2B (30j)</div><div class="val" id="b2bCA">—</div><div class="delta" id="b2bCADelta">GMS + Horeca + Autres</div></div>
+      <div class="kpi ok"><div class="lbl">Clients actifs</div><div class="val" id="b2bClients">—</div><div class="delta">commandes &lt; 60j</div></div>
+      <div class="kpi warn"><div class="lbl">Encours impayés</div><div class="val" id="b2bDue">—</div><div class="delta down">échus J+30+</div></div>
+      <div class="kpi info"><div class="lbl">Pipeline</div><div class="val" id="b2bPipe">—</div><div class="delta">opportunités CRM</div></div>
+    </div>
+
+    <div class="grid-main">
+      <div class="card">
+        <h3><span class="ico">🛒</span> GMS <span class="count" id="gmsCount">0</span>
+          <span class="spc"></span><span class="muted" style="font-size:0.78rem" id="gmsCAShare">—</span>
+        </h3>
+        <table>
+          <thead><tr><th>Enseigne</th><th>CA 30j</th><th>Δ M-1</th><th>Magasins</th><th>Statut</th></tr></thead>
+          <tbody id="gmsTable"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3><span class="ico">🍽️</span> Horeca &amp; Autres B2B <span class="count" id="otherCount">0</span>
+          <span class="spc"></span><span class="muted" style="font-size:0.78rem" id="otherCAShare">—</span>
+        </h3>
+        <table>
+          <thead><tr><th>Client</th><th>Type</th><th>CA 30j</th><th>Δ M-1</th><th>Statut</th></tr></thead>
+          <tbody id="otherTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3><span class="ico">📋</span> Commandes B2B en cours <span class="count" id="b2bOrdersCount">0</span></h3>
+      <table>
+        <thead><tr><th>Client</th><th>Canal</th><th>Date</th><th>Montant</th><th>Statut</th><th>Action</th></tr></thead>
+        <tbody id="b2bOrdersTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- =========== PANE: E-COMMERCE =========== -->
+  <div class="pane" id="pane-ecom">
+    <div class="kpis">
+      <div class="kpi ok"><div class="lbl">CA Shopify (7j)</div><div class="val" id="ecomCA">—</div><div class="delta up" id="ecomCADelta">vs S-1</div></div>
+      <div class="kpi info"><div class="lbl">Commandes (7j)</div><div class="val" id="ecomOrders">—</div><div class="delta">tickets web</div></div>
+      <div class="kpi info"><div class="lbl">Panier moyen</div><div class="val" id="ecomBasket">—</div><div class="delta">€ / commande</div></div>
+      <div class="kpi warn"><div class="lbl">À expédier</div><div class="val" id="ecomToShip">—</div><div class="delta down">en attente prep</div></div>
+    </div>
+
+    <div class="grid-main">
+      <div class="card">
+        <h3><span class="ico">🌍</span> Répartition par pays</h3>
+        <div id="ecomCountries"></div>
+      </div>
+      <div class="card">
+        <h3><span class="ico">📈</span> Funnel conversion</h3>
+        <div id="ecomFunnel"></div>
+      </div>
+    </div>
+
+    <div class="grid-main">
+      <div class="card">
+        <h3><span class="ico">🏆</span> Top produits Shopify · 7j</h3>
+        <table>
+          <thead><tr><th>#</th><th>Produit</th><th>Qté</th><th>CA</th><th>Stock</th></tr></thead>
+          <tbody id="ecomTopProducts"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3><span class="ico">🛍️</span> Dernières commandes</h3>
+        <table>
+          <thead><tr><th>#</th><th>Client</th><th>Pays</th><th>Montant</th><th>Statut</th></tr></thead>
+          <tbody id="ecomOrdersTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3><span class="ico">⚠️</span> Paniers abandonnés (24h) <span class="count" id="ecomAbandoned">0</span>
+        <span class="spc"></span>
+        <button class="btn ghost sm" onclick="toast('🔁','Relances email programmées')">relancer</button>
+      </h3>
+      <div id="ecomAbandonedList" class="muted" style="font-size:0.85rem"></div>
     </div>
   </div>
 
@@ -1158,6 +1291,216 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const pane = document.getElementById('pane-actions');
     if(pane && pane.classList.contains('active')) refreshTasks();
   }, 4000);
+});
+
+
+
+/* ============================================================
+   VIEWS : Mes boutiques · B2B · E-commerce
+   Données démo (a brancher sur Odoo / Shopify via cockpit_bridge)
+   ============================================================ */
+
+const BIZ = {
+  boutiques: [
+    {id:'WAT', name:'Teatower Waterloo', city:'Waterloo', ca7:8420, deltaWeek:0.12, tickets:142, basket:59.3, stockouts:3, top:'Earl Grey BIO', traffic:680, rank:'green'},
+    {id:'LGE', name:'Teatower Liège',    city:'Liège',    ca7:6280, deltaWeek:-0.04, tickets:98, basket:64.1, stockouts:7, top:'Sencha Premium', traffic:520, rank:'orange'},
+    {id:'NAM', name:'Teatower Namur',    city:'Namur',    ca7:5740, deltaWeek:0.07, tickets:91, basket:63.0, stockouts:2, top:'Roïboos Vanille', traffic:480, rank:'green'},
+  ],
+  topSkuBout: [
+    {sku:'Earl Grey BIO 100g',     wat:42, lge:31, nam:28, marge:0.62},
+    {sku:'Sencha Premium 100g',    wat:36, lge:48, nam:22, marge:0.58},
+    {sku:'Roïboos Vanille 100g',   wat:28, lge:18, nam:39, marge:0.65},
+    {sku:'Coffret Découverte 6th', wat:24, lge:19, nam:21, marge:0.45},
+    {sku:'Thé blanc Pai Mu Tan',   wat:18, lge:14, nam:11, marge:0.71},
+    {sku:'Infusion Sommeil 80g',   wat:22, lge:12, nam:16, marge:0.55},
+  ],
+  gms: [
+    {name:'Delhaize',  ca30:48200, deltaMonth:-0.08, stores:24, status:'orange'},
+    {name:'Carrefour', ca30:36400, deltaMonth:+0.04, stores:18, status:'green'},
+    {name:'AD Delhaize',ca30:18600, deltaMonth:+0.18, stores:12, status:'green'},
+    {name:'Spar',      ca30:9800,  deltaMonth:-0.02, stores:8,  status:'green'},
+    {name:'Cora',      ca30:7200,  deltaMonth:-0.22, stores:3,  status:'red'},
+    {name:'Match',     ca30:4100,  deltaMonth:0,     stores:6,  status:'orange'},
+  ],
+  others: [
+    {name:'Radisson Brussels',   type:'Hotellerie',  ca30:6800, deltaMonth:+0.12, status:'green'},
+    {name:'Kirchner Fischer',    type:'Distrib. PRO', ca30:14200,deltaMonth:+0.08, status:'green'},
+    {name:'NiraSolutions Stockage',type:'Logistique', ca30:3200, deltaMonth:0,     status:'green'},
+    {name:'Chocolaterie Wittamer',type:'Horeca',     ca30:1800, deltaMonth:-0.15, status:'orange'},
+    {name:'Le Pain Quotidien',   type:'Horeca chaîne',ca30:5400, deltaMonth:+0.05, status:'green'},
+    {name:'Brasserie Le Cirio',  type:'Restauration', ca30:980, deltaMonth:-0.30, status:'red'},
+    {name:'Hôpital St-Luc',      type:'Institution',  ca30:2200, deltaMonth:+0.02, status:'green'},
+  ],
+  b2bOrders: [
+    {client:'Delhaize Centrale', canal:'GMS',   date:'2026-04-14', amount:4820,  status:'En préparation'},
+    {client:'Radisson Brussels', canal:'Horeca',date:'2026-04-13', amount:1240,  status:'Expédiée'},
+    {client:'Kirchner Fischer',  canal:'B2B',   date:'2026-04-12', amount:6800,  status:'Validée'},
+    {client:'AD Ixelles',        canal:'GMS',   date:'2026-04-11', amount:920,   status:'En attente paiement'},
+    {client:'Le Pain Quotidien', canal:'Horeca',date:'2026-04-10', amount:1820,  status:'Livrée'},
+  ],
+  ecom: {
+    ca7: 4280, deltaWeek: 0.18,
+    orders7: 87, basket: 49.2, toShip: 14, abandoned24h: 23,
+    countries: [
+      {flag:'🇧🇪', name:'Belgique',      pct:0.62, ca:2654},
+      {flag:'🇫🇷', name:'France',        pct:0.18, ca:770},
+      {flag:'🇳🇱', name:'Pays-Bas',      pct:0.09, ca:385},
+      {flag:'🇩🇪', name:'Allemagne',     pct:0.06, ca:257},
+      {flag:'🇱🇺', name:'Luxembourg',    pct:0.03, ca:128},
+      {flag:'🌍', name:'Autres',         pct:0.02, ca:86},
+    ],
+    funnel: [
+      {label:'Visiteurs', val:8420, pct:1.0},
+      {label:'Pages produit', val:3120, pct:0.37},
+      {label:'Ajout panier', val:412, pct:0.049},
+      {label:'Checkout', val:142, pct:0.017},
+      {label:'Commande payée', val:87, pct:0.0103},
+    ],
+    topProducts: [
+      {name:'Coffret Découverte 6 thés', qty:18, ca:1080, stock:42},
+      {name:'Earl Grey BIO 100g',         qty:24, ca:336,  stock:120},
+      {name:'Sencha Premium 100g',        qty:21, ca:357,  stock:85},
+      {name:'Roïboos Vanille 100g',       qty:16, ca:208,  stock:62},
+      {name:'Coffret Cadeau Premium',     qty:8,  ca:720,  stock:12},
+    ],
+    orders: [
+      {n:'#TT-1042', client:'M. Dubois',     country:'🇧🇪', amount:78,  status:'Payée'},
+      {n:'#TT-1041', client:'Mme Lefevre',   country:'🇫🇷', amount:42,  status:'Expédiée'},
+      {n:'#TT-1040', client:'M. Van Damme',  country:'🇧🇪', amount:124, status:'Préparation'},
+      {n:'#TT-1039', client:'Mme De Wit',    country:'🇳🇱', amount:56,  status:'Payée'},
+      {n:'#TT-1038', client:'M. Schmidt',    country:'🇩🇪', amount:89,  status:'Livrée'},
+    ],
+  },
+};
+
+function rankPill(r){
+  return `<span class="pill ${r}">${r==='green'?'✓ OK':r==='orange'?'⚠ Surveille':'⛔ Critique'}</span>`;
+}
+function deltaTxt(d){
+  if(d>0) return `<span style="color:#7fd99a">↑ +${(d*100).toFixed(0)}%</span>`;
+  if(d<0) return `<span style="color:#ff7f7f">↓ ${(d*100).toFixed(0)}%</span>`;
+  return `<span class="muted">→ 0%</span>`;
+}
+
+function renderBoutiques(){
+  const grid = document.getElementById('boutiquesGrid'); if(!grid) return;
+  const totalCA = BIZ.boutiques.reduce((a,b)=>a+b.ca7,0);
+  const totalT  = BIZ.boutiques.reduce((a,b)=>a+b.tickets,0);
+  const totalSO = BIZ.boutiques.reduce((a,b)=>a+b.stockouts,0);
+  const avg = totalCA / totalT;
+  const elCA=document.getElementById('boutCA'); if(elCA) elCA.textContent = fmtEur(totalCA);
+  const elT=document.getElementById('boutTickets'); if(elT) elT.textContent = totalT;
+  const elB=document.getElementById('boutBasket'); if(elB) elB.textContent = fmtEur(avg);
+  const elS=document.getElementById('boutStockouts'); if(elS) elS.textContent = totalSO;
+
+  grid.innerHTML = BIZ.boutiques.map(b=>`
+    <div class="boutique-card">
+      <div>
+        <div class="city">📍 ${b.city}</div>
+        <h4>🏬 ${b.name}</h4>
+      </div>
+      <div class="ca">${fmtEur(b.ca7)}</div>
+      <div class="muted" style="font-size:0.78rem">CA 7 jours · ${deltaTxt(b.deltaWeek)} vs S-1</div>
+      <div class="grid-mini">
+        <div class="mini"><div class="l">Tickets</div><div class="v">${b.tickets}</div></div>
+        <div class="mini"><div class="l">Panier moy.</div><div class="v">${fmtEur(b.basket)}</div></div>
+        <div class="mini"><div class="l">Trafic</div><div class="v">${b.traffic}</div></div>
+        <div class="mini"><div class="l">Top SKU</div><div class="v" style="font-size:0.78rem">${b.top}</div></div>
+      </div>
+      <div class="alerts">
+        ${rankPill(b.rank)}
+        ${b.stockouts>0?`<span class="pill red">${b.stockouts} ruptures</span>`:`<span class="pill green">Stock OK</span>`}
+      </div>
+    </div>
+  `).join('');
+
+  const tbody = document.getElementById('boutTopSku');
+  if(tbody) tbody.innerHTML = BIZ.topSkuBout.map((s,i)=>{
+    const tot = s.wat+s.lge+s.nam;
+    return `<tr><td>${i+1}</td><td>${s.sku}</td><td>${s.wat}</td><td>${s.lge}</td><td>${s.nam}</td>
+      <td><strong>${tot}</strong></td><td>${(s.marge*100).toFixed(0)}%</td></tr>`;
+  }).join('');
+}
+
+function renderB2B(){
+  const gmsCA = BIZ.gms.reduce((a,b)=>a+b.ca30,0);
+  const otherCA = BIZ.others.reduce((a,b)=>a+b.ca30,0);
+  const total = gmsCA + otherCA;
+  const elCA=document.getElementById('b2bCA'); if(elCA) elCA.textContent = fmtEur(total);
+  const elCl=document.getElementById('b2bClients'); if(elCl) elCl.textContent = BIZ.gms.length + BIZ.others.length;
+  const elDue=document.getElementById('b2bDue'); if(elDue) elDue.textContent = fmtEur(8420);
+  const elPipe=document.getElementById('b2bPipe'); if(elPipe) elPipe.textContent = '12 deals';
+
+  const elGmsCount=document.getElementById('gmsCount'); if(elGmsCount) elGmsCount.textContent = BIZ.gms.length;
+  const elGmsShare=document.getElementById('gmsCAShare'); if(elGmsShare) elGmsShare.textContent = `${fmtEur(gmsCA)} · ${(gmsCA/total*100).toFixed(0)}% du B2B`;
+  const elOtherCount=document.getElementById('otherCount'); if(elOtherCount) elOtherCount.textContent = BIZ.others.length;
+  const elOtherShare=document.getElementById('otherCAShare'); if(elOtherShare) elOtherShare.textContent = `${fmtEur(otherCA)} · ${(otherCA/total*100).toFixed(0)}% du B2B`;
+
+  const gms = document.getElementById('gmsTable');
+  if(gms) gms.innerHTML = BIZ.gms.sort((a,b)=>b.ca30-a.ca30).map(g=>`
+    <tr><td><strong>${g.name}</strong></td><td>${fmtEur(g.ca30)}</td>
+        <td>${deltaTxt(g.deltaMonth)}</td><td>${g.stores}</td><td>${rankPill(g.status)}</td></tr>`).join('');
+
+  const oth = document.getElementById('otherTable');
+  if(oth) oth.innerHTML = BIZ.others.sort((a,b)=>b.ca30-a.ca30).map(o=>`
+    <tr><td><strong>${o.name}</strong></td><td><span class="muted">${o.type}</span></td>
+        <td>${fmtEur(o.ca30)}</td><td>${deltaTxt(o.deltaMonth)}</td><td>${rankPill(o.status)}</td></tr>`).join('');
+
+  const ord = document.getElementById('b2bOrdersTable');
+  const elOC=document.getElementById('b2bOrdersCount'); if(elOC) elOC.textContent = BIZ.b2bOrders.length;
+  if(ord) ord.innerHTML = BIZ.b2bOrders.map(o=>`
+    <tr><td><strong>${o.client}</strong></td><td><span class="pill blue">${o.canal}</span></td>
+        <td class="muted">${o.date}</td><td>${fmtEur(o.amount)}</td>
+        <td>${o.status}</td>
+        <td><button class="btn ghost sm" onclick="toast('📋','${o.client.replace(/'/g,'')}')">détail</button></td></tr>`).join('');
+}
+
+function renderEcom(){
+  const e = BIZ.ecom;
+  const set = (id,v)=>{const el=document.getElementById(id); if(el) el.textContent = v;};
+  set('ecomCA', fmtEur(e.ca7));
+  set('ecomCADelta', e.deltaWeek>0?`↑ +${(e.deltaWeek*100).toFixed(0)}% vs S-1`:`↓ ${(e.deltaWeek*100).toFixed(0)}%`);
+  set('ecomOrders', e.orders7);
+  set('ecomBasket', fmtEur(e.basket));
+  set('ecomToShip', e.toShip);
+  set('ecomAbandoned', e.abandoned24h);
+
+  const c = document.getElementById('ecomCountries');
+  if(c) c.innerHTML = e.countries.map(co=>`
+    <div class="country-row">
+      <span class="flag">${co.flag}</span><span class="name">${co.name}</span>
+      <span class="muted">${fmtEur(co.ca)}</span>
+      <span class="pct">${(co.pct*100).toFixed(0)}%</span>
+    </div>`).join('');
+
+  const f = document.getElementById('ecomFunnel');
+  if(f) f.innerHTML = e.funnel.map((st,i)=>{
+    const w = (st.val/e.funnel[0].val*100).toFixed(1);
+    return `<div class="funnel-step">
+      <div style="width:120px"><div style="font-weight:600">${st.label}</div><div class="muted" style="font-size:0.72rem">${st.val.toLocaleString('fr-BE')}</div></div>
+      <div class="funnel-bar"><div class="fb-fill" style="width:${w}%"></div></div>
+      <div style="width:50px;text-align:right" class="muted">${(st.pct*100).toFixed(2)}%</div>
+    </div>`;
+  }).join('');
+
+  const tp = document.getElementById('ecomTopProducts');
+  if(tp) tp.innerHTML = e.topProducts.map((p,i)=>`
+    <tr><td>${i+1}</td><td>${p.name}</td><td>${p.qty}</td><td>${fmtEur(p.ca)}</td>
+        <td>${p.stock<20?`<span class="pill orange">${p.stock}</span>`:p.stock}</td></tr>`).join('');
+
+  const ot = document.getElementById('ecomOrdersTable');
+  if(ot) ot.innerHTML = e.orders.map(o=>`
+    <tr><td><strong>${o.n}</strong></td><td>${o.client}</td><td>${o.country}</td>
+        <td>${fmtEur(o.amount)}</td><td><span class="pill ${o.status==='Livrée'?'green':o.status==='Préparation'?'orange':'blue'}">${o.status}</span></td></tr>`).join('');
+
+  const ab = document.getElementById('ecomAbandonedList');
+  if(ab) ab.innerHTML = `<div>📧 ${e.abandoned24h} paniers en attente · valeur estimée <strong>${fmtEur(e.abandoned24h*e.basket)}</strong> · récupération potentielle ~30%</div>`;
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderBoutiques();
+  renderB2B();
+  renderEcom();
 });
 
 </script>
