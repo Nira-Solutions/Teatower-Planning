@@ -248,6 +248,40 @@
     text-decoration:none;font-size:0.82rem;
   }
   .back-link:hover{color:var(--accent)}
+
+  .actions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .action-btn{
+    background:var(--panel2);border:1px solid var(--border);border-radius:12px;
+    padding:16px;text-align:left;cursor:pointer;transition:all .15s;color:var(--ink);
+    display:flex;flex-direction:column;gap:6px;font:inherit;
+  }
+  .action-btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .action-btn .ab-emoji{font-size:22px}
+  .action-btn .ab-title{font-weight:600;font-size:0.95rem}
+  .action-btn .ab-agent{font-size:0.72rem;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.05em}
+  .action-btn:disabled{opacity:0.5;cursor:wait}
+  .task-card{
+    background:var(--panel2);border:1px solid var(--border);border-radius:10px;
+    padding:12px 14px;margin-bottom:10px;
+  }
+  .task-card .tc-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .task-card .tc-title{font-weight:600;color:var(--ink);flex:1}
+  .task-status{padding:2px 10px;border-radius:999px;font-size:0.7rem;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+  .task-status.queued{background:#2a3441;color:var(--ink-dim)}
+  .task-status.running{background:#1e3a5f;color:#6fb3ff;animation:pulse 1.5s ease-in-out infinite}
+  .task-status.done{background:#1e3d2a;color:#7fd99a}
+  .task-status.failed,.task-status.error{background:#3d1e1e;color:#ff7f7f}
+  .task-status.stopped{background:#3d2e1e;color:#d9a77f}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+  .task-log{
+    margin-top:8px;padding:10px;background:#0a0e14;border-radius:6px;
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:0.72rem;
+    color:var(--ink-dim);white-space:pre-wrap;max-height:240px;overflow-y:auto;
+    display:none;
+  }
+  .task-log.open{display:block}
+  #bridgeDot.ok{color:#7fd99a}
+  #bridgeDot.ko{color:#ff7f7f}
 </style>
 </head>
 <body>
@@ -273,6 +307,7 @@
     <button class="tab" data-pane="products">📦 Produits</button>
     <button class="tab" data-pane="vendors">👥 Vendeurs</button>
     <button class="tab" data-pane="impact">💰 Impact</button>
+    <button class="tab" data-pane="actions">⚡ Actions agents <span class="badge" id="bridgeDot" title="Bridge status">●</span></button>
   </div>
 
   <!-- =========== PANE: DASHBOARD =========== -->
@@ -452,6 +487,29 @@
     <div class="card">
       <h3>📈 Historique impact · 30 derniers jours</h3>
       <div id="impactHistory"></div>
+    </div>
+  </div>
+
+  <!-- =========== PANE: ACTIONS AGENTS =========== -->
+  <div class="pane" id="pane-actions">
+    <div class="card" style="margin-bottom:16px">
+      <h3><span class="ico">⚡</span> Déclencheurs agents Claude
+        <span class="spc"></span>
+        <span id="bridgeStatus" class="muted" style="font-size:0.78rem">vérification bridge…</span>
+      </h3>
+      <div class="muted" style="font-size:0.82rem;margin-bottom:14px">
+        Chaque bouton lance l'agent correspondant en arrière-plan via <code>cockpit_bridge.py</code>
+        (port 8765). Lancez <code>start_cockpit_bridge.bat</code> une fois par session.
+      </div>
+      <div class="actions-grid" id="actionsGrid"></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ico">📋</span> Tâches agents <span class="count" id="taskCount">0</span>
+        <span class="spc"></span>
+        <button class="btn ghost sm" onclick="refreshTasks()">⟳ rafraîchir</button>
+      </h3>
+      <div id="taskList" class="muted" style="font-size:0.85rem">Aucune tâche lancée.</div>
     </div>
   </div>
 </div>
@@ -971,6 +1029,137 @@ setInterval(()=>{
   STATE.stores.forEach(s=>{ if(Math.random()<0.15) s.stockout = Math.min(0.25, s.stockout + (Math.random()-0.5)*0.02); });
   renderKPIs();
 },15000);
+
+
+/* ============================================================
+   COCKPIT BRIDGE — déclencheurs agents Claude
+   ============================================================ */
+const BRIDGE_URL = 'http://127.0.0.1:8765';
+
+const AGENT_ACTIONS = [
+  {emoji:'📅', title:'Créer planning merchandiser', agent:'planning-teatower',
+   prompt:'/planning-teatower génère le planning merchandiser pour la semaine en cours : priorise les magasins critiques (score < 60), équilibre les tournées entre agents, respecte les contraintes géographiques WAT/LIEGE/NAM.'},
+  {emoji:'📥', title:'Importer commandes orders/', agent:'support-order',
+   prompt:"Utilise l'agent support-order : lis tous les fichiers dans le dossier orders/ (PDF, Excel, emails) et crée les devis correspondants dans Odoo en répliquant le partner facturation/livraison depuis l'historique client. Mets à jour les fiches res.partner si de nouvelles infos apparaissent. Rapport final en fin d'exécution."},
+  {emoji:'📦', title:'Upload produits (catalogue)', agent:'product-data',
+   prompt:"Utilise l'agent product-data : vérifie la cohérence du catalogue Odoo product.template, détecte les produits sans description courte/longue, sans photo, sans code EAN, sans allergènes renseignés. Génère un rapport Markdown des produits à compléter classés par impact CA."},
+  {emoji:'🛒', title:'Rapport achats Kirchner', agent:'purchase',
+   prompt:"Utilise l'agent purchase : analyse tous les purchase.order Kirchner Fischer ouverts, détecte écarts de prix fournisseur vs product.supplierinfo, les retards de livraison, les ruptures imminentes. Met à jour les prix d'achat et délais réels dans product.supplierinfo. Envoie le rapport à nicolas.raes@teatower.com."},
+  {emoji:'📊', title:'Stock & réappro', agent:'stock-manager',
+   prompt:'/stock-manager analyse les 1716 orderpoints multi-magasins (WAT/LIEGE/NAM), détecte les ruptures actuelles et imminentes sous 7 jours, propose les commandes de réapprovisionnement par fournisseur avec quantités optimales.'},
+  {emoji:'💰', title:'Balance âgée clients', agent:'compta',
+   prompt:"Utilise l'agent compta : génère la balance âgée clients (échéances J+7, J+30, J+60, J+90+), identifie les impayés prioritaires par risque, prépare les relances. Inclus aussi balance âgée fournisseurs à payer J+7. Rapport Markdown."},
+  {emoji:'📈', title:'KPI hebdo business', agent:'data-bi',
+   prompt:"Utilise l'agent data-bi : produis le business review hebdo avec CA par canal (B2B/GMS/Horeca/D2C), marge brute par SKU top 20, rotation stock, taux de remise GMS, signaux faibles (produits qui décrochent, clients qui s'étiolent). Format narratif exécutif, 2 pages max."},
+  {emoji:'🎯', title:'Audit CRM + relances', agent:'sales-crm',
+   prompt:"Utilise l'agent sales-crm EN LECTURE UNIQUE : audit des crm.lead et res.partner, détecte les clients qui ont commandé 1x ou plus à relancer, les fiches incomplètes (tél, email, décideur manquants), les opportunités dormantes (plus de 30 jours sans activité). Propose un plan de relance SANS rien écrire dans Odoo."},
+  {emoji:'🤖', title:'Upload merchandiser', agent:'upload-merchandiser',
+   prompt:'/upload-merchandiser traite les retours de visite merchandiser en attente : lis les photos/formulaires du dossier Merchandiser/, extrais les données (ruptures, facings, prix, promos concurrents), mets à jour Odoo et génère le rapport par magasin.'},
+  {emoji:'🍵', title:'Rapport Nira (orchestration)', agent:'nira',
+   prompt:"Active l'agent nira : diagnostic global Teatower aujourd'hui. Regarde priorités cockpit, dispatche vers les sous-agents pertinents (purchase/planning/stock/support-order), synthétise en 5 points actionnables ordonnés par impact CA."},
+];
+
+function renderActions(){
+  const g = document.getElementById('actionsGrid'); if(!g) return;
+  g.innerHTML = AGENT_ACTIONS.map((a,i)=>`
+    <button class="action-btn" data-i="${i}" onclick="triggerAction(${i})">
+      <div class="ab-emoji">${a.emoji}</div>
+      <div class="ab-title">${a.title}</div>
+      <div class="ab-agent">→ ${a.agent}</div>
+    </button>`).join('');
+}
+
+async function triggerAction(i){
+  const a = AGENT_ACTIONS[i];
+  const btn = document.querySelector(`.action-btn[data-i="${i}"]`);
+  if(btn){ btn.disabled = true; }
+  try{
+    const r = await fetch(BRIDGE_URL+'/run',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:a.agent, prompt:a.prompt})
+    });
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const j = await r.json();
+    toast('🚀 '+a.title, 'Tâche '+j.task_id+' lancée');
+    pushLog(a.title, 'Agent '+a.agent+' déclenché (task '+j.task_id+')');
+    refreshTasks();
+  }catch(e){
+    toast('❌ Bridge indisponible', 'Lancez start_cockpit_bridge.bat');
+  }finally{
+    if(btn){ setTimeout(()=>btn.disabled=false, 800); }
+  }
+}
+
+let TASK_POLL_TIMER = null;
+async function refreshTasks(){
+  try{
+    const r = await fetch(BRIDGE_URL+'/tasks');
+    if(!r.ok) throw new Error();
+    const tasks = await r.json();
+    const el = document.getElementById('taskCount'); if(el) el.textContent = tasks.length;
+    renderTasks(tasks);
+    setBridgeStatus(true);
+  }catch(e){
+    setBridgeStatus(false);
+    const el = document.getElementById('taskList');
+    if(el) el.innerHTML = '<div class="muted">Bridge hors-ligne · lancez <code>start_cockpit_bridge.bat</code></div>';
+  }
+}
+
+function renderTasks(tasks){
+  const el = document.getElementById('taskList'); if(!el) return;
+  if(!tasks.length){ el.innerHTML = '<div class="muted">Aucune tâche lancée.</div>'; return; }
+  el.innerHTML = tasks.slice(0,20).map(t=>{
+    const dur = t.ended_at && t.started_at ? Math.round(t.ended_at-t.started_at)+'s'
+              : t.started_at ? Math.round((Date.now()/1000)-t.started_at)+'s…' : '—';
+    return `<div class="task-card" data-id="${t.id}">
+      <div class="tc-head">
+        <div class="tc-title">${t.action}</div>
+        <span class="muted" style="font-size:0.72rem">${dur}</span>
+        <span class="task-status ${t.status}">${t.status}</span>
+        <button class="btn ghost sm" onclick="toggleLog('${t.id}')">logs</button>
+        ${t.status==='running'?`<button class="btn ghost sm" onclick="stopTask('${t.id}')">stop</button>`:''}
+      </div>
+      <div class="task-log" id="log-${t.id}"></div>
+    </div>`;
+  }).join('');
+}
+
+async function toggleLog(id){
+  const el = document.getElementById('log-'+id); if(!el) return;
+  if(el.classList.contains('open')){ el.classList.remove('open'); return; }
+  el.classList.add('open');
+  el.textContent = 'chargement…';
+  try{
+    const r = await fetch(BRIDGE_URL+'/tasks/'+id);
+    const j = await r.json();
+    el.textContent = j.log_tail || '(logs vides)';
+    el.scrollTop = el.scrollHeight;
+  }catch(e){ el.textContent = 'erreur : '+e.message; }
+}
+
+async function stopTask(id){
+  try{ await fetch(BRIDGE_URL+'/tasks/'+id+'/stop',{method:'POST'}); refreshTasks(); }
+  catch(e){ toast('❌', 'Stop échoué'); }
+}
+
+function setBridgeStatus(ok){
+  const dot = document.getElementById('bridgeDot');
+  const lbl = document.getElementById('bridgeStatus');
+  if(dot){ dot.className = ok?'ok':'ko'; }
+  if(lbl){ lbl.textContent = ok ? '🟢 bridge en ligne · localhost:8765' : '🔴 bridge hors-ligne'; }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderActions();
+  refreshTasks();
+  if(TASK_POLL_TIMER) clearInterval(TASK_POLL_TIMER);
+  TASK_POLL_TIMER = setInterval(()=>{
+    const pane = document.getElementById('pane-actions');
+    if(pane && pane.classList.contains('active')) refreshTasks();
+  }, 4000);
+});
+
 </script>
 </body>
 </html>
