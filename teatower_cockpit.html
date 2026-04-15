@@ -308,6 +308,13 @@
   .country-row .flag{font-size:1.3rem;width:30px}
   .country-row .name{flex:1;color:var(--ink)}
   .country-row .pct{color:var(--accent);font-weight:600}
+
+  .data-banner{
+    padding:8px 14px;border-radius:8px;font-size:0.78rem;margin-bottom:14px;
+    background:var(--panel2);border:1px solid var(--border);color:var(--ink-dim);
+  }
+  .data-banner.live{border-color:#7fd99a;color:#7fd99a;background:rgba(127,217,154,.08)}
+  .data-banner.demo{border-color:#d9a77f;color:#d9a77f;background:rgba(217,167,127,.08)}
 </style>
 </head>
 <body>
@@ -522,6 +529,7 @@
 
   <!-- =========== PANE: MES BOUTIQUES =========== -->
   <div class="pane" id="pane-boutiques">
+    <div class="data-banner" id="boutBanner">📡 chargement…</div>
     <div class="kpis">
       <div class="kpi ok"><div class="lbl">CA boutiques (7j)</div><div class="val" id="boutCA">—</div><div class="delta up" id="boutCADelta">vs S-1</div></div>
       <div class="kpi info"><div class="lbl">Tickets totaux</div><div class="val" id="boutTickets">—</div><div class="delta">cumul 3 boutiques</div></div>
@@ -540,6 +548,7 @@
 
   <!-- =========== PANE: B2B =========== -->
   <div class="pane" id="pane-b2b">
+    <div class="data-banner" id="b2bBanner">📡 chargement…</div>
     <div class="kpis">
       <div class="kpi info"><div class="lbl">CA B2B (30j)</div><div class="val" id="b2bCA">—</div><div class="delta" id="b2bCADelta">GMS + Horeca + Autres</div></div>
       <div class="kpi ok"><div class="lbl">Clients actifs</div><div class="val" id="b2bClients">—</div><div class="delta">commandes &lt; 60j</div></div>
@@ -579,6 +588,7 @@
 
   <!-- =========== PANE: E-COMMERCE =========== -->
   <div class="pane" id="pane-ecom">
+    <div class="data-banner" id="ecomBanner">📡 chargement…</div>
     <div class="kpis">
       <div class="kpi ok"><div class="lbl">CA Shopify (7j)</div><div class="val" id="ecomCA">—</div><div class="delta up" id="ecomCADelta">vs S-1</div></div>
       <div class="kpi info"><div class="lbl">Commandes (7j)</div><div class="val" id="ecomOrders">—</div><div class="delta">tickets web</div></div>
@@ -1501,6 +1511,104 @@ document.addEventListener('DOMContentLoaded', ()=>{
   renderBoutiques();
   renderB2B();
   renderEcom();
+});
+
+
+
+/* ============================================================
+   LIVE DATA LOADERS (Odoo + Shopify via bridge)
+   ============================================================ */
+
+async function fetchBridge(path){
+  try{
+    const r = await fetch(BRIDGE_URL+path);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return await r.json();
+  }catch(e){ return {_live:false, error:e.message}; }
+}
+
+function setBanner(id, live, msg){
+  const el = document.getElementById(id); if(!el) return;
+  el.className = 'data-banner ' + (live?'live':'demo');
+  el.innerHTML = (live?'🟢 LIVE · ':'🟡 DÉMO · ') + msg;
+}
+
+async function loadLiveBoutiques(){
+  const j = await fetchBridge('/odoo/boutiques');
+  if(j._live && j.boutiques && j.boutiques.length){
+    BIZ.boutiques = j.boutiques.map(b=>({
+      id:b.id, name:b.name, city:b.city,
+      ca7:b.ca7, deltaWeek:0, tickets:b.tickets, basket:b.basket,
+      stockouts:0, top:'—', traffic:0,
+      rank: b.ca7>7000?'green':b.ca7>4000?'orange':'red',
+    }));
+    renderBoutiques();
+    setBanner('boutBanner', true, `${j.boutiques.length} boutiques · données Odoo depuis ${j.since}`);
+  } else {
+    renderBoutiques();
+    setBanner('boutBanner', false, j.error || 'données démo (bridge offline)');
+  }
+}
+
+async function loadLiveB2B(){
+  const j = await fetchBridge('/odoo/b2b');
+  const jo = await fetchBridge('/odoo/b2b-orders');
+  if(j._live){
+    BIZ.gms = (j.gms||[]).map(g=>({...g, deltaMonth:0, status: g.ca30>10000?'green':g.ca30>3000?'orange':'red'}));
+    BIZ.others = (j.others||[]).map(o=>({...o, deltaMonth:0, status: o.ca30>5000?'green':o.ca30>1000?'orange':'red'}));
+    if(jo._live) BIZ.b2bOrders = (jo.orders||[]).map(o=>({client:o.client, canal:o.canal, date:o.date, amount:o.amount, status:o.status}));
+    renderB2B();
+    setBanner('b2bBanner', true, `${BIZ.gms.length} enseignes GMS · ${BIZ.others.length} clients Horeca/Autres · 30j Odoo`);
+  } else {
+    renderB2B();
+    setBanner('b2bBanner', false, j.error || 'données démo (bridge offline)');
+  }
+}
+
+async function loadLiveEcom(){
+  const j = await fetchBridge('/shopify/orders?days=7');
+  if(j._live){
+    BIZ.ecom.ca7 = j.ca7;
+    BIZ.ecom.orders7 = j.orders7;
+    BIZ.ecom.basket = j.basket;
+    BIZ.ecom.toShip = j.to_ship;
+    BIZ.ecom.countries = (j.countries||[]).map(c=>({
+      flag: ({BE:'🇧🇪',FR:'🇫🇷',NL:'🇳🇱',DE:'🇩🇪',LU:'🇱🇺',ES:'🇪🇸',IT:'🇮🇹',GB:'🇬🇧'})[c.code] || '🌍',
+      name: c.code, pct: c.n / Math.max(1, j.orders7), ca: c.ca,
+    }));
+    BIZ.ecom.topProducts = (j.top_products||[]).slice(0,5).map(p=>({name:p.name, qty:p.qty, ca:p.ca, stock:0}));
+    BIZ.ecom.orders = (j.recent_orders||[]).slice(0,5).map(o=>({
+      n:o.n, client:o.client, country:o.country, amount:o.amount, status:o.status,
+    }));
+    renderEcom();
+    setBanner('ecomBanner', true, `${j.orders7} commandes Shopify · 7j`);
+  } else {
+    renderEcom();
+    const msg = (j.error||'').includes('SHOPIFY')
+      ? 'configurer SHOPIFY_SHOP + SHOPIFY_TOKEN dans start_cockpit_bridge.bat'
+      : (j.error || 'données démo (bridge offline)');
+    setBanner('ecomBanner', false, msg);
+  }
+}
+
+// Hook tab switches
+const _origSwitch = typeof switchTab==='function' ? switchTab : null;
+window.switchTab = function(name){
+  if(_origSwitch) _origSwitch(name);
+  if(name==='boutiques') loadLiveBoutiques();
+  else if(name==='b2b') loadLiveB2B();
+  else if(name==='ecom') loadLiveEcom();
+};
+// Also bind on the data-pane buttons (in case switchTab not used)
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.tab[data-pane]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const n = btn.dataset.pane;
+      if(n==='boutiques') loadLiveBoutiques();
+      else if(n==='b2b') loadLiveB2B();
+      else if(n==='ecom') loadLiveEcom();
+    });
+  });
 });
 
 </script>
