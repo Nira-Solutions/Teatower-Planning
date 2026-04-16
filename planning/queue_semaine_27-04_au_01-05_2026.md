@@ -20,3 +20,22 @@
 - **Merchandiser assigné** : Jérôme Carlier
 - **Odoo calendar.event** : ID **414**
 - **Vérif règle "Arret"** : OK, Gimalex SA **n'est pas** dans la liste d'exclusion (voir `REGLES.md`, sync 2026-04-15). `sale_warn=no-message`.
+
+---
+
+## Delhaize Enghien (Affilié 44845) — S05413 — PLANIFIÉ
+
+- **Partner Odoo** : id 6494 (via Delhaize Le Lion S.A, partner commande id 2912)
+- **Adresse** : Square de la Dodane, 7850 Enghien (Hainaut)
+- **Contact** : Boss: Mme Mestdag — Rayon: Mme Luba — N. 1006737066
+- **Type de visite** : **IMPLANTATION** flanc de tete de gondole
+- **Durée** : 1h30
+- **SO** : S05413 (366.81 EUR, confirmé)
+- **Brief merchandiser** :
+  - Installer le display Teatower en flanc TG selon le planogramme
+  - Assortiment complet display selon commande S05413
+- **Historique** : reportée de la semaine du 20/04 — dépassement horaire (retour estimé 17h25, au-delà de la limite 16h30)
+- **Créneau planifié** : **mardi 2026-04-28 09:30–11:00** (journée Hainaut/BW, seule visite prévue ce jour — retour Baillonville ~12:10)
+- **Merchandiser assigné** : Jérôme Carlier
+- **Odoo calendar.event** : ID **455**
+- **Vérif règle "Arret"** : OK (client actif). **Vérif règle dépassement** : retour estimé ~12:10, OK (< 16h30).
