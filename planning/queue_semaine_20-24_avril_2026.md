@@ -3,23 +3,25 @@
 > Merchandiser : **Jerome Carlier** | Base : Baillonville (5377) | Horaire : 08h30 - 16h30
 > Genere le 2026-04-15 par agent planning Teatower.
 > **Optimise le 2026-04-15** : +12 visites ajoutees pour maximiser le temps terrain.
-> **28 visites au total** (16 nouvelles initiales + 12 ajoutees) + 4 RDV prealables.
+> **29 visites au total** (16 nouvelles initiales + 12 ajoutees + 1 implantation Enghien) + 4 RDV prealables.
 
 ---
 
-## Lundi 20 avril 2026 -- ZONE HAINAUT (3 visites)
+## Lundi 20 avril 2026 -- ZONE HAINAUT (4 visites)
 
 | Heure | Magasin | Adresse | Tier | Statut | Contact | Event |
 |---|---|---|---|---|---|---|
 | 09:30-10:00 | **Intermarche Gosselies** (Distriparenthese) | Rue Pont a Migneloux 13, 6041 Gosselies | C | Remplissage (15j/50j) | Valentin Schirru | #442 |
 | 11:15-12:15 | **Delhaize Gosselies** | 6041 Gosselies | - | RDV prealable | - | #386 |
 | 12:30-13:30 | *Pause dejeuner* | | | | | |
-| 14:00-14:30 | **Intermarche Gerpinnes** (Gerpidis SA) | Route De Philippeville 196, 6280 Gerpinnes | B | OVERDUE (85j/35j) | Elodie Botte | #443 |
+| 13:15-13:45 | **Intermarche Gerpinnes** (Gerpidis SA) | Route De Philippeville 196, 6280 Gerpinnes | B | OVERDUE (85j/35j) | Elodie Botte | #443 |
+| 14:45-16:15 | **Delhaize Enghien** (Affilie 44845) | Square de la Dodane, 7850 Enghien | - | **IMPLANTATION flanc TG** | Boss: Mme Mestdag, Rayon: Mme Luba, N° 1006737066 | #454 |
 
-> Route : Baillonville -> Gosselies (50min) -> Delhaize Gosselies (5min) -> dejeuner -> Gerpinnes (25min) -> retour Baillonville (55min).
-> Retour estime : ~15h30.
+> Route : Baillonville -> Gosselies (50min) -> Delhaize Gosselies (5min) -> dejeuner -> Gerpinnes (25min) -> Enghien (45min) -> retour Baillonville (1h10).
+> Retour estime : ~17h25. **Depassement horaire** (~55min) a valider avec Jerome — implantation longue (1h30) + trajet retour Enghien-Baillonville.
+> **Alternative** : si le depassement est inacceptable, deplacer l'implantation Enghien au mardi matin (premiere visite, avant Jambes) ou a un jour dedie.
 
-**Recap** : 3 visites (1 RDV + 2 ajoutees) | Zone Hainaut | Retour ~15h30
+**Recap** : 4 visites (1 RDV + 2 remplissages + 1 implantation) | Zone Hainaut | Retour ~17h25 (attention depassement)
 
 ---
 
@@ -113,12 +115,12 @@
 
 | Jour | Visites | Zone | Retour estime |
 |---|---|---|---|
-| Lundi | 3 (1 RDV + 2 remplissages) | Hainaut | 15h30 |
+| Lundi | 4 (1 RDV + 2 remplissages + 1 implantation) | Hainaut | 17h25 (depassement) |
 | Mardi | 8 (1 hyper + 1 implantation + 6 remplissages) | Namur | 15h00 |
 | Mercredi | 8 (4 remplissages + 1 RDV + 3 remplissages) | Liege | 16h15 |
 | Jeudi | 7 (5 remplissages + 1 RDV + 1 remplissage) | Namur sud | 15h30 |
 | Vendredi | 6 (6 remplissages) | Luxembourg | 13h30 |
-| **TOTAL** | **32 visites** | | |
+| **TOTAL** | **33 visites** | | |
 
 ---
 
@@ -128,7 +130,7 @@
 |---|---|---|---|
 | Visites totales | 20 | 32 | **+12 (+60%)** |
 | Heures terrain estimees | ~17h | ~30h | **+13h** |
-| Lundi | 1 visite, retour 13h00 | 3 visites, retour 15h30 | +2 visites, +2h30 terrain |
+| Lundi | 1 visite, retour 13h00 | 4 visites, retour 17h25 | +3 visites (dont implantation Enghien) |
 | Mardi | 6 visites, retour 14h30 | 8 visites, retour 15h00 | +2 visites, +0h30 terrain |
 | Mercredi | 5 visites, retour 14h30 | 8 visites, retour 16h15 | +3 visites, +1h45 terrain |
 | Jeudi | 5 visites, retour 15h00 | 7 visites, retour 15h30 | +2 visites, +0h30 terrain |
