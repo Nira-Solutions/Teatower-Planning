@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-14T15:43:04",
+  "updated": "2026-04-16T09:30:00",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -2988,6 +2988,50 @@
       "started": "2026-04-14T15:25",
       "request": "Nicolas → lance le tagging des canaux restants",
       "finished": "2026-04-14T15:43"
+    },
+    {
+      "id": "t025",
+      "agent": "planning",
+      "task": "Planning S20 finalisé : 33 visites (4 implantations) sur 5 jours, 20-24/04",
+      "status": "done",
+      "started": "2026-04-15T14:00",
+      "request": "Nicolas → construit le planning merchandiser S20 complet",
+      "finished": "2026-04-16T09:00"
+    },
+    {
+      "id": "t026",
+      "agent": "planning",
+      "task": "32 events Odoo créés (Events #479→#510) + 11 anciens events supprimés (S16 + prospection)",
+      "status": "done",
+      "started": "2026-04-15T15:00",
+      "request": "Nicolas → synchronise les events Odoo avec le nouveau planning S20",
+      "finished": "2026-04-16T09:05"
+    },
+    {
+      "id": "t027",
+      "agent": "support-order",
+      "task": "2 nouveaux clients GMS à créer — CM Bièvre (Cafermi ID 7440) + Proxy Maissin",
+      "status": "in_progress",
+      "started": "2026-04-16T09:10",
+      "request": "Jérôme → SO en cours de création pour implantations vendredi 24/04"
+    },
+    {
+      "id": "t028",
+      "agent": "planning",
+      "task": "7 magasins prioritaires Gilles reportés S21+ (Etterbeek, Arlon, Waterloo MSJ, Bosvoorde, La Chasse, Hamoir, Herve)",
+      "status": "done",
+      "started": "2026-04-16T09:15",
+      "request": "Planning S20 → magasins non planifiés par manque de SO ou zone BXL",
+      "finished": "2026-04-16T09:20"
+    },
+    {
+      "id": "t029",
+      "agent": "planning",
+      "task": "Exclusion 27 magasins S16 (visites Gilles 13-17/04) — pas de revisite S20",
+      "status": "done",
+      "started": "2026-04-16T09:15",
+      "request": "Règle dédup S16/S20 appliquée automatiquement",
+      "finished": "2026-04-16T09:20"
     }
   ]
 }
