@@ -2,46 +2,44 @@
 
 > **Merchandiser** : Jerome Carlier | **Base** : Baillonville (5377) | **Horaire** : 08h30 - 16h30
 > Genere le 2026-04-15, mis a jour le 2026-04-15 par agent planning Teatower.
-> **34 visites** au total sur 5 jours.
+> **36 visites** au total sur 5 jours (dont 4 implantations).
 
 ---
 
-## Lundi 20/04 — Hainaut
+## Lundi 20/04 — Hainaut (Enghien + Gosselies)
 
-### 09:30-10:00 | VISITE | Intermarche Gosselies (Distriparenthese) | Event #442
+### 09:45-11:15 | IMPLANTATION | Delhaize Enghien (Affilie 44845) | S05413 | Event #476
+- **Adresse** : Square de la Dodane, 7850 Enghien
+- **Contact** : Mme Mestdag (boss), Mme Luba (rayon)
+- **Brief** : **IMPLANTATION flanc de tete de gondole.** Installer le display Teatower selon planogramme. SO S05413 (366,81 EUR). Duree 1h30.
+- **Produits cles** : display + assortiment S05413
+
+### 12:00-12:30 | VISITE | Intermarche Gosselies (Distriparenthese) | Event #442
 - **Adresse** : Rue Pont a Migneloux 13, 6041 Gosselies
 - **Contact** : Valentin Schirru
 - **Brief** : Controle facing et remplissage presentoir. Tier C, derniere visite il y a 15j (cycle 50j).
 - **Produits cles** : gamme standard
 
-### 10:15-10:45 | VISITE | Intermarche Floriffoux (Floridis SA) | Event #456
+### 12:45-13:45 | RDV | Delhaize Gosselies | Event #386
+- **Adresse** : 6041 Gosselies
+- **Contact** : -
+- **Brief** : RDV prealable (prospection). Presentation de la gamme Teatower.
+
+### 14:00-14:30 | VISITE | Intermarche Floriffoux (Floridis SA) | Event #456
 - **Adresse** : Rue Emeree 4, 5150 Floriffoux
 - **Contact** : Loredana / Manon
 - **Brief** : OVERDUE 36 jours (cycle 35j). Remplissage complet. Tier B.
 - **Produits cles** : gamme standard
 
-### 11:15-12:15 | VISITE | Delhaize Gosselies | Event #386
-- **Adresse** : 6041 Gosselies
-- **Contact** : -
-- **Brief** : RDV prealable (prospection). Presentation de la gamme Teatower.
-
-### 12:30-13:30 | PAUSE DEJEUNER
-
-### 13:15-13:45 | VISITE | Intermarche Gerpinnes (Gerpidis SA) | Event #443
+### 14:55-15:25 | VISITE | Intermarche Gerpinnes (Gerpidis SA) | Event #443
 - **Adresse** : Route De Philippeville 196, 6280 Gerpinnes
 - **Contact** : Elodie Botte
 - **Brief** : OVERDUE 85 jours (cycle 35j) — visite urgente. Controle stock, remplissage complet du presentoir. Tier B.
 - **Produits cles** : gamme standard
 
-### 14:00-14:30 | VISITE | Intermarche Spy (SRL Spydis) | Event #457
-- **Adresse** : Route de Saussin 45, 5190 Jemeppe-sur-Sambre
-- **Contact** : Emilie / Dorian
-- **Brief** : Remplissage regulier. Tier B, 15 jours depuis derniere commande. Sur route retour vers Baillonville.
-- **Produits cles** : gamme standard
-
-> **Route** : Baillonville -> Gosselies (50min) -> Floriffoux (15min) -> Delhaize Gosselies (20min) -> dejeuner -> Gerpinnes (25min) -> Spy (15min) -> retour Baillonville (50min).
-> **Retour estime** : ~15h20.
-> *Implantation Enghien (S05413) reportee a la semaine du 27/04 — depassement horaire.*
+> **Route** : Baillonville -> Enghien (1h15) -> implantation 1h30 -> Gosselies (45min) -> ITM Gosselies -> Delhaize Gosselies (RDV) -> Floriffoux (15min) -> Gerpinnes (25min) -> retour Baillonville (50min).
+> **Retour estime** : ~16:15.
+> *ITM Spy deplace au mardi 21/04 pour respecter la regle des 16h30.*
 
 ---
 
@@ -92,9 +90,14 @@
 - **Brief** : Remplissage regulier (14j/cycle 20j). Tier A, sur route retour vers Baillonville.
 - **Produits cles** : gamme standard
 
-> **Route** : Baillonville -> Jambes (30min) -> Namur (10min) -> Naninne (10min) -> Bouge (15min) -> Belgrade (5min) -> dejeuner -> Fernelmont (20min) -> Assesse (15min) -> retour Baillonville (15min).
-> **Retour estime** : ~15h00.
-> *Floriffoux deplace au lundi 20/04 (event #456).*
+### 14:55-15:25 | VISITE | Intermarche Spy (SRL Spydis) | Event #457
+- **Adresse** : Route de Saussin 45, 5190 Jemeppe-sur-Sambre
+- **Contact** : Emilie / Dorian
+- **Brief** : Remplissage regulier. Tier B, 15 jours depuis derniere commande. Deplace du lundi (gain de place pour implantation Enghien).
+- **Produits cles** : gamme standard
+
+> **Route** : Baillonville -> Jambes (30min) -> Namur (10min) -> Naninne (10min) -> Bouge (15min) -> Belgrade (5min) -> dejeuner -> Fernelmont (20min) -> Assesse (15min) -> Spy (25min) -> retour Baillonville (40min).
+> **Retour estime** : ~16:05.
 
 ---
 
@@ -124,7 +127,7 @@
 - **Brief** : Remplissage post-livraison S05406. Mercredi = jour prefere pour ce magasin. Tier B.
 - **Produits cles** : selon S05406
 
-### 12:15-13:15 | VISITE | RDV Mediacite Torrefactory | Event #420
+### 12:15-13:15 | RDV | Mediacite Torrefactory | Event #420
 - **Adresse** : Liege (centre Mediacite)
 - **Contact** : -
 - **Brief** : RDV prealable prospection Torrefactory.
@@ -148,7 +151,7 @@
 - **Produits cles** : gamme standard
 
 > **Route** : Baillonville -> Embourg (45min) -> Tilff (15min) -> Faimes (25min) -> Villers (15min) -> Mediacite (20min) -> Bois-de-breux (10min) -> Liege Ardente (10min) -> Saint-Severin/Nandrin (30min) -> retour Baillonville (25min).
-> **Retour estime** : ~16h15.
+> **Retour estime** : ~16:15.
 
 ---
 
@@ -184,7 +187,7 @@
 - **Brief** : Remplissage post-livraison S05383. Attention : ajustement quantites par Nicolas (Tisane tropicale retiree, Le panier de grand maman passe a 8). Tier B.
 - **Produits cles** : selon S05383 (ajuste)
 
-### 12:30-13:30 | VISITE | Proxy Delhaize Couronne | Event #284
+### 12:30-13:30 | RDV | Proxy Delhaize Couronne | Event #284
 - **Adresse** : -
 - **Contact** : -
 - **Brief** : RDV prealable (prospection).
@@ -200,46 +203,55 @@
 
 ---
 
-## Vendredi 24/04 — Luxembourg / Marche
+## Vendredi 24/04 — Namur Sud / Luxembourg
 
-### 09:00-09:30 | VISITE | AD Bastogne (SA Marer) | Event #439
+### 09:05-10:05 | IMPLANTATION | Carrefour Market Bievre | Event #477
+- **Adresse** : Rue de Bouillon 54, 5555 Bievre
+- **Contact** : A confirmer (Jerome cree la commande le 16/04)
+- **Brief** : **IMPLANTATION display complet Teatower.** Nouveau client GMS. SO en cours de confirmation par Jerome, confirme d'ici lundi 20/04. Partner Odoo probable : Cafermi (ID 7440). Province Namur.
+- **Produits cles** : display + assortiment complet
+- **Note** : Commande creee par Jerome le 16/04. Nicolas confirme l'inclusion.
+
+### 10:30-11:30 | IMPLANTATION | Proxy Delhaize Maissin | Event #478
+- **Adresse** : Avenue de France 13, 6852 Maissin
+- **Contact** : A confirmer (Jerome cree la commande le 16/04)
+- **Brief** : **IMPLANTATION display complet Teatower.** Nouveau client GMS (Proxy Delhaize). SO en cours de confirmation par Jerome, confirme d'ici lundi 20/04. Province Luxembourg.
+- **Produits cles** : display + assortiment complet
+- **Note** : Commande creee par Jerome le 16/04. ~25 min depuis Bievre. Nicolas confirme l'inclusion.
+
+### 12:10-12:40 | VISITE | AD Bastogne (SA Marer) | Event #439
 - **Adresse** : Route de Marche 112-114, 6660 Bastogne
 - **Contact** : Valentin Gilson
 - **Brief** : OVERDUE 23 jours (cycle 20j). Remplissage complet. Tier A.
 - **Produits cles** : gamme standard
 
-### 09:30-10:00 | VISITE | Carrefour Market Bastogne (Pascalino) | Event #451
+### 12:40-13:10 | VISITE | Carrefour Market Bastogne (Pascalino) | Event #451
 - **Adresse** : Route de Marche 149, 6600 Bastogne
 - **Contact** : Fabienne Antoine (se presenter le matin)
 - **Brief** : OVERDUE 72 jours (cycle 50j). Remplissage complet, verification etat du display. Tier C.
 - **Produits cles** : gamme standard
 
-### 10:45-11:15 | VISITE | Carrefour Market Hotton (HODICA SA) | S05372 | Event #440
+### 13:45-14:15 | VISITE | Carrefour Market Hotton (HODICA SA) | S05372 | Event #440
 - **Adresse** : Rue de la Jonction 16, 6990 Hotton
 - **Contact** : Gauthier Lempereur
 - **Brief** : Remplissage post-livraison S05372. Verifier mise en rayon. Tier B.
 - **Produits cles** : selon S05372
 
-### 11:15-11:45 | VISITE | Carrefour Market Barvaux (BARVO SA) | S05405 | Event #441
+### 14:30-15:00 | VISITE | Carrefour Market Barvaux (BARVO SA) | S05405 | Event #441
 - **Adresse** : Route de Marche 26, 6940 Barvaux
 - **Contact** : Nathalie Warnier
 - **Brief** : Remplissage post-livraison S05405. Verifier mise en rayon. Tier B.
 - **Produits cles** : selon S05405
 
-### 11:45-12:15 | VISITE | Delhaize Marche (N.B.S. RETAIL) | Event #452
+### 15:15-15:45 | VISITE | Delhaize Marche (N.B.S. RETAIL) | Event #452
 - **Adresse** : Avenue de France 39, 6900 Marche-en-Famenne
 - **Contact** : -
 - **Brief** : OVERDUE 23 jours (cycle 20j). Remplissage complet, prioritaire (Tier A). 15 min depuis Barvaux.
 - **Produits cles** : gamme standard
 
-### 12:30-13:00 | VISITE | Carrefour Market Marche (Mardis) | Event #453
-- **Adresse** : Avenue du Monument 1, 6900 Marche-en-Famenne
-- **Contact** : -
-- **Brief** : Remplissage (14j/cycle 50j). Meme ville que Delhaize Marche, retour rapide vers Baillonville. Tier C.
-- **Produits cles** : gamme standard
-
-> **Route** : Baillonville -> Bastogne (45min) -> CM Bastogne (5min) -> Hotton (35min) -> Barvaux (15min) -> Marche (15min) -> CM Marche (5min) -> retour Baillonville (20min).
-> **Retour estime** : ~13h30.
+> **Route** : Baillonville -> Bievre (35min via Dinant) -> implantation 1h -> Maissin (25min) -> implantation 1h -> Bastogne (40min) -> CM Bastogne (5min) -> Hotton (35min) -> Barvaux (15min) -> Marche (15min) -> retour Baillonville (20min).
+> **Retour estime** : ~16:05.
+> *CM Marche (ex-event #453) retire de cette semaine — deja couvert par event #460 en semaine 27/04.*
 
 ---
 
@@ -253,13 +265,12 @@ Les notes suivantes ont ete extraites des `mail.message` lies aux SO recents de 
 | S05382 | Spar Namur (NDB Diffusion) | "ok pour implantation semaine prochaine" | Mardi 21/04, implantation Spar Namur |
 | S05380 | Spar Manhay (Lambertdis) | "New cli GMS a implanter. Pour tournee merchandiser" | Non planifie cette semaine (event #422 appartient a Nicolas) |
 
-### Autres notes Jerome (non liees au planning cette semaine)
+### Nouveaux clients (commandes en cours de creation par Jerome le 16/04)
 
-| SO | Client | Note | Action |
+| Client | Localisation | Statut | Planifie |
 |---|---|---|---|
-| S05381 | BTL SRL - Break Time | "dis-moi ce qui est faisable pour cette commande et le delai" / Nicolas: "Camille au courant, pour semaine prochaine c'est OK" | Livraison a preparer |
-| S05379/S05378 | Le Brunch de Ginette | "Commande a envoyer le 30-04 (attendre pour facturer)" | Ne pas livrer avant le 30/04 |
-| S05376 | Au gre des saisons | "c'est bien tva 6% pour le transport?" / Nicolas: "Oui tu peux laisser comme ca" | Resolu |
+| Carrefour Market Bievre | 5555 Bievre, Namur | SO en attente confirmation | Vendredi 24/04, implantation |
+| Proxy Delhaize Maissin | 6852 Maissin, Luxembourg | SO en attente confirmation | Vendredi 24/04, implantation |
 
 ---
 
@@ -267,19 +278,30 @@ Les notes suivantes ont ete extraites des `mail.message` lies aux SO recents de 
 
 | Jour | Visites | Types | Zone | Retour |
 |---|---|---|---|---|
-| Lundi 20/04 | 5 | 4 VISITE + 1 RDV | Hainaut / Sambre | ~15h20 |
-| Mardi 21/04 | 7 | 5 VISITE + 1 IMPLANTATION | Namur | ~15h00 |
-| Mercredi 22/04 | 8 | 7 VISITE + 1 RDV | Liege | ~16h15 |
-| Jeudi 23/04 | 7 | 5 VISITE + 1 RDV + 1 VISITE urgente | Namur sud | ~15h30 |
-| Vendredi 24/04 | 6 | 6 VISITE | Luxembourg | ~13h30 |
-| **TOTAL** | **34** | 1 implantation, 3 RDV, 30 visites | | |
+| Lundi 20/04 | 5 | 1 IMPLANTATION + 1 RDV + 3 VISITE | Hainaut (Enghien + Gosselies) | ~16:15 |
+| Mardi 21/04 | 8 | 1 IMPLANTATION + 7 VISITE | Namur | ~16:05 |
+| Mercredi 22/04 | 8 | 1 RDV + 7 VISITE | Liege | ~16:15 |
+| Jeudi 23/04 | 7 | 1 RDV + 6 VISITE | Namur sud (Beauraing/Ciney) | ~15:30 |
+| Vendredi 24/04 | 8 | 2 IMPLANTATION + 6 VISITE | Namur sud / Luxembourg | ~16:05 |
+| **TOTAL** | **36** | 4 implantations, 2 RDV, 30 visites | | |
 
 ---
 
+## Modifications par rapport a la version precedente (v1 du 15/04)
+
+1. **Delhaize Enghien (S05413)** : REINTEGRE cette semaine (lundi 20/04, 09:45-11:15). Event #476 cree. Event #455 (jeudi 30/04 semaine 27/04) supprime.
+2. **Carrefour Market Bievre** : AJOUTE vendredi 24/04 (09:05-10:05). Event #477 cree. Nouveau client, SO en confirmation.
+3. **Proxy Delhaize Maissin** : AJOUTE vendredi 24/04 (10:30-11:30). Event #478 cree. Nouveau client, SO en confirmation.
+4. **ITM Spy (#457)** : DEPLACE du lundi au mardi 21/04 (14:55-15:25) pour faire place a l'implantation Enghien.
+5. **CM Marche (#453)** : RETIRE du vendredi (couvert par #460 en semaine 27/04). Place liberee pour les 2 implantations sud.
+6. **Horaires lundi** : tous les events decales (Enghien premier, puis Gosselies apres-midi).
+7. **Horaires vendredi** : tous les events decales (Bievre+Maissin le matin, Luxembourg l'apres-midi).
+
 ## Alertes
 
-1. ~~Depassement horaire lundi~~ : **RESOLU** — implantation Enghien reportee a la semaine du 27/04 (event #455, mardi 28/04 09h30-11h00).
-2. **Carrefour Hyper Jambes (S05355)** : livraison partielle, verifier les produits manquants avec Nicolas AVANT la visite.
-3. **Intermarche Naninne** : reprise par Anne Buttiens en cours, verifier suivi avec Jerome.
-4. **Spar Manhay (S05380)** : Jerome note "New cli GMS a implanter" mais l'event #422 est au nom de Nicolas. A coordonner.
-5. **Intermarche Anhee** : OVERDUE 99 jours — verifier que le presentoir est toujours en place.
+1. **Carrefour Hyper Jambes (S05355)** : livraison partielle, verifier les produits manquants avec Nicolas AVANT la visite.
+2. **Intermarche Naninne** : reprise par Anne Buttiens en cours, verifier suivi avec Jerome.
+3. **Spar Manhay (S05380)** : Jerome note "New cli GMS a implanter" mais l'event #422 est au nom de Nicolas. A coordonner.
+4. **Intermarche Anhee** : OVERDUE 99 jours — verifier que le presentoir est toujours en place.
+5. **Bievre + Maissin** : SO non encore confirmes au 15/04. Jerome cree les commandes le 16/04, Nicolas confirme l'inclusion. A verifier lundi 20/04 matin que les SO sont bien en etat `sale`.
+6. **Retour lundi serre** : retour estime 16:15. Si retard sur l'implantation Enghien, envisager de reporter Gerpinnes (#443) au jeudi.
