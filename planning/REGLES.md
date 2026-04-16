@@ -53,14 +53,35 @@
 
 ---
 
-## 3. Autres règles (rappel depuis la skill)
+## 3. JAMAIS de depassement horaire (REGLE DURE)
 
-- **Base** : Zone d'activité Nord 33, 5377 Baillonville
-- **Horaire** : 8h30 – 16h30 (retour obligatoire à 16h30)
-- **Capacité** : 5 à 6 visites / jour, 30 min par visite
-- **Hyper** : toujours le matin (avant 12h), jamais l'après-midi
+**Le merchandiser ne peut JAMAIS depasser l'horaire de fin : 16h30.**
+
+### Application
+
+1. Pour chaque journee, calculer l'heure de retour estimee a la base (Baillonville 5377) en additionnant :
+   - l'heure de fin de la derniere visite/implantation
+   - le temps de trajet retour vers Baillonville
+2. Si le retour estime depasse 16h30, la derniere visite (ou l'avant-derniere si necessaire) doit etre :
+   - deplacee a un autre jour de la meme semaine, OU
+   - reportee a la semaine suivante
+3. Lors de la generation du planning, **refuser** toute entree qui provoquerait un depassement — ne jamais inscrire une visite "sous reserve de validation".
+4. Les implantations (duree longue, souvent 1h30) et les magasins eloignes de Baillonville (Enghien, Mons, Tournai, etc.) sont les premiers candidats au report si le timing est serre.
+
+### Contexte
+
+Regle instauree le 15/04/2026 suite au depassement prevu pour l'implantation Delhaize Enghien (S05413) le lundi 20/04 (retour estime 17h25, +55min). L'implantation a ete reportee a la semaine du 27/04.
+
+---
+
+## 4. Autres regles (rappel depuis la skill)
+
+- **Base** : Zone d'activite Nord 33, 5377 Baillonville
+- **Horaire** : 8h30 - 16h30 (retour obligatoire a 16h30)
+- **Capacite** : 5 a 6 visites / jour, 30 min par visite
+- **Hyper** : toujours le matin (avant 12h), jamais l'apres-midi
 - **Exclusions Odoo permanentes** : "Delhaize Le Lion" et "Carrefour Belgium" (comptes centraux)
-- **Remarques magasin** (champ `comment` Odoo) : contraintes jours/horaires obligatoires à respecter
+- **Remarques magasin** (champ `comment` Odoo) : contraintes jours/horaires obligatoires a respecter
 
 ---
 

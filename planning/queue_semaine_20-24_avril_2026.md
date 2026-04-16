@@ -2,7 +2,7 @@
 
 > **Merchandiser** : Jerome Carlier | **Base** : Baillonville (5377) | **Horaire** : 08h30 - 16h30
 > Genere le 2026-04-15, mis a jour le 2026-04-15 par agent planning Teatower.
-> **29 visites** au total sur 5 jours.
+> **32 visites** au total sur 5 jours.
 
 ---
 
@@ -27,16 +27,9 @@
 - **Brief** : OVERDUE 85 jours (cycle 35j) — visite urgente. Controle stock, remplissage complet du presentoir. Tier B.
 - **Produits cles** : gamme standard
 
-### 14:45-16:15 | IMPLANTATION | Delhaize Enghien (Affilie 44845) | S05413 | Event #454
-- **Adresse** : Square de la Dodane, 7850 Enghien
-- **Contact** : Boss: Mme Mestdag, Rayon: Mme Luba, N. 1006737066
-- **Brief** : **IMPLANTATION flanc de tete de gondole.** Installer le display Teatower en flanc TG selon le planogramme. Duree estimee 1h30.
-- **Note Jerome (S05413, 16/04)** : "Commande confirmee — Implantation semaine du 20/04/2026"
-- **Produits cles** : assortiment complet display (selon commande S05413, 366.81 EUR)
-
-> **Route** : Baillonville -> Gosselies (50min) -> Delhaize Gosselies (5min) -> dejeuner -> Gerpinnes (25min) -> Enghien (45min) -> retour Baillonville (1h10).
-> **Retour estime** : ~17h25. **ATTENTION depassement horaire** (~55min) — implantation longue + trajet retour Enghien.
-> **Alternative** : si le depassement est inacceptable, deplacer l'implantation Enghien au mardi matin.
+> **Route** : Baillonville -> Gosselies (50min) -> Delhaize Gosselies (5min) -> dejeuner -> Gerpinnes (25min) -> retour Baillonville (45min).
+> **Retour estime** : ~14h30.
+> *Implantation Enghien (S05413) reportee a la semaine du 27/04 — depassement horaire.*
 
 ---
 
@@ -266,18 +259,18 @@ Les notes suivantes ont ete extraites des `mail.message` lies aux SO recents de 
 
 | Jour | Visites | Types | Zone | Retour |
 |---|---|---|---|---|
-| Lundi 20/04 | 4 | 2 VISITE + 1 RDV + 1 IMPLANTATION | Hainaut | ~17h25 |
+| Lundi 20/04 | 3 | 2 VISITE + 1 RDV | Hainaut | ~14h30 |
 | Mardi 21/04 | 8 | 5 VISITE + 1 IMPLANTATION + 1 BONUS | Namur | ~15h00 |
 | Mercredi 22/04 | 8 | 7 VISITE + 1 RDV | Liege | ~16h15 |
 | Jeudi 23/04 | 7 | 5 VISITE + 1 RDV + 1 VISITE urgente | Namur sud | ~15h30 |
 | Vendredi 24/04 | 6 | 6 VISITE | Luxembourg | ~13h30 |
-| **TOTAL** | **33** | 2 implantations, 3 RDV, 28 visites | | |
+| **TOTAL** | **32** | 1 implantation, 3 RDV, 28 visites | | |
 
 ---
 
 ## Alertes
 
-1. **Depassement horaire lundi** : retour ~17h25 a cause de l'implantation Enghien. A valider avec Jerome.
+1. ~~Depassement horaire lundi~~ : **RESOLU** — implantation Enghien reportee a la semaine du 27/04 (event #455, mardi 28/04 09h30-11h00).
 2. **Carrefour Hyper Jambes (S05355)** : livraison partielle, verifier les produits manquants avec Nicolas AVANT la visite.
 3. **Intermarche Naninne** : reprise par Anne Buttiens en cours, verifier suivi avec Jerome.
 4. **Spar Manhay (S05380)** : Jerome note "New cli GMS a implanter" mais l'event #422 est au nom de Nicolas. A coordonner.
