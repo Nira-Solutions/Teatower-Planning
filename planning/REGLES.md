@@ -74,14 +74,66 @@ Regle instauree le 15/04/2026 suite au depassement prevu pour l'implantation Del
 
 ---
 
-## 4. Autres regles (rappel depuis la skill)
+## 4. Responsable/contact absent — NE PAS planifier ce jour-la (REGLE DURE)
+
+**Si le responsable ou contact cle d'un magasin est absent un jour donne, il est INTERDIT de planifier la visite ce jour-la.**
+
+### Principe
+
+Le merchandiser doit pouvoir interagir avec le responsable rayon ou le gerant pour :
+- faire signer la reception du remplissage
+- discuter de la commande suivante
+- signaler des problemes (peremptions, produits manquants, facing)
+- obtenir l'acces aux reserves si necessaire
+
+Sans le responsable, la visite perd 50 a 80 % de sa valeur. Le merchandiser fait du remplissage "a l'aveugle" sans feedback ni possibilite de commande.
+
+### Application
+
+1. **Avant de planifier** : verifier le champ `comment` (Notes internes) de la fiche partenaire Odoo. Les contraintes connues sont du type :
+   - "pas de passage le mercredi responsable absent"
+   - "pas le jeudi car le responsable rayon n'est pas la"
+   - "Monsieur Garnier absent les mercredis"
+   - "Madame Galletas pas presente le jeudi"
+2. **Si le contact est absent le jour prevu** : deplacer la visite a un autre jour de la semaine ou reporter a la semaine suivante.
+3. **Exceptions** : si le magasin a un contact secondaire present ce jour-la (ex: Delhaize Ottignies — Mme Galletas absente jeudi mais Jolan Cailleu present), la visite est autorisee avec le contact secondaire.
+
+### Contraintes connues au 2026-04-16
+
+| Magasin | Contrainte | Source |
+|---|---|---|
+| Proxy Delhaize Ferrieres | Responsable absent le mercredi | Odoo comment |
+| AD Soumagne | Mr Garnier absent les mercredis | Odoo comment |
+| Delhaize Ottignies | Mme Galletas absente le jeudi (mais Jolan Cailleu present) | Odoo comment |
+| CM Remouchamps | Responsable rayon absent le jeudi | Odoo comment |
+| Proxy Delhaize Linthout | Pas de visite le mercredi | Odoo comment |
+| CM Butgenbach | Pas de visite le mercredi | Odoo comment |
+| AD Fosses-la-Ville | Pas de visite le mardi. Preference mercredi (Leslie presente toute la journee) | Odoo comment |
+| Delhaize Barchon | Ferme le lundi matin, ouvre a midi | Odoo comment |
+| ITM Anhee | Jamais le lundi, visite le matin | Odoo comment |
+| ITM Hamoir | Pas mardi apres-midi ni mercredi | Odoo comment |
+| CM Hannut (P.R.MACLEKY) | Visite uniquement le jeudi | Odoo comment |
+| Delhaize Fragnee | Pas de visite le lundi | Odoo comment |
+| Hyper Boncelles | Pas le mardi. Horaire 7h-11h30 | Odoo comment |
+| ITM Villers-le-Bouillet | Mercredi ou vendredi matin | Odoo comment |
+| CM Etterbeek Cinquantenaire | Ne souhaite PAS de suivi merchandiser | Odoo comment — EXCLU |
+| Delhaize LLN | Mr Snaps absent le jeudi | Odoo comment |
+
+### Historique
+
+- **2026-04-16** : regle creee suite au bug planning S20 v3 (Proxy Ferrieres planifie mercredi malgre responsable absent). Corrige en v4 (deplace au jeudi).
+
+---
+
+## 5. Autres regles (rappel depuis la skill)
 
 - **Base** : Zone d'activite Nord 33, 5377 Baillonville
 - **Horaire** : 8h30 - 16h30 (retour obligatoire a 16h30)
-- **Capacite** : 5 a 6 visites / jour, 30 min par visite
+- **Capacite** : 6 a 8 visites / jour (objectif maximisation), 30 min par visite
 - **Hyper** : toujours le matin (avant 12h), jamais l'apres-midi
 - **Exclusions Odoo permanentes** : "Delhaize Le Lion" et "Carrefour Belgium" (comptes centraux)
 - **Remarques magasin** (champ `comment` Odoo) : contraintes jours/horaires obligatoires a respecter
+- **Maximisation** : si un retour est prevu avant 14h30, ajouter des clients dans la zone jusqu'a la limite 16h30
 
 ---
 

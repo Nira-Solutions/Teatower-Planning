@@ -33,6 +33,7 @@
   .badge-indispo { background: #6c757d; color: #fff; }
   .badge-ferie { background: #495057; color: #fff; }
   .badge-priorite { background: #6610f2; color: #fff; margin-left: 4px; }
+  .badge-fix { background: #0d6efd; color: #fff; margin-left: 4px; }
   .client { font-weight: 600; }
   .so { color: var(--accent); font-size: .85rem; font-weight: 600; }
   .details { font-size: .85rem; color: #555; margin-top: .3rem; line-height: 1.4; }
@@ -41,6 +42,8 @@
   .route { background: #e9ecef; padding: .5rem 1rem; font-size: .8rem; color: #555; }
   .alert { background: #fff3cd; border-left: 4px solid var(--warn); padding: .6rem 1rem; margin-bottom: .5rem; border-radius: 0 6px 6px 0; font-size: .85rem; }
   .alert strong { color: var(--warn); }
+  .alert-success { background: #d1e7dd; border-left: 4px solid var(--accent); }
+  .alert-success strong { color: var(--primary); }
   .section-title { font-size: 1.2rem; color: var(--primary); margin: 1.5rem 0 .5rem; border-bottom: 2px solid var(--accent); padding-bottom: .3rem; }
   @media(max-width:600px) { .visit-header { flex-direction: column; align-items: flex-start; } }
 </style>
@@ -56,31 +59,30 @@
 </div>
 
 <!-- ============================================================ -->
-<!-- SEMAINE 20-24/04 (v3 - refait integralement)                  -->
+<!-- SEMAINE 20-24/04 (v4 - refait integralement 16/04)            -->
 <!-- ============================================================ -->
 
 <div id="s20">
-<h2 class="section-title">Semaine du 20 au 24 avril 2026</h2>
+<h2 class="section-title">Semaine du 20 au 24 avril 2026 (v4)</h2>
 
 <div class="summary">
-  <div class="summary-card"><div class="num">33</div><div class="label">Visites</div></div>
+  <div class="summary-card"><div class="num">38</div><div class="label">Visites</div></div>
   <div class="summary-card"><div class="num">5</div><div class="label">Jours</div></div>
   <div class="summary-card"><div class="num">4</div><div class="label">Implantations</div></div>
-  <div class="summary-card"><div class="num">14</div><div class="label">Priorites Gilles</div></div>
+  <div class="summary-card"><div class="num">15</div><div class="label">Priorites Gilles</div></div>
 </div>
 
 <div class="alert"><strong>S16 exclusions :</strong> 27 magasins visites par Gilles cette semaine (13-17/04) sont exclus du planning.</div>
-<div class="alert"><strong>Vendredi 24/04 :</strong> 2 implantations (Bievre + Maissin) le matin. SO en attente confirmation — verifier lundi matin.</div>
-<div class="alert"><strong>Mercredi 22/04 :</strong> Proxy Ferrieres — responsable absent le mercredi, Jerome fait le remplissage seul.</div>
+<div class="alert alert-success"><strong>v4 corrections :</strong> Proxy Ferrieres deplace au jeudi (responsable absent mercredi). AD Fosses deplace au mercredi (Leslie presente). +5 visites ajoutees pour maximiser chaque journee.</div>
 
 <!-- LUNDI 20/04 -->
 <div class="day">
-  <div class="day-header">Lundi 20/04 — 4 visites dont 1 implantation <span class="zone">Hainaut + Namur</span></div>
+  <div class="day-header">Lundi 20/04 — 6 visites dont 1 implantation <span class="zone">Hainaut + Namur + BW</span></div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">08:30 - 10:00</span> <span class="badge badge-implantation">Implantation</span></span>
-      <span class="so">S05413 | #479</span>
+      <span class="so">S05413</span>
     </div>
     <div class="client">Delhaize Enghien</div>
     <div class="details">Square de la Dodane, 7850 Enghien<br><strong>Contacts :</strong> Mme Mestdag (boss), Mme Luba (rayon)<br><strong>Brief :</strong> Installer le display Teatower en flanc TG. SO S05413 (366,81 EUR). Duree 1h30.</div>
@@ -88,37 +90,55 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">11:00 - 11:30</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05316 | #480</span>
+      <span><span class="time">10:45 - 11:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05316</span>
     </div>
     <div class="client">ITM Gosselies (Distriparenthese)</div>
-    <div class="details">Rue Pont a Migneloux 13, 6041 Gosselies<br><strong>Contact :</strong> Valentin Schirru | 071/35.40.10<br><strong>Brief :</strong> Remplissage. Tier C, 16j.</div>
+    <div class="details">Rue Pont a Migneloux 13, 6041 Gosselies<br><strong>Contact :</strong> Valentin Schirru | 071/35.40.10<br><strong>Brief :</strong> Remplissage. Tier C, 15j.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 2j</span></span>
-      <span class="so">S05126 | #481</span>
+      <span><span class="time">11:45 - 12:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 1j</span></span>
+      <span class="so">S05126</span>
     </div>
     <div class="client">ITM Floriffoux (Floridis SA)</div>
-    <div class="details">Rue Emeree 4, 5150 Floriffoux<br><strong>Contact :</strong> Loredana / Manon | 081 44 05 39<br><strong>Brief :</strong> Remplissage complet. Tier B, OVERDUE 2j (cycle 35j).</div>
+    <div class="details">Rue Emeree 4, 5150 Floriffoux<br><strong>Contact :</strong> Loredana / Manon | 081 44 05 39<br><strong>Brief :</strong> Remplissage complet. Tier B, OVERDUE 1j (cycle 35j).</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">13:00 - 13:30</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05319 | #482</span>
+      <span><span class="time">12:45 - 13:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05319</span>
     </div>
     <div class="client">ITM Spy (SRL Spydis)</div>
-    <div class="details">Route de Saussin 45, 5190 Jemeppe-sur-Sambre<br><strong>Contact :</strong> Emilie / Dorian | +32 71 78 74 39<br><strong>Brief :</strong> Remplissage regulier. Tier B, 16j.</div>
+    <div class="details">Route de Saussin 45, 5190 Jemeppe-sur-Sambre<br><strong>Contact :</strong> Emilie / Dorian | +32 71 78 74 39<br><strong>Brief :</strong> Remplissage regulier. Tier B, 15j.</div>
   </div>
 
-  <div class="route">Baillonville &rarr; Enghien (1h15) &rarr; implantation 1h30 &rarr; Gosselies (45min) &rarr; Floriffoux (20min) &rarr; Spy (15min) &rarr; retour (40min) &rarr; ~14:10</div>
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">AJOUT v4</span></span>
+      <span class="so">S05279</span>
+    </div>
+    <div class="client">ITM Genappe (GENADIS)</div>
+    <div class="details">Rue de Bruxelles 83, 1470 Genappe<br><strong>Brief :</strong> Remplissage. Tier C, 21j. Ajout pour combler marge lundi.</div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">14:15 - 14:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">AJOUT v4</span></span>
+      <span class="so">S05281</span>
+    </div>
+    <div class="client">Crf Express Lasne (V2V Express Two)</div>
+    <div class="details">Chaussee de Louvain 465, 1380 Lasne<br><strong>Brief :</strong> Remplissage. Tier C, 21j. 10min depuis Genappe.</div>
+  </div>
+
+  <div class="route">Baillonville &rarr; Enghien (1h15) &rarr; implantation 1h30 &rarr; Gosselies (45min) &rarr; Floriffoux (20min) &rarr; Spy (15min) &rarr; Genappe (25min) &rarr; Lasne (10min) &rarr; retour (1h05) &rarr; <strong>~15:50</strong></div>
 </div>
 
 <!-- MARDI 21/04 -->
 <div class="day">
-  <div class="day-header">Mardi 21/04 — 7 visites dont 1 implantation <span class="zone">Namur</span></div>
+  <div class="day-header">Mardi 21/04 — 8 visites dont 1 implantation <span class="zone">Namur + Luxembourg</span></div>
 
   <div class="visit">
     <div class="visit-header">
@@ -133,7 +153,7 @@
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">09:45 - 10:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">#483</span>
+      <span class="so">—</span>
     </div>
     <div class="client">Delhaize de Bouge</div>
     <div class="details">Chaussee de Louvain 336, 5004 Namur<br><strong>Contact :</strong> Mme Destree / Grandjean / Augustaine | +32 81 21 48 88<br><strong>Brief :</strong> Visite merchandiser. Accessoires en rayon (filtre boule, filtre pince).</div>
@@ -141,8 +161,8 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">10:30 - 11:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 16j</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05042 | #484</span>
+      <span><span class="time">10:30 - 11:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 15j</span> <span class="badge badge-priorite">Gilles</span></span>
+      <span class="so">S05042</span>
     </div>
     <div class="client">ITM Bouge (Windmill SA)</div>
     <div class="details">Chaussee de Louvain 257, 5000 Bouge<br><strong>Contact :</strong> Dany Decoster | 081569346<br><strong>Brief :</strong> Remplissage complet. Tier B, OVERDUE (cycle 35j).</div>
@@ -150,8 +170,8 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">11:15 - 11:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 3j</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05269 | #485</span>
+      <span><span class="time">11:15 - 11:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 2j</span> <span class="badge badge-priorite">Gilles</span></span>
+      <span class="so">S05269</span>
     </div>
     <div class="client">ITM Naninne (BOISDIS SA)</div>
     <div class="details">Chaussee de Marche 860, 5100 Naninne<br><strong>Contact :</strong> Stephanie | 081 63 36 96<br><strong>Brief :</strong> Remplissage complet. Tier A, OVERDUE (cycle 20j).</div>
@@ -159,8 +179,8 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 16j</span></span>
-      <span class="so">S05047 | #486</span>
+      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 15j</span></span>
+      <span class="so">S05047</span>
     </div>
     <div class="client">ITM Belgrade (Belgradis)</div>
     <div class="details">Allee des Ormes 15, 5001 Belgrade<br><strong>Contact :</strong> Stephanie | 081260187<br><strong>Brief :</strong> Remplissage complet. Tier B, OVERDUE (cycle 35j).</div>
@@ -168,112 +188,130 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">13:00 - 13:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S02185 | #487</span>
+      <span><span class="time">13:00 - 13:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05327</span>
     </div>
-    <div class="client">AD Fosses-la-Ville</div>
-    <div class="details">Rue du Cimetiere 5, Fosses-la-Ville<br><strong>Contact :</strong> Leslie | 071 71 29 12<br><strong>Brief :</strong> Visite de reprise. Preference mercredi (Leslie presente), mardi PM acceptable.</div>
+    <div class="client">ITM Jambes (JAMBIS SA)</div>
+    <div class="details">Rue de la Poudriere 14, 5100 Jambes<br><strong>Contact :</strong> Faustine | 081306878<br><strong>Brief :</strong> Remplissage regulier. Tier B, 14j.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">13:45 - 14:15</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05330 | #488</span>
+      <span class="so">S05330</span>
     </div>
     <div class="client">ITM Assesse (SA Barthe)</div>
-    <div class="details">Rue Melville Wilson 3, 5330 Assesse<br><strong>Contact :</strong> Anne Buttiens | 083 66 05 70<br><strong>Brief :</strong> Remplissage regulier. Tier A, 15j. Sur route retour.</div>
+    <div class="details">Rue Melville Wilson 3, 5330 Assesse<br><strong>Contact :</strong> Anne Buttiens | 083 66 05 70<br><strong>Brief :</strong> Remplissage regulier. Tier A. Sur route retour.</div>
   </div>
 
-  <div class="route">Baillonville &rarr; Namur (30min) &rarr; Delhaize Bouge (5min) &rarr; ITM Bouge (5min) &rarr; Naninne (10min) &rarr; Belgrade (10min) &rarr; Fosses (20min) &rarr; Assesse (20min) &rarr; retour (15min) &rarr; ~14:30</div>
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">14:30 - 15:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">AJOUT v4</span></span>
+      <span class="so">S05380</span>
+    </div>
+    <div class="client">Spar Manhay (Lambertdis SRL)</div>
+    <div class="details">Rue d Erezee, 6960 Manhay<br><strong>Tel :</strong> +32 86 45 55 87<br><strong>Brief :</strong> Controle post-implantation nouveau client (depuis 11/04). Sur route retour Baillonville.</div>
+  </div>
+
+  <div class="route">Baillonville &rarr; Namur (30min) &rarr; Bouge (5min) &rarr; Naninne (10min) &rarr; Belgrade (10min) &rarr; Jambes (10min) &rarr; Assesse (20min) &rarr; Manhay (35min) &rarr; retour (20min) &rarr; <strong>~15:40</strong></div>
 </div>
 
 <!-- MERCREDI 22/04 -->
 <div class="day">
-  <div class="day-header">Mercredi 22/04 — 8 visites <span class="zone">Liege</span></div>
+  <div class="day-header">Mercredi 22/04 — 9 visites <span class="zone">Liege + Namur (Fosses)</span></div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">08:00 - 09:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 171j</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S03883 | #489</span>
+      <span><span class="time">08:00 - 09:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 170j</span> <span class="badge badge-priorite">Gilles</span></span>
+      <span class="so">S03883</span>
     </div>
     <div class="client">Hyper Carrefour Boncelles</div>
-    <div class="details">Rue du Condroz 16, 4100 Boncelles<br><strong>Contact :</strong> Robert Stassin | +32 4 338 86 11<br><strong>Brief :</strong> HYPER = matin (7h-11h30). Demander Mr Stassin pour la commande. Pas le mardi.</div>
+    <div class="details">Rue du Condroz 16, 4100 Boncelles<br><strong>Contact :</strong> Robert Stassin | +32 4 338 86 11<br><strong>Brief :</strong> OVERDUE. Hyper = matin (7h-11h30). Pas le mardi. Mercredi OK.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">09:45 - 10:15</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05313 | #490</span>
+      <span class="so">S05313</span>
     </div>
     <div class="client">ITM Tilff (Chili Peppers)</div>
-    <div class="details">Av. des Ardennes 8, 4130 Esneux<br><strong>Brief :</strong> Remplissage regulier. Tier A, 16j.</div>
+    <div class="details">Av. des Ardennes 8, 4130 Esneux<br><strong>Contact :</strong> Christine Castermans | +32 479 32 28 39<br><strong>Brief :</strong> Remplissage regulier. Tier A.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">10:30 - 11:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">#491</span>
+      <span class="so">—</span>
     </div>
     <div class="client">Hyper Carrefour Fleron</div>
-    <div class="details">Rue de la Clef 30, 4620 Fleron<br><strong>Tel :</strong> +32 4 355 86 11<br><strong>Brief :</strong> Visite merchandiser. HYPER = matin obligatoire.</div>
+    <div class="details">Rue de la Clef 30, 4620 Fleron<br><strong>Tel :</strong> +32 4 355 86 11<br><strong>Brief :</strong> Visite merchandiser. Hyper = matin. Tier D.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">11:15 - 11:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05290 | #492</span>
+      <span class="so">S05290</span>
     </div>
     <div class="client">Delhaize Barchon (BARCHONEW SRL)</div>
-    <div class="details">Rue Champs de Tignee 32, 4671 Barchon<br><strong>Contact :</strong> Jerome ou Jovani | +32 4 362 27 33<br><strong>Brief :</strong> Remplissage. Tier C, 21j. Ferme lundi matin.</div>
+    <div class="details">Rue Champs de Tignee 32, 4671 Barchon<br><strong>Contact :</strong> Jerome ou Jovani | +32 4 362 27 33<br><strong>Brief :</strong> Remplissage. Tier C, 20j.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05288 | #493</span>
+      <span class="so">S05288</span>
     </div>
     <div class="client">Delhaize Bois-de-breux</div>
-    <div class="details">Rue de Herve 280, 4030 Liege<br><strong>Contact :</strong> Olivier Landauer / Demany / Poppov / Ghislaine | +32 4 365 74 07<br><strong>Brief :</strong> Remplissage. Tier B, 21j.</div>
+    <div class="details">Rue de Herve 280, 4030 Liege<br><strong>Contact :</strong> Olivier Landauer | +32 4 365 74 07<br><strong>Brief :</strong> Remplissage. Tier B, 20j.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">13:00 - 13:30</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05146 | #494</span>
+      <span><span class="time">12:45 - 13:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 25j</span> <span class="badge badge-priorite">Gilles</span> <span class="badge badge-fix">AJOUT v4</span></span>
+      <span class="so">S04866</span>
     </div>
-    <div class="client">Delhaize Liege Ardente</div>
-    <div class="details">Chaussee de Tongres 269, 4000 Liege<br><strong>Contact :</strong> Kevin Demarteau 0468 37 62 65<br><strong>Brief :</strong> Remplissage. Tier C, 37j. The en rayon.</div>
+    <div class="client">ITM Herve (LEHDIS SA)</div>
+    <div class="details">Rue du Pont 17, 4650 Herve<br><strong>Contact :</strong> Samuel Royen<br><strong>Brief :</strong> OVERDUE 25j. Remplissage. Verification etat display.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">13:45 - 14:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05286 | #495</span>
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05146</span>
+    </div>
+    <div class="client">Delhaize Liege Ardente (Delardentes SRL)</div>
+    <div class="details">Chaussee de Tongres 269, 4000 Liege<br><strong>Contact :</strong> Kevin Demarteau | 0468 37 62 65<br><strong>Brief :</strong> Remplissage. Tier C, 36j.</div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">14:15 - 14:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
+      <span class="so">S05286</span>
     </div>
     <div class="client">Proxy Delhaize Saint-Severin</div>
-    <div class="details">Route du Condroz 243, 4550 Nandrin<br><strong>Contact :</strong> Mme Dessart / Renaud / Philippe | +32 4 372 09 85<br><strong>Brief :</strong> Remplissage. Tier C, 21j. Sur route retour Condroz.</div>
+    <div class="details">Route du Condroz 243, 4550 Nandrin<br><strong>Contact :</strong> Mme Dessart / Renaud / Philippe | +32 4 372 09 85<br><strong>Brief :</strong> Remplissage. Tier C, 20j. Route retour via Condroz.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">14:30 - 15:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">#496</span>
+      <span><span class="time">15:00 - 15:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE</span> <span class="badge badge-priorite">Gilles</span> <span class="badge badge-fix">DEPLACE v4</span></span>
+      <span class="so">S02185</span>
     </div>
-    <div class="client">Proxy Delhaize Ferrieres</div>
-    <div class="details">Rue du Pre du Fa 6A, 4190 Ferrieres<br><strong>Contact :</strong> Bernard Counasse / Martine Georis | +32 86 40 02 27<br><strong>Brief :</strong> Visite merchandiser. NOTE: responsable absent le mercredi, Jerome fait le remplissage seul.</div>
+    <div class="client">AD Fosses-la-Ville</div>
+    <div class="details">Rue du Cimetiere 5, Fosses-la-Ville<br><strong>Contact :</strong> Leslie | 071 71 29 12<br><strong>Brief :</strong> Visite de reprise. MERCREDI = jour ideal (Leslie presente toute la journee). Deplace du mardi.</div>
   </div>
 
-  <div class="route">Baillonville &rarr; Boncelles (40min) &rarr; Tilff (15min) &rarr; Fleron (25min) &rarr; Barchon (15min) &rarr; Bois-de-breux (10min) &rarr; Liege Ardente (10min) &rarr; St-Severin (30min) &rarr; Ferrieres (20min) &rarr; retour (25min) &rarr; ~15:25</div>
+  <div class="route">Baillonville &rarr; Boncelles (40min) &rarr; Tilff (15min) &rarr; Fleron (25min) &rarr; Barchon (15min) &rarr; Bois-de-breux (10min) &rarr; Herve (20min) &rarr; Liege (25min) &rarr; St-Severin (30min) &rarr; Fosses (25min) &rarr; retour (30min) &rarr; <strong>~16:00</strong></div>
 </div>
 
 <!-- JEUDI 23/04 -->
 <div class="day">
-  <div class="day-header">Jeudi 23/04 — 6 visites <span class="zone">Namur sud + BW</span></div>
+  <div class="day-header">Jeudi 23/04 — 7 visites <span class="zone">Namur sud + Liege (Ferrieres) + BW</span></div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">08:30 - 09:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 4j</span></span>
-      <span class="so">S05256 | #497</span>
+      <span><span class="time">08:30 - 09:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 3j</span></span>
+      <span class="so">S05256</span>
     </div>
     <div class="client">CM Beauraing (DEMARS SA)</div>
     <div class="details">Rue de Rochefort 37, 5570 Beauraing<br><strong>Contact :</strong> Therese / Alison | 082/71 02 30<br><strong>Brief :</strong> Remplissage complet. Tier A, OVERDUE (cycle 20j).</div>
@@ -282,16 +320,16 @@
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">09:00 - 09:30</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05325 | #498</span>
+      <span class="so">S05325</span>
     </div>
     <div class="client">Delhaize Beauraing (SA Beausov New)</div>
-    <div class="details">150 rue de Rochefort, 5570 Beauraing<br><strong>Contact :</strong> Mme Sovet / Gregory | +32 82 71 36 97<br><strong>Brief :</strong> Remplissage. Tier C, 15j. 150m de CM Beauraing.</div>
+    <div class="details">150 rue de Rochefort, 5570 Beauraing<br><strong>Contact :</strong> Mme Sovet / Gregory | +32 82 71 36 97<br><strong>Brief :</strong> Remplissage. Tier C, 14j. Meme rue.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">09:45 - 10:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 13j</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05081 | #499</span>
+      <span><span class="time">09:45 - 10:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 12j</span> <span class="badge badge-priorite">Gilles</span></span>
+      <span class="so">S05081</span>
     </div>
     <div class="client">AD Rochefort (SA Marer)</div>
     <div class="details">Rue de Marche 112-114, 5580 Rochefort<br><strong>Tel :</strong> +32 84 21 01 03<br><strong>Brief :</strong> Remplissage complet. Tier B, OVERDUE (cycle 35j).</div>
@@ -299,32 +337,41 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">10:45 - 11:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 50j</span></span>
-      <span class="so">S04667 | #500</span>
+      <span><span class="time">10:45 - 11:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 49j</span></span>
+      <span class="so">S04667</span>
     </div>
     <div class="client">ITM Anhee (Holebo SA)</div>
-    <div class="details">Chaussee de Dinant 127, 5537 Anhee<br><strong>Contact :</strong> Christophe | +32 82 71 39 84<br><strong>Brief :</strong> Visite urgente. Tier C, OVERDUE (cycle 50j). Jamais le lundi.</div>
+    <div class="details">Chaussee de Dinant 127, 5537 Anhee<br><strong>Contact :</strong> Christophe | +32 82 71 39 84<br><strong>Brief :</strong> Visite urgente. Tier C, OVERDUE (cycle 50j). Jamais le lundi, matin pref.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05327 | #501</span>
+      <span><span class="time">11:45 - 12:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span> <span class="badge badge-fix">DEPLACE v4</span></span>
+      <span class="so">—</span>
     </div>
-    <div class="client">ITM Jambes (JAMBIS SA)</div>
-    <div class="details">Rue de la Poudriere 14, 5100 Jambes<br><strong>Contact :</strong> Faustine | 081306878<br><strong>Brief :</strong> Remplissage regulier. Tier B, 15j.</div>
+    <div class="client">Proxy Delhaize Ferrieres</div>
+    <div class="details">Rue du Pre du Fa 6A, 4190 Ferrieres<br><strong>Contact :</strong> Bernard Counasse / Martine Georis | +32 86 40 02 27<br><strong>Brief :</strong> Visite merchandiser. Deplace mercredi &rarr; jeudi (responsable absent le mercredi).</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 2j</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05282 | #502</span>
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 1j</span> <span class="badge badge-priorite">Gilles</span></span>
+      <span class="so">S05282</span>
     </div>
     <div class="client">Delhaize Ottignies (KAIO Retail)</div>
-    <div class="details">Bois Pinchet 2, 1495 Villers-La-Ville<br><strong>Contact :</strong> Jolan Cailleu | 010 40 15 69<br><strong>Brief :</strong> Remplissage. Tier A, OVERDUE (cycle 20j). Mme Galletas absente le jeudi.</div>
+    <div class="details">Bois Pinchet 2, 1495 Villers-La-Ville<br><strong>Contact :</strong> Jolan Cailleu | 010 40 15 69<br><strong>Brief :</strong> Remplissage. Tier A, OVERDUE (cycle 20j). Mme Galletas absente jeudi, mais Jolan Cailleu present.</div>
   </div>
 
-  <div class="route">Baillonville &rarr; Beauraing (40min) &rarr; Delhaize Beauraing (2min) &rarr; Rochefort (20min) &rarr; Anhee (25min) &rarr; Jambes (20min) &rarr; Ottignies (35min) &rarr; retour (55min) &rarr; ~15:00</div>
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">14:15 - 14:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 46j</span> <span class="badge badge-fix">AJOUT v4</span></span>
+      <span class="so">S04705</span>
+    </div>
+    <div class="client">CM Hannut (P.R.MACLEKY Srl)</div>
+    <div class="details">Rue de Tirlemont 46, 4280 Hannut<br><strong>Contact :</strong> Rolant Barbara<br><strong>Brief :</strong> OVERDUE 46j. Visite UNIQUEMENT le jeudi. Preparation thes glaces.</div>
+  </div>
+
+  <div class="route">Baillonville &rarr; Beauraing (40min) &rarr; Delhaize Beauraing (2min) &rarr; Rochefort (20min) &rarr; Anhee (25min) &rarr; Ferrieres (45min) &rarr; Ottignies (50min) &rarr; Hannut (40min) &rarr; retour (45min) &rarr; <strong>~15:45</strong></div>
 </div>
 
 <!-- VENDREDI 24/04 -->
@@ -334,25 +381,25 @@
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">08:30 - 09:30</span> <span class="badge badge-implantation">Implantation</span></span>
-      <span class="so">#503</span>
+      <span class="so">SO en creation</span>
     </div>
     <div class="client">Carrefour Market Bievre</div>
-    <div class="details">Rue de Bouillon 54, 5555 Bievre<br><strong>Brief :</strong> IMPLANTATION display complet. Nouveau client. SO en creation par Jerome (a confirmer lundi 20/04).</div>
+    <div class="details">Rue de Bouillon 54, 5555 Bievre<br><strong>Brief :</strong> IMPLANTATION display complet. Nouveau client. SO en creation (a confirmer lundi 20/04). Nicolas autorise.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">10:00 - 11:00</span> <span class="badge badge-implantation">Implantation</span></span>
-      <span class="so">#504</span>
+      <span class="so">S05420</span>
     </div>
     <div class="client">Proxy Delhaize Maissin</div>
-    <div class="details">Avenue de France 13, 6852 Maissin<br><strong>Brief :</strong> IMPLANTATION display complet. Nouveau client. SO en creation par Jerome (a confirmer lundi 20/04). 25min depuis Bievre.</div>
+    <div class="details">Avenue de France 13, 6852 Maissin<br><strong>Brief :</strong> IMPLANTATION display complet. SO S05420 (735 EUR) confirme. 25min depuis Bievre.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">11:30 - 12:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 4j</span></span>
-      <span class="so">S05258 | #505</span>
+      <span><span class="time">11:30 - 12:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 3j</span></span>
+      <span class="so">S05258</span>
     </div>
     <div class="client">AD Bastogne (SA Marer)</div>
     <div class="details">Route de Marche 112-114, 6660 Bastogne<br><strong>Contact :</strong> Valentin Gilson | +32 61 21 70 84<br><strong>Brief :</strong> Remplissage complet. Tier A, OVERDUE (cycle 20j).</div>
@@ -360,8 +407,8 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 23j</span></span>
-      <span class="so">S04883 | #506</span>
+      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 22j</span></span>
+      <span class="so">S04883</span>
     </div>
     <div class="client">CM Bastogne (Pascalino)</div>
     <div class="details">Route de Marche 149, 6600 Bastogne<br><strong>Contact :</strong> Fabienne Antoine | +32 61 21 23 42<br><strong>Brief :</strong> Remplissage. Tier C, OVERDUE (cycle 50j). Se presenter le matin.</div>
@@ -370,16 +417,16 @@
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">13:00 - 13:30</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05372 | #507</span>
+      <span class="so">S05372</span>
     </div>
     <div class="client">CM Hotton (HODICA SA)</div>
-    <div class="details">Rue de la Jonction 16, 6990 Hotton<br><strong>Contact :</strong> Gauthier Lempereur | 084 46 73 44<br><strong>Brief :</strong> Remplissage. Tier B, 7j.</div>
+    <div class="details">Rue de la Jonction 16, 6990 Hotton<br><strong>Contact :</strong> Gauthier Lempereur | 084 46 73 44<br><strong>Brief :</strong> Remplissage. Tier B, 6j.</div>
   </div>
 
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">13:45 - 14:15</span> <span class="badge badge-visite">Visite</span></span>
-      <span class="so">S05405 | #508</span>
+      <span class="so">S05405</span>
     </div>
     <div class="client">CM Barvaux (BARVO SA)</div>
     <div class="details">Route de Marche 26, 6940 Barvaux<br><strong>Contact :</strong> Nathalie Warnier | 086 21 13 79<br><strong>Brief :</strong> Remplissage. Tier B.</div>
@@ -388,7 +435,7 @@
   <div class="visit">
     <div class="visit-header">
       <span><span class="time">14:15 - 14:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">#509</span>
+      <span class="so">—</span>
     </div>
     <div class="client">Delhaize Barvaux</div>
     <div class="details">Rue Petit-Barvaux 6, 6940 Barvaux-sur-Ourthe<br><strong>Contact :</strong> Bernard Counasse (gerant) | +32 86 36 60 08<br><strong>Brief :</strong> Visite merchandiser. Meme ville que CM Barvaux.</div>
@@ -396,14 +443,14 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">15:00 - 15:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 4j</span> <span class="badge badge-priorite">Gilles</span></span>
-      <span class="so">S05259 | #510</span>
+      <span><span class="time">15:00 - 15:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 3j</span> <span class="badge badge-priorite">Gilles</span></span>
+      <span class="so">S05259</span>
     </div>
     <div class="client">Delhaize Marche (N.B.S. RETAIL)</div>
     <div class="details">Avenue de France 39, 6900 Marche-en-Famenne<br><strong>Tel :</strong> +32 470 26 16 92<br><strong>Brief :</strong> Remplissage complet. Tier A, OVERDUE (cycle 20j). 15min depuis Barvaux.</div>
   </div>
 
-  <div class="route">Baillonville &rarr; Bievre (35min) &rarr; implantation 1h &rarr; Maissin (25min) &rarr; implantation 1h &rarr; Bastogne (40min) &rarr; CM Bastogne (5min) &rarr; Hotton (35min) &rarr; Barvaux (15min) &rarr; Delhaize Barvaux (5min) &rarr; Marche (15min) &rarr; retour (20min) &rarr; ~15:50</div>
+  <div class="route">Baillonville &rarr; Bievre (35min) &rarr; implantation 1h &rarr; Maissin (25min) &rarr; implantation 1h &rarr; Bastogne (40min) &rarr; CM Bastogne (5min) &rarr; Hotton (35min) &rarr; Barvaux (15min) &rarr; Delhaize Barvaux (5min) &rarr; Marche (15min) &rarr; retour (20min) &rarr; <strong>~15:50</strong></div>
 </div>
 
 </div><!-- /s20 -->
@@ -647,7 +694,7 @@ document.querySelectorAll('.week-btn').forEach(btn => {
 });
 </script>
 
-<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Genere par Nira — Agent Planning Teatower | Mis a jour le 15/04/2026 (v3 - refait integralement)</p>
+<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Genere par Nira — Agent Planning Teatower | Mis a jour le 16/04/2026 (v4 - refait integralement, maximisation + corrections contraintes)</p>
 
 </body>
 </html>
