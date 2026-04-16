@@ -2,7 +2,7 @@
 
 > **Merchandiser** : Jerome Carlier | **Base** : Baillonville (5377) | **Horaire** : 08h30 - 16h30
 > Genere le 2026-04-15, mis a jour le 2026-04-15 par agent planning Teatower.
-> **32 visites** au total sur 5 jours.
+> **34 visites** au total sur 5 jours.
 
 ---
 
@@ -12,6 +12,12 @@
 - **Adresse** : Rue Pont a Migneloux 13, 6041 Gosselies
 - **Contact** : Valentin Schirru
 - **Brief** : Controle facing et remplissage presentoir. Tier C, derniere visite il y a 15j (cycle 50j).
+- **Produits cles** : gamme standard
+
+### 10:15-10:45 | VISITE | Intermarche Floriffoux (Floridis SA) | Event #456
+- **Adresse** : Rue Emeree 4, 5150 Floriffoux
+- **Contact** : Loredana / Manon
+- **Brief** : OVERDUE 36 jours (cycle 35j). Remplissage complet. Tier B.
 - **Produits cles** : gamme standard
 
 ### 11:15-12:15 | VISITE | Delhaize Gosselies | Event #386
@@ -27,8 +33,14 @@
 - **Brief** : OVERDUE 85 jours (cycle 35j) — visite urgente. Controle stock, remplissage complet du presentoir. Tier B.
 - **Produits cles** : gamme standard
 
-> **Route** : Baillonville -> Gosselies (50min) -> Delhaize Gosselies (5min) -> dejeuner -> Gerpinnes (25min) -> retour Baillonville (45min).
-> **Retour estime** : ~14h30.
+### 14:00-14:30 | VISITE | Intermarche Spy (SRL Spydis) | Event #457
+- **Adresse** : Route de Saussin 45, 5190 Jemeppe-sur-Sambre
+- **Contact** : Emilie / Dorian
+- **Brief** : Remplissage regulier. Tier B, 15 jours depuis derniere commande. Sur route retour vers Baillonville.
+- **Produits cles** : gamme standard
+
+> **Route** : Baillonville -> Gosselies (50min) -> Floriffoux (15min) -> Delhaize Gosselies (20min) -> dejeuner -> Gerpinnes (25min) -> Spy (15min) -> retour Baillonville (50min).
+> **Retour estime** : ~15h20.
 > *Implantation Enghien (S05413) reportee a la semaine du 27/04 — depassement horaire.*
 
 ---
@@ -80,13 +92,9 @@
 - **Brief** : Remplissage regulier (14j/cycle 20j). Tier A, sur route retour vers Baillonville.
 - **Produits cles** : gamme standard
 
-### -- | BONUS | ~~Intermarche Floriffoux~~ | Event #430
-- **Adresse** : ~~Rue Emeree 4, 5150 Floriffoux~~
-- **Contact** : ~~Loredana / Manon~~
-- **Brief** : Deplace — Jerome peut l'integrer entre Belgrade et le dejeuner si le timing le permet, sinon bonus.
-
 > **Route** : Baillonville -> Jambes (30min) -> Namur (10min) -> Naninne (10min) -> Bouge (15min) -> Belgrade (5min) -> dejeuner -> Fernelmont (20min) -> Assesse (15min) -> retour Baillonville (15min).
 > **Retour estime** : ~15h00.
+> *Floriffoux deplace au lundi 20/04 (event #456).*
 
 ---
 
@@ -259,12 +267,12 @@ Les notes suivantes ont ete extraites des `mail.message` lies aux SO recents de 
 
 | Jour | Visites | Types | Zone | Retour |
 |---|---|---|---|---|
-| Lundi 20/04 | 3 | 2 VISITE + 1 RDV | Hainaut | ~14h30 |
-| Mardi 21/04 | 8 | 5 VISITE + 1 IMPLANTATION + 1 BONUS | Namur | ~15h00 |
+| Lundi 20/04 | 5 | 4 VISITE + 1 RDV | Hainaut / Sambre | ~15h20 |
+| Mardi 21/04 | 7 | 5 VISITE + 1 IMPLANTATION | Namur | ~15h00 |
 | Mercredi 22/04 | 8 | 7 VISITE + 1 RDV | Liege | ~16h15 |
 | Jeudi 23/04 | 7 | 5 VISITE + 1 RDV + 1 VISITE urgente | Namur sud | ~15h30 |
 | Vendredi 24/04 | 6 | 6 VISITE | Luxembourg | ~13h30 |
-| **TOTAL** | **32** | 1 implantation, 3 RDV, 28 visites | | |
+| **TOTAL** | **34** | 1 implantation, 3 RDV, 30 visites | | |
 
 ---
 
