@@ -125,7 +125,21 @@ Sans le responsable, la visite perd 50 a 80 % de sa valeur. Le merchandiser fait
 
 ---
 
-## 5. Autres regles (rappel depuis la skill)
+## 5. Cadences specifiques (overrides par magasin)
+
+**Certains magasins ont une cadence de visite override, differente de leur Tier par defaut.**
+
+| Magasin | Odoo ID | Tier | Cadence par defaut | Cadence override | Source |
+|---|---|---|---|---|---|
+| Distriparenthese - Intermarche Gosselies (6041) | 2927 | C | 50j (Tier C) | **28j (4 semaines)** | Nicolas 2026-04-20 |
+
+### Application
+
+Lors de la generation du planning, si un magasin figure dans ce tableau, utiliser la cadence override au lieu de `max_days` du Tier. Un magasin est OVERDUE uniquement si `days_since_last > cadence_override`.
+
+---
+
+## 6. Autres regles (rappel depuis la skill)
 
 - **Base** : Zone d'activite Nord 33, 5377 Baillonville
 - **Horaire** : 8h30 - 16h30 (retour obligatoire a 16h30)
