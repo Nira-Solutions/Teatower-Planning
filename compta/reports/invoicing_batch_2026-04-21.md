@@ -84,3 +84,49 @@ Cause : le wizard sale.advance.payment.inv en mode "delivered" a inclus des lign
 - invoice_date : 2026-04-21
 - invoice_date_due : 2026-05-21 (30 jours)
 - Format EDI Peppol : UBL BIS3
+
+---
+
+## Complement 5 SO — 2026-04-21 (run 2)
+
+Date execution : 2026-04-21
+SO factures : S05448, S05450, S05451, S05452, S05453
+
+### Contexte
+
+Ces 5 SO avaient ete exclues du batch principal (run 1) au motif "sans livraison done" (pickings outgoing not found). Nicolas a confirme les livraisons. Verification : tous les pickings sont de type `internal` (TT/PICK/08711, 08713, 08714, 08715, 08716), state=done, toutes les quantites livrees correspondent aux quantites commandees.
+
+Le wizard `sale.advance.payment.inv` (mode delivered) echoue car il ne prend pas en compte les pickings de type internal. Les factures ont ete creees manuellement ligne par ligne en reprenant `qty_delivered` et `discount=30%` directement depuis les lignes SO.
+
+### Controles pre-post
+
+- Comptes : 700000 (Sales in Belgium) sur toutes les lignes produit — conforme au batch principal
+- TVA : 6% (tax id=8) alimentaire, 21% (tax id=3) sur TRANSPORT
+- Lignes EM0072 SRP Kraft Horeca : discount=100% conserve (subtotal=0) — offert, conforme au SO
+- TRANSPORT : ajoute sur les 5 factures (10 EUR HT, TVA 21%, compte 700000)
+- Echeance : +30j sauf Delhaize (delai 60j gere par Odoo automatiquement via payment term Delhaize)
+
+### Tableau des 5 factures
+
+| ID Odoo | Numero | Partenaire | Origin SO | HT (EUR) | TTC (EUR) | Canal | UUID Peppol |
+|---------|--------|-----------|-----------|----------|----------|-------|-------------|
+| 36540 | INV/2026/02163 | Delhaize Le Lion S.A | S05448 | 457,73 | 486,70 | Peppol | f7eb688b-9214-4a8b-98f8-f79d7da30066 |
+| 36541 | INV/2026/02164 | BOISDIS SA - Intermarche Naninne | S05450 | 612,28 | 650,51 | Peppol | 700b53f5-0f18-4194-b6c8-1df4c3da4b94 |
+| 36542 | INV/2026/02165 | BOISDIS SA - Intermarche Naninne | S05451 | 241,15 | 257,14 | Peppol | 0fb63a93-dd91-4f56-a4cf-98ea4cee4e39 |
+| 36543 | INV/2026/02166 | SA Barthe - Intermarche Assesse | S05452 | 398,95 | 424,40 | Peppol | 26b4776f-6ac1-44ac-ad91-10d0fd26e293 |
+| 36544 | INV/2026/02167 | Lambertdis SRL - Spar Manhay | S05453 | 60,19 | 65,30 | Peppol | d0ee1e08-6b97-4157-8c41-e06c29a79b1a |
+
+**Total HT run 2 : 1 770,30 EUR | Total TTC run 2 : 1 884,05 EUR**
+
+**Total batch complet (run 1 + run 2) : 9 002,59 EUR HT | 9 564,98 EUR TTC**
+
+### Statut envoi
+
+- Toutes les 5 factures : peppol_move_state=processing (UBL BIS3)
+- BOISDIS (36541, 36542) : adresse facturation 5506 peppol_verification_state=not_verified, mais le wizard a selectionne Peppol via invoice_sending_method du partenaire parent (2812, verification_state=valid) — envoi processing, a surveiller
+- Delhaize (36540) : echeance 2026-06-20 (delai 60j configure sur le partenaire, non modifie)
+
+### Remarques
+
+- S05449 absent de la liste : non mentionne dans la demande Nicolas (probablement non livre)
+- Aucune SO sans qty_delivered — les 5 confirmees sont toutes entierement livrees

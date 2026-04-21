@@ -1,5 +1,24 @@
 # LOG Compta Teatower
 
+## 2026-04-21 — Complément batch facturation S05448–S05453 (5 factures — run 2)
+
+- Type : création + posting + envoi batch (5 SO, 5 factures Odoo)
+- Source : SO confirmés par Nicolas — pickings internal done (TT/PICK/08711, 08713, 08714, 08715, 08716)
+- Méthode : création manuelle account.move (wizard delivered inapplicable — pickings type=internal), action_post, account.move.send.wizard
+- Note méthode : le wizard sale.advance.payment.inv refuse car les pickings sont de type internal et non outgoing — création ligne par ligne avec qty_delivered et discount=30% repris des SO
+- Factures créées : 5 (IDs Odoo 36540–36544)
+- Numéros attribués : INV/2026/02163 à INV/2026/02167
+- Montant total HT : 1 770,30 EUR | TTC : 1 884,05 EUR
+- TRANSPORT ajouté : 5 factures (10 EUR HT, compte 700000, TVA 21% — absent des SO)
+- Lignes EM0072 (SRP Kraft Horeca) : conservées avec disc=100% (subtotal=0) comme dans les SO
+- Envoi Peppol (UBL BIS3) : 5 factures toutes en peppol_state=processing
+  - INV/02163 (Delhaize de Bouge, id 36540) — uuid f7eb688b-9214-4a8b-98f8-f79d7da30066 — échéance 2026-06-20 (délai Delhaize 60j)
+  - INV/02164 (BOISDIS Naninne, id 36541) — uuid 700b53f5-0f18-4194-b6c8-1df4c3da4b94
+  - INV/02165 (BOISDIS Naninne, id 36542) — uuid 0fb63a93-dd91-4f56-a4cf-98ea4cee4e39
+  - INV/02166 (SA Barthe Assesse, id 36543) — uuid 26b4776f-6ac1-44ac-ad91-10d0fd26e293
+  - INV/02167 (Lambertdis Spar Manhay, id 36544) — uuid d0ee1e08-6b97-4157-8c41-e06c29a79b1a
+- Rapport : compta/reports/invoicing_batch_2026-04-21.md (section "Complément 5 SO — run 2")
+
 ## 2026-04-21 — Batch facturation S05351–S05439 (20 factures)
 
 - Type : création + posting + envoi batch (23 SO, 20 factures Odoo)
