@@ -194,3 +194,80 @@ Note HT : SO affichait 305,10 EUR (sans transport). Avec TRANSPORT 10 EUR HT : t
 
 - S05449 absent de la liste : non mentionne dans la demande Nicolas (probablement non livre)
 - Aucune SO sans qty_delivered — les 5 confirmees sont toutes entierement livrees
+
+---
+
+## Complement S05435 + S05436 — 2026-04-21 (run 4)
+
+Date execution : 2026-04-21
+SO factures : S05435, S05436
+
+### Contexte
+
+S05435 (Floridis SA - Intermarche Floriffoux) et S05436 (Delhaize AD Fosses-la-Ville) signalees par Nicolas — meme pattern que runs 2 et 3 : picking de type `internal` (TT/PICK/08690 et TT/PICK/08691), state=done. Le wizard sale.advance.payment.inv ne detecte pas les pickings internal. Factures creees manuellement ligne par ligne.
+
+### Controles pre-post
+
+- S05435 : 9 lignes produit, toutes qty_delivered = qty_ordered (6 a 10 unites), disc=30%, TVA 6% (tax id=8)
+- S05436 : 10 lignes produit, toutes qty_delivered = qty_ordered (3 a 10 unites), disc=30%, TVA 6% (tax id=8)
+- Comptes : 700000 (id=320) sur toutes les lignes produit et TRANSPORT
+- TRANSPORT : 10 EUR HT, TVA 21% (tax id=3), ajoutee sur les 2 factures
+- Echeance S05435 : 2026-05-21 (30 jours — payment term "30 Days")
+- Echeance S05436 : 2026-06-20 (60 jours — payment term "60 jours" Delhaize)
+- Journal : id=9, Customer Invoices
+
+### Tableau des 2 factures
+
+| ID Odoo | Numero | Partenaire | Origin SO | HT (EUR) | TTC (EUR) | Canal | Etat Peppol |
+|---------|--------|-----------|-----------|----------|----------|-------|-------------|
+| 36556 | INV/2026/02169 | Floridis SA - Intermarche Floriffoux | S05435 | 410,19 | 436,31 | Peppol | processing |
+| 36557 | INV/2026/02170 | Affilie 043366 - AD Fosses-la-Ville | S05436 | 408,22 | 434,22 | Peppol (not_verified) | processing |
+
+Note HT S05435 : SO affichait 400,19 EUR (9 lignes produit). Avec TRANSPORT 10 EUR HT : total facture = 410,19 EUR HT.
+Note HT S05436 : SO affichait 398,22 EUR (10 lignes produit). Avec TRANSPORT 10 EUR HT : total facture = 408,22 EUR HT.
+
+### Detail lignes S05435 (Floridis - Intermarche Floriffoux)
+
+| Produit | Qte | PU (EUR) | Disc | HT ligne |
+|---------|-----|----------|------|----------|
+| V0914 Infusion du Printemps 2026 | 10 | 9,434 | 30% | 66,04 |
+| I0628 Oasis du desert - BIO (20 infusettes) | 6 | 10,3774 | 30% | 43,59 |
+| I0631 Le the des amoureux (20 infusettes) | 4 | 10,3774 | 30% | 29,06 |
+| I0669 Vert Jasmin (20 infusettes) | 3 | 10,3774 | 30% | 21,79 |
+| I0751 I love you (20 infusettes) | 5 | 10,3774 | 30% | 36,32 |
+| I0205 Etoiles filantes (20 infusettes) | 3 | 10,3774 | 30% | 21,79 |
+| I0735 Peche de vigne - BIO (20 infusettes) | 8 | 10,3774 | 30% | 58,11 |
+| I0723 Namaste BIO (20 infusettes) | 7 | 10,3774 | 30% | 50,85 |
+| I0832 La Nana de Wepion (20 infusettes) | 10 | 10,3774 | 30% | 72,64 |
+| TRANSPORT | 1 | 10,00 | 0% | 10,00 |
+
+### Detail lignes S05436 (Delhaize AD Fosses-la-Ville)
+
+| Produit | Qte | PU (EUR) | Disc | HT ligne |
+|---------|-----|----------|------|----------|
+| V0631 Le the des amoureux (80 g vrac) | 5 | 9,434 | 30% | 33,02 |
+| V0878 Guarana Boost (100 g vrac) | 5 | 9,434 | 30% | 33,02 |
+| V0205 Etoiles filantes (100 g vrac) | 8 | 9,434 | 30% | 52,83 |
+| V0723 Namaste BIO (80 g vrac) | 4 | 9,434 | 30% | 26,42 |
+| V0279 Le panier de grand maman (80 g vrac) | 5 | 9,434 | 30% | 33,02 |
+| V0832 La Nana de Wepion (100 g vrac) | 5 | 9,434 | 30% | 33,02 |
+| V0868 Citron meringue (100 g vrac) | 4 | 9,434 | 30% | 26,42 |
+| V0914 Infusion du Printemps 2026 | 10 | 9,434 | 30% | 66,04 |
+| I0751 I love you (20 infusettes) | 3 | 10,3774 | 30% | 21,79 |
+| I0279 Le panier de grand maman (20 infusettes) | 10 | 10,3774 | 30% | 72,64 |
+| TRANSPORT | 1 | 10,00 | 0% | 10,00 |
+
+### Envoi
+
+- S05435 Floridis : peppol_verification_state=valid, invoice_sending_method=peppol (deja configure). Wizard account.move.send.wizard id=2914, format ubl_bis3 — peppol_move_state=processing
+- S05436 Delhaize AD Fosses : peppol_verification_state=not_verified, email=ad.fosses@hotmail.be. Odoo a selectionne Peppol automatiquement (wizard 2915). La facture a ete envoyee a l'acces Peppol (message chatter confirme). peppol_move_state=processing. A surveiller : si le reseau Peppol rejette (not_verified), relance email manuelle vers ad.fosses@hotmail.be depuis l'interface Odoo.
+
+### Total cumule mis a jour
+
+| Run | SO | Factures | HT (EUR) | TTC (EUR) |
+|-----|-----|----------|---------|----------|
+| Run 1 | 23 SO (20 regroupes) | 20 | 7 232,29 | 7 680,93 |
+| Run 2 | S05448/50/51/52/53 | 5 | 1 770,30 | 1 884,05 |
+| Run 3 | S05434 | 1 | 315,10 | 335,51 |
+| Run 4 | S05435, S05436 | 2 | 818,41 | 870,53 |
+| **TOTAL** | | **28** | **10 136,10** | **10 771,02** |
