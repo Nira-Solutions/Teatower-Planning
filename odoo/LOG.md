@@ -1,5 +1,19 @@
 
-## 2026-04-21 — Flood MO corrigé : 194 MO annulés + route Manufacture isolée C0200 + OP nettoyés
+## 2026-04-21 — Flood MO : unlink final des 194 MO cancel (nettoyage base)
+- **Contexte** : suite action 1 (commit e1560ee, 194 MO passes en `cancel`), Nicolas demande suppression definitive.
+- **Garde-fous pre-unlink** (script `odoo/_unlink_mo_flood.py`) :
+  - Count flood `state=cancel` + `create_date >= 2026-04-21 12:00:00` = **194** (match exact).
+  - `stock.move` raw avec `state=done` liees : **0**.
+  - `stock.move` finished avec `state=done` liees : **0**.
+  - MO lies a SO active via `procurement_group_id` : **0** (aucun warning).
+- **Unlink** : batch de 50 → 50 / 50 / 50 / 44 = **194/194 OK, 0 erreur**.
+- **Post-verif** :
+  - `mrp.production.search_count([('state','=','cancel'),('create_date','>=','2026-04-21 12:00:00')])` = **0**.
+  - `mrp.production.search_count([('create_date','>=','2026-04-21 12:00:00')])` = **0** (aucun MO du jour, les 2 MO de 12:49 etaient tous dans le flood).
+- **Rapport** : `odoo/_unlink_mo_flood_report.json`.
+- **Statut final** : base 100% nettoyee du flood. Aucun residu MO flood. Anti-recidive (route 6 detachee + OP route_id=False) toujours en place.
+
+## 2026-04-21 — Flood MO corrige : 194 MO annules + route Manufacture isolee C0200 + OP nettoyes
 
 - **Contexte** : reactivation route Manufacture (id=6) avant 14:29 → cron scheduler a généré 194 `mrp.production` draft/confirmed sur 194 produits (pas uniquement C0200).
 - **Cause racine** : 687 `product.template` portaient `route_ids=[6]` + 293 `stock.warehouse.orderpoint` avaient `route_id=6` hors C0200.
