@@ -103,6 +103,34 @@ def truncate(text, length=80):
     text = strip_html(safe_str(text))
     return (text[:length] + "...") if len(text) > length else text
 
+# Regex to extract store contact from free-text remarks (Odoo partner.comment).
+# Matches patterns like "Contact: X", "Contact magasin : X", "Demander Madame Y",
+# "Demander M. Z", "responsable rayon = A". Returns only the name/role fragment.
+_CONTACT_RE = re.compile(
+    r'(?:Contact(?:\s+(?:magasin|merchandiser))?\s*[:\-]\s*'
+    r'|Demander\s+(?:Madame|Mme|Monsieur|Mr|M\.)\s+'
+    r'|responsable(?:\s+rayon)?\s*[:=]\s*)'
+    r'([^\n.;|]{2,120})',
+    re.IGNORECASE,
+)
+
+def extract_contact(comment):
+    """Extract the store contact person from free-text Odoo remarks.
+    Returns a short string (name / role) or empty string if none found."""
+    if not comment:
+        return ""
+    clean = strip_html(comment)
+    m = _CONTACT_RE.search(clean)
+    if not m:
+        return ""
+    c = m.group(1).strip(' .,:;—-|').strip()
+    # Strip trailing junk like " - Magasin avec..."
+    for sep in [' - ', ' – ', ' — ', ', Magasin', ', Souhaite', ', Visite']:
+        idx = c.find(sep)
+        if idx > 0:
+            c = c[:idx].strip()
+    return c[:120]
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 def main():
     # Connect to Odoo
@@ -435,8 +463,8 @@ def main():
         day_zones = list(dict.fromkeys(v["zone"] for v in visits))
         print(f"**Zone(s)**: {', '.join(day_zones)}\n")
 
-        print("| Heure | Magasin | Adresse | Tel | Tier | Derniere cde | CA moy/cde | Remarques |")
-        print("|-------|---------|---------|-----|------|-------------|------------|-----------|")
+        print("| Heure | Magasin | Adresse | **Contact magasin** | Tel | Tier | Derniere cde | CA moy/cde | Remarques |")
+        print("|-------|---------|---------|---------------------|-----|------|-------------|------------|-----------|")
 
         current_time = datetime(day_date.year, day_date.month, day_date.day, 8, 30)
         for v in visits:
@@ -452,9 +480,10 @@ def main():
             else:
                 overdue_flag = ""
             ca_str = f"{v['ca_per_order']:.0f} EUR" if v["ca_per_order"] else "-"
-            remark = truncate(v["comment"], 50)
+            contact = extract_contact(v["comment"]) or "-"
+            remark = truncate(v["comment"], 150)
 
-            print(f"| {time_str} | {v['name']} | {addr} | {v['phone']} | {v['tier']} | {dsl}{overdue_flag} | {ca_str} | {remark} |")
+            print(f"| {time_str} | {v['name']} | {addr} | **{contact}** | {v['phone']} | {v['tier']} | {dsl}{overdue_flag} | {ca_str} | {remark} |")
             current_time += VISIT_DURATION + TRAVEL_BUFFER
 
         # Generate Google Maps route link (home → visits → home)
