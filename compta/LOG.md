@@ -1,5 +1,18 @@
 # LOG Compta Teatower
 
+## 2026-04-21 — Complément batch facturation S05434 (1 facture — run 3)
+
+- Type : création + posting + envoi (1 SO, 1 facture Odoo)
+- Source : S05434 signalée par Nicolas — picking TT/PICK/08689 type=internal/done (même cause que run 2)
+- Méthode : création manuelle account.move, action_post, account.move.send.wizard (ubl_bis3)
+- Facture créée : id=36545, INV/2026/02168
+- Partenaire : SRL Spydis - Intermarche Spy (id=116686)
+- Montant HT : 315,10 EUR (305,10 SO + 10 TRANSPORT) | TTC : 335,51 EUR
+- Echéance : 2026-05-21 (30 jours)
+- Envoi Peppol : peppol_verification_state=valid — partner forcé invoice_sending_method=peppol — peppol_move_state=processing
+- Total cumulé jour : 9 317,69 EUR HT / 9 900,49 EUR TTC (26 factures, runs 1+2+3)
+- Rapport : compta/reports/invoicing_batch_2026-04-21.md (section "Complement S05434 — run 3")
+
 ## 2026-04-21 — Complément batch facturation S05448–S05453 (5 factures — run 2)
 
 - Type : création + posting + envoi batch (5 SO, 5 factures Odoo)
