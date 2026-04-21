@@ -118,7 +118,71 @@ Le wizard `sale.advance.payment.inv` (mode delivered) echoue car il ne prend pas
 
 **Total HT run 2 : 1 770,30 EUR | Total TTC run 2 : 1 884,05 EUR**
 
-**Total batch complet (run 1 + run 2) : 9 002,59 EUR HT | 9 564,98 EUR TTC**
+**Total HT run 2 : 1 770,30 EUR | Total TTC run 2 : 1 884,05 EUR**
+
+**Total batch cumulé (run 1 + run 2) : 9 002,59 EUR HT | 9 564,98 EUR TTC**
+
+---
+
+## Complement S05434 — 2026-04-21 (run 3)
+
+Date execution : 2026-04-21
+SO facture : S05434
+
+### Contexte
+
+S05434 (SRL Spydis - Intermarche Spy) signalée par Nicolas comme livrée mais absente des runs 1 et 2. Cause confirmée : picking TT/PICK/08689 de type `internal` (state=done) — même pattern que S05448-53. Le wizard sale.advance.payment.inv ne détecte pas les pickings internal. Facture créée manuellement ligne par ligne.
+
+### Controles pre-post
+
+- Partenaire : SRL Spydis - Intermarche Spy (id=116686)
+- Picking : TT/PICK/08689, type=internal, state=done
+- Toutes les qty_delivered = qty_ordered (5, 6, 7, 7, 8, 6, 3, 3)
+- Comptes : 700000 (id=320) sur toutes les lignes
+- TVA : 6% (tax id=8) sur les 8 lignes produit (thes vrac + infusettes, alimentaire)
+- TVA : 21% (tax id=3) sur TRANSPORT
+- TRANSPORT : 10 EUR HT ajouté (livraison effective)
+- Discount : 30% sur toutes les lignes produit (conforme SO)
+- Echeance : 2026-05-21 (30 jours — payment term "30 Days" sur le partenaire)
+- Journal : id=9, Customer Invoices
+
+### Facture postée
+
+| ID Odoo | Numero | Partenaire | Origin SO | HT (EUR) | TTC (EUR) | Canal | Etat Peppol |
+|---------|--------|-----------|-----------|----------|----------|-------|-------------|
+| 36545 | INV/2026/02168 | SRL Spydis - Intermarche Spy | S05434 | 315,10 | 335,51 | Peppol | processing |
+
+Note HT : SO affichait 305,10 EUR (sans transport). Avec TRANSPORT 10 EUR HT : total facture = 315,10 EUR HT.
+
+### Détail des lignes
+
+| Produit | Qte | PU (EUR) | Disc | HT ligne |
+|---------|-----|----------|------|----------|
+| V0628 Oasis du désert BIO (100g vrac) | 5 | 9,434 | 30% | 33,02 |
+| V0723 Namaste BIO (80g vrac) | 6 | 9,434 | 30% | 39,62 |
+| V0279 Le panier de grand maman (80g vrac) | 7 | 9,434 | 30% | 46,23 |
+| V0832 La Nana de Wepion (100g vrac) | 7 | 9,434 | 30% | 46,23 |
+| V0914 Infusion du Printemps 2026 | 8 | 9,434 | 30% | 52,83 |
+| I0121 Lady Dodo (20 infusettes) | 6 | 10,3774 | 30% | 43,59 |
+| I0878 Guarana Boost (20 infusettes) | 3 | 10,3774 | 30% | 21,79 |
+| I0631 Le the des amoureux (20 infusettes) | 3 | 10,3774 | 30% | 21,79 |
+| TRANSPORT | 1 | 10,00 | 0% | 10,00 |
+
+### Envoi Peppol
+
+- Partner peppol_verification_state=valid avant ce run
+- invoice_sending_method forcé à peppol (était False)
+- Wizard account.move.send.wizard id=2913, format ubl_bis3
+- peppol_move_state=processing apres action_send_and_print
+
+### Total cumulé mis à jour
+
+| Run | SO | Factures | HT (EUR) | TTC (EUR) |
+|-----|-----|----------|---------|----------|
+| Run 1 | 23 SO (20 regroupés) | 20 | 7 232,29 | 7 680,93 |
+| Run 2 | S05448/50/51/52/53 | 5 | 1 770,30 | 1 884,05 |
+| Run 3 | S05434 | 1 | 315,10 | 335,51 |
+| **TOTAL** | | **26** | **9 317,69** | **9 900,49** |
 
 ### Statut envoi
 
