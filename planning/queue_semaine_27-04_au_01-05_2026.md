@@ -1,105 +1,107 @@
-# Planning semaine du 27 avril au 1er mai 2026
+# Planning semaine du 27 avril au 1er mai 2026 (v3 — refonte implantations thés glacés)
 
-> **Genere le 15/04/2026, mis a jour le 15/04/2026 (v2 : Enghien reintegree en S20-24/04).**
-> Merchandiser : Jerome Carlier | Base : Baillonville (5377) | Horaire : 08h30 - 16h30
-> **Vendredi 01/05 = jour ferie (Fete du Travail) — pas de visite.**
+> **Généré le 21/04/2026.** Merchandiser : Jérôme Carlier | Base : Baillonville (5377) | Horaire : 08h30 - 16h30
+> **Vendredi 01/05 = jour férié (Fête du Travail) — pas de visite.**
+> **Thème S18 : 4 implantations thés glacés + 1 nouveau client GMS.**
 
 ---
 
-## Lundi 27/04 — Luxembourg (3 visites)
+## Lundi 27/04 — HAINAUT (2 implantations)
 
-| Heure | Magasin | Adresse | Event | Type | Notes |
-|---|---|---|---|---|---|
-| 09:00-09:30 | AD Bastogne (SA Marer) | Route de Marche 112-114, 6660 Bastogne | #469 | Visite | Tier A, ~36j. Contact: Valentin Gilson. |
-| 09:30-10:30 | CM Bouillon | 6831 Bouillon | #425 | Visite/RDV | Pre-existant. |
-| 11:00-11:30 | Carrefour Florenville (UNIC SA) | Place Albert 1er 16, 6820 Florenville | #470 | Visite | Tier B, OVERDUE 85j. Contact: Magalie Tetart. |
+| Heure | Magasin | Adresse | Contact magasin | Tel | Type | Brief |
+|---|---|---|---|---|---|---|
+| 09:50-10:50 | **Hyper Carrefour Mons Grands Prés** | Place des Grands Prés 1, 7000 Mons | **à demander sur place** | +32 65 32 36 14 | **IMPLANTATION thés glacés** | Hyper = matin obligatoire. 1er passage Teatower. Jérôme doit noter le contact responsable rayon pour enrichir la fiche. |
+| 11:45-12:45 | **Delhaize Ath** (Affilié 040490) | Rue de l'Abbaye 6, 7800 Ath | **à demander sur place** | +32 477 85 67 07 | **IMPLANTATION thés glacés — NOUVEAU CLIENT** | S05437 (520,80€ : 7 réf glacés × 12 + display Teatower). Client GMS validé 20/04. Jérôme doit noter le contact sur place. |
 
-**Route** : Baillonville -> Bastogne (45min) -> Bouillon (30min) -> Florenville (10min) -> retour Baillonville (~1h30) -> ~13:00.
+**Route** : Baillonville → Mons Grands Prés (1h20, 110 km) → Ath (55 min, 45 km) → retour Baillonville (1h45, 140 km) → retour ~14:30.
+
+**Luxembourg REPORTÉ S19** : Bastogne (Tier A), CM Bouillon (RDV #425 — à replanifier), Carrefour Florenville (OVERDUE 85j — priorité absolue S19).
 
 ---
 
 ## Mardi 28/04 — Marche / Namur (1 indispo + 4 visites)
 
-| Heure | Magasin | Adresse | Event | Type | Notes |
-|---|---|---|---|---|---|
-| 09:30-12:00 | **INDISPO** — RDV pneus HERION | Rue St Isidore 1B, 6900 Marche | #458 | Indispo | Changement pneus camionnette. Tel: 084 31 16 96. Partner Odoo #122088. |
-| 12:15-12:45 | Delhaize Marche (N.B.S. RETAIL) | Avenue de France 39, 6900 Marche | #459 | Visite | Tier A, OVERDUE ~36j. 5min depuis HERION. |
-| 13:00-13:30 | CM Marche (Mardis) | Avenue du Monument 1, 6900 Marche | #460 | Visite | Tier C, 27j. Meme ville. |
-| 14:00-14:30 | AD Rochefort (SA Marer) | Rue de Marche 112-114, 5580 Rochefort | #461 | Visite | Tier B, OVERDUE ~60j. 20min depuis Marche. |
-| 14:45-15:15 | ITM Assesse (SA Barthe) | Rue Melville Wilson 3, 5330 Assesse | #462 | Visite | Tier A, 27j. Sur route retour. |
+| Heure | Magasin | Adresse | Contact magasin | Tel | Type | Brief |
+|---|---|---|---|---|---|---|
+| 09:30-12:00 | **INDISPO — RDV pneus HERION** | Rue St Isidore 1B, 6900 Marche | — | 084 31 16 96 | Indispo | Changement pneus camionnette. Partner #122088. |
+| 12:15-12:45 | Delhaize Marche (N.B.S. RETAIL) | Avenue de France 39, 6900 Marche | — | — | Visite | Tier A, OVERDUE ~36j. 5 min depuis HERION. |
+| 13:00-13:30 | CM Marche (Mardis) | Avenue du Monument 1, 6900 Marche | — | — | Visite | Tier C, 27j. Même ville. |
+| 14:00-14:30 | AD Rochefort (SA Marer) | Rue de Marche 112-114, 5580 Rochefort | — | +32 84 21 01 03 | Visite | Tier B, OVERDUE ~60j. 20 min depuis Marche. |
+| 14:45-15:15 | **Intermarché Assesse (SA Barthe)** | Rue Melville Wilson 3, 5330 Assesse | **Brice / Océane** (propriétaire : Anne Buttiens) | 083 66 05 70 | Visite | Tier A, 27j. Sur route retour. |
 
-**Route** : Baillonville -> HERION Marche (30min, arrive 09:00) -> pneus 09:30-12:00 -> Delhaize Marche (5min) -> CM Marche (5min) -> dejeuner rapide -> Rochefort (20min) -> Assesse (15min) -> retour Baillonville (20min) -> ~15:35.
-
-**Ancien conflit** : implantation Enghien (#455) initialement deplacee a jeudi 30/04 -> finalement reintegree en semaine 20-24/04 (lundi 20/04, event #476). Event #455 supprime.
+**Route** : Baillonville → HERION Marche (30 min) → pneus 09:30-12:00 → Delhaize Marche (5 min) → CM Marche (5 min) → déjeuner rapide → Rochefort (20 min) → Assesse (15 min) → retour Baillonville (20 min) → ~15:35.
 
 ---
 
-## Mercredi 29/04 — Liege (6 visites dont 1 implantation)
+## Mercredi 29/04 — NAMUR / LIÈGE (2 implantations + 5 visites)
 
-| Heure | Magasin | Adresse | Event | Type | Notes |
-|---|---|---|---|---|---|
-| 09:00-09:30 | ITM Liege Cointe (DFH Market) | Bd Gustave Kleyer 3, 4000 Liege | #471 | Visite | Tier B, OVERDUE 42j. Contact: Mme Mossay Shannen. |
-| 10:00-11:00 | **Gimalex SA — Delhaize Fragnee** | Rue de Fragnee 41, 4000 Liege | #414 | **Implantation** | Implantation thes glaces. Contacts: Mme Bastin / Mme Hicter. 1h. |
-| 11:15-11:45 | Delhaize Embourg (DelEmbourg SRL) | Voie de l'ardenne 57, 4053 Embourg | #472 | Visite | Tier A, 14j. Contact: Kevin Demarteau. |
-| 12:00-12:30 | ITM Tilff (Chili Peppers) | Av. des Ardennes 8, 4130 Esneux | #473 | Visite | Tier A, 29j. |
-| 13:30-14:00 | ITM Hannut (INTERMADIS SA) | Rue de Hesbaye 1, 4280 Hannut | #474 | Visite | Tier A, 27j. CA moyen ~1480 EUR. Contact: Mr Wereau / Benjamin. |
-| 14:30-15:00 | Proxy St-Severin (D-trois SRL) | Route du Condroz 243, 4550 Nandrin | #475 | Visite | Tier C, 34j. Contact: Mme Dessart, Renaud/Philippe. |
+| Heure | Magasin | Adresse | Contact magasin | Tel | Type | Brief |
+|---|---|---|---|---|---|---|
+| 09:05-10:05 | **Hyper Carrefour Jambes** | Av. du Prince de Liège 57, 5100 Namur | **à demander sur place** | +32 81 33 20 11 | **IMPLANTATION thés glacés** | Hyper = matin obligatoire. Note Odoo : "passage demandé par le magasin, demandent balisages languettes + arrêts rayon". |
+| 11:00-12:00 | **Gimalex SA — Delhaize Fragnée** | Rue de Fragnée 41, 4000 Liège | **Mme Bastin / Mme Hicter** | 042 52 87 63 | **IMPLANTATION thés glacés** | ⚠️ **RDV décalé 10h → 11h** (à prévenir Mme Bastin). Pas de visite les lundis. |
+| 12:15-12:45 | ITM Liège Cointe (DFH Market) | Bd Gustave Kleyer 3, 4000 Liège | **Mme Mossay Shannen** | +32 4 250 34 82 | Visite | Tier B, OVERDUE 42j. |
+| 13:15-13:45 | Delhaize Embourg (DelEmbourg SRL) | Voie de l'Ardenne 57, 4053 Embourg | **Kevin Demarteau** | 043 61 25 69 | Visite | Tier A, 14j. |
+| 13:55-14:25 | ITM Tilff (Chili Peppers) | Av. des Ardennes 8, 4130 Esneux | — | — | Visite | Tier A, 29j. |
+| 15:00-15:30 | **Carrefour Market Remouchamps** | Av. de la Porallée 36A, 4920 Aywaille | **à demander sur place** | 043 84 05 50 | Visite + placement thés glacés | Contrainte : pas le jeudi (responsable rayon absent) → mercredi OK. Sur route retour E25. |
 
-**Route** : Baillonville -> Liege Cointe (45min) -> Gimalex Fragnee (10min) -> Embourg (15min) -> Tilff (10min) -> dejeuner -> Hannut (30min) -> St-Severin/Nandrin (30min) -> retour Baillonville (30min) -> ~15:30.
+**Route** : Baillonville → Jambes (35 min) → Fragnée (50 min via Liège) → Cointe (15 min) → Embourg (15 min) → Tilff (10 min) → Remouchamps (35 min) → Baillonville (45 min via E25) → ~16:15.
 
-**Events supprimes** : #423 (Florenville) et #424 (Bouillon) etaient mal places sur mercredi Liege — supprimes car geographiquement incompatibles et en conflit horaire.
-
----
-
-## Jeudi 30/04 — BW / Bruxelles (5 visites)
-
-| Heure | Magasin | Adresse | Event | Type | Notes |
-|---|---|---|---|---|---|
-| 09:30-10:00 | CM Uccle Bascule | Chaussee de Waterloo 719, 1180 Uccle | #463 | Visite | Tier B, OVERDUE ~55j. Contact: Carmen. |
-| 10:15-10:45 | Delhaize Boondael (AL RETAIL) | Avenue du Bois de la Cambre 120, 1050 Ixelles | #464 | Visite | Tier B, OVERDUE ~93j. Contact: Francois Korosmezey. Jerome doit prendre contact re: panier tourniquet. |
-| 11:30-12:00 | CM Woluwe (Wdistri SA) | Rue Saint-Lambert 202, 1200 Woluwe-Saint-Lambert | #465 | Visite | Tier C, OVERDUE ~50j. Contact: Jordan. |
-| 13:00-13:30 | ITM Wavre (SA Nalim) | Avenue des Princes 9, 1300 Wavre | #466 | Visite | Tier B, 20j. |
-| 13:45-14:15 | Delhaize Incourt (Distri-Incourt) | Chaussee de Namur 89, 1315 Incourt | #467 | Visite | Tier B, OVERDUE ~72j. Contact: Jerome DEBUS. |
-
-**Route** : Baillonville -> Uccle (1h15) -> Boondael (15min) -> Woluwe (25min) -> dejeuner -> Wavre (25min) -> Incourt (15min) -> retour Baillonville (1h) -> ~15:15.
-
-**Modification** : Enghien (#455) reintegree en semaine 20-24/04 (lundi 20/04). Journee allegee : 5 visites au lieu de 6, retour 15:15 au lieu de 16:30. Plus de marge.
+**Retirés S18** : Proxy Delhaize Saint-Séverin #475 (Tier C pas OVERDUE, swap LOG 20/04), ITM Hannut #474 (27j, report S19).
 
 ---
 
-## Vendredi 01/05 — FERIE (Fete du Travail)
+## Jeudi 30/04 — BW / Bruxelles (5 visites, inchangé)
+
+| Heure | Magasin | Adresse | Contact magasin | Tel | Type | Brief |
+|---|---|---|---|---|---|---|
+| 09:30-10:00 | CM Uccle Bascule | Chaussée de Waterloo 719, 1180 Uccle | **Carmen** | 023 43 55 75 | Visite | Tier B, OVERDUE ~55j. |
+| 10:15-10:45 | Delhaize Boondael (AL RETAIL) | Av. du Bois de la Cambre 120, 1050 Ixelles | **François Korosmezey** | 02 672 89 48 | Visite | Tier B, OVERDUE ~93j. Jérôme doit prendre contact re: panier tourniquet. |
+| 11:30-12:00 | CM Woluwe Shopping (Wdistri SA) | Rue Saint-Lambert 202, 1200 Woluwe-Saint-Lambert | **Jordan** | 022 61 13 60 | Visite | Tier C, OVERDUE ~50j. |
+| 13:00-13:30 | ITM Wavre (SA Nalim) | Av. des Princes 9, 1300 Wavre | **Vincent Servais** | +32 10 24 11 48 | Visite | Tier B, 20j. |
+| 13:45-14:15 | Delhaize Incourt (Distri-Incourt) | Chaussée de Namur 89, 1315 Incourt | **Jérôme DEBUS** | 010/88.72.90 | Visite | Tier B, OVERDUE ~72j. |
+
+**Route** : Baillonville → Uccle (1h15) → Boondael (15 min) → Woluwe (25 min) → déjeuner → Wavre (25 min) → Incourt (15 min) → retour Baillonville (1h) → ~15:15.
+
+---
+
+## Vendredi 01/05 — FÉRIÉ (Fête du Travail)
 
 Pas de visite.
 
 ---
 
-## Recapitulatif
+## Récapitulatif
 
-| Jour | Visites | Zone | Retour estime |
-|---|---|---|---|
-| Lundi 27/04 | 3 | Luxembourg | ~13:00 |
-| Mardi 28/04 | 4 (+indispo pneus) | Marche/Namur | ~15:35 |
-| Mercredi 29/04 | 6 (dont 1 implantation) | Liege | ~15:30 |
-| Jeudi 30/04 | 5 | BW/BXL | ~15:15 |
-| Vendredi 01/05 | 0 (ferie) | — | — |
-| **Total** | **18 visites + 1 implantation** | | |
+| Jour | Visites | Implantations | Zone | Retour estimé |
+|---|---|---|---|---|
+| Lundi 27/04 | 0 | **2** (Mons Gds Prés + Ath) | Hainaut | ~14:30 |
+| Mardi 28/04 | 4 (+ indispo pneus) | 0 | Marche / Namur | ~15:35 |
+| Mercredi 29/04 | 4 | **2** (Jambes + Fragnée) | Namur / Liège | ~16:15 |
+| Jeudi 30/04 | 5 | 0 | BW / BXL | ~15:15 |
+| Vendredi 01/05 | 0 | 0 | Férié | — |
+| **Total** | **13 visites** | **4 implantations** | | |
 
-## Clients OVERDUE traites cette semaine
+## ⚠️ Points d'attention
 
-- Delhaize Marche (A, ~36j) — mardi
-- AD Rochefort (B, ~60j) — mardi
-- Carrefour Florenville (B, 85j) — lundi
-- ITM Liege Cointe (B, 42j) — mercredi
-- CM Uccle Bascule (B, ~55j) — jeudi
-- Delhaize Boondael (B, ~93j) — jeudi
-- CM Woluwe (C, ~50j) — jeudi
-- Delhaize Incourt (B, ~72j) — jeudi
+- **Fragnée #414** : RDV initial 10:00 → à décaler 11:00 (prévenir Mme Bastin ou Mme Hicter au 042 52 87 63).
+- **Mons Grands Prés + Ath + Jambes** : pas de contact enregistré — Jérôme doit noter sur place et remonter à Nicolas pour enrichir la fiche Odoo.
+- **S05437 Delhaize Ath** : confirmée par Nicolas (21/04). Implantation thés glacés + display.
+- **Luxembourg (Bastogne / Bouillon / Florenville)** : reporté S19. Florenville OVERDUE 85j à prioriser absolument S19.
 
-## Clients OVERDUE non planifies (raison)
+## Clients OVERDUE traités cette semaine
 
-- **Delhaize Ottignies** (B, ~21j) — contrainte "pas le jeudi" et jeudi est le seul jour BW. Reporter semaine suivante.
-- **ITM Gerpinnes** (B, ~85j) — visite prevue S20 (lundi 20/04). Si effectuee, plus overdue.
-- **Delhaize Wavre (Waldix)** — remarque Odoo : "ne veut pas de merchandiser, gere le display lui-meme". Pas planifiable.
-- **ITM Uccle (VDK)** — statut ARRET. Exclus.
-- **CM Hannut (PR Macleky)** — "visite que le jeudi" + OVERDUE 110j. Jeudi est pris (BW/BXL). Reporter semaine suivante.
-- **ITM Hamoir** — "pas le mercredi" + seul jour Liege. Reporter.
+- Cointe (B, 42j) — mercredi
+- Uccle Bascule (B, 55j) — jeudi
+- Boondael (B, 93j) — jeudi
+- Woluwe (C, 50j) — jeudi
+- Incourt (B, 72j) — jeudi
+- Rochefort (B, 60j) — mardi
+- Delhaize Marche (A, 36j) — mardi
+
+## Clients OVERDUE reportés S19
+
+- Florenville (B, 85j)
+- Hannut (A, 27j — pas encore overdue mais candidat)
+- Delhaize Ottignies (B, 21j — contrainte "pas le jeudi")
+- CM Hannut PR Macleky (110j — "visite que le jeudi")
+- Delhaize Wavre (Waldix — refuse merchandiser)
