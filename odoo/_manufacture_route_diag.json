@@ -1,0 +1,200 @@
+{
+  "routes_found": [
+    {
+      "id": 6,
+      "name": "Manufacture",
+      "active": false,
+      "product_selectable": true,
+      "product_categ_selectable": false,
+      "warehouse_selectable": true,
+      "sequence": 10,
+      "company_id": false
+    }
+  ],
+  "rules_found": [
+    {
+      "id": 8,
+      "name": "WH: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        8,
+        "TT/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        11,
+        "Teatower: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "GMS: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        2737,
+        "GMS/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        22,
+        "Stock Merchandiser: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "LIEGE: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        4524,
+        "LIEGE/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        34,
+        "Magasin Li\u00e8ge: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    },
+    {
+      "id": 41,
+      "name": "WAT: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        4532,
+        "WAT/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        48,
+        "Magasin Waterloo: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    },
+    {
+      "id": 52,
+      "name": "NAM: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        4540,
+        "NAM/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        60,
+        "Magasin Namur: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    },
+    {
+      "id": 64,
+      "name": "COPIE: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        4575,
+        "POP/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        72,
+        "POP-UP STORE: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    },
+    {
+      "id": 76,
+      "name": "COPIE: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        4583,
+        "Sales/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        84,
+        "Commerciaux: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    },
+    {
+      "id": 94,
+      "name": "OPA: Stock (Production)",
+      "active": false,
+      "action": "manufacture",
+      "location_dest_id": [
+        4699,
+        "OPA/Stock"
+      ],
+      "route_id": [
+        6,
+        "Manufacture"
+      ],
+      "picking_type_id": [
+        96,
+        "OPALYA: Fabrication"
+      ],
+      "company_id": [
+        1,
+        "Teatower"
+      ]
+    }
+  ],
+  "mrp_module": [
+    {
+      "id": 751,
+      "name": "mrp",
+      "state": "installed",
+      "shortdesc": "Manufacturing"
+    }
+  ]
+}
