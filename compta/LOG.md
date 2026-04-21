@@ -1,5 +1,17 @@
 # LOG Compta Teatower
 
+## 2026-04-21 — Complement batch facturation S05435 + S05436 (2 factures — run 4)
+
+- Type : creation + posting + envoi Peppol (2 SO, 2 factures Odoo)
+- Source : S05435 et S05436 signalees par Nicolas — pickings TT/PICK/08690 et 08691, type=internal, state=done (meme pattern runs 2-3)
+- Methode : creation manuelle account.move ligne par ligne, action_post, account.move.send.wizard (ubl_bis3)
+- Facture S05435 : id=36556, INV/2026/02169 — Floridis SA - Intermarche Floriffoux (id=2958) — 410,19 EUR HT / 436,31 EUR TTC — echeance 2026-05-21 — Peppol processing (peppol_verification_state=valid)
+- Facture S05436 : id=36557, INV/2026/02170 — Affilie 043366 - AD Fosses-la-Ville (id=5441) — 408,22 EUR HT / 434,22 EUR TTC — echeance 2026-06-20 (60j) — Peppol processing (peppol_verification_state=not_verified, a surveiller)
+- TRANSPORT ajoute sur les 2 factures (10 EUR HT, compte 700000, TVA 21%)
+- Total run 4 : 818,41 EUR HT / 870,53 EUR TTC
+- Total cumule jour : 10 136,10 EUR HT / 10 771,02 EUR TTC (28 factures, runs 1+2+3+4)
+- Rapport : compta/reports/invoicing_batch_2026-04-21.md (section "Complement S05435 + S05436 — run 4")
+
 ## 2026-04-21 — Complément batch facturation S05434 (1 facture — run 3)
 
 - Type : création + posting + envoi (1 SO, 1 facture Odoo)
