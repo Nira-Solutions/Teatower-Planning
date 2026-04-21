@@ -1,5 +1,23 @@
 # LOG Compta Teatower
 
+## 2026-04-21 — Batch facturation S05351–S05439 (20 factures)
+
+- Type : création + posting + envoi batch (23 SO, 20 factures Odoo)
+- Source : sale.order invoice_status=to_invoice, state=sale/done, picking outgoing done
+- Méthode : sale.advance.payment.inv wizard (delivered), action_post, account.move.send.wizard
+- Factures créées : 20 (IDs Odoo 36509–36528)
+- Numéros attribués : INV/2026/02137 à INV/2026/02156
+- Montant total HT : 7 232,29 EUR | TTC : 7 680,93 EUR
+- Corrections avant posting : 5 lignes supprimées (I0880 x3, I0859 x1, I0376 x1) — qty_delivered=0 inclus par erreur dans le wizard
+- Partenaires forcés peppol : 5 (Lambertdis, NDB Diffusion, PGHM, Le 7 by Juliette, Labrassine)
+- Envoi Peppol (UBL BIS3) : 9 factures — INV/02137 (Cafés Préko, 75ca7ecd), INV/02138 (DB Kfé, 37eab94a), INV/02139 (Delhaize, 28e8393f), INV/02141 (Le 7 Juliette, 90c3b497), INV/02152 (Lambertdis, 06a1b47b), INV/02153 (NDB Diffusion, cec483d4), INV/02154 (Villa d'Olne, a646b0b7), INV/02155 (PGHM, d0829a62), INV/02156 (Labrassine, 3266785d) — statut : processing
+- Envoi email : 9 factures — INV/02140 (La Thé Box), INV/02143 (Alcodis), INV/02144 (Cafes Delahaut), INV/02145 (Sunparks De Haan), INV/02146 (Volle Gas), INV/02147 (Carrefour Remouchamps), INV/02148 (Carrefour Belgium), INV/02149 (BTL SRL), INV/02150 (Virelles Nature)
+- Non envoyées : 2 — INV/02142 (Smartbox Group, 60 EUR), INV/02151 (Clotuche Caroline Suzanne, 28 EUR) — pas d'email ni Peppol valide
+- Review : S05424 Marketing Teatower (707,55 EUR HT, partenaire interne, action Nicolas requise)
+- Sans livraison (non traitées) : 19 SO (S05404, S05412, S05425, S05426, S05429, S05434, S05435, S05436, S05440, S05442, S05444, S05445, S05447–S05453)
+- Rapport scan : compta/reports/shipped_not_invoiced_2026-04-21.md
+- Rapport batch : compta/reports/invoicing_batch_2026-04-21.md
+
 ## 2026-04-15 — Batch S05405-S05409 : correction renvoi Peppol (3 factures)
 
 - Type : correction invoice_sending_method + renvoi Peppol
