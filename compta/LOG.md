@@ -1,5 +1,16 @@
 # LOG Compta Teatower
 
+## 2026-04-22 — Batch facturation run 5 — 51 factures (INV/02178–02228)
+
+- Type : creation + posting via wizard sale.advance.payment.inv mode=delivered
+- SO eligibles : 59 (qty_delivered > qty_invoiced sur au moins une ligne)
+- Ecarte : 2 Hyper Carrefour (S05457, S05459 — livraison semaine 04/05) + 3 qty_delivered=0 (S05404, S05412, S04443)
+- Wizard : 54 factures draft crees (regroupement par partenaire Odoo)
+- Postees : 51 factures — INV/2026/02178 a INV/2026/02228
+- Non postees (TTC=0) : 3 — S05441 Cafes Delahaut, S05400 Laetitia Mariette, S05427 Sefora Jacobs
+- Total HT : 8 720,02 EUR | TVA : 523,41 EUR | TTC : 9 243,43 EUR
+- Rapport : compta/reports/2026-04-22.md
+
 ## 2026-04-21 — Complement batch facturation S05435 + S05436 (2 factures — run 4)
 
 - Type : creation + posting + envoi Peppol (2 SO, 2 factures Odoo)
