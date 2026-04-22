@@ -1,4 +1,4 @@
-# Planning semaine du 27 avril au 1er mai 2026 (v4 — finalisé 22/04)
+# Planning semaine du 27 avril au 1er mai 2026 (v5 — densification lundi 22/04)
 
 > **Généré le 21/04 (v3), finalisé le 22/04 (v4 — 4 revisites S17→S18 retirées).** Merchandiser : Jérôme Carlier | Base : Baillonville (5377) | Horaire : 08h30 - 16h30
 > **Vendredi 01/05 = jour férié (Fête du Travail) — pas de visite.**
@@ -12,14 +12,15 @@
 
 ---
 
-## Lundi 27/04 — HAINAUT (2 implantations)
+## Lundi 27/04 — HAINAUT / CHARLEROI (2 implantations + 1 visite)
 
 | Heure | Magasin | Adresse | Contact magasin | Tel | Type | Brief |
 |---|---|---|---|---|---|---|
 | 09:50-10:50 | **Hyper Carrefour Mons Grands Prés** | Place des Grands Prés 1, 7000 Mons | **à demander sur place** | +32 65 32 36 14 | **IMPLANTATION thés glacés** | Hyper = matin obligatoire. 1er passage Teatower. Jérôme doit noter le contact responsable rayon pour enrichir la fiche. |
 | 11:45-12:45 | **Delhaize Ath** (Affilié 040490) | Rue de l'Abbaye 6, 7800 Ath | **à demander sur place** | +32 477 85 67 07 | **IMPLANTATION thés glacés — NOUVEAU CLIENT** | S05437 (520,80€ : 7 réf glacés × 12 + display Teatower). Client GMS validé 20/04. Jérôme doit noter le contact sur place. |
+| 13:50-14:20 | **Intermarché Gerpinnes** (Gerpidis SA) | Route de Philippeville 196, 6280 Gerpinnes | **Elodie Botte** (merchandiser) — Géraldine/Max pour signature BC | 071 21 69 09 | Visite | Ajouté v5 pour densifier lundi. Tier B, 5j. Sur route retour E42/Charleroi. |
 
-**Route** : Baillonville → Mons Grands Prés (1h20, 110 km) → Ath (55 min, 45 km) → retour Baillonville (1h45, 140 km) → retour ~14:30. [Google Maps](https://www.google.com/maps/dir/Baillonville+5377/Place+des+Grands+Pr%C3%A9s+1+7000+Mons/Rue+de+l%27Abbaye+6+7800+Ath/Baillonville+5377)
+**Route** : Baillonville → Mons Grands Prés (1h20, 110 km) → Ath (55 min, 45 km) → Gerpinnes (50 min via E42, 60 km) → retour Baillonville (1h, 75 km) → retour ~15:20. [Google Maps](https://www.google.com/maps/dir/Baillonville+5377/Place+des+Grands+Pr%C3%A9s+1+7000+Mons/Rue+de+l%27Abbaye+6+7800+Ath/Route+de+Philippeville+196+6280+Gerpinnes/Baillonville+5377)
 
 **Luxembourg REPORTÉ S19** : Bastogne (Tier A), CM Bouillon (RDV #425 — à replanifier), Carrefour Florenville (OVERDUE 85j — priorité absolue S19).
 
@@ -79,12 +80,12 @@ Pas de visite.
 
 | Jour | Visites | Implantations | Zone | Retour estimé |
 |---|---|---|---|---|
-| Lundi 27/04 | 0 | **2** (Mons Gds Prés + Ath) | Hainaut | ~14:30 |
+| Lundi 27/04 | 1 (Gerpinnes) | **2** (Mons Gds Prés + Ath) | Hainaut / Charleroi | ~15:20 |
 | Mardi 28/04 | 2 (+ indispo pneus) | 0 | Marche / Fernelmont | ~15:10 |
 | Mercredi 29/04 | 3 | **2** (Jambes + Fragnée) | Namur / Liège | ~15:35 |
 | Jeudi 30/04 | 5 | 0 | BW / BXL | ~15:15 |
 | Vendredi 01/05 | 0 | 0 | Férié | — |
-| **Total** | **10 visites** | **4 implantations** | | |
+| **Total** | **11 visites** | **4 implantations** | | |
 
 ## ⚠️ Points d'attention
 
