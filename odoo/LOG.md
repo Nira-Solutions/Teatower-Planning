@@ -1,4 +1,20 @@
 
+## 2026-04-23 (apres-midi v2) — Restauration route Buy sur 256 OP TT + rapports arbitrage
+
+- **Demande Nicolas** : appliquer `11_restore_buy_route.py` pour remettre route Buy sur les OP TT orphelins et produire les 2 rapports d'arbitrage.
+- **Script** : `odoo/route_fix_20260423/11_restore_buy_route.py` (idempotent, chunk de 100).
+- **Resultats** :
+  - OP TT sans route au depart : **298** (match LOG precedent).
+  - **256** OP avec `seller_ids` → `write({route_id: 5})` : 256/256 OK, 0 erreur, verif remaining=0.
+  - **42** OP sans vendor → `odoo/route_fix_20260423/42_no_vendor.md` pour arbitrage (A: add seller_ids + Buy, B: unlink OP, C: laisser False).
+  - **45** MO `state=confirmed` pre-fix → `odoo/route_fix_20260423/45_confirmed_mo_pre_fix.md` (dont TT/MO/04126 du 21/04 Blue Earl Grey BIO, 17 autres MO recents + MO plus anciennes 2026-03-27 → 2026-04-21).
+- **Sanity (`10_daily_sanity.py`) APRES fix** : **GREEN** (0 alerte).
+  - `n_tpl_mfg=1` (C0200 only ✓), `n_ops_mfg=0` ✓, `n_recent_mo_24h=0` ✓, `wh_tt_routes=[29,2,3]` ✓ (pas de 6), `route_buy_active=True` ✓.
+- **Rapports** : `odoo/route_fix_20260423/11_restore_report.json` (raw data OP + MO), `42_no_vendor.md`, `45_confirmed_mo_pre_fix.md`.
+- **Next arbitrage Nicolas** :
+  - 42 OP sans vendor → decider par produit (ajouter fournisseur, supprimer OP, ou laisser).
+  - 45 MO confirmed → cancel/unlink en masse si aucune raw done, ou garder les legit (C0200).
+
 ## 2026-04-23 (apres-midi) — Diagnostic "200+ OP supprimes" : en realite 199 MO annulees, 0 OP supprime
 
 - **Question Nicolas** : "j'ai supprime 200+ orderpoints ce matin, toi tu n'en as trouve que 6, ou est le gap ?"
