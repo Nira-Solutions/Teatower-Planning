@@ -1,0 +1,359 @@
+{
+  "route_manufacture_id": 6,
+  "route_buy_id": 4,
+  "routes_all": [
+    {
+      "id": 40,
+      "name": "Stock Merchandiser (copie) : Réapprovisionner le produit depuis Tea Tree",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 12,
+      "name": "Réapprovisionnement GMS",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 28,
+      "name": "Magasin Namur : Réapprovisionner le produit depuis Tea Tree",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 41,
+      "name": "Stock Merchandiser : Réapprovisionner le produit depuis Tea Tree",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 13,
+      "name": "Stock Merchandiser : Réapprovisionner le produit depuis Tea Tree",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 43,
+      "name": "Réapprovisionnement LIEGE",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 34,
+      "name": "Magasin Waterloo (copie) : Réapprovisionner le produit depuis Tea Tree",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 18,
+      "name": "Teatower - Liège : Réapprovisionner le produit depuis Tea Tree",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 35,
+      "name": "Réapprovisionnement POP-UP",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 42,
+      "name": "Réapprovisionnement GMS",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 44,
+      "name": "Réapprovisionnement NAMUR",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 29,
+      "name": "Réapprovisionnement WAT",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 23,
+      "name": "Magasin Waterloo : Réapprovisionner le produit depuis Tea Tree",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 0
+    },
+    {
+      "id": 1,
+      "name": "Replenish on Order (MTO)",
+      "active": false,
+      "product_selectable": true,
+      "sequence": 5
+    },
+    {
+      "id": 5,
+      "name": "Buy",
+      "active": false,
+      "product_selectable": true,
+      "sequence": 5
+    },
+    {
+      "id": 8,
+      "name": "Stock Merchandiser: Recevoir en 1 étape (stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 36,
+      "name": "Stock Merchandiser (copie): Recevoir en 1 étape (stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 2,
+      "name": "My Company: Receive in 1 step (stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 45,
+      "name": "OPALYA: Recevoir en 2 étapes (emplacement d'entrée + stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 30,
+      "name": "Magasin Waterloo (copie): Recevoir en 1 étape (stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 14,
+      "name": "Teatower - Liège: Recevoir en 1 étape (stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 24,
+      "name": "Magasin Namur: Recevoir en 1 étape (stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 19,
+      "name": "Magasin Waterloo: Recevoir en 1 étape (stock)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 9
+    },
+    {
+      "id": 6,
+      "name": "Manufacture",
+      "active": true,
+      "product_selectable": true,
+      "sequence": 10
+    },
+    {
+      "id": 9,
+      "name": "Stock Merchandiser: Livrer en 1 étape (expédition)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 11,
+      "name": "Stock Merchandiser: Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 3,
+      "name": "My Company: Deliver in 1 step (ship)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 20,
+      "name": "Magasin Waterloo: Livrer en 1 étape (expédition)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 22,
+      "name": "Magasin Waterloo: Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 31,
+      "name": "Magasin Waterloo (copie): Livrer en 1 étape (expédition)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 25,
+      "name": "Magasin Namur: Livrer en 1 étape (expédition)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 27,
+      "name": "Magasin Namur: Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 15,
+      "name": "Teatower - Liège: Livrer en 1 étape (expédition)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 17,
+      "name": "Teatower - Liège: Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 33,
+      "name": "Magasin Waterloo (copie): Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 46,
+      "name": "OPALYA: Livrer en 1 étape (expédition)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 7,
+      "name": "My Company: Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 48,
+      "name": "OPALYA: Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 37,
+      "name": "Stock Merchandiser (copie): Livrer en 1 étape (expédition)",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 39,
+      "name": "Stock Merchandiser (copie): Fabriquer (1 étape)",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 10
+    },
+    {
+      "id": 4,
+      "name": "My Company: Cross-Dock",
+      "active": true,
+      "product_selectable": false,
+      "sequence": 20
+    },
+    {
+      "id": 38,
+      "name": "Stock Merchandiser (copie): Correspondance",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 20
+    },
+    {
+      "id": 16,
+      "name": "Teatower - Liège: Correspondance",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 20
+    },
+    {
+      "id": 26,
+      "name": "Magasin Namur: Correspondance",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 20
+    },
+    {
+      "id": 21,
+      "name": "Magasin Waterloo: Correspondance",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 20
+    },
+    {
+      "id": 32,
+      "name": "Magasin Waterloo (copie): Correspondance",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 20
+    },
+    {
+      "id": 47,
+      "name": "OPALYA: Correspondance",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 20
+    },
+    {
+      "id": 10,
+      "name": "Stock Merchandiser: Correspondance",
+      "active": false,
+      "product_selectable": false,
+      "sequence": 20
+    }
+  ],
+  "tpl_ids_manufacture": [
+    10485
+  ],
+  "prod_ids_manufacture": [
+    7733
+  ],
+  "op_ids_manufacture": [
+    5248,
+    5249,
+    5250,
+    5636,
+    5922,
+    18792
+  ],
+  "cat_ids_manufacture": [],
+  "mo_since_2026_04_22": 200,
+  "mo_live_count": 62
+}
