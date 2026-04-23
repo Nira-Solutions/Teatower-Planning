@@ -1,4 +1,26 @@
 
+## 2026-04-23 (apres-midi) — Diagnostic "200+ OP supprimes" : en realite 199 MO annulees, 0 OP supprime
+
+- **Question Nicolas** : "j'ai supprime 200+ orderpoints ce matin, toi tu n'en as trouve que 6, ou est le gap ?"
+- **Verification faite** :
+  - `mail.message` modele=orderpoint auteur=Nicolas aujourd'hui : **0**
+  - OP crees aujourd'hui : **0** | OP modifies aujourd'hui : **31** (dont 6 modifs Nicolas a 08:29, set `route_id=False` sur GI0735/GI0820/GI0832/GI0634/GI0912/GI0916 — pas des suppressions)
+  - Gaps dans la sequence OP/xxxxx : le gros gap 35158->35379 (220 manquants) date du 2025-11-04/05, **pas d'aujourd'hui**
+  - Max OP/35572, sequence.next=35573 : pas de creation aujourd'hui
+- **Trouvaille reelle** : `mrp.production` `state=cancel` `write_date >= 2026-04-23` = **199 MO cancelled** (198 par user 10 logistique@noenature.com a 06:xx = scheduler batch, 1 par Nicolas a 07:xx).
+- **Conclusion** : Nicolas a confondu "MO cancelled" avec "OP supprimes". Il a utilise l'action de masse "Cancel" sur la vue Manufacturing, pas sur Orderpoints. Aucun OP n'a ete supprime par lui.
+- **Cascade expliquee** :
+  - Le 21/04 la route Manufacture etait encore rattachee au WH TT -> scheduler a genere des MO sur 198 OP differents (origin OP/xxxxx)
+  - Mon fix b592d25 ce matin a nettoye la config (route Buy reactivee + Manufacture decrochee du WH + 17 MO residuels), mais laissait 198 MO deja confirmed avant mon passage que le scheduler ne pouvait plus reconduire.
+  - Nicolas a cancelled en masse ces 199 MO "fantomes" via l'UI (action correcte, aucun dommage collateral).
+- **Etat final verifie** :
+  - Les 198 OP referenced dans les origins existent TOUJOURS en base (aucun supprime)
+  - 80 ont route=Buy (OK, scheduler les reprendra normalement), **118 ont route=False** -> scheduler ne fera rien pour eux
+  - Zoom TT : **298 OP sans route** dont 256 produits avec `seller_ids` (devraient etre Buy) et 42 sans vendor
+  - MO encore `confirmed` en base : **45** (creees entre 2026-03-27 et 2026-04-21, pre-fix) -> a passer en revue avec Nicolas
+- **Action recommandee** : script batch pour remettre `route_id=Buy` sur les 256 OP TT NO_ROUTE avec seller_ids. Les 42 sans seller_ids : a purger ou assigner un fournisseur d'abord. Les 45 MO confirmed pre-fix : 1 MO recent 21/04 (TT/MO/04126 Blue Earl Grey BIO) -> a cancel. Les autres sont vieilles (mars), Nicolas doit arbitrer au cas par cas.
+- **Files** : diag pas de script persiste (ad-hoc `/tmp/trace_op*.py`). Prochain step = script `odoo/route_fix_20260423/11_restore_buy_route.py` sur demande de Nicolas.
+
 ## 2026-04-23 — Route Buy reactivee + Manufacture isolee C0200 + 17 MO residuels nettoyes
 
 - **Symptome** (Nicolas 23/04 matin) : produits basculent en "Fabriquer" au lieu de "Acheter", plus dans les achats mais dans les MO. Supprimait des MO a la main depuis le module Manufacturing.
