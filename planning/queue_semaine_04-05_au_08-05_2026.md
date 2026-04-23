@@ -2,14 +2,15 @@
 
 > Créée le 22/04/2026. Merchandiser : Gilles | Base : Baillonville (5377) | Horaire : 08h30 - 16h30.
 
-## Livraisons merchandiser (commandes Nicolas 22/04/2026)
+## Livraisons merchandiser
 
-| SO | Magasin | Montant | Contraintes | Priorité |
-|---|---|---|---|---|
-| **S05457** | **Carrefour Hyper Boncelles** (Seraing 4100) | **426,31 €** | Hyper = matin obligatoire (7h-11h30). **Pas le mardi.** | HAUTE — livraison physique par Gilles (merchandiser) |
-| **S05459** | **Hyper Carrefour Fléron** (Fléron 4620) | **763,70 €** | Hyper = matin obligatoire. | HAUTE — livraison physique par Gilles (merchandiser) |
+| SO | Magasin | Montant | État | Contraintes | Priorité |
+|---|---|---|---|---|---|
+| **S05457** | **Carrefour Hyper Boncelles** (Seraing 4100) | **426,31 €** | confirmé | Hyper = matin obligatoire (7h-11h30). **Pas le mardi.** | HAUTE — livraison physique par Gilles |
+| **S05459** | **Hyper Carrefour Fléron** (Fléron 4620) | **763,70 €** | confirmé | Hyper = matin obligatoire. | HAUTE — livraison physique par Gilles |
+| **S05467** | **Carrefour Market Bastogne CC Port** (nouveau GMS — lead #288) | **1213,24 €** | **DEVIS — à valider Nicolas** | Gamme infusette + 6 glacés + display. Implantation en rayon. | HAUTE — livraison + implantation Gilles |
 
-→ Les deux sur la zone **Liège-Seraing-Fléron** (4100 / 4620). Jour cible : **lundi 04/05 ou mercredi 06/05** (pas mardi à cause Boncelles). Hyper en premier le matin. Sur 1 seule journée si route bien montée.
+→ Boncelles/Fléron sur zone **Liège-Seraing-Fléron** (lundi 04/05 ou mercredi 06/05, pas mardi). CC Port sur zone **Luxembourg** (mardi 05/05 avec AD Bastogne + Florenville + Bouillon).
 
 ## Luxembourg (reportés S18 v3)
 
@@ -19,27 +20,32 @@
 
 → Zone Lux = 1 journée complète dédiée (Bastogne + Florenville + Bouillon faisables ensemble).
 
-## ⚠️ Nouveau client GMS — Carrefour Market Bastogne CC Port (lead #288, Gagné 20/04, confirmé 23/04)
+## CM Bastogne CC Port (nouveau GMS, devis S05467)
 
-- **Magasin** : Carrefour Market Bastogne CC Port — Rue Gustave Delperdange 3, 6600 Bastogne (≠ Pascalino Route de Marche 149)
-- **Email** : bastogne@orkari.be | **Tel** : 061 21 00 50 | **N° affilié Carrefour** : 0523
-- **Contact Carrefour** : michael_grosjean@franchisecrf.com (demande à faire auprès de **Mme Neuville**)
-- **Commande confirmée** (dans description lead #288) : Rouge printanier, Les 6 glacés, Panier de grand-maman, Le thé des amoureux, Blue Earl Grey OU Lampe merveilleuse (selon stock), Pêche de vigne — **gamme en infusette, placée en rayon**.
-- **Livraison** : **semaine du 4 mai** (demande client explicite) → livraison physique par Gilles, probablement **mardi 05/05** sur la tournée Luxembourg (AD Bastogne + CM Bastogne CC Port + Florenville + Bouillon).
+- **Partner Odoo** : #123189 "Carrefour market Bastogne CC Port" (enfant de Carrefour Belgium #6596, type=delivery, ref=0523)
+- **Adresse** : Rue Gustave Delperdange 3, 6600 Bastogne | Tel 061 21 00 50 | bastogne@orkari.be
+- **SO** : **S05467 DEVIS draft** (1213,24 € — à valider Nicolas)
+- Lignes : I0279 Panier grand-maman ×12, I0631 Thé des amoureux ×12, I0880 Blue Earl Grey ×12 (alt I0600 Lampe merveilleuse), I0735 Pêche vigne ×12, GI0820/GI0634/GI0735/GI0832/GI0916/GI0912 ×12 chacun (les 6 glacés), M0005 Display Teatower ×1
+- **Facturation** : Carrefour Belgium Corporate Village (modèle intégré, comme Boncelles/Fléron)
+- **Lead** : lien opportunity_id=288 fait
 
-**BLOCAGES — actions Nicolas avant planif S19** :
-- [ ] **Créer le partner Odoo** (res.partner) — aujourd'hui lead.partner_id = False. Candidate : orkari.be comme parent.
-- [ ] **Encoder le SO** avec les 6 réf ci-dessus + format infusette — sinon pas planifiable (règle §1 REGLES : pas de devis).
-- [ ] **Décider qui fait la demande Carrefour** (Mme Neuville — Nicolas ou Vanessa ?) — Jérôme attend la réponse (message 23/04 09:11 sur lead #288).
-- [ ] Vérifier stock des 6 réf en **infusette** (pas vrac) — notamment Blue Earl Grey / Lampe merveilleuse selon dispo.
+**À trancher par Nicolas** :
+- [ ] Valider devis S05467 → passer en `sale` pour planification ferme
+- [ ] **Rouge printanier** : réf pas trouvée dans le catalogue infusette — à préciser (→ Jérôme ?)
+- [ ] **Les 6 glacés** : présélection GI0820/GI0634/GI0735/GI0832/GI0916/GI0912 (cf S05437 Ath) — à confirmer
+- [ ] **Demande Carrefour Mme Neuville** (n° 0523) : toi ou Vanessa ? Jérôme attend la réponse (msg lead #288 du 23/04 09:11)
 
 ## Reports S18 v3 et v4
 
 - **Delhaize Ottignies** (Tier B, ~21j) — contrainte "pas le jeudi", contact Jolan Cailleu possible
 - **CM Hannut (PR Macleky)** — OVERDUE ~110j, contrainte "visite que le jeudi"
 - **ITM Hannut** (Intermadis SA) — ~20j, OK demander Mr Christophe Wereau — Tier A avg 1100 €
-- **AD Rochefort** (Tier B, OVERDUE 60j — retiré S18 v4 car S17)
 - **Delhaize Marche** (Tier A, OVERDUE 36j — retiré S18 v4 car S17)
+
+## ⛔ NE PAS VISITER S19 (info Nicolas 23/04)
+
+- **Delhaize Beauraing** (DEMARS SA, partner #2905) — pas besoin de remplir. Contact rayon : Christelle ou Alison.
+- **AD Rochefort** (Tier B) — pas besoin de remplir.
 
 ## Thés glacés (briefing Nicolas antérieur)
 
@@ -49,8 +55,8 @@
 
 Zones à couvrir sur 5 jours (vendredi 08/05 = ouvrable) :
 - **Lundi 04/05** — Liège/Seraing/Fléron : Hyper Boncelles + Hyper Fléron (livraisons) + visites Liège non faites S18 (ex: Proxy St-Séverin si OVERDUE devient vrai)
-- **Mardi 05/05** — Luxembourg : AD Bastogne + **CM Bastogne CC Port (nouveau GMS, lead #288 — livraison si SO encodé à temps)** + Florenville + CM Bouillon (+ Marche en retour si temps ok)
-- **Mercredi 06/05** — Namur-Sud : AD Fosses (thés glacés) + AD Rochefort + autres OVERDUE zone 5xxx
+- **Mardi 05/05** — Luxembourg : AD Bastogne + **CM Bastogne CC Port (S05467 devis à valider — livraison + implantation)** + Florenville + CM Bouillon (+ Marche en retour si temps ok)
+- **Mercredi 06/05** — Namur-Sud : AD Fosses (thés glacés) + autres OVERDUE zone 5xxx (AD Rochefort + Delhaize Beauraing exclus — pas besoin de remplir, info Nicolas 23/04)
 - **Jeudi 07/05** — Hainaut ou BW : CM Hannut (jeudi-only) + Delhaize Ottignies (jeudi OK avec Jolan) + autres BW
 - **Vendredi 08/05** — à définir selon reliquats
 
