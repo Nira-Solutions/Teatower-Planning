@@ -8,7 +8,7 @@
 |---|---|---|---|---|---|
 | **S05457** | **Carrefour Hyper Boncelles** (Seraing 4100) | **426,31 €** | confirmé | Hyper = matin obligatoire (7h-11h30). **Pas le mardi.** | HAUTE — livraison physique par Gilles |
 | **S05459** | **Hyper Carrefour Fléron** (Fléron 4620) | **763,70 €** | confirmé | Hyper = matin obligatoire. | HAUTE — livraison physique par Gilles |
-| **S05467** | **Carrefour Market Bastogne CC Port** (nouveau GMS — lead #288) | **1213,24 €** | **DEVIS — à valider Nicolas** | Gamme infusette + 6 glacés + display. Implantation en rayon. | HAUTE — livraison + implantation Gilles |
+| **S05467** | **Carrefour Market Bastogne CC Port** (nouveau GMS — lead #288) | **424,25 €** | **DEVIS — à valider Nicolas** | Gamme infusette + 6 glacés (qty 6 × -30%) + display offert. Implantation en rayon. | HAUTE — livraison + implantation Gilles |
 
 → Boncelles/Fléron sur zone **Liège-Seraing-Fléron** (lundi 04/05 ou mercredi 06/05, pas mardi). CC Port sur zone **Luxembourg** (mardi 05/05 avec AD Bastogne + Florenville + Bouillon).
 
@@ -24,8 +24,8 @@
 
 - **Partner Odoo** : #123189 "Carrefour market Bastogne CC Port" (enfant de Carrefour Belgium #6596, type=delivery, ref=0523)
 - **Adresse** : Rue Gustave Delperdange 3, 6600 Bastogne | Tel 061 21 00 50 | bastogne@orkari.be
-- **SO** : **S05467 DEVIS draft** (1213,24 € — à valider Nicolas)
-- Lignes : I0279 Panier grand-maman ×12, I0631 Thé des amoureux ×12, I0880 Blue Earl Grey ×12 (alt I0600 Lampe merveilleuse), I0735 Pêche vigne ×12, GI0820/GI0634/GI0735/GI0832/GI0916/GI0912 ×12 chacun (les 6 glacés), M0005 Display Teatower ×1
+- **SO** : **S05467 DEVIS draft** (424,25 € TTC / 400,21 € HT — à valider Nicolas)
+- Lignes (×6 chaque réf -30%) : I0279 Panier grand-maman, I0631 Thé des amoureux, I0880 Blue Earl Grey (alt I0600 Lampe merveilleuse), I0735 Pêche vigne + 6 glacés GI0820/GI0634/GI0735/GI0832/GI0916/GI0912. Display Teatower M0005 ×1 offert (-100%).
 - **Facturation** : Carrefour Belgium Corporate Village (modèle intégré, comme Boncelles/Fléron)
 - **Lead** : lien opportunity_id=288 fait
 
