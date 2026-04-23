@@ -1,4 +1,27 @@
 
+## 2026-04-23 — Route Buy reactivee + Manufacture isolee C0200 + 17 MO residuels nettoyes
+
+- **Symptome** (Nicolas 23/04 matin) : produits basculent en "Fabriquer" au lieu de "Acheter", plus dans les achats mais dans les MO. Supprimait des MO a la main depuis le module Manufacturing.
+- **Cause racine DECOUVERTE** :
+  - **Route Buy (id=5) etait DESACTIVEE** (+ ses 8 rules inactives : 7, 21, 33, 44, 55, 67, 79, 97). Aucune trace mail.message sur qui/quand → desactivee avant mise en place du tracking, probablement en meme temps que le decroche Manufacture du 21/04.
+  - **Warehouse TT (id=1) avait `route_ids=[29, 2, 3, 6]`** : la route Manufacture (6) etait rattachee au WH, donc **tous les produits du WH TT la voyaient**, meme sans l'avoir sur template/categ.
+  - Consequence : scheduler 07:23-07:55 → 17 MO creees (draft/confirmed) ce matin sur des thes (I0xxx, V0xxx, GI0xxx) qui devraient etre achetes.
+  - Les 6 orderpoints glaces (OP/13672, 13673, 13674, 14047, 14328, 35571) avaient aussi `route_id=6` explicite (pas nettoyes par le run du 21/04).
+- **Actions** (scripts dans `odoo/route_fix_20260423/`) :
+  1. `07_execute.py STEP 1` : reactive route Buy + 8 rules → `active=True` ✓
+  2. `07_execute.py STEP 2` : retire route 6 de `warehouse.TT.route_ids` → `[29, 2, 3]` ✓
+  3. `07_execute.py STEP 3` : `route_id=False` sur 6 orderpoints glaces ✓
+  4. `07_execute.py STEP 4` : cancel + unlink 17 MO draft/confirmed (raw_done=0, 0 erreur) ✓
+  5. `09_harden.py` : sequence Buy rules = 10, Manufacture = 30 → Buy prioritaire si jamais un WH mal configure.
+- **Final check** :
+  - `product.template` route=6 : **1** (C0200 ✓)
+  - `stock.warehouse.orderpoint` route=6 : **0**
+  - `stock.warehouse.TT.route_ids` = [29, 2, 3] ✓
+  - `stock.route` Buy active=True ✓ | Manufacture rules sequence=30 ✓
+  - 4 MO `state=done` de C0200/I0600/GI0634/GI0820/GI0912 preservees (validees par Nicolas, pas du flood).
+- **Garde-fou cree** : `odoo/route_fix_20260423/10_daily_sanity.py` → detecte 5 anomalies (Buy inactive, WH TT contient MFG, tpl hors whitelist C0200, OP MFG hors whitelist, MO recent sans BoM active). A brancher en GitHub Action cron quotidien.
+- **Rapports** : `odoo/route_fix_20260423/execute_report.json`, `plan.json`, `diag_wide.json`.
+
 ## 2026-04-21 — Flood MO : unlink final des 194 MO cancel (nettoyage base)
 - **Contexte** : suite action 1 (commit e1560ee, 194 MO passes en `cancel`), Nicolas demande suppression definitive.
 - **Garde-fous pre-unlink** (script `odoo/_unlink_mo_flood.py`) :

@@ -1,0 +1,138 @@
+{
+  "step1": {
+    "route_id": 5,
+    "rules_ids": [
+      7,
+      21,
+      33,
+      44,
+      55,
+      67,
+      79,
+      97
+    ],
+    "before": [
+      {
+        "id": 7,
+        "name": "WH: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          8,
+          "TT/Stock"
+        ]
+      },
+      {
+        "id": 21,
+        "name": "GMS: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          2737,
+          "GMS/Stock"
+        ]
+      },
+      {
+        "id": 33,
+        "name": "LIEGE: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          4524,
+          "LIEGE/Stock"
+        ]
+      },
+      {
+        "id": 44,
+        "name": "WAT: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          4532,
+          "WAT/Stock"
+        ]
+      },
+      {
+        "id": 55,
+        "name": "NAM: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          4540,
+          "NAM/Stock"
+        ]
+      },
+      {
+        "id": 67,
+        "name": "COPIE: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          4575,
+          "POP/Stock"
+        ]
+      },
+      {
+        "id": 79,
+        "name": "COPIE: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          4583,
+          "Sales/Stock"
+        ]
+      },
+      {
+        "id": 97,
+        "name": "OPA: Stock (Buy)",
+        "active": false,
+        "action": "buy",
+        "location_dest_id": [
+          4699,
+          "OPA/Stock"
+        ]
+      }
+    ]
+  },
+  "step2_warehouses_with_mfg": [
+    {
+      "id": 1,
+      "code": "TT",
+      "route_ids": [
+        29,
+        2,
+        3,
+        6
+      ]
+    }
+  ],
+  "step3_ops_to_clean": [
+    5248,
+    5249,
+    5250,
+    5636,
+    5922,
+    18792
+  ],
+  "step4_mo_to_cancel": [
+    4332,
+    4333,
+    4334,
+    4335,
+    4336,
+    4337,
+    4338,
+    4342,
+    4344,
+    4345,
+    4346,
+    4348,
+    4349,
+    4339,
+    4340,
+    4341,
+    4343
+  ],
+  "mo_risky": 4,
+  "raw_moves_done": 0
+}

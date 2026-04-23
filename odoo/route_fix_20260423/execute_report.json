@@ -1,0 +1,251 @@
+{
+  "ts": "2026-04-23T10:29:42.630250",
+  "steps": [
+    {
+      "step": "1_reactivate_buy",
+      "route": [
+        {
+          "id": 5,
+          "name": "Buy",
+          "active": true
+        }
+      ],
+      "rules": [
+        {
+          "id": 7,
+          "name": "WH: Stock (Buy)",
+          "active": true
+        },
+        {
+          "id": 21,
+          "name": "GMS: Stock (Buy)",
+          "active": true
+        },
+        {
+          "id": 33,
+          "name": "LIEGE: Stock (Buy)",
+          "active": true
+        },
+        {
+          "id": 44,
+          "name": "WAT: Stock (Buy)",
+          "active": true
+        },
+        {
+          "id": 55,
+          "name": "NAM: Stock (Buy)",
+          "active": true
+        },
+        {
+          "id": 67,
+          "name": "COPIE: Stock (Buy)",
+          "active": true
+        },
+        {
+          "id": 79,
+          "name": "COPIE: Stock (Buy)",
+          "active": true
+        },
+        {
+          "id": 97,
+          "name": "OPA: Stock (Buy)",
+          "active": true
+        }
+      ]
+    },
+    {
+      "step": "2_warehouse_tt",
+      "before": {
+        "id": 1,
+        "name": "Teatower",
+        "code": "TT",
+        "route_ids": [
+          29,
+          2,
+          3,
+          6
+        ]
+      },
+      "after": {
+        "id": 1,
+        "name": "Teatower",
+        "code": "TT",
+        "route_ids": [
+          29,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "step": "3_orderpoints",
+      "before": [
+        {
+          "id": 5248,
+          "name": "OP/13672",
+          "product_id": [
+            4572,
+            "[GI0735] Pêche de Vigne - BIO glacée"
+          ],
+          "route_id": [
+            6,
+            "Manufacture"
+          ]
+        },
+        {
+          "id": 5249,
+          "name": "OP/13673",
+          "product_id": [
+            4574,
+            "[GI0820] Marrakech Sunset - BIO glacé"
+          ],
+          "route_id": [
+            6,
+            "Manufacture"
+          ]
+        },
+        {
+          "id": 5250,
+          "name": "OP/13674",
+          "product_id": [
+            4578,
+            "[GI0832] La Nana de Wépion glacée"
+          ],
+          "route_id": [
+            6,
+            "Manufacture"
+          ]
+        },
+        {
+          "id": 5636,
+          "name": "OP/14047",
+          "product_id": [
+            4571,
+            "[GI0634] Gourmandise glacée"
+          ],
+          "route_id": [
+            6,
+            "Manufacture"
+          ]
+        },
+        {
+          "id": 5922,
+          "name": "OP/14328",
+          "product_id": [
+            7061,
+            "[GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion"
+          ],
+          "route_id": [
+            6,
+            "Manufacture"
+          ]
+        },
+        {
+          "id": 18792,
+          "name": "OP/35571",
+          "product_id": [
+            7451,
+            "[GI0916] Vergers d’Été: saveurs: Pomme - Poire"
+          ],
+          "route_id": [
+            6,
+            "Manufacture"
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": 5248,
+          "name": "OP/13672",
+          "product_id": [
+            4572,
+            "[GI0735] Pêche de Vigne - BIO glacée"
+          ],
+          "route_id": false
+        },
+        {
+          "id": 5249,
+          "name": "OP/13673",
+          "product_id": [
+            4574,
+            "[GI0820] Marrakech Sunset - BIO glacé"
+          ],
+          "route_id": false
+        },
+        {
+          "id": 5250,
+          "name": "OP/13674",
+          "product_id": [
+            4578,
+            "[GI0832] La Nana de Wépion glacée"
+          ],
+          "route_id": false
+        },
+        {
+          "id": 5636,
+          "name": "OP/14047",
+          "product_id": [
+            4571,
+            "[GI0634] Gourmandise glacée"
+          ],
+          "route_id": false
+        },
+        {
+          "id": 5922,
+          "name": "OP/14328",
+          "product_id": [
+            7061,
+            "[GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion"
+          ],
+          "route_id": false
+        },
+        {
+          "id": 18792,
+          "name": "OP/35571",
+          "product_id": [
+            7451,
+            "[GI0916] Vergers d’Été: saveurs: Pomme - Poire"
+          ],
+          "route_id": false
+        }
+      ]
+    },
+    {
+      "step": "4_mo_cleanup",
+      "mo_targeted": [
+        4332,
+        4333,
+        4334,
+        4335,
+        4336,
+        4337,
+        4338,
+        4342,
+        4344,
+        4345,
+        4346,
+        4348,
+        4349,
+        4339,
+        4340,
+        4341,
+        4343
+      ],
+      "cancelled": 17,
+      "cancel_errors": [],
+      "unlinked": 17,
+      "unlink_errors": []
+    }
+  ],
+  "final_check": {
+    "mo_remaining_draft_confirmed": 0,
+    "op_route_6_remaining": 0,
+    "tpl_route_6_remaining": 1,
+    "wh_tt_route_ids": [
+      29,
+      2,
+      3
+    ],
+    "route_buy_active": true
+  }
+}
