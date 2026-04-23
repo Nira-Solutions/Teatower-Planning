@@ -19,6 +19,20 @@
 
 → Zone Lux = 1 journée complète dédiée (Bastogne + Florenville + Bouillon faisables ensemble).
 
+## ⚠️ Nouveau client GMS — Carrefour Market Bastogne CC Port (lead #288, Gagné 20/04, confirmé 23/04)
+
+- **Magasin** : Carrefour Market Bastogne CC Port — Rue Gustave Delperdange 3, 6600 Bastogne (≠ Pascalino Route de Marche 149)
+- **Email** : bastogne@orkari.be | **Tel** : 061 21 00 50 | **N° affilié Carrefour** : 0523
+- **Contact Carrefour** : michael_grosjean@franchisecrf.com (demande à faire auprès de **Mme Neuville**)
+- **Commande confirmée** (dans description lead #288) : Rouge printanier, Les 6 glacés, Panier de grand-maman, Le thé des amoureux, Blue Earl Grey OU Lampe merveilleuse (selon stock), Pêche de vigne — **gamme en infusette, placée en rayon**.
+- **Livraison** : **semaine du 4 mai** (demande client explicite) → livraison physique par Gilles, probablement **mardi 05/05** sur la tournée Luxembourg (AD Bastogne + CM Bastogne CC Port + Florenville + Bouillon).
+
+**BLOCAGES — actions Nicolas avant planif S19** :
+- [ ] **Créer le partner Odoo** (res.partner) — aujourd'hui lead.partner_id = False. Candidate : orkari.be comme parent.
+- [ ] **Encoder le SO** avec les 6 réf ci-dessus + format infusette — sinon pas planifiable (règle §1 REGLES : pas de devis).
+- [ ] **Décider qui fait la demande Carrefour** (Mme Neuville — Nicolas ou Vanessa ?) — Jérôme attend la réponse (message 23/04 09:11 sur lead #288).
+- [ ] Vérifier stock des 6 réf en **infusette** (pas vrac) — notamment Blue Earl Grey / Lampe merveilleuse selon dispo.
+
 ## Reports S18 v3 et v4
 
 - **Delhaize Ottignies** (Tier B, ~21j) — contrainte "pas le jeudi", contact Jolan Cailleu possible
@@ -35,7 +49,7 @@
 
 Zones à couvrir sur 5 jours (vendredi 08/05 = ouvrable) :
 - **Lundi 04/05** — Liège/Seraing/Fléron : Hyper Boncelles + Hyper Fléron (livraisons) + visites Liège non faites S18 (ex: Proxy St-Séverin si OVERDUE devient vrai)
-- **Mardi 05/05** — Luxembourg : Bastogne + Florenville + CM Bouillon (+ Marche en retour si temps ok)
+- **Mardi 05/05** — Luxembourg : AD Bastogne + **CM Bastogne CC Port (nouveau GMS, lead #288 — livraison si SO encodé à temps)** + Florenville + CM Bouillon (+ Marche en retour si temps ok)
 - **Mercredi 06/05** — Namur-Sud : AD Fosses (thés glacés) + AD Rochefort + autres OVERDUE zone 5xxx
 - **Jeudi 07/05** — Hainaut ou BW : CM Hannut (jeudi-only) + Delhaize Ottignies (jeudi OK avec Jolan) + autres BW
 - **Vendredi 08/05** — à définir selon reliquats
