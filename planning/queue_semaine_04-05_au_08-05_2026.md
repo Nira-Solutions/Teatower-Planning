@@ -1,13 +1,13 @@
 # Queue semaine du 4 au 8 mai 2026 (S19) — préparation
 
-> Créée le 22/04/2026. Merchandiser : Jérôme Carlier | Base : Baillonville (5377) | Horaire : 08h30 - 16h30.
+> Créée le 22/04/2026. Merchandiser : Gilles | Base : Baillonville (5377) | Horaire : 08h30 - 16h30.
 
 ## Livraisons merchandiser (commandes Nicolas 22/04/2026)
 
 | SO | Magasin | Montant | Contraintes | Priorité |
 |---|---|---|---|---|
-| **S05457** | **Carrefour Hyper Boncelles** (Seraing 4100) | **426,31 €** | Hyper = matin obligatoire (7h-11h30). **Pas le mardi.** | HAUTE — livraison physique par Jérôme |
-| **S05459** | **Hyper Carrefour Fléron** (Fléron 4620) | **763,70 €** | Hyper = matin obligatoire. | HAUTE — livraison physique par Jérôme |
+| **S05457** | **Carrefour Hyper Boncelles** (Seraing 4100) | **426,31 €** | Hyper = matin obligatoire (7h-11h30). **Pas le mardi.** | HAUTE — livraison physique par Gilles (merchandiser) |
+| **S05459** | **Hyper Carrefour Fléron** (Fléron 4620) | **763,70 €** | Hyper = matin obligatoire. | HAUTE — livraison physique par Gilles (merchandiser) |
 
 → Les deux sur la zone **Liège-Seraing-Fléron** (4100 / 4620). Jour cible : **lundi 04/05 ou mercredi 06/05** (pas mardi à cause Boncelles). Hyper en premier le matin. Sur 1 seule journée si route bien montée.
 
@@ -44,7 +44,7 @@ Zones à couvrir sur 5 jours (vendredi 08/05 = ouvrable) :
 
 ## À valider avant génération S19
 
-- [ ] Confirmer que les 2 livraisons Hyper Carrefour peuvent être faites par Jérôme en 1 seule tournée (pas de grosses charges > 2 m³).
+- [ ] Confirmer que les 2 livraisons Hyper Carrefour peuvent être faites par Gilles en 1 seule tournée (pas de grosses charges > 2 m³).
 - [ ] Vérifier si Delhaize Ottignies nécessite mail préalable (Jolan Cailleu).
 - [ ] Check statut CRM Bouillon et RDV #425 (replanifier ou annuler).
 - [ ] Vérifier stocks thés glacés dispos pour AD Fosses 06/05.
