@@ -1,0 +1,512 @@
+{
+  "total_ht": 10397.38,
+  "total_ttc": 11028.32,
+  "rows": [
+    {
+      "so": "S05473",
+      "partner": "Delhaize Le Lion S.A",
+      "invoice_partner_id": 2912,
+      "invoice_partner": "Delhaize Le Lion S.A",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36952,
+        "name": "INV/2026/02279",
+        "state": "posted",
+        "amount_untaxed": 2013.6,
+        "amount_total": 2134.58,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "675b6e29-411f-4c63-ba6a-04895633ea80",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          2912,
+          "Delhaize Le Lion S.A"
+        ]
+      }
+    },
+    {
+      "so": "S05463",
+      "partner": "Caf\u00e9 Ventuno, Ventuno SA",
+      "invoice_partner_id": 5620,
+      "invoice_partner": "Caf\u00e9 Ventuno, Ventuno SA",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36953,
+        "name": "INV/2026/02280",
+        "state": "posted",
+        "amount_untaxed": 937.5,
+        "amount_total": 993.75,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "6497becc-a811-423e-813c-acfb47c46f79",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          5620,
+          "Caf\u00e9 Ventuno, Ventuno SA"
+        ]
+      }
+    },
+    {
+      "so": "S05472",
+      "partner": "Cafermi",
+      "invoice_partner_id": 7440,
+      "invoice_partner": "Cafermi",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36954,
+        "name": "INV/2026/02281",
+        "state": "posted",
+        "amount_untaxed": 755.42,
+        "amount_total": 800.81,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "d60f4bdb-11f4-436b-9685-5da1425d3dda",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          7440,
+          "Cafermi"
+        ]
+      }
+    },
+    {
+      "so": "S05459",
+      "partner": "Carrefour Belgium - Corporate Village, Hyper Carrefour Fleron",
+      "invoice_partner_id": 6596,
+      "invoice_partner": "Carrefour Belgium - Corporate Village",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36955,
+        "name": "INV/2026/02282",
+        "state": "posted",
+        "amount_untaxed": 720.46,
+        "amount_total": 763.7,
+        "peppol_is_sent": false,
+        "peppol_move_state": false,
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          6596,
+          "Carrefour Belgium - Corporate Village"
+        ]
+      }
+    },
+    {
+      "so": "S05471",
+      "partner": "KVA Bar - Groupe DonGiovanni",
+      "invoice_partner_id": 123207,
+      "invoice_partner": "KVA Bar - Groupe DonGiovanni",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36956,
+        "name": "INV/2026/02283",
+        "state": "posted",
+        "amount_untaxed": 540.0,
+        "amount_total": 572.4,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "1304f46b-772e-48cb-a633-aa96ffaaf2e8",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          123207,
+          "KVA Bar - Groupe DonGiovanni"
+        ]
+      }
+    },
+    {
+      "so": "S05474",
+      "partner": "CREAGORA",
+      "invoice_partner_id": 7563,
+      "invoice_partner": "CREAGORA",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36957,
+        "name": "INV/2026/02284",
+        "state": "posted",
+        "amount_untaxed": 500.0,
+        "amount_total": 530.0,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "e669d805-a33e-4078-be48-56925607178e",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          7563,
+          "CREAGORA"
+        ]
+      }
+    },
+    {
+      "so": "S05404",
+      "partner": "Gmp La Louvi\u00e8re - Delhaize La Louvi\u00e8re",
+      "invoice_partner_id": 123037,
+      "invoice_partner": "Gmp La Louvi\u00e8re - Delhaize La Louvi\u00e8re, Invoice Address",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36959,
+        "name": "INV/2026/02286",
+        "state": "posted",
+        "amount_untaxed": 480.16,
+        "amount_total": 515.66,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "16122d25-9e95-4c3e-a4c0-62529667a5d5",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          123037,
+          "Gmp La Louvi\u00e8re - Delhaize La Louvi\u00e8re, Invoice Address"
+        ]
+      }
+    },
+    {
+      "so": "S05470",
+      "partner": "Nouvel Air Coiffure",
+      "invoice_partner_id": 3162,
+      "invoice_partner": "Nouvel Air Coiffure",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36958,
+        "name": "INV/2026/02285",
+        "state": "posted",
+        "amount_untaxed": 483.18,
+        "amount_total": 512.2,
+        "peppol_is_sent": false,
+        "peppol_move_state": "ready",
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          3162,
+          "Nouvel Air Coiffure"
+        ]
+      }
+    },
+    {
+      "so": "S05480",
+      "partner": "SA Brasserie Delsart",
+      "invoice_partner_id": 59871,
+      "invoice_partner": "SA Brasserie Delsart, Invoice Address",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36960,
+        "name": "INV/2026/02287",
+        "state": "posted",
+        "amount_untaxed": 465.0,
+        "amount_total": 492.9,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "b7b7ca14-68d9-4862-ae4c-ab299d38fcf9",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          59871,
+          "SA Brasserie Delsart, Invoice Address"
+        ]
+      }
+    },
+    {
+      "so": "S05457",
+      "partner": "Carrefour Belgium - Corporate Village, Carrefour Hyper Boncelles",
+      "invoice_partner_id": 6596,
+      "invoice_partner": "Carrefour Belgium - Corporate Village",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36961,
+        "name": "INV/2026/02288",
+        "state": "posted",
+        "amount_untaxed": 402.18,
+        "amount_total": 426.31,
+        "peppol_is_sent": false,
+        "peppol_move_state": false,
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          6596,
+          "Carrefour Belgium - Corporate Village"
+        ]
+      }
+    },
+    {
+      "so": "S05467",
+      "partner": "Carrefour Belgium - Corporate Village, Carrefour market Bastogne CC Port",
+      "invoice_partner_id": 6596,
+      "invoice_partner": "Carrefour Belgium - Corporate Village",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36962,
+        "name": "INV/2026/02289",
+        "state": "posted",
+        "amount_untaxed": 400.21,
+        "amount_total": 424.25,
+        "peppol_is_sent": false,
+        "peppol_move_state": false,
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          6596,
+          "Carrefour Belgium - Corporate Village"
+        ]
+      }
+    },
+    {
+      "so": "S05481",
+      "partner": "Cocon Life store",
+      "invoice_partner_id": 2889,
+      "invoice_partner": "Cocon Life store",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36963,
+        "name": "INV/2026/02290",
+        "state": "posted",
+        "amount_untaxed": 347.52,
+        "amount_total": 368.38,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "6b1a77d2-9027-4d66-9f05-13bbed48663a",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          2889,
+          "Cocon Life store"
+        ]
+      }
+    },
+    {
+      "so": "S05468",
+      "partner": "Carrefour Belgium - Corporate Village",
+      "invoice_partner_id": 6596,
+      "invoice_partner": "Carrefour Belgium - Corporate Village",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36965,
+        "name": "INV/2026/02292",
+        "state": "posted",
+        "amount_untaxed": 328.85,
+        "amount_total": 348.61,
+        "peppol_is_sent": false,
+        "peppol_move_state": false,
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          6596,
+          "Carrefour Belgium - Corporate Village"
+        ]
+      }
+    },
+    {
+      "so": "S05478",
+      "partner": "Delhaize Le Lion S.A, Affili\u00e9 044463 - Delhaize Hotton",
+      "invoice_partner_id": 2912,
+      "invoice_partner": "Delhaize Le Lion S.A",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36964,
+        "name": "INV/2026/02291",
+        "state": "posted",
+        "amount_untaxed": 321.96,
+        "amount_total": 341.28,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "9b62155b-3919-4283-9beb-0a07c6f2333c",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          2912,
+          "Delhaize Le Lion S.A"
+        ]
+      }
+    },
+    {
+      "so": "S05486",
+      "partner": "Megan Houtvast",
+      "invoice_partner_id": 3132,
+      "invoice_partner": "Megan Houtvast",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36967,
+        "name": "INV/2026/02294",
+        "state": "posted",
+        "amount_untaxed": 305.13,
+        "amount_total": 323.47,
+        "peppol_is_sent": false,
+        "peppol_move_state": false,
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          3132,
+          "Megan Houtvast"
+        ]
+      }
+    },
+    {
+      "so": "S05402",
+      "partner": "La Th\u00e9 Box",
+      "invoice_partner_id": 3042,
+      "invoice_partner": "La Th\u00e9 Box",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36966,
+        "name": "INV/2026/02293",
+        "state": "posted",
+        "amount_untaxed": 305.13,
+        "amount_total": 323.47,
+        "peppol_is_sent": false,
+        "peppol_move_state": false,
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          3042,
+          "La Th\u00e9 Box"
+        ]
+      }
+    },
+    {
+      "so": "S05412",
+      "partner": "Newpharma",
+      "invoice_partner_id": 5459,
+      "invoice_partner": "Newpharma, Comptabilit\u00e9",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36970,
+        "name": "INV/2026/02297",
+        "state": "posted",
+        "amount_untaxed": 242.55,
+        "amount_total": 257.1,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "07f1dfca-7a8e-498a-9d57-6f584416a534",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          5459,
+          "Newpharma, Comptabilit\u00e9"
+        ]
+      }
+    },
+    {
+      "so": "S05475",
+      "partner": "Coiffure By Sam",
+      "invoice_partner_id": 2892,
+      "invoice_partner": "Coiffure By Sam",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36968,
+        "name": "INV/2026/02295",
+        "state": "posted",
+        "amount_untaxed": 229.81,
+        "amount_total": 243.6,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "7cca71ab-d527-4b31-bf9b-25a49e2d8b40",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          2892,
+          "Coiffure By Sam"
+        ]
+      }
+    },
+    {
+      "so": "S05483",
+      "partner": "Emilie Gigot - Green Coffee",
+      "invoice_partner_id": 2939,
+      "invoice_partner": "Emilie Gigot - Green Coffee",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36969,
+        "name": "INV/2026/02296",
+        "state": "posted",
+        "amount_untaxed": 227.92,
+        "amount_total": 241.6,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "e19b768e-8050-4d61-9a83-a7f6b292727e",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          2939,
+          "Emilie Gigot - Green Coffee"
+        ]
+      }
+    },
+    {
+      "so": "S05484",
+      "partner": "Restaurant La Gloriette - SPRL Baufau - Mr Olivier Bauche",
+      "invoice_partner_id": 3200,
+      "invoice_partner": "Restaurant La Gloriette - SPRL Baufau - Mr Olivier Bauche",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36971,
+        "name": "INV/2026/02298",
+        "state": "posted",
+        "amount_untaxed": 213.71,
+        "amount_total": 226.52,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "fe7b9796-0f9c-4a54-b4de-cd206ff65dfd",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          3200,
+          "Restaurant La Gloriette - SPRL Baufau - Mr Olivier Bauche"
+        ]
+      }
+    },
+    {
+      "so": "S05485",
+      "partner": "La Vieille Demeure",
+      "invoice_partner_id": 3043,
+      "invoice_partner": "La Vieille Demeure",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36972,
+        "name": "INV/2026/02299",
+        "state": "posted",
+        "amount_untaxed": 155.3,
+        "amount_total": 164.63,
+        "peppol_is_sent": true,
+        "peppol_move_state": "processing",
+        "peppol_message_uuid": "eefd96e0-6267-4895-999b-97c2d04cc758",
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          3043,
+          "La Vieille Demeure"
+        ]
+      }
+    },
+    {
+      "so": "S05476",
+      "partner": "Carrefour Belgium - Corporate Village, Carrefour Market Bievre",
+      "invoice_partner_id": 6596,
+      "invoice_partner": "Carrefour Belgium - Corporate Village",
+      "amount_to_invoice_remaining": 0.0,
+      "invoice_status": "invoiced",
+      "invoice": {
+        "id": 36951,
+        "name": "INV/2026/02278",
+        "state": "posted",
+        "amount_untaxed": 21.79,
+        "amount_total": 23.1,
+        "peppol_is_sent": false,
+        "peppol_move_state": false,
+        "peppol_message_uuid": false,
+        "invoice_date": "2026-04-27",
+        "partner_id": [
+          6596,
+          "Carrefour Belgium - Corporate Village"
+        ]
+      }
+    }
+  ]
+}
