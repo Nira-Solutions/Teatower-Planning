@@ -12,7 +12,11 @@ Contexte (cf. LOG.md 2026-04-23 apres-midi) :
 Actions :
  1. search OP [warehouse_id=1 TT, route_id=False]
  2. resolve product -> product_tmpl_id -> seller_ids
- 3. write route_id=5 (Buy) sur les 256 avec vendor
+ 3. SPLIT : produits AVEC BoM active -> route Manufacture (6),
+            produits SANS BoM active -> route Buy (5)
+    (cf. patch 2026-04-27 : sans ce check, 249 produits I0/V0 avec BoM
+     etaient bascules par erreur sur Buy au lieu de Manufacture, ce qui
+     empechait le scheduler de generer les MO -> fix dans 12_fix_buy_to_manufacture.py)
  4. ecrit odoo/route_fix_20260423/42_no_vendor.md avec les 42 restants
  5. ecrit odoo/route_fix_20260423/45_confirmed_mo_pre_fix.md
 
@@ -32,6 +36,7 @@ def call(model, method, args, kw=None):
 
 OUT_DIR = "C:/Users/FlowUP/OneDrive/Teatower/odoo/route_fix_20260423"
 ROUTE_BUY = 5
+ROUTE_MANUFACTURE = 6  # cf. stock.route name=Manufacture
 TT_WH_ID = 1
 
 report = {"ts": datetime.now().isoformat(), "steps": []}
@@ -76,8 +81,24 @@ tpls = call(
 )
 tpl_by_id = {t["id"]: t for t in tpls}
 
-ops_with_vendor = []
-ops_no_vendor = []
+# Patch 2026-04-27 : identifier les templates avec BoM active pour split
+# route Buy vs Manufacture. Sans ce check, 249 produits I0/V0 avec BoM
+# se sont retrouves sur Buy au lieu de Manufacture -> scheduler ne generait
+# pas les MO. Voir 12_fix_buy_to_manufacture.py pour le rattrapage.
+tpls_with_bom = set()
+if tpl_ids:
+    boms = call(
+        "mrp.bom",
+        "search_read",
+        [[("product_tmpl_id", "in", tpl_ids), ("active", "=", True)]],
+        {"fields": ["id", "product_tmpl_id"]},
+    )
+    tpls_with_bom = {b["product_tmpl_id"][0] for b in boms}
+print(f"  Templates avec BoM active : {len(tpls_with_bom)}", flush=True)
+
+ops_with_bom = []       # -> route Manufacture (priorite : si BoM, on fabrique)
+ops_with_vendor = []    # -> route Buy (pas de BoM, mais vendor -> achat)
+ops_no_vendor = []      # -> arbitrage Nicolas (ni BoM, ni vendor)
 for o in ops_no_route:
     if not o.get("product_id"):
         ops_no_vendor.append(o)
@@ -88,23 +109,56 @@ for o in ops_no_route:
         ops_no_vendor.append(o)
         continue
     tpl = tpl_by_id.get(prod["product_tmpl_id"][0]) if prod.get("product_tmpl_id") else None
+    tpl_id = tpl["id"] if tpl else None
+    has_bom = tpl_id in tpls_with_bom
     sellers_prod = prod.get("seller_ids") or []
     sellers_tpl = tpl.get("seller_ids") if tpl else []
     sellers_tpl = sellers_tpl or []
-    if sellers_prod or sellers_tpl:
+    has_vendor = bool(sellers_prod or sellers_tpl)
+    if has_bom:
+        # Si le produit a une BoM active, on doit le FABRIQUER -> Manufacture
+        # meme s'il a un vendor (le vendor pourra rester pour les composants)
+        ops_with_bom.append(o)
+    elif has_vendor:
         ops_with_vendor.append(o)
     else:
         ops_no_vendor.append(o)
 
-print(f"  OP avec vendor (-> Buy)  : {len(ops_with_vendor)}", flush=True)
-print(f"  OP sans vendor (arbitrage): {len(ops_no_vendor)}", flush=True)
+print(f"  OP avec BoM active (-> Manufacture) : {len(ops_with_bom)}", flush=True)
+print(f"  OP avec vendor sans BoM (-> Buy)    : {len(ops_with_vendor)}", flush=True)
+print(f"  OP sans vendor sans BoM (arbitrage) : {len(ops_no_vendor)}", flush=True)
+report["n_with_bom"] = len(ops_with_bom)
 report["n_with_vendor"] = len(ops_with_vendor)
 report["n_no_vendor"] = len(ops_no_vendor)
 
 # ===================================================================
-# STEP 3 : write route_id = Buy (5) sur OP avec vendor, par chunks
+# STEP 3 : write route_id sur OP, en split Manufacture (BoM) / Buy (vendor)
 # ===================================================================
-print("\n=== STEP 3 : write route_id=Buy sur OP avec vendor ===", flush=True)
+print("\n=== STEP 3a : write route_id=Manufacture sur OP avec BoM active ===", flush=True)
+ids_bom = [o["id"] for o in ops_with_bom]
+written_bom = 0
+write_errors_bom = []
+for i in range(0, len(ids_bom), 100):
+    chunk = ids_bom[i:i+100]
+    try:
+        call("stock.warehouse.orderpoint", "write",
+             [chunk, {"route_id": ROUTE_MANUFACTURE}])
+        written_bom += len(chunk)
+        print(f"  chunk {i}-{i+len(chunk)} OK ({len(chunk)} -> Manufacture)", flush=True)
+    except Exception as e:
+        print(f"  chunk {i} FAIL : {str(e)[:200]}", flush=True)
+        for rid in chunk:
+            try:
+                call("stock.warehouse.orderpoint", "write",
+                     [[rid], {"route_id": ROUTE_MANUFACTURE}])
+                written_bom += 1
+            except Exception as e2:
+                write_errors_bom.append({"id": rid, "err": str(e2)[:200]})
+print(f"  Ecrits Manufacture : {written_bom} / {len(ids_bom)} ; erreurs : {len(write_errors_bom)}", flush=True)
+report["steps"].append({"step": "3a_write_manufacture",
+                        "written": written_bom, "errors": write_errors_bom})
+
+print("\n=== STEP 3b : write route_id=Buy sur OP avec vendor sans BoM ===", flush=True)
 ids_to_write = [o["id"] for o in ops_with_vendor]
 written = 0
 write_errors = []
@@ -122,15 +176,16 @@ for i in range(0, len(ids_to_write), 100):
                 written += 1
             except Exception as e2:
                 write_errors.append({"id": rid, "err": str(e2)[:200]})
-print(f"  Ecrits : {written} / {len(ids_to_write)} ; erreurs : {len(write_errors)}", flush=True)
-report["steps"].append({"step": "3_write_buy", "written": written, "errors": write_errors})
+print(f"  Ecrits Buy : {written} / {len(ids_to_write)} ; erreurs : {len(write_errors)}", flush=True)
+report["steps"].append({"step": "3b_write_buy", "written": written, "errors": write_errors})
 
-# Verif
+# Verif globale
+all_ids_written = ids_bom + ids_to_write
 remaining = call(
     "stock.warehouse.orderpoint",
     "search_count",
     [[("warehouse_id", "=", TT_WH_ID), ("route_id", "=", False),
-      ("id", "in", ids_to_write)]],
+      ("id", "in", all_ids_written)]],
 )
 print(f"  Verif : OP cibles encore sans route : {remaining} (attendu 0)", flush=True)
 report["steps"].append({"step": "3_verify", "remaining_no_route": remaining})

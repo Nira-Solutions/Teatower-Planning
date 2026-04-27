@@ -1,0 +1,24 @@
+{
+  "ts": "2026-04-27T13:02:15.098282",
+  "steps": [
+    {
+      "step": "3_write_manufacture",
+      "written": 249,
+      "errors": []
+    },
+    {
+      "step": "4_verify_manufacture",
+      "ok": 249,
+      "ko_count": 0,
+      "ko_sample": []
+    },
+    {
+      "step": "4_audit_query",
+      "remaining": 0,
+      "sample": []
+    }
+  ],
+  "n_to_fix": 249,
+  "route_manufacture_id": 6,
+  "sanity_ok": true
+}
