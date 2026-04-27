@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-27T17:05:47",
+  "updated": "2026-04-27T17:15:34",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3046,9 +3046,10 @@
       "id": "t031",
       "agent": "compta",
       "task": "Facturation 22 SO + envoi Peppol",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-27T17:05",
-      "request": "GO facturation 22 SO mode delivered + activation Peppol partners + envoi Peppol"
+      "request": "GO facturation 22 SO mode delivered + activation Peppol partners + envoi Peppol",
+      "finished": "2026-04-27T17:15"
     }
   ]
 }
