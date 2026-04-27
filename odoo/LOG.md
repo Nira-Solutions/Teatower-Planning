@@ -1,4 +1,25 @@
 
+## 2026-04-27 — Fix route Buy -> Manufacture sur 249 OP I0/V0 avec BoM active
+
+- **Demande Nicolas** : GO pour appliquer le fix planifie dans l'audit precedent (249 OP TT/Stock I0/V0 avec BoM active mais route Buy par erreur, suite au script `11_restore_buy_route.py` du 23/04 qui n'avait pas verifie la presence de BoM).
+- **Cause racine** : `11_restore_buy_route.py` se contentait de checker `seller_ids` -> Buy. Or 249 produits I0/V0 ont a la fois un vendor (composants) ET une BoM active (assembles en interne) -> la route correcte est Manufacture, pas Buy.
+- **Fix Odoo** : `odoo/route_fix_20260423/12_fix_buy_to_manufacture.py`
+  - Lecture des 249 OP IDs depuis `i0v0_buy_with_bom_TO_FIX.json`.
+  - Resolution route Manufacture : `stock.route` id=6.
+  - `write({route_id: 6})` par chunks de 100 : 100 + 100 + 49 = **249/249 OK, 0 erreur**.
+- **Sanity post-fix** :
+  - Verif directe : 249/249 OP ont bien `route_id=Manufacture` (id=6).
+  - Query d'audit complete (OP TT/Stock + I0/V0 + BoM active + route=Buy) : **0 ligne** (attendu 0). Verdict OK.
+  - Reste 128 OP TT/Stock I0/V0 sur Buy mais sans BoM active = legitimes (achats purs).
+- **Patch script** `11_restore_buy_route.py` :
+  - Ajout `ROUTE_MANUFACTURE = 6`.
+  - STEP 2 : query `mrp.bom` actives sur les `tpl_ids` -> set `tpls_with_bom`.
+  - Logique split : si BoM active -> Manufacture (priorite, meme si vendor present), sinon si vendor -> Buy, sinon arbitrage.
+  - STEP 3 dedouble en 3a (write Manufacture) + 3b (write Buy).
+  - Commentaire d'audit ajoute en docstring + au-dessus du nouveau bloc.
+  - Validation : `python -m py_compile` OK.
+- **Rapport** : `odoo/route_fix_20260423/12_fix_report.json`.
+
 ## 2026-04-23 (apres-midi v2) — Restauration route Buy sur 256 OP TT + rapports arbitrage
 
 - **Demande Nicolas** : appliquer `11_restore_buy_route.py` pour remettre route Buy sur les OP TT orphelins et produire les 2 rapports d'arbitrage.

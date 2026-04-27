@@ -1,0 +1,5840 @@
+{
+  "ts": "2026-04-27T12:26:18.721961",
+  "n_ops_buy_total": 489,
+  "n_ops_i0v0_buy": 377,
+  "i0_total": 105,
+  "v0_total": 272,
+  "i0_with_bom": 101,
+  "v0_with_bom": 148,
+  "rows": [
+    {
+      "op_id": 13943,
+      "op_name": "OP/28393",
+      "code": "I0121",
+      "name": "Lady Dodo (20 infusettes)",
+      "tmpl_id": 4628,
+      "fam": "I0",
+      "min": 170.0,
+      "max": 550.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6732
+      ]
+    },
+    {
+      "op_id": 5071,
+      "op_name": "OP/13495",
+      "code": "05V0121",
+      "name": "Lady Dodo (400 g vrac)",
+      "tmpl_id": 3959,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6375
+      ]
+    },
+    {
+      "op_id": 5072,
+      "op_name": "OP/13496",
+      "code": "05V0205",
+      "name": "Etoiles filantes (500 g vrac)",
+      "tmpl_id": 3960,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6376
+      ]
+    },
+    {
+      "op_id": 5074,
+      "op_name": "OP/13498",
+      "code": "05V0315",
+      "name": "Orange Royale (500 g vrac)",
+      "tmpl_id": 3962,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6377
+      ]
+    },
+    {
+      "op_id": 5075,
+      "op_name": "OP/13499",
+      "code": "05V0600",
+      "name": "La lampe merveilleuse (500 g vrac)",
+      "tmpl_id": 3964,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 2.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6379
+      ]
+    },
+    {
+      "op_id": 5076,
+      "op_name": "OP/13500",
+      "code": "05V0601",
+      "name": "Acai & goji (500 g vrac)",
+      "tmpl_id": 3965,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6380
+      ]
+    },
+    {
+      "op_id": 5079,
+      "op_name": "OP/13503",
+      "code": "05V0626",
+      "name": "Sencha - BIO (500 g vrac)",
+      "tmpl_id": 3968,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6383
+      ]
+    },
+    {
+      "op_id": 5080,
+      "op_name": "OP/13504",
+      "code": "05V0628",
+      "name": "Oasis du désert - BIO (500 g vrac)",
+      "tmpl_id": 3969,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6384
+      ]
+    },
+    {
+      "op_id": 5081,
+      "op_name": "OP/13505",
+      "code": "05V0631",
+      "name": "Le thé des amoureux (400 g vrac)",
+      "tmpl_id": 3970,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 16.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6385
+      ]
+    },
+    {
+      "op_id": 5082,
+      "op_name": "OP/13506",
+      "code": "05V0634",
+      "name": "Gourmandise (400 g vrac)",
+      "tmpl_id": 3971,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6386
+      ]
+    },
+    {
+      "op_id": 5083,
+      "op_name": "OP/13507",
+      "code": "05V0635",
+      "name": "Silhouette (400 g vrac)",
+      "tmpl_id": 3972,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6387
+      ]
+    },
+    {
+      "op_id": 5084,
+      "op_name": "OP/13508",
+      "code": "05V0638",
+      "name": "500G Sérénité BIO",
+      "tmpl_id": 3973,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5085,
+      "op_name": "OP/13509",
+      "code": "05V0685",
+      "name": "Darjeeling SF FTGFOP1 - BIO (500 g vrac)",
+      "tmpl_id": 3974,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6388
+      ]
+    },
+    {
+      "op_id": 5086,
+      "op_name": "OP/13510",
+      "code": "05V0709",
+      "name": "400G Parfums d'été",
+      "tmpl_id": 3975,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5087,
+      "op_name": "OP/13511",
+      "code": "05V0717",
+      "name": "Pomme d'amour (500 g vrac)",
+      "tmpl_id": 3976,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6389
+      ]
+    },
+    {
+      "op_id": 5088,
+      "op_name": "OP/13512",
+      "code": "05V0723",
+      "name": "Namasté BIO (400 g vrac)",
+      "tmpl_id": 3977,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6390
+      ]
+    },
+    {
+      "op_id": 5089,
+      "op_name": "OP/13513",
+      "code": "05V0734",
+      "name": "Jardin de Babylone (500 g vrac)",
+      "tmpl_id": 3978,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6391
+      ]
+    },
+    {
+      "op_id": 5090,
+      "op_name": "OP/13514",
+      "code": "05V0735",
+      "name": "Pêche de vigne - BIO (500 g vrac)",
+      "tmpl_id": 3979,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6392
+      ]
+    },
+    {
+      "op_id": 5091,
+      "op_name": "OP/13515",
+      "code": "05V0751",
+      "name": "I love you (400 g vrac)",
+      "tmpl_id": 3980,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6393
+      ]
+    },
+    {
+      "op_id": 5092,
+      "op_name": "OP/13516",
+      "code": "05V0767",
+      "name": "Earl grey (500 g vrac)",
+      "tmpl_id": 3982,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6394
+      ]
+    },
+    {
+      "op_id": 5093,
+      "op_name": "OP/13517",
+      "code": "05V0778",
+      "name": "Spéculoos & Cie (500 g vrac)",
+      "tmpl_id": 3983,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6395
+      ]
+    },
+    {
+      "op_id": 5094,
+      "op_name": "OP/13518",
+      "code": "05V0813",
+      "name": "Thé du désert (500 g vrac)",
+      "tmpl_id": 3985,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6397
+      ]
+    },
+    {
+      "op_id": 5095,
+      "op_name": "OP/13519",
+      "code": "05V0821",
+      "name": "Poupée russe (500 g vrac)",
+      "tmpl_id": 3987,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6413
+      ]
+    },
+    {
+      "op_id": 5096,
+      "op_name": "OP/13520",
+      "code": "05V0822",
+      "name": "500g Sous les cocotiers",
+      "tmpl_id": 3988,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5097,
+      "op_name": "OP/13521",
+      "code": "05V0826",
+      "name": "Pinacolada (500 g vrac)",
+      "tmpl_id": 3989,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 2.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6414
+      ]
+    },
+    {
+      "op_id": 5098,
+      "op_name": "OP/13522",
+      "code": "05V0828",
+      "name": "500g Pêché mignon",
+      "tmpl_id": 3990,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5099,
+      "op_name": "OP/13523",
+      "code": "05V0832",
+      "name": "La Nana de Wépion (500 g vrac)",
+      "tmpl_id": 3991,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6415
+      ]
+    },
+    {
+      "op_id": 5100,
+      "op_name": "OP/13524",
+      "code": "05V0837",
+      "name": "Vert Pistache (500 g vrac)",
+      "tmpl_id": 3992,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 2.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6416
+      ]
+    },
+    {
+      "op_id": 5101,
+      "op_name": "OP/13525",
+      "code": "05V0839",
+      "name": "Caramel Beurre salé (500 g vrac)",
+      "tmpl_id": 3993,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6417
+      ]
+    },
+    {
+      "op_id": 5102,
+      "op_name": "OP/13526",
+      "code": "05V0841",
+      "name": "Lacquemant liégeois (500 g vrac)",
+      "tmpl_id": 3994,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6418
+      ]
+    },
+    {
+      "op_id": 5103,
+      "op_name": "OP/13527",
+      "code": "05V0842",
+      "name": "Plaisir chocolaté (500 g vrac)",
+      "tmpl_id": 3995,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6419
+      ]
+    },
+    {
+      "op_id": 5104,
+      "op_name": "OP/13528",
+      "code": "05V0845",
+      "name": "Mamy Granny - BIO (500 g vrac)",
+      "tmpl_id": 3996,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6422
+      ]
+    },
+    {
+      "op_id": 5105,
+      "op_name": "OP/13529",
+      "code": "05V0846",
+      "name": "400g Vrac Ginger Smith",
+      "tmpl_id": 3997,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 1.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5106,
+      "op_name": "OP/13530",
+      "code": "05V0847",
+      "name": "Couleur Mojito (500 g vrac)",
+      "tmpl_id": 3998,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6423
+      ]
+    },
+    {
+      "op_id": 5107,
+      "op_name": "OP/13531",
+      "code": "05V0848",
+      "name": "Ginger Cool - BIO (500 g vrac)",
+      "tmpl_id": 3999,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 8.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6424
+      ]
+    },
+    {
+      "op_id": 5108,
+      "op_name": "OP/13532",
+      "code": "05V0852",
+      "name": "Verveine Odorante - BIO (250 g vrac)",
+      "tmpl_id": 4000,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6425
+      ]
+    },
+    {
+      "op_id": 5109,
+      "op_name": "OP/13533",
+      "code": "05V0856",
+      "name": "Sorbet framboise - BIO (500 g vrac)",
+      "tmpl_id": 4001,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6426
+      ]
+    },
+    {
+      "op_id": 5110,
+      "op_name": "OP/13534",
+      "code": "05V0867",
+      "name": "Douceur épicée (500 g vrac)",
+      "tmpl_id": 4002,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 1.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6427
+      ]
+    },
+    {
+      "op_id": 5111,
+      "op_name": "OP/13535",
+      "code": "05V0868",
+      "name": "Citron meringué (500 g vrac)",
+      "tmpl_id": 4003,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6428
+      ]
+    },
+    {
+      "op_id": 5113,
+      "op_name": "OP/13537",
+      "code": "05V0878",
+      "name": "Guarana Boost (500 g vrac)",
+      "tmpl_id": 4005,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6431
+      ]
+    },
+    {
+      "op_id": 5114,
+      "op_name": "OP/13538",
+      "code": "05V0879",
+      "name": "500g Amazônia",
+      "tmpl_id": 4006,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 1.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5115,
+      "op_name": "OP/13539",
+      "code": "05V0880",
+      "name": "Blue Earl Grey BIO (500 g vrac)",
+      "tmpl_id": 4007,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6432
+      ]
+    },
+    {
+      "op_id": 5248,
+      "op_name": "OP/13672",
+      "code": "GI0735",
+      "name": "Pêche de Vigne - BIO glacée",
+      "tmpl_id": 4572,
+      "fam": "I0",
+      "min": 78.0,
+      "max": 128.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6684
+      ]
+    },
+    {
+      "op_id": 5249,
+      "op_name": "OP/13673",
+      "code": "GI0820",
+      "name": "Marrakech Sunset - BIO glacé",
+      "tmpl_id": 4574,
+      "fam": "I0",
+      "min": 180.0,
+      "max": 280.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6710
+      ]
+    },
+    {
+      "op_id": 5250,
+      "op_name": "OP/13674",
+      "code": "GI0832",
+      "name": "La Nana de Wépion glacée",
+      "tmpl_id": 4578,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6698
+      ]
+    },
+    {
+      "op_id": 5253,
+      "op_name": "OP/13677",
+      "code": "I0121",
+      "name": "Lady Dodo (20 infusettes)",
+      "tmpl_id": 4628,
+      "fam": "I0",
+      "min": 305.0,
+      "max": 355.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6732
+      ]
+    },
+    {
+      "op_id": 5254,
+      "op_name": "OP/13678",
+      "code": "I0133",
+      "name": "Red Earl Grey - BIO (20 infusettes)",
+      "tmpl_id": 4629,
+      "fam": "I0",
+      "min": 32.0,
+      "max": 64.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5255,
+      "op_name": "OP/13679",
+      "code": "I0205",
+      "name": "Etoiles filantes (20 infusettes)",
+      "tmpl_id": 4630,
+      "fam": "I0",
+      "min": 295.0,
+      "max": 345.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6733
+      ]
+    },
+    {
+      "op_id": 5256,
+      "op_name": "OP/13680",
+      "code": "I0253",
+      "name": "Voyage à Venise (20 infusettes)",
+      "tmpl_id": 4632,
+      "fam": "I0",
+      "min": 91.0,
+      "max": 141.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7359
+      ]
+    },
+    {
+      "op_id": 5257,
+      "op_name": "OP/13681",
+      "code": "I0257",
+      "name": "Pomme vanille (20 infusettes)",
+      "tmpl_id": 4633,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7360
+      ]
+    },
+    {
+      "op_id": 5258,
+      "op_name": "OP/13682",
+      "code": "I0267",
+      "name": "Promenade en forêt (20 infusettes)",
+      "tmpl_id": 4634,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7361
+      ]
+    },
+    {
+      "op_id": 5259,
+      "op_name": "OP/13683",
+      "code": "I0279",
+      "name": "Le panier de grand maman (20 infusettes)",
+      "tmpl_id": 4635,
+      "fam": "I0",
+      "min": 685.0,
+      "max": 735.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7362
+      ]
+    },
+    {
+      "op_id": 5260,
+      "op_name": "OP/13684",
+      "code": "I0280",
+      "name": "Envolée Andalouse (20 infusettes)",
+      "tmpl_id": 4636,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7363
+      ]
+    },
+    {
+      "op_id": 5261,
+      "op_name": "OP/13685",
+      "code": "I0287",
+      "name": "Détox (20 infusettes)",
+      "tmpl_id": 4637,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7364
+      ]
+    },
+    {
+      "op_id": 5262,
+      "op_name": "OP/13686",
+      "code": "I0301",
+      "name": "Tisane tropicale (20 infusettes)",
+      "tmpl_id": 4638,
+      "fam": "I0",
+      "min": 281.0,
+      "max": 382.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7365
+      ]
+    },
+    {
+      "op_id": 5263,
+      "op_name": "OP/13687",
+      "code": "I0315",
+      "name": "Orange Royale (20 infusettes)",
+      "tmpl_id": 4640,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7367
+      ]
+    },
+    {
+      "op_id": 5264,
+      "op_name": "OP/13688",
+      "code": "I0340",
+      "name": "Miss Réglisse (20 infusettes)",
+      "tmpl_id": 4641,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7368
+      ]
+    },
+    {
+      "op_id": 5265,
+      "op_name": "OP/13689",
+      "code": "I0376",
+      "name": "Coup de foudre (20 infusettes)",
+      "tmpl_id": 4643,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7370
+      ]
+    },
+    {
+      "op_id": 5266,
+      "op_name": "OP/13690",
+      "code": "I0483",
+      "name": "Green zest - BIO (20 infusettes)",
+      "tmpl_id": 4650,
+      "fam": "I0",
+      "min": 41.0,
+      "max": 82.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5267,
+      "op_name": "OP/13691",
+      "code": "I0600",
+      "name": "La lampe merveilleuse (20 infusettes)",
+      "tmpl_id": 4651,
+      "fam": "I0",
+      "min": 98.0,
+      "max": 148.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7377
+      ]
+    },
+    {
+      "op_id": 5268,
+      "op_name": "OP/13692",
+      "code": "I0601",
+      "name": "Acai & goji (20 infusettes)",
+      "tmpl_id": 4652,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7378
+      ]
+    },
+    {
+      "op_id": 5269,
+      "op_name": "OP/13693",
+      "code": "I0607",
+      "name": "Sensualité (20 infusettes)",
+      "tmpl_id": 4653,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7379
+      ]
+    },
+    {
+      "op_id": 5270,
+      "op_name": "OP/13694",
+      "code": "I0608",
+      "name": "Earl Green (20 infusettes)",
+      "tmpl_id": 4654,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7380
+      ]
+    },
+    {
+      "op_id": 5271,
+      "op_name": "OP/13695",
+      "code": "I0610",
+      "name": "Earl Grey Supérieur (20 infusettes)",
+      "tmpl_id": 4655,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7381
+      ]
+    },
+    {
+      "op_id": 5272,
+      "op_name": "OP/13696",
+      "code": "I0617",
+      "name": "Liberté (20 infusettes)",
+      "tmpl_id": 4656,
+      "fam": "I0",
+      "min": 116.0,
+      "max": 166.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7382
+      ]
+    },
+    {
+      "op_id": 5273,
+      "op_name": "OP/13697",
+      "code": "I0626",
+      "name": "Sencha - BIO (20 infusettes)",
+      "tmpl_id": 4657,
+      "fam": "I0",
+      "min": 214.0,
+      "max": 264.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7383
+      ]
+    },
+    {
+      "op_id": 5274,
+      "op_name": "OP/13698",
+      "code": "I0628",
+      "name": "Oasis du désert - BIO (20 infusettes)",
+      "tmpl_id": 4659,
+      "fam": "I0",
+      "min": 362.0,
+      "max": 412.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7385
+      ]
+    },
+    {
+      "op_id": 5275,
+      "op_name": "OP/13699",
+      "code": "I0631",
+      "name": "Le thé des amoureux (20 infusettes)",
+      "tmpl_id": 4660,
+      "fam": "I0",
+      "min": 544.0,
+      "max": 594.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7386
+      ]
+    },
+    {
+      "op_id": 5276,
+      "op_name": "OP/13700",
+      "code": "I0632",
+      "name": "Les dunes du Sahara (20 infusettes)",
+      "tmpl_id": 4661,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7387
+      ]
+    },
+    {
+      "op_id": 5277,
+      "op_name": "OP/13701",
+      "code": "I0634",
+      "name": "Gourmandise (20 infusettes)",
+      "tmpl_id": 4662,
+      "fam": "I0",
+      "min": 125.0,
+      "max": 175.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7388
+      ]
+    },
+    {
+      "op_id": 5278,
+      "op_name": "OP/13702",
+      "code": "I0635",
+      "name": "Silhouette (20 infusettes)",
+      "tmpl_id": 4663,
+      "fam": "I0",
+      "min": 309.0,
+      "max": 359.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7389
+      ]
+    },
+    {
+      "op_id": 5279,
+      "op_name": "OP/13703",
+      "code": "I0638",
+      "name": "Sérénité - BIO (20 infusettes)",
+      "tmpl_id": 4664,
+      "fam": "I0",
+      "min": 150.0,
+      "max": 200.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7390
+      ]
+    },
+    {
+      "op_id": 5280,
+      "op_name": "OP/13704",
+      "code": "I0666",
+      "name": "English Breakfast  (20 infusettes)",
+      "tmpl_id": 4668,
+      "fam": "I0",
+      "min": 95.0,
+      "max": 140.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5281,
+      "op_name": "OP/13705",
+      "code": "I0669",
+      "name": "Vert Jasmin (20 infusettes)",
+      "tmpl_id": 4669,
+      "fam": "I0",
+      "min": 232.0,
+      "max": 282.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7394
+      ]
+    },
+    {
+      "op_id": 5282,
+      "op_name": "OP/13706",
+      "code": "I0681",
+      "name": "Menthe douce - BIO (20 infusettes)",
+      "tmpl_id": 4672,
+      "fam": "I0",
+      "min": 60.0,
+      "max": 110.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7396
+      ]
+    },
+    {
+      "op_id": 5283,
+      "op_name": "OP/13707",
+      "code": "I0685",
+      "name": "Darjeeling SF FTGFOP1 - BIO (20 infusettes)",
+      "tmpl_id": 4673,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7397
+      ]
+    },
+    {
+      "op_id": 5284,
+      "op_name": "OP/13708",
+      "code": "I0700",
+      "name": "Anti Fatigue (20 infusettes)",
+      "tmpl_id": 4674,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7398
+      ]
+    },
+    {
+      "op_id": 5285,
+      "op_name": "OP/13709",
+      "code": "I0709",
+      "name": "Parfums d'été (20 infusettes)",
+      "tmpl_id": 4676,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6602,
+        7400
+      ]
+    },
+    {
+      "op_id": 5286,
+      "op_name": "OP/13710",
+      "code": "I0710",
+      "name": "Mandarine (20 infusettes)",
+      "tmpl_id": 4677,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6603,
+        7401
+      ]
+    },
+    {
+      "op_id": 5287,
+      "op_name": "OP/13711",
+      "code": "I0723",
+      "name": "Namasté BIO (20 infusettes)",
+      "tmpl_id": 4682,
+      "fam": "I0",
+      "min": 247.0,
+      "max": 297.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7405
+      ]
+    },
+    {
+      "op_id": 5288,
+      "op_name": "OP/13712",
+      "code": "I0727",
+      "name": "L'après-repas (20 infusettes)",
+      "tmpl_id": 4684,
+      "fam": "I0",
+      "min": 52.0,
+      "max": 102.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7407
+      ]
+    },
+    {
+      "op_id": 5289,
+      "op_name": "OP/13713",
+      "code": "I0728",
+      "name": "Jardin gourmand (20 infusettes)",
+      "tmpl_id": 4685,
+      "fam": "I0",
+      "min": 104.0,
+      "max": 154.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7408
+      ]
+    },
+    {
+      "op_id": 5290,
+      "op_name": "OP/13714",
+      "code": "I0729",
+      "name": "Relax BIO (20 infusettes)",
+      "tmpl_id": 4686,
+      "fam": "I0",
+      "min": 107.0,
+      "max": 157.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7409
+      ]
+    },
+    {
+      "op_id": 5291,
+      "op_name": "OP/13715",
+      "code": "I0734",
+      "name": "Jardin de Babylone (20 infusettes)",
+      "tmpl_id": 4688,
+      "fam": "I0",
+      "min": 104.0,
+      "max": 154.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7411
+      ]
+    },
+    {
+      "op_id": 5292,
+      "op_name": "OP/13716",
+      "code": "I0735",
+      "name": "Pêche de vigne - BIO (20 infusettes)",
+      "tmpl_id": 4689,
+      "fam": "I0",
+      "min": 372.0,
+      "max": 422.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7412
+      ]
+    },
+    {
+      "op_id": 5293,
+      "op_name": "OP/13717",
+      "code": "I0737",
+      "name": "Plaisir caramel  (20 infusettes)",
+      "tmpl_id": 4690,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7413
+      ]
+    },
+    {
+      "op_id": 5294,
+      "op_name": "OP/13718",
+      "code": "I0742",
+      "name": "Ange Gardien (20 infusettes)",
+      "tmpl_id": 4691,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7414
+      ]
+    },
+    {
+      "op_id": 5295,
+      "op_name": "OP/13719",
+      "code": "I0751",
+      "name": "I love you (20 infusettes)",
+      "tmpl_id": 4693,
+      "fam": "I0",
+      "min": 302.0,
+      "max": 352.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7416
+      ]
+    },
+    {
+      "op_id": 5296,
+      "op_name": "OP/13720",
+      "code": "I0752",
+      "name": "Eden's Garden (20 infusettes)",
+      "tmpl_id": 4694,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6617,
+        7417
+      ]
+    },
+    {
+      "op_id": 5297,
+      "op_name": "OP/13721",
+      "code": "I0767",
+      "name": "Earl grey (20 infusettes)",
+      "tmpl_id": 4696,
+      "fam": "I0",
+      "min": 57.0,
+      "max": 107.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6618,
+        7419
+      ]
+    },
+    {
+      "op_id": 5298,
+      "op_name": "OP/13722",
+      "code": "I0772",
+      "name": "Black Mango (20 infusettes)",
+      "tmpl_id": 4698,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6620,
+        7421
+      ]
+    },
+    {
+      "op_id": 5299,
+      "op_name": "OP/13723",
+      "code": "I0773",
+      "name": "New York (20 infusettes)",
+      "tmpl_id": 4699,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7422
+      ]
+    },
+    {
+      "op_id": 5300,
+      "op_name": "OP/13724",
+      "code": "I0775",
+      "name": "Promenade à venise (20 infusettes)",
+      "tmpl_id": 4700,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6622,
+        7423
+      ]
+    },
+    {
+      "op_id": 5301,
+      "op_name": "OP/13725",
+      "code": "I0778",
+      "name": "Spéculoos & Cie (20 infusettes)",
+      "tmpl_id": 4701,
+      "fam": "I0",
+      "min": 63.0,
+      "max": 113.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7424
+      ]
+    },
+    {
+      "op_id": 5302,
+      "op_name": "OP/13726",
+      "code": "I0793",
+      "name": "Orangipane (20 infusettes)",
+      "tmpl_id": 4702,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7425
+      ]
+    },
+    {
+      "op_id": 5303,
+      "op_name": "OP/13727",
+      "code": "I0794",
+      "name": "Bien-être (20 infusettes)",
+      "tmpl_id": 4703,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6625,
+        7426
+      ]
+    },
+    {
+      "op_id": 5304,
+      "op_name": "OP/13728",
+      "code": "I0796",
+      "name": "Fraîcheur acidulée BIO (20 infusettes)",
+      "tmpl_id": 4704,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7427
+      ]
+    },
+    {
+      "op_id": 5305,
+      "op_name": "OP/13729",
+      "code": "I0807",
+      "name": "Sakura (20 infusettes)",
+      "tmpl_id": 4708,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7431
+      ]
+    },
+    {
+      "op_id": 5306,
+      "op_name": "OP/13730",
+      "code": "I0808",
+      "name": "Thé au Jasmin Raffiné - BIO (20 infusettes)",
+      "tmpl_id": 4709,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6630,
+        7432
+      ]
+    },
+    {
+      "op_id": 5307,
+      "op_name": "OP/13731",
+      "code": "I0813",
+      "name": "Thé du désert (20 infusettes)",
+      "tmpl_id": 4711,
+      "fam": "I0",
+      "min": 75.0,
+      "max": 125.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7434
+      ]
+    },
+    {
+      "op_id": 5308,
+      "op_name": "OP/13732",
+      "code": "I0816",
+      "name": "Vitalité - BIO (20 infusettes)",
+      "tmpl_id": 4713,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7436
+      ]
+    },
+    {
+      "op_id": 5309,
+      "op_name": "OP/13733",
+      "code": "I0820",
+      "name": "Marrakech Sunset - BIO (20 infusettes)",
+      "tmpl_id": 4717,
+      "fam": "I0",
+      "min": 180.0,
+      "max": 230.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7440
+      ]
+    },
+    {
+      "op_id": 5310,
+      "op_name": "OP/13734",
+      "code": "I0821",
+      "name": "Poupée russe (20 infusettes)",
+      "tmpl_id": 4718,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6636,
+        7441
+      ]
+    },
+    {
+      "op_id": 5311,
+      "op_name": "OP/13735",
+      "code": "I0822",
+      "name": "Sous les cocotiers (20 infusettes)",
+      "tmpl_id": 4719,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7442
+      ]
+    },
+    {
+      "op_id": 5312,
+      "op_name": "OP/13736",
+      "code": "I0825",
+      "name": "Ginger Hot (20 infusettes)",
+      "tmpl_id": 4720,
+      "fam": "I0",
+      "min": 68.0,
+      "max": 118.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7443
+      ]
+    },
+    {
+      "op_id": 5313,
+      "op_name": "OP/13737",
+      "code": "I0826",
+      "name": "Pinacolada (20 infusettes)",
+      "tmpl_id": 4721,
+      "fam": "I0",
+      "min": 100.0,
+      "max": 200.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:49",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7444
+      ]
+    },
+    {
+      "op_id": 5314,
+      "op_name": "OP/13738",
+      "code": "I0828",
+      "name": "Pêché Mignon (20 infusettes)",
+      "tmpl_id": 4722,
+      "fam": "I0",
+      "min": 63.0,
+      "max": 113.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7445
+      ]
+    },
+    {
+      "op_id": 5315,
+      "op_name": "OP/13739",
+      "code": "I0829",
+      "name": "Tropical Sun (20 infusettes)",
+      "tmpl_id": 4723,
+      "fam": "I0",
+      "min": 53.0,
+      "max": 103.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7446
+      ]
+    },
+    {
+      "op_id": 5317,
+      "op_name": "OP/13741",
+      "code": "I0834",
+      "name": "Nuage Coco (20 infusettes)",
+      "tmpl_id": 4726,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6642,
+        7448
+      ]
+    },
+    {
+      "op_id": 5318,
+      "op_name": "OP/13742",
+      "code": "I0836",
+      "name": "Ayurveda - BIO (20 infusettes)",
+      "tmpl_id": 4727,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7449
+      ]
+    },
+    {
+      "op_id": 5319,
+      "op_name": "OP/13743",
+      "code": "I0837",
+      "name": "Vert Pistache (20 infusettes)",
+      "tmpl_id": 4728,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6644,
+        7450
+      ]
+    },
+    {
+      "op_id": 5320,
+      "op_name": "OP/13744",
+      "code": "I0838",
+      "name": "Oolong Framboise (20 infusettes)",
+      "tmpl_id": 4729,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6645,
+        7451
+      ]
+    },
+    {
+      "op_id": 5321,
+      "op_name": "OP/13745",
+      "code": "I0839",
+      "name": "Caramel Beurre salé (20 infusettes)",
+      "tmpl_id": 4730,
+      "fam": "I0",
+      "min": 108.0,
+      "max": 158.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7452
+      ]
+    },
+    {
+      "op_id": 5322,
+      "op_name": "OP/13746",
+      "code": "I0841",
+      "name": "Lacquemant liégeois (20 infusettes)",
+      "tmpl_id": 4731,
+      "fam": "I0",
+      "min": 65.0,
+      "max": 115.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7453
+      ]
+    },
+    {
+      "op_id": 5323,
+      "op_name": "OP/13747",
+      "code": "I0842",
+      "name": "Plaisir chocolaté (20 infusettes)",
+      "tmpl_id": 4732,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6648,
+        7454
+      ]
+    },
+    {
+      "op_id": 5325,
+      "op_name": "OP/13749",
+      "code": "I0845",
+      "name": "Mamy Granny - BIO (20 infusettes)",
+      "tmpl_id": 4734,
+      "fam": "I0",
+      "min": 54.0,
+      "max": 104.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7456
+      ]
+    },
+    {
+      "op_id": 5326,
+      "op_name": "OP/13750",
+      "code": "I0847",
+      "name": "Couleur Mojito (20 infusettes)",
+      "tmpl_id": 4735,
+      "fam": "I0",
+      "min": 82.0,
+      "max": 132.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7457
+      ]
+    },
+    {
+      "op_id": 5327,
+      "op_name": "OP/13751",
+      "code": "I0848",
+      "name": "Ginger Cool - BIO (20 infusettes)",
+      "tmpl_id": 4736,
+      "fam": "I0",
+      "min": 120.0,
+      "max": 170.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7458
+      ]
+    },
+    {
+      "op_id": 5328,
+      "op_name": "OP/13752",
+      "code": "I0854",
+      "name": "Camomille Matricaire - BIO (20 infusettes)",
+      "tmpl_id": 4740,
+      "fam": "I0",
+      "min": 86.0,
+      "max": 136.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6654,
+        7461
+      ]
+    },
+    {
+      "op_id": 5329,
+      "op_name": "OP/13753",
+      "code": "I0856",
+      "name": "Sorbet framboise - BIO (20 infusettes)",
+      "tmpl_id": 4742,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7463
+      ]
+    },
+    {
+      "op_id": 5330,
+      "op_name": "OP/13754",
+      "code": "I0858",
+      "name": "Tarte à la rhubarbe (20 infusettes)",
+      "tmpl_id": 4744,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7464
+      ]
+    },
+    {
+      "op_id": 5331,
+      "op_name": "OP/13755",
+      "code": "I0859",
+      "name": "Délice de Montélimar (20 infusettes)",
+      "tmpl_id": 4745,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7465
+      ]
+    },
+    {
+      "op_id": 5332,
+      "op_name": "OP/13756",
+      "code": "I0861",
+      "name": "Massepain - BIO (20 infusettes)",
+      "tmpl_id": 4747,
+      "fam": "I0",
+      "min": 9.0,
+      "max": 18.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5333,
+      "op_name": "OP/13757",
+      "code": "I0863",
+      "name": "Masala Chai  (20 infusettes)",
+      "tmpl_id": 4748,
+      "fam": "I0",
+      "min": 78.0,
+      "max": 128.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7467
+      ]
+    },
+    {
+      "op_id": 5334,
+      "op_name": "OP/13758",
+      "code": "I0865",
+      "name": "Délice de Barbarie (20 infusettes)",
+      "tmpl_id": 4749,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7468
+      ]
+    },
+    {
+      "op_id": 5335,
+      "op_name": "OP/13759",
+      "code": "I0866",
+      "name": "Escale à Cassis (20 infusettes)",
+      "tmpl_id": 4750,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6660,
+        7469
+      ]
+    },
+    {
+      "op_id": 5336,
+      "op_name": "OP/13760",
+      "code": "I0867",
+      "name": "Douceur épicée (20 infusettes)",
+      "tmpl_id": 4751,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7470
+      ]
+    },
+    {
+      "op_id": 5337,
+      "op_name": "OP/13761",
+      "code": "I0868",
+      "name": "Citron meringué (20 infusettes)",
+      "tmpl_id": 4752,
+      "fam": "I0",
+      "min": 297.0,
+      "max": 347.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7471
+      ]
+    },
+    {
+      "op_id": 5338,
+      "op_name": "OP/13762",
+      "code": "I0869",
+      "name": "Hansel & Gretel (20 infusettes)",
+      "tmpl_id": 4753,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6663,
+        7472
+      ]
+    },
+    {
+      "op_id": 5339,
+      "op_name": "OP/13763",
+      "code": "I0870",
+      "name": "French Riviera (20 infusettes)",
+      "tmpl_id": 4754,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6664,
+        7473
+      ]
+    },
+    {
+      "op_id": 5340,
+      "op_name": "OP/13764",
+      "code": "I0872",
+      "name": "Au pays des Caribous (20 infusettes)",
+      "tmpl_id": 4755,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6665,
+        7474
+      ]
+    },
+    {
+      "op_id": 5341,
+      "op_name": "OP/13765",
+      "code": "I0874",
+      "name": "Café liégeois (20 infusettes)",
+      "tmpl_id": 4757,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6667,
+        7476
+      ]
+    },
+    {
+      "op_id": 5342,
+      "op_name": "OP/13766",
+      "code": "I0875",
+      "name": "Souvenir de La havane (20 infusettes)",
+      "tmpl_id": 4758,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6668,
+        7477
+      ]
+    },
+    {
+      "op_id": 5343,
+      "op_name": "OP/13767",
+      "code": "I0878",
+      "name": "Guarana Boost (20 infusettes)",
+      "tmpl_id": 4761,
+      "fam": "I0",
+      "min": 256.0,
+      "max": 306.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7479
+      ]
+    },
+    {
+      "op_id": 5344,
+      "op_name": "OP/13768",
+      "code": "I0879",
+      "name": "Amazônia (20 infusettes)",
+      "tmpl_id": 4762,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7480
+      ]
+    },
+    {
+      "op_id": 5345,
+      "op_name": "OP/13769",
+      "code": "I0880",
+      "name": "Blue Earl Grey BIO (20 infusettes)",
+      "tmpl_id": 4763,
+      "fam": "I0",
+      "min": 344.0,
+      "max": 394.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7481
+      ]
+    },
+    {
+      "op_id": 5346,
+      "op_name": "OP/13770",
+      "code": "I0885",
+      "name": "Cococabana (20 infusettes)",
+      "tmpl_id": 4766,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7484
+      ]
+    },
+    {
+      "op_id": 5347,
+      "op_name": "OP/13771",
+      "code": "I0887",
+      "name": "Cookie & cie (20 infusettes)",
+      "tmpl_id": 4767,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6676,
+        7485
+      ]
+    },
+    {
+      "op_id": 5348,
+      "op_name": "OP/13772",
+      "code": "I0889",
+      "name": "Granada (20 infusettes)",
+      "tmpl_id": 4769,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6678,
+        7487
+      ]
+    },
+    {
+      "op_id": 5349,
+      "op_name": "OP/13773",
+      "code": "I0890",
+      "name": "Aie caramba (20 infusettes)",
+      "tmpl_id": 4770,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6679,
+        7488
+      ]
+    },
+    {
+      "op_id": 5350,
+      "op_name": "OP/13774",
+      "code": "I0897",
+      "name": "Sicile Sanguine - BIO (20 infusettes)",
+      "tmpl_id": 4774,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6692,
+        7491
+      ]
+    },
+    {
+      "op_id": 5351,
+      "op_name": "OP/13775",
+      "code": "I0899",
+      "name": "Mumbai Mango - BIO (20 infusettes)",
+      "tmpl_id": 4775,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 54.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6696,
+        7492
+      ]
+    },
+    {
+      "op_id": 5352,
+      "op_name": "OP/13776",
+      "code": "I0900",
+      "name": "Bora Bora - BIO (20 infusettes)",
+      "tmpl_id": 4776,
+      "fam": "I0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7493
+      ]
+    },
+    {
+      "op_id": 5355,
+      "op_name": "OP/13779",
+      "code": "MP_1V0044",
+      "name": "Lapsang Souchong",
+      "tmpl_id": 4807,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5356,
+      "op_name": "OP/13780",
+      "code": "MP_1V0121",
+      "name": "Lady Dodo",
+      "tmpl_id": 4808,
+      "fam": "V0",
+      "min": 31.0,
+      "max": 41.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5357,
+      "op_name": "OP/13781",
+      "code": "MP_1V0205",
+      "name": "Etoiles filantes ",
+      "tmpl_id": 4810,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 30.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5358,
+      "op_name": "OP/13782",
+      "code": "MP_1V0253",
+      "name": "Voyage à Venise",
+      "tmpl_id": 4812,
+      "fam": "V0",
+      "min": 18.0,
+      "max": 24.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5359,
+      "op_name": "OP/13783",
+      "code": "MP_1V0257",
+      "name": "Pomme vanille",
+      "tmpl_id": 4813,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5360,
+      "op_name": "OP/13784",
+      "code": "MP_1V0267",
+      "name": "Promenade en forêt",
+      "tmpl_id": 4816,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 15.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5361,
+      "op_name": "OP/13785",
+      "code": "MP_1V0279",
+      "name": "Le panier de grand maman",
+      "tmpl_id": 4817,
+      "fam": "V0",
+      "min": 59.0,
+      "max": 80.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5362,
+      "op_name": "OP/13786",
+      "code": "MP_1V0280",
+      "name": "Envolée Andalouse",
+      "tmpl_id": 4818,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5363,
+      "op_name": "OP/13787",
+      "code": "MP_1V0287",
+      "name": "Détox",
+      "tmpl_id": 4819,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5364,
+      "op_name": "OP/13788",
+      "code": "MP_1V0299",
+      "name": "Pine Needles",
+      "tmpl_id": 4820,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5365,
+      "op_name": "OP/13789",
+      "code": "MP_1V0301",
+      "name": "Tisane tropicale",
+      "tmpl_id": 4821,
+      "fam": "V0",
+      "min": 29.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5366,
+      "op_name": "OP/13790",
+      "code": "MP_1V0303",
+      "name": "Coquetterie",
+      "tmpl_id": 4822,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5367,
+      "op_name": "OP/13791",
+      "code": "MP_1V0315",
+      "name": "Orange royale",
+      "tmpl_id": 4824,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5368,
+      "op_name": "OP/13792",
+      "code": "MP_1V0340",
+      "name": "Miss Réglisse",
+      "tmpl_id": 4825,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5369,
+      "op_name": "OP/13793",
+      "code": "MP_1V0376",
+      "name": "Coup de foudre",
+      "tmpl_id": 4828,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5370,
+      "op_name": "OP/13794",
+      "code": "MP_1V0483",
+      "name": "Green zest - BIO",
+      "tmpl_id": 4836,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5371,
+      "op_name": "OP/13795",
+      "code": "MP_1V0600",
+      "name": "La lampe merveilleuse",
+      "tmpl_id": 4837,
+      "fam": "V0",
+      "min": 12.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5372,
+      "op_name": "OP/13796",
+      "code": "MP_1V0601",
+      "name": "Acai & goji",
+      "tmpl_id": 4838,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5373,
+      "op_name": "OP/13797",
+      "code": "MP_1V0607",
+      "name": "Sensualité",
+      "tmpl_id": 4840,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 12.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5374,
+      "op_name": "OP/13798",
+      "code": "MP_1V0608",
+      "name": "Earl Green",
+      "tmpl_id": 4841,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 8.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5375,
+      "op_name": "OP/13799",
+      "code": "MP_1V0610",
+      "name": "Earl Grey Supérieur",
+      "tmpl_id": 4842,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 9.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5376,
+      "op_name": "OP/13800",
+      "code": "MP_1V0615",
+      "name": "Gyokuro Asahi - BIO",
+      "tmpl_id": 4846,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 1.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5377,
+      "op_name": "OP/13801",
+      "code": "MP_1V0617",
+      "name": "Liberté",
+      "tmpl_id": 4847,
+      "fam": "V0",
+      "min": 23.0,
+      "max": 30.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5378,
+      "op_name": "OP/13802",
+      "code": "MP_1V0626",
+      "name": "Sencha - BIO",
+      "tmpl_id": 4853,
+      "fam": "V0",
+      "min": 29.0,
+      "max": 38.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5379,
+      "op_name": "OP/13803",
+      "code": "MP_1V0628",
+      "name": "Oasis du désert - BIO",
+      "tmpl_id": 4855,
+      "fam": "V0",
+      "min": 33.0,
+      "max": 43.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5380,
+      "op_name": "OP/13804",
+      "code": "MP_1V0631",
+      "name": "Le thé des amoureux",
+      "tmpl_id": 4856,
+      "fam": "V0",
+      "min": 49.0,
+      "max": 65.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5381,
+      "op_name": "OP/13805",
+      "code": "MP_1V0632",
+      "name": "Les dunes du Sahara",
+      "tmpl_id": 4857,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5382,
+      "op_name": "OP/13806",
+      "code": "MP_1V0634",
+      "name": "Gourmandise",
+      "tmpl_id": 4858,
+      "fam": "V0",
+      "min": 67.0,
+      "max": 89.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5383,
+      "op_name": "OP/13807",
+      "code": "MP_1V0635",
+      "name": "Silhouette",
+      "tmpl_id": 4859,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 26.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5384,
+      "op_name": "OP/13808",
+      "code": "MP_1V0638",
+      "name": "Sérénité - BIO",
+      "tmpl_id": 4860,
+      "fam": "V0",
+      "min": 23.0,
+      "max": 30.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5385,
+      "op_name": "OP/13809",
+      "code": "MP_1V0659",
+      "name": "China Perles de jade au jasmin - BIO",
+      "tmpl_id": 4863,
+      "fam": "V0",
+      "min": 1.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5386,
+      "op_name": "OP/13810",
+      "code": "MP_1V0664",
+      "name": "Maté vert du Brésil",
+      "tmpl_id": 4866,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5387,
+      "op_name": "OP/13811",
+      "code": "MP_1V0666",
+      "name": "English Breakfast",
+      "tmpl_id": 4867,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 12.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5388,
+      "op_name": "OP/13812",
+      "code": "MP_1V0669",
+      "name": "Vert Jasmin",
+      "tmpl_id": 4869,
+      "fam": "V0",
+      "min": 29.0,
+      "max": 38.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5389,
+      "op_name": "OP/13813",
+      "code": "MP_1V0681",
+      "name": "Menthe douce - BIO",
+      "tmpl_id": 4872,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 12.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5390,
+      "op_name": "OP/13814",
+      "code": "MP_1V0685",
+      "name": "Darjeeling SF FTGFOP1 - BIO",
+      "tmpl_id": 4873,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 13.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5391,
+      "op_name": "OP/13815",
+      "code": "MP_1V0700",
+      "name": "Anti Fatigue",
+      "tmpl_id": 4874,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5392,
+      "op_name": "OP/13816",
+      "code": "MP_1V0709",
+      "name": "Parfums d'été ",
+      "tmpl_id": 4877,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 9.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5393,
+      "op_name": "OP/13817",
+      "code": "MP_1V0710",
+      "name": "Mandarine",
+      "tmpl_id": 4878,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5394,
+      "op_name": "OP/13818",
+      "code": "MP_1V0717",
+      "name": "Pomme d'amour",
+      "tmpl_id": 4882,
+      "fam": "V0",
+      "min": 21.0,
+      "max": 27.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5395,
+      "op_name": "OP/13819",
+      "code": "MP_1V0723",
+      "name": "Namasté - BIO",
+      "tmpl_id": 4884,
+      "fam": "V0",
+      "min": 31.0,
+      "max": 41.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5396,
+      "op_name": "OP/13820",
+      "code": "MP_1V0727",
+      "name": "L'après- repas",
+      "tmpl_id": 4887,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 12.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5397,
+      "op_name": "OP/13821",
+      "code": "MP_1V0728",
+      "name": "Jardin gourmand",
+      "tmpl_id": 4888,
+      "fam": "V0",
+      "min": 17.0,
+      "max": 22.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5398,
+      "op_name": "OP/13822",
+      "code": "MP_1V0729",
+      "name": "Relax - BIO",
+      "tmpl_id": 4889,
+      "fam": "V0",
+      "min": 16.0,
+      "max": 21.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5399,
+      "op_name": "OP/13823",
+      "code": "MP_1V0734",
+      "name": "Jardin de babylone",
+      "tmpl_id": 4891,
+      "fam": "V0",
+      "min": 17.0,
+      "max": 22.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5400,
+      "op_name": "OP/13824",
+      "code": "MP_1V0735",
+      "name": "Pêche de vigne - BIO",
+      "tmpl_id": 4892,
+      "fam": "V0",
+      "min": 62.0,
+      "max": 83.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5401,
+      "op_name": "OP/13825",
+      "code": "MP_1V0737",
+      "name": "Plaisir caramel ",
+      "tmpl_id": 4893,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5402,
+      "op_name": "OP/13826",
+      "code": "MP_1V0742",
+      "name": "Ange Gardien",
+      "tmpl_id": 4895,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5403,
+      "op_name": "OP/13827",
+      "code": "MP_1V0751",
+      "name": "I love you",
+      "tmpl_id": 4898,
+      "fam": "V0",
+      "min": 30.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5404,
+      "op_name": "OP/13828",
+      "code": "MP_1V0752",
+      "name": "Eden's Garden",
+      "tmpl_id": 4899,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 12.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5405,
+      "op_name": "OP/13829",
+      "code": "MP_1V0767",
+      "name": "Earl grey",
+      "tmpl_id": 4909,
+      "fam": "V0",
+      "min": 16.0,
+      "max": 21.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5406,
+      "op_name": "OP/13830",
+      "code": "MP_1V0772",
+      "name": "Black Mango",
+      "tmpl_id": 4912,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5407,
+      "op_name": "OP/13831",
+      "code": "MP_1V0773",
+      "name": "New York",
+      "tmpl_id": 4913,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 9.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5408,
+      "op_name": "OP/13832",
+      "code": "MP_1V0775",
+      "name": "Promenade à Venise",
+      "tmpl_id": 4914,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5409,
+      "op_name": "OP/13833",
+      "code": "MP_1V0778",
+      "name": "Spéculoos & Cie  ",
+      "tmpl_id": 4915,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 10.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5410,
+      "op_name": "OP/13834",
+      "code": "MP_1V0788",
+      "name": "Japan Sencha Yamato - Finest quality",
+      "tmpl_id": 4921,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5411,
+      "op_name": "OP/13835",
+      "code": "MP_1V0793",
+      "name": "Orangipane",
+      "tmpl_id": 4924,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 9.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5412,
+      "op_name": "OP/13836",
+      "code": "MP_1V0794",
+      "name": "Bien-être",
+      "tmpl_id": 4925,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5413,
+      "op_name": "OP/13837",
+      "code": "MP_1V0796",
+      "name": "Fraîcheur acidulée - BIO",
+      "tmpl_id": 4927,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 9.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5414,
+      "op_name": "OP/13838",
+      "code": "MP_1V0803",
+      "name": "Le thé de la Mère Noël",
+      "tmpl_id": 4931,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5415,
+      "op_name": "OP/13839",
+      "code": "MP_1V0807",
+      "name": "Sakura",
+      "tmpl_id": 4932,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 13.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5416,
+      "op_name": "OP/13840",
+      "code": "MP_1V0813",
+      "name": "Thé du désert",
+      "tmpl_id": 4935,
+      "fam": "V0",
+      "min": 15.0,
+      "max": 19.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5417,
+      "op_name": "OP/13841",
+      "code": "MP_1V0816",
+      "name": "Vitalité - BIO",
+      "tmpl_id": 4937,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5418,
+      "op_name": "OP/13842",
+      "code": "MP_1V0820",
+      "name": "Marrakech Sunset - BIO",
+      "tmpl_id": 4941,
+      "fam": "V0",
+      "min": 44.0,
+      "max": 58.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5419,
+      "op_name": "OP/13843",
+      "code": "MP_1V0821",
+      "name": "Poupée russe",
+      "tmpl_id": 4942,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5420,
+      "op_name": "OP/13844",
+      "code": "MP_1V0822",
+      "name": "Sous les cocotiers",
+      "tmpl_id": 4943,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5421,
+      "op_name": "OP/13845",
+      "code": "MP_1V0825",
+      "name": "Ginger Hot",
+      "tmpl_id": 4944,
+      "fam": "V0",
+      "min": 12.0,
+      "max": 16.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5422,
+      "op_name": "OP/13846",
+      "code": "MP_1V0826",
+      "name": "Pinacolada",
+      "tmpl_id": 4945,
+      "fam": "V0",
+      "min": 11.0,
+      "max": 14.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5423,
+      "op_name": "OP/13847",
+      "code": "MP_1V0828",
+      "name": "Pêché Mignon",
+      "tmpl_id": 4946,
+      "fam": "V0",
+      "min": 11.0,
+      "max": 15.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5424,
+      "op_name": "OP/13848",
+      "code": "MP_1V0829",
+      "name": "Tropical Sun",
+      "tmpl_id": 4947,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 12.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5425,
+      "op_name": "OP/13849",
+      "code": "MP_1V0832",
+      "name": "La nana de Wépion",
+      "tmpl_id": 4949,
+      "fam": "V0",
+      "min": 80.0,
+      "max": 106.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5426,
+      "op_name": "OP/13850",
+      "code": "MP_1V0834",
+      "name": "Nuage Coco",
+      "tmpl_id": 4950,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5427,
+      "op_name": "OP/13851",
+      "code": "MP_1V0835",
+      "name": "Aloe Fraisa",
+      "tmpl_id": 4951,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5428,
+      "op_name": "OP/13852",
+      "code": "MP_1V0836",
+      "name": "Ayurveda - BIO",
+      "tmpl_id": 4952,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5429,
+      "op_name": "OP/13853",
+      "code": "MP_1V0837",
+      "name": "Vert Pistache",
+      "tmpl_id": 4953,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5430,
+      "op_name": "OP/13854",
+      "code": "MP_1V0838",
+      "name": "Oolong Framboise",
+      "tmpl_id": 4954,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5431,
+      "op_name": "OP/13855",
+      "code": "MP_1V0839",
+      "name": "Caramel beurre salé",
+      "tmpl_id": 4955,
+      "fam": "V0",
+      "min": 13.0,
+      "max": 17.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5432,
+      "op_name": "OP/13856",
+      "code": "MP_1V0841",
+      "name": "Lacquemant liégeois",
+      "tmpl_id": 4956,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5433,
+      "op_name": "OP/13857",
+      "code": "MP_1V0842",
+      "name": "Plaisir chocolaté",
+      "tmpl_id": 4957,
+      "fam": "V0",
+      "min": 9.0,
+      "max": 12.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5434,
+      "op_name": "OP/13858",
+      "code": "MP_1V0843",
+      "name": "Milky Oolong BIO",
+      "tmpl_id": 4958,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5435,
+      "op_name": "OP/13859",
+      "code": "MP_1V0845",
+      "name": "Mamy Granny - BIO",
+      "tmpl_id": 4960,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 11.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5436,
+      "op_name": "OP/13860",
+      "code": "MP_1V0846",
+      "name": "Ginger Smith",
+      "tmpl_id": 4961,
+      "fam": "V0",
+      "min": 12.0,
+      "max": 16.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5437,
+      "op_name": "OP/13861",
+      "code": "MP_1V0847",
+      "name": "Couleur Mojito",
+      "tmpl_id": 4962,
+      "fam": "V0",
+      "min": 16.0,
+      "max": 21.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5438,
+      "op_name": "OP/13862",
+      "code": "MP_1V0848",
+      "name": "Ginger Cool - BIO",
+      "tmpl_id": 4963,
+      "fam": "V0",
+      "min": 19.0,
+      "max": 26.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5439,
+      "op_name": "OP/13863",
+      "code": "MP_1V0852",
+      "name": "Verveine odorante  - BIO",
+      "tmpl_id": 4966,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5440,
+      "op_name": "OP/13864",
+      "code": "MP_1V0854",
+      "name": "Camomille matricaire - BIO",
+      "tmpl_id": 4968,
+      "fam": "V0",
+      "min": 13.0,
+      "max": 17.0,
+      "route": "Buy",
+      "write_date": "2025-11-26 12:36:37",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5441,
+      "op_name": "OP/13865",
+      "code": "MP_1V0856",
+      "name": "Sorbet framboise - BIO",
+      "tmpl_id": 4970,
+      "fam": "V0",
+      "min": 11.0,
+      "max": 14.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5442,
+      "op_name": "OP/13866",
+      "code": "MP_1V0858",
+      "name": "Tarte à la rhubarbe ",
+      "tmpl_id": 4971,
+      "fam": "V0",
+      "min": 12.0,
+      "max": 16.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5443,
+      "op_name": "OP/13867",
+      "code": "MP_1V0859",
+      "name": "Délice de Montélimar",
+      "tmpl_id": 4972,
+      "fam": "V0",
+      "min": 7.0,
+      "max": 9.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5444,
+      "op_name": "OP/13868",
+      "code": "MP_1V0863",
+      "name": "Masala Chai",
+      "tmpl_id": 4974,
+      "fam": "V0",
+      "min": 11.0,
+      "max": 14.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5445,
+      "op_name": "OP/13869",
+      "code": "MP_1V0865",
+      "name": "Délice de Barbarie",
+      "tmpl_id": 4975,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5446,
+      "op_name": "OP/13870",
+      "code": "MP_1V0866",
+      "name": "Escale à Cassis",
+      "tmpl_id": 4976,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5447,
+      "op_name": "OP/13871",
+      "code": "MP_1V0867",
+      "name": "Douceur épicée",
+      "tmpl_id": 4977,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5448,
+      "op_name": "OP/13872",
+      "code": "MP_1V0868",
+      "name": "Citron Meringué",
+      "tmpl_id": 4978,
+      "fam": "V0",
+      "min": 36.0,
+      "max": 48.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5449,
+      "op_name": "OP/13873",
+      "code": "MP_1V0869",
+      "name": "Hansel & Gretel",
+      "tmpl_id": 4979,
+      "fam": "V0",
+      "min": 2.0,
+      "max": 3.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5450,
+      "op_name": "OP/13874",
+      "code": "MP_1V0870",
+      "name": "French Riviera",
+      "tmpl_id": 4980,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5451,
+      "op_name": "OP/13875",
+      "code": "MP_1V0872",
+      "name": "Au pays des Caribous",
+      "tmpl_id": 4981,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5452,
+      "op_name": "OP/13876",
+      "code": "MP_1V0874",
+      "name": "Café liégeois",
+      "tmpl_id": 4983,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 7.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5453,
+      "op_name": "OP/13877",
+      "code": "MP_1V0875",
+      "name": "Souvenir de La Havane",
+      "tmpl_id": 4984,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5454,
+      "op_name": "OP/13878",
+      "code": "MP_1V0878",
+      "name": "Guarana Boost",
+      "tmpl_id": 4986,
+      "fam": "V0",
+      "min": 30.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5455,
+      "op_name": "OP/13879",
+      "code": "MP_1V0879",
+      "name": "Amazônia",
+      "tmpl_id": 4987,
+      "fam": "V0",
+      "min": 6.0,
+      "max": 8.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5456,
+      "op_name": "OP/13880",
+      "code": "MP_1V0880",
+      "name": "Blue Earl Grey - BIO",
+      "tmpl_id": 4988,
+      "fam": "V0",
+      "min": 42.0,
+      "max": 55.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5457,
+      "op_name": "OP/13881",
+      "code": "MP_1V0885",
+      "name": "Cococabana",
+      "tmpl_id": 4992,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5458,
+      "op_name": "OP/13882",
+      "code": "MP_1V0886",
+      "name": "Japan Matcha Genmaicha - BIO",
+      "tmpl_id": 4993,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5459,
+      "op_name": "OP/13883",
+      "code": "MP_1V0887",
+      "name": "Cookie & Cie",
+      "tmpl_id": 4994,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5460,
+      "op_name": "OP/13884",
+      "code": "MP_1V0889",
+      "name": "Granada",
+      "tmpl_id": 4996,
+      "fam": "V0",
+      "min": 3.0,
+      "max": 4.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5461,
+      "op_name": "OP/13885",
+      "code": "MP_1V0890",
+      "name": "Aie Caramba",
+      "tmpl_id": 4997,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5462,
+      "op_name": "OP/13886",
+      "code": "MP_1V0895",
+      "name": "Matcha Japonais",
+      "tmpl_id": 5002,
+      "fam": "V0",
+      "min": 21.0,
+      "max": 27.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5463,
+      "op_name": "OP/13887",
+      "code": "MP_1V0897",
+      "name": "Sicile Sanguine - BIO",
+      "tmpl_id": 5004,
+      "fam": "V0",
+      "min": 5.0,
+      "max": 6.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5464,
+      "op_name": "OP/13888",
+      "code": "MP_1V0899",
+      "name": "Mumbai Mango - Bio",
+      "tmpl_id": 5006,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5465,
+      "op_name": "OP/13889",
+      "code": "MP_1V0900",
+      "name": "Bora Bora - Bio",
+      "tmpl_id": 5007,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5466,
+      "op_name": "OP/13890",
+      "code": "MP_1V0907",
+      "name": "Matcha Maracuja",
+      "tmpl_id": 5012,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:01:53",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5467,
+      "op_name": "OP/13891",
+      "code": "V0044",
+      "name": "Lapsang Souchong (100 g vrac)",
+      "tmpl_id": 5035,
+      "fam": "V0",
+      "min": 47.0,
+      "max": 62.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6435,
+        7495
+      ]
+    },
+    {
+      "op_id": 5468,
+      "op_name": "OP/13892",
+      "code": "V0121",
+      "name": "Lady Dodo (80 g vrac)",
+      "tmpl_id": 5036,
+      "fam": "V0",
+      "min": 187.0,
+      "max": 237.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7496
+      ]
+    },
+    {
+      "op_id": 5469,
+      "op_name": "OP/13893",
+      "code": "V0133",
+      "name": "Red Earl Grey - BIO (80 g vrac)",
+      "tmpl_id": 5037,
+      "fam": "V0",
+      "min": 30.0,
+      "max": 60.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5470,
+      "op_name": "OP/13894",
+      "code": "V0205",
+      "name": "Etoiles filantes (100 g vrac)",
+      "tmpl_id": 5038,
+      "fam": "V0",
+      "min": 160.0,
+      "max": 210.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7497
+      ]
+    },
+    {
+      "op_id": 5471,
+      "op_name": "OP/13895",
+      "code": "V0253",
+      "name": "Voyage à Venise (80 g vrac)",
+      "tmpl_id": 5040,
+      "fam": "V0",
+      "min": 98.0,
+      "max": 148.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7499
+      ]
+    },
+    {
+      "op_id": 5472,
+      "op_name": "OP/13896",
+      "code": "V0257",
+      "name": "Pomme vanille (100 g vrac)",
+      "tmpl_id": 5041,
+      "fam": "V0",
+      "min": 60.0,
+      "max": 110.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7500
+      ]
+    },
+    {
+      "op_id": 5473,
+      "op_name": "OP/13897",
+      "code": "V0267",
+      "name": "Promenade en forêt (100 g vrac)",
+      "tmpl_id": 5043,
+      "fam": "V0",
+      "min": 70.0,
+      "max": 120.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7502
+      ]
+    },
+    {
+      "op_id": 5474,
+      "op_name": "OP/13898",
+      "code": "V0279",
+      "name": "Le panier de grand maman (80 g vrac)",
+      "tmpl_id": 5044,
+      "fam": "V0",
+      "min": 409.0,
+      "max": 459.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7503
+      ]
+    },
+    {
+      "op_id": 5475,
+      "op_name": "OP/13899",
+      "code": "V0280",
+      "name": "Envolée Andalouse (100 g vrac)",
+      "tmpl_id": 5045,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7504
+      ]
+    },
+    {
+      "op_id": 5476,
+      "op_name": "OP/13900",
+      "code": "V0287",
+      "name": "Détox (100 g vrac)",
+      "tmpl_id": 5046,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7505
+      ]
+    },
+    {
+      "op_id": 5477,
+      "op_name": "OP/13901",
+      "code": "V0299",
+      "name": "Pine needles (50g vrac)",
+      "tmpl_id": 5047,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6445,
+        7506
+      ]
+    },
+    {
+      "op_id": 5478,
+      "op_name": "OP/13902",
+      "code": "V0301",
+      "name": "Tisane tropicale (100 g vrac)",
+      "tmpl_id": 5048,
+      "fam": "V0",
+      "min": 163.0,
+      "max": 213.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7507
+      ]
+    },
+    {
+      "op_id": 5479,
+      "op_name": "OP/13903",
+      "code": "V0303",
+      "name": "Coquetterie (50g vrac)",
+      "tmpl_id": 5049,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7508
+      ]
+    },
+    {
+      "op_id": 5480,
+      "op_name": "OP/13904",
+      "code": "V0315",
+      "name": "Orange Royale (100 g vrac)",
+      "tmpl_id": 5051,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7510
+      ]
+    },
+    {
+      "op_id": 5481,
+      "op_name": "OP/13905",
+      "code": "V0340",
+      "name": "Miss Réglisse (100 g vrac)",
+      "tmpl_id": 5052,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7511
+      ]
+    },
+    {
+      "op_id": 5482,
+      "op_name": "OP/13906",
+      "code": "V0376",
+      "name": "Coup de foudre (100 g vrac)",
+      "tmpl_id": 5055,
+      "fam": "V0",
+      "min": 63.0,
+      "max": 113.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7514
+      ]
+    },
+    {
+      "op_id": 5483,
+      "op_name": "OP/13907",
+      "code": "V0483",
+      "name": "Green zest - BIO (100 g vrac)",
+      "tmpl_id": 5064,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6454,
+        7522
+      ]
+    },
+    {
+      "op_id": 5484,
+      "op_name": "OP/13908",
+      "code": "V0600",
+      "name": "La lampe merveilleuse (100 g vrac)",
+      "tmpl_id": 5065,
+      "fam": "V0",
+      "min": 71.0,
+      "max": 121.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7523
+      ]
+    },
+    {
+      "op_id": 5485,
+      "op_name": "OP/13909",
+      "code": "V0601",
+      "name": "Acai & goji (100 g vrac)",
+      "tmpl_id": 5066,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6456,
+        7524
+      ]
+    },
+    {
+      "op_id": 5486,
+      "op_name": "OP/13910",
+      "code": "V0607",
+      "name": "Sensualité (80 g vrac)",
+      "tmpl_id": 5067,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6457,
+        7525
+      ]
+    },
+    {
+      "op_id": 5487,
+      "op_name": "OP/13911",
+      "code": "V0608",
+      "name": "Earl Green (80 g vrac)",
+      "tmpl_id": 5068,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7526
+      ]
+    },
+    {
+      "op_id": 5488,
+      "op_name": "OP/13912",
+      "code": "V0610",
+      "name": "Earl Grey Supérieur (100 g vrac)",
+      "tmpl_id": 5069,
+      "fam": "V0",
+      "min": 53.0,
+      "max": 103.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7527
+      ]
+    },
+    {
+      "op_id": 5489,
+      "op_name": "OP/13913",
+      "code": "V0615",
+      "name": "Gyokuro Asahi - BIO (50 g vrac)",
+      "tmpl_id": 5073,
+      "fam": "V0",
+      "min": 10.0,
+      "max": 20.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6461,
+        7531
+      ]
+    },
+    {
+      "op_id": 5490,
+      "op_name": "OP/13914",
+      "code": "V0617",
+      "name": "Liberté (100 g vrac)",
+      "tmpl_id": 5074,
+      "fam": "V0",
+      "min": 140.0,
+      "max": 190.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7532
+      ]
+    },
+    {
+      "op_id": 5492,
+      "op_name": "OP/13916",
+      "code": "V0626",
+      "name": "Sencha - BIO (100 g vrac)",
+      "tmpl_id": 5077,
+      "fam": "V0",
+      "min": 142.0,
+      "max": 192.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7535
+      ]
+    },
+    {
+      "op_id": 5493,
+      "op_name": "OP/13917",
+      "code": "V0628",
+      "name": "Oasis du désert - BIO (100 g vrac)",
+      "tmpl_id": 5079,
+      "fam": "V0",
+      "min": 146.0,
+      "max": 196.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6731
+      ]
+    },
+    {
+      "op_id": 5494,
+      "op_name": "OP/13918",
+      "code": "V0631",
+      "name": "Le thé des amoureux (80 g vrac)",
+      "tmpl_id": 5080,
+      "fam": "V0",
+      "min": 327.0,
+      "max": 377.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7537
+      ]
+    },
+    {
+      "op_id": 5495,
+      "op_name": "OP/13919",
+      "code": "V0632",
+      "name": "Les dunes du Sahara (100 g vrac)",
+      "tmpl_id": 5081,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6467,
+        7538
+      ]
+    },
+    {
+      "op_id": 5496,
+      "op_name": "OP/13920",
+      "code": "V0634",
+      "name": "Gourmandise (80 g vrac)",
+      "tmpl_id": 5082,
+      "fam": "V0",
+      "min": 131.0,
+      "max": 181.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7539
+      ]
+    },
+    {
+      "op_id": 5497,
+      "op_name": "OP/13921",
+      "code": "V0635",
+      "name": "Silhouette (80 g vrac)",
+      "tmpl_id": 5083,
+      "fam": "V0",
+      "min": 94.0,
+      "max": 144.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7540
+      ]
+    },
+    {
+      "op_id": 5498,
+      "op_name": "OP/13922",
+      "code": "V0638",
+      "name": "Sérénité - BIO (100 g vrac)",
+      "tmpl_id": 5084,
+      "fam": "V0",
+      "min": 156.0,
+      "max": 206.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7541
+      ]
+    },
+    {
+      "op_id": 5499,
+      "op_name": "OP/13923",
+      "code": "V0659",
+      "name": "China perles de jade au jasmin - BIO (50 g vrac)",
+      "tmpl_id": 5087,
+      "fam": "V0",
+      "min": 15.0,
+      "max": 30.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6471,
+        7544
+      ]
+    },
+    {
+      "op_id": 5500,
+      "op_name": "OP/13924",
+      "code": "V0664",
+      "name": "Maté vert du Brésil (100 g vrac)",
+      "tmpl_id": 5091,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7547
+      ]
+    },
+    {
+      "op_id": 5501,
+      "op_name": "OP/13925",
+      "code": "V0666",
+      "name": "English Breakfast  (100 g vrac)",
+      "tmpl_id": 5092,
+      "fam": "V0",
+      "min": 68.0,
+      "max": 118.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7548
+      ]
+    },
+    {
+      "op_id": 5502,
+      "op_name": "OP/13926",
+      "code": "V0669",
+      "name": "Vert Jasmin (80 g vrac)",
+      "tmpl_id": 5094,
+      "fam": "V0",
+      "min": 174.0,
+      "max": 224.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7550
+      ]
+    },
+    {
+      "op_id": 5503,
+      "op_name": "OP/13927",
+      "code": "V0681",
+      "name": "Menthe douce - BIO (50 g vrac)",
+      "tmpl_id": 5097,
+      "fam": "V0",
+      "min": 62.0,
+      "max": 112.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7553
+      ]
+    },
+    {
+      "op_id": 5504,
+      "op_name": "OP/13928",
+      "code": "V0685",
+      "name": "Darjeeling SF FTGFOP1 - BIO (100 g vrac)",
+      "tmpl_id": 5098,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7554
+      ]
+    },
+    {
+      "op_id": 5505,
+      "op_name": "OP/13929",
+      "code": "V0700",
+      "name": "Anti Fatigue (100 g vrac)",
+      "tmpl_id": 5099,
+      "fam": "V0",
+      "min": 60.0,
+      "max": 110.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7555
+      ]
+    },
+    {
+      "op_id": 5506,
+      "op_name": "OP/13930",
+      "code": "V0709",
+      "name": "Parfums d'été (80 g vrac)",
+      "tmpl_id": 5102,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6480,
+        7558
+      ]
+    },
+    {
+      "op_id": 5507,
+      "op_name": "OP/13931",
+      "code": "V0710",
+      "name": "Mandarine (80 g vrac)",
+      "tmpl_id": 5103,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7559
+      ]
+    },
+    {
+      "op_id": 5508,
+      "op_name": "OP/13932",
+      "code": "V0717",
+      "name": "Pomme d'amour (80 g vrac)",
+      "tmpl_id": 5106,
+      "fam": "V0",
+      "min": 155.0,
+      "max": 205.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7562
+      ]
+    },
+    {
+      "op_id": 5509,
+      "op_name": "OP/13933",
+      "code": "V0723",
+      "name": "Namasté BIO (80 g vrac)",
+      "tmpl_id": 5109,
+      "fam": "V0",
+      "min": 215.0,
+      "max": 265.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7564
+      ]
+    },
+    {
+      "op_id": 5510,
+      "op_name": "OP/13934",
+      "code": "V0727",
+      "name": "L'après-repas (80 g vrac)",
+      "tmpl_id": 5112,
+      "fam": "V0",
+      "min": 52.0,
+      "max": 102.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7567
+      ]
+    },
+    {
+      "op_id": 5511,
+      "op_name": "OP/13935",
+      "code": "V0728",
+      "name": "Jardin gourmand (80 g vrac)",
+      "tmpl_id": 5113,
+      "fam": "V0",
+      "min": 94.0,
+      "max": 144.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7568
+      ]
+    },
+    {
+      "op_id": 5512,
+      "op_name": "OP/13936",
+      "code": "V0729",
+      "name": "Relax BIO (80 g vrac)",
+      "tmpl_id": 5114,
+      "fam": "V0",
+      "min": 82.0,
+      "max": 132.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7569
+      ]
+    },
+    {
+      "op_id": 5513,
+      "op_name": "OP/13937",
+      "code": "V0734",
+      "name": "Jardin de Babylone (100 g vrac)",
+      "tmpl_id": 5116,
+      "fam": "V0",
+      "min": 79.0,
+      "max": 129.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7571
+      ]
+    },
+    {
+      "op_id": 5514,
+      "op_name": "OP/13938",
+      "code": "V0735",
+      "name": "Pêche de vigne - BIO (100 g vrac)",
+      "tmpl_id": 5117,
+      "fam": "V0",
+      "min": 175.0,
+      "max": 225.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7572
+      ]
+    },
+    {
+      "op_id": 5515,
+      "op_name": "OP/13939",
+      "code": "V0737",
+      "name": "Plaisir caramel  (100 g vrac)",
+      "tmpl_id": 5118,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6492,
+        7573
+      ]
+    },
+    {
+      "op_id": 5516,
+      "op_name": "OP/13940",
+      "code": "V0742",
+      "name": "Ange Gardien (100 g vrac)",
+      "tmpl_id": 5119,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7574
+      ]
+    },
+    {
+      "op_id": 5517,
+      "op_name": "OP/13941",
+      "code": "V0751",
+      "name": "I love you (80 g vrac)",
+      "tmpl_id": 5122,
+      "fam": "V0",
+      "min": 182.0,
+      "max": 232.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7577
+      ]
+    },
+    {
+      "op_id": 5518,
+      "op_name": "OP/13942",
+      "code": "V0752",
+      "name": "Eden's Garden (80 g vrac)",
+      "tmpl_id": 5123,
+      "fam": "V0",
+      "min": 64.0,
+      "max": 114.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7578
+      ]
+    },
+    {
+      "op_id": 5519,
+      "op_name": "OP/13943",
+      "code": "V0767",
+      "name": "Earl grey (100 g vrac)",
+      "tmpl_id": 5128,
+      "fam": "V0",
+      "min": 70.0,
+      "max": 120.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7583
+      ]
+    },
+    {
+      "op_id": 5520,
+      "op_name": "OP/13944",
+      "code": "V0772",
+      "name": "Black Mango (100 g vrac)",
+      "tmpl_id": 5130,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7585
+      ]
+    },
+    {
+      "op_id": 5521,
+      "op_name": "OP/13945",
+      "code": "V0773",
+      "name": "New York (100 g vrac)",
+      "tmpl_id": 5131,
+      "fam": "V0",
+      "min": 66.0,
+      "max": 88.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7586
+      ]
+    },
+    {
+      "op_id": 5522,
+      "op_name": "OP/13946",
+      "code": "V0775",
+      "name": "Promenade à venise (100 g vrac)",
+      "tmpl_id": 5132,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7587
+      ]
+    },
+    {
+      "op_id": 5523,
+      "op_name": "OP/13947",
+      "code": "V0778",
+      "name": "Spéculoos & Cie (100 g vrac)",
+      "tmpl_id": 5133,
+      "fam": "V0",
+      "min": 72.0,
+      "max": 122.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7588
+      ]
+    },
+    {
+      "op_id": 5524,
+      "op_name": "OP/13948",
+      "code": "V0788",
+      "name": "Japan Sencha Yamato - Finest quality (50g vrac)",
+      "tmpl_id": 5137,
+      "fam": "V0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7592
+      ]
+    },
+    {
+      "op_id": 5525,
+      "op_name": "OP/13949",
+      "code": "V0793",
+      "name": "Orangipane (100 g vrac)",
+      "tmpl_id": 5140,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7595
+      ]
+    },
+    {
+      "op_id": 5526,
+      "op_name": "OP/13950",
+      "code": "V0794",
+      "name": "Bien-être (100 g vrac)",
+      "tmpl_id": 5141,
+      "fam": "V0",
+      "min": 60.0,
+      "max": 110.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7596
+      ]
+    },
+    {
+      "op_id": 5527,
+      "op_name": "OP/13951",
+      "code": "V0796",
+      "name": "Fraîcheur acidulée BIO (100 g vrac)",
+      "tmpl_id": 5142,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7597
+      ]
+    },
+    {
+      "op_id": 5528,
+      "op_name": "OP/13952",
+      "code": "V0807",
+      "name": "Sakura (100 g vrac)",
+      "tmpl_id": 5146,
+      "fam": "V0",
+      "min": 68.0,
+      "max": 118.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6509,
+        7601
+      ]
+    },
+    {
+      "op_id": 5529,
+      "op_name": "OP/13953",
+      "code": "V0813",
+      "name": "Thé du désert (100 g vrac)",
+      "tmpl_id": 5149,
+      "fam": "V0",
+      "min": 60.0,
+      "max": 110.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7604
+      ]
+    },
+    {
+      "op_id": 5530,
+      "op_name": "OP/13954",
+      "code": "V0816",
+      "name": "Vitalité - BIO (80 g vrac)",
+      "tmpl_id": 5151,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6514,
+        7606
+      ]
+    },
+    {
+      "op_id": 5531,
+      "op_name": "OP/13955",
+      "code": "V0820",
+      "name": "Marrakech Sunset - BIO (100 g vrac)",
+      "tmpl_id": 5155,
+      "fam": "V0",
+      "min": 146.0,
+      "max": 196.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6420,
+        7610
+      ]
+    },
+    {
+      "op_id": 5532,
+      "op_name": "OP/13956",
+      "code": "V0821",
+      "name": "Poupée russe (100 g vrac)",
+      "tmpl_id": 5156,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6516,
+        7611
+      ]
+    },
+    {
+      "op_id": 5533,
+      "op_name": "OP/13957",
+      "code": "V0822",
+      "name": "Sous les cocotiers (100 g vrac)",
+      "tmpl_id": 5157,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7612
+      ]
+    },
+    {
+      "op_id": 5534,
+      "op_name": "OP/13958",
+      "code": "V0825",
+      "name": "Ginger Hot (100 g vrac)",
+      "tmpl_id": 5158,
+      "fam": "V0",
+      "min": 86.0,
+      "max": 136.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7613
+      ]
+    },
+    {
+      "op_id": 5535,
+      "op_name": "OP/13959",
+      "code": "V0826",
+      "name": "Pinacolada (100 g vrac)",
+      "tmpl_id": 5159,
+      "fam": "V0",
+      "min": 56.0,
+      "max": 106.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7614
+      ]
+    },
+    {
+      "op_id": 5536,
+      "op_name": "OP/13960",
+      "code": "V0828",
+      "name": "Pêché Mignon (100 g vrac)",
+      "tmpl_id": 5160,
+      "fam": "V0",
+      "min": 66.0,
+      "max": 116.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7615
+      ]
+    },
+    {
+      "op_id": 5537,
+      "op_name": "OP/13961",
+      "code": "V0829",
+      "name": "Tropical Sun (100 g vrac)",
+      "tmpl_id": 5161,
+      "fam": "V0",
+      "min": 51.0,
+      "max": 101.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7616
+      ]
+    },
+    {
+      "op_id": 5538,
+      "op_name": "OP/13962",
+      "code": "V0830",
+      "name": "Pink Smoothie - BIO (100 g vrac)",
+      "tmpl_id": 5162,
+      "fam": "V0",
+      "min": 17.0,
+      "max": 34.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5539,
+      "op_name": "OP/13963",
+      "code": "V0832",
+      "name": "La Nana de Wépion (100 g vrac)",
+      "tmpl_id": 5163,
+      "fam": "V0",
+      "min": 331.0,
+      "max": 381.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 09:00:44",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7617
+      ]
+    },
+    {
+      "op_id": 5540,
+      "op_name": "OP/13964",
+      "code": "V0834",
+      "name": "Nuage Coco (100 g vrac)",
+      "tmpl_id": 5165,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6523,
+        7618
+      ]
+    },
+    {
+      "op_id": 5541,
+      "op_name": "OP/13965",
+      "code": "V0835",
+      "name": "Aloe Fraisa (50g vrac)",
+      "tmpl_id": 5166,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6524,
+        7619
+      ]
+    },
+    {
+      "op_id": 5542,
+      "op_name": "OP/13966",
+      "code": "V0836",
+      "name": "Ayurveda - BIO (100 g vrac)",
+      "tmpl_id": 5167,
+      "fam": "V0",
+      "min": 80.0,
+      "max": 130.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7620
+      ]
+    },
+    {
+      "op_id": 5543,
+      "op_name": "OP/13967",
+      "code": "V0837",
+      "name": "Vert Pistache (100 g vrac)",
+      "tmpl_id": 5168,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7621
+      ]
+    },
+    {
+      "op_id": 5544,
+      "op_name": "OP/13968",
+      "code": "V0838",
+      "name": "Oolong Framboise (100 g vrac)",
+      "tmpl_id": 5169,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7622
+      ]
+    },
+    {
+      "op_id": 5545,
+      "op_name": "OP/13969",
+      "code": "V0839",
+      "name": "Caramel Beurre salé (100 g vrac)",
+      "tmpl_id": 5170,
+      "fam": "V0",
+      "min": 51.0,
+      "max": 101.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7623
+      ]
+    },
+    {
+      "op_id": 5546,
+      "op_name": "OP/13970",
+      "code": "V0841",
+      "name": "Lacquemant liégeois (100 g vrac)",
+      "tmpl_id": 5172,
+      "fam": "V0",
+      "min": 71.0,
+      "max": 121.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7624
+      ]
+    },
+    {
+      "op_id": 5547,
+      "op_name": "OP/13971",
+      "code": "V0842",
+      "name": "Plaisir chocolaté (100 g vrac)",
+      "tmpl_id": 5173,
+      "fam": "V0",
+      "min": 59.0,
+      "max": 109.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6530,
+        7625
+      ]
+    },
+    {
+      "op_id": 5548,
+      "op_name": "OP/13972",
+      "code": "V0843",
+      "name": "Milky Oolong - BIO (80 g vrac)",
+      "tmpl_id": 5174,
+      "fam": "V0",
+      "min": 37.0,
+      "max": 55.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6531,
+        7626
+      ]
+    },
+    {
+      "op_id": 5549,
+      "op_name": "OP/13973",
+      "code": "V0845",
+      "name": "Mamy Granny - BIO (100 g vrac)",
+      "tmpl_id": 5176,
+      "fam": "V0",
+      "min": 45.0,
+      "max": 65.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7628
+      ]
+    },
+    {
+      "op_id": 5550,
+      "op_name": "OP/13974",
+      "code": "V0846",
+      "name": "Ginger Smith (80 g vrac)",
+      "tmpl_id": 5177,
+      "fam": "V0",
+      "min": 109.0,
+      "max": 159.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7629
+      ]
+    },
+    {
+      "op_id": 5551,
+      "op_name": "OP/13975",
+      "code": "V0847",
+      "name": "Couleur Mojito (100 g vrac)",
+      "tmpl_id": 5178,
+      "fam": "V0",
+      "min": 84.0,
+      "max": 134.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7630
+      ]
+    },
+    {
+      "op_id": 5552,
+      "op_name": "OP/13976",
+      "code": "V0848",
+      "name": "Ginger Cool - BIO (100 g vrac)",
+      "tmpl_id": 5179,
+      "fam": "V0",
+      "min": 93.0,
+      "max": 143.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7631
+      ]
+    },
+    {
+      "op_id": 5553,
+      "op_name": "OP/13977",
+      "code": "V0852",
+      "name": "Verveine Odorante - BIO (50g vrac)",
+      "tmpl_id": 5183,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6536,
+        7634
+      ]
+    },
+    {
+      "op_id": 5554,
+      "op_name": "OP/13978",
+      "code": "V0854",
+      "name": "Camomille Matricaire - BIO (50g vrac)",
+      "tmpl_id": 5185,
+      "fam": "V0",
+      "min": 69.0,
+      "max": 119.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7636
+      ]
+    },
+    {
+      "op_id": 5555,
+      "op_name": "OP/13979",
+      "code": "V0856",
+      "name": "Sorbet framboise - BIO (100 g vrac)",
+      "tmpl_id": 5187,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6538,
+        7638
+      ]
+    },
+    {
+      "op_id": 5556,
+      "op_name": "OP/13980",
+      "code": "V0858",
+      "name": "Tarte à la rhubarbe (100 g vrac)",
+      "tmpl_id": 5189,
+      "fam": "V0",
+      "min": 79.0,
+      "max": 129.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7639
+      ]
+    },
+    {
+      "op_id": 5557,
+      "op_name": "OP/13981",
+      "code": "V0859",
+      "name": "Délice de Montélimar (100 g vrac)",
+      "tmpl_id": 5190,
+      "fam": "V0",
+      "min": 59.0,
+      "max": 109.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7640
+      ]
+    },
+    {
+      "op_id": 5558,
+      "op_name": "OP/13982",
+      "code": "V0861",
+      "name": "Massepain - BIO (100 g vrac)",
+      "tmpl_id": 5192,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2025-10-13 13:22:54",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5559,
+      "op_name": "OP/13983",
+      "code": "V0863",
+      "name": "Masala Chai  (100 g vrac)",
+      "tmpl_id": 5193,
+      "fam": "V0",
+      "min": 87.0,
+      "max": 137.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7642
+      ]
+    },
+    {
+      "op_id": 5560,
+      "op_name": "OP/13984",
+      "code": "V0865",
+      "name": "Délice de Barbarie (100 g vrac)",
+      "tmpl_id": 5194,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7643
+      ]
+    },
+    {
+      "op_id": 5561,
+      "op_name": "OP/13985",
+      "code": "V0866",
+      "name": "Escale à Cassis (100 g vrac)",
+      "tmpl_id": 5195,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7644
+      ]
+    },
+    {
+      "op_id": 5562,
+      "op_name": "OP/13986",
+      "code": "V0867",
+      "name": "Douceur épicée (100 g vrac)",
+      "tmpl_id": 5196,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7645
+      ]
+    },
+    {
+      "op_id": 5563,
+      "op_name": "OP/13987",
+      "code": "V0868",
+      "name": "Citron meringué (100 g vrac)",
+      "tmpl_id": 5197,
+      "fam": "V0",
+      "min": 193.0,
+      "max": 243.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7646
+      ]
+    },
+    {
+      "op_id": 5564,
+      "op_name": "OP/13988",
+      "code": "V0869",
+      "name": "Hansel & Gretel (100 g vrac)",
+      "tmpl_id": 5198,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6546,
+        7647
+      ]
+    },
+    {
+      "op_id": 5565,
+      "op_name": "OP/13989",
+      "code": "V0870",
+      "name": "French Riviera (100 g vrac)",
+      "tmpl_id": 5199,
+      "fam": "V0",
+      "min": 8.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6547,
+        7648
+      ]
+    },
+    {
+      "op_id": 5566,
+      "op_name": "OP/13990",
+      "code": "V0872",
+      "name": "Au pays des Caribous (100 g vrac)",
+      "tmpl_id": 5200,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7649
+      ]
+    },
+    {
+      "op_id": 5567,
+      "op_name": "OP/13991",
+      "code": "V0874",
+      "name": "Café liégeois (100 g vrac)",
+      "tmpl_id": 5202,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6550,
+        7651
+      ]
+    },
+    {
+      "op_id": 5568,
+      "op_name": "OP/13992",
+      "code": "V0875",
+      "name": "Souvenir de La havane (100 g vrac)",
+      "tmpl_id": 5203,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7652
+      ]
+    },
+    {
+      "op_id": 5569,
+      "op_name": "OP/13993",
+      "code": "V0878",
+      "name": "Guarana Boost (100 g vrac)",
+      "tmpl_id": 5206,
+      "fam": "V0",
+      "min": 186.0,
+      "max": 236.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7654
+      ]
+    },
+    {
+      "op_id": 5570,
+      "op_name": "OP/13994",
+      "code": "V0879",
+      "name": "Amazônia (100 g vrac)",
+      "tmpl_id": 5207,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7655
+      ]
+    },
+    {
+      "op_id": 5571,
+      "op_name": "OP/13995",
+      "code": "V0880",
+      "name": "Blue Earl Grey BIO (100 g vrac)",
+      "tmpl_id": 5208,
+      "fam": "V0",
+      "min": 206.0,
+      "max": 256.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7656
+      ]
+    },
+    {
+      "op_id": 5572,
+      "op_name": "OP/13996",
+      "code": "V0885",
+      "name": "Cococabana (100 g vrac)",
+      "tmpl_id": 5211,
+      "fam": "V0",
+      "min": 20.0,
+      "max": 40.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6558,
+        7659
+      ]
+    },
+    {
+      "op_id": 5573,
+      "op_name": "OP/13997",
+      "code": "V0886",
+      "name": "Japan Matcha Genmaicha - BIO (50g vrac)",
+      "tmpl_id": 5212,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6559,
+        7660
+      ]
+    },
+    {
+      "op_id": 5574,
+      "op_name": "OP/13998",
+      "code": "V0887",
+      "name": "Cookie & cie (100 g vrac)",
+      "tmpl_id": 5213,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6560,
+        7661
+      ]
+    },
+    {
+      "op_id": 5575,
+      "op_name": "OP/13999",
+      "code": "V0889",
+      "name": "Granada (100 g vrac)",
+      "tmpl_id": 5215,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6562,
+        7663
+      ]
+    },
+    {
+      "op_id": 5576,
+      "op_name": "OP/14000",
+      "code": "V0890",
+      "name": "Aie caramba (100 g vrac)",
+      "tmpl_id": 5216,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7664
+      ]
+    },
+    {
+      "op_id": 5577,
+      "op_name": "OP/14001",
+      "code": "V0895",
+      "name": "Matcha japonais",
+      "tmpl_id": 5221,
+      "fam": "V0",
+      "min": 350.0,
+      "max": 400.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6694
+      ]
+    },
+    {
+      "op_id": 5578,
+      "op_name": "OP/14002",
+      "code": "V0897",
+      "name": "Sicile Sanguine - BIO (100 g vrac)",
+      "tmpl_id": 5223,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7667
+      ]
+    },
+    {
+      "op_id": 5579,
+      "op_name": "OP/14003",
+      "code": "V0899",
+      "name": "Mumbai Mango - BIO (100 g vrac)",
+      "tmpl_id": 5224,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 2,
+      "bom_ids": [
+        6697,
+        7668
+      ]
+    },
+    {
+      "op_id": 5580,
+      "op_name": "OP/14004",
+      "code": "V0900",
+      "name": "Bora Bora - BIO (100 g vrac)",
+      "tmpl_id": 5225,
+      "fam": "V0",
+      "min": 50.0,
+      "max": 100.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7669
+      ]
+    },
+    {
+      "op_id": 5581,
+      "op_name": "OP/14005",
+      "code": "V0907",
+      "name": "Matcha Fruit de la passion",
+      "tmpl_id": 5230,
+      "fam": "V0",
+      "min": 150.0,
+      "max": 250.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6255
+      ]
+    },
+    {
+      "op_id": 5596,
+      "op_name": "OP/14007",
+      "code": "MP_1V0910",
+      "name": "Matcha Biscuit ",
+      "tmpl_id": 7870,
+      "fam": "V0",
+      "min": 4.0,
+      "max": 5.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5597,
+      "op_name": "OP/14008",
+      "code": "V0910",
+      "name": "Matcha Biscuit 50gr",
+      "tmpl_id": 7871,
+      "fam": "V0",
+      "min": 150.0,
+      "max": 250.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6723
+      ]
+    },
+    {
+      "op_id": 5636,
+      "op_name": "OP/14047",
+      "code": "GI0634",
+      "name": "Gourmandise glacée",
+      "tmpl_id": 4571,
+      "fam": "I0",
+      "min": 122.0,
+      "max": 183.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6683
+      ]
+    },
+    {
+      "op_id": 5920,
+      "op_name": "OP/14326",
+      "code": "GI0911",
+      "name": "Paradise Punch - Infusion de fruits : Litchi - Ananas",
+      "tmpl_id": 7879,
+      "fam": "I0",
+      "min": 30.0,
+      "max": 50.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6719
+      ]
+    },
+    {
+      "op_id": 5922,
+      "op_name": "OP/14328",
+      "code": "GI0912",
+      "name": "Passion Exotique - Infusion de fruits : Mangue - Passion",
+      "tmpl_id": 7878,
+      "fam": "I0",
+      "min": 100.0,
+      "max": 200.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        6718
+      ]
+    },
+    {
+      "op_id": 5928,
+      "op_name": "OP/14332",
+      "code": "MP_1V0912",
+      "name": "Thé glacé Mangue-fruit de la passion",
+      "tmpl_id": 7874,
+      "fam": "V0",
+      "min": 21.0,
+      "max": 28.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 5929,
+      "op_name": "OP/14333",
+      "code": "MP_1V0911",
+      "name": "Thé glacé Lychee",
+      "tmpl_id": 7873,
+      "fam": "V0",
+      "min": 21.0,
+      "max": 28.0,
+      "route": "Buy",
+      "write_date": "2025-10-14 09:22:59",
+      "n_bom_active": 0,
+      "bom_ids": []
+    },
+    {
+      "op_id": 18250,
+      "op_name": "OP/35085",
+      "code": "V0913",
+      "name": "Féérie d'Hivers",
+      "tmpl_id": 10146,
+      "fam": "V0",
+      "min": 100.0,
+      "max": 200.0,
+      "route": "Buy",
+      "write_date": "2026-04-23 08:50:50",
+      "n_bom_active": 1,
+      "bom_ids": [
+        7671
+      ]
+    }
+  ]
+}
