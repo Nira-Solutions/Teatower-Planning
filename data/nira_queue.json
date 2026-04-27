@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-27T17:01:15",
+  "updated": "2026-04-27T17:02:19",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3037,9 +3037,10 @@
       "id": "t030",
       "agent": "compta",
       "task": "Scan SO à facturer (qty_delivered non facturées)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-27T17:01",
-      "request": "regarde avec la compta ce qui est à facturer en commande"
+      "request": "regarde avec la compta ce qui est à facturer en commande",
+      "finished": "2026-04-27T17:02"
     }
   ]
 }
