@@ -1,0 +1,1173 @@
+{
+  "started": "2026-04-27T17:11:25.821569",
+  "rows": [
+    {
+      "so": "S05463",
+      "so_id": 8214,
+      "invoice_partner_id": 5620,
+      "move_id": 36953,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": false,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 5620,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE0804715364",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02280",
+      "invoice_state": "posted",
+      "amount_total": 993.75,
+      "amount_untaxed": 937.5,
+      "send": {
+        "wizard_id": 2962,
+        "before": {
+          "id": 2962,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            5620
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36953,
+          "name": "INV/2026/02280",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "6497becc-a811-423e-813c-acfb47c46f79"
+        }
+      }
+    },
+    {
+      "so": "S05472",
+      "so_id": 8235,
+      "invoice_partner_id": 7440,
+      "move_id": 36954,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 7440,
+          "peppol_eas": "0208",
+          "peppol_endpoint": "0450299437",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02281",
+      "invoice_state": "posted",
+      "amount_total": 800.81,
+      "amount_untaxed": 755.42,
+      "send": {
+        "wizard_id": 2963,
+        "before": {
+          "id": 2963,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            7440
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36954,
+          "name": "INV/2026/02281",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "d60f4bdb-11f4-436b-9685-5da1425d3dda"
+        }
+      }
+    },
+    {
+      "so": "S05459",
+      "so_id": 8200,
+      "invoice_partner_id": 6596,
+      "move_id": 36955,
+      "peppol_partner": {
+        "changes": {},
+        "ready": false,
+        "skip": "no VAT BE -> cannot derive endpoint",
+        "error": null,
+        "after": {
+          "id": 6596,
+          "peppol_eas": "0208",
+          "peppol_endpoint": false,
+          "peppol_verification_state": "not_verified",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02282",
+      "invoice_state": "posted",
+      "amount_total": 763.7,
+      "amount_untaxed": 720.46,
+      "send": {
+        "wizard_id": 2964,
+        "before": {
+          "id": 2964,
+          "sending_methods": [
+            "email"
+          ],
+          "invoice_edi_format": false,
+          "mail_partner_ids": [
+            6596
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36955,
+          "name": "INV/2026/02282",
+          "state": "posted",
+          "peppol_is_sent": false,
+          "peppol_move_state": false,
+          "peppol_message_uuid": false
+        }
+      }
+    },
+    {
+      "so": "S05471",
+      "so_id": 8234,
+      "invoice_partner_id": 123207,
+      "move_id": 36956,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 123207,
+          "peppol_eas": "0208",
+          "peppol_endpoint": "0720819470",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02283",
+      "invoice_state": "posted",
+      "amount_total": 572.4,
+      "amount_untaxed": 540.0,
+      "send": {
+        "wizard_id": 2965,
+        "before": {
+          "id": 2965,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            123207
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36956,
+          "name": "INV/2026/02283",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "1304f46b-772e-48cb-a633-aa96ffaaf2e8"
+        }
+      }
+    },
+    {
+      "so": "S05474",
+      "so_id": 8238,
+      "invoice_partner_id": 7563,
+      "move_id": 36957,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 7563,
+          "peppol_eas": "0208",
+          "peppol_endpoint": "0847167217",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02284",
+      "invoice_state": "posted",
+      "amount_total": 530.0,
+      "amount_untaxed": 500.0,
+      "send": {
+        "wizard_id": 2966,
+        "before": {
+          "id": 2966,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            7563
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36957,
+          "name": "INV/2026/02284",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "e669d805-a33e-4078-be48-56925607178e"
+        }
+      }
+    },
+    {
+      "so": "S05470",
+      "so_id": 8233,
+      "invoice_partner_id": 3162,
+      "move_id": 36958,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 3162,
+          "peppol_eas": "0208",
+          "peppol_endpoint": "0728572047",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02285",
+      "invoice_state": "posted",
+      "amount_total": 512.2,
+      "amount_untaxed": 483.18,
+      "send": {
+        "wizard_id": 2967,
+        "before": {
+          "id": 2967,
+          "sending_methods": [
+            "email"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            3162
+          ],
+          "alerts": {
+            "account_peppol_partner_want_peppol": {
+              "message": "Nouvel Air Coiffure a demand\u00e9 la r\u00e9ception de factures \u00e9lectroniques via Peppol.",
+              "level": "info",
+              "action_text": "Pourquoi devriez-vous l'utiliser ?",
+              "action": {
+                "name": "Pourquoi devrais-je utiliser PEPPOL ?",
+                "type": "ir.actions.client",
+                "tag": "account_peppol.what_is_peppol",
+                "target": "new",
+                "context": {
+                  "footer": false,
+                  "dialog_size": "medium",
+                  "action_on_activate": {
+                    "name": "Imprimer & Envoyer",
+                    "type": "ir.actions.act_window",
+                    "view_mode": "form",
+                    "res_model": "account.move.send.wizard",
+                    "target": "new",
+                    "context": {
+                      "active_model": "account.move",
+                      "active_ids": [
+                        36958
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36958,
+          "name": "INV/2026/02285",
+          "state": "posted",
+          "peppol_is_sent": false,
+          "peppol_move_state": "ready",
+          "peppol_message_uuid": false
+        }
+      }
+    },
+    {
+      "so": "S05404",
+      "so_id": 8105,
+      "invoice_partner_id": 123037,
+      "move_id": 36959,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": false,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 123037,
+          "peppol_eas": "0208",
+          "peppol_endpoint": "1028808427",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02286",
+      "invoice_state": "posted",
+      "amount_total": 515.66,
+      "amount_untaxed": 480.16,
+      "send": {
+        "wizard_id": 2968,
+        "before": {
+          "id": 2968,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            123037
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36959,
+          "name": "INV/2026/02286",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "16122d25-9e95-4c3e-a4c0-62529667a5d5"
+        }
+      }
+    },
+    {
+      "so": "S05480",
+      "so_id": 8267,
+      "invoice_partner_id": 59871,
+      "move_id": 36960,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": false,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 59871,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE0873064633",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02287",
+      "invoice_state": "posted",
+      "amount_total": 492.9,
+      "amount_untaxed": 465.0,
+      "send": {
+        "wizard_id": 2969,
+        "before": {
+          "id": 2969,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            59871
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36960,
+          "name": "INV/2026/02287",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "b7b7ca14-68d9-4862-ae4c-ab299d38fcf9"
+        }
+      }
+    },
+    {
+      "so": "S05457",
+      "so_id": 8198,
+      "invoice_partner_id": 6596,
+      "move_id": 36961,
+      "peppol_partner": {
+        "changes": {},
+        "ready": false,
+        "skip": "no VAT BE -> cannot derive endpoint",
+        "error": null,
+        "after": {
+          "id": 6596,
+          "peppol_eas": "0208",
+          "peppol_endpoint": false,
+          "peppol_verification_state": "not_verified",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02288",
+      "invoice_state": "posted",
+      "amount_total": 426.31,
+      "amount_untaxed": 402.18,
+      "send": {
+        "wizard_id": 2970,
+        "before": {
+          "id": 2970,
+          "sending_methods": [
+            "email"
+          ],
+          "invoice_edi_format": false,
+          "mail_partner_ids": [
+            6596
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36961,
+          "name": "INV/2026/02288",
+          "state": "posted",
+          "peppol_is_sent": false,
+          "peppol_move_state": false,
+          "peppol_message_uuid": false
+        }
+      }
+    },
+    {
+      "so": "S05467",
+      "so_id": 8220,
+      "invoice_partner_id": 6596,
+      "move_id": 36962,
+      "peppol_partner": {
+        "changes": {},
+        "ready": false,
+        "skip": "no VAT BE -> cannot derive endpoint",
+        "error": null,
+        "after": {
+          "id": 6596,
+          "peppol_eas": "0208",
+          "peppol_endpoint": false,
+          "peppol_verification_state": "not_verified",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02289",
+      "invoice_state": "posted",
+      "amount_total": 424.25,
+      "amount_untaxed": 400.21,
+      "send": {
+        "wizard_id": 2971,
+        "before": {
+          "id": 2971,
+          "sending_methods": [
+            "email"
+          ],
+          "invoice_edi_format": false,
+          "mail_partner_ids": [
+            6596
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36962,
+          "name": "INV/2026/02289",
+          "state": "posted",
+          "peppol_is_sent": false,
+          "peppol_move_state": false,
+          "peppol_message_uuid": false
+        }
+      }
+    },
+    {
+      "so": "S05481",
+      "so_id": 8268,
+      "invoice_partner_id": 2889,
+      "move_id": 36963,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 2889,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE0657633274",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02290",
+      "invoice_state": "posted",
+      "amount_total": 368.38,
+      "amount_untaxed": 347.52,
+      "send": {
+        "wizard_id": 2972,
+        "before": {
+          "id": 2972,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            2889
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36963,
+          "name": "INV/2026/02290",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "6b1a77d2-9027-4d66-9f05-13bbed48663a"
+        }
+      }
+    },
+    {
+      "so": "S05478",
+      "so_id": 8265,
+      "invoice_partner_id": 2912,
+      "move_id": 36964,
+      "peppol_partner": {
+        "changes": {},
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 2912,
+          "peppol_eas": "0208",
+          "peppol_endpoint": "0402206045",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02291",
+      "invoice_state": "posted",
+      "amount_total": 341.28,
+      "amount_untaxed": 321.96,
+      "send": {
+        "wizard_id": 2973,
+        "before": {
+          "id": 2973,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            2912
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36964,
+          "name": "INV/2026/02291",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "9b62155b-3919-4283-9beb-0a07c6f2333c"
+        }
+      }
+    },
+    {
+      "so": "S05468",
+      "so_id": 8222,
+      "invoice_partner_id": 6596,
+      "move_id": 36965,
+      "peppol_partner": {
+        "changes": {},
+        "ready": false,
+        "skip": "no VAT BE -> cannot derive endpoint",
+        "error": null,
+        "after": {
+          "id": 6596,
+          "peppol_eas": "0208",
+          "peppol_endpoint": false,
+          "peppol_verification_state": "not_verified",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02292",
+      "invoice_state": "posted",
+      "amount_total": 348.61,
+      "amount_untaxed": 328.85,
+      "send": {
+        "wizard_id": 2974,
+        "before": {
+          "id": 2974,
+          "sending_methods": [
+            "email"
+          ],
+          "invoice_edi_format": false,
+          "mail_partner_ids": [
+            6596
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36965,
+          "name": "INV/2026/02292",
+          "state": "posted",
+          "peppol_is_sent": false,
+          "peppol_move_state": false,
+          "peppol_message_uuid": false
+        }
+      }
+    },
+    {
+      "so": "S05402",
+      "so_id": 8103,
+      "invoice_partner_id": 3042,
+      "move_id": 36966,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 3042,
+          "peppol_eas": "9957",
+          "peppol_endpoint": "FR36818905242",
+          "peppol_verification_state": "not_valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02293",
+      "invoice_state": "posted",
+      "amount_total": 323.47,
+      "amount_untaxed": 305.13,
+      "send": {
+        "wizard_id": 2975,
+        "before": {
+          "id": 2975,
+          "sending_methods": [
+            "email"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            3042
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36966,
+          "name": "INV/2026/02293",
+          "state": "posted",
+          "peppol_is_sent": false,
+          "peppol_move_state": false,
+          "peppol_message_uuid": false
+        }
+      }
+    },
+    {
+      "so": "S05486",
+      "so_id": 8275,
+      "invoice_partner_id": 3132,
+      "move_id": 36967,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 3132,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE0548923592",
+          "peppol_verification_state": "not_valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02294",
+      "invoice_state": "posted",
+      "amount_total": 323.47,
+      "amount_untaxed": 305.13,
+      "send": {
+        "wizard_id": 2976,
+        "before": {
+          "id": 2976,
+          "sending_methods": [
+            "email"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            3132
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36967,
+          "name": "INV/2026/02294",
+          "state": "posted",
+          "peppol_is_sent": false,
+          "peppol_move_state": false,
+          "peppol_message_uuid": false
+        }
+      }
+    },
+    {
+      "so": "S05475",
+      "so_id": 8239,
+      "invoice_partner_id": 2892,
+      "move_id": 36968,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 2892,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE1035951882",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02295",
+      "invoice_state": "posted",
+      "amount_total": 243.6,
+      "amount_untaxed": 229.81,
+      "send": {
+        "wizard_id": 2977,
+        "before": {
+          "id": 2977,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            2892
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36968,
+          "name": "INV/2026/02295",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "7cca71ab-d527-4b31-bf9b-25a49e2d8b40"
+        }
+      }
+    },
+    {
+      "so": "S05483",
+      "so_id": 8270,
+      "invoice_partner_id": 2939,
+      "move_id": 36969,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 2939,
+          "peppol_eas": "0208",
+          "peppol_endpoint": "0662460807",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02296",
+      "invoice_state": "posted",
+      "amount_total": 241.6,
+      "amount_untaxed": 227.92,
+      "send": {
+        "wizard_id": 2978,
+        "before": {
+          "id": 2978,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            2939
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36969,
+          "name": "INV/2026/02296",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "e19b768e-8050-4d61-9a83-a7f6b292727e"
+        }
+      }
+    },
+    {
+      "so": "S05412",
+      "so_id": 8113,
+      "invoice_partner_id": 5459,
+      "move_id": 36970,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": false,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 5459,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE0838666156",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": false,
+          "is_peppol_edi_format": false
+        }
+      },
+      "invoice_name": "INV/2026/02297",
+      "invoice_state": "posted",
+      "amount_total": 257.1,
+      "amount_untaxed": 242.55,
+      "send": {
+        "wizard_id": 2979,
+        "before": {
+          "id": 2979,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            5459
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36970,
+          "name": "INV/2026/02297",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "07f1dfca-7a8e-498a-9d57-6f584416a534"
+        }
+      }
+    },
+    {
+      "so": "S05484",
+      "so_id": 8272,
+      "invoice_partner_id": 3200,
+      "move_id": 36971,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 3200,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE0477722426",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02298",
+      "invoice_state": "posted",
+      "amount_total": 226.52,
+      "amount_untaxed": 213.71,
+      "send": {
+        "wizard_id": 2980,
+        "before": {
+          "id": 2980,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            3200
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36971,
+          "name": "INV/2026/02298",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "fe7b9796-0f9c-4a54-b4de-cd206ff65dfd"
+        }
+      }
+    },
+    {
+      "so": "S05485",
+      "so_id": 8273,
+      "invoice_partner_id": 3043,
+      "move_id": 36972,
+      "peppol_partner": {
+        "changes": {
+          "invoice_edi_format": "ubl_bis3"
+        },
+        "ready": true,
+        "skip": null,
+        "error": null,
+        "after": {
+          "id": 3043,
+          "peppol_eas": "9925",
+          "peppol_endpoint": "BE0834145362",
+          "peppol_verification_state": "valid",
+          "invoice_edi_format": "ubl_bis3",
+          "is_peppol_edi_format": true
+        }
+      },
+      "invoice_name": "INV/2026/02299",
+      "invoice_state": "posted",
+      "amount_total": 164.63,
+      "amount_untaxed": 155.3,
+      "send": {
+        "wizard_id": 2981,
+        "before": {
+          "id": 2981,
+          "sending_methods": [
+            "peppol"
+          ],
+          "invoice_edi_format": "ubl_bis3",
+          "mail_partner_ids": [
+            3043
+          ],
+          "alerts": false
+        },
+        "sent": true,
+        "return": {
+          "type": "ir.actions.act_window_close"
+        },
+        "move_after": {
+          "id": 36972,
+          "name": "INV/2026/02299",
+          "state": "posted",
+          "peppol_is_sent": true,
+          "peppol_move_state": "processing",
+          "peppol_message_uuid": "eefd96e0-6267-4895-999b-97c2d04cc758"
+        }
+      }
+    }
+  ],
+  "peppol_activations": [
+    {
+      "partner_id": 5620,
+      "name": "Ventuno SA",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 7440,
+      "name": "Cafermi",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 123207,
+      "name": "KVA Bar - Groupe DonGiovanni",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 7563,
+      "name": "CREAGORA",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 3162,
+      "name": "Nouvel Air Coiffure",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 123037,
+      "name": false,
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 59871,
+      "name": false,
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 2889,
+      "name": "Cocon Life store",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 3042,
+      "name": "La Th\u00e9 Box",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 3132,
+      "name": "Megan Houtvast",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 2892,
+      "name": "Coiffure By Sam",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 2939,
+      "name": "Emilie Gigot - Green Coffee",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 5459,
+      "name": "Comptabilit\u00e9",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 3200,
+      "name": "Restaurant La Gloriette - SPRL Baufau - Mr Olivier Bauche",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    },
+    {
+      "partner_id": 3043,
+      "name": "La Vieille Demeure",
+      "changes": {
+        "invoice_edi_format": "ubl_bis3"
+      }
+    }
+  ],
+  "errors": [],
+  "ended": "2026-04-27T17:13:38.545329"
+}
