@@ -1,8 +1,12 @@
-# Planning semaine du 27 avril au 1er mai 2026 (v5 — densification lundi 22/04)
+# Planning semaine du 27 avril au 1er mai 2026 (v6 — ajustements 28/04)
 
-> **Généré le 21/04 (v3), finalisé le 22/04 (v4 — 4 revisites S17→S18 retirées).** Merchandiser : Gilles | Base : Baillonville (5377) | Horaire : 08h30 - 16h30
+> **Généré le 21/04 (v3), finalisé le 22/04 (v4 — 4 revisites S17→S18 retirées), densifié 22/04 (v5 — Gerpinnes lundi), ajusté 28/04 (v6 — Mer/Jeu).** Merchandiser : Gilles | Base : Baillonville (5377) | Horaire : 08h30 - 16h30
 > **Vendredi 01/05 = jour férié (Fête du Travail) — pas de visite.**
 > **Thème S18 : 4 implantations thés glacés + 1 demande Tamara (Fernelmont).**
+
+**v6 28/04 — ajustements Nicolas :**
+- **Mercredi 29/04** : retiré Delhaize Fragnée (vu avec Jérôme — attendre retour) ; ajouté 2 stops magasins Teatower : **Boutique Namur Rue du Pont 3** (10 min) + **Boutique Liège Rue Saint Paul 7** (20 min), insérés dans la trajectoire Jambes → Liège → Cointe.
+- **Jeudi 30/04** : retiré Delhaize Incourt (responsable commande lui-même, msg Slack 06/05/2025 — pas de suivi de notre côté) ; retiré Delhaize Boondael (vu avec Jérôme — il prend contact).
 
 **v4 22/04 — ajustements :**
 - **4 revisites retirées** (visitées S17 20-24/04, règle §13 pas de S-1) : Delhaize Marche #8159 (S17 je 24/04), AD Rochefort #7692 (S17 me 23/04), ITM Assesse #3209 (S17 lu 21/04), ITM Tilff #116869 (S17 me 22/04 + SO S05458 602€ passé aujourd'hui).
@@ -40,33 +44,39 @@
 
 ---
 
-## Mercredi 29/04 — NAMUR / LIÈGE (2 implantations + 3 visites)
+## Mercredi 29/04 — NAMUR / LIÈGE (1 implantation + 3 visites GMS + 2 boutiques Teatower)
 
 | Heure | Magasin | Adresse | Contact magasin | Tel | Type | Brief |
 |---|---|---|---|---|---|---|
 | 09:05-10:05 | **Hyper Carrefour Jambes** | Av. du Prince de Liège 57, 5100 Namur | **à demander sur place** | +32 81 33 20 11 | **IMPLANTATION thés glacés** | Hyper = matin obligatoire. Note Odoo : "passage demandé par le magasin, demandent balisages languettes + arrêts rayon". |
-| 11:00-12:00 | **Gimalex SA — Delhaize Fragnée** | Rue de Fragnée 41, 4000 Liège | **Mme Bastin / Mme Hicter** | 042 52 87 63 | **IMPLANTATION thés glacés** | ⚠️ **RDV décalé 10h → 11h** (à prévenir Mme Bastin). Pas de visite les lundis. |
-| 12:15-12:45 | ITM Liège Cointe (DFH Market) | Bd Gustave Kleyer 3, 4000 Liège | **Mme Mossay Shannen** | +32 4 250 34 82 | Visite | Tier B, OVERDUE 42j. |
-| 13:15-13:45 | Delhaize Embourg (DelEmbourg SRL) | Voie de l'Ardenne 57, 4053 Embourg | **Kevin Demarteau** | 043 61 25 69 | Visite | Tier A, 14j. |
-| 14:20-14:50 | **Carrefour Market Remouchamps** | Av. de la Porallée 36A, 4920 Aywaille | **à demander sur place** | 043 84 05 50 | Visite + placement thés glacés | Contrainte : pas le jeudi (responsable rayon absent) → mercredi OK. Sur route retour E25. |
+| 10:15-10:25 | **Boutique Teatower Namur** | Rue du Pont 3, 5000 Namur | — | — | Stop boutique Teatower | 10 min — passage rapide magasin Teatower (Nicolas 28/04). À 10 min de Jambes (Pont des Ardennes/centre). |
+| 11:20-11:40 | **Boutique Teatower Liège** | Rue Saint Paul 7, 4000 Liège | — | — | Stop boutique Teatower | 20 min — passage magasin Teatower centre Liège (Nicolas 28/04). À 55 min de Namur via E42. |
+| 11:55-12:25 | ITM Liège Cointe (DFH Market) | Bd Gustave Kleyer 3, 4000 Liège | **Mme Mossay Shannen** | +32 4 250 34 82 | Visite | Tier B, OVERDUE 42j. À 15 min de Saint Paul (tunnel/rampe Cointe). |
+| 12:40-13:10 | Delhaize Embourg (DelEmbourg SRL) | Voie de l'Ardenne 57, 4053 Embourg | **Kevin Demarteau** | 043 61 25 69 | Visite | Tier A, 14j. Déjeuner rapide sur trajet Cointe → Embourg. |
+| 13:40-14:10 | **Carrefour Market Remouchamps** | Av. de la Porallée 36A, 4920 Aywaille | **à demander sur place** | 043 84 05 50 | Visite + placement thés glacés | Contrainte : pas le jeudi (responsable rayon absent) → mercredi OK. Sur route retour E25. |
 
-**Route** : Baillonville → Jambes (35 min) → Fragnée (50 min via Liège) → Cointe (15 min) → déjeuner rapide → Embourg (15 min) → Remouchamps (30 min via E25 sud) → Baillonville (45 min via E25) → ~15:35. [Google Maps](https://www.google.com/maps/dir/Baillonville+5377/Avenue+du+Prince+de+Li%C3%A8ge+57+5100+Namur/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Bd+Gustave+Kleyer+3+4000+Li%C3%A8ge/Voie+de+l%27Ardenne+57+4053+Embourg/Avenue+de+la+Poral%C3%A9e+36A+4920+Aywaille/Baillonville+5377)
+**Route** : Baillonville → Jambes (35 min) → Boutique Namur Rue du Pont (10 min) → Boutique Liège Rue Saint Paul (55 min via E42) → Cointe (15 min) → Embourg (15 min, déjeuner intégré) → Remouchamps (30 min via E25 sud) → Baillonville (45 min via E25) → ~14:55. [Google Maps](https://www.google.com/maps/dir/Baillonville+5377/Avenue+du+Prince+de+Li%C3%A8ge+57+5100+Namur/Rue+du+Pont+3+5000+Namur/Rue+Saint+Paul+7+4000+Li%C3%A8ge/Bd+Gustave+Kleyer+3+4000+Li%C3%A8ge/Voie+de+l%27Ardenne+57+4053+Embourg/Avenue+de+la+Poral%C3%A9e+36A+4920+Aywaille/Baillonville+5377)
 
-**Retiré v4 (revisite S17)** : ITM Tilff (S17 mer 22/04 + SO S05458 602€ passé aujourd'hui 22/04 — marchandise fraîche, revisite inutile).
+**Retiré v6 (28/04)** : Gimalex SA — Delhaize Fragnée (Rue de Fragnée 41, 4000 Liège). Décision Nicolas vu avec Jérôme — attendre retour de Jérôme avant replanification. RDV décalé 10h→11h annulé, prévenir Mme Bastin / Mme Hicter (042 52 87 63) si déjà confirmé. Calendar.event Odoo #414 non touché (règle §10).
+**Retiré v4 (revisite S17)** : ITM Tilff (S17 mer 22/04 + SO S05458 602€ passé 22/04 — marchandise fraîche, revisite inutile).
 
 ---
 
-## Jeudi 30/04 — BW / Bruxelles (5 visites, inchangé v3)
+## Jeudi 30/04 — BW / Bruxelles (3 visites — v6 28/04)
 
 | Heure | Magasin | Adresse | Contact magasin | Tel | Type | Brief |
 |---|---|---|---|---|---|---|
 | 09:30-10:00 | CM Uccle Bascule | Chaussée de Waterloo 719, 1180 Uccle | **Carmen** | 023 43 55 75 | Visite | Tier B, OVERDUE ~55j. |
-| 10:15-10:45 | Delhaize Boondael (AL RETAIL) | Av. du Bois de la Cambre 120, 1050 Ixelles | **François Korosmezey** | 02 672 89 48 | Visite | Tier B, OVERDUE ~93j. Gilles doit prendre contact re: panier tourniquet. |
-| 11:30-12:00 | CM Woluwe Shopping (Wdistri SA) | Rue Saint-Lambert 202, 1200 Woluwe-Saint-Lambert | **Jordan** | 022 61 13 60 | Visite | Tier C, OVERDUE ~50j. |
-| 13:00-13:30 | ITM Wavre (SA Nalim) | Av. des Princes 9, 1300 Wavre | **Vincent Servais** | +32 10 24 11 48 | Visite | Tier B, 20j. |
-| 13:45-14:15 | Delhaize Incourt (Distri-Incourt) | Chaussée de Namur 89, 1315 Incourt | **Jérôme DEBUS** | 010/88.72.90 | Visite | Tier B, OVERDUE ~72j. |
+| 11:00-11:30 | CM Woluwe Shopping (Wdistri SA) | Rue Saint-Lambert 202, 1200 Woluwe-Saint-Lambert | **Jordan** | 022 61 13 60 | Visite | Tier C, OVERDUE ~50j. Trajet Uccle → Woluwe ~30 min via Bois de la Cambre. |
+| 12:30-13:00 | ITM Wavre (SA Nalim) | Av. des Princes 9, 1300 Wavre | **Vincent Servais** | +32 10 24 11 48 | Visite | Tier B, 20j. Trajet Woluwe → Wavre ~45 min via Ring + E411 (déjeuner sur trajet). |
 
-**Route** : Baillonville → Uccle (1h15) → Boondael (15 min) → Woluwe (25 min) → déjeuner → Wavre (25 min) → Incourt (15 min) → retour Baillonville (1h) → ~15:15. [Google Maps](https://www.google.com/maps/dir/Baillonville+5377/Chauss%C3%A9e+de+Waterloo+719+1180+Uccle/Avenue+du+Bois+de+la+Cambre+120+1050+Ixelles/Rue+Saint-Lambert+202+1200+Woluwe-Saint-Lambert/Avenue+des+Princes+9+1300+Wavre/Chauss%C3%A9e+de+Namur+89+1315+Incourt/Baillonville+5377)
+**Route** : Baillonville → Uccle (1h15) → Woluwe (30 min via Bois de la Cambre) → Wavre (45 min via Ring + E411, déjeuner intégré) → retour Baillonville (1h via E411) → ~14:00. [Google Maps](https://www.google.com/maps/dir/Baillonville+5377/Chauss%C3%A9e+de+Waterloo+719+1180+Uccle/Rue+Saint-Lambert+202+1200+Woluwe-Saint-Lambert/Avenue+des+Princes+9+1300+Wavre/Baillonville+5377)
+
+**Retirés v6 (28/04)** :
+- **Delhaize Boondael (AL RETAIL)** — Av. du Bois de la Cambre 120, 1050 Ixelles. Décision Nicolas vu avec Jérôme — Jérôme prend contact (panier tourniquet). À ressortir une fois retour Jérôme.
+- **Delhaize Incourt (Distri-Incourt)** — Chaussée de Namur 89, 1315 Incourt. Responsable Jérôme DEBUS commande lui-même (msg Slack 06/05/2025) — pas de suivi merchandiser. Sortir du backlog Tier B revisite.
+
+Calendar.event Odoo #464 (Boondael) et #467 (Incourt) non touchés (règle §10) — historique uniquement, planning fait foi.
 
 ---
 
@@ -76,39 +86,42 @@ Pas de visite.
 
 ---
 
-## Récapitulatif v4
+## Récapitulatif v6
 
-| Jour | Visites | Implantations | Zone | Retour estimé |
-|---|---|---|---|---|
-| Lundi 27/04 | 1 (Gerpinnes) | **2** (Mons Gds Prés + Ath) | Hainaut / Charleroi | ~15:20 |
-| Mardi 28/04 | 2 (+ indispo pneus) | 0 | Marche / Fernelmont | ~15:10 |
-| Mercredi 29/04 | 3 | **2** (Jambes + Fragnée) | Namur / Liège | ~15:35 |
-| Jeudi 30/04 | 5 | 0 | BW / BXL | ~15:15 |
-| Vendredi 01/05 | 0 | 0 | Férié | — |
-| **Total** | **11 visites** | **4 implantations** | | |
+| Jour | Visites GMS | Implantations | Boutiques Teatower | Zone | Retour estimé |
+|---|---|---|---|---|---|
+| Lundi 27/04 | 1 (Gerpinnes) | **2** (Mons Gds Prés + Ath) | 0 | Hainaut / Charleroi | ~15:20 |
+| Mardi 28/04 | 2 (+ indispo pneus) | 0 | 0 | Marche / Fernelmont | ~15:10 |
+| Mercredi 29/04 | 3 | **1** (Jambes) | **2** (Namur Rue du Pont + Liège Rue Saint Paul) | Namur / Liège | ~14:55 |
+| Jeudi 30/04 | 3 | 0 | 0 | BW / BXL | ~14:00 |
+| Vendredi 01/05 | 0 | 0 | 0 | Férié | — |
+| **Total** | **9 visites GMS** | **3 implantations** | **2 boutiques Teatower** | | |
 
 ## ⚠️ Points d'attention
 
-- **Fragnée #414** : RDV initial 10:00 → à décaler 11:00 (prévenir Mme Bastin ou Mme Hicter au 042 52 87 63).
+- **Boutiques Teatower mercredi** : Rue du Pont 3 (5000 Namur, 10 min) + Rue Saint Paul 7 (4000 Liège, 20 min) — ajoutées 28/04 par Nicolas dans la trajectoire Jambes → Cointe.
+- **Fragnée retiré v6** : ne pas se présenter Rue de Fragnée 41 mercredi. Si Mme Bastin avait été prévenue du décalage 10h→11h, la rappeler au 042 52 87 63 pour annuler.
 - **Mons Grands Prés + Ath + Jambes** : pas de contact enregistré — Gilles doit noter sur place et remonter à Nicolas pour enrichir la fiche Odoo.
 - **S05437 Delhaize Ath** : confirmée par Nicolas (21/04), facturée. Implantation thés glacés + display.
 - **Fernelmont** : demande Tamara explicite 10/04 — Gilles doit confirmer les 3 réf à stopper avant le passage (briefing préalable).
+- **Boondael / Incourt jeudi** : retirés v6, ne pas se présenter (Jérôme prend contact Boondael / Incourt commande seul).
 - **Luxembourg (Bastogne / Bouillon / Florenville)** : reporté S19. Florenville OVERDUE 85j à prioriser absolument S19.
 
 ## Clients OVERDUE traités cette semaine
 
 - Cointe (B, 42j) — mercredi
 - Uccle Bascule (B, 55j) — jeudi
-- Boondael (B, 93j) — jeudi
 - Woluwe (C, 50j) — jeudi
-- Incourt (B, 72j) — jeudi
 
-## Clients OVERDUE reportés S19
+## Clients OVERDUE reportés / retirés
 
-- Florenville (B, 85j)
-- Hannut (A, 27j — pas encore overdue mais candidat)
-- Delhaize Ottignies (B, 21j — contrainte "pas le jeudi")
-- CM Hannut PR Macleky (110j — "visite que le jeudi")
+- **Boondael (B, 93j)** — retiré v6 (Jérôme reprend contact)
+- **Incourt (B, 72j)** — retiré v6 définitivement (responsable commande seul, msg Slack 06/05/2025)
+- **Fragnée (impl)** — reporté v6 (attente retour Jérôme)
+- Florenville (B, 85j) — S19
+- Hannut (A, 27j — pas encore overdue mais candidat) — S19
+- Delhaize Ottignies (B, 21j — contrainte "pas le jeudi") — S19
+- CM Hannut PR Macleky (110j — "visite que le jeudi") — S19
 - Delhaize Wavre (Waldix — refuse merchandiser)
 - Rochefort (B, 60j — revisite S17 retirée v4)
 - Delhaize Marche (A, 36j — revisite S17 retirée v4)
