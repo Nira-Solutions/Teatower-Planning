@@ -1,4 +1,16 @@
 
+## 2026-04-29 — Pricelist Shopify : aligner 9 GI0 thes glaces a 9,50 EUR
+
+- **Demande Nicolas** : tous les GI0xxx (thes glaces) doivent afficher 9,50 EUR TTC sur teatower.com. GI0916 deja corrige (29/04 11h33), 9 autres encore a 8,50 sur la pricelist 3 "Odoo x Shopify PriceList".
+- **Diagnostic HT/TTC** : sur GI0916 ref, `list_price` Odoo = 8.9623 (HT, TVA 6% non incluse) -> ×1.06 = 9.50 TTC. Le `fixed_price` pricelist = 9.50 matche le TTC affiche cote Shopify. Decision : ecrire 9.50 (meme valeur que GI0916 deja ok).
+- **Updates fixed_price 8.50 -> 9.50** (pricelist_id=3, applied_on=variant) :
+  - item 111 GI0868, 112 GI0634, 113 GI0911, 114 GI0912, 115 GI0847, 116 GI0735, 117 GI0820, 330 GI0832, 331 GI0880 -> **9/9 OK**.
+- **7 SKUs absents de la pricelist verifies** (GI0617, GI0813, GI0821, GI0822, GI0826, GI0848, GI0917) :
+  - Tous actifs dans Odoo, taxe 6%, mais **aucun n'est exporte sur Shopify** (table `shopify.product.template.ept` : 0 record pour ces tmpl_id, alors que GI0916 ref y figure avec `exported_in_shopify=True`).
+  - Decision : **ne pas creer de pricelist_item** -> inutile tant que Shopify ne les connait pas. A signaler a Nicolas s'il faut les publier.
+- **Sanity finale** : 10 items GI0 sur la pricelist 3 = tous a 9.50.
+- **Propagation Shopify** : attendre prochain cron "Shopify: Process Products Queue" (~10 min).
+
 ## 2026-04-27 — Fix route Buy -> Manufacture sur 249 OP I0/V0 avec BoM active
 
 - **Demande Nicolas** : GO pour appliquer le fix planifie dans l'audit precedent (249 OP TT/Stock I0/V0 avec BoM active mais route Buy par erreur, suite au script `11_restore_buy_route.py` du 23/04 qui n'avait pas verifie la presence de BoM).
