@@ -1,5 +1,34 @@
 # LOG Compta Teatower
 
+## 2026-04-29 — Lettrage SEPA Kirchner Fischer (SL 17572 + SL 18090)
+
+### (B) Lettrage SEPA Kirchner Fischer — 2 domiciliations
+
+**SL 17572 — 30/03/2026 — -20 606,47 EUR — CAS B PARTIEL**
+- Diagnostic : RESA562 avait 3 501,93 EUR deja lettres via BNK1/25-26/4199 (SL 17341, 18/03/2026, partial.reconcile id=11475). Residuel reel = 6 046,70 EUR, pas 9 548,63 EUR.
+- Action : move BNK1/25-26/4385 (id=35216) remis en draft, compte suspense 499000 remplace par :
+  - 440000 debit 6 046,70 EUR (RESA562 partiel) -> reconcile avec line 122154 -> RESA562 paid
+  - 440000 debit 11 057,84 EUR (RESA564) -> reconcile avec line 122914 -> RESA564 paid
+  - 499000 debit 3 501,93 EUR -> SUSPENSE residuel (ces 3501.93 correspondent a un paiement anterieurement applique sur RESA562 via une autre SL, a pointer dans la meme SL bancaire par Nicolas)
+- Ecritures creees : move lines 163592, 163593, 163594 dans BNK1/25-26/4385
+
+**SL 18090 — 22/04/2026 — -18 451,00 EUR — CAS C**
+- Diagnostic : RESA734 (RGK26-00690) residuel facture = 6 105,30 EUR vs communication Kirchner = 5 944,74 EUR -> ecart +160,56 EUR. Aucun avoir ou partial reconcile existant. Origine non identifiee.
+- Action : move BNK1/25-26/4798 (id=36792) remis en draft, compte suspense 499000 remplace par :
+  - 440000 debit 11 969,66 EUR (RESA506) -> reconcile avec line 125260 -> RESA506 paid
+  - 440000 debit 536,60 EUR (RESA735) -> reconcile avec line 125262 -> RESA735 paid
+  - 499000 debit 5 944,74 EUR -> SUSPENSE RESA734 (ecart 160,56 a clarifier avec Kirchner)
+- Ecritures creees : move lines 163595, 163596, 163597 dans BNK1/25-26/4798
+
+**Residuels a traiter manuellement par Nicolas :**
+1. SL 17572 : 3 501,93 EUR en suspense (499000) = paiement deja applique sur RESA562 via SL 17341 -> verifier si la SL 17341 est bien une domiciliation separee ou double-comptabilisation
+2. SL 18090 : 5 944,74 EUR en suspense (499000) = RESA734 (6 105,30) non lettree -> ecart 160,56 EUR a clarifier avec Kirchner (avoir ? majoration ? note de debit ?)
+
+**Factures lettrées ce batch :** RESA562 + RESA564 + RESA506 + RESA735 = 29 610,80 EUR TTC
+**PAY00569 cancelled** (cree par erreur en debut de session, annule avant tout impact)
+
+---
+
 ## 2026-04-29 — Lettrage 7 quick wins + diagnostic SEPA Kirchner
 
 ### (A) Lettrage 7 factures clients
