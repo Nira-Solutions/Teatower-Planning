@@ -1,0 +1,176 @@
+================================================================================
+ALL SO + INVOICES par partenaire connu
+================================================================================
+
+##### Delhaize Recogne (#122091) #####
+  name='Affilié 046780 - Delhaize Recogne'  created=2026-03-13  cat=[88]
+  SO total: 0
+  Invoices total: 0
+
+##### Intermarche Hannut (INTERMADIS) (#121874) #####
+  name='INTERMADIS SA - Intermarché Hannut'  created=2026-03-06  cat=[88, 27]
+  SO total: 2
+    S05122     | 2026-03-06 |    681.57 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S05335     | 2026-04-02 |   1398.70 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 0
+
+##### Carrefour Belgium - Corporate Village (#6596) #####
+  name='Carrefour Belgium - Corporate Village'  created=2025-04-07  cat=[88, 27, 28]
+  SO total: 94
+    S00071     | 2025-04-07 |    587.80 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S00195     | 2025-04-08 |    610.26 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S00294     | 2025-04-15 |    645.81 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S00312     | 2025-04-16 |   1824.63 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S00691     | 2025-05-12 |    582.51 EUR | sale   | inv=upselling | by aurelie.thibaut@noenature.com
+    S00900     | 2025-05-22 |    449.76 EUR | sale   | inv=invoiced | by jerome.carlier@teatower.com
+    S01062     | 2025-06-03 |    481.41 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S01084     | 2025-06-04 |    647.89 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S01171     | 2025-06-10 |    647.89 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S01335     | 2025-06-19 |    705.35 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 120
+    INV/2025/00234       | 2025-04-11 |    587.80 | out_invoice | posted | pay=paid
+    INV/2025/00236       | 2025-04-11 |    610.26 | out_invoice | posted | pay=partial
+    INV/2025/00381       | 2025-04-22 |    645.81 | out_invoice | posted | pay=paid
+    INV/2025/00382       | 2025-04-22 |   1824.63 | out_invoice | posted | pay=paid
+    INV/2025/00720       | 2025-05-15 |    582.51 | out_invoice | posted | pay=paid
+    INV/2025/01051       | 2025-06-03 |    449.76 | out_invoice | posted | pay=paid
+    INV/2025/01110       | 2025-06-04 |    481.41 | out_invoice | posted | pay=paid
+    INV/2025/01127       | 2025-06-05 |    647.89 | out_invoice | posted | pay=paid
+    RINV/24-25/0051      | 2025-06-12 |     28.05 | out_refund  | posted | pay=paid
+    INV/2025/01262       | 2025-06-12 |    647.89 | out_invoice | posted | pay=paid
+
+##### Hyper Carrefour Bomeree (#122467) #####
+  name='Hyper Carrefour Bomerée'  created=2026-03-26  cat=[88]
+  SO total: 0
+  Invoices total: 0
+
+##### Hyper Carrefour Gosselies (#122466) #####
+  name='Hyper Carrefour Gosselies'  created=2026-03-26  cat=[88]
+  SO total: 0
+  Invoices total: 0
+
+##### Carrefour Market Wellin (#122589) #####
+  name='Carrefour Market Wellin'  created=2026-03-30  cat=[88]
+  SO total: 0
+  Invoices total: 0
+
+##### Intermarche Hamoir (#122255) #####
+  name='SA LD Management - Intermarché Hamoir'  created=2026-03-18  cat=[88, 27]
+  SO total: 1
+    S05230     | 2026-03-18 |    681.57 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 1
+    INV/2026/01723       | 2026-03-26 |    681.57 | out_invoice | posted | pay=not_paid
+
+##### Chez Jack (HORECA JACQUEMIN SRL) (#122410) #####
+  name='Chez Jack - HORECA JACQUEMIN SRL'  created=2026-03-24  cat=[85, 26]
+  SO total: 1
+    S05263     | 2026-03-24 |    275.00 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 1
+    INV/2026/01784       | 2026-03-30 |    275.00 | out_invoice | posted | pay=paid
+
+##### L'amandier Hotel (#122192) #####
+  name='L’amandier Hôtel'  created=2026-03-16  cat=[84]
+  SO total: 1
+    S05213     | 2026-03-16 |    240.00 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 1
+    INV/2026/01597       | 2026-03-19 |    240.00 | out_invoice | posted | pay=paid
+
+##### VDM Patisserie (#121728) #####
+  name='VDM Pâtisserie'  created=2026-03-02  cat=[85, 28]
+  SO total: 1
+    S05089     | 2026-03-02 |    632.58 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 1
+    INV/2026/01342       | 2026-03-06 |    632.58 | out_invoice | posted | pay=paid
+
+##### Le Loft du Renard (#121779) #####
+  name='Le Loft du Renard ( De Lenart Jean)'  created=2026-03-04  cat=[85, 26]
+  SO total: 1
+    S05100     | 2026-03-04 |     50.00 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 1
+    INV/2026/01442       | 2026-03-12 |     50.00 | out_invoice | posted | pay=paid
+
+##### Villa Lorraine (#121215) #####
+  name='Villa Lorraine'  created=2026-02-16  cat=[85, 31]
+  SO total: 1
+    S05000     | 2026-03-06 |     52.83 EUR | sale   | inv=invoiced | by jerome.carlier@teatower.com
+  Invoices total: 1
+    INV/2026/01814       | 2026-03-31 |     32.73 | out_invoice | posted | pay=not_paid
+
+##### Urban Therapy (#3273) #####
+  name='Urban Therapy'  created=2025-02-25  cat=[85, 26, 28]
+  SO total: 3
+    S03162     | 2025-10-02 |   2073.56 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S05088     | 2026-03-02 |    531.00 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+    S05202     | 2026-03-13 |    493.00 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 3
+    INV/2025/03321       | 2025-10-08 |   2073.56 | out_invoice | posted | pay=paid
+    INV/2026/01307       | 2026-03-04 |    531.00 | out_invoice | posted | pay=not_paid
+    INV/2026/01573       | 2026-03-18 |    493.00 | out_invoice | posted | pay=not_paid
+
+##### Teroir de Magerotte (#121553) #####
+  name='Teroir de Magerotte'  created=2026-02-26  cat=[85, 28]
+  SO total: 1
+    S05073     | 2026-02-26 |    356.64 EUR | sale   | inv=invoiced | by aurelie.thibaut@noenature.com
+  Invoices total: 1
+    INV/2026/01332       | 2026-03-06 |    356.64 | out_invoice | posted | pay=paid
+
+================================================================================
+RECHERCHE ELARGIE — Carrefour Haine St Pierre / Hyper Carrefour Ans / Goût-Thé Moulin
+================================================================================
+
+  keyword='Haine'  -> 7 recent matches
+    #123012: 'Agence Fédérale pour la Sécurité de la Chaîne alimentaire'  cat=[]  email=center.contact@favv-afsca.be  created=2026-04-14
+    #114656: 'Caroline Haine'  cat=[]  email=haine.caroline@gmail.com  created=2025-11-04
+    #122412: 'Carrefour Market Haine Saint Pierre'  cat=[88]  email=ricardo_cazco@carrefour.com  created=2026-03-24
+    #116636: 'Tiphaine Rigaux'  cat=[]  email=rigauxtiphaine@gmail.com  created=2025-12-02
+    #113930: 'Tiphaine gandouin Pharmacie morlens'  cat=[86]  email=tiphainegandouin33@gmail.com  created=2025-10-20
+    #113931: 'Tiphaine gandouin Pharmacie morlens'  cat=[]  email=False  created=2025-10-20
+    #121916: 'tiphaine draguet'  cat=[]  email=tdraguet@gmail.com  created=2026-03-07
+
+  email contains 'Haine'  -> 7
+    #111911: ' '  cat=[]  email=chaineux.lana@outlook.fr  created=2025-09-29
+    #104936: ' '  cat=[]  email=Laurent.tiphaine90@gmail.com  created=2025-09-29
+    #114656: 'Caroline Haine'  cat=[]  email=haine.caroline@gmail.com  created=2025-11-04
+    #106835: 'Danielle Dehaine'  cat=[]  email=danielledehaine@msn.com  created=2025-09-29
+    #111454: 'Dominique Dechaineux'  cat=[]  email=d.dechaineux@hotmail.com  created=2025-09-29
+    #116636: 'Tiphaine Rigaux'  cat=[]  email=rigauxtiphaine@gmail.com  created=2025-12-02
+    #113930: 'Tiphaine gandouin Pharmacie morlens'  cat=[86]  email=tiphainegandouin33@gmail.com  created=2025-10-20
+
+  keyword='Hyper Carrefour'  -> 4 recent matches
+    #113746: 'Hyper Carrefour Arlon'  cat=[88]  email=Christopher_kabongo@carrefour.com  created=2025-10-16
+    #122467: 'Hyper Carrefour Bomerée'  cat=[88]  email=demoulin_michael@carrefour.com  created=2026-03-26
+    #122466: 'Hyper Carrefour Gosselies'  cat=[88]  email=False  created=2026-03-26
+    #113613: 'Hyper Carrefour Mons Grands Prés'  cat=[88]  email=christophe_solheid@carrefour.com  created=2025-10-13
+
+  email contains 'ricardo_cazco'  -> 1
+    #122412: 'Carrefour Market Haine Saint Pierre'  cat=[88]  email=ricardo_cazco@carrefour.com  created=2026-03-24
+
+  email contains 'willemskevin'  -> 2
+    #105458: 'Le Comptoir du Moulin - Willems Kevin'  cat=[86, 28]  email=willemskevin1988@gmail.com  created=2025-09-29
+    #122621: False  cat=[]  email=willemskevin1988@gmail.com  created=2026-03-31
+
+  keyword='Gout'  -> 2 recent matches
+    #115736: 'Le gout de ma passion'  cat=[]  email=info@legoutdemapassion.be  created=2025-11-21
+    #116995: 'Safae mazgout'  cat=[]  email=iscsafaem@icloudcom  created=2025-12-06
+
+  email contains 'Gout'  -> 3
+    #120122: 'Dehert Gregory'  cat=[]  email=info@legoutdemapassion.be  created=2026-01-21
+    #115736: 'Le gout de ma passion'  cat=[]  email=info@legoutdemapassion.be  created=2025-11-21
+    #99428: 'Sarah jeangout'  cat=[]  email=jeangout_sarah@hotmail.com  created=2025-09-29
+
+  keyword='Goût'  -> 2 recent matches
+    #115736: 'Le gout de ma passion'  cat=[]  email=info@legoutdemapassion.be  created=2025-11-21
+    #116995: 'Safae mazgout'  cat=[]  email=iscsafaem@icloudcom  created=2025-12-06
+
+  email contains 'Goût'  -> 3
+    #120122: 'Dehert Gregory'  cat=[]  email=info@legoutdemapassion.be  created=2026-01-21
+    #115736: 'Le gout de ma passion'  cat=[]  email=info@legoutdemapassion.be  created=2025-11-21
+    #99428: 'Sarah jeangout'  cat=[]  email=jeangout_sarah@hotmail.com  created=2025-09-29
+
+================================================================================
+SO mars 2026 — par Jerome Carlier (user)
+================================================================================
+Users: [{'id': 12, 'name': 'jerome.carlier@teatower.com', 'login': 'jerome.carlier@teatower.com'}]
+
+Total SO mars 2026 par Jerome: 1
+  S05000     | 2026-03-06 |     52.83 EUR | sale | Villa Lorraine
