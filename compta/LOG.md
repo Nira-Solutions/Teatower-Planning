@@ -1,5 +1,26 @@
 # LOG Compta Teatower
 
+## 2026-04-29 — Lettrage 7 quick wins + diagnostic SEPA Kirchner
+
+### (A) Lettrage 7 factures clients
+- Méthode : account.payment.register wizard + write payment_ids sur statement line
+- PAY00562 INV/2026/01848 1262.98 EUR Ramaut — SL 18118 du 23/04
+- PAY00563 INV/2026/01549 1113.00 EUR Sorescol S.A. — SL 17908 du 14/04
+- PAY00564 INV/2026/01675 651.90 EUR Sorescol S.A. — SL 18055 du 21/04
+- PAY00565 INV/2026/02152 539.00 EUR Lambertdis SRL — SL 18158 du 27/04
+- PAY00566 INV/2026/02141 477.00 EUR Le 7 by Juliette — SL 18164 du 27/04
+- PAY00567 INV/2026/01511 333.22 EUR Wonka / Intermarche Heusy — SL 18165 du 27/04
+- PAY00568 INV/2026/01590 277.00 EUR Sandrinette / Delonville — SL 18161 du 27/04
+- Total lettre : 4 653.10 EUR TTC — 7 factures en state=in_payment
+
+### (A) Skip 3 QW — raisons
+- QW06 (Mardis 462.02 / Carrefour 462.02) : IBAN BE66... appartient a Mardis partner 3120, facture sur Carrefour corporate 6596 et Mardis a une facture a 462.03 (ecart 0.01 EUR) — mis en review
+- QW07 (Cafes Delahaut 397.50) : pas d'IBAN dans la ligne bancaire, critere C3 non verifiable
+- QW08 (Pure Bastogne 389.56) : idem, pas d'IBAN dans la ligne bancaire
+
+### (C) Correction partner_id — 0 ligne modifiee
+- 83 lignes sans partner_id examinées : 75 noms bancaires abrégés sans match exact Odoo, 8 sans partner_name
+
 ## 2026-04-22 — Batch facturation run 5 — 51 factures (INV/02178–02228)
 
 - Type : creation + posting via wizard sale.advance.payment.inv mode=delivered
