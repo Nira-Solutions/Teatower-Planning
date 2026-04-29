@@ -1,4 +1,26 @@
 
+## 2026-04-29 — Push Shopify 5 GI0 a 9,50 EUR TTC (manual_update_product_to_shopify)
+
+- **Demande Nicolas** : 5 thes glaces GI0634/0735/0820/0911/0912 toujours a 8,50 sur teatower.com alors qu'il les avait demandes a 9,50 TTC. Corriger a la source Odoo, eviter qu'un sync ecrase Shopify.
+- **Diagnostic** :
+  - Pricelist e-commerce identifiee = `id=3 "Odoo x Shopify PriceList (EUR)"` (champ `shopify_pricelist_id` sur `shopify.instance.ept` id=1 "Odoo x Shopify").
+  - TVA 6% (denree alimentaire), `price_include=false` -> list_price en HT.
+  - `list_price` template = 8.9623 EUR HT (= 9.50 TTC) sur les 5 produits -> deja coherent.
+  - Items pricelist 3 deja a `fixed_price=9.5` (write_date 14:19, suite a l'update du log 9/9 plus haut). **Cote Odoo : rien a corriger.**
+- **Cause racine** : pas de re-export automatique vers Shopify apres update pricelist -> les variants Shopify gardaient l'ancien prix 8,50 jusqu'au prochain push manuel.
+- **Action** : declenchement du wizard `shopify.process.import.export.manual_update_product_to_shopify`
+  - wizard id=64, `shopify_is_set_price=True` (basic_detail / image / publish = False).
+  - `active_ids = [75,76,77,79,80]` sur `shopify.product.template.ept`.
+  - Resultat : `True`, write_date des 5 templates passe a 15:06:47 -> push API Shopify confirme.
+- **Mapping produits** (ID Odoo / SKU / shopify_template_id / pricelist_item / fixed_price avant -> apres) :
+  - 4571 GI0634 Gourmandise / sh#75 / item#112 / 8.50 -> 9.50 (avant mission Nicolas), 9.50 -> 9.50 (push Shopify aujourd'hui)
+  - 4572 GI0735 Peche de Vigne BIO / sh#79 / item#116 / idem
+  - 4574 GI0820 Marrakech Sunset BIO / sh#80 / item#117 / idem
+  - 7062 GI0911 Paradise Punch / sh#76 / item#113 / idem
+  - 7061 GI0912 Passion Exotique / sh#77 / item#114 / idem
+- **Sync auto** : crons Shopify actifs (`Process Products Queue`, `Process Export Stock Queue`) tournent toutes les ~5-15 min. Le push manuel a ete fait, donc les 9,50 sont deja en ligne.
+- **A verifier cote Nicolas** : ouvrir teatower.com (cache navigateur a vider) sur les 5 fiches produit, confirmer l'affichage 9,50 EUR.
+
 ## 2026-04-29 — Pricelist Shopify : aligner 9 GI0 thes glaces a 9,50 EUR
 
 - **Demande Nicolas** : tous les GI0xxx (thes glaces) doivent afficher 9,50 EUR TTC sur teatower.com. GI0916 deja corrige (29/04 11h33), 9 autres encore a 8,50 sur la pricelist 3 "Odoo x Shopify PriceList".
