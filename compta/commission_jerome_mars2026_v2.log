@@ -1,0 +1,168 @@
+UID: 6
+
+================================================================================
+CLIENT-BY-CLIENT
+================================================================================
+
+##### Delhaize Recogne (GMS) #####
+  -> 1 partner candidates
+  !!! No partner has any invoice/order
+
+##### Intermarche Hannut (GMS) #####
+  -> 4 partner candidates
+  partner #121874: 'INTERMADIS SA - Intermarché Hannut'  cat=[88, 27]  email=pdv95004@mousquetaires.com
+      SO  S05122 | 2026-03-06 | 681.57 EUR | sale | inv=invoiced
+      SO  S05335 | 2026-04-02 | 1398.70 EUR | sale | inv=invoiced
+  partner #3171: 'P.R.MACLEKY Srl - Carrefour market Hannut'  cat=[88, 27, 28]  email=prmacleky@gmail.com
+      INV INV/2025/00481 | 2025-04-28 | 305.13 EUR | paid
+      INV INV/2026/00197 | 2026-01-09 | 443.82 EUR | paid
+      INV INV/2026/02242 | 2026-04-23 | 100.38 EUR | not_paid
+      SO  S00481 | 2025-04-25 | 305.13 EUR | sale | inv=invoiced
+      SO  S04705 | 2026-01-09 | 443.82 EUR | sale | inv=invoiced
+      SO  S05469 | 2026-04-23 | 100.38 EUR | sale | inv=invoiced
+
+##### Carrefour Belgium - Corporate Village (GMS) #####
+  -> 2 partner candidates
+  partner #6596: 'Carrefour Belgium - Corporate Village'  cat=[88, 27, 28]  email=produits_locaux@carrefour.com
+      INV INV/2025/00234 | 2025-04-11 | 587.80 EUR | paid
+      INV INV/2025/00236 | 2025-04-11 | 610.26 EUR | partial
+      INV INV/2025/00382 | 2025-04-22 | 1824.63 EUR | paid
+      SO  S00071 | 2025-04-07 | 587.80 EUR | sale | inv=invoiced
+      SO  S00195 | 2025-04-08 | 610.26 EUR | sale | inv=invoiced
+      SO  S00294 | 2025-04-15 | 645.81 EUR | sale | inv=invoiced
+
+##### Carrefour market Haine St Pierre (GMS) #####
+  -> 11 partner candidates
+  partner #113930: 'Tiphaine gandouin Pharmacie morlens'  cat=[86]  email=tiphainegandouin33@gmail.com
+      SO  S03733 | 2025-10-20 | 80.57 EUR | sale | inv=invoiced
+  partner #113931: 'Tiphaine gandouin Pharmacie morlens'  cat=[]  email=False
+      INV INV/2025/03644 | 2025-10-20 | 80.57 EUR | in_payment
+  partner #121026: 'Pharmacie Saint Pierre SA'  cat=[85, 28]  email=ph.saintpierre@gmail.com
+      INV INV/2026/01178 | 2026-02-26 | 1657.44 EUR | paid
+      INV INV/2026/01592 | 2026-03-19 | 314.35 EUR | not_paid
+      SO  S04972 | 2026-02-16 | 1657.44 EUR | sale | inv=invoiced
+      SO  S05207 | 2026-03-17 | 314.35 EUR | sale | inv=invoiced
+
+##### Hyper Carrefour Bomeree (GMS) #####
+  -> 3 partner candidates
+  partner #9415: 'Carine Bomerson'  cat=[86]  email=bomerson.carine@gmail.com
+      SO  S01911 | 2025-07-27 | 24.79 EUR | sale | inv=invoiced
+      SO  S01931 | 2025-07-28 | 23.55 EUR | sale | inv=invoiced
+  partner #9416: 'Carine Bomerson'  cat=[]  email=False
+      INV INV/2025/01997 | 2025-07-27 | 24.79 EUR | in_payment
+      INV INV/2025/02012 | 2025-07-28 | 23.55 EUR | in_payment
+
+##### Hyper Carrefour Gosselies (GMS) #####
+  -> 1 partner candidates
+  !!! No partner has any invoice/order
+
+##### Hyper Carrefour Ans (GMS) #####
+  -> 0 partner candidates
+  !!! No partner has any invoice/order
+
+##### Carrefour Market Wellin (GMS) #####
+  -> 2 partner candidates
+  !!! No partner has any invoice/order
+
+##### Intermarche Hamoir (GMS) #####
+  -> 1 partner candidates
+  partner #122255: 'SA LD Management - Intermarché Hamoir'  cat=[88, 27]  email=pdv9322@mousquetaires.com
+      INV INV/2026/01723 | 2026-03-26 | 681.57 EUR | not_paid
+      SO  S05230 | 2026-03-18 | 681.57 EUR | sale | inv=invoiced
+
+##### Chez Jack (Horeca) #####
+  -> 19 partner candidates
+  partner #122410: 'Chez Jack - HORECA JACQUEMIN SRL'  cat=[85, 26]  email=pascaljack@skynet.com
+      INV INV/2026/01784 | 2026-03-30 | 275.00 EUR | paid
+      SO  S05263 | 2026-03-24 | 275.00 EUR | sale | inv=invoiced
+  partner #7263: 'Violaine Jacquemin'  cat=[86]  email=violainejacquemin@hotmail.com
+      SO  S00463 | 2025-04-24 | 64.07 EUR | sale | inv=invoiced
+      SO  S00680 | 2025-05-12 | 0.00 EUR | sale | inv=upselling
+      SO  S02794 | 2025-09-17 | 39.90 EUR | sale | inv=invoiced
+  partner #113485: 'Violaine Jacquemin'  cat=[]  email=False
+      INV INV/2025/03407 | 2025-10-10 | 31.38 EUR | in_payment
+  partner #59739: 'Violaine Jacquemin'  cat=[]  email=False
+      INV INV/2025/02879 | 2025-09-17 | 39.90 EUR | in_payment
+  partner #7264: 'Violaine Jacquemin'  cat=[]  email=False
+      INV INV/2025/00422 | 2025-04-24 | 64.07 EUR | in_payment
+      INV INV/2025/00710 | 2025-05-15 | 0.00 EUR | paid
+
+##### L'Amandier - Libramont (Horeca) #####
+  -> 2 partner candidates
+  partner #122192: 'L’amandier Hôtel'  cat=[84]  email=info@lamandier.be
+      INV INV/2026/01597 | 2026-03-19 | 240.00 EUR | paid
+      SO  S05213 | 2026-03-16 | 240.00 EUR | sale | inv=invoiced
+
+##### VDM Patisserie (Horeca) #####
+  -> 1 partner candidates
+  partner #121728: 'VDM Pâtisserie'  cat=[85, 28]  email=vdm.ald@gmail.com
+      INV INV/2026/01342 | 2026-03-06 | 632.58 EUR | paid
+      SO  S05089 | 2026-03-02 | 632.58 EUR | sale | inv=invoiced
+
+##### Le Loft du Renard (Horeca) #####
+  -> 1 partner candidates
+  partner #121779: 'Le Loft du Renard ( De Lenart Jean)'  cat=[85, 26]  email=martine.dubasin@gmail.com
+      INV INV/2026/01442 | 2026-03-12 | 50.00 EUR | paid
+      SO  S05100 | 2026-03-04 | 50.00 EUR | sale | inv=invoiced
+
+##### Le Gout-The du Moulin (Horeca) #####
+  -> 24 partner candidates
+  partner #115736: 'Le gout de ma passion'  cat=[]  email=info@legoutdemapassion.be
+      INV INV2/25-26/0094 | 2025-11-21 | 62.81 EUR | paid
+      INV INV2/25-26/0092 | 2025-11-21 | 90.53 EUR | paid
+  partner #2813: 'BOULANGERIE DEMOULIN - Valérie DEMOULIN'  cat=[85, 28]  email=maisondemoulin@skynet.be
+      INV INV/2025/02546 | 2025-08-27 | 679.84 EUR | paid
+      INV INV/2026/01791 | 2026-03-30 | 652.44 EUR | not_paid
+      SO  S02287 | 2025-08-18 | 679.84 EUR | sale | inv=invoiced
+      SO  S05245 | 2026-03-20 | 652.44 EUR | sale | inv=invoiced
+  partner #119390: 'Daryl Demoulin'  cat=[86]  email=demoulindaryl@hotmail.fr
+      INV INV/2026/00024 | 2026-01-02 | 46.07 EUR | in_payment
+      SO  #47185 | 2026-01-02 | 46.07 EUR | sale | inv=invoiced
+  partner #2930: 'Domaine du Boukai-Moulin - Monique Bastings'  cat=[86]  email=admin@domaine-boukai-moulin.be
+      INV INV/2025/02056 | 2025-07-31 | 59.71 EUR | paid
+      SO  S01938 | 2025-07-29 | 59.71 EUR | sale | inv=invoiced
+      SO  #46864 | 2025-12-13 | 76.00 EUR | sale | inv=invoiced
+
+##### La villa Lorraine (Horeca) #####
+  -> 1 partner candidates
+  partner #121215: 'Villa Lorraine'  cat=[85, 31]  email=info@villalorraine.be
+      INV INV/2026/01814 | 2026-03-31 | 32.73 EUR | not_paid
+      SO  S05000 | 2026-03-06 | 52.83 EUR | sale | inv=invoiced
+
+##### Urban Therapy - PARIS (Revendeur) #####
+  -> 2 partner candidates
+  partner #3273: 'Urban Therapy'  cat=[85, 26, 28]  email=anis@urbantherapy.be
+      INV INV/2025/03321 | 2025-10-08 | 2073.56 EUR | paid
+      INV INV/2026/01307 | 2026-03-04 | 531.00 EUR | not_paid
+      INV INV/2026/01573 | 2026-03-18 | 493.00 EUR | not_paid
+      SO  S03162 | 2025-10-02 | 2073.56 EUR | sale | inv=invoiced
+      SO  S05088 | 2026-03-02 | 531.00 EUR | sale | inv=invoiced
+      SO  S05202 | 2026-03-13 | 493.00 EUR | sale | inv=invoiced
+
+##### Boucherie de Magerotte (Revendeur) #####
+  -> 5 partner candidates
+  partner #10123: 'Josine Magerotte'  cat=[86]  email=josine.magerotte@gmail.com
+      SO  S02482 | 2025-08-29 | 25.85 EUR | sale | inv=invoiced
+  partner #10124: 'Josine Magerotte'  cat=[]  email=False
+      INV INV/2025/02555 | 2025-08-29 | 25.85 EUR | in_payment
+  partner #121553: 'Teroir de Magerotte'  cat=[85, 28]  email=magerotte@teroir.be
+      INV INV/2026/01332 | 2026-03-06 | 356.64 EUR | paid
+      SO  S05073 | 2026-02-26 | 356.64 EUR | sale | inv=invoiced
+
+================================================================================
+CA B2B mars 2025 vs mars 2026 — methodo data-bi (par tag canal)
+================================================================================
+
+--- mars 2025 ---
+  total invoices in 2025-03-01..2025-03-31: 0
+  >>> Total B2B (GMS+B2B+Horeca) mars 2025: 0.00 EUR
+
+--- mars 2026 ---
+  total invoices in 2026-03-01..2026-03-31: 717
+  GMS                  ht=  31606.52 EUR  paid=  12359.63  invoices=  93  clients=  39
+  B2B Revendeurs       ht=  24890.94 EUR  paid=  15403.72  invoices= 125  clients=  83
+  Autres               ht=  45681.80 EUR  paid=  34966.07  invoices= 475  clients= 429
+  Horeca               ht=  10294.21 EUR  paid=   6511.45  invoices=  24  clients=  16
+  >>> Total B2B (GMS+B2B+Horeca) mars 2026: 66791.67 EUR
+
+=== DONE ===
