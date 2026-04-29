@@ -51,12 +51,25 @@
 
 - **AD Delhaize Fosses-la-Ville** (Odoo 5441) — revisite thés glacés prévue S19. Contrainte : mercredi (Leslie présente toute la journée). Jour cible : **mercredi 06/05**.
 
+## Demande client — AD Materne II Jambes (mail 29/04)
+
+- **Partner Odoo** : #113498 "Affilié 044471 - Delhaize Materne" (enfant Delhaize Le Lion #2912)
+- **Adresse** : Av. du Bourgmestre Jean Materne 109, 5100 Namur | Tel +32 81 30 16 88 | info@gecodis.be
+- **Contact** : demander **Elise Stroobants** (ou **Angélique** / **Mme Strobant**)
+- **Contrainte** : **PAS LE MARDI** (note Odoo)
+- **Brief mail 29/04** :
+  - Livrer les **thés glacés**
+  - Remettre en rayon **Lady Dodo** + **Paniers Grand-Maman** (oubliés au dernier passage)
+  - **Reprendre la référence Thé Guarana Boost** (note Odoo confirme : "ne marche pas bien dans le magasin")
+- Dernière SO : S03916 du 28/10/2025 (442,41 €) → dormant 6 mois mais demande explicite magasin.
+- **Jour cible : mercredi 06/05** (zone Namur-Sud avec AD Fosses thés glacés). Adresse à 35-40 min de Baillonville via N4.
+
 ## Brief d'organisation préliminaire
 
 Zones à couvrir sur 5 jours (vendredi 08/05 = ouvrable) :
 - **Lundi 04/05** — Liège/Seraing/Fléron : Hyper Boncelles + Hyper Fléron (livraisons) + visites Liège non faites S18 (ex: Proxy St-Séverin si OVERDUE devient vrai)
 - **Mardi 05/05** — Luxembourg : AD Bastogne + **CM Bastogne CC Port (S05467 devis à valider — livraison + implantation)** + Florenville + CM Bouillon (+ Marche en retour si temps ok)
-- **Mercredi 06/05** — Namur-Sud : AD Fosses (thés glacés) + autres OVERDUE zone 5xxx (AD Rochefort + Delhaize Beauraing exclus — pas besoin de remplir, info Nicolas 23/04)
+- **Mercredi 06/05** — Namur-Sud : AD Fosses (thés glacés) + **AD Materne II Jambes #113498** (livraison thés glacés + remise rayon Lady Dodo / Paniers GM + reprise Guarana Boost — demande mail 29/04, pas le mardi) + autres OVERDUE zone 5xxx (AD Rochefort + Delhaize Beauraing exclus — pas besoin de remplir, info Nicolas 23/04)
 - **Jeudi 07/05** — Hainaut ou BW : CM Hannut (jeudi-only) + Delhaize Ottignies (jeudi OK avec Jolan) + autres BW
 - **Vendredi 08/05** — à définir selon reliquats
 
@@ -67,4 +80,5 @@ Zones à couvrir sur 5 jours (vendredi 08/05 = ouvrable) :
 - [ ] Confirmer que les 2 livraisons Hyper Carrefour peuvent être faites par Gilles en 1 seule tournée (pas de grosses charges > 2 m³).
 - [ ] Vérifier si Delhaize Ottignies nécessite mail préalable (Jolan Cailleu).
 - [ ] Check statut CRM Bouillon et RDV #425 (replanifier ou annuler).
-- [ ] Vérifier stocks thés glacés dispos pour AD Fosses 06/05.
+- [ ] Vérifier stocks thés glacés dispos pour AD Fosses 06/05 **+ AD Materne II Jambes 06/05** (2 livraisons thés glacés mercredi).
+- [ ] Préparer la reprise de la réf Thé Guarana Boost pour AD Materne II (camionnette).
