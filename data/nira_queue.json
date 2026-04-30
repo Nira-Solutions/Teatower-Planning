@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T13:45:33",
+  "updated": "2026-04-30T14:02:33",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3113,6 +3113,14 @@
       "started": "2026-04-30T13:44",
       "request": "Calcul réappro I0279 Kirchner LT 16 sem",
       "finished": "2026-04-30T13:45"
+    },
+    {
+      "id": "t039",
+      "agent": "purchase",
+      "task": "Calcul qty à commander V0600 Kirchner (LT 16 sem)",
+      "status": "in_progress",
+      "started": "2026-04-30T14:02",
+      "request": "Analyse V0600 Kirchner Fischer : stock consolidé, vélocité 12/6/3m, PO ouverts, calcul qty à commander pour éviter rupture, saisonnalité, format identique I0279"
     }
   ]
 }
