@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T13:44:20",
+  "updated": "2026-04-30T13:44:22",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3091,6 +3091,14 @@
       "id": "t036",
       "agent": "stock-manager",
       "task": "I0279 stock + vélocité 12/6/3 mois",
+      "status": "in_progress",
+      "started": "2026-04-30T13:44",
+      "request": "Calcul réappro I0279 Kirchner LT 16 sem"
+    },
+    {
+      "id": "t037",
+      "agent": "purchase",
+      "task": "I0279 PO Kirchner en cours + prix + min_qty",
       "status": "in_progress",
       "started": "2026-04-30T13:44",
       "request": "Calcul réappro I0279 Kirchner LT 16 sem"
