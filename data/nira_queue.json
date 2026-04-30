@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T11:38:02",
+  "updated": "2026-04-30T11:41:30",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3082,9 +3082,10 @@
       "id": "t035",
       "agent": "planning",
       "task": "Correction S19 ITM Blonden VISITE→IMPLANTATION",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-30T11:38",
-      "request": "Corriger label ITM Liège Blonden #123345 lundi 04/05 12:30 VISITE→IMPLANTATION, enrichir brief, mail magasin, vérifier conflit horaire Spar Manhay/Baillonville 16h30, MAJ LOG, commit/push"
+      "request": "Corriger label ITM Liège Blonden #123345 lundi 04/05 12:30 VISITE→IMPLANTATION, enrichir brief, mail magasin, vérifier conflit horaire Spar Manhay/Baillonville 16h30, MAJ LOG, commit/push",
+      "finished": "2026-04-30T11:41"
     }
   ]
 }
