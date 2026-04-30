@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T11:20:10",
+  "updated": "2026-04-30T11:20:12",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3064,9 +3064,10 @@
       "id": "t033",
       "agent": "stock-manager",
       "task": "Vérifier dispo 5 SKU Thés Glacés GI0 (Gourmandise, Pêche Vigne BIO, Marrakech Sunset BIO, Paradise Punch, Passion Exotique) pour Spar Manhay",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-30T11:13",
-      "request": "Check stock 5 SKU Thés Glacés GI0 dispo entrepôt pour visite Spar Manhay S19"
+      "request": "Check stock 5 SKU Thés Glacés GI0 dispo entrepôt pour visite Spar Manhay S19",
+      "finished": "2026-04-30T11:20"
     }
   ]
 }
