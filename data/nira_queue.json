@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T11:41:30",
+  "updated": "2026-04-30T13:44:20",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3086,6 +3086,14 @@
       "started": "2026-04-30T11:38",
       "request": "Corriger label ITM Liège Blonden #123345 lundi 04/05 12:30 VISITE→IMPLANTATION, enrichir brief, mail magasin, vérifier conflit horaire Spar Manhay/Baillonville 16h30, MAJ LOG, commit/push",
       "finished": "2026-04-30T11:41"
+    },
+    {
+      "id": "t036",
+      "agent": "stock-manager",
+      "task": "I0279 stock + vélocité 12/6/3 mois",
+      "status": "in_progress",
+      "started": "2026-04-30T13:44",
+      "request": "Calcul réappro I0279 Kirchner LT 16 sem"
     }
   ]
 }
