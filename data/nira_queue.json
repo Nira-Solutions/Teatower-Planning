@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T11:20:12",
+  "updated": "2026-04-30T11:21:05",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3068,6 +3068,14 @@
       "started": "2026-04-30T11:13",
       "request": "Check stock 5 SKU Thés Glacés GI0 dispo entrepôt pour visite Spar Manhay S19",
       "finished": "2026-04-30T11:20"
+    },
+    {
+      "id": "t034",
+      "agent": "planning",
+      "task": "Prep queue S20 — ajout Carrefour Lontzen + report Luxembourg",
+      "status": "in_progress",
+      "started": "2026-04-30T11:21",
+      "request": "Ajout Carrefour Lontzen (Eupen) au planning S20 (11-15/05/2026), créer queue S20 avec Lontzen + report Luxembourg (Bastogne/Bouillon/Florenville reportés de S19). Ne pas générer le planning, juste la queue."
     }
   ]
 }
