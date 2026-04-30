@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T11:13:49",
+  "updated": "2026-04-30T11:20:10",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3055,9 +3055,10 @@
       "id": "t032",
       "agent": "planning-teatower",
       "task": "Planning S19 (3j: lun/mer/jeu) - congés Gilles mar+ven, Spar Manhay Thés Glacés, Hyper Carrefour MSG",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-30T11:13",
-      "request": "Planning merchandiser semaine 19 04-08/05/2026, Gilles en congé mardi+vendredi, intégrer Hyper Carrefour MSG (2 SO) lundi + Spar Manhay (présentation Thés Glacés GI0)"
+      "request": "Planning merchandiser semaine 19 04-08/05/2026, Gilles en congé mardi+vendredi, intégrer Hyper Carrefour MSG (2 SO) lundi + Spar Manhay (présentation Thés Glacés GI0)",
+      "finished": "2026-04-30T11:20"
     },
     {
       "id": "t033",
