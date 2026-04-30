@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T11:22:59",
+  "updated": "2026-04-30T11:38:02",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3077,6 +3077,14 @@
       "started": "2026-04-30T11:21",
       "request": "Ajout Carrefour Lontzen (Eupen) au planning S20 (11-15/05/2026), créer queue S20 avec Lontzen + report Luxembourg (Bastogne/Bouillon/Florenville reportés de S19). Ne pas générer le planning, juste la queue.",
       "finished": "2026-04-30T11:22"
+    },
+    {
+      "id": "t035",
+      "agent": "planning",
+      "task": "Correction S19 ITM Blonden VISITE→IMPLANTATION",
+      "status": "in_progress",
+      "started": "2026-04-30T11:38",
+      "request": "Corriger label ITM Liège Blonden #123345 lundi 04/05 12:30 VISITE→IMPLANTATION, enrichir brief, mail magasin, vérifier conflit horaire Spar Manhay/Baillonville 16h30, MAJ LOG, commit/push"
     }
   ]
 }
