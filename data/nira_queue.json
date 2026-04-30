@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T13:45:31",
+  "updated": "2026-04-30T13:45:33",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3109,9 +3109,10 @@
       "id": "t038",
       "agent": "odoo",
       "task": "I0279 BoM composant coffrets + MO consommation",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-30T13:44",
-      "request": "Calcul réappro I0279 Kirchner LT 16 sem"
+      "request": "Calcul réappro I0279 Kirchner LT 16 sem",
+      "finished": "2026-04-30T13:45"
     }
   ]
 }
