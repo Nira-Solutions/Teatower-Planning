@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-30T13:45:29",
+  "updated": "2026-04-30T13:45:31",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3100,9 +3100,10 @@
       "id": "t037",
       "agent": "purchase",
       "task": "I0279 PO Kirchner en cours + prix + min_qty",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-04-30T13:44",
-      "request": "Calcul réappro I0279 Kirchner LT 16 sem"
+      "request": "Calcul réappro I0279 Kirchner LT 16 sem",
+      "finished": "2026-04-30T13:45"
     },
     {
       "id": "t038",
