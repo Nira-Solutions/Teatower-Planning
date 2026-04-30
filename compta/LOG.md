@@ -15,7 +15,18 @@
 ### Factures draft créées (IDs 37146–37162) — mode delivered — wizard sale.advance.payment.inv
 - 17 factures draft | Total HT : 6 147,54 EUR | Total TTC : 6 538,80 EUR
 - Regroupements par partner : S05489+S05490 (Delhaize affilié), S05494+S05495+S05499 (Smartbox), S05507+partenaire facturation
-- NON postées : Nicolas valide/poste après revue visuelle dans Odoo
+
+### Posting + envoi Peppol/Email (2026-04-30) — GO Nicolas
+- 17/17 factures postées (action_post) — INV/2026/02329 à INV/2026/02345
+- Partners modifiés (invoice_sending_method peppol activé) : Al Picchio Rosso (2783), Srl D'Ici Wépion (3248), Newpharma Compta (5459), Alivim SRL (123294)
+- Envoi Peppol (11 factures) : INV/02329, 02330, 02331, 02332, 02333, 02334, 02336, 02338, 02340, 02342, 02344, 02345 — état=processing
+- Fallback email (5 factures, peppol non valide) :
+  - INV/02335 Musée de la fraise (peppol not_valid)
+  - INV/02337 Smartbox Group (partenaire IE, peppol not_valid)
+  - INV/02339 Alcodis SA (peppol not_verified)
+  - INV/02341 DelEmbourg SRL (peppol not_verified)
+  - INV/02343 CPSP Belgie NV (peppol not_verified)
+- Aucune erreur d'envoi — 0 facture bloquée
 
 ---
 
