@@ -1,5 +1,24 @@
 # LOG Compta Teatower
 
+## 2026-04-30 — Batch facturation run 6 — 17 factures draft (SO S05487–S05513)
+
+### Correction lignes transport (nouvelle règle : transport = service, toujours facturer si marchandise partie)
+- S05497 Alcodis SA : line_id=56472 qty_delivered 0→1 (TRANSPORT 10,00 EUR HT)
+- S05504 Al Picchio Rosso : line_id=56550 qty_delivered 0→1 (TRANSPORT 10,00 EUR HT)
+- S05505 Le Coin 62 : line_id=56556 qty_delivered 0→1 (TRANSPORT 10,00 EUR HT)
+- Delta total correction transport : +30,00 EUR HT / +36,30 EUR TTC
+
+### SO exclus du batch (qty_delivered=0 sur toutes les lignes)
+- S05509 BLONFOOD SA Intermarché Liège Blonden : 0 livré
+- S05510 Gemblouxim Intermarché Gembloux : 0 livré
+
+### Factures draft créées (IDs 37146–37162) — mode delivered — wizard sale.advance.payment.inv
+- 17 factures draft | Total HT : 6 147,54 EUR | Total TTC : 6 538,80 EUR
+- Regroupements par partner : S05489+S05490 (Delhaize affilié), S05494+S05495+S05499 (Smartbox), S05507+partenaire facturation
+- NON postées : Nicolas valide/poste après revue visuelle dans Odoo
+
+---
+
 ## 2026-04-29 — Lettrage SEPA Kirchner Fischer (SL 17572 + SL 18090)
 
 ### (B) Lettrage SEPA Kirchner Fischer — 2 domiciliations
