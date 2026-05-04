@@ -1,5 +1,11 @@
 # Commission Jérôme Carlier — Avril 2026
 
+> **RAPPORT OBSOLETE — A REGENERER**
+> Le 04/05/2026, la source officielle Adri (image PNG paliers) a ete fournie. Les vraies tranches de commission remplacent la formule lineaire fictive `50 × (croissance% − 10)` utilisee dans ce rapport.
+> Application correcte pour avril 2026 : croissance +21,8 % → tranche 20-24,9 % → **650 € croissance** (et non 589 € calcule ici).
+> Les volets displays et nouveaux clients peuvent egalement etre impactes si la liste Adri avril differe du decompte Odoo ci-dessous.
+> **Ne pas envoyer a Jerome avant regeneration avec les vraies tranches Adri. Decision Nicolas a venir.**
+
 **Produit le** : 30/04/2026 — **Révisé le** : 04/05/2026 (méthode Option C fixée par Nicolas + paliers linéaires 10-30 %)
 **Période** : 01/04/2026 → 30/04/2026
 **Source** : Avenant contrat 17/03/2026 + Odoo XML-RPC (données complètes au 30/04) + recalcul 04/05/2026 méthode SO
