@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T14:35:16",
+  "updated": "2026-05-04T14:36:51",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3154,9 +3154,10 @@
       "id": "t043",
       "agent": "planning",
       "task": "Audit capacite implantations S20 vs charge ajoutee",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-04T14:35",
-      "request": "Verifier si toutes les implantations en attente passent en S20 (11-15/05) malgre Boondael+Namur-Sud+Lontzen+Gribouillon ajoutes"
+      "request": "Verifier si toutes les implantations en attente passent en S20 (11-15/05) malgre Boondael+Namur-Sud+Lontzen+Gribouillon ajoutes",
+      "finished": "2026-05-04T14:36"
     }
   ]
 }
