@@ -1,43 +1,43 @@
 # Commission Jérôme Carlier — Avril 2026
 
-**Produit le** : 30/04/2026
-**Période** : 01/04/2026 -> 30/04/2026
-**Source** : Avenant contrat 17/03/2026 + Odoo XML-RPC (données complètes au 30/04) + rapport data-bi `2026-04-27_CA_avril_par_canal.md`
-**Fichier d'entrée** : détection directe Odoo (pas d'Excel Adri pour avril)
+**Produit le** : 30/04/2026 — **Révisé le** : 04/05/2026 (méthode Option C fixée par Nicolas + paliers linéaires 10-30 %)
+**Période** : 01/04/2026 → 30/04/2026
+**Source** : Avenant contrat 17/03/2026 + Odoo XML-RPC (données complètes au 30/04) + recalcul 04/05/2026 méthode SO
+**Fichier d'entrée** : détection directe Odoo XML-RPC (pas d'Excel Adri pour avril)
 
 ---
 
 ## 1. Commission sur la croissance du chiffre d'affaires B2B
 
+### Méthode officielle fixée le 04/05/2026 (décision Nicolas)
+
+**Option C — périmètre complet** : SO confirmées (state = sale ou done), tags Canal GMS/B2B/Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent. Tout inclus. Source : Odoo XML-RPC recalcul 04/05/2026.
+
 ### Résultats
 
-| Période | CA HTVA B2B (GMS + B2B Revendeurs + Horeca) | Source |
-|---|---:|---|
-| Avril 2025 (Odoo tags) | **60.745,21 €** | Odoo — 583 factures/avoirs tagués |
-| Avril 2026 (Odoo tags, complet 30/04) | **60.440,74 €** | Odoo — 597 factures/avoirs tagués |
-| **Croissance** | **-0,5 %** | Calcul direct |
+| Période | CA HTVA B2B (GMS + B2B Revendeurs + Horeca) | Source | Nb SO |
+|---|---:|---|---:|
+| Avril 2025 (baseline) | **55.572,37 €** | Odoo SO confirmées — tags + héritage | 142 |
+| Avril 2026 (réalisé) | **67.672,19 €** | Odoo SO confirmées — tags + héritage | 179 |
+| **Croissance** | **+21,8 %** | (67.672 − 55.572) / 55.572 | |
 
-> **Note importante sur le périmètre tags vs data-bi** : le rapport data-bi du 27/04 (forecast fin de mois) estimait un total 3 canaux à ~77.930 EUR en incluant ~20 partenaires non tagués dans Odoo identifiés par override manuel. La requête directe Odoo sur tags uniquement donne 60.440 EUR — un écart de -17.489 EUR. Le contrat (avenant 17/03/2026) ne spécifie pas la méthode d'attribution des canaux : soit on retient la méthode data-bi (77.930 EUR), soit on retient les tags Odoo seuls (60.440 EUR). **Ce point est à trancher par Nicolas** avant tout payslip.
+> **Note sur l'écart vs ancienne méthode** : le rapport initial du 30/04 utilisait les factures postées (`account.move`), ce qui donnait 60.745 EUR en avril 2025 et 60.441 EUR en avril 2026 (−0,5 %). La méthode SO est cohérente avec le calcul mars 2026 (Option C) et avec ce que Nicolas visualise nativement dans Odoo. L'écart SO vs factures s'explique principalement par le fait que l'Odoo actuel n'était pas en prod en avril 2025 — de nombreuses factures 2025 ont été importées rétroactivement sans SO correspondante.
 >
-> Le rapport data-bi indique par ailleurs : GMS 34.109 EUR | B2B 26.403 EUR | Horeca 17.418 EUR = **77.930 EUR** (scenario forecast retenu dans le tableau comparatif).
+> **Pour mémoire — méthode factures posted** : Avril 2025 = 71.236 € HT | Avril 2026 = 78.455 € HT | Croissance +10,1 % | Commission = 7 €. Cette méthode n'est pas retenue car non cohérente avec la méthode mars.
 
-### Tableau comparatif selon les deux méthodes
+### Application des paliers linéaires 10 %→30 % (décision Nicolas 04/05/2026)
 
-| Méthode | Avril 2025 | Avril 2026 | Croissance | Commission barème |
-|---|---:|---:|---:|---|
-| Odoo tags seuls | 60.745 € | 60.441 € | **-0,5 %** | **0 €** |
-| Data-bi (tags + overrides) — *rapport 27/04* | 65.627 € | ~77.930 € | **+18,7 %** | **0 €** (< 30%) |
-
-> Quelle que soit la méthode retenue, la croissance reste sous le seuil de 30% déclencheur de commission.
-
-### Application du barème (avenant §1.3)
-
-| Croissance vs N-1 | Commission |
+| Seuil | Commission |
 |---|---:|
+| < 10 % | 0 € |
+| Entre 10 % et 30 % | `50 × (croissance% − 10)` |
 | > 30 % | ≥ 1.000 € |
-| **< 10 % (les deux méthodes)** | **0 €** |
 
-> **Commission croissance : 0 € brut** (convergent sur les deux méthodes)
+**Application : `50 × (21,8 − 10) = 50 × 11,8 = 590 € brut`**
+
+> Calcul exact : croissance = (67.672,19 − 55.572,37) / 55.572,37 × 100 = 21,77 % → `50 × (21,77 − 10) = 50 × 11,77 = 588,5 €` → **arrondi 589 € brut**.
+
+→ **Commission croissance avril 2026 : 589 € brut**
 
 ---
 
@@ -116,32 +116,34 @@
 
 ## 4. Total commission avril 2026
 
-### Scénario conservateur (certains uniquement — SO par Jérôme, tags Odoo stricts)
+### Scénario conservateur révisé (certains uniquement — décision Nicolas 04/05/2026)
 
 | Volet | Détail | Montant brut |
 |---|---|---:|
-| Commission croissance CA B2B (-0,5 % ou +18,7 %) | < 30% dans les deux cas | **0 €** |
+| Commission croissance CA B2B (+21,8 % — Option C) | `50 × (21,8 − 10)` | **589 €** |
 | Commission displays GMS (5 certains × 100 €) | Lambertdis, NDB, Micamik, Gmp La Louvière, PGHM Maissin | **500 €** |
 | Commission nouveaux clients hors GMS (3 certains × 65 €) | Le Brunch de Ginette, Cercle Historique Durbuy, KVA Bar | **195 €** |
-| **TOTAL conservateur** | | **695 € brut** |
+| **TOTAL conservateur RÉVISÉ** | | **1.284 € brut** |
 
 ### Scénario optimiste (si tous displays + Camping + Bastogne validés)
 
 | Volet | Détail | Montant brut |
 |---|---|---:|
-| Commission croissance CA B2B | < 30% | **0 €** |
+| Commission croissance CA B2B (+21,8 %) | `50 × (21,8 − 10)` | **589 €** |
 | Commission displays GMS (8 × 100 €) | + Alivim, BLONFOOD, Gemblouxim | **800 €** |
 | Commission nouveaux clients hors GMS (4 × 65 €) | + Camping du Bout du Monde | **260 €** |
 | Bastogne CC Port (si GMS) | 1 display additionnel | **100 €** |
-| **TOTAL optimiste** | | **1.160 € brut** |
+| **TOTAL optimiste** | | **1.749 € brut** |
 
-> Recommandation : valider scénario conservateur (695 €) en attendant confirmation Nicolas sur les 5 points ci-dessous.
+> Recommandation : valider scénario conservateur révisé (1.284 €) en attendant confirmation Nicolas sur les 5 points ci-dessous. La commission croissance de 589 € est certaine — seuls les displays et clients hors GMS sont à valider.
+
+> **Révision du 04/05/2026** : la commission croissance passe de 0 € à 589 € suite à l'application de la méthode Option C (SO confirmées, périmètre complet) et des paliers linéaires 10-30 % décidés par Nicolas. Le total conservateur passe de 695 € à 1.284 €.
 
 ---
 
 ## 5. Points à valider avec Nicolas avant envoi à Jérôme
 
-1. **Méthode de calcul du CA B2B** : les deux méthodes (Odoo tags seuls = 60.441 EUR vs data-bi avec overrides = ~77.930 EUR) donnent la même conclusion (< 30% de croissance). En revanche, pour les mois futurs où le seuil sera potentiellement atteint, il faut fixer dès maintenant quelle méthode fait foi. Les tags Odoo ne couvrent qu'une partie des partenaires B2B (ex : DB Kfé, Sunparks, Le 7 by Juliette, BTL Break Time — clients historiques actifs — ne sont pas comptés car non tagués B2B dans l'onglet tags Odoo).
+1. ~~**Méthode de calcul du CA B2B**~~ : **TRANCHE le 04/05/2026** — méthode Option C (SO confirmées, tags Canal + héritage parent, périmètre complet). Commission croissance = 589 €. Les partenaires non tagués (ex. DB Kfé, Sunparks, Le 7 by Juliette, BTL Break Time) restent hors périmètre car sans tag Canal dans Odoo — si Nicolas souhaite les inclure, il faut les tagger en Odoo.
 
 2. **Displays Alivim SRL, BLONFOOD SA, Gemblouxim** : 1ères SO passées par "Magasin Liège" (user interne magasin), pas par Jérôme. Si le display est ouvert commercialement par Jérôme mais la commande encodée par le magasin en central, la commission est-elle due ? (3 × 100 € = 300 € en jeu)
 
