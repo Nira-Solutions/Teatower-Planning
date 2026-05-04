@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T13:32:51",
+  "updated": "2026-05-04T13:33:29",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3131,6 +3131,14 @@
       "started": "2026-05-04T13:28",
       "request": "Mettre à jour planning S19 avec 2 implantations mercredi 06/05 : Bastogne CC Port (S05467) + Delhaize Bertrix (S05489). Reporter Materne II/Fosses/Profondeville en S20.",
       "finished": "2026-05-04T13:32"
+    },
+    {
+      "id": "t041",
+      "agent": "planning",
+      "task": "Ajout S05502 Gribouillon implantation S20",
+      "status": "in_progress",
+      "started": "2026-05-04T13:33",
+      "request": "Tu as vu S05502 - Gribouillon ? Il faudra l'ajouter pour implantation la semaine prochaine"
     }
   ]
 }
