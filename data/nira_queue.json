@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T14:31:56",
+  "updated": "2026-05-04T14:35:16",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3149,6 +3149,14 @@
       "started": "2026-05-04T14:28",
       "request": "Delhaize Boondael client dormant accepte continuer, demande passage mardi 12/05 reorganisation + implantation thes glaces",
       "finished": "2026-05-04T14:31"
+    },
+    {
+      "id": "t043",
+      "agent": "planning",
+      "task": "Audit capacite implantations S20 vs charge ajoutee",
+      "status": "in_progress",
+      "started": "2026-05-04T14:35",
+      "request": "Verifier si toutes les implantations en attente passent en S20 (11-15/05) malgre Boondael+Namur-Sud+Lontzen+Gribouillon ajoutes"
     }
   ]
 }
