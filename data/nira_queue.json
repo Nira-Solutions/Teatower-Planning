@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T14:28:46",
+  "updated": "2026-05-04T14:31:56",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3145,9 +3145,10 @@
       "id": "t042",
       "agent": "planning",
       "task": "Faisabilite Boondael mardi 12/05 + densification trajet Bruxelles",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-04T14:28",
-      "request": "Delhaize Boondael client dormant accepte continuer, demande passage mardi 12/05 reorganisation + implantation thes glaces"
+      "request": "Delhaize Boondael client dormant accepte continuer, demande passage mardi 12/05 reorganisation + implantation thes glaces",
+      "finished": "2026-05-04T14:31"
     }
   ]
 }
