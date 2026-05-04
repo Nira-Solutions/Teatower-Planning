@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T14:43:36",
+  "updated": "2026-05-04T14:54:39",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3163,9 +3163,10 @@
       "id": "t044",
       "agent": "planning",
       "task": "S20 circuit Bxl mardi + Alivim/Gembloux jeudi + Gosselies S19/S20",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-04T14:43",
-      "request": "Validation Nicolas: 1) circuit Bxl Sud-Est mardi 12/05 (Boondael 10:00 reorga thes glaces contact Mr Daniel + Bosvoorde 11:15 + Debroux Auderghem 12:30 + Rixensart 13:45 retour Baillonville 15:45) 2) Alivim Gilson + Gembloux jeudi 14/05 implantations 3) Hyper Carrefour Gosselies a caser S19 jeudi 07 ou vendredi 08 (mercredi 06 fige Luxembourg) sinon S20 - Bomeree en suspens sauf si zone justifie - vendredi 15/05 deja fait (Erezee + Marche/Hotton/Durbuy)"
+      "request": "Validation Nicolas: 1) circuit Bxl Sud-Est mardi 12/05 (Boondael 10:00 reorga thes glaces contact Mr Daniel + Bosvoorde 11:15 + Debroux Auderghem 12:30 + Rixensart 13:45 retour Baillonville 15:45) 2) Alivim Gilson + Gembloux jeudi 14/05 implantations 3) Hyper Carrefour Gosselies a caser S19 jeudi 07 ou vendredi 08 (mercredi 06 fige Luxembourg) sinon S20 - Bomeree en suspens sauf si zone justifie - vendredi 15/05 deja fait (Erezee + Marche/Hotton/Durbuy)",
+      "finished": "2026-05-04T14:54"
     }
   ]
 }
