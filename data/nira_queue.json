@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T13:36:43",
+  "updated": "2026-05-04T14:28:46",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3140,6 +3140,14 @@
       "started": "2026-05-04T13:33",
       "request": "Tu as vu S05502 - Gribouillon ? Il faudra l'ajouter pour implantation la semaine prochaine",
       "finished": "2026-05-04T13:36"
+    },
+    {
+      "id": "t042",
+      "agent": "planning",
+      "task": "Faisabilite Boondael mardi 12/05 + densification trajet Bruxelles",
+      "status": "in_progress",
+      "started": "2026-05-04T14:28",
+      "request": "Delhaize Boondael client dormant accepte continuer, demande passage mardi 12/05 reorganisation + implantation thes glaces"
     }
   ]
 }
