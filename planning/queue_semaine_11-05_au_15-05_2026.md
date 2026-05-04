@@ -13,18 +13,28 @@
 - **Brief** : visite merchandising classique — vérifier état rayon, facing, ruptures, prendre commande de réassort si besoin (panier moyen Lontzen ~580 € HT). Pas de demande spécifique magasin actuellement.
 - **Zone** : Eupen / Cantons de l'Est — peut être combinée avec autres GMS Liège-Est si justifiable (à scanner au moment de la génération S20).
 
-## Reports zone Luxembourg de S19 (à intégrer S20)
+## Reports zone Luxembourg de S19 (statut au 04/05)
 
-Zone Luxembourg = **1 journée complète dédiée** (Bastogne + Florenville + Bouillon faisables ensemble).
+S19 mercredi 06/05 a couvert : **IMPLANTATION Delhaize Bertrix S05489**, **IMPLANTATION CM Bastogne CC Port S05467**, **AD Bastogne (Tier A)**, **Carrefour Florenville (OVERDUE 85j+)**. Reste à traiter S20 :
 
 | Magasin | Statut | Commentaire |
 |---|---|---|
-| **AD Bastogne** (Tier A) | reporté S18 puis S19 | À replanifier |
 | **CM Bouillon** | RDV calendar.event #425 reporté | Replanifier ou annuler |
-| **Carrefour Florenville** | OVERDUE 85j+ | **Priorité absolue** |
-| **CM Bastogne CC Port** (S05467) | Devis draft à valider Nicolas | Si devis validé d'ici S20 → livraison + implantation Gilles |
 
-→ Jour cible Lux : **mardi 12/05** ou **mercredi 13/05** (selon météo/disponibilités responsables).
+→ Bouillon = stop simple intégrable dans une autre zone Lux ou en circuit Sud (Marche/Rochefort) si OVERDUE.
+
+## Reports Namur-Sud / Jambes de S19 mercredi (refonte v1.2)
+
+Mercredi 06/05 a basculé sur Luxembourg → ces visites sont à replanifier S20 :
+
+| Magasin | ID Odoo | Adresse | Statut | Brief / Contrainte |
+|---|---|---|---|---|
+| **AD Delhaize Materne II Jambes** | #113498 | Av. Bourgmestre Jean Materne 109, 5100 Namur | **PRIORITAIRE — demande mail magasin 29/04** | (1) livrer thés glacés, (2) remettre en rayon Lady Dodo + Paniers Grand-Maman, (3) **reprendre la réf Guarana Boost** (note Odoo). Contact Elise Stroobants. PAS le mardi. |
+| **AD Delhaize Fosses-la-Ville** | #5441 | Rue du Cimetière 5, 5070 Fosses-la-Ville | Thés glacés (consigne Nicolas note Odoo 20/04) | Contact Leslie. Mercredi de préférence (Leslie présente toute la journée). |
+| **Boutique Teatower Namur centre** | — | Rue du Pont 3, 5000 Namur | Stop court | 30 min — check stock + remontée terrain |
+| **Carrefour Express Profondeville** | — | 5170 Profondeville | À confirmer si OVERDUE | Visite remplissage zone 5xxx |
+
+→ Jour cible Namur-Sud : **mercredi 13/05** (Leslie présente Fosses).
 
 ## Reports S19 potentiels (à scanner au moment de la génération S20)
 
@@ -39,16 +49,18 @@ Zone Luxembourg = **1 journée complète dédiée** (Bastogne + Florenville + Bo
 
 Zones potentielles sur 5 jours :
 - **Lundi 11/05** — Liège-Est / Cantons : **Carrefour Lontzen #113675** + autres GMS Verviers/Welkenraedt si pertinent
-- **Mardi 12/05** — Luxembourg : Bastogne + Florenville + Bouillon (+ CC Port si devis S05467 validé)
-- **Mercredi 13/05** — à définir (Namur ou BW)
-- **Jeudi 14/05** — Hainaut/BW : reports jeudi-only (Hannut, Ottignies)
+- **Mardi 12/05** — à définir (BW ou Hesbaye selon reliquats S19)
+- **Mercredi 13/05** — **Namur-Sud / Jambes** : AD Materne II Jambes (priorité — demande magasin 29/04) + AD Fosses (thés glacés Leslie mercredi) + Boutique Namur centre + CM Profondeville (+ CM Bouillon si trajet Lux possible)
+- **Jeudi 14/05** — Hainaut/BW : reports jeudi-only (si non couverts S19)
 - **Vendredi 15/05** — reliquats
 
-⚠️ **Ne pas revisiter S19** (à compléter une fois S19 réellement exécutée).
+⚠️ **Ne pas revisiter S19** : ITM Blonden, Spar Manhay, Boncelles, Fléron, Delhaize Bertrix, CM Bastogne CC Port, AD Bastogne, Florenville, CM Hannut, ITM Hannut, Ottignies.
 
 ## À valider avant génération S20
 
-- [ ] Vérifier statut SO S05467 CM Bastogne CC Port (devis → sale ?)
-- [ ] Statut RDV calendar.event #425 CM Bouillon
-- [ ] Scanner OVERDUE GMS au 11/05 pour compléter Lundi/Mercredi
+- [x] ~~Vérifier statut SO S05467 CM Bastogne CC Port~~ → state `sale` confirmé, implanté S19 mercredi 06/05
+- [x] ~~Vérifier statut SO S05489 Delhaize Bertrix~~ → state `sale` confirmé, implanté S19 mercredi 06/05
+- [ ] Statut RDV calendar.event #425 CM Bouillon (encore à replanifier)
+- [ ] Scanner OVERDUE GMS au 11/05 pour compléter mardi/jeudi/vendredi
 - [ ] Confirmer dispo Virginie/Benjamin Lontzen le jour cible (appel préalable)
+- [ ] Charger camionnette : référence Guarana Boost à RAMENER de Materne II Jambes (prévue mercredi 13/05)
