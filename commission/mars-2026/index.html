@@ -17,7 +17,6 @@
   .meta strong { color: var(--primary); }
   .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .6rem; margin-bottom: 1.5rem; }
   .summary-card { background: var(--primary); color: #fff; border-radius: 8px; padding: 1rem .8rem; text-align: center; }
-  .summary-card.zero { background: var(--muted); }
   .summary-card.total { background: var(--accent); font-size: 1.1em; }
   .summary-card .num { font-size: 1.8rem; font-weight: 700; }
   .summary-card .label { font-size: .75rem; text-transform: uppercase; opacity: .9; margin-top: .2rem; }
@@ -29,18 +28,19 @@
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   tr.eligible { background: #d1e7dd; }
   tr.eligible td:first-child { border-left: 3px solid var(--accent); }
-  tr.rejected { color: var(--muted); }
+  tr.highlight { background: #fff3cd; font-weight: 700; }
+  tr.highlight td:first-child { border-left: 3px solid #ffc107; }
   tr.total-row td { font-weight: 700; background: #f1f3f5; border-top: 2px solid var(--primary); border-bottom: none; }
+  tr.grand-total td { font-weight: 700; background: var(--accent); color: #fff; font-size: 1.05em; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .7rem; font-weight: 600; text-transform: uppercase; }
   .badge-ok { background: var(--accent); color: #fff; }
-  .badge-no { background: #adb5bd; color: #fff; }
-  .badge-warn { background: var(--warn); color: #fff; }
   .badge-rattrapage { background: #6610f2; color: #fff; }
   .formula { background: #f1f3f5; border-left: 3px solid var(--primary); padding: .6rem .9rem; margin: .5rem 0; font-size: .87rem; border-radius: 0 4px 4px 0; }
   .alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: .6rem 1rem; margin: .8rem 0; font-size: .87rem; border-radius: 0 6px 6px 0; }
   .alert.info { background: #e7f5ff; border-left-color: #1971c2; }
-  ol.todo { padding-left: 1.4rem; font-size: .9rem; }
-  ol.todo li { margin: .5rem 0; }
+  .alert.danger { background: #ffe0e0; border-left-color: #e03131; }
+  .alert.success { background: #d1e7dd; border-left-color: var(--accent); }
+  .revision-badge { display: inline-block; background: #e03131; color: #fff; font-size: .75rem; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-left: .5rem; vertical-align: middle; }
   .footer { color: var(--muted); font-size: .78rem; margin-top: 2rem; text-align: center; padding-top: 1rem; border-top: 1px solid #dee2e6; }
   @media(max-width:640px) {
     table { font-size: .78rem; }
@@ -50,184 +50,161 @@
 </head>
 <body>
 
-<h1>Commission Mars 2026 — Jérôme Carlier</h1>
-<p class="subtitle">Détail du calcul selon avenant contrat du 17/03/2026</p>
+<h1>Commission Mars 2026 — Jérôme Carlier <span class="revision-badge">v2 — 04/05/2026</span></h1>
+<p class="subtitle">Détail du calcul selon avenant contrat du 17/03/2026 — source officielle : docx Adri + image PNG paliers</p>
+
+<div class="alert danger">
+  <strong>Correction majeure v2 (04/05/2026) :</strong> le rapport v1 utilisait une formule linéaire fictive <code>50 × (croissance% − 10)</code> qui n'existe pas dans l'avenant. Les vraies tranches Adri ont été fournies le 04/05/2026 (image PNG officielle). Ce document v2 applique la table correcte. Total corrigé : <strong>1.475 € brut</strong> (vs 575 € en v1).
+</div>
 
 <div class="meta">
   <div><strong>Période :</strong> 01/03/2026 → 31/03/2026</div>
-  <div><strong>Sources :</strong> Avenant 17/03/2026, Odoo XML-RPC, rapport data-bi 27/04/2026, fichier <code>Commission mars 2026.xlsx</code> (Adri)</div>
-  <div><strong>Date de calcul :</strong> 30/04/2026</div>
+  <div><strong>Sources :</strong> Avenant 17/03/2026 · Adri Commission mars 2026.docx · Image PNG paliers officiels (04/05/2026)</div>
+  <div><strong>Date de calcul :</strong> 04/05/2026 (v2 — corrigé)</div>
 </div>
 
-<!-- ============================================================== -->
-<!-- SYNTHESE                                                        -->
-<!-- ============================================================== -->
+<!-- SYNTHESE -->
 
 <h2>Synthèse</h2>
 
 <div class="summary">
   <div class="summary-card">
-    <div class="num">115 €</div>
+    <div class="num">250 €</div>
     <div class="label">Croissance CA B2B</div>
-    <div class="sub">+12,3 % HT → palier 10-30 %</div>
+    <div class="sub">+12,3 % HT → tranche 10-14,9 %</div>
   </div>
   <div class="summary-card">
-    <div class="num">200 €</div>
+    <div class="num">900 €</div>
     <div class="label">Displays GMS</div>
-    <div class="sub">2 × 100 €</div>
+    <div class="sub">9 × 100 € (liste Adri)</div>
   </div>
   <div class="summary-card">
-    <div class="num">260 €</div>
+    <div class="num">325 €</div>
     <div class="label">Nouveaux clients hors GMS</div>
-    <div class="sub">4 × 65 €</div>
+    <div class="sub">5 × 65 € (sous-total Adri)</div>
   </div>
   <div class="summary-card total">
-    <div class="num">575 €</div>
-    <div class="label">Total brut</div>
-    <div class="sub">révisé 04/05/2026</div>
+    <div class="num">1.475 €</div>
+    <div class="label">Total brut mars 2026</div>
+    <div class="sub">source officielle Adri</div>
   </div>
 </div>
 
-<!-- ============================================================== -->
-<!-- VOLET 1                                                         -->
-<!-- ============================================================== -->
+<!-- VOLET 1 -->
 
 <h2>1. Commission croissance CA B2B</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Périmètre (Option C — décision Nicolas 04/05/2026) :</strong> SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent. Tout inclus (Va.S.Co, Institutions).<br>
-    <strong>Barème (avenant §1.3 + paliers linéaires fixés 04/05/2026) :</strong> &gt; 30 % → ≥ 1.000 € &nbsp;·&nbsp; entre 10 % et 30 % → <code>50 × (croissance% − 10)</code> &nbsp;·&nbsp; &lt; 10 % → 0 €.
+    <strong>Périmètre (Option C) :</strong> SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent. Tout inclus (Va.S.Co, Institutions). Base HT.
   </div>
 
-  <h3>Décomposition CA mars 2026 (réconciliation Odoo du 30/04, recalculée 04/05)</h3>
+  <h3>CA mars 2026</h3>
 
   <table>
     <thead>
-      <tr><th>Méthode</th><th class="num">HT</th><th class="num">TTC</th><th class="num">Croissance vs 72.700 €</th></tr>
+      <tr><th>Période</th><th class="num">CA HTVA B2B</th><th class="num">Croissance vs baseline</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>Périmètre retenu</strong> — SO mars 2026, tags Canal GMS + Horeca + B2B Revendeurs (incl. Grossistes : <strong>Va.S.Co inclus</strong>) + héritage parent + overrides</td><td class="num"><strong>81.663 €</strong></td><td class="num"><strong>86.591 €</strong></td><td class="num"><strong>+12,3 % HT</strong> / +19,1 % TTC</td></tr>
-      <tr><td>Baseline avenant — mars 2025</td><td class="num">72.700 €</td><td class="num">—</td><td class="num">—</td></tr>
+      <tr><td>Mars 2025 (baseline avenant)</td><td class="num">72.700 €</td><td class="num">—</td></tr>
+      <tr class="eligible"><td><strong>Mars 2026 (réalisé)</strong></td><td class="num"><strong>81.663 €</strong></td><td class="num"><strong>+12,3 % HT</strong></td></tr>
     </tbody>
   </table>
 
-  <h3>Audit grossistes — aucun grossiste manquant identifié</h3>
-
-  <p style="font-size:.9rem;">Audit Odoo XML-RPC du 04/05/2026 : sur les 489 partenaires distincts ayant une SO confirmée mars 2026, <strong>346 sont hors-périmètre B2B</strong> (taggés Canal DTC Shopify, magasins POS, ventes web particuliers). Aucun n'est un grossiste/revendeur réel — les 2 seuls candidats à montant > 500 € HT sont :</p>
+  <h3>Table des paliers officielle (source Adri — image PNG 04/05/2026)</h3>
 
   <table>
-    <thead><tr><th>Partner</th><th class="num">CA mars 2026</th><th>Tag actuel</th><th>Nature</th></tr></thead>
+    <thead><tr><th>Tranche de croissance</th><th class="num">Commission</th></tr></thead>
     <tbody>
-      <tr><td>Smartbox Group (#3240)</td><td class="num">618 €</td><td>Canal DTC Shopify</td><td>Coffrets cadeaux/vouchers (121 SO historiques, panier moyen 44 € — pas grossiste)</td></tr>
-      <tr><td>La Mauvaise Herbe SC (#8060)</td><td class="num">602 €</td><td>Canal DTC Shopify</td><td>Coopérative alimentaire — vente directe particuliers</td></tr>
-    </tbody>
-  </table>
-
-  <p style="font-size:.9rem;"><strong>Va.S.Co (S04979 — 4.000 € HT, 20.000 échantillons Oasis du désert BIO)</strong> est <strong>maintenu dans le périmètre B2B</strong> : Va.S.Co est un grossiste thé taggé Canal B2B Direct + Grossiste, et la commande fait partie de son activité commerciale normale.</p>
-
-  <h3>Application des paliers — mars 2026</h3>
-
-  <table>
-    <thead><tr><th>Seuil</th><th class="num">Commission</th></tr></thead>
-    <tbody>
+      <tr><td>&gt; 100 %</td><td class="num">Proratisation sans plafond</td></tr>
+      <tr><td>80 – 100 %</td><td class="num">6.000 €</td></tr>
+      <tr><td>65 – 79,9 %</td><td class="num">4.500 €</td></tr>
+      <tr><td>50 – 64,9 %</td><td class="num">3.200 €</td></tr>
+      <tr><td>40 – 49,9 %</td><td class="num">2.200 €</td></tr>
+      <tr><td>31 – 39,9 %</td><td class="num">1.500 €</td></tr>
+      <tr><td>30 – 30,9 %</td><td class="num">1.000 €</td></tr>
+      <tr><td>25 – 29,9 %</td><td class="num">850 €</td></tr>
+      <tr><td>20 – 24,9 %</td><td class="num">650 €</td></tr>
+      <tr><td>15 – 19,9 %</td><td class="num">400 €</td></tr>
+      <tr class="highlight"><td><strong>10 – 14,9 %</strong> &nbsp;← Mars 2026 : +12,3 %</td><td class="num"><strong>250 €</strong></td></tr>
       <tr><td>&lt; 10 %</td><td class="num">0 €</td></tr>
-      <tr class="eligible"><td><strong>12,3 % (mars 2026)</strong> — <code>50 × (12,3 − 10)</code></td><td class="num"><strong>115 €</strong></td></tr>
-      <tr><td>18,7 %</td><td class="num">435 €</td></tr>
-      <tr><td>30 %</td><td class="num">1.000 €</td></tr>
-      <tr><td>&gt; 30 %</td><td class="num">≥ 1.000 €</td></tr>
     </tbody>
   </table>
 
-  <p style="font-size:1rem;">Croissance CA B2B mars 2026 vs mars 2025 = <strong>+12,3 % HT</strong>. Palier 10-30 % déclenché. <strong style="color:var(--primary);">→ Commission croissance = 115 €</strong>.</p>
-
-  <div class="alert info">
-    <strong>Décision Nicolas (04/05/2026) :</strong> la formule <code>50 × (croissance% − 10)</code> s'applique pour tout résultat entre 10 % et 30 %. La baseline 72.700 € est en HT. Cette méthode (Option C) est figée pour tous les mois futurs.
-  </div>
+  <p style="font-size:1rem; margin-top:.8rem;"><strong style="color:var(--primary);">Commission croissance mars 2026 = 250 €</strong></p>
 
 </div>
 
-<!-- ============================================================== -->
-<!-- VOLET 2                                                         -->
-<!-- ============================================================== -->
+<!-- VOLET 2 -->
 
 <h2>2. Commission displays GMS</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Règle :</strong> 100 € par display GMS installé en mars 2026.
+    <strong>Règle :</strong> 100 € par display GMS installé en mars 2026. Déclencheur = installation du display. Pas de seuil SO ≥ 240 €.
   </div>
+
+  <h3>Liste officielle Adri — 9 magasins</h3>
 
   <table>
     <thead>
-      <tr>
-        <th>#</th>
-        <th>Magasin GMS</th>
-        <th class="num">Commission</th>
-      </tr>
+      <tr><th>#</th><th>Magasin GMS</th><th class="num">Commission</th></tr>
     </thead>
     <tbody>
       <tr class="eligible"><td>1</td><td><strong>Delhaize Recogne</strong></td><td class="num">100 €</td></tr>
-      <tr class="eligible"><td>2</td><td><strong>Intermarché Hannut</strong> (INTERMADIS)</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>2</td><td><strong>Intermarché Hannut</strong></td><td class="num">100 €</td></tr>
       <tr class="eligible"><td>3</td><td><strong>Carrefour Belgium — Corporate Village</strong></td><td class="num">100 €</td></tr>
-      <tr class="eligible"><td>4</td><td><strong>Carrefour Market Haine St Pierre</strong> — 7100 La Louvière</td><td class="num">100 €</td></tr>
-      <tr class="eligible"><td>5</td><td><strong>Hyper Carrefour Bomerée</strong> — 6110 Montigny-le-Tilleul</td><td class="num">100 €</td></tr>
-      <tr class="eligible"><td>6</td><td><strong>Hyper Carrefour Gosselies</strong> — 6041 Charleroi</td><td class="num">100 €</td></tr>
-      <tr class="eligible"><td>7</td><td><strong>Hyper Carrefour Ans</strong> — 4430 Ans</td><td class="num">100 €</td></tr>
-      <tr class="eligible"><td>8</td><td><strong>Carrefour Market Wellin</strong> — 6920 Wellin</td><td class="num">100 €</td></tr>
-      <tr class="eligible"><td>9</td><td><strong>Intermarché Hamoir</strong> — 4180 Hamoir</td><td class="num">100 €</td></tr>
-      <tr class="total-row"><td colspan="2">Total displays éligibles (9)</td><td class="num"><strong>900 €</strong></td></tr>
+      <tr class="eligible"><td>4</td><td><strong>Carrefour Market Haine Saint Pierre</strong></td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>5</td><td><strong>Hyper Carrefour Bomerée</strong></td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>6</td><td><strong>Hyper Carrefour Gosselies</strong></td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>7</td><td><strong>Hyper Carrefour Ans</strong></td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>8</td><td><strong>Carrefour Market Wellin</strong></td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>9</td><td><strong>Intermarché Hamoir</strong></td><td class="num">100 €</td></tr>
+      <tr class="total-row"><td colspan="2">Total displays (9)</td><td class="num"><strong>900 €</strong></td></tr>
     </tbody>
   </table>
 
+  <div class="alert info">
+    <strong>Correction v2 :</strong> la v1 avait appliqué un filtre erroné "SO ≥ 240 € enregistrée dans Odoo" et ne retenait que 2 displays. Ce filtre n'existe pas. Le déclencheur est l'installation physique du display — tous les 9 magasins de la liste Adri sont éligibles.
+  </div>
+
 </div>
 
-<!-- ============================================================== -->
-<!-- VOLET 3                                                         -->
-<!-- ============================================================== -->
+<!-- VOLET 3 -->
 
 <h2>3. Commission nouveaux clients hors GMS</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Règle :</strong> 65 € par nouveau client (Horeca / B2B revendeurs), déclenchée à la <em>1ʳᵉ commande ≥ 240 € HTVA</em>.
+    <strong>Règle :</strong> 65 € par nouveau client (Horeca / Revendeurs), 1ère commande ≥ 240 € HTVA.
   </div>
+
+  <h3>Liste Adri — sous-total 5 × 65 € = 325 €</h3>
 
   <table>
     <thead>
-      <tr>
-        <th>Client</th>
-        <th>Type</th>
-        <th>SO Odoo</th>
-        <th class="num">Montant HTVA</th>
-        <th>Statut</th>
-      </tr>
+      <tr><th>#</th><th>Client</th><th>Catégorie</th><th>Statut</th><th class="num">Commission</th></tr>
     </thead>
     <tbody>
-      <tr class="eligible"><td><strong>Chez Jack</strong> (HORECA JACQUEMIN SRL)</td><td>Horeca</td><td>S05263 — 24/03</td><td class="num">275,00 €</td><td><span class="badge badge-ok">Éligible</span></td></tr>
-      <tr class="eligible"><td><strong>L'Amandier</strong> — Libramont</td><td>Horeca</td><td>S05213 — 16/03</td><td class="num">240,00 €</td><td><span class="badge badge-ok">Éligible</span></td></tr>
-      <tr class="eligible"><td><strong>VDM Pâtisserie</strong></td><td>Horeca</td><td>S05089 — 02/03</td><td class="num">632,58 €</td><td><span class="badge badge-ok">Éligible</span></td></tr>
-      <tr class="eligible"><td><strong>Le Goût-Thé du Moulin</strong></td><td>Horeca</td><td>—</td><td class="num">—</td><td><span class="badge badge-ok">Éligible</span></td></tr>
-      <tr class="eligible"><td><strong>Urban Therapy — PARIS</strong></td><td>Revendeur</td><td>—</td><td class="num">—</td><td><span class="badge badge-ok">Éligible</span></td></tr>
-      <tr class="eligible"><td><strong>Boucherie de Magerotte</strong></td><td>Revendeur</td><td>S05073 — 26/02</td><td class="num">356,64 €</td><td><span class="badge badge-rattrapage">Rattrapage février</span></td></tr>
-      <tr class="rejected"><td>Le Loft du Renard</td><td>Horeca</td><td>S05100 — 04/03</td><td class="num">50,00 €</td><td><span class="badge badge-no">&lt; 240 €</span></td></tr>
-      <tr class="rejected"><td>La Villa Lorraine</td><td>Horeca Vrac et infu</td><td>S05000 — 06/03</td><td class="num">52,83 €</td><td><span class="badge badge-no">Commande annulée</span></td></tr>
-      <tr class="total-row"><td colspan="3">Total clients éligibles (6)</td><td class="num">6 × 65 €</td><td class="num"><strong>390 €</strong></td></tr>
+      <tr class="eligible"><td>1</td><td><strong>Chez Jack</strong> (HORECA JACQUEMIN SRL)</td><td>Horeca</td><td><span class="badge badge-ok">Retenu Adri</span></td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>2</td><td><strong>L'Amandier</strong> — Libramont</td><td>Horeca</td><td><span class="badge badge-ok">Retenu Adri</span></td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>3</td><td><strong>VDM Pâtisserie</strong></td><td>Horeca</td><td><span class="badge badge-ok">Retenu Adri</span></td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>4</td><td><strong>Urban Therapy — Paris</strong></td><td>Revendeur</td><td><span class="badge badge-ok">Retenu Adri</span></td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>5</td><td><strong>Boucherie de Magerotte</strong></td><td>Revendeur</td><td><span class="badge badge-rattrapage">Rattrapage fév.</span></td><td class="num">65 €</td></tr>
+      <tr class="total-row"><td colspan="4">Total clients retenus (5)</td><td class="num"><strong>325 €</strong></td></tr>
     </tbody>
   </table>
 
   <div class="alert">
-    <strong>Boucherie de Magerotte (S05073) — rattrapage février :</strong> note Excel d'origine — <em>« Pas comptabilisé en février car inférieur à 240 € selon Adri mais erreur à voir »</em>. Le SO réel = 356,64 € HTVA, donc éligible. Comptabilisé sur mars 2026.
+    <strong>Note bas de page :</strong> le docx Adri liste 6 lignes cochées dont "Le Goût-Thé du Moulin". Le sous-total explicite d'Adri est 5 × 65 € = 325 €. La 6ème ligne exclue est vraisemblablement <em>Le Goût-Thé du Moulin</em> (Le Comptoir du Moulin — client historique depuis oct. 2025 sur l'ancien système). Le chiffre Adri (5 clients, 325 €) est adopté sans remise en question.
   </div>
 
 </div>
 
-<!-- ============================================================== -->
-<!-- TOTAL                                                           -->
-<!-- ============================================================== -->
+<!-- TOTAL -->
 
 <h2>Total commission mars 2026</h2>
 
@@ -235,22 +212,22 @@
   <table>
     <thead><tr><th>Volet</th><th>Détail</th><th class="num">Montant brut</th></tr></thead>
     <tbody>
-      <tr><td>Croissance CA B2B (+12,3 % — Option C)</td><td><code>50 × (12,3 − 10)</code></td><td class="num">115 €</td></tr>
-      <tr><td>Displays GMS</td><td>2 × 100 € (Intermarché Hannut + Hamoir)</td><td class="num">200 €</td></tr>
-      <tr><td>Nouveaux clients hors GMS</td><td>4 × 65 €</td><td class="num">260 €</td></tr>
-      <tr class="total-row"><td>TOTAL RÉVISÉ</td><td><em>révisé 04/05/2026</em></td><td class="num">575 € brut</td></tr>
+      <tr><td>Croissance CA B2B (+12,3 % — tranche 10-14,9 %)</td><td>Palier officiel Adri</td><td class="num">250 €</td></tr>
+      <tr><td>Displays GMS</td><td>9 × 100 € (liste Adri)</td><td class="num">900 €</td></tr>
+      <tr><td>Nouveaux clients hors GMS</td><td>5 × 65 € (sous-total Adri)</td><td class="num">325 €</td></tr>
+      <tr class="grand-total"><td colspan="2"><strong>TOTAL MARS 2026</strong></td><td class="num"><strong>1.475 €</strong></td></tr>
     </tbody>
   </table>
 
-  <div class="alert">
-    <strong>Régularisation due :</strong> le payslip mars 2026 a été réglé sur 460 €. Suite à la décision Nicolas (Option C + paliers 10-30 %), le montant correct est 575 €. <strong>Différence à verser : 115 €</strong> sur le prochain payslip (avril ou mai 2026).
+  <div class="alert success" style="margin-top:1rem;">
+    <strong>Regularisation a payer :</strong> le payslip mars 2026 a ete regle sur 460 €. Le montant correct selon la source Adri est 1.475 €. <strong>Difference a verser : 1.015 € a integrer dans le payslip d'avril ou mai 2026</strong> en ligne "Regularisation commission mars 2026".
   </div>
 </div>
 
 <p class="footer">
-  Document généré automatiquement par l'agent Compta Teatower — 30/04/2026<br>
-  Révisé le 04/05/2026 — décision Nicolas : méthode Option C (SO confirmées, périmètre complet) + paliers linéaires 10-30 %<br>
-  Source : Odoo XML-RPC + avenant contrat 17/03/2026 + fichier Adri <code>Commission mars 2026.xlsx</code>
+  Document v2 — agent Compta Teatower — 04/05/2026<br>
+  Source officielle : Commission mars 2026.docx (Adri) + image PNG paliers officiels<br>
+  v1 du 29/04-04/05/2026 obsolete — formule lineaire fictive remplacee par table de tranches Adri
 </p>
 
 </body>
