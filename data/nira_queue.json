@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T13:33:29",
+  "updated": "2026-05-04T13:36:43",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3136,9 +3136,10 @@
       "id": "t041",
       "agent": "planning",
       "task": "Ajout S05502 Gribouillon implantation S20",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-04T13:33",
-      "request": "Tu as vu S05502 - Gribouillon ? Il faudra l'ajouter pour implantation la semaine prochaine"
+      "request": "Tu as vu S05502 - Gribouillon ? Il faudra l'ajouter pour implantation la semaine prochaine",
+      "finished": "2026-05-04T13:36"
     }
   ]
 }
