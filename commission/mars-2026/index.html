@@ -66,24 +66,25 @@
 <h2>Synthèse</h2>
 
 <div class="summary">
-  <div class="summary-card zero">
-    <div class="num">0 €</div>
+  <div class="summary-card">
+    <div class="num">115 €</div>
     <div class="label">Croissance CA B2B</div>
-    <div class="sub">+12,3 % HT &lt; 30 %</div>
+    <div class="sub">+12,3 % HT → palier 10-30 %</div>
   </div>
   <div class="summary-card">
-    <div class="num">900 €</div>
+    <div class="num">200 €</div>
     <div class="label">Displays GMS</div>
-    <div class="sub">9 × 100 €</div>
+    <div class="sub">2 × 100 €</div>
   </div>
   <div class="summary-card">
-    <div class="num">390 €</div>
+    <div class="num">260 €</div>
     <div class="label">Nouveaux clients hors GMS</div>
-    <div class="sub">6 × 65 €</div>
+    <div class="sub">4 × 65 €</div>
   </div>
   <div class="summary-card total">
-    <div class="num">1.290 €</div>
+    <div class="num">575 €</div>
     <div class="label">Total brut</div>
+    <div class="sub">révisé 04/05/2026</div>
   </div>
 </div>
 
@@ -96,8 +97,8 @@
 <div class="card">
 
   <div class="formula">
-    <strong>Périmètre :</strong> CA des canaux <em>GMS + B2B Revendeurs + Horeca</em> (tags Canal Odoo + héritage parent).<br>
-    <strong>Barème (avenant §1.3) :</strong> &gt; 30 % → ≥ 1.000 € &nbsp;·&nbsp; &lt; 10 % → 0 €.
+    <strong>Périmètre (Option C — décision Nicolas 04/05/2026) :</strong> SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent. Tout inclus (Va.S.Co, Institutions).<br>
+    <strong>Barème (avenant §1.3 + paliers linéaires fixés 04/05/2026) :</strong> &gt; 30 % → ≥ 1.000 € &nbsp;·&nbsp; entre 10 % et 30 % → <code>50 × (croissance% − 10)</code> &nbsp;·&nbsp; &lt; 10 % → 0 €.
   </div>
 
   <h3>Décomposition CA mars 2026 (réconciliation Odoo du 30/04, recalculée 04/05)</h3>
@@ -126,12 +127,23 @@
 
   <p style="font-size:.9rem;"><strong>Va.S.Co (S04979 — 4.000 € HT, 20.000 échantillons Oasis du désert BIO)</strong> est <strong>maintenu dans le périmètre B2B</strong> : Va.S.Co est un grossiste thé taggé Canal B2B Direct + Grossiste, et la commande fait partie de son activité commerciale normale.</p>
 
-  <h3>Impact sur la commission</h3>
+  <h3>Application des paliers — mars 2026</h3>
 
-  <p style="font-size:1rem;">Croissance CA B2B mars 2026 vs mars 2025 = <strong>+12,3 % HT</strong> (ou +19,1 % TTC). Le seuil déclencheur de 30 % n'est pas atteint. <strong style="color:var(--muted);">→ Commission croissance = 0 €</strong>.</p>
+  <table>
+    <thead><tr><th>Seuil</th><th class="num">Commission</th></tr></thead>
+    <tbody>
+      <tr><td>&lt; 10 %</td><td class="num">0 €</td></tr>
+      <tr class="eligible"><td><strong>12,3 % (mars 2026)</strong> — <code>50 × (12,3 − 10)</code></td><td class="num"><strong>115 €</strong></td></tr>
+      <tr><td>18,7 %</td><td class="num">435 €</td></tr>
+      <tr><td>30 %</td><td class="num">1.000 €</td></tr>
+      <tr><td>&gt; 30 %</td><td class="num">≥ 1.000 €</td></tr>
+    </tbody>
+  </table>
 
-  <div class="alert">
-    <strong>À fixer pour les mois suivants :</strong> clarifier dans l'avenant si la baseline 72.700 € est HT ou TTC, et figer la méthode (HT recommandé : SO confirmées, tags Canal GMS+Horeca+B2B Revendeurs, héritage parent, overrides connus).
+  <p style="font-size:1rem;">Croissance CA B2B mars 2026 vs mars 2025 = <strong>+12,3 % HT</strong>. Palier 10-30 % déclenché. <strong style="color:var(--primary);">→ Commission croissance = 115 €</strong>.</p>
+
+  <div class="alert info">
+    <strong>Décision Nicolas (04/05/2026) :</strong> la formule <code>50 × (croissance% − 10)</code> s'applique pour tout résultat entre 10 % et 30 %. La baseline 72.700 € est en HT. Cette méthode (Option C) est figée pour tous les mois futurs.
   </div>
 
 </div>
@@ -221,18 +233,23 @@
 
 <div class="card">
   <table>
-    <thead><tr><th>Volet</th><th class="num">Montant brut</th></tr></thead>
+    <thead><tr><th>Volet</th><th>Détail</th><th class="num">Montant brut</th></tr></thead>
     <tbody>
-      <tr><td>Croissance CA B2B (+4,7 %)</td><td class="num">0 €</td></tr>
-      <tr><td>Displays GMS (9 × 100 €)</td><td class="num">900 €</td></tr>
-      <tr><td>Nouveaux clients hors GMS (6 × 65 €)</td><td class="num">390 €</td></tr>
-      <tr class="total-row"><td>TOTAL</td><td class="num">1.290 € brut</td></tr>
+      <tr><td>Croissance CA B2B (+12,3 % — Option C)</td><td><code>50 × (12,3 − 10)</code></td><td class="num">115 €</td></tr>
+      <tr><td>Displays GMS</td><td>2 × 100 € (Intermarché Hannut + Hamoir)</td><td class="num">200 €</td></tr>
+      <tr><td>Nouveaux clients hors GMS</td><td>4 × 65 €</td><td class="num">260 €</td></tr>
+      <tr class="total-row"><td>TOTAL RÉVISÉ</td><td><em>révisé 04/05/2026</em></td><td class="num">575 € brut</td></tr>
     </tbody>
   </table>
+
+  <div class="alert">
+    <strong>Régularisation due :</strong> le payslip mars 2026 a été réglé sur 460 €. Suite à la décision Nicolas (Option C + paliers 10-30 %), le montant correct est 575 €. <strong>Différence à verser : 115 €</strong> sur le prochain payslip (avril ou mai 2026).
+  </div>
 </div>
 
 <p class="footer">
   Document généré automatiquement par l'agent Compta Teatower — 30/04/2026<br>
+  Révisé le 04/05/2026 — décision Nicolas : méthode Option C (SO confirmées, périmètre complet) + paliers linéaires 10-30 %<br>
   Source : Odoo XML-RPC + avenant contrat 17/03/2026 + fichier Adri <code>Commission mars 2026.xlsx</code>
 </p>
 

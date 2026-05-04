@@ -1,32 +1,45 @@
 # Commission Jérôme Carlier — Mars 2026
 
-**Produit le** : 29/04/2026
+**Produit le** : 29/04/2026 — **Révisé le** : 04/05/2026 (décision Nicolas : Option C + paliers linéaires 10-30 %)
 **Période** : 01/03/2026 → 31/03/2026
-**Source** : Avenant contrat 17/03/2026 + Odoo XML-RPC + rapport data-bi `2026-04-27_CA_avril_par_canal.md`
+**Source** : Avenant contrat 17/03/2026 + Odoo XML-RPC + rapport data-bi `2026-04-30_CA_B2B_mars_reconciliation.md`
 **Fichier d'entrée** : `Commission mars 2026.xlsx`
 
 ---
 
 ## 1. Commission sur la croissance du chiffre d'affaires B2B
 
+### Méthode officielle fixée le 04/05/2026 (décision Nicolas)
+
+**Option C — périmètre complet** : SO confirmées (state = sale ou done), tags Canal GMS/B2B/Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent. Tout inclus (Va.S.Co, Institutions). Source : rapport data-bi `2026-04-30_CA_B2B_mars_reconciliation.md`.
+
 ### Résultats
 
-| Période | CA HTVA B2B (GMS + B2B Revendeurs + Horeca) |
+| Période | CA HTVA B2B (GMS + B2B Revendeurs + Horeca) | Source |
+|---|---:|---|
+| Mars 2025 (baseline avenant) | **72.700,00 €** | Figé dans l'avenant 17/03/2026 |
+| Mars 2026 (réalisé — Option C) | **81.663,16 €** | Odoo XML-RPC SO mars 2026, 208 SO B2B |
+| **Croissance** | **+12,3 % HT** | (81.663 − 72.700) / 72.700 |
+
+### Application des paliers — formule linéaire 10 %→30 % (décision Nicolas 04/05/2026)
+
+| Seuil | Commission |
 |---|---:|
-| Mars 2025 (baseline avenant) | **72.700,00 €** |
-| Mars 2026 (réalisé) | **76.140,00 €** |
-| **Croissance** | **+4,7 %** |
-
-> Source mars 2026 : rapport data-bi du 27/04/2026 (perimetre tags Canal GMS+B2B+Horeca + 20 overrides manuels). Note : "mars 2026 inclut une commande exceptionnelle non récurrente" — sans elle, le run rate est plus faible.
-
-### Application du barème (avenant §1.3)
-
-| Croissance vs N-1 | Commission |
-|---|---:|
+| < 10 % | 0 € |
+| Entre 10 % et 30 % | `50 × (croissance% − 10)` |
 | > 30 % | ≥ 1.000 € |
-| **< 10 %** | **0 €** |
 
-→ **Commission croissance : 0 € brut**
+**Application : `50 × (12,3 − 10) = 50 × 2,3 = 115 € brut`**
+
+| Croissance | Commission (exemples) |
+|---|---:|
+| < 10 % | 0 € |
+| **12,3 %** | **115 €** |
+| 18,7 % | 435 € |
+| 30 % | 1.000 € |
+| > 30 % | ≥ 1.000 € |
+
+→ **Commission croissance mars 2026 : 115 € brut**
 
 ---
 
@@ -76,12 +89,15 @@
 
 ## 4. Total commission mars 2026
 
-| Volet | Montant brut |
-|---|---:|
-| Commission croissance CA B2B (+4,7 %) | **0 €** |
-| Commission displays GMS (2 × 100 €) | **200 €** |
-| Commission nouveaux clients hors GMS (4 × 65 €) | **260 €** |
-| **TOTAL** | **460 € brut** |
+| Volet | Détail | Montant brut |
+|---|---|---:|
+| Commission croissance CA B2B (+12,3 % — Option C) | `50 × (12,3 − 10)` | **115 €** |
+| Commission displays GMS | 2 × 100 € (Intermarché Hannut + Hamoir) | **200 €** |
+| Commission nouveaux clients hors GMS | 4 × 65 € | **260 €** |
+| **TOTAL RÉVISÉ** | | **575 € brut** |
+
+> Revision du 04/05/2026 : passage de 460 € a 575 € suite a la decision Nicolas d'appliquer les paliers linéaires 10-30 % et la méthode Option C (CA B2B mars 2026 = 81.663 € HT, croissance +12,3 %, commission croissance = 115 €).
+> Le payslip mars 2026 a été réglé sur 460 €. **Régularisation due : 115 €** (voir section 6).
 
 ---
 
@@ -101,4 +117,19 @@
 
 ---
 
+---
+
+## 6. Régularisations à faire
+
+| Mouvement | Montant | Destinataire | Motif |
+|---|---:|---|---|
+| Payslip mars 2026 versé | 460 € | Jérôme Carlier | Payé sur base +4,7 % (méthode ancienne) |
+| Commission révisée mars 2026 | 575 € | Jérôme Carlier | Méthode Option C + paliers 10-30 % |
+| **Régularisation à verser** | **115 €** | Jérôme Carlier | Solde mars 2026 sur prochain payslip (mai 2026) |
+
+> A intégrer dans le payslip d'avril 2026 ou mai 2026 en ligne "Régularisation commission mars 2026 — 115 €".
+
+---
+
 *Rapport généré automatiquement — agent Compta/Data Teatower | Source : Odoo XML-RPC + avenant contrat 17/03/2026*
+*Révisé le 04/05/2026 — décision Nicolas : méthode Option C (périmètre complet SO) + paliers linéaires 10-30 %*
