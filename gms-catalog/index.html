@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Catalogue GMS — Teatower</title>
+<title>Catalogue GMS 2026 — Teatower</title>
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 <style>
   :root{
     --bg:#faf7f2; --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3ddd2;
-    --tt:#2d5a3d; --accent:#b08e4d; --hl:#fff7db;
+    --tt:#2d5a3d; --accent:#b08e4d; --hl:#fff7db; --bio:#6aa84f;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:15px;line-height:1.45}
@@ -17,7 +17,8 @@
   header .sub{font-size:12px;opacity:.85;margin-top:2px}
   .toolbar{position:sticky;top:54px;z-index:4;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .toolbar input[type=search]{flex:1;min-width:180px;padding:9px 12px;font-size:15px;border:1px solid var(--line);border-radius:6px;background:#fff}
-  .toolbar select{padding:8px 10px;font-size:13px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
+  .toolbar select,.toolbar button{padding:8px 10px;font-size:13px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
+  .toolbar button.active{background:var(--tt);color:#fff;border-color:var(--tt)}
   .meta{padding:6px 14px;color:var(--muted);font-size:12px}
   table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
   thead th{position:sticky;top:104px;background:#f3eee4;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-weight:600;color:#444;font-size:12px;text-transform:uppercase;letter-spacing:.4px;cursor:pointer;user-select:none}
@@ -25,19 +26,23 @@
   thead th .arrow{color:var(--accent);font-size:10px;margin-left:3px}
   tbody tr{border-bottom:1px solid var(--line)}
   tbody tr:nth-child(even){background:#fcfaf6}
+  tbody tr.gh{background:#efe7d6 !important;font-weight:700;color:var(--tt);text-transform:uppercase;letter-spacing:.4px;font-size:12px}
+  tbody tr.gh td{padding:10px 12px}
   tbody td{padding:10px;vertical-align:middle}
   td.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:600;color:var(--tt);white-space:nowrap}
   td.ean{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:#444;white-space:nowrap}
-  td.name{font-weight:500}
-  td.barcode{text-align:center;width:180px}
-  td.barcode svg{display:block;cursor:zoom-in;background:#fff;border-radius:4px;padding:2px}
-  td.num{text-align:right;font-variant-numeric:tabular-nums;color:#555;white-space:nowrap}
+  td.name{font-weight:500;min-width:160px}
+  td.name .saveur{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:2px}
+  td.barcode{text-align:center;width:200px}
+  td.barcode svg{display:block;cursor:zoom-in;background:#fff;border-radius:4px;padding:2px;margin:0 auto}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;color:#444;white-space:nowrap}
+  td.center{text-align:center}
+  .bio{display:inline-block;background:var(--bio);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:99px;letter-spacing:.5px}
   button.copy{font-size:11px;padding:3px 7px;border:1px solid var(--line);background:#fff;border-radius:4px;cursor:pointer;color:#666;margin-left:6px}
   button.copy:hover{background:var(--hl);border-color:var(--accent);color:#444}
   button.copy.ok{background:#dbeed1;color:#225c2a;border-color:#225c2a}
   mark{background:var(--hl);padding:0 2px}
   footer{padding:18px 14px;color:var(--muted);font-size:11px;text-align:center;border-top:1px solid var(--line);margin-top:20px}
-  /* Modal pour barcode plein écran (scan facile) */
   #modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:99;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
   #modal.on{display:flex}
   #modal .box{background:#fff;border-radius:14px;padding:26px 30px;text-align:center;max-width:92vw}
@@ -49,56 +54,65 @@
     tbody td{padding:8px 6px;font-size:13px}
     td.barcode{width:auto}
     td.barcode svg{width:140px;height:auto}
-    th.num,td.num{display:none}
+    th.hide-m,td.hide-m{display:none}
   }
 </style>
 </head>
 <body>
 <header>
-  <h1>Catalogue GMS — Teatower</h1>
-  <div class="sub">Code interne · EAN13 scannable · libellé · prix HT</div>
+  <h1>Catalogue GMS 2026 — Teatower</h1>
+  <div class="sub">Vrac · Infusettes · Infusettes glacées · 44 références officielles</div>
 </header>
 <div class="toolbar">
-  <input id="q" type="search" placeholder="Rechercher (code, EAN, nom)…" autofocus>
-  <select id="cat"><option value="">Toutes catégories</option></select>
+  <input id="q" type="search" placeholder="Rechercher (code, EAN, nom, saveur)…" autofocus>
+  <button data-f="all" class="active">Tous</button>
+  <button data-f="Vrac">Vrac</button>
+  <button data-f="Infusettes">Infusettes</button>
+  <button data-f="Grandes infusettes">Glacé</button>
+  <button data-f="bio">BIO</button>
+  <select id="famille"><option value="">Toutes familles</option></select>
 </div>
 <div class="meta" id="meta">…</div>
 <table>
   <thead>
     <tr>
-      <th data-sort="code">Code <span class="arrow"></span></th>
-      <th data-sort="name">Libellé <span class="arrow"></span></th>
-      <th data-sort="ean">EAN13 <span class="arrow"></span></th>
+      <th data-sort="code">Code</th>
+      <th data-sort="name">Produit</th>
+      <th class="hide-m" data-sort="famille">Famille</th>
+      <th class="center hide-m" data-sort="grammage_g">g</th>
+      <th class="center hide-m" data-sort="bio">BIO</th>
+      <th data-sort="ean">EAN13</th>
       <th>Code-barres</th>
-      <th data-sort="categ">Catégorie <span class="arrow"></span></th>
-      <th class="num" data-sort="price">PV HT <span class="arrow"></span></th>
+      <th class="num" data-sort="prix_ht">PV HT</th>
+      <th class="num hide-m" data-sort="pvc_tvac">PVC TVAC</th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
 </table>
-
 <div id="modal"><div class="box"><div class="lbl" id="m-code"></div><div class="nm" id="m-name"></div><svg id="m-svg"></svg></div></div>
-
 <footer>
-  Source : Odoo · Catalogue produits Teatower vendus en GMS.<br>
-  Mis à jour le <span id="updated">—</span>. Tapotez un code-barres pour l'agrandir et le scanner.
+  Source : Tarifs et bons de commande GMS 2026 (VRAC + INFU). EAN13 vérifiés sur Odoo.<br>
+  Mis à jour le <span id="updated">—</span> · Conditions : franco 240 € HTVA · 30 j fin de mois · TVA 6 %.<br>
+  Tapotez un code-barres pour l'agrandir et le scanner.
 </footer>
-
 <script>
-let DATA=[], filtered=[], sortKey="code", sortDir=1;
+let DATA=[], filtered=[], sortKey="code", sortDir=1, activeFilter="all";
 const $=s=>document.querySelector(s);
 const escapeHtml=s=>(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 function render(){
   const q=($("#q").value||"").toLowerCase().trim();
-  const cat=$("#cat").value;
+  const fam=$("#famille").value;
   filtered=DATA.filter(r=>{
-    if(cat && r.categ!==cat) return false;
+    if(activeFilter==="bio" && !r.bio) return false;
+    if(activeFilter!=="all" && activeFilter!=="bio" && r.conditionnement!==activeFilter) return false;
+    if(fam && r.famille!==fam) return false;
     if(!q) return true;
-    return (r.code+" "+r.ean+" "+r.name).toLowerCase().includes(q);
+    return (r.code+" "+r.ean+" "+r.name+" "+r.saveur+" "+r.famille).toLowerCase().includes(q);
   });
   filtered.sort((a,b)=>{
     let x=a[sortKey], y=b[sortKey];
+    if(typeof x==="boolean"){x=x?1:0; y=y?1:0;}
     if(typeof x==="string"){return sortDir*((x||"").localeCompare(y||""))}
     return sortDir*((x||0)-(y||0));
   });
@@ -107,28 +121,37 @@ function render(){
     if(!q) return s;
     return s.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi"),"<mark>$1</mark>");
   };
-  $("#tbody").innerHTML=filtered.map((r,i)=>`
-    <tr data-idx="${i}">
-      <td class="code">${hl(r.code||"—")}</td>
-      <td class="name">${hl(r.name)}</td>
+  // Group by conditionnement when no sort/filter altering
+  const groups=["Vrac","Infusettes","Grandes infusettes"];
+  let html="";
+  if(sortKey==="code" && activeFilter==="all" && !q && !fam){
+    groups.forEach(g=>{
+      const rows=filtered.filter(r=>r.conditionnement===g);
+      if(!rows.length) return;
+      html+=`<tr class="gh"><td colspan="9">${g==="Grandes infusettes"?"Infusettes glacées":g} · ${rows.length} réf.</td></tr>`;
+      html+=rows.map(rowHtml).join("");
+    });
+  } else {
+    html=filtered.map(rowHtml).join("");
+  }
+  function rowHtml(r){
+    return `<tr>
+      <td class="code">${hl(r.code)}</td>
+      <td class="name">${hl(r.name)}<span class="saveur">${hl(r.saveur||"")}</span></td>
+      <td class="hide-m">${hl(r.famille||"")}</td>
+      <td class="center hide-m">${r.grammage_g||""}</td>
+      <td class="center hide-m">${r.bio?'<span class="bio">BIO</span>':""}</td>
       <td class="ean">${hl(r.ean||"—")}${r.ean?`<button class="copy" data-c="${r.ean}">copier</button>`:""}</td>
       <td class="barcode">${r.ean?`<svg class="bc" data-ean="${r.ean}" data-name="${escapeHtml(r.name)}" data-code="${r.code}"></svg>`:""}</td>
-      <td>${escapeHtml(r.categ||"")}</td>
-      <td class="num">${r.price?r.price.toFixed(2)+" €":""}</td>
-    </tr>`).join("");
-  $("#meta").textContent=`${filtered.length} produit${filtered.length>1?"s":""} affiché${filtered.length>1?"s":""} · ${DATA.length} au total`;
-  document.querySelectorAll("thead th").forEach(th=>{
-    const arrow=th.querySelector(".arrow");
-    if(!arrow) return;
-    arrow.textContent = (th.dataset.sort===sortKey)?(sortDir===1?"▲":"▼"):"";
-  });
-  // Render barcodes
+      <td class="num">${r.prix_ht?r.prix_ht.toFixed(2)+"&nbsp;€":""}</td>
+      <td class="num hide-m">${r.pvc_tvac?r.pvc_tvac.toFixed(2)+"&nbsp;€":""}</td>
+    </tr>`;
+  }
+  $("#tbody").innerHTML=html;
+  $("#meta").textContent=`${filtered.length} référence${filtered.length>1?"s":""} · ${DATA.length} au catalogue GMS 2026`;
   document.querySelectorAll("svg.bc").forEach(el=>{
     try{
-      JsBarcode(el, el.dataset.ean, {
-        format:"EAN13", width:1.6, height:38, fontSize:11,
-        margin:2, background:"#ffffff", lineColor:"#1a1a1a", displayValue:true
-      });
+      JsBarcode(el, el.dataset.ean, {format:"EAN13",width:1.7,height:42,fontSize:11,margin:2,background:"#fff",lineColor:"#1a1a1a",displayValue:true});
     }catch(e){ el.outerHTML='<span style="color:#c44;font-size:11px">EAN invalide</span>' }
   });
 }
@@ -136,40 +159,39 @@ function render(){
 function openModal(ean,name,code){
   $("#m-code").textContent=code||"";
   $("#m-name").textContent=name||"";
-  try{
-    JsBarcode("#m-svg", ean, {format:"EAN13",width:3,height:120,fontSize:22,margin:8,background:"#fff",lineColor:"#000"});
-  }catch(e){}
+  try{ JsBarcode("#m-svg", ean, {format:"EAN13",width:3,height:120,fontSize:22,margin:8,background:"#fff",lineColor:"#000"}); }catch(e){}
   $("#modal").classList.add("on");
 }
 
 document.addEventListener("click",e=>{
   const cb=e.target.closest("button.copy");
-  if(cb){
-    e.stopPropagation();
+  if(cb){ e.stopPropagation();
     navigator.clipboard.writeText(cb.dataset.c);
     cb.textContent="copié ✓"; cb.classList.add("ok");
-    setTimeout(()=>{cb.textContent="copier";cb.classList.remove("ok")},1200);
-    return;
-  }
+    setTimeout(()=>{cb.textContent="copier";cb.classList.remove("ok")},1200); return; }
   const bc=e.target.closest("svg.bc");
   if(bc){ openModal(bc.dataset.ean, bc.dataset.name, bc.dataset.code); return; }
   if(e.target.closest("#modal")){ $("#modal").classList.remove("on"); }
+  const fb=e.target.closest("[data-f]");
+  if(fb){ activeFilter=fb.dataset.f;
+    document.querySelectorAll("[data-f]").forEach(b=>b.classList.toggle("active",b===fb));
+    render(); }
   const th=e.target.closest("thead th[data-sort]");
   if(th){
     const k=th.dataset.sort;
-    if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=k==="price"?-1:1;}
+    if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=(k==="prix_ht"||k==="pvc_tvac"||k==="grammage_g"||k==="bio")?-1:1;}
     render();
   }
 });
 $("#q").addEventListener("input",render);
-$("#cat").addEventListener("change",render);
+$("#famille").addEventListener("change",render);
 
 fetch("catalog.json?_="+Date.now())
   .then(r=>r.json())
   .then(j=>{
     DATA=j.products; $("#updated").textContent=j.generated_at;
-    const cats=[...new Set(DATA.map(r=>r.categ).filter(Boolean))].sort();
-    $("#cat").innerHTML='<option value="">Toutes catégories</option>'+cats.map(c=>`<option>${escapeHtml(c)}</option>`).join("");
+    const fams=[...new Set(DATA.map(r=>r.famille).filter(Boolean))].sort();
+    $("#famille").innerHTML='<option value="">Toutes familles</option>'+fams.map(f=>`<option>${escapeHtml(f)}</option>`).join("");
     render();
   })
   .catch(e=>{$("#meta").textContent="Erreur de chargement: "+e})
