@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Catalogue GMS — Teatower</title>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 <style>
   :root{
     --bg:#faf7f2; --fg:#1a1a1a; --muted:#6b6b6b; --line:#e3ddd2;
@@ -16,8 +17,7 @@
   header .sub{font-size:12px;opacity:.85;margin-top:2px}
   .toolbar{position:sticky;top:54px;z-index:4;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .toolbar input[type=search]{flex:1;min-width:180px;padding:9px 12px;font-size:15px;border:1px solid var(--line);border-radius:6px;background:#fff}
-  .toolbar select,.toolbar button{padding:8px 10px;font-size:13px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
-  .toolbar button.active{background:var(--tt);color:#fff;border-color:var(--tt)}
+  .toolbar select{padding:8px 10px;font-size:13px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
   .meta{padding:6px 14px;color:var(--muted);font-size:12px}
   table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
   thead th{position:sticky;top:104px;background:#f3eee4;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-weight:600;color:#444;font-size:12px;text-transform:uppercase;letter-spacing:.4px;cursor:pointer;user-select:none}
@@ -25,39 +25,41 @@
   thead th .arrow{color:var(--accent);font-size:10px;margin-left:3px}
   tbody tr{border-bottom:1px solid var(--line)}
   tbody tr:nth-child(even){background:#fcfaf6}
-  tbody td{padding:10px;vertical-align:top}
+  tbody td{padding:10px;vertical-align:middle}
   td.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:600;color:var(--tt);white-space:nowrap}
   td.ean{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:#444;white-space:nowrap}
   td.name{font-weight:500}
-  td.tag{white-space:nowrap}
-  .pill{display:inline-block;padding:2px 7px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.3px}
-  .pill.reappro{background:#dbeed1;color:#225c2a}
-  .pill.vendu{background:#ece2d0;color:#7a5b1f}
-  .pill.muted{background:#eee;color:#888}
+  td.barcode{text-align:center;width:180px}
+  td.barcode svg{display:block;cursor:zoom-in;background:#fff;border-radius:4px;padding:2px}
   td.num{text-align:right;font-variant-numeric:tabular-nums;color:#555;white-space:nowrap}
   button.copy{font-size:11px;padding:3px 7px;border:1px solid var(--line);background:#fff;border-radius:4px;cursor:pointer;color:#666;margin-left:6px}
   button.copy:hover{background:var(--hl);border-color:var(--accent);color:#444}
   button.copy.ok{background:#dbeed1;color:#225c2a;border-color:#225c2a}
   mark{background:var(--hl);padding:0 2px}
   footer{padding:18px 14px;color:var(--muted);font-size:11px;text-align:center;border-top:1px solid var(--line);margin-top:20px}
+  /* Modal pour barcode plein écran (scan facile) */
+  #modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:99;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+  #modal.on{display:flex}
+  #modal .box{background:#fff;border-radius:14px;padding:26px 30px;text-align:center;max-width:92vw}
+  #modal .box .lbl{font-size:13px;color:#666;margin-bottom:6px}
+  #modal .box .nm{font-weight:600;margin-bottom:14px;font-size:15px}
+  #modal .box svg{width:min(80vw,520px);height:auto}
   @media(max-width:640px){
     thead th{top:104px;font-size:10px;padding:6px 6px}
     tbody td{padding:8px 6px;font-size:13px}
-    td.num,th.num{display:none}
-    td.tag .pill{font-size:10px}
+    td.barcode{width:auto}
+    td.barcode svg{width:140px;height:auto}
+    th.num,td.num{display:none}
   }
 </style>
 </head>
 <body>
 <header>
   <h1>Catalogue GMS — Teatower</h1>
-  <div class="sub">Sélection produits B2B / GMS · code interne · EAN · libellé</div>
+  <div class="sub">Code interne · EAN13 scannable · libellé · prix HT</div>
 </header>
 <div class="toolbar">
   <input id="q" type="search" placeholder="Rechercher (code, EAN, nom)…" autofocus>
-  <button id="f-all" class="active" data-f="all">Tous</button>
-  <button id="f-reappro" data-f="reappro">Réappro</button>
-  <button id="f-vendu" data-f="vendu">Vendus 12m</button>
   <select id="cat"><option value="">Toutes catégories</option></select>
 </div>
 <div class="meta" id="meta">…</div>
@@ -65,40 +67,38 @@
   <thead>
     <tr>
       <th data-sort="code">Code <span class="arrow"></span></th>
-      <th data-sort="ean">EAN <span class="arrow"></span></th>
       <th data-sort="name">Libellé <span class="arrow"></span></th>
-      <th data-sort="categ">Cat. <span class="arrow"></span></th>
-      <th class="num" data-sort="price">PV TTC <span class="arrow"></span></th>
-      <th class="num" data-sort="qty12m">Qté 12m <span class="arrow"></span></th>
-      <th data-sort="reappro">Statut <span class="arrow"></span></th>
+      <th data-sort="ean">EAN13 <span class="arrow"></span></th>
+      <th>Code-barres</th>
+      <th data-sort="categ">Catégorie <span class="arrow"></span></th>
+      <th class="num" data-sort="price">PV HT <span class="arrow"></span></th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
 </table>
+
+<div id="modal"><div class="box"><div class="lbl" id="m-code"></div><div class="nm" id="m-name"></div><svg id="m-svg"></svg></div></div>
+
 <footer>
-  Source : Odoo <code>tea-tree.odoo.com</code> · Critères : route réappro GMS ∪ ventes 12 derniers mois aux clients tagués GMS / Canal GMS.<br>
-  Mis à jour le <span id="updated">—</span>. Hébergé sur GitHub Pages — Nira Solutions.
+  Source : Odoo · Catalogue produits Teatower vendus en GMS.<br>
+  Mis à jour le <span id="updated">—</span>. Tapotez un code-barres pour l'agrandir et le scanner.
 </footer>
 
 <script>
-let DATA=[], filtered=[], sortKey="reappro", sortDir=-1, activeFilter="all";
+let DATA=[], filtered=[], sortKey="code", sortDir=1;
 const $=s=>document.querySelector(s);
-const fmt=n=>(n||0).toLocaleString("fr-BE",{maximumFractionDigits:1});
 const escapeHtml=s=>(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 function render(){
   const q=($("#q").value||"").toLowerCase().trim();
   const cat=$("#cat").value;
   filtered=DATA.filter(r=>{
-    if(activeFilter==="reappro" && !r.reappro) return false;
-    if(activeFilter==="vendu" && !(r.qty12m>0)) return false;
     if(cat && r.categ!==cat) return false;
     if(!q) return true;
     return (r.code+" "+r.ean+" "+r.name).toLowerCase().includes(q);
   });
   filtered.sort((a,b)=>{
     let x=a[sortKey], y=b[sortKey];
-    if(typeof x==="boolean"){x=x?1:0; y=y?1:0;}
     if(typeof x==="string"){return sortDir*((x||"").localeCompare(y||""))}
     return sortDir*((x||0)-(y||0));
   });
@@ -107,19 +107,14 @@ function render(){
     if(!q) return s;
     return s.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi"),"<mark>$1</mark>");
   };
-  $("#tbody").innerHTML=filtered.map(r=>`
-    <tr>
+  $("#tbody").innerHTML=filtered.map((r,i)=>`
+    <tr data-idx="${i}">
       <td class="code">${hl(r.code||"—")}</td>
-      <td class="ean">${hl(r.ean||"—")}${r.ean?`<button class="copy" data-c="${r.ean}">copier</button>`:""}</td>
       <td class="name">${hl(r.name)}</td>
+      <td class="ean">${hl(r.ean||"—")}${r.ean?`<button class="copy" data-c="${r.ean}">copier</button>`:""}</td>
+      <td class="barcode">${r.ean?`<svg class="bc" data-ean="${r.ean}" data-name="${escapeHtml(r.name)}" data-code="${r.code}"></svg>`:""}</td>
       <td>${escapeHtml(r.categ||"")}</td>
       <td class="num">${r.price?r.price.toFixed(2)+" €":""}</td>
-      <td class="num">${r.qty12m?fmt(r.qty12m):""}</td>
-      <td class="tag">
-        ${r.reappro?'<span class="pill reappro">Réappro</span>':""}
-        ${r.qty12m>0?'<span class="pill vendu">Vendu 12m</span>':""}
-        ${(!r.reappro && !(r.qty12m>0))?'<span class="pill muted">—</span>':""}
-      </td>
     </tr>`).join("");
   $("#meta").textContent=`${filtered.length} produit${filtered.length>1?"s":""} affiché${filtered.length>1?"s":""} · ${DATA.length} au total`;
   document.querySelectorAll("thead th").forEach(th=>{
@@ -127,25 +122,42 @@ function render(){
     if(!arrow) return;
     arrow.textContent = (th.dataset.sort===sortKey)?(sortDir===1?"▲":"▼"):"";
   });
+  // Render barcodes
+  document.querySelectorAll("svg.bc").forEach(el=>{
+    try{
+      JsBarcode(el, el.dataset.ean, {
+        format:"EAN13", width:1.6, height:38, fontSize:11,
+        margin:2, background:"#ffffff", lineColor:"#1a1a1a", displayValue:true
+      });
+    }catch(e){ el.outerHTML='<span style="color:#c44;font-size:11px">EAN invalide</span>' }
+  });
+}
+
+function openModal(ean,name,code){
+  $("#m-code").textContent=code||"";
+  $("#m-name").textContent=name||"";
+  try{
+    JsBarcode("#m-svg", ean, {format:"EAN13",width:3,height:120,fontSize:22,margin:8,background:"#fff",lineColor:"#000"});
+  }catch(e){}
+  $("#modal").classList.add("on");
 }
 
 document.addEventListener("click",e=>{
   const cb=e.target.closest("button.copy");
   if(cb){
+    e.stopPropagation();
     navigator.clipboard.writeText(cb.dataset.c);
     cb.textContent="copié ✓"; cb.classList.add("ok");
     setTimeout(()=>{cb.textContent="copier";cb.classList.remove("ok")},1200);
+    return;
   }
-  const fb=e.target.closest("[data-f]");
-  if(fb){
-    activeFilter=fb.dataset.f;
-    document.querySelectorAll("[data-f]").forEach(b=>b.classList.toggle("active",b===fb));
-    render();
-  }
+  const bc=e.target.closest("svg.bc");
+  if(bc){ openModal(bc.dataset.ean, bc.dataset.name, bc.dataset.code); return; }
+  if(e.target.closest("#modal")){ $("#modal").classList.remove("on"); }
   const th=e.target.closest("thead th[data-sort]");
   if(th){
     const k=th.dataset.sort;
-    if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=k==="reappro"||k==="qty12m"||k==="price"?-1:1;}
+    if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=k==="price"?-1:1;}
     render();
   }
 });
