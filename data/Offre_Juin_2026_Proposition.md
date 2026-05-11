@@ -14,8 +14,8 @@ Le mois de juin 2026 ouvre la roadmap B2B 12 mois. Deux campagnes en parallèle,
 | Campagne | Cible | Volume | CA cible | Marge plancher |
 |---|---|---|---|---|
 | **Horeca — Boost fréquence + relance** | Horeca actifs + dormants | 222 | +8 K€ | 50% (3+1 = -25%, MB 63% → 47%) |
-| **Revendeur — Relance dormants** | Revendeurs > 180j inactifs | 54 | +9 K€ | 52% (-15% sur MB 67%) |
-| **TOTAL juin 2026** | | **276** | **+17 K€** | |
+| **Revendeur — Relance dormants** | Revendeurs > 180j inactifs | 105 | +8 K€ | 57% (-10% sur MB 67%) |
+| **TOTAL juin 2026** | | **294** | **+16 K€** | |
 
 **Raison de doubler le programme juin** : les 54 dormants Revendeur représentent **89 692 €** de CA historique cumulé (vs 12 645 € pour les 53 dormants Horeca). Les laisser au repos jusqu'à octobre = on les perd définitivement. Réactivation prioritaire dès juin.
 
@@ -77,16 +77,16 @@ Les 8 SKUs `HC250xxx` (boîtes 25 enveloppes) font 95% du CA Horeca à 61-63% MB
 
 | KPI Revendeur dormants | Valeur |
 |---|---|
-| Dormants identifiés (> 180j) | 54 |
-| CA historique cumulé | 89 692 € |
-| Moyenne CA historique/client | 1 661 € |
+| Dormants identifiés (> 180j) | 105 (segmentation finale après dedup) |
+| CA historique cumulé | ~120 K€ estimé |
+| Moyenne CA historique/client | ~1 150 € |
 | Période de décrochage majoritaire | Été-automne 2025 |
 
 **Pourquoi maintenant ?** Si on attend la campagne automne (octobre, 12+2 + coffret découverte), 4 mois supplémentaires sans contact = beaucoup auront déjà été récupérés par la concurrence ou rangé Teatower au placard. Juin = fenêtre courte pour reprendre contact avant la saison Noël (qui se prépare en septembre).
 
 ### Offre
 
-- **-15% sur réassort libre** (toute commande ≥ 300 €)
+- **-10% sur réassort libre** (toute commande ≥ 300 €)
 - **Frais de port offerts** dès 250 €
 - **Pas de SKU forcé** : le revendeur choisit ce qu'il veut (effet "carte blanche")
 - **Conditions** : valable juin uniquement, 1 commande par client maximum
@@ -104,7 +104,7 @@ Les 8 SKUs `HC250xxx` (boîtes 25 enveloppes) font 95% du CA Horeca à 61-63% MB
 
 | Segment | Volume | Tag Odoo | Template Mailchimp |
 |---|---|---|---|
-| Revendeurs dormants > 180j | 54 | `MC-202606-REVENDEUR-DORMANT` | "Reprenons contact" — focus liberté + -15% + relance Jérôme top 20 |
+| Revendeurs dormants > 180j | 54 | `MC-202606-REVENDEUR-DORMANT` | "Reprenons contact" — focus liberté + -10% + relance Jérôme top 20 |
 
 ### Top 20 dormants Revendeur à briefer à Jérôme (J+10)
 
@@ -114,9 +114,9 @@ Critère : CA historique cumulé ≥ 2 K€ (priorité commerciale terrain). Lis
 
 | Métrique | Cible |
 |---|---|
-| Réactivations | 15 sur 54 (28%) |
-| Panier moyen estimé | 600 € (vs 470 € moyenne Revendeur — réassort = panier plus gros) |
-| CA additionnel | +9 K€ |
+| Réactivations | 13-15 sur 105 (~13%) |
+| Panier moyen estimé | 580 € (vs 470 € moyenne Revendeur — réassort = panier plus gros) |
+| CA additionnel | +8 K€ |
 | Effet aval | Mise dans le pipe octobre (campagne automne premium) |
 
 ### Mécanique économique
@@ -124,7 +124,7 @@ Critère : CA historique cumulé ≥ 2 K€ (priorité commerciale terrain). Lis
 | Élément | Valeur |
 |---|---|
 | MB Revendeur produit (hors coffrets Noël) | 67% |
-| MB nette après -15% net | ~52% |
+| MB nette après -10% net | ~57% |
 | Marge plancher roadmap dormants | 30% → respectée largement |
 
 ---
