@@ -15,16 +15,16 @@ html_body = markdown.markdown(
 
 CSS = """
 @page {
-  size: A4 portrait;
-  margin: 1.8cm 1.5cm;
+  size: A4 landscape;
+  margin: 1.2cm 1.2cm 1.5cm 1.2cm;
   @frame footer {
     -pdf-frame-content: footer_content;
-    bottom: 0.6cm; left: 1.5cm; right: 1.5cm; height: 0.8cm;
+    bottom: 0.5cm; left: 1.2cm; right: 1.2cm; height: 0.6cm;
   }
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 9.5pt;
+  font-size: 10pt;
   line-height: 1.45;
   color: #222;
 }
@@ -59,28 +59,30 @@ strong { color: #0c4a30; }
 table {
   border-collapse: collapse;
   width: 100%;
-  margin: 8px 0;
-  font-size: 8.5pt;
+  margin: 10px 0;
+  font-size: 9pt;
 }
 th {
   background: #0c4a30;
   color: white;
-  padding: 5px 6px;
+  padding: 6px 8px;
   text-align: left;
   border: 1px solid #0c4a30;
+  font-weight: bold;
 }
 td {
-  padding: 4px 6px;
+  padding: 5px 8px;
   border: 1px solid #ccc;
   vertical-align: top;
+  word-wrap: break-word;
 }
 tr:nth-child(even) td { background: #f8f5ef; }
-ul, ol { margin: 4px 0; padding-left: 18px; }
-li { margin-bottom: 2px; }
+ul, ol { margin: 4px 0; padding-left: 22px; }
+li { margin-bottom: 3px; }
 hr { border: 0; border-top: 1px solid #d4a373; margin: 14px 0; }
-code { background: #f4e9d8; padding: 1px 3px; font-size: 8.5pt; }
-pre { background: #f4e9d8; padding: 8px; border-left: 3px solid #d4a373; font-size: 8.5pt; }
-blockquote { border-left: 3px solid #d4a373; padding-left: 10px; color: #555; font-style: italic; margin: 8px 0; }
+code { background: #f4e9d8; padding: 1px 3px; font-size: 9pt; }
+pre { background: #f4e9d8; padding: 10px; border-left: 3px solid #d4a373; font-size: 9pt; font-family: 'Courier New', monospace; }
+blockquote { border-left: 3px solid #d4a373; padding-left: 12px; color: #555; font-style: italic; margin: 10px 0; }
 """
 
 html = f"""<!DOCTYPE html>
