@@ -22,8 +22,8 @@ Tu pilotes la partie newsletter Mailchimp de bout en bout. Moi je m'occupe des d
 |---|---|---|---|---|---|
 | **A — Horeca actif** | Cafés, restos, salons de thé qui commandent activement | 178 | 3+1 sur boîtes HC25 | `MC-202606-HORECA-ACTIF` | +5 K€ |
 | **B — Horeca dormant** | Horeca qui n'a pas commandé depuis 6 mois | 11 | 3+1 sur boîtes HC25 + relance Jérôme | `MC-202606-HORECA-DORMANT` | +1 K€ |
-| **C — Revendeur dormant** | Revendeurs qui n'ont pas commandé depuis 6 mois | 105 | -15% sur réassort libre ≥ 300€ | `MC-202606-REVENDEUR-DORMANT` | +9 K€ |
-| **TOTAL** | | **294** | | | **+15 K€** |
+| **C — Revendeur dormant** | Revendeurs qui n'ont pas commandé depuis 6 mois | 105 | -10% sur réassort libre ≥ 300€ | `MC-202606-REVENDEUR-DORMANT` | +8 K€ |
+| **TOTAL** | | **294** | | | **+14 K€** |
 
 *Note : ne pas confondre avec les chiffres initiaux de la roadmap (qui étaient 222 Horeca + 54 Revendeur dormant). Les chiffres ci-dessus sont la segmentation finale après dedup et filtrage strict (is_company + au moins 1 commande historique).*
 
@@ -113,12 +113,12 @@ Le fichier CSV `data/mailchimp_juin_2026.csv` est la **source de vérité**. Ouv
 ### Template C — Revendeur dormant (105 destinataires)
 
 **Ton** : Libre, respectueux, "vous choisissez ce que vous voulez", pas une opé promo classique
-**Objet email proposé** : "Reprenons contact — votre choix, -15% sur toute la gamme 🍵"
-**Angle** : Pas de SKU forcé, pas de pack imposé. C'est *votre* réassort, à *votre* rythme. Juste -15% pour reprendre.
+**Objet email proposé** : "Reprenons contact — votre choix, -10% sur toute la gamme 🍵"
+**Angle** : Pas de SKU forcé, pas de pack imposé. C'est *votre* réassort, à *votre* rythme. Juste -10% pour reprendre tranquillement.
 **Particularité** : Jérôme va appeler le top 20 (CA historique ≥ 2 K€) à J+10
 
 **Contenu obligatoire** :
-- Offre : **-15% sur toute commande ≥ 300 €**, frais de port offerts dès 250 €
+- Offre : **-10% sur toute commande ≥ 300 €**, frais de port offerts dès 250 €
 - 1 commande maximum par client, valable juin uniquement
 - **Phrase d'accroche dédiée** : "Cela fait un moment que nous n'avons plus eu de vos nouvelles. Plutôt que vous proposer un assortiment imposé, nous vous laissons carte blanche..."
 - Code personnel `*|PROMO_CODE|*`
@@ -159,9 +159,9 @@ Le fichier CSV `data/mailchimp_juin_2026.csv` est la **source de vérité**. Ouv
 
 | Métrique | Cible |
 |---|---|
-| Commandes générées via code promo (3 campagnes confondues) | 25-30 |
-| CA additionnel | +15 K€ |
-| Réactivations Revendeur dormant | 15 sur 105 (14%) |
+| Commandes générées via code promo (3 campagnes confondues) | 23-28 |
+| CA additionnel | +14 K€ |
+| Réactivations Revendeur dormant | 13-15 sur 105 (~13%) |
 | Réactivations Horeca dormant | 3 sur 11 (sur petit volume) |
 
 ---
