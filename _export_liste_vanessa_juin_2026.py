@@ -28,8 +28,7 @@ USER = "nicolas.raes@teatower.com"
 PWD = "Teatower123"
 
 TAGS = {
-    "MC-202606-HORECA-ACTIF":      ("HORECA ACTIF",      "Cafés/restos qui commandent activement"),
-    "MC-202606-HORECA-DORMANT":    ("HORECA DORMANT",    "Sans commande > 6 mois — relance Jérôme"),
+    "MC-202606-HORECA-DORMANT":    ("HORECA DORMANT",    "Sans commande > 6 mois — 3+1 + relance Jérôme"),
     "MC-202606-REVENDEUR-DORMANT": ("REVENDEUR DORMANT", "Sans commande > 6 mois — offre -10%"),
 }
 
@@ -121,7 +120,6 @@ border = Border(left=Side(style="thin", color="CCCCCC"),
                 bottom=Side(style="thin", color="CCCCCC"))
 
 COLS = [
-    ("Code promo",        20, "_promo_code"),
     ("Segment",           20, "_segment"),
     ("Société",           40, "name"),
     ("Contact",           25, "_contact_name"),
@@ -136,6 +134,7 @@ COLS = [
     ("CA 12M (€)",        12, "_ca_12m"),
     ("Nb cmds 12M",       10, "_nb_orders_12m"),
     ("ID Odoo",           10, "id"),
+    ("Commande juin ?",   16, "_cmd_juin"),
     ("Notes",             30, "_notes"),
 ]
 
@@ -156,6 +155,7 @@ def enrich(p):
     p["_last_order"]    = last_order.get(p["id"], "(jamais)")
     p["_ca_12m"]        = round(ca_12m.get(p["id"], 0), 2)
     p["_nb_orders_12m"] = nb_orders_12m.get(p["id"], 0)
+    p["_cmd_juin"]      = ""  # à cocher manuellement OU rempli auto post-campagne par Nicolas
     p["_notes"]         = ""  # vide, à remplir par Vanessa
     return p
 
@@ -213,7 +213,6 @@ for p in all_partners.values():
     seg_partners[p["_segment"]].append(p)
 
 synth_rows = [
-    ("HORECA ACTIF",      seg_partners["HORECA ACTIF"],      "+5 K€",  "3+1 sur boîtes HC25"),
     ("HORECA DORMANT",    seg_partners["HORECA DORMANT"],    "+1 K€",  "3+1 HC25 + relance Jérôme"),
     ("REVENDEUR DORMANT", seg_partners["REVENDEUR DORMANT"], "+8 K€",  "-10% sur réassort libre ≥ 300€"),
 ]
@@ -236,7 +235,7 @@ for row_idx, (seg, plist, ca_cible, offre) in enumerate(synth_rows, start=4):
 ws_synthese[f"A{4+len(synth_rows)}"] = "TOTAL"
 ws_synthese[f"B{4+len(synth_rows)}"] = total_vol
 ws_synthese[f"C{4+len(synth_rows)}"] = total_email
-ws_synthese[f"D{4+len(synth_rows)}"] = "+14 K€"
+ws_synthese[f"D{4+len(synth_rows)}"] = "+9 K€"
 for col in "ABCD":
     cell = ws_synthese[f"{col}{4+len(synth_rows)}"]
     cell.font = Font(bold=True)
@@ -250,20 +249,24 @@ notes = [
     "",
     "Cette campagne est envoyée par Stephan via Mailchimp le 9 juin 2026 à 9h00.",
     "",
+    "PAS DE CODE PROMO : le tracking conversion se fait par croisement de listes",
+    "Odoo (tag client + date commande juin) en automatique à J+30.",
+    "",
     "TON RÔLE Vanessa :",
-    "1. Quand un client commande en mentionnant son code TT-J26-XXXXXX → saisir le code dans le champ 'Référence client' du devis Odoo.",
-    "2. Si client appelle pour bénéficier de l'offre sans avoir reçu l'email : retrouver son code dans ce fichier (Ctrl+F), confirmer l'offre.",
-    "3. Si un email bounce/n'est plus valide : mettre à jour la fiche partner dans Odoo + noter en colonne 'Notes'.",
-    "4. Si un client refuse la prochaine campagne : noter en 'Notes' (et signaler à Nicolas pour exclusion future).",
+    "1. Quand un client commande en mentionnant l'offre (3+1 ou -10%) → appliquer l'offre",
+    "   sur le devis Odoo comme d'habitude. Pas de champ supplémentaire à remplir.",
+    "2. Mettre à jour la fiche partner Odoo si infos obsolètes (adresse, email, contact).",
+    "3. Si un client refuse les prochaines campagnes : noter en 'Notes' + signaler à Nicolas.",
+    "4. Colonne 'Commande juin ?' : Nicolas la remplira automatiquement à J+30 (croisement listes).",
     "",
     "TES INTERLOCUTEURS :",
     "• Stephan = envoi Mailchimp",
     "• Jérôme = relance commerciale top 20 Revendeur + top 5 Horeca dormants à J+10 (19 juin)",
-    "• Nicolas = reporting J+30 (9 juillet)",
+    "• Nicolas = reporting J+30 (9 juillet) + extraction conversions automatique",
     "",
-    "FORMULE PROMO :",
-    "• Horeca (actif + dormant) : 3 boîtes HC25 achetées = 4ᵉ offerte (min 6 boîtes, port offert 200€)",
-    "• Revendeur dormant : -10% sur toute commande ≥ 300€ (1 commande max par client, port offert 250€)",
+    "FORMULE PROMO À APPLIQUER (pas de code, juste demander quel segment) :",
+    "• Horeca dormant : 3 boîtes HC25 achetées = 4ᵉ offerte (min 6 boîtes, port offert 200€)",
+    "• Revendeur dormant : -10% sur toute commande ≥ 300€ (1 commande max, port offert 250€)",
 ]
 for i, txt in enumerate(notes):
     cell = ws_synthese.cell(row=notes_start + 1 + i, column=1, value=txt)
@@ -279,9 +282,8 @@ ws_synthese.column_dimensions["D"].width = 12
 ws_synthese.column_dimensions["E"].width = 50
 
 # Sheet per segment
-order = ["HORECA ACTIF", "HORECA DORMANT", "REVENDEUR DORMANT"]
+order = ["HORECA DORMANT", "REVENDEUR DORMANT"]
 sheet_names = {
-    "HORECA ACTIF":      "Horeca actif (3+1)",
     "HORECA DORMANT":    "Horeca dormant (3+1)",
     "REVENDEUR DORMANT": "Revendeur dormant (-10%)",
 }

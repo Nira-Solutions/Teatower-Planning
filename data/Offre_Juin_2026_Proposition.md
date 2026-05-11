@@ -1,7 +1,6 @@
-# Offre Juin 2026 — Proposition
+# Offre Juin 2026 — Version validée
 
-**Statut** : Brouillon pour validation Nicolas
-**Date** : 11 mai 2026
+**Statut** : Validé Nicolas — 11 mai 2026
 **Auteur** : Nira
 **Source data** : `compta/reports/2026-04-27_b2b_roadmap_data.md`
 
@@ -9,55 +8,55 @@
 
 ## Synthèse exécutive
 
-Le mois de juin 2026 ouvre la roadmap B2B 12 mois. Deux campagnes en parallèle, segments distincts, mailings distincts, mécaniques distinctes.
+Le mois de juin 2026 ouvre la roadmap B2B 12 mois. Deux campagnes en parallèle, **toutes deux focalisées sur les clients dormants** (sans commande > 6 mois). Pas d'envoi aux clients actifs — pas de cannibalisation.
 
-| Campagne | Cible | Volume | CA cible | Marge plancher |
+| Campagne | Cible | Volume | CA cible | Marge nette |
 |---|---|---|---|---|
-| **Horeca — Boost fréquence + relance** | Horeca actifs + dormants | 222 | +8 K€ | 50% (3+1 = -25%, MB 63% → 47%) |
-| **Revendeur — Relance dormants** | Revendeurs > 180j inactifs | 105 | +8 K€ | 57% (-10% sur MB 67%) |
-| **TOTAL juin 2026** | | **294** | **+16 K€** | |
+| **A — Horeca dormants** | Horeca > 180j sans commande | 11 | +1 K€ | 47% (3+1 sur MB 63%) |
+| **B — Revendeur dormants** | Revendeurs > 180j sans commande | 105 | +8 K€ | 57% (-10% sur MB 67%) |
+| **TOTAL juin 2026** | | **116** | **+9 K€** | |
 
-**Raison de doubler le programme juin** : les 54 dormants Revendeur représentent **89 692 €** de CA historique cumulé (vs 12 645 € pour les 53 dormants Horeca). Les laisser au repos jusqu'à octobre = on les perd définitivement. Réactivation prioritaire dès juin.
+**Pas de code promo individuel.** Tracking conversion par croisement de listes Odoo automatique à J+30.
 
 ---
 
-## Campagne 1 — Horeca : Boost fréquence + relance dormants
+## Décisions clés validées 11/05/2026
+
+1. **Horeca actifs (178) EXCLUS de la campagne** : pas de promo à des clients qui commandent déjà → on évite la cannibalisation et on préserve la mécanique 3+1 pour les vrais besoins de réactivation.
+2. **Pas de code promo** : trop compliqué à suivre opérationnellement. Tracking par croisement Odoo (tag client + date commande juin).
+3. **Revendeur dormants à -10%** (validé à la place du -15% initial) : marge meilleure (57%), reste très attractif pour des dormants.
+4. **Pas d'échantillon staff** : retiré de l'offre Horeca, trop complexe à gérer en prépa.
+
+---
+
+## Campagne A — Horeca dormants
 
 ### Constat
 
-| KPI Horeca | Valeur 12M |
+| KPI Horeca dormants | Valeur |
 |---|---|
-| Clients actifs (1+ commande 12 derniers mois) | 169 |
-| Clients dormants (> 180j sans commande) | 53 |
-| CA total Horeca 12 mois | 131 831 € |
-| Panier moyen | 255 € |
-| Fréquence | 2,5 commandes/an |
-| CA/client/an | 632 € |
-
-Les 8 SKUs `HC250xxx` (boîtes 25 enveloppes) font 95% du CA Horeca à 61-63% MB. Levier le plus simple = pousser les volumes sur ces 8 best-sellers.
+| Dormants identifiés (> 180j, is_company, ≥ 1 commande historique) | 11 |
+| Période de décrochage majoritaire | Été-automne 2025 |
+| SKUs Horeca à fort enjeu | 8 boîtes HC250xxx (95% du CA Horeca à 61-63% MB) |
 
 ### Offre
 
 - **3+1 sur boîtes HC25** (achetez 3 boîtes, la 4ᵉ offerte) — 1 réf au choix par tranche de 3
 - **Frais de port offerts** dès 200 €
 - **Conditions** : valable juin uniquement, commande minimum 6 boîtes
-- **Pas d'échantillon staff** (retiré — trop complexe à gérer en prépa)
 
-### Cibles & mailings
+### Cible & tag
 
-| Segment | Volume | Tag Odoo | Template Mailchimp |
-|---|---|---|---|
-| Horeca actifs 12M | 169 | `MC-202606-HORECA-ACTIF` | "Boostez votre rotation été" — focus nouveauté + 3+1 |
-| Horeca dormants > 180j | 53 | `MC-202606-HORECA-DORMANT` | "Vous nous manquez" — focus retour + 3+1 + relance Jérôme J+10 |
+| Volume | Tag Odoo | Template Mailchimp |
+|---|---|---|
+| 11 dormants | `MC-202606-HORECA-DORMANT` | "Vous nous manquez" — focus retour + 3+1 + relance Jérôme top 5 J+10 |
 
 ### KPI
 
 | Métrique | Cible |
 |---|---|
-| Commandes générées | 25 minimum |
-| Taux conversion sur 222 cibles | 12% |
-| CA additionnel | +8 K€ |
-| Dormants réactivés (sur 53) | 15 (28%) |
+| Réactivations | 3 sur 11 (~27%) |
+| CA additionnel | +1 K€ |
 
 ### Mécanique économique
 
@@ -67,22 +66,22 @@ Les 8 SKUs `HC250xxx` (boîtes 25 enveloppes) font 95% du CA Horeca à 61-63% MB
 | Panier type 4 boîtes (3+1) | 42 € HT (3 × 14) |
 | MB nominale boîte HC25 | 63% |
 | MB nette après 3+1 | ~47% (boîte offerte = coût direct) |
-| Marge plancher roadmap | 35% (dormants : 30%) → respectée |
+| Marge plancher roadmap dormants | 30% → respectée |
 
 ---
 
-## Campagne 2 — Revendeur : Relance dormants
+## Campagne B — Revendeur dormants
 
-### Constat (nouvelle campagne ajoutée à la roadmap initiale)
+### Constat
 
 | KPI Revendeur dormants | Valeur |
 |---|---|
-| Dormants identifiés (> 180j) | 105 (segmentation finale après dedup) |
-| CA historique cumulé | ~120 K€ estimé |
+| Dormants identifiés (> 180j, is_company, ≥ 1 commande historique) | 105 (segmentation finale après dedup) |
+| CA historique cumulé estimé | ~120 K€ |
 | Moyenne CA historique/client | ~1 150 € |
 | Période de décrochage majoritaire | Été-automne 2025 |
 
-**Pourquoi maintenant ?** Si on attend la campagne automne (octobre, 12+2 + coffret découverte), 4 mois supplémentaires sans contact = beaucoup auront déjà été récupérés par la concurrence ou rangé Teatower au placard. Juin = fenêtre courte pour reprendre contact avant la saison Noël (qui se prépare en septembre).
+**Pourquoi maintenant ?** Si on attend la campagne automne (octobre), 4 mois supplémentaires sans contact = beaucoup auront été récupérés par la concurrence ou rangé Teatower au placard. Juin = fenêtre courte pour reprendre contact avant la saison Noël (qui se prépare en septembre).
 
 ### Offre
 
@@ -98,17 +97,17 @@ Les 8 SKUs `HC250xxx` (boîtes 25 enveloppes) font 95% du CA Horeca à 61-63% MB
 | Profil d'achat | Concentré sur 8 SKUs HC25 | Diversifié (infusettes + vrac + coffrets + glacés) |
 | 3+1 fonctionnerait ? | Oui, achat répétitif sur même réf | Non, ils achètent diversifié |
 | Mécanique optimale | Offre quantitative ciblée | Remise globale + liberté SKU |
-| Effet psychologique recherché | Augmenter fréquence | "Client roi" — reprendre contact sans contrainte |
+| Effet psychologique | Augmenter fréquence | "Client roi" — reprendre contact sans contrainte |
 
-### Cibles & mailings
+### Cible & tag
 
-| Segment | Volume | Tag Odoo | Template Mailchimp |
-|---|---|---|---|
-| Revendeurs dormants > 180j | 54 | `MC-202606-REVENDEUR-DORMANT` | "Reprenons contact" — focus liberté + -10% + relance Jérôme top 20 |
+| Volume | Tag Odoo | Template Mailchimp |
+|---|---|---|
+| 105 dormants | `MC-202606-REVENDEUR-DORMANT` | "Reprenons contact" — focus liberté + -10% + relance Jérôme top 20 J+10 |
 
 ### Top 20 dormants Revendeur à briefer à Jérôme (J+10)
 
-Critère : CA historique cumulé ≥ 2 K€ (priorité commerciale terrain). Liste à extraire d'Odoo le J-21.
+Critère : CA historique cumulé ≥ 2 K€ (priorité commerciale terrain). Liste extraite d'Odoo le J-15.
 
 ### KPI
 
@@ -129,58 +128,68 @@ Critère : CA historique cumulé ≥ 2 K€ (priorité commerciale terrain). Lis
 
 ---
 
-## Calendrier de préparation (J-X avant 9 juin = lancement campagne)
+## Tracking conversion (sans code promo)
+
+Décision 11/05 : pas de code promo individuel — trop complexe à suivre côté Vanessa.
+
+À la place, tracking automatique par croisement de listes :
+
+1. **Liste 1** : partners taggés `MC-202606-HORECA-DORMANT` ou `MC-202606-REVENDEUR-DORMANT` (les 116 destinataires)
+2. **Liste 2** : `sale.order` confirmées entre 9 juin et 9 juillet 2026
+3. **Croisement** : intersection des 2 listes = conversions identifiées
+4. **Reporting J+30** : script Python génère le rapport (CA, taux conversion, top performers, dormants qui restent dormants)
+
+Vanessa traite les commandes comme d'habitude. Elle applique l'offre si le client la mentionne (3+1 ou -10%). Pas de champ supplémentaire à saisir.
+
+---
+
+## Calendrier de préparation (J-X avant 9 juin)
 
 | Date | Échéance | Responsable |
 |---|---|---|
-| **10 mai (J-30)** | Validation offre par Nicolas | Nicolas |
-| **10 mai (J-30)** | Stock check HC25 : min 200 boîtes/réf sur 8 best-sellers | Stock-manager |
-| **15 mai (J-25)** | Scripts XML-RPC de tagging Odoo (3 tags) lancés | Odoo agent |
-| **20 mai (J-20)** | Export CSV depuis Odoo (3 segments) → import Mailchimp | Nicolas |
-| **20 mai (J-20)** | Visuels + copy mailing (3 templates) validés | Marketing |
-| **26 mai (J-14)** | Brief Jérôme : 53 dormants Horeca + 20 dormants Revendeur (script relance) | Nira → Jérôme |
-| **2 juin (J-7)** | Test envoi Mailchimp interne (3 templates) | Nicolas |
-| **9 juin (J)** | **Envoi mailing principal (3 campagnes)** | Nicolas |
-| **19 juin (J+10)** | Relance commerciale Jérôme sur top 20 dormants Revendeur + 30 dormants Horeca non-cliqueurs | Jérôme |
-| **9 juillet (J+30)** | Reporting CA + taux conversion + ajustement campagne juillet | Data-bi |
+| **11 mai (J-30, fait)** | Validation offre + tagging Odoo + CSV Mailchimp + liste Vanessa | Nicolas + Nira |
+| **15 mai (J-25)** | Brief créatif validé (objets, angles, visuels) | Stephan + Nicolas |
+| **20 mai (J-20)** | Import CSV Mailchimp + création 2 audiences | Stephan |
+| **20 mai (J-20)** | Stock check HC25 : min 50 boîtes/réf sur 8 best-sellers (volume juin = faible) | Stock-manager |
+| **25 mai (J-15)** | Premiers drafts 2 templates Mailchimp | Stephan |
+| **25 mai (J-15)** | Extraction top 20 Revendeur + top 5 Horeca dormants pour brief Jérôme | Nira |
+| **27 mai (J-13)** | Revue templates + ajustements | Nicolas |
+| **2 juin (J-7)** | Test envoi Mailchimp interne | Stephan |
+| **3 juin (J-6)** | Brief Jérôme finalisé | Nicolas |
+| **9 juin (J)** | **Envoi des 2 campagnes** | Stephan |
+| **19 juin (J+10)** | Relance commerciale Jérôme top 20 + top 5 | Jérôme |
+| **9 juillet (J+30)** | Reporting CA + taux conversion (croisement automatique) | Nicolas |
 
 ---
 
-## Risques & arbitrages à valider
+## Risques & arbitrages
 
-### Risque 1 — Surcharge prépa atelier
-Si les 2 campagnes convertissent au-delà des KPI (ex : 40 commandes Horeca + 25 Revendeur au lieu de 25 + 15), risque saturation prépa fin juin. **Mitigation** : étalement livraison sur 2 semaines (commandes reçues juin → livraisons juin S2-S3 et début juillet).
-
-### Risque 2 — Cannibalisation du pic d'octobre Revendeur
+### Risque 1 — Cannibalisation du pic d'octobre Revendeur
 Les Revendeurs réactivés en juin pourraient "lisser" leur achat et moins commander en octobre. **Évaluation** : peu probable car juin = réassort (rotation magasin), octobre = renforcement automne/Noël (autre besoin). À vérifier en reporting J+90.
 
-### Risque 3 — Dilution mailing
-3 templates Mailchimp dans la même semaine pour des bases différentes. **Mitigation** : aucun client n'est dans 2 segments en même temps (Horeca actif ≠ Horeca dormant ≠ Revendeur dormant), donc pas de doublon destinataire.
+### Risque 2 — Tracking imparfait sans code
+Si un client transfère le mail à un copain qui passe une commande, on ne saura pas que c'est venu du mailing. **Évaluation** : marginal sur 116 dormants, acceptable.
 
-### Arbitrage à trancher — Top 20 Revendeur dormants
-Faut-il que Jérôme appelle les 20 avant le mailing (J-7) ou après (J+10) ?
-- **Avant** : effet "votre commercial vous appelle", plus chaleureux, mais long à exécuter (20 appels)
-- **Après** : standard, on prend les non-cliqueurs après le mailing
-- **Recommandation Nira** : **après (J+10)**, conserver l'effet de surprise du mailing
+### Risque 3 — Bounces emails dormants
+Sur 116 destinataires dormants, attendre 5-10 bounces (emails obsolètes). Vanessa nettoiera la liste Odoo en parallèle.
 
 ---
 
-## Tags Odoo créés pour cette campagne
+## Tags Odoo finalisés
 
-| Tag | Volume cible | Critère |
+| Tag | Volume | Statut |
 |---|---|---|
-| `MC-202606-HORECA-ACTIF` | 169 | Tag Horeca ET dernière commande ≥ 2025-12-11 |
-| `MC-202606-HORECA-DORMANT` | 53 | Tag Horeca ET dernière commande < 2025-12-11 |
-| `MC-202606-REVENDEUR-DORMANT` | 54 | Tag Revendeur ET dernière commande < 2025-12-11 |
+| `MC-202606-HORECA-DORMANT` | 11 | Appliqué |
+| `MC-202606-REVENDEUR-DORMANT` | 105 | Appliqué |
+| ~~`MC-202606-HORECA-ACTIF`~~ | ~~178~~ | **Supprimé** (décision : pas d'envoi aux actifs) |
 
 Convention : `MC-{YYYYMM}-{SEGMENT}-{FOCUS}` — préfixe `MC-` = audience Mailchimp, triable chronologiquement, traçabilité historique conservée dans Odoo.
 
 ---
 
-## Décision attendue
+## Livrables disponibles
 
-- [ ] **Option A** : Valider les 2 campagnes en parallèle (Horeca + Revendeur dormants)
-- [ ] **Option B** : Valider Horeca seul, repousser Revendeur dormants en juillet/août
-- [ ] **Option C** : Ajustements à apporter (préciser)
-
-**Reco Nira : Option A** — le coût marginal d'ajouter la campagne Revendeur dormants est faible (1 segment Mailchimp en plus, 1 template en plus, 20 appels Jérôme à J+10), pour un CA additionnel de +9 K€ et surtout un effet aval sur octobre.
+- **CSV Mailchimp** (sans code promo) : `data/mailchimp_juin_2026.csv` — 112 lignes (11 + 101 avec email)
+- **Liste Vanessa Excel** : `Liste_Vanessa_Juin_2026.xlsx` — 116 clients enrichis avec contacts, téléphones, adresses, CA 12M
+- **Brief Stephan PDF** : `Brief_Stephan_Newsletters_Juin_2026.pdf`
+- **Roadmap mise à jour** : `Roadmap_B2B_2026-2027.pdf`
