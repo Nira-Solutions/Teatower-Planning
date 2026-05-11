@@ -1,0 +1,6 @@
+Résumé de traitement des flux :
+	Nombre d’enregistrements traités		0
+	Nombre d’enregistrements réussis		0
+
+original-record-number	SKU	error-code	error-type	error-message
+0		90502	Erreur fatale	Le fichier ne contient pas de feuille de calcul avec un type de fichier pris en charge pour le chargement Excel. Enregistrez votre fichier au format texte délimité par des tabulations (*.txt) et chargez-le à nouveau.
