@@ -1,11 +1,11 @@
-"""Convertit l'offre juin 2026 markdown en PDF."""
+"""Convertit la roadmap B2B markdown en PDF."""
 import markdown
 from xhtml2pdf import pisa
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-MD = ROOT / "Offre_Juin_2026_Proposition.md"
-PDF = ROOT.parent / "Offre_Juin_2026_Proposition.pdf"
+MD = ROOT / "Roadmap_B2B_2026-2027.md"
+PDF = ROOT.parent / "Roadmap_B2B_2026-2027.pdf"
 
 md_text = MD.read_text(encoding="utf-8")
 html_body = markdown.markdown(
@@ -15,8 +15,8 @@ html_body = markdown.markdown(
 
 CSS = """
 @page {
-  size: A4 portrait;
-  margin: 1.5cm 1.2cm;
+  size: A4 landscape;
+  margin: 1.2cm 1.2cm 1.5cm 1.2cm;
   @frame footer {
     -pdf-frame-content: footer_content;
     bottom: 0.5cm; left: 1.2cm; right: 1.2cm; height: 0.6cm;
@@ -83,7 +83,7 @@ html = f"""<!DOCTYPE html>
 <body>
 {html_body}
 <div id="footer_content" style="text-align:center; font-size:8pt; color:#888;">
-Offre Juin 2026 Teatower — Proposition pour validation — page <pdf:pagenumber/>/<pdf:pagecount/>
+Roadmap B2B Teatower 2026-2027 — Confidentiel — page <pdf:pagenumber/>/<pdf:pagecount/>
 </div>
 </body></html>"""
 

@@ -12,18 +12,23 @@
 
 On démarre une **roadmap B2B sur 12 mois** (juin 2026 → mai 2027) avec un objectif simple : **+200 K€ de CA additionnel** sur la base actuelle de 881 K€. La mécanique : 1 ou 2 campagnes Mailchimp ciblées par mois, segment par segment (Horeca, Revendeur, GMS, Grossiste), avec une offre claire chacune.
 
-Tu pilotes la partie newsletter Mailchimp de bout en bout. Moi je m'occupe des données Odoo (segmentation, tags, codes promo, tracking). Aurélie pilote la suite : commandes entrantes, encodage des codes promo, SAV. Jérôme appuie en relance commerciale J+10 sur les comptes prioritaires.
+Tu pilotes la partie newsletter Mailchimp de bout en bout. Moi je m'occupe des données Odoo (segmentation, tags, codes promo, tracking). Vanessa pilote la suite : commandes entrantes, encodage des codes promo, SAV. Jérôme appuie en relance commerciale J+10 sur les comptes prioritaires.
 
 ---
 
 ## Juin 2026 — 2 campagnes en parallèle
 
-| Campagne | Cible | Volume | Offre | Tag Odoo | CA cible |
-|---|---|---|---|---|---|
-| **A — Horeca actif** | Cafés, restos, salons de thé qui commandent activement | 178 | 3+1 sur boîtes HC25 | `MC-202606-HORECA-ACTIF` | +5 K€ |
-| **B — Horeca dormant** | Horeca qui n'a pas commandé depuis 6 mois | 11 | 3+1 sur boîtes HC25 + relance Jérôme | `MC-202606-HORECA-DORMANT` | +1 K€ |
-| **C — Revendeur dormant** | Revendeurs qui n'ont pas commandé depuis 6 mois | 105 | -10% sur réassort libre ≥ 300€ | `MC-202606-REVENDEUR-DORMANT` | +8 K€ |
-| **TOTAL** | | **294** | | | **+14 K€** |
+| Campagne | Volume | Offre | CA cible |
+|---|---|---|---|
+| **A — Horeca actif** (cafés/restos qui commandent activement) | 178 | 3+1 sur boîtes HC25 | +5 K€ |
+| **B — Horeca dormant** (sans commande > 6 mois) | 11 | 3+1 HC25 + relance Jérôme | +1 K€ |
+| **C — Revendeur dormant** (sans commande > 6 mois) | 105 | -10% sur réassort libre ≥ 300€ | +8 K€ |
+| **TOTAL** | **294** | | **+14 K€** |
+
+**Tags Odoo correspondants** (à utiliser pour créer les 3 audiences Mailchimp) :
+- A → `MC-202606-HORECA-ACTIF`
+- B → `MC-202606-HORECA-DORMANT`
+- C → `MC-202606-REVENDEUR-DORMANT`
 
 *Note : ne pas confondre avec les chiffres initiaux de la roadmap (qui étaient 222 Horeca + 54 Revendeur dormant). Les chiffres ci-dessus sont la segmentation finale après dedup et filtrage strict (is_company + au moins 1 commande historique).*
 
@@ -67,10 +72,10 @@ Exemple de phrasing dans le mail :
 > Votre code personnel pour bénéficier de l'offre : **`*|PROMO_CODE|*`**
 > *Mentionnez-le simplement lors de votre commande.*
 
-### Comment c'est tracké côté Odoo (rôle d'Aurélie)
+### Comment c'est tracké côté Odoo (rôle d'Vanessa)
 
 Quand un client commande et mentionne son code :
-1. Aurélie crée le devis Odoo comme d'habitude
+1. Vanessa crée le devis Odoo comme d'habitude
 2. **Elle saisit le code dans le champ "Référence client" du devis** (`client_order_ref`)
 3. Plus tard, en fin de campagne (J+30), je lance une requête Odoo : "Quels SO ont une référence commençant par `TT-J26-` ?" → liste exhaustive des conversions
 
@@ -87,7 +92,7 @@ Le fichier CSV `data/mailchimp_juin_2026.csv` est la **source de vérité**. Ouv
 **Ton** : Chaleureux, complice, "vous êtes nos partenaires, voici un petit boost été"
 **Objet email proposé** : "Préparez votre saison estivale : 3 boîtes achetées, la 4ᵉ offerte 🍃"
 **Angle** : C'est l'été qui arrive, vos clients vont chercher des moments thé, on vous facilite la rotation
-**CTA** : Commander (avec code) ou répondre à l'email pour passer commande à Aurélie
+**CTA** : Commander (avec code) ou répondre à l'email pour passer commande à Vanessa
 **Visuels** : terrasse, ambiance estivale, boîtes HC25 en mise en scène
 
 **Contenu obligatoire** :
@@ -95,7 +100,7 @@ Le fichier CSV `data/mailchimp_juin_2026.csv` est la **source de vérité**. Ouv
 - Min 6 boîtes, port offert dès 200 €
 - Valable juin uniquement
 - Code personnel `*|PROMO_CODE|*`
-- Mention "Pour toute question, répondez à cet email ou appelez Aurélie"
+- Mention "Pour toute question, répondez à cet email ou appelez Vanessa"
 
 ### Template B — Horeca dormant (11 destinataires)
 
@@ -135,7 +140,7 @@ Le fichier CSV `data/mailchimp_juin_2026.csv` est la **source de vérité**. Ouv
 | **20 mai (J-20)** | Import CSV dans Mailchimp + création des 3 audiences | Stephan |
 | **25 mai (J-15)** | Premiers drafts des 3 templates Mailchimp | Stephan |
 | **27 mai (J-13)** | Revue templates + ajustements | Nicolas |
-| **2 juin (J-7)** | Envoi de test interne (à nicolas@, aurelie@, stephan@, jerome@) | Stephan |
+| **2 juin (J-7)** | Envoi de test interne (à nicolas@, vanessa@, stephan@, jerome@) | Stephan |
 | **3 juin (J-6)** | Brief Jérôme : liste top 20 Revendeur + top 5 Horeca dormants | Nicolas |
 | **9 juin 9h00 (J)** | **Envoi des 3 campagnes (par segment)** | Stephan |
 | **12 juin (J+3)** | Relance Mailchimp aux non-ouvreurs (objet alternatif) | Stephan |
@@ -191,7 +196,7 @@ NICOLAS  → J+30 reporting : requête Odoo "SO avec ref TT-J26-*", calcul CA, R
 
 1. **Pas de chevauchement** : un même partner = 1 seul tag (dedup déjà faite). Aucun client ne recevra 2 mailings différents.
 
-2. **Bounces probables** : sur 294 destinataires, attendre 5-10 bounces (emails obsolètes). Aurélie nettoiera la liste Odoo en parallèle.
+2. **Bounces probables** : sur 294 destinataires, attendre 5-10 bounces (emails obsolètes). Vanessa nettoiera la liste Odoo en parallèle.
 
 3. **Anti-spam** : ne pas envoyer les 3 mailings dans la même heure. Stephan, planifie :
    - 9h00 → Horeca actif (178 destinataires)
