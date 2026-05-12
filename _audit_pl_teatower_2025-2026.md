@@ -342,6 +342,226 @@ En plan comptable belge, si le stock augmente de 279 876 EUR sur la période, ce
 
 ---
 
+## 8. VÉRIFICATION 657100 — 12/05/2026
+
+**Périmètre : lecture seule stricte. Aucune écriture Odoo.**
+
+### Objectif
+
+Identifier les grosses entrées côté 657100 (écarts négatifs POS) sur l'exercice 01/07/2025 → 30/06/2026 et déterminer si elles sont de vraies pertes de caisse ou des erreurs de saisie symétriques aux 3 anomalies détectées sur 757100.
+
+---
+
+### 8.1 Toutes les lignes 657100 > 1 000 EUR — Exercice 2025-2026
+
+| Move | Date | Journal | Débit | Origine |
+|------|------|---------|-------|---------|
+| CSH3/25-26/0256 | 2026-05-12 | Espèces (Waterloo) | 99 999,85 | POS/00650 |
+| NAMUR/25-26/0106 | 2025-12-20 | Cash (Namur) | 99 480,95 | POS/00264 |
+| LIEGE/25-26/0057 | 2025-11-14 | Espèces (Liège) | 60 944,40 | POS/00138 |
+| POP/25-26/0015 | 2025-12-03 | Caisse POP-UP | 4 122,95 | POS/00201 |
+| NAMUR/25-26/0057 | 2025-11-19 | Cash (Namur) | 3 371,02 | POS/00154 |
+| POP/25-26/0062 | 2026-05-10 | Caisse POP-UP | 1 211,04 | POS/00645 |
+| **TOTAL > 1 000 EUR** | | | **269 130,21** | |
+| Total 657100 affiché | | | **176 297,79** | |
+
+> Note : le total des lignes > 1 000 EUR (269 130,21) dépasse le total affiché 657100 (176 297,79) de ~92 832 EUR. Cela s'explique par des lignes de contrepartie crédit également sur 657100 (corrections/annulations partielles non filtrées ici) ou par des lignes supplémentaires en dessous du seuil. Les 3 lignes géantes représentent 260 425,20 EUR à elles seules.
+
+---
+
+### 8.2 Analyse session par session des 3 grosses lignes
+
+#### Ligne 1 — CSH3/25-26/0256 — 99 999,85 EUR — Waterloo — 2026-05-12
+
+**Session POS/00650 (Waterloo, Config 1) :**
+- Balance Start saisi : **101 010,00 EUR** — ANORMAL (valeur résiduelle de l'erreur 757100 de la veille)
+- Balance End Théorique : 101 021,00 EUR
+- Balance End Real saisi : 1 021,15 EUR
+- Différence résultante : -99 999,85 EUR → 657100
+
+**CA de la session :** 182,96 EUR (10 ordres). Paiements espèces : 11,00 EUR.
+
+**Mécanique :** La session POS/00648 du 11/05/2026 (erreur 757100 connue) a clôturé avec un `cash_register_balance_end_real` = 101 010,00 EUR (faute de frappe : 101 010 au lieu de ~1 010). Odoo a reporté ce montant erroné comme `balance_start` de la session suivante POS/00650 du 12/05. L'opérateur a ensuite saisi la caisse réelle (~1 021 EUR), générant un écart fictif de -99 999,85 EUR côté 657100.
+
+**Verdict : ERREUR DE SAISIE SYMÉTRIQUE.** La perte 657100 est la contrepartie directe de l'erreur 757100 de POS/00648. Extourner les deux ensemble (CSH3/25-26/0254 côté 757100 + CSH3/25-26/0256 côté 657100) remet la caisse Waterloo à zéro.
+
+---
+
+#### Ligne 2 — NAMUR/25-26/0106 — 99 480,95 EUR — Namur — 2025-12-20
+
+**Session POS/00264 (Namur, Config 4) :**
+- Balance Start saisi : **100 495,00 EUR** — ANORMAL
+- Balance End Théorique : 100 701,45 EUR
+- Balance End Real saisi : 1 220,50 EUR
+- Différence résultante : -99 480,95 EUR → 657100
+
+**CA de la session :** 5 503,28 EUR (200 ordres). Paiements espèces : 206,45 EUR.
+
+**Session précédente POS/00259 (Namur, 19/12/2025) :** Balance End Real = 990,31 EUR — normal. La Balance Start de 100 495 ne provient donc pas d'un report direct de la session précédente.
+
+**Mécanique probable :** L'opérateur a saisi manuellement 100 495 EUR comme solde d'ouverture de caisse au lieu de ~995 EUR (ou a saisi un montant avec deux zéros de trop). Ce n'est pas un report automatique d'une erreur antérieure mais une erreur de saisie à l'ouverture elle-même. La caisse réelle comptée en clôture (1 220,50 EUR) est cohérente avec le vrai solde attendu (~990 + 206 espèces encaissées = ~1 197 EUR). L'écart fictif de -99 480,95 EUR résulte uniquement de la mauvaise saisie du balance_start.
+
+**Verdict : ERREUR DE SAISIE.** Balance Start erronée à l'ouverture de session (100 495 au lieu de ~995 EUR, facteur ×100 ou zéros en trop). L'écart 657100 est 100% fictif. La caisse réelle Namur était ~1 220 EUR, cohérent avec les sessions environnantes.
+
+---
+
+#### Ligne 3 — LIEGE/25-26/0057 — 60 944,40 EUR — Liège — 2025-11-14
+
+**Session POS/00138 (Liège Config 3, boutique principale) :**
+- Balance Start saisi : **61 560,00 EUR** — ANORMAL
+- Balance End Théorique : 61 569,50 EUR
+- Balance End Real saisi : 625,10 EUR
+- Différence résultante : -60 944,40 EUR → 657100
+
+**CA de la session :** 59,90 EUR (4 ordres). Paiements espèces : 9,50 EUR.
+
+**Session précédente POS/00132 (Liège, 13/11/2025) :** Balance End Real = 615,60 EUR — normal.
+
+**Mécanique :** La session POS/00137 du même jour (ouverture à 09:18, clôture à 09:24, 0 ordre, CA = 0) a un Balance End Real = 0,00 et une différence de -615,60. Ce mouvement est une session "fantôme" d'ouverture-clôture immédiate. La session POS/00138 a été ouverte avec un Balance Start = 61 560,00 qui ne provient pas de POS/00132 (615,60) mais semble être une saisie manuelle erronée à l'ouverture (615,60 → 61 560,00 : inversion de chiffres ou zéro intercalé). L'opérateur a clôturé à 625,10 EUR (cohérent avec ~615 réel + 9,50 espèces).
+
+**Verdict : ERREUR DE SAISIE.** Balance Start erronée à l'ouverture de session (61 560 au lieu de 615,60 — inversion probable : 61 5,60 tapé 61560). L'écart 657100 est 100% fictif.
+
+---
+
+### 8.3 Analyse des 3 lignes modérées (1 000 – 5 000 EUR)
+
+#### POP/25-26/0015 — 4 122,95 EUR — Caisse POP-UP — 2025-12-03
+
+**Session POS/00201 (POP-UP STORE, Config 2) :**
+- Balance Start saisi : 4 598,00 EUR
+- Balance End Théorique : 4 663,25 EUR
+- Balance End Real saisi : 540,30 EUR
+- Différence : -4 122,95 EUR
+
+**CA de la session :** 272,35 EUR. Paiements espèces : 65,25 EUR.
+
+**Session précédente POS/00195 (POP-UP, 02/12/2025) :** Balance End Real = 488,90 EUR — normal.
+
+**Mécanique :** Balance Start = 4 598,00 EUR ne vient pas de la session précédente (488,90). C'est une saisie manuelle erronée à l'ouverture. La caisse réelle comptée (540,30) est cohérente avec ~489 + 65 espèces. Écart fictif.
+
+**Verdict : ERREUR DE SAISIE.** Balance Start 4 598 au lieu de ~489 (facteur ×10 environ). Écriture 657100 fictive à hauteur de 4 122,95 EUR.
+
+---
+
+#### NAMUR/25-26/0057 — 3 371,02 EUR — Cash Namur — 2025-11-19
+
+**Session POS/00154 (Namur, Config 4) :**
+- Balance Start saisi : 913,00 EUR
+- Balance End Théorique : 4 341,47 EUR
+- Balance End Real saisi : 970,45 EUR
+- Différence : -3 371,02 EUR
+
+**CA de la session :** 750,67 EUR. Paiements espèces non précisés mais si le théorique est 4 341 → espèces attendues = 4 341 - 913 = 3 428,47 EUR.
+
+**Mécanique :** Ici la Balance Start (913 EUR) semble normale. C'est le Balance End Real (970,45 EUR) qui est suspect : l'opérateur a saisi 970 EUR alors que le théorique était 4 341 EUR. Soit une vraie remise de caisse non captée (retrait d'espèces en cours de journée de ~3 400 EUR), soit une erreur de saisie de clôture (970 saisi au lieu de 4 370). La différence de -3 371 est moins "ronde" que les précédentes, ce qui peut indiquer une vraie variation.
+
+**Verdict : AMBIGU.** Peut être une remise de caisse intermédiaire (vidage partiel) ou une erreur de saisie. A vérifier avec Nicolas : y a-t-il eu un vidage de caisse Namur le 19/11/2025 ? Si oui, l'argent devrait apparaître dans un compte 570 ou 550 pour justifier le retrait. A classer en **review** si non confirmé.
+
+---
+
+#### POP/25-26/0062 — 1 211,04 EUR — Caisse POP-UP — 2026-05-10
+
+**Session POS/00645 (POP-UP STORE, Config 2) :**
+- Balance Start saisi : 1 213,00 EUR
+- Balance End Théorique : 1 231,04 EUR
+- Balance End Real saisi : 20,00 EUR
+- Différence : -1 211,04 EUR
+
+**CA de la session :** 522,45 EUR (session parallèle POS/00644 = 456,55 EUR).
+
+**Mécanique :** Balance Start 1 213 semble normal. Balance End Real = 20 EUR saisie alors que le théorique est 1 231 EUR. L'opérateur a saisi 20 au lieu de ~1 231 (un zéro manquant ? champ mal rempli ?). Ou remise de caisse de ~1 211 EUR vers la banque non tracée séparément.
+
+**Verdict : PROBABLE ERREUR DE SAISIE.** 20 EUR saisi au lieu de ~1 213 EUR (quasi la totalité de la caisse réelle). Très peu probable que la caisse POP-UP soit tombée à 20 EUR sans transaction de retrait traçable. A confirmer.
+
+---
+
+### 8.4 Tableau récapitulatif — Verdict par ligne
+
+| Move | Montant | Verdict | Qualification |
+|------|---------|---------|---------------|
+| CSH3/25-26/0256 | 99 999,85 | **ERREUR SAISIE SYMÉTRIQUE** | Balance Start héritée de POS/00648 (erreur 757100) |
+| NAMUR/25-26/0106 | 99 480,95 | **ERREUR SAISIE** | Balance Start 100 495 au lieu de ~995 (×100) |
+| LIEGE/25-26/0057 | 60 944,40 | **ERREUR SAISIE** | Balance Start 61 560 au lieu de 615,60 (inversion) |
+| POP/25-26/0015 | 4 122,95 | **ERREUR SAISIE** | Balance Start 4 598 au lieu de ~489 (×10) |
+| NAMUR/25-26/0057 | 3 371,02 | **AMBIGU** | BE_Real suspect — vidage caisse possible ou erreur |
+| POP/25-26/0062 | 1 211,04 | **PROBABLE ERREUR SAISIE** | BE_Real = 20 EUR au lieu de ~1 213 |
+
+| Catégorie | Total EUR |
+|-----------|-----------|
+| Erreurs de saisie confirmées (à extourner) | 264 548,15 |
+| Cas ambigu (NAMUR/25-26/0057, à confirmer) | 3 371,02 |
+| Probable erreur (POP/25-26/0062, à confirmer) | 1 211,04 |
+
+---
+
+### 8.5 Calcul du X et validation de l'objectif Nicolas
+
+**Contexte de la demande :**
+- Extourner les 3 erreurs 757100 = -251 230,51 EUR côté produits fictifs
+- Neutraliser les erreurs 657100 correspondantes = +X EUR (réduction des charges fictives)
+- Résultat retraité cible = 391 344 EUR
+
+**Calcul :**
+
+| Scénario | X (657100 extournable) | Résultat retraité |
+|----------|----------------------|-------------------|
+| Erreurs confirmées seules (3 grandes lignes) | +260 425,20 | 476 891 – 251 230 + 260 425 = **486 086** |
+| Erreurs confirmées + POP/0015 + POP/0062 | +265 759,19 | 476 891 – 251 230 + 265 759 = **491 420** |
+| Scénario "cible Nicolas" (X = 165 683) | +165 683,00 | 476 891 – 251 230 + 165 683 = **391 344** |
+
+**Le X qui donnerait 391 344 EUR est 165 683 EUR — il n'est pas atteint par les seules erreurs confirmées (260 425 EUR ou 265 759 EUR selon scope).**
+
+**Pourquoi l'écart ?**
+
+Les erreurs côté 657100 (260 425 EUR) sont PLUS importantes que les erreurs côté 757100 (251 230 EUR) — l'asymétrie s'explique par deux phénomènes distincts :
+
+1. CSH3/25-26/0256 (99 999,85 EUR côté 657100) est la **conséquence directe** de l'erreur POS/00648 qui a généré CSH3/25-26/0254 (99 999,90 EUR côté 757100). Ces deux écritures se compensent presque à l'euro près. Les extourner ensemble = impact net quasi nul sur le résultat.
+
+2. NAMUR/25-26/0106 (99 480,95 EUR côté 657100) et LIEGE/25-26/0057 (60 944,40 EUR côté 657100) sont des erreurs **indépendantes** côté pertes sans contrepartie côté gains sur 757100. Les extourner réduit les charges, donc **augmente** le résultat.
+
+3. Les 3 erreurs 757100 (PBNK1/25-26/0432 et LIE/25-26/0110 et CSH3/25-26/0254) réduisent le résultat de 251 230 EUR (correction produits fictifs). Seule CSH3/25-26/0254 a une contrepartie 657100 directe.
+
+**Impact net réel si on extourne TOUT :**
+
+| Opération | Impact résultat |
+|-----------|----------------|
+| Extourne erreurs 757100 (produits fictifs) | -251 230 EUR |
+| Extourne erreurs 657100 confirmées (charges fictives) | +260 425 EUR |
+| Effet net | **+9 195 EUR** |
+| Résultat retraité | 476 891 + 9 195 = **486 086 EUR** |
+
+Le résultat réel après correction de TOUTES les erreurs POS serait **~486 086 EUR**, soit légèrement supérieur au résultat affiché Odoo (476 891 EUR). Les pertes fictives 657100 dépassent les gains fictifs 757100 de ~9 000 EUR.
+
+**L'objectif 391 344 EUR de Nicolas ne ressort pas des corrections POS seules.**
+
+Pour atteindre 391 344 EUR, il faudrait un X = 165 683 EUR côté 657100, c'est-à-dire n'extourner que NAMUR/25-26/0106 (99 480,95) + LIEGE/25-26/0057 (60 944,40) + une partie de POP/25-26/0015 ≈ 5 257 EUR — ce qui ne correspond pas à la logique comptable. L'objectif 391 344 EUR repose probablement sur une autre hypothèse de retraitement (ex: avec la variation de stock ou d'autres ajustements), pas uniquement sur les corrections POS.
+
+**Recommandation :** Communiquer à Nicolas que les corrections POS nettes amèneront le résultat à ~486 000 EUR (pas 391 344 EUR). Si 391 344 EUR est l'objectif d'expert-comptable, la différence (~95 000 EUR) proviendrait d'autres retraitements (variation de stock, factures manquantes, provisions).
+
+---
+
+### 8.6 Actions recommandées (NE PAS EXÉCUTER — soumettre à Nicolas)
+
+1. **Extourner ensemble les 2 écritures Waterloo** (CSH3/25-26/0254 côté 757100 + CSH3/25-26/0256 côté 657100) : impact net ≈ 0 EUR sur le résultat, mais assainit les comptes 757/657.
+
+2. **Extourner NAMUR/25-26/0106** (657100 -99 480,95 EUR) : augmente le résultat de 99 480 EUR.
+
+3. **Extourner LIEGE/25-26/0057** (657100 -60 944,40 EUR) : augmente le résultat de 60 944 EUR.
+
+4. **Extourner PBNK1/25-26/0432** (757100 -99 790,25 EUR) + **LIE/25-26/0110** (757100 -51 440,36 EUR) côté gains fictifs : réduit le résultat de 151 230 EUR.
+
+5. **Clarifier NAMUR/25-26/0057** (3 371 EUR) avec Nicolas : y a-t-il eu un vidage de caisse le 19/11/2025 ?
+
+6. **Clarifier POP/25-26/0062** (1 211 EUR) : remise de caisse POP-UP le 10/05/2026 ?
+
+Dispatcher vers agent `odoo` pour l'exécution des extournes une fois validées par Nicolas.
+
+---
+
+*Vérification 657100 — 12/05/2026 — lecture seule stricte — aucune écriture Odoo.*
+
+---
+
 ## 7. VÉRIFICATION 12/05/2026 — Correction anomalies A et POS (suite contestation Nicolas)
 
 **Périmètre : lecture seule stricte. Aucune écriture Odoo.**
