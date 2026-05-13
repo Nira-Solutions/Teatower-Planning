@@ -4,30 +4,57 @@
 
 ---
 
-## 0. Scan Displays Excel — point de départ OBLIGATOIRE (REGLE DURE)
+## 0. Source maître Odoo — script `build_planning_pool.py` (REGLE DURE)
 
-**Toute génération de queue ou de planning hebdomadaire DOIT commencer par un scan exhaustif du fichier `Displays Teatower B2B.xlsx`** (feuille `Displays TT GMS` + `Displays TT Revendeurs`).
+**Toute génération de queue ou de planning hebdomadaire DOIT commencer par l'exécution du script :**
 
-### Filtre minimal
-
-```
-WHERE Statut = 'Actif'
-  AND Prochaine Visite <= <vendredi_semaine_cible>
-ORDER BY (today - Prochaine Visite) DESC, Cluster ASC, "CA potentiel de visite" DESC
+```bash
+python C:\Users\FlowUP\OneDrive\Teatower-Planning\scripts\build_planning_pool.py
 ```
 
-→ Cette liste est la **source maître** de candidats de la semaine. Les SO confirmés à livrer, les reports S-1, les demandes ponctuelles Nicolas/Jérôme **complètent** cette liste, ils ne la remplacent pas.
+Le script dérive en temps réel depuis Odoo la liste maître de tous les magasins GMS (Statut, Tier, last_visit, next_visit, retard) — sans dépendre du fichier Excel.
+
+**Le fichier `Displays Teatower B2B.xlsx` est désormais en archive read-only.** Source unique = Odoo.
+
+### Logique de dérivation (résumée — détail dans le script)
+
+**Statut Actif/Arret :**
+- Arret si `sale_warn=block` ET `[ARRET YYYY-MM-DD]` dans `res.partner.comment`
+- Actif sinon
+
+**Tier (cycle visite) :**
+| Tier | avg_mois (12m) | Cycle |
+|---|---|---|
+| A | ≥ 400 € | 21 j |
+| B | 100-400 € | 28 j |
+| C | 30-100 € | 42 j |
+| X | < 30 € | 90 j |
+
+**Override nouveau client** : si `first_so_date >= today - 90j` ET `so_count >= 1` → minimum Tier B (cycle 28j). Évite qu'une 1ʳᵉ implantation soit classée X faute d'historique.
+
+**last_visit_effective** = max(
+- max(`stock.picking` outgoing done où `partner_shipping_id` = magasin),
+- max(`[VISITE YYYY-MM-DD]` parsés dans `res.partner.comment`),
+- max(`sale.order.date_order` confirmé)
+)
+
+**next_visit** = `last_visit_effective + cycle_days`
+
+### Convention "visite sans réassort"
+
+Nicolas signale en conversation "Gilles est passé à X le YYYY-MM-DD sans réassort". On patche `res.partner.comment` du magasin avec `[VISITE YYYY-MM-DD Gilles — sans réassort]`. Le script parse ces tags. Voir memory `feedback-planning-visites-sans-reassort`.
 
 ### Procédure
 
-1. **Avant toute autre étape** de génération de queue : exécuter le scan, sortir la liste triée.
-2. Confronter à : (a) liste Arret §2, (b) exclusions ponctuelles connues (memory `project_*_no_visit_*`), (c) magasins confirmés visités la semaine précédente.
-3. Logger dans `planning/LOG.md` le nombre de candidats sortis du scan ET le nombre effectivement intégré à la queue.
-4. **Si un magasin Actif Tier A ou B avec retard > 14j n'est pas intégré**, justifier le motif (livré S-1, contact absent, etc.).
+1. **Avant toute autre étape** : exécuter `build_planning_pool.py`. Sortie dans `data/planning_pool_<date>.{csv,md}`.
+2. Lire en priorité la section OVERDUE du fichier markdown généré.
+3. Confronter à : (a) exclusions ponctuelles (memory `project_*_no_visit_*`), (b) magasins confirmés visités S-1.
+4. Logger dans `planning/LOG.md` le nb de candidats scannés ET intégrés à la queue.
+5. **Si un Tier A ou B avec retard > 14j n'est pas intégré**, justifier explicitement le motif.
 
 ### Contexte
 
-Règle instaurée le **2026-05-13** suite à l'omission **Delhaize Genval** (#043540, Tier B, cible 06/05) : magasin Actif Tier B (CA 5307€) jamais inscrit en queue S20 alors que le display était quasi vide. Les 5 versions successives du planning S20 (v1→v5, du 04/05 au 12/05) ont toutes ignoré le Displays Excel et travaillé uniquement sur SO confirmés + demandes ponctuelles. Mardi 12/05 Gilles est passé à 5 km du magasin (Proxy Rixensart 13:45) sans s'y arrêter.
+Règle instaurée le **2026-05-13** suite à l'omission **Delhaize Genval** (#5582, Tier B, cible 06/05, display quasi vide constaté Nicolas) : magasin jamais inscrit en queue S20 v1→v5. Investigation suite : **8 GMS implantés récemment** (Bertrix, Bièvre, Godinne, Manhay, Ath, Spar Namur NDB, Enghien, Hyper Ans) étaient absents du fichier Excel Displays, donc invisibles à toute génération de queue tant qu'on dépendait de ce fichier. Le script Odoo les récupère tous automatiquement. Plus aucun client GMS gagné par Jérôme ne peut tomber dans l'angle mort.
 
 ---
 
