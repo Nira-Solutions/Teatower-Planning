@@ -1,4 +1,79 @@
 
+## 2026-05-13 — AUDIT LECTURE SEULE : Ecart P&L vs Tresorerie — Dethlefsen & Balk + Kirchner Fischer
+
+- **Type** : Audit lecture seule (aucune ecriture creee — regle dure respectee)
+- **Perimetre** : account.move (in_invoice), purchase.order, stock.picking pour partenaires 6398 (Dethlefsen) et 7195/9989 (Kirchner)
+- **Resultat** :
+  - Kirchner Fischer : 6 POs receptionnees non facturees = 170 754,05 EUR de charges manquantes au P&L (P00470 66k, P00480 64k, P00495 32k + 3 reliquats anciens)
+  - Dethlefsen & Balk : 24 POs receptionnees partiellement ou totalement non facturees = 20 127,85 EUR
+  - Total trou charges : 190 881,90 EUR (bornee haute — certains PO partiellement livres)
+  - Comptes d'imputation OK : 600000 "Purchases of Raw Materials" utilise sur TOUTES les factures postees des 2 fournisseurs (pas de derive vers compte 31 stocks)
+  - 3 factures Dethlefsen en DRAFT (non postees) : R1155295 (-1,03 EUR), R1155015 (432,97 EUR), R1154396 (184,45 EUR) — a valider/poster
+  - P00501 et P00518 Dethlefsen (6 331,62 EUR) : PO confirmes mais reception en statut "assigned" (pas encore done) — pas inclus dans le trou
+  - P00528 Kirchner (31 375 EUR) : livraison prevue 2026-07-03, pas encore receptionnee — pas inclus
+- **Recommandation** : saisir prioritairement factures Kirchner P00470 + P00480 + P00495 (163k), puis FNP provision en OD pour les PO sans facture recue. Aucune ecriture faite sans validation Nicolas.
+
+## 2026-05-07 — POS POP-UP STORE restreint aux 8 produits du salon "C'est bon c'est Wallon" (10-11 mai 2026)
+
+- **Demande** : limiter les produits vendables sur le POS du stand au seul contenu du transfert interne `POP/INT/00028` (TT/Stock -> POP/Stock).
+- **Picking source** : id=42283, state=`assigned`, 8 lignes, location_dest=POP/Stock (id 4575).
+  - GI0916 Vergers d'ete Pomme-Poire (50), GI0832 La Nana de Wepion (50), GI0735 Peche de Vigne BIO (50), GI0820 Marrakech Sunset BIO (50), GI0912 Passion Exotique (50), GI0634 Gourmandise glacee (50), A1055 Mug Lorenzo (12), A0557 Carafe the glace 1.5L (8).
+- **POS cible** : `pos.config` id=2, name=`POP-UP STORE` (warehouse Teatower, picking_type id 73 "POP-UP STORE: Commandes du PdV"). Sans ambiguite — c'est l'unique POS avec `limit_categories=True` et picking_type dedie POP-UP.
+- **Etat avant** : `iface_available_categ_ids=[68]` (categ MIA26, 19 produits visibles dont seulement 2 du picking).
+- **Approche choisie** : creation d'une nouvelle `pos.category` "Salon Wallon 2026" (id=69), ajout de cette categ aux 8 product.template du picking via `(4, 69)` (sans toucher aux pos_categ_ids existantes), puis switch `pos.config #2.iface_available_categ_ids = [69]`. **Non destructif** : aucune modif sur les autres POS (Waterloo, Liege, Namur, Liege bis, Rocourt) et aucun produit n'a perdu de categorie.
+- **Verification** : `product.template` filtre `pos_categ_ids in [69] AND available_in_pos=True` -> exactement 8 produits, identiques au picking.
+- **Snapshot rollback** : `odoo/pos_salon_wallon_2026_snapshot.json` (etat avant + after + script rollback).
+- **Plan rollback lundi 12 mai** :
+  1. `pos.config.write([2], {'iface_available_categ_ids': [(6,0,[68])]})` -> remet la categ MIA26.
+  2. Optionnel : retirer la categ des 8 templates via `pos_categ_ids=[(3,69)]`, puis `pos.category.unlink([69])`.
+- **Impact** : 0 SO impactee, 0 PO impactee, POS POP-UP STORE pret pour le salon ce week-end (10-11 mai).
+
+## 2026-05-05 — P00523 Marketing Teatower : remplacement 56 lignes -> 16 lignes @ -100%
+
+- **Demande** : remplacer les 56 lignes (complement) du PO P00523 (id=527, partner Marketing Teatower id=3127) par 16 lignes de stock marketing existant, toutes a 100% de discount. Total cible : 154 unites, 0,00 EUR.
+- **Etat initial** : PO state=`purchase`, picking TT/IN/00752 (id 42526) state=`assigned`, amount_total=764,07 EUR.
+- **Procedure executee** :
+  1. `purchase.order.button_cancel` -> PO=cancel, picking 42526=cancel.
+  2. `purchase.order.button_draft` -> PO=draft.
+  3. `purchase.order.line.unlink` x56 -> 0 ligne restante.
+  4. Resolution 16 default_code -> product.product (tous trouves).
+  5. `purchase.order.line.create` x16 avec `discount=100.0`, `taxes_id=[(6,0,[])]`, `name=product.name`. Champ `discount` natif Odoo 18 OK.
+  6. price_unit calcule par Odoo via seller_ids/standard_price (C0187 et C0188 a 0 EUR — pas de prix d'achat reference, mais discount 100% donc subtotal=0 OK).
+  7. `purchase.order.button_confirm` -> PO=purchase, nouveau picking TT/IN/00754 (id 42536) genere, state=`assigned`.
+- **Resultat final** : 16 lignes, 154 unites, amount_total=**0,00 EUR**, picking TT/IN/00754 assigned, ancien picking 42526 reste en `cancel`.
+- **URLs** :
+  - PO : https://tea-tree.odoo.com/odoo/purchase/527
+  - Picking : https://tea-tree.odoo.com/odoo/inventory/42536
+
+## 2026-05-05 — S05534 VENTE-PRIVEE : application FP Intra-Community + restore prix XLSX
+
+- **Demande Nicolas** : sur S05534 (sale.order id=8404, partner 123449 VENTE-PRIVEE.COM, VAT FR70434317293, FR), appliquer la fiscal position intracommunautaire B2B pour passer la TVA 6% en autoliquidation.
+- **Diagnostic FP candidates** : 1 seule FP intracom dispo cote Teatower = `account.fiscal.position` id=**3 "Intra-Community"** (`country_group_id=European Union`, `country_id=False`, `vat_required=True`, `auto_apply=True`). Mapping verifie : tax 8 (6% BE Goods) -> tax 13 (0% EU M Intra-Community Goods). Choix evident — la FP couvre tout l'UE B2B avec VAT requis.
+- **Etat AVANT** : FP=3 deja set sur la SO mais 72 lignes encore `tax_id=[8]` (recompute jamais tourne). `amount_untaxed=2571.48`, `amount_tax=154.33`, `amount_total=2725.81`. Partner 123449 : `property_account_position_id=False`.
+- **ACTION 1 — Recompute taxes** : appel `sale.order.action_update_taxes([8404])` -> les 72 lignes mappees `tax_id=[8]` → `tax_id=[13]` ✓. **MAIS** je rappelle aussi `action_update_prices` par erreur -> recompute pricelist standard, prix unitaires passent des tarifs Vente-Privee (4.55/4.93/5.00) aux tarifs B2B Odoo defaut (9.434/10.3774). amount_untaxed grimpe a 5798.41.
+- **ACTION 2 — Restore prix originaux** : recupere XLSX source via `ir.attachment` id=79084 (`TEATOWE1.231645...xlsx`) attache au SO. Mapping default_code -> price (col "External reference" / "Unit price" du XLSX). 72/72 lignes matchees, 0 unmatched. `sale.order.line.write({'price_unit': new})` sur 72 lignes -> 0 erreur.
+- **ACTION 3 — Set FP sur partner** : `property_account_position_id=3` ecrit sur `res.partner` 123449 (parent VENTE-PRIVEE.COM), 123479 (Sarah Walschap, contact facturation), 123480 (Beaune, contact livraison). Toutes futures SO de ce client partiront directement avec la FP intracom.
+- **Etat APRES (final)** :
+  - FP S05534 = `[3, 'Intra-Community']` ✓
+  - 72/72 lignes `tax_id=[13]` (0% EU Intra-Community Goods) ✓
+  - `amount_untaxed=2571.48`, `amount_tax=0.00`, `amount_total=2571.48` ✓ (= total source XLSX exact)
+  - Partner 123449 / 123479 / 123480 : `property_account_position_id=[3, Intra-Community]` ✓
+- **Lesson learned** : sur `action_update_taxes` ca passe en XML-RPC bien que l'erreur `cannot marshal None` apparaisse (la methode renvoie `None`). Ne **JAMAIS** appeler `action_update_prices` ensuite si la SO a des prix negocies — il recompute la pricelist par defaut. Pour seulement re-mapper les taxes, `action_update_taxes` suffit.
+- **URL SO** : https://tea-tree.odoo.com/odoo/sales/8404
+
+## 2026-05-05 — Creation PO Marketing Teatower P00523 (S05534 Carrefour 231645)
+
+- **Demande Nicolas** : creer un PO interne pour reception du stock cote marketing, lie au devis client S05534 (Carrefour 231645). 56 lignes, 362 unites, codes V0/I0/C0.
+- **Partner** : 24 partners "Marketing Teatower" trouves, aucun avec supplier_rank>0. Fallback : partner company exact id=3127 "Marketing Teatower" (les 23 autres = sous-contacts personnes physiques `Marketing Teatower, Prenom Nom`).
+- **Mapping produits** : 56/56 codes default_code mappes vers product.product, 0 unmapped.
+- **PO cree** : `purchase.order` id=527, name=**P00523**, draft -> confirm -> state=`purchase`. amount_total=764.07 EUR (prix d'achat Odoo par defaut, taxes_id=[]).
+- **Picking de reception genere** : id=42526, name=**TT/IN/00752**, state=`assigned`, dest=TT/Entree (loc id=9).
+- **URLs** :
+  - PO : https://tea-tree.odoo.com/odoo/purchase/527
+  - Picking : https://tea-tree.odoo.com/odoo/action-stock.action_picking_tree_all/42526
+- **Origin** : `S05534 - Carrefour 231645 (PO marketing)`.
+- **Script** : `_create_po_marketing.py` + source `_po_marketing_lines.json`.
+
 ## 2026-04-29 — Push Shopify 5 GI0 a 9,50 EUR TTC (manual_update_product_to_shopify)
 
 - **Demande Nicolas** : 5 thes glaces GI0634/0735/0820/0911/0912 toujours a 8,50 sur teatower.com alors qu'il les avait demandes a 9,50 TTC. Corriger a la source Odoo, eviter qu'un sync ecrase Shopify.
