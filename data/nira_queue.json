@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-13T10:15:34",
+  "updated": "2026-05-13T10:15:38",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3172,9 +3172,10 @@
       "id": "t045",
       "agent": "product-data",
       "task": "Créer Halloween 2026 V0919 + MP_1V0919 + BoM dans Odoo (Kirchner ref 23137)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-13T10:15",
-      "request": ""
+      "request": "",
+      "finished": "2026-05-13T10:15"
     }
   ]
 }
