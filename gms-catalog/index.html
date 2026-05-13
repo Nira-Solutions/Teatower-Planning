@@ -83,7 +83,8 @@
       <th class="center hide-m" data-sort="bio">BIO</th>
       <th data-sort="ean">EAN13</th>
       <th>Code-barres</th>
-      <th class="num" data-sort="prix_ht">PV HT</th>
+      <th class="num" data-sort="prix_achat">Prix achat<br><span style="font-weight:400;text-transform:none;font-size:10px;color:var(--muted)">PV HT −30 %</span></th>
+      <th class="num hide-m" data-sort="prix_ht">PV HT</th>
       <th class="num hide-m" data-sort="pvc_tvac">PVC TVAC</th>
     </tr>
   </thead>
@@ -128,7 +129,7 @@ function render(){
     groups.forEach(g=>{
       const rows=filtered.filter(r=>r.conditionnement===g);
       if(!rows.length) return;
-      html+=`<tr class="gh"><td colspan="9">${g==="Grandes infusettes"?"Infusettes glacées":g} · ${rows.length} réf.</td></tr>`;
+      html+=`<tr class="gh"><td colspan="10">${g==="Grandes infusettes"?"Infusettes glacées":g} · ${rows.length} réf.</td></tr>`;
       html+=rows.map(rowHtml).join("");
     });
   } else {
@@ -143,7 +144,8 @@ function render(){
       <td class="center hide-m">${r.bio?'<span class="bio">BIO</span>':""}</td>
       <td class="ean">${hl(r.ean||"—")}${r.ean?`<button class="copy" data-c="${r.ean}">copier</button>`:""}</td>
       <td class="barcode">${r.ean?`<svg class="bc" data-ean="${r.ean}" data-name="${escapeHtml(r.name)}" data-code="${r.code}"></svg>`:""}</td>
-      <td class="num">${r.prix_ht?r.prix_ht.toFixed(2)+"&nbsp;€":""}</td>
+      <td class="num" style="color:var(--tt);font-weight:600">${r.prix_ht?(r.prix_ht*0.7).toFixed(2)+"&nbsp;€":""}</td>
+      <td class="num hide-m">${r.prix_ht?r.prix_ht.toFixed(2)+"&nbsp;€":""}</td>
       <td class="num hide-m">${r.pvc_tvac?r.pvc_tvac.toFixed(2)+"&nbsp;€":""}</td>
     </tr>`;
   }
@@ -179,7 +181,7 @@ document.addEventListener("click",e=>{
   const th=e.target.closest("thead th[data-sort]");
   if(th){
     const k=th.dataset.sort;
-    if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=(k==="prix_ht"||k==="pvc_tvac"||k==="grammage_g"||k==="bio")?-1:1;}
+    if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=(k==="prix_ht"||k==="prix_achat"||k==="pvc_tvac"||k==="grammage_g"||k==="bio")?-1:1;}
     render();
   }
 });
@@ -189,7 +191,8 @@ $("#famille").addEventListener("change",render);
 fetch("catalog.json?_="+Date.now())
   .then(r=>r.json())
   .then(j=>{
-    DATA=j.products; $("#updated").textContent=j.generated_at;
+    DATA=j.products.map(r=>({...r, prix_achat: r.prix_ht?+(r.prix_ht*0.7).toFixed(2):null}));
+    $("#updated").textContent=j.generated_at;
     const fams=[...new Set(DATA.map(r=>r.famille).filter(Boolean))].sort();
     $("#famille").innerHTML='<option value="">Toutes familles</option>'+fams.map(f=>`<option>${escapeHtml(f)}</option>`).join("");
     render();
