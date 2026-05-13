@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-04T14:54:39",
+  "updated": "2026-05-13T10:15:34",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3167,6 +3167,14 @@
       "started": "2026-05-04T14:43",
       "request": "Validation Nicolas: 1) circuit Bxl Sud-Est mardi 12/05 (Boondael 10:00 reorga thes glaces contact Mr Daniel + Bosvoorde 11:15 + Debroux Auderghem 12:30 + Rixensart 13:45 retour Baillonville 15:45) 2) Alivim Gilson + Gembloux jeudi 14/05 implantations 3) Hyper Carrefour Gosselies a caser S19 jeudi 07 ou vendredi 08 (mercredi 06 fige Luxembourg) sinon S20 - Bomeree en suspens sauf si zone justifie - vendredi 15/05 deja fait (Erezee + Marche/Hotton/Durbuy)",
       "finished": "2026-05-04T14:54"
+    },
+    {
+      "id": "t045",
+      "agent": "product-data",
+      "task": "Créer Halloween 2026 V0919 + MP_1V0919 + BoM dans Odoo (Kirchner ref 23137)",
+      "status": "in_progress",
+      "started": "2026-05-13T10:15",
+      "request": ""
     }
   ]
 }
