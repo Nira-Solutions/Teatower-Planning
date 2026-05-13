@@ -79,18 +79,16 @@ print(f'\nLignes offer construites : {len(rows)}')
 print(f'SKU sans prix : {len(missing_price)} -> {missing_price[:10]}')
 print(f'SKU sans qty : {len(missing_qty)} -> {missing_qty[:10]}')
 
-# Write TSV CP1252
+# Write TSV CP1252 - Inventory Loader format : headers on line 1, NO TemplateType preamble
+# v6 erreur : avoir mis "TemplateType=Offer" en ligne 1 a fait qu'Amazon a lu cette ligne
+# comme les en-tetes -> 90012 sku manquant + 7 warnings 90061 add-delete invalide.
 with open(OUT_TSV, 'w', encoding='cp1252', errors='replace', newline='') as f:
-    # Inventory Loader has 3-line header per Amazon spec, but minimal usable :
-    # Line 1 : TemplateType signature (we skip - using minimal format)
-    # We write just the data headers + rows
-    f.write('TemplateType=Offer\tVersion=2018.0731\r\n')
     f.write('\t'.join(HEADERS) + '\r\n')
     for r in rows:
         f.write('\t'.join(r[h] for h in HEADERS) + '\r\n')
 
 print(f'\nTSV sauvegarde : {OUT_TSV}')
-print(f'Lignes : 2 header + {len(rows)} offers')
+print(f'Lignes : 1 header + {len(rows)} offers')
 
 # Sample
 print('\nSample 5 premieres offres :')
