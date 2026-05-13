@@ -4,6 +4,30 @@
 
 ---
 
+## 🔴 OMISSION DÉTECTÉE 13/05 — Delhaize Genval
+
+**Constat Nicolas 13/05** : display **Delhaize Genval (Affilié 043540 — Av. Albert 1er 13, 1332 La Hulpe — Gilles Verleyen 026 54 17 02)** quasi vide. Magasin **jamais inscrit en queue S20 (v1→v5)**.
+
+**Pourquoi raté** : aucune des 5 versions du planning n'a effectué le scan exhaustif du `Displays Teatower B2B.xlsx` filtré sur `Statut=Actif AND Prochaine Visite ≤ vendredi_S20`. Les versions ont été construites sur (a) SO confirmés à livrer, (b) reports S-1, (c) demandes ponctuelles Nicolas/Jérôme, (d) audits Odoo ciblés SO récentes. **Le Displays n'a jamais été utilisé comme source maître.**
+
+**Aggravation** : mardi 12/05 (Bxl Sud-Est v5), Gilles a fait **Proxy Rixensart 13:45-14:15** — soit à **5 km de Delhaize Genval**, sur le même axe. Avec 30 min de marge, le détour aurait coûté ~15 min aller-retour. Le magasin a été manqué de très près.
+
+**Fiche Displays B2B au 13/05** :
+- Statut **Actif** | Tier **B** | Cycle **28 jours**
+- Dernière visite **2026-04-08** | Prochaine visite cible **2026-05-06** (retard 7j)
+- CA cumulé **5 307 €** depuis 06/2024 | Avg **279 €/mois**
+- Mise en place : **None** dans Displays (à valider sur place — display M0005 ? rayon ?)
+- Contact : Gilles Verleyen — gilles.verleyen@delhaize-genval.be — 026 54 17 02
+
+**Décision** : S20 trop avancée (mercredi en cours, jeudi+vendredi déjà bookés Gosselies/Gembloux + Famenne/BLC). **Reporté en TÊTE de S21** (18-22/05), jour BW Est dédié. Appel téléphonique Gilles Verleyen aujourd'hui pour : (1) lui expliquer le retard, (2) noter le besoin réassort exact, (3) caler RDV S21.
+
+**Correctif méthodo durable** :
+- Règle dure **§0** ajoutée à `planning/REGLES.md` : scan Displays exhaustif obligatoire avant toute génération de queue.
+- Script reproductible : `data/_scan_overdue_s20.py`.
+- Mémoire : `feedback_planning_scan_displays_obligatoire.md`.
+
+---
+
 ## Validations Nicolas du 04/05
 
 1. **Circuit Bxl Sud-Est mardi 12/05** : Boondael (Delhaize, réorga + thés glacés, contact Mr Daniel) → Bosvoorde → Debroux Auderghem → Rixensart, retour Baillonville 15:45.

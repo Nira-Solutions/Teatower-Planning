@@ -4,6 +4,33 @@
 
 ---
 
+## 0. Scan Displays Excel — point de départ OBLIGATOIRE (REGLE DURE)
+
+**Toute génération de queue ou de planning hebdomadaire DOIT commencer par un scan exhaustif du fichier `Displays Teatower B2B.xlsx`** (feuille `Displays TT GMS` + `Displays TT Revendeurs`).
+
+### Filtre minimal
+
+```
+WHERE Statut = 'Actif'
+  AND Prochaine Visite <= <vendredi_semaine_cible>
+ORDER BY (today - Prochaine Visite) DESC, Cluster ASC, "CA potentiel de visite" DESC
+```
+
+→ Cette liste est la **source maître** de candidats de la semaine. Les SO confirmés à livrer, les reports S-1, les demandes ponctuelles Nicolas/Jérôme **complètent** cette liste, ils ne la remplacent pas.
+
+### Procédure
+
+1. **Avant toute autre étape** de génération de queue : exécuter le scan, sortir la liste triée.
+2. Confronter à : (a) liste Arret §2, (b) exclusions ponctuelles connues (memory `project_*_no_visit_*`), (c) magasins confirmés visités la semaine précédente.
+3. Logger dans `planning/LOG.md` le nombre de candidats sortis du scan ET le nombre effectivement intégré à la queue.
+4. **Si un magasin Actif Tier A ou B avec retard > 14j n'est pas intégré**, justifier le motif (livré S-1, contact absent, etc.).
+
+### Contexte
+
+Règle instaurée le **2026-05-13** suite à l'omission **Delhaize Genval** (#043540, Tier B, cible 06/05) : magasin Actif Tier B (CA 5307€) jamais inscrit en queue S20 alors que le display était quasi vide. Les 5 versions successives du planning S20 (v1→v5, du 04/05 au 12/05) ont toutes ignoré le Displays Excel et travaillé uniquement sur SO confirmés + demandes ponctuelles. Mardi 12/05 Gilles est passé à 5 km du magasin (Proxy Rixensart 13:45) sans s'y arrêter.
+
+---
+
 ## 1. Devis non confirmés — JAMAIS dans le planning
 
 **Règle dure** : un `sale.order` en état `draft` (devis) ou `sent` (devis envoyé) ne peut **pas** être la base d'une entrée de planning merchandiser (implantation, remplissage, visite).
