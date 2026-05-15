@@ -4,7 +4,7 @@
 
 ---
 
-## 1) AJOUT — Delhaize La Louvière (SO S05404)
+## 1) AJOUT — Delhaize La Louvière (SO S05404) — **IMPLANTATION INITIALE**
 
 | Champ | Valeur |
 |---|---|
@@ -12,16 +12,18 @@
 | **Date order** | 2026-04-20 |
 | **Commercial** | Jérôme Carlier |
 | **Partner (ship)** | **#123035 — Gmp La Louvière - Delhaize La Louvière** |
-| **Adresse** | Rue de la Franco-Belge 228, **7100 La Louvière** |
-| **Téléphone** | +32 64 44 44 08 |
-| **Email** | chef44686@delhaize.be |
+| **Adresse** | **Rue de la Franco-Belge 228, 7100 La Louvière** |
+| **Téléphone** | **064 44 44 08** |
+| **Email** | **chef44686@delhaize.be** |
 | **Montant** | **515,66 € TTC** |
-| **delivery_status** | **partial** — picking TT/PICK/08708 encore `confirmed` (à livrer) |
+| **delivery_status** | marchandise **livrée 27/04 par transporteur seul** (sans pose Gilles) |
 | **Comment Odoo** | "Client GMS 15/04/2026" (nouveau client) |
 | **Lignes** | 10 réfs I0 (43,59 € chacune) + 2 réfs A0 (filtres) + V0914 (échantillon) + EM0072 (SRP) — **66 pièces I0/V0** |
 
-**Tag planning** : **IMPLANTATION** (premier réassort post-implantation 15/04, picking encore ouvert)
-**Budget temps sur place** : 30 min (règle implantation = 30 min)
+**Tag planning** : **IMPLANTATION INITIALE** (jamais implanté, marchandise en attente sur place depuis 3 semaines)
+**Budget temps sur place** : **1h** (pose SRP Kraft + montage 11 facings + étiquettes prix + photos avant/après)
+
+**⚠️ Historique** : Marchandise livrée 27/04 par transporteur sans pose Gilles. Note Jérôme jamais transformée en task Gilles. Implantation initiale **différée de 3 semaines**, à faire **impérativement lundi 18/05**.
 
 ---
 
@@ -50,13 +52,14 @@
 | Segment | Distance estimée | Durée estimée |
 |---|---|---|
 | Baillonville → Intermarché Braine-le-Comte | ~105 km | ~1h15 |
+| **Visite Braine-le-Comte** (sans réassort) | — | **0h30** |
 | Intermarché Braine-le-Comte → Delhaize La Louvière | ~25 km | ~0h30 |
+| **IMPLANTATION INITIALE La Louvière** (pose SRP + 11 facings + photos) | — | **1h00** |
 | Delhaize La Louvière → Baillonville | ~100 km | ~1h10 |
-| **Sous-total trajet** | **~230 km** | **~2h55** |
-| + 2 visites × 30 min | — | **+1h00** |
-| **TOTAL journée** | — | **~3h55** |
+| **TOTAL journée** | **~230 km** | **~4h25** |
 
-**Départ recommandé** : 9h00 → **retour Baillonville ~13h00**. Respect règle 16h30 OK (large marge pour ajouter 2-3 visites sur la route si pertinent).
+**Départ recommandé** : **9h00** → arrivée Braine-le-Comte ~10h15, départ ~10h45, arrivée La Louvière ~11h15, fin implantation ~12h15, **retour Baillonville ~13h25**.
+**Respect règle 16h30** : ✅ **OK très large** (marge ~3h05 pour 4-5 visites Tier B/C complémentaires sur le trajet retour si pertinent).
 
 **Lien Google Maps à valider** :
 https://www.google.com/maps/dir/Baillonville,+Belgium/Rue+des+Digues+60,+7090+Braine-le-Comte/Rue+de+la+Franco-Belge+228,+7100+La+Louvi%C3%A8re/Baillonville,+Belgium
