@@ -73,6 +73,40 @@ TIER_RULES = [
 
 VISITE_TAG_RE = re.compile(r"\[VISITE (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 
+# Règle dure : nom magasin TOUJOURS affiché en clair (jamais l'ID seul, jamais un prefix numérique).
+# Si le store_name est vide ou commence par un ID Odoo numérique (≥4 chiffres), fallback billing_partner
+# puis fallback "Enseigne — ville" déduit du billing_partner / parent_name.
+NUMERIC_PREFIX_RE = re.compile(r"^\s*\d{4,}\s*[-_:.\s]*")
+
+
+def clean_store_name(raw):
+    """Strip un éventuel prefix numérique (ID Odoo) du nom magasin."""
+    if not raw:
+        return ""
+    s = str(raw).strip()
+    s = NUMERIC_PREFIX_RE.sub("", s).strip()
+    return s
+
+
+def display_name(store_name, billing_partner, parent_name, city, pid):
+    """
+    Retourne TOUJOURS un libellé lisible du magasin — JAMAIS l'ID seul.
+    Priorité :
+      1. store_name nettoyé (sans prefix numérique)
+      2. billing_partner nettoyé (souvent "Société - Enseigne Ville")
+      3. parent_name + ville (ex "Carrefour Belgium — Liège") avec mention "sans nom propre"
+      4. ultime fallback : "Magasin #pid — ville"
+    """
+    n1 = clean_store_name(store_name)
+    if n1:
+        return n1
+    n2 = clean_store_name(billing_partner)
+    if n2:
+        return n2
+    if parent_name:
+        return f"{parent_name} {city or ''} — sans nom propre".strip(" —")
+    return f"Magasin #{pid} {city or ''} — sans nom propre".strip(" —")
+
 
 def connect():
     common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
@@ -345,9 +379,13 @@ def main():
         next_visit = last_visit + timedelta(days=cycle) if last_visit else None
         retard_j = (today - next_visit).days if next_visit and next_visit < today else 0
 
+        display = display_name(
+            r["store_name"], r["billing_partner"], r["parent_name"], r["city"], pid
+        )
         rows.append({
             "pid": pid,
             "store_name": r["store_name"],
+            "display_name": display,
             "parent_name": r["parent_name"],
             "billing_partner": r["billing_partner"],
             "street": r["street"], "zip": r["zip"], "city": r["city"],
@@ -407,13 +445,16 @@ def main():
         f.write("|---|---|---|---|---|---|---|---|---|\n")
         for r in overdue[:200]:
             adresse = f"{r['street']}, {r['zip']} {r['city']}".strip(", ")
-            f.write(f"| {r['tier']} | **{r['retard_j']}j** | #{r['pid']} {r['store_name']} | {adresse} | {r['cycle_days']}j | {r['last_visit']} | {r['last_visit_source']} | {r['next_visit']} | {r['avg_mois']:.0f}€ |\n")
+            # Règle dure : nom magasin TOUJOURS en clair (display_name) — pid en suffixe seulement
+            label = f"{r['display_name']} (#{r['pid']})"
+            f.write(f"| {r['tier']} | **{r['retard_j']}j** | {label} | {adresse} | {r['cycle_days']}j | {r['last_visit']} | {r['last_visit_source']} | {r['next_visit']} | {r['avg_mois']:.0f}€ |\n")
         f.write("\n")
         f.write(f"## Tous Actifs (premiers 50 par retard puis Tier)\n\n")
         f.write("| Statut | Tier | Magasin | Last visit | Next visit | Retard | avg/mois | SO 12m |\n")
         f.write("|---|---|---|---|---|---|---|---|\n")
         for r in actifs[:50]:
-            f.write(f"| {r['statut']} | {r['tier']} | #{r['pid']} {r['store_name']} | {r['last_visit']} | {r['next_visit']} | {r['retard_j']}j | {r['avg_mois']:.0f}€ | {r['so_count_12m']} |\n")
+            label = f"{r['display_name']} (#{r['pid']})"
+            f.write(f"| {r['statut']} | {r['tier']} | {label} | {r['last_visit']} | {r['next_visit']} | {r['retard_j']}j | {r['avg_mois']:.0f}€ | {r['so_count_12m']} |\n")
     print(f"[+] Markdown : {md_path}")
 
     print(f"\n[*] Synthèse :")
