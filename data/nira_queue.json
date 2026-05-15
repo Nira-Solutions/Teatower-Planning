@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-13T10:15:38",
+  "updated": "2026-05-15T18:45:18",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3176,6 +3176,14 @@
       "started": "2026-05-13T10:15",
       "request": "",
       "finished": "2026-05-13T10:15"
+    },
+    {
+      "id": "t046",
+      "agent": "planning-teatower",
+      "task": "Prep S21 : ajout S05404 La Louvière + Braine-le-Comte + règle dure nom magasin",
+      "status": "in_progress",
+      "started": "2026-05-15T18:45",
+      "request": "3 modifs planning S21 (gen ce soir par Nicolas)"
     }
   ]
 }
