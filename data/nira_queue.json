@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-15T18:52:25",
+  "updated": "2026-05-16T12:35:49",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3194,6 +3194,14 @@
       "started": "2026-05-15T18:49",
       "request": "Pourquoi S05404 n'a pas été implanté, c'était en note",
       "finished": "2026-05-15T18:52"
+    },
+    {
+      "id": "t048",
+      "agent": "planning",
+      "task": "Planning merchandiser S21 (18-22/05)",
+      "status": "in_progress",
+      "started": "2026-05-16T12:35",
+      "request": "Génère planning S21 Gilles avec La Louvière IMPL S05404 + Braine-le-Comte VISITE Mr Damien"
     }
   ]
 }
