@@ -1,0 +1,432 @@
+{
+  "week": "S21",
+  "dates": "2026-05-18 → 2026-05-22",
+  "merchandiser": "Gilles",
+  "base": "Baillonville (5377)",
+  "horaires": "08h30 → 16h30 (retour max 16h30)",
+  "regle_implantation": "30 min sauf exception",
+  "regle_visite": "30 min",
+  "exclusions_S20_revisite": [
+    "Intermarché Gembloux #123346", "Spar Gembloux #123294", "AD Delhaize Gembloux #2913",
+    "Spar Godinne #122995", "Delhaize Boondael #2777", "Proxy Delhaize Bosvoorde #3191",
+    "Delhaize Debroux #5729", "Proxy Delhaize Rixensart #50967", "Delhaize LLN #3223",
+    "Intermarché Chaumont-Gistoux #10134", "AD Delhaize Materne II #113498",
+    "Intermarché Jambes #3000", "Intermarché Belgrade #2821", "AD Delhaize Fosses #5441",
+    "Carrefour Market Bièvre #123069", "Gribouillon Erezée #123301",
+    "CM Barvaux #2811", "CM Hotton #2979", "Delhaize Marche #8159", "CM Marche #3120",
+    "Intermarché Braine-le-Comte #123466"
+  ],
+  "exclusions_hard": [
+    "Delhaize Gembloux #2913 (AD passe commande seul)",
+    "Boutiques Teatower (Namur/Liège/Waterloo)",
+    "Liste Arret Excel (24 magasins) + tags [ARRET ...] Odoo"
+  ],
+  "days": [
+    {
+      "day": "lundi 2026-05-18",
+      "label": "Hainaut / La Louvière (IMPL initiale S05404)",
+      "axis": "Baillonville → Charleroi → La Louvière → retour",
+      "stops": [
+        {
+          "time": "09:30-10:00",
+          "type": "VISITE",
+          "partner_id": 7283,
+          "name": "AD Bouffioulx",
+          "address": "260 av E Vandervelde, 6200 Châtelet",
+          "phone": "+32 71 38 59 34",
+          "email": "looze24@hotmail.com",
+          "contact_comment": "Contact merchandiser: Ariane. Visite le lundi après-midi ou le mardi matin. Personne de contact Mme Looze.",
+          "tier": "B", "last": "2026-03-31", "avg_eur": 227,
+          "brief": "Tier B — 49j depuis dernière visite. Demander Mme Looze. Réassort standard + check thés glacés"
+        },
+        {
+          "time": "10:20-10:50",
+          "type": "VISITE",
+          "partner_id": 122467,
+          "name": "Hyper Carrefour Bomerée",
+          "address": "Rue de la Station 1, 6110 Montigny-Le-Tilleul",
+          "phone": "+32 71 29 72 11",
+          "email": "",
+          "contact_comment": "Contact: Demoulin Michael ou Darion Do Santos. Préférence lundi/mardi. Attention 6 références en magasin.",
+          "tier": "B", "last": "2026-03-31", "avg_eur": null,
+          "brief": "Tier B — 49j. 6 réfs en magasin. Demander Mr Demoulin"
+        },
+        {
+          "time": "11:30-12:00",
+          "type": "VISITE",
+          "partner_id": 9016,
+          "name": "Carrefour Market Walcourt",
+          "address": "Rue des Forges 34, 5650 Walcourt",
+          "phone": "+32 71 61 14 73",
+          "email": "labbe-r@hotmail.com",
+          "contact_comment": "Contact: Ronny Labbé. ATTENTION — Jérôme avait des demandes en attente (passages 10/03 + 31/03 sans suivi). Vérifier état rayon + reprendre dialogue.",
+          "tier": "C", "last": "2026-03-31", "avg_eur": 87,
+          "brief": "Tier C — 49j. Suivi Jérôme en attente. Photos rayon + état displays. Si vide, repli rapide."
+        },
+        {
+          "time": "13:30-14:30",
+          "type": "IMPLANTATION_INITIALE",
+          "duration_min": 60,
+          "partner_id": 123035,
+          "name": "Delhaize La Louvière",
+          "address": "Rue de la Franco-Belge 228, 7100 La Louvière",
+          "phone": "+32 64 44 44 08",
+          "email": "chef44686@delhaize.be",
+          "so": "S05404",
+          "amount_ttc": 515.66,
+          "contact_comment": "Client GMS 15/04/2026. Marchandise livrée 27/04 par transporteur sans pose. IMPL initiale impérative.",
+          "brief": "IMPLANTATION INITIALE 1h. Pose SRP Kraft + montage 11 facings I0 + étiquettes prix + photos avant/après. 10 réfs I0 (43,59€) + 2 A0 filtres + V0914 échantillon + EM0072 SRP."
+        }
+      ],
+      "trajet": "Baillonville 08:35 → Bouffioulx 09:30 (55 min, ~70 km via E411/R3/E42) → Bomerée 10:20 (10 min) → Walcourt 11:30 (35 min, ~30 km) → pause déjeuner sur autoroute 12:15-13:00 → La Louvière 13:30 (50 min) → Baillonville 15:50 (1h45, ~115 km via E42/R3/E411)",
+      "km_total": 305,
+      "retour_baillonville": "15:50",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/260+av+E+Vandervelde+6200+Ch%C3%A2telet/Rue+de+la+Station+1+6110+Montigny-Le-Tilleul/Rue+des+Forges+34+5650+Walcourt/Rue+de+la+Franco-Belge+228+7100+La+Louvi%C3%A8re/5377+Baillonville"
+    },
+    {
+      "day": "mardi 2026-05-19",
+      "label": "Namur Sud / Centre / Hesbaye (6 stops Tier B-A)",
+      "axis": "Baillonville → Rochefort → Ciney → Fernelmont → Andenne → Assesse → retour",
+      "stops": [
+        {
+          "time": "09:00-09:30",
+          "type": "VISITE",
+          "partner_id": 7692,
+          "name": "AD Rochefort (SA Marer)",
+          "address": "Rue de Marche 112-114, 5580 Rochefort",
+          "phone": "+32 84 21 01 03",
+          "email": "compta2@irilux.lu",
+          "contact_comment": "Pas de remarque merchandiser dédiée — demander accueil",
+          "tier": "B", "last": "2026-03-23", "avg_eur": 435,
+          "brief": "Tier B — 57j (OVERDUE). Réassort standard, vérifier displays"
+        },
+        {
+          "time": "09:55-10:25",
+          "type": "VISITE",
+          "partner_id": 2773,
+          "name": "Carrefour Market Ciney",
+          "address": "Rue du Commerce 44, 5590 Ciney",
+          "phone": "083 21 21 63",
+          "email": "Contact@marketciney.be",
+          "contact_comment": "Contact: Eric Watelet. Vérifier suivi demande Jérôme du 19/01.",
+          "tier": "B", "last": "2026-03-17", "avg_eur": 228,
+          "brief": "Tier B — 63j OVERDUE. Demander Eric Watelet. Faire le point sur la demande Jérôme du 19/01"
+        },
+        {
+          "time": "10:50-11:20",
+          "type": "VISITE",
+          "partner_id": 2952,
+          "name": "AD Delhaize Fernelmont",
+          "address": "Rue d'Eghezée 16, 5380 Fernelmont",
+          "phone": "+32 81 83 04 55",
+          "email": "info@adfernelmont.be",
+          "contact_comment": "Contact: Tamara Geurts. DEMANDE 10/04/2026 : REMPLIR rayon + STOPPER 3 réfs pour introduire THÉS GLACÉS à la place + briefer le rep sur place pour swap SKU.",
+          "tier": "B", "last": "2026-03-24", "avg_eur": 249,
+          "brief": "Tier B — 56j. IMPORTANT : swap SKU pour intégrer thés glacés (3 réfs à stopper). Briefer responsable sur place. Photos avant/après swap."
+        },
+        {
+          "time": "11:50-12:20",
+          "type": "VISITE",
+          "partner_id": 115578,
+          "name": "Delhaize Andenne",
+          "address": "Av. Roi Albert 135A, 5300 Andenne",
+          "phone": "+32 85 41 19 81",
+          "email": "romain975@hotmail.com",
+          "contact_comment": "Contact: Mr Goffin. Pas de jour de préférence.",
+          "tier": "B", "last": "2026-03-17", "avg_eur": 166,
+          "brief": "Tier B — 63j OVERDUE. Demander Mr Goffin"
+        },
+        {
+          "time": "13:30-14:00",
+          "type": "VISITE",
+          "partner_id": 3209,
+          "name": "Intermarché Assesse",
+          "address": "Rue Melville Wilson 3, 5330 Assesse",
+          "phone": "083 66 05 70",
+          "email": "PDV02021@mousquetaires.com",
+          "contact_comment": "Contact magasin: Brice / Océane. Propriétaire Anne Buttiens (reprise Naninne aussi depuis avril 2026).",
+          "tier": "B", "last": "2026-04-01", "avg_eur": 359,
+          "brief": "Tier B — 48j. Demander Brice ou Océane. Si Anne Buttiens sur place, faire le point Naninne aussi"
+        }
+      ],
+      "trajet": "Baillonville 08:25 → Rochefort 09:00 (35 min, 28 km) → Ciney 09:55 (25 min, 22 km) → Fernelmont 10:50 (25 min, 28 km) → Andenne 11:50 (30 min, 22 km) → pause 12:20-13:00 → Assesse 13:30 (30 min, 30 km) → Baillonville 14:20 (50 min, 35 km)",
+      "km_total": 165,
+      "retour_baillonville": "14:20",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Rue+de+Marche+112+5580+Rochefort/Rue+du+Commerce+44+5590+Ciney/Rue+d'Eghez%C3%A9e+16+5380+Fernelmont/Av+Roi+Albert+135+5300+Andenne/Rue+Melville+Wilson+3+5330+Assesse/5377+Baillonville"
+    },
+    {
+      "day": "mercredi 2026-05-20",
+      "label": "Verviers / Liège Est (5 stops cluster overdue 60j+)",
+      "axis": "Baillonville → Spa → Dolhain → Welkenraedt → Heusy ×2 → retour",
+      "stops": [
+        {
+          "time": "09:30-10:00",
+          "type": "VISITE",
+          "partner_id": 7649,
+          "name": "AD Delhaize Spa",
+          "address": "Av. Reine Astrid 244, 4900 Spa",
+          "phone": "+32 87 79 52 10",
+          "email": "info@addelhaizespa.be",
+          "contact_comment": "Contact merchandiser: Arnaud",
+          "tier": "B", "last": "2026-03-16", "avg_eur": 217,
+          "brief": "Tier B — 65j OVERDUE. Demander Arnaud"
+        },
+        {
+          "time": "10:35-11:05",
+          "type": "VISITE",
+          "partner_id": 59928,
+          "name": "AD Dolhain - Ets Alpo",
+          "address": "Av. Reine Astrid 3, 4831 Bilstain-Limbourg",
+          "phone": "+32 87 76 01 76",
+          "email": "magasin@addolhain.be",
+          "contact_comment": "Demander Sophie ou Nicole et si elles ne sont pas là demander Anaïs",
+          "tier": "B", "last": "2026-03-16", "avg_eur": 253,
+          "brief": "Tier B — 65j OVERDUE. Demander Sophie / Nicole / Anaïs"
+        },
+        {
+          "time": "11:20-11:50",
+          "type": "VISITE",
+          "partner_id": 59514,
+          "name": "Delhaize Welkenraedt",
+          "address": "Rue Gérard Delvoye 3A, 4840 Welkenraedt",
+          "phone": "+32 87 88 04 29",
+          "email": "magasin@adwelkenraedt.be",
+          "contact_comment": "Contact: Anaïs / Mme Fernandes. PAS DE VISITE LE MERCREDI → mardi/jeudi/vendredi privilégier.",
+          "tier": "B", "last": "2026-03-16", "avg_eur": 348,
+          "brief": "ATTENTION : magasin demande pas le mercredi. Plan B : si responsable absent confirmé, décaler en S22. Tester accueil rapide."
+        },
+        {
+          "time": "12:30-13:00",
+          "type": "VISITE",
+          "partner_id": 120499,
+          "name": "Delhaize Heusy",
+          "address": "Av. de Spa 66, 4802 Heusy",
+          "phone": "+32 87 22 14 75",
+          "email": "nicolas.crotteux@affiliatesdelhaize.be",
+          "contact_comment": "Contact: Nicolas Crotteux ou Mme Simar",
+          "tier": "B", "last": "2026-03-16", "avg_eur": null,
+          "brief": "Tier B — 65j OVERDUE. Demander Mr Crotteux ou Mme Simar"
+        },
+        {
+          "time": "13:10-13:40",
+          "type": "VISITE",
+          "partner_id": 7003,
+          "name": "Intermarché Heusy (Wonka SA)",
+          "address": "Chau. de Theux 55, 4802 Heusy",
+          "phone": "+32 472 09 23 90",
+          "email": "caroline.leidgens.intermarche@gmail.com",
+          "contact_comment": "Contact: Caroline Leidgens",
+          "tier": "B", "last": "2026-03-16", "avg_eur": 437,
+          "brief": "Tier B — 65j OVERDUE. Demander Caroline Leidgens"
+        }
+      ],
+      "trajet": "Baillonville 08:25 → Spa 09:30 (1h05, 70 km via E25/E42) → Dolhain 10:35 (25 min, 25 km) → Welkenraedt 11:20 (15 min) → Heusy 12:30 (35 min retour A27 + déjeuner 12:00-12:30) → ITM Heusy 13:10 (5 min intra) → Baillonville 14:20 (1h10, 90 km via E25)",
+      "km_total": 235,
+      "retour_baillonville": "14:20",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Av+Reine+Astrid+244+4900+Spa/Av+Reine+Astrid+3+4831+Bilstain-Limbourg/Rue+G%C3%A9rard+Delvoye+3+4840+Welkenraedt/Av+de+Spa+66+4802+Heusy/Chauss%C3%A9e+de+Theux+55+4802+Heusy/5377+Baillonville"
+    },
+    {
+      "day": "jeudi 2026-05-21",
+      "label": "Liège centre + Hesbaye (6 stops mix Tier A/B)",
+      "axis": "Baillonville → Remouchamps → Liège Ardentes → Cointe → Fragnée → Faimes → Villers → Hannut → retour",
+      "stops": [
+        {
+          "time": "09:00-09:30",
+          "type": "VISITE",
+          "partner_id": 2865,
+          "name": "Carrefour Market Remouchamps",
+          "address": "Av. de la Porallée 36A, 4920 Aywaille",
+          "phone": "043 84 05 50",
+          "email": "ms.market066@outlook.com",
+          "contact_comment": "PAS DE VISITE LE JEUDI (resp. rayon absent) → décaler à mercredi/vendredi.",
+          "tier": "A", "last": "2026-04-10", "avg_eur": 909,
+          "brief": "ALERTE CONTRAINTE : pas le jeudi normalement. Plan B : remplacer par stop fixe ou prendre risque accueil (Tier A 909€ avg, vaut l'essai)."
+        },
+        {
+          "time": "09:55-10:25",
+          "type": "VISITE",
+          "partner_id": 120156,
+          "name": "Delhaize Liège Ardentes (Delardentes)",
+          "address": "Chau. de Tongres 269, 4000 Liège",
+          "phone": "+32 4 342 85 58",
+          "email": "Kevin.Demarteau@affiliatesdelhaize.be",
+          "contact_comment": "Demander Kevin Demarteau 0468 37 62 65. Thé en rayon.",
+          "tier": "B", "last": "2026-04-10", "avg_eur": null,
+          "brief": "Tier B — 42j. Demander Kevin Demarteau (0468 37 62 65). Thé en rayon, photos."
+        },
+        {
+          "time": "10:45-11:15",
+          "type": "VISITE",
+          "partner_id": 121194,
+          "name": "Intermarché Liège Cointe",
+          "address": "Bd Gustave Kleyer 3, 4000 Liège",
+          "phone": "+32 4 250 34 82",
+          "email": "pdv09880@mousquetaires.com",
+          "contact_comment": "Contact: Mme Mossay (cadar envoyé par mail le 16/02)",
+          "tier": "B", "last": "2026-03-18", "avg_eur": null,
+          "brief": "Tier B — 65j OVERDUE. Demander Mme Mossay"
+        },
+        {
+          "time": "11:30-12:00",
+          "type": "VISITE",
+          "partner_id": 2965,
+          "name": "Delhaize Fragnée",
+          "address": "Rue de Fragnée 41, 4000 Liège",
+          "phone": "042 52 87 63",
+          "email": "g.harvie@gimalex.be",
+          "contact_comment": "Pas de visite les lundis. Demander Mme Bastin ou Mme Hicter pour remplir le display. Magasin veut passer en rayon comme ITM Tilff (suivi Jérôme à programmer).",
+          "tier": "B", "last": "2026-03-18", "avg_eur": 443,
+          "brief": "Tier B — 65j OVERDUE. Mme Bastin / Mme Hicter. Réassort display. Noter intérêt passage rayon (brief Jérôme)."
+        },
+        {
+          "time": "13:00-13:30",
+          "type": "VISITE",
+          "partner_id": 3210,
+          "name": "Intermarché Faimes",
+          "address": "Rue de Huy 27, 4317 Faimes",
+          "phone": "019678378",
+          "email": "PDV06089@mousquetaires.com",
+          "contact_comment": "Pas de remarque merchandiser dédiée — demander accueil",
+          "tier": "B", "last": "2026-03-17", "avg_eur": 212,
+          "brief": "Tier B — 65j OVERDUE. Demander accueil pour resp. rayon"
+        },
+        {
+          "time": "13:50-14:20",
+          "type": "VISITE",
+          "partner_id": 115879,
+          "name": "Intermarché Villers-le-Bouillet",
+          "address": "Rue du Château d'eau 1, 4530 Villers-le-Bouillet",
+          "phone": "+32 85 31 69 11",
+          "email": "PDV05449@MOUSQUETAIRES.COM",
+          "contact_comment": "Contact: Mr Johan. Visite mercredi ou vendredi matin si possible — demander Christophe ou Johan. Client demande visite toutes 3 sem (à espacer si pas de réassort régulier).",
+          "tier": "B", "last": "2026-03-26", "avg_eur": 332,
+          "brief": "Tier B — 56j. Demander Christophe ou Johan. ATTENTION : valider espacement futur si rayon plein"
+        },
+        {
+          "time": "14:50-15:20",
+          "type": "VISITE",
+          "partner_id": 121874,
+          "name": "Intermarché Hannut",
+          "address": "Rue de Hesbaye 1, 4280 Hannut",
+          "phone": "+32 19 51 20 06",
+          "email": "pdv95004@mousquetaires.com",
+          "contact_comment": "Contact: Mr Christophe Wereau / Benjamin / Valentin (resp. rayon). Horaire livraison 6h-13h.",
+          "tier": "B", "last": "2026-04-02", "avg_eur": null,
+          "brief": "Tier B — 49j. Demander Mr Wereau ou Valentin. Livraison fenêtre 6h-13h (si réassort)"
+        }
+      ],
+      "trajet": "Baillonville 08:25 → Remouchamps 09:00 (35 min, 35 km via N86) → Liège Ardentes 09:55 (25 min, 25 km) → Cointe 10:45 (15 min intra-Liège) → Fragnée 11:30 (10 min) → déjeuner 12:00-12:50 → Faimes 13:00 (10 min, A15) → Villers 13:50 (15 min, 15 km) → Hannut 14:50 (25 min, 22 km) → Baillonville 16:05 (1h15, 70 km via N80/N4)",
+      "km_total": 230,
+      "retour_baillonville": "16:05",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Av+de+la+Poral%C3%A9e+36+4920+Aywaille/Chauss%C3%A9e+de+Tongres+269+4000+Li%C3%A8ge/Bd+Gustave+Kleyer+3+4000+Li%C3%A8ge/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Rue+de+Huy+27+4317+Faimes/Rue+du+Ch%C3%A2teau+d'eau+1+4530+Villers-le-Bouillet/Rue+de+Hesbaye+1+4280+Hannut/5377+Baillonville"
+    },
+    {
+      "day": "vendredi 2026-05-22",
+      "label": "Bruxelles + Brabant Wallon (7 stops — boucle dense)",
+      "axis": "Baillonville → Linthout → Saint Michel → La Chasse → Flagey → Uccle Bascule → Maransart → Lillois → Ottignies → retour",
+      "stops": [
+        {
+          "time": "09:30-10:00",
+          "type": "VISITE",
+          "partner_id": 120035,
+          "name": "Proxy Delhaize Linthout",
+          "address": "Av Georges Henri 481, 1200 Woluwe-St-Lambert",
+          "phone": "+32 2 735 06 90",
+          "email": "proxylinthout@gmail.com",
+          "contact_comment": "Contact: Mme Custers. Pas de visite le mercredi (vendredi OK).",
+          "tier": "B", "last": "2026-04-03", "avg_eur": null,
+          "brief": "Tier B — 49j. Demander Mme Custers"
+        },
+        {
+          "time": "10:15-10:45",
+          "type": "VISITE",
+          "partner_id": 9461,
+          "name": "Proxy Delhaize Saint Michel",
+          "address": "Rue de l'Escadron 45, 1040 Etterbeek",
+          "phone": "+32 2 733 51 66",
+          "email": "roxy.proxysaintmichel@gmaill.com",
+          "contact_comment": "Contact: Roxanne Poirier. Passage mardi-vendredi jusqu'à 14h (jeudi 18h).",
+          "tier": "B", "last": "2026-03-06", "avg_eur": 388,
+          "brief": "Tier B — 77j OVERDUE. Demander Roxanne Poirier. Possible passage en rayon (suivi à confirmer)"
+        },
+        {
+          "time": "11:00-11:30",
+          "type": "VISITE",
+          "partner_id": 59557,
+          "name": "Carrefour Market La Chasse (Rosy Dis)",
+          "address": "Rue des Champs 39, 1040 Bruxelles",
+          "phone": "+32 2 647 44 73",
+          "email": "carrefourmarketlachasse@gmail.com",
+          "contact_comment": "EN DIRECT ! Resp. magasin+rayon: Christopher / Xavier. Tél Christopher: 0499053761. Display complet infusette + 4 glacés.",
+          "tier": "B", "last": "2026-02-23", "avg_eur": 224,
+          "brief": "Tier B — 88j OVERDUE +++. Demander Christopher (0499053761) ou Xavier. Display complet à vérifier (infusette + 4 glacés)"
+        },
+        {
+          "time": "11:45-12:15",
+          "type": "VISITE",
+          "partner_id": 120159,
+          "name": "Delhaize Flagey",
+          "address": "Rue de Hennin 18, 1050 Ixelles",
+          "phone": "+32 471 53 40 15",
+          "email": "skoumans@outlook.com",
+          "contact_comment": "Contact: Mr Koumans",
+          "tier": "B", "last": "2026-04-03", "avg_eur": null,
+          "brief": "Tier B — 49j. Demander Mr Koumans"
+        },
+        {
+          "time": "12:45-13:15",
+          "type": "VISITE",
+          "partner_id": 2866,
+          "name": "Carrefour Market Uccle Bascule",
+          "address": "Chau. de Waterloo 719, 1180 Uccle",
+          "phone": "023 43 55 75",
+          "email": "Carmen.bascule@gmail.com",
+          "contact_comment": "Contact: Carmen",
+          "tier": "C", "last": "2026-03-06", "avg_eur": 266,
+          "brief": "Tier C — 77j OVERDUE. Demander Carmen"
+        },
+        {
+          "time": "13:35-14:05",
+          "type": "VISITE",
+          "partner_id": 113217,
+          "name": "Proxy Delhaize Maransart",
+          "address": "Route de l'Etat 217, 1380 Lasne",
+          "phone": "+32 2 633 13 25",
+          "email": "Christelle.proxylasne@gmail.com",
+          "contact_comment": "Contact: Marion Delannoy. Lundi après 10h, autres jours sans préférence.",
+          "tier": "B", "last": "2026-03-19", "avg_eur": 452,
+          "brief": "Tier B — 64j OVERDUE. Demander Marion Delannoy"
+        },
+        {
+          "time": "14:15-14:45",
+          "type": "VISITE",
+          "partner_id": 114763,
+          "name": "Proxy Delhaize Lillois",
+          "address": "Grand-Route 350, 1428 Lillois",
+          "phone": "+32 2 384 48 83",
+          "email": "proxylillois@gmail.com",
+          "contact_comment": "Contact: Mme Céline Vandamme",
+          "tier": "B", "last": "2026-03-19", "avg_eur": 195,
+          "brief": "Tier B — 64j OVERDUE. Demander Mme Vandamme"
+        }
+      ],
+      "trajet": "Baillonville 08:25 → Linthout 09:30 (1h05, 95 km via E411) → Saint Michel 10:15 (10 min intra-Bxl) → La Chasse 11:00 (10 min) → Flagey 11:45 (15 min) → Uccle Bascule 12:45 (20 min + déjeuner court) → Maransart 13:35 (20 min) → Lillois 14:15 (10 min) → Baillonville 16:00 (1h30, 95 km via R0/E411)",
+      "km_total": 245,
+      "retour_baillonville": "16:00",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Av+Georges+Henri+481+1200+Woluwe-Saint-Lambert/Rue+de+l'Escadron+45+1040+Etterbeek/Rue+des+Champs+39+1040+Bruxelles/Rue+de+Hennin+18+1050+Ixelles/Chauss%C3%A9e+de+Waterloo+719+1180+Uccle/Route+de+l'Etat+217+1380+Lasne/Grand+Route+350+1428+Lillois/5377+Baillonville"
+    }
+  ],
+  "totaux": {
+    "stops": 28,
+    "implantations": 1,
+    "visites": 27,
+    "km_semaine": 1180,
+    "jours_actifs": 5
+  },
+  "reports_s22": [
+    "Delhaize Ottignies #3016 (Tier B, avg 530€, OVERDUE) — pas casé v1 ven, à prendre S22 axe BW",
+    "Hyper Carrefour Fleron #7760 (Tier X) — pas casé v1, S22 axe Liège",
+    "Intermarché Herve #120491 — pas casé v1, S22 axe Verviers",
+    "Delhaize Barchon #119815 — pas casé v1, S22 axe Liège Est"
+  ]
+}
