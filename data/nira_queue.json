@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-16T12:35:49",
+  "updated": "2026-05-16T12:51:49",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3199,9 +3199,10 @@
       "id": "t048",
       "agent": "planning",
       "task": "Planning merchandiser S21 (18-22/05)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-16T12:35",
-      "request": "Génère planning S21 Gilles avec La Louvière IMPL S05404 + Braine-le-Comte VISITE Mr Damien"
+      "request": "Génère planning S21 Gilles avec La Louvière IMPL S05404 + Braine-le-Comte VISITE Mr Damien",
+      "finished": "2026-05-16T12:51"
     }
   ]
 }
