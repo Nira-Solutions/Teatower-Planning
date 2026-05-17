@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-17T17:34:45",
+  "updated": "2026-05-17T17:40:58",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3208,9 +3208,10 @@
       "id": "t049",
       "agent": "planning",
       "task": "Correction S21 - ajout IMPL Braine-le-Comte lundi 18/05",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-17T17:34",
-      "request": "Braine-le-Comte oublie dans S21 lundi + IMPL non faite vendredi 15/05"
+      "request": "Braine-le-Comte oublie dans S21 lundi + IMPL non faite vendredi 15/05",
+      "finished": "2026-05-17T17:40"
     }
   ]
 }
