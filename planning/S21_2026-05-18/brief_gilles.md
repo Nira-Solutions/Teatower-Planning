@@ -1,31 +1,35 @@
-# Planning Merchandiser Gilles — S21 (18-22 mai 2026)
+# Planning Merchandiser Gilles — S21 (18-22 mai 2026) — v2
 
 > **Base** : Baillonville (5377) | **Horaires** : 08h30 → 16h30 (retour max 16h30)
 > **Règles** : IMPL = 30 min sauf exception, VISITE = 30 min, pas de revisite S20 (sauf cas explicite)
-> **28 stops** sur 5 jours — 1 IMPL initiale + 27 visites — ~1180 km
+> **28 stops** sur 5 jours — **2 IMPL initiales** + 26 visites — ~1185 km
+>
+> **Changelog v2 (17/05)** : ajout IMPL initiale **Braine-le-Comte #123466** lundi matin (oublié v1, IMPL prévue ven 15/05 NON FAITE). Walcourt #9016 reporté S22 (Tier C, lead Jérôme à reprendre).
 
 ---
 
-## Lundi 18/05 — Hainaut / La Louvière (IMPL initiale S05404)
+## Lundi 18/05 — Hainaut : BLC + La Louvière (2 IMPL initiales)
 
-**Axe** : Baillonville → Charleroi sud → La Louvière → retour
-**Trajet** : 305 km, retour Baillonville 15:50
-**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/260+av+E+Vandervelde+6200+Ch%C3%A2telet/Rue+de+la+Station+1+6110+Montigny-Le-Tilleul/Rue+des+Forges+34+5650+Walcourt/Rue+de+la+Franco-Belge+228+7100+La+Louvi%C3%A8re/5377+Baillonville)**
+**Axe** : Baillonville → Braine-le-Comte → Bouffioulx → Bomerée → La Louvière → retour
+**Trajet** : ~310 km, retour Baillonville 16:15 (marge 15 min avant 16h30)
+**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/Rue+des+Digues+60+7090+Braine-le-Comte/260+av+E+Vandervelde+6200+Ch%C3%A2telet/Rue+de+la+Station+1+6110+Montigny-Le-Tilleul/Rue+de+la+Franco-Belge+228+7100+La+Louvi%C3%A8re/5377+Baillonville)**
 
 | Heure | Type | Magasin | Adresse | Contact (full) |
 |---|---|---|---|---|
-| 09:30-10:00 | VISITE | **AD Bouffioulx** #7283 | 260 av E Vandervelde, 6200 Châtelet — tél +32 71 38 59 34 | Contact merchandiser: Ariane. Visite lundi après-midi ou mardi matin. Personne de contact Mme Looze. |
-| 10:20-10:50 | VISITE | **Hyper Carrefour Bomerée** #122467 | Rue de la Station 1, 6110 Montigny-Le-Tilleul — tél +32 71 29 72 11 | Contact: Demoulin Michael ou Darion Do Santos. Préférence lundi/mardi. Attention 6 réfs en magasin. |
-| 11:30-12:00 | VISITE | **CM Walcourt** #9016 | Rue des Forges 34, 5650 Walcourt — tél +32 71 61 14 73 | Contact: Ronny Labbé. ATTENTION — Jérôme avait des demandes en attente (passages 10/03 + 31/03 sans suivi). Vérifier état rayon. |
-| 12:00-13:00 | Déjeuner sur autoroute | — | — | — |
+| **09:40-10:10** | **IMPL INITIALE 30 min** | **Intermarché Braine-le-Comte (Digretail)** #123466 | Rue des Digues 60, 7090 Braine-le-Comte — tél +32 67 56 01 88 — PDV09832@MOUSQUETAIRES.COM | Contact: **Mr Damien**. Nouveau client GMS du 05/05/2026 — pas de visite/IMPL le mercredi. SO **S05531 — 562,81€ HT** livré 05/05 par transporteur. **IMPL prévue ven 15/05 NON FAITE.** |
+| 11:00-11:30 | VISITE | **AD Bouffioulx** #7283 | 260 av E Vandervelde, 6200 Châtelet — tél +32 71 38 59 34 | Contact merchandiser: Ariane. Visite lundi après-midi ou mardi matin. Personne de contact Mme Looze. |
+| 11:45-12:15 | VISITE | **Hyper Carrefour Bomerée** #122467 | Rue de la Station 1, 6110 Montigny-Le-Tilleul — tél +32 71 29 72 11 | Contact: Demoulin Michael ou Darion Do Santos. Préférence lundi/mardi. Attention 6 réfs en magasin. |
+| 12:15-13:00 | Déjeuner sur autoroute | — | — | — |
 | **13:30-14:30** | **IMPL INITIALE 1h** | **Delhaize La Louvière** #123035 | Rue de la Franco-Belge 228, 7100 La Louvière — tél +32 64 44 44 08 — chef44686@delhaize.be | Client GMS 15/04/2026. **Marchandise livrée 27/04 par transporteur sans pose** — IMPL initiale impérative. SO **S05404 — 515,66€ TTC**. |
 
 ### Brief par stop
 
+- **Intermarché Braine-le-Comte (IMPL initiale 30 min)** : **IMPL prévue ven 15/05 non faite — à faire impérativement aujourd'hui.** Pose **SRP Kraft (16x EM0072)** + **Display M0005** + montage 7 facings (6 GI0 glacés : Marrakech Sunset, Pêche de Vigne, Gourmandise, Nana de Wépion, Vergers d'été Pomme-Poire, Passion Exotique + V0914 Infusion Printemps), 12 unités/réf. Photos avant/après. Demander **Mr Damien**.
 - **AD Bouffioulx** : Tier B, 49j depuis dernière visite. Réassort standard + check thés glacés. Demander Mme Looze.
 - **Hyper Carrefour Bomerée** : Tier B, 49j. 6 réfs en magasin (vigilance facing). Demander Mr Demoulin.
-- **CM Walcourt** : Tier C, 49j. Suivi Jérôme en attente — photos rayon + état displays. Si rayon vide, repli rapide.
-- **Delhaize La Louvière (IMPL initiale)** : Pose SRP Kraft + montage 11 facings I0 + étiquettes prix + photos avant/après. Lignes SO : 10 réfs I0 (43,59€ chacune) + 2 A0 filtres + V0914 échantillon + EM0072 SRP.
+- **Delhaize La Louvière (IMPL initiale 1h)** : Pose SRP Kraft + montage 11 facings I0 + étiquettes prix + photos avant/après. Lignes SO : 10 réfs I0 (43,59€ chacune) + 2 A0 filtres + V0914 échantillon + EM0072 SRP.
+
+> **Historique BLC** : SO S05531 livré 05/05 par transporteur (4 mvts pickings DONE — PICK/8951+8952 → OUT/7854+7880). Aucun mouvement d'IMPL ensuite. Le S20 v5 prévoyait IMPL ven 15/05 13:45 après une boucle Famenne — trajet aberrant (190 km détour Marche→BLC), IMPL non réalisée. **Aucune autre tentative documentée dans chatter Odoo.**
 
 ---
 

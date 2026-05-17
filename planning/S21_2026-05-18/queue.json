@@ -13,8 +13,7 @@
     "Intermarché Chaumont-Gistoux #10134", "AD Delhaize Materne II #113498",
     "Intermarché Jambes #3000", "Intermarché Belgrade #2821", "AD Delhaize Fosses #5441",
     "Carrefour Market Bièvre #123069", "Gribouillon Erezée #123301",
-    "CM Barvaux #2811", "CM Hotton #2979", "Delhaize Marche #8159", "CM Marche #3120",
-    "Intermarché Braine-le-Comte #123466"
+    "CM Barvaux #2811", "CM Hotton #2979", "Delhaize Marche #8159", "CM Marche #3120"
   ],
   "exclusions_hard": [
     "Delhaize Gembloux #2913 (AD passe commande seul)",
@@ -24,11 +23,25 @@
   "days": [
     {
       "day": "lundi 2026-05-18",
-      "label": "Hainaut / La Louvière (IMPL initiale S05404)",
-      "axis": "Baillonville → Charleroi → La Louvière → retour",
+      "label": "Hainaut : BLC + La Louvière (2 IMPL initiales)",
+      "axis": "Baillonville → Braine-le-Comte → Bouffioulx → Bomerée → La Louvière → retour",
       "stops": [
         {
-          "time": "09:30-10:00",
+          "time": "09:40-10:10",
+          "type": "IMPLANTATION_INITIALE",
+          "duration_min": 30,
+          "partner_id": 123466,
+          "name": "Intermarché Braine-le-Comte (Digretail)",
+          "address": "Rue des Digues 60, 7090 Braine-le-Comte",
+          "phone": "+32 67 56 01 88",
+          "email": "PDV09832@MOUSQUETAIRES.COM",
+          "so": "S05531",
+          "amount_ttc": 562.81,
+          "contact_comment": "Contact: Mr Damien. Nouveau client GMS du 05/05/2026 — pas de visite/IMPL le mercredi. Marchandise livrée 05/05 par transporteur (pas d'IMPL faite).",
+          "brief": "IMPLANTATION INITIALE 30 min. IMPL prévue ven 15/05 NON FAITE — à faire impérativement aujourd'hui. Pose SRP Kraft (16x EM0072) + Display M0005 + montage 7 facings (6 GI0 glacés + V0914 Infusion Printemps) + photos avant/après. 12 unités par réf, total 562,81 € HT livré."
+        },
+        {
+          "time": "11:00-11:30",
           "type": "VISITE",
           "partner_id": 7283,
           "name": "AD Bouffioulx",
@@ -40,7 +53,7 @@
           "brief": "Tier B — 49j depuis dernière visite. Demander Mme Looze. Réassort standard + check thés glacés"
         },
         {
-          "time": "10:20-10:50",
+          "time": "11:45-12:15",
           "type": "VISITE",
           "partner_id": 122467,
           "name": "Hyper Carrefour Bomerée",
@@ -50,18 +63,6 @@
           "contact_comment": "Contact: Demoulin Michael ou Darion Do Santos. Préférence lundi/mardi. Attention 6 références en magasin.",
           "tier": "B", "last": "2026-03-31", "avg_eur": null,
           "brief": "Tier B — 49j. 6 réfs en magasin. Demander Mr Demoulin"
-        },
-        {
-          "time": "11:30-12:00",
-          "type": "VISITE",
-          "partner_id": 9016,
-          "name": "Carrefour Market Walcourt",
-          "address": "Rue des Forges 34, 5650 Walcourt",
-          "phone": "+32 71 61 14 73",
-          "email": "labbe-r@hotmail.com",
-          "contact_comment": "Contact: Ronny Labbé. ATTENTION — Jérôme avait des demandes en attente (passages 10/03 + 31/03 sans suivi). Vérifier état rayon + reprendre dialogue.",
-          "tier": "C", "last": "2026-03-31", "avg_eur": 87,
-          "brief": "Tier C — 49j. Suivi Jérôme en attente. Photos rayon + état displays. Si vide, repli rapide."
         },
         {
           "time": "13:30-14:30",
@@ -78,10 +79,11 @@
           "brief": "IMPLANTATION INITIALE 1h. Pose SRP Kraft + montage 11 facings I0 + étiquettes prix + photos avant/après. 10 réfs I0 (43,59€) + 2 A0 filtres + V0914 échantillon + EM0072 SRP."
         }
       ],
-      "trajet": "Baillonville 08:35 → Bouffioulx 09:30 (55 min, ~70 km via E411/R3/E42) → Bomerée 10:20 (10 min) → Walcourt 11:30 (35 min, ~30 km) → pause déjeuner sur autoroute 12:15-13:00 → La Louvière 13:30 (50 min) → Baillonville 15:50 (1h45, ~115 km via E42/R3/E411)",
-      "km_total": 305,
-      "retour_baillonville": "15:50",
-      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/260+av+E+Vandervelde+6200+Ch%C3%A2telet/Rue+de+la+Station+1+6110+Montigny-Le-Tilleul/Rue+des+Forges+34+5650+Walcourt/Rue+de+la+Franco-Belge+228+7100+La+Louvi%C3%A8re/5377+Baillonville"
+      "trajet": "Baillonville 08:25 → Braine-le-Comte 09:40 (1h15, ~105 km via E411/R0/E19) → IMPL 30 min → Bouffioulx 11:00 (50 min, ~50 km via E19/R3/E42) → Bomerée 11:45 (10 min, ~8 km) → pause déjeuner 12:15-13:00 → La Louvière 13:30 (30 min, ~30 km via R3/E42) → IMPL 1h → Baillonville 16:15 (1h45, ~115 km via E42/R3/E411)",
+      "km_total": 310,
+      "retour_baillonville": "16:15",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Rue+des+Digues+60+7090+Braine-le-Comte/260+av+E+Vandervelde+6200+Ch%C3%A2telet/Rue+de+la+Station+1+6110+Montigny-Le-Tilleul/Rue+de+la+Franco-Belge+228+7100+La+Louvi%C3%A8re/5377+Baillonville",
+      "changelog_v2": "Ajout IMPL BLC #123466 30 min (oublié v1, prévu ven 15/05 non fait). Walcourt #9016 reporté S22 (Tier C, lead Jérôme à reprendre)."
     },
     {
       "day": "mardi 2026-05-19",
@@ -418,15 +420,20 @@
   ],
   "totaux": {
     "stops": 28,
-    "implantations": 1,
-    "visites": 27,
-    "km_semaine": 1180,
+    "implantations": 2,
+    "visites": 26,
+    "km_semaine": 1185,
     "jours_actifs": 5
   },
   "reports_s22": [
+    "Carrefour Market Walcourt #9016 (Tier C, avg 87€) — retiré lundi v2 (cap horaire 16h30), Jérôme à reprendre lead avant revisite",
     "Delhaize Ottignies #3016 (Tier B, avg 530€, OVERDUE) — pas casé v1 ven, à prendre S22 axe BW",
     "Hyper Carrefour Fleron #7760 (Tier X) — pas casé v1, S22 axe Liège",
     "Intermarché Herve #120491 — pas casé v1, S22 axe Verviers",
     "Delhaize Barchon #119815 — pas casé v1, S22 axe Liège Est"
+  ],
+  "changelog": [
+    "v2 (2026-05-17) — Correction lundi 18/05 : ajout IMPL initiale Braine-le-Comte #123466 (S05531, 30 min) en tête de tournée. IMPL prévue ven 15/05 (S20 v5) non faite, urgente. Walcourt #9016 reporté S22. Retour Baillonville 16:15 (marge 15 min).",
+    "v1 (2026-05-16) — Publication initiale via build_planning_pool.py."
   ]
 }
