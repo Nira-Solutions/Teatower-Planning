@@ -19,6 +19,7 @@
   .summary-card { background: var(--primary); color: #fff; border-radius: 8px; padding: 1rem .8rem; text-align: center; }
   .summary-card.zero { background: var(--muted); }
   .summary-card.total { background: var(--accent); font-size: 1.1em; }
+  .summary-card.total-b { background: #6c757d; font-size: 1.05em; }
   .summary-card .num { font-size: 1.8rem; font-weight: 700; }
   .summary-card .label { font-size: .75rem; text-transform: uppercase; opacity: .9; margin-top: .2rem; }
   .summary-card .sub { font-size: .7rem; opacity: .8; margin-top: .15rem; }
@@ -37,12 +38,15 @@
   .badge-no { background: #adb5bd; color: #fff; }
   .badge-warn { background: var(--warn); color: #fff; }
   .badge-pending { background: #fd7e14; color: #fff; }
+  .badge-info { background: #1971c2; color: #fff; }
   .formula { background: #f1f3f5; border-left: 3px solid var(--primary); padding: .6rem .9rem; margin: .5rem 0; font-size: .87rem; border-radius: 0 4px 4px 0; }
   .alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: .6rem 1rem; margin: .8rem 0; font-size: .87rem; border-radius: 0 6px 6px 0; }
   .alert.info { background: #e7f5ff; border-left-color: #1971c2; }
   .alert.success { background: #d1e7dd; border-left-color: var(--accent); }
+  .alert.danger { background: #f8d7da; border-left-color: #dc3545; }
   ol.todo { padding-left: 1.4rem; font-size: .9rem; }
   ol.todo li { margin: .5rem 0; }
+  .divergence-box { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: .8rem 1rem; margin: .8rem 0; font-size: .87rem; }
   .footer { color: var(--muted); font-size: .78rem; margin-top: 2rem; text-align: center; padding-top: 1rem; border-top: 1px solid #dee2e6; }
   @media(max-width:640px) {
     table { font-size: .78rem; }
@@ -53,13 +57,14 @@
 <body>
 
 <h1>Commission Avril 2026 — Jérôme Carlier</h1>
-<p class="subtitle">Détail du calcul selon avenant contrat du 17/03/2026 — méthode Option C fixée le 04/05/2026</p>
+<p class="subtitle">Rapport officiel — source : <code>Commission_avril_2026 (1).docx</code> (Adri) + vérification Odoo XML-RPC (18/05/2026)</p>
 
 <div class="meta">
   <div><strong>Période :</strong> 01/04/2026 → 30/04/2026</div>
-  <div><strong>Sources :</strong> Avenant 17/03/2026, Odoo XML-RPC, recalcul 04/05/2026 (méthode Option C — SO confirmées)</div>
-  <div><strong>Date de calcul :</strong> 04/05/2026</div>
-  <div><strong>Méthode :</strong> Option C — SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent</div>
+  <div><strong>Sources :</strong> Avenant contrat 17/03/2026 + document Adri `Commission_avril_2026 (1).docx` + Odoo XML-RPC</div>
+  <div><strong>Date de calcul :</strong> 18/05/2026 (v2 — remplace brouillon obsolète du 04/05/2026)</div>
+  <div><strong>Méthode croissance :</strong> Option C — SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage parent</div>
+  <div><strong>Règle de précédence :</strong> en cas de divergence Odoo vs Adri, le chiffre Adri est adopté (source officielle contrat)</div>
 </div>
 
 <!-- SYNTHESE -->
@@ -67,235 +72,255 @@
 
 <div class="summary">
   <div class="summary-card">
-    <div class="num">589 €</div>
+    <div class="num">400 €</div>
     <div class="label">Croissance CA B2B</div>
-    <div class="sub">+21,8 % HT — palier 10-30 %</div>
+    <div class="sub">+16,2 % — tranche 15–19,9 %</div>
   </div>
   <div class="summary-card">
-    <div class="num">500 €</div>
+    <div class="num">1 500 €</div>
     <div class="label">Displays GMS</div>
-    <div class="sub">5 certains × 100 € + 3 à valider</div>
+    <div class="sub">15 × 100 € (liste Adri)</div>
   </div>
   <div class="summary-card">
-    <div class="num">195 €</div>
-    <div class="label">Nouveaux clients hors GMS</div>
-    <div class="sub">3 certains × 65 € + 2 à valider</div>
+    <div class="num">260 €</div>
+    <div class="label">Nouveaux clients Horeca</div>
+    <div class="sub">4 × 65 €</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">260 €</div>
+    <div class="label">Grossistes</div>
+    <div class="sub">2 × 130 € (règle Adri)</div>
   </div>
   <div class="summary-card total">
-    <div class="num">1.284 €</div>
-    <div class="label">Total brut conservateur</div>
-    <div class="sub">scénario certains uniquement</div>
+    <div class="num">2 420 €</div>
+    <div class="label">Total brut — Version A (Adri)</div>
+    <div class="sub">grossiste = 130 €</div>
+  </div>
+  <div class="summary-card total-b">
+    <div class="num">2 290 €</div>
+    <div class="label">Total brut — Version B</div>
+    <div class="sub">grossiste = 65 € (mémoire stricte)</div>
   </div>
 </div>
 
-<!-- VOLET 1 -->
+<div class="alert danger">
+  <strong>Validation requise avant envoi à Jérôme :</strong> confirmer la règle grossiste = 130 € (Version A, source Adri) ou 65 € (Version B, mémoire stricte). Différence = 130 €. Voir section 6.
+</div>
+
+<!-- VOLET CROISSANCE -->
 <h2>1. Commission croissance CA B2B</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Périmètre (Option C — décision Nicolas 04/05/2026) :</strong> SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent. Tout inclus.<br>
-    <strong>Barème + paliers linéaires :</strong> &gt; 30 % → ≥ 1.000 € &nbsp;·&nbsp; entre 10 % et 30 % → <code>50 × (croissance% − 10)</code> &nbsp;·&nbsp; &lt; 10 % → 0 €.
+    <strong>Périmètre (Option C) :</strong> SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent.<br>
+    <strong>Règle :</strong> chiffre Adri adopté en priorité (source officielle contrat).
   </div>
 
   <h3>CA B2B avril 2025 vs avril 2026</h3>
 
   <table>
     <thead>
-      <tr><th>Période</th><th class="num">CA HT (SO)</th><th class="num">CA TTC (SO)</th><th class="num">Nb SO</th></tr>
+      <tr><th>Période</th><th class="num">CA HT Adri (officiel)</th><th class="num">CA HT Odoo (vérif.)</th><th class="num">Écart</th></tr>
     </thead>
     <tbody>
-      <tr><td>Avril 2025 (baseline)</td><td class="num">55.572,37 €</td><td class="num">58.945,44 €</td><td class="num">142</td></tr>
-      <tr class="eligible"><td><strong>Avril 2026 (réalisé)</strong></td><td class="num"><strong>67.672,19 €</strong></td><td class="num"><strong>71.772,43 €</strong></td><td class="num"><strong>179</strong></td></tr>
-      <tr class="total-row"><td><strong>Croissance</strong></td><td class="num" colspan="3"><strong>+21,8 % HT</strong></td></tr>
+      <tr><td>Avril 2025 (baseline)</td><td class="num"><strong>63 500,00 €</strong></td><td class="num">55 432,80 €</td><td class="num">−8 067 €</td></tr>
+      <tr class="eligible"><td><strong>Avril 2026 (réalisé)</strong></td><td class="num"><strong>73 805,00 €</strong></td><td class="num">67 672,19 €</td><td class="num">−6 133 €</td></tr>
+      <tr class="total-row"><td><strong>Croissance</strong></td><td class="num" colspan="3"><strong>+16,2 % (Adri — officiel)</strong> &nbsp;|&nbsp; +22,1 % selon Odoo seul</td></tr>
     </tbody>
   </table>
 
   <div class="alert info">
-    <strong>Note méthode :</strong> le calcul initial du 30/04 utilisait les factures postées (<code>account.move</code>), qui donnaient Avril 2025 = 71.236 € / Avril 2026 = 78.455 € / +10,1 % / commission = 7 €. Cette méthode n'est pas retenue car non cohérente avec mars (où le chiffre Nicolas = SO confirmées). La méthode SO est également cohérente avec ce que Nicolas lit nativement dans Odoo. L'écart SO vs factures sur N-1 (55.572 vs 71.236) s'explique par l'importation rétroactive de factures 2025 sans SO associée lors de la migration Odoo.
+    <strong>Divergence Odoo / Adri :</strong> Odoo Option C donne +22,1 % (→ tranche 20–24,9 % → 650 €). Adri annonce +16,2 % (→ tranche 15–19,9 % → 400 €). L'écart sur la baseline 2025 (55 433 € Odoo vs 63 500 € Adri) s'explique probablement par des commandes 2025 dans le périmètre Adri absentes d'Odoo (migration, canaux offline). Le chiffre Adri est adopté conformément à la règle de précédence.
   </div>
 
-  <h3>Application des paliers — avril 2026</h3>
+  <h3>Table des paliers officiels (source Adri — image PNG 04/05/2026)</h3>
 
   <table>
-    <thead><tr><th>Seuil</th><th class="num">Commission</th></tr></thead>
+    <thead><tr><th>Tranche croissance</th><th class="num">Commission brute</th></tr></thead>
     <tbody>
       <tr><td>&lt; 10 %</td><td class="num">0 €</td></tr>
-      <tr><td>10 % (seuil bas)</td><td class="num">0 €</td></tr>
-      <tr class="eligible"><td><strong>21,8 % (avril 2026)</strong> — <code>50 × (21,8 − 10)</code></td><td class="num"><strong>589 €</strong></td></tr>
-      <tr><td>30 % (seuil haut)</td><td class="num">1.000 €</td></tr>
-      <tr><td>&gt; 30 %</td><td class="num">≥ 1.000 €</td></tr>
+      <tr><td>10 – 14,9 %</td><td class="num">250 €</td></tr>
+      <tr class="eligible"><td><strong>15 – 19,9 %</strong> ← avril 2026 (+16,2 %)</td><td class="num"><strong>400 €</strong></td></tr>
+      <tr><td>20 – 24,9 %</td><td class="num">650 €</td></tr>
+      <tr><td>25 – 29,9 %</td><td class="num">850 €</td></tr>
+      <tr><td>30 – 30,9 %</td><td class="num">1 000 €</td></tr>
+      <tr><td>31 – 39,9 %</td><td class="num">1 500 €</td></tr>
+      <tr><td>40 – 49,9 %</td><td class="num">2 200 €</td></tr>
+      <tr><td>≥ 50 %</td><td class="num">3 200 € +</td></tr>
     </tbody>
   </table>
 
-  <p style="font-size:1rem;">Croissance CA B2B avril 2026 vs avril 2025 = <strong>+21,8 % HT</strong>. Palier 10-30 % déclenché. <strong style="color:var(--primary);">→ Commission croissance = 589 €</strong>.</p>
+  <p style="margin-top:.6rem;">Croissance retenue : <strong>+16,2 %</strong> (Adri). Objectif max (30 %) non atteint — écart sous seuil = −8 745 €. <strong style="color:var(--primary);">→ Commission croissance = 400 € brut.</strong></p>
 
 </div>
 
-<!-- VOLET 2 -->
-<h2>2. Commission displays GMS</h2>
+<!-- VOLET GMS -->
+<h2>2. Commission displays GMS — 15 × 100 € = 1 500 €</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Règle :</strong> 100 € par display GMS installé en avril 2026. Déclencheur = installation du display (pas de seuil SO).
+    <strong>Règle :</strong> 100 € par display GMS installé en avril 2026. Déclencheur = installation terrain (pas de seuil SO minimum). Source : règle appliquée par Adri, cohérente avec mars 2026.
   </div>
 
-  <h3>Displays certains (SO encodées par Jérôme)</h3>
-
   <table>
     <thead>
-      <tr><th>#</th><th>Magasin GMS</th><th>Partner Odoo</th><th>SO</th><th class="num">Montant HTVA</th><th>Statut</th></tr>
+      <tr><th>#</th><th>Magasin GMS</th><th>Partner Odoo</th><th>SO Odoo</th><th class="num">Montant HTVA</th><th>Statut Odoo</th></tr>
     </thead>
     <tbody>
-      <tr class="eligible"><td>1</td><td><strong>Lambertdis SRL — Spar Manhay</strong></td><td>#122944</td><td>S05380 — 11/04</td><td class="num">508,48 €</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="eligible"><td>2</td><td><strong>NDB Diffusion — Spar Namur</strong></td><td>#122958</td><td>S05382 — 15/04</td><td class="num">346,67 €</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="eligible"><td>3</td><td><strong>Micamik SRL — Spar Godinne</strong></td><td>#122995</td><td>S05390 — 22/04</td><td class="num">491,32 €</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="eligible"><td>4</td><td><strong>Gmp La Louvière — Delhaize La Louvière</strong></td><td>#123035</td><td>S05404 — 20/04</td><td class="num">480,16 €</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="eligible"><td>5</td><td><strong>PGHM Distribution — Proxy Delhaize Maissin</strong></td><td>#123067</td><td>S05420 — 16/04</td><td class="num">693,48 €</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="total-row"><td colspan="4">Total certains</td><td class="num">5 × 100 €</td><td class="num"><strong>500 €</strong></td></tr>
+      <tr class="eligible"><td>1</td><td><strong>Proxy Delhaize Maissin</strong></td><td>#123067 PGHM Distribution</td><td>S05420 — 16/04</td><td class="num">693,48 €</td><td><span class="badge badge-ok">SO confirmée — Jérôme</span></td></tr>
+      <tr class="eligible"><td>2</td><td><strong>Delhaize La Louvière – Shopping Cora</strong></td><td>#123035 Gmp La Louvière</td><td>S05404 — 20/04</td><td class="num">480,16 €</td><td><span class="badge badge-ok">SO confirmée — Jérôme</span></td></tr>
+      <tr class="eligible"><td>3</td><td><strong>Spar Gembloux</strong></td><td>non trouvé en avril</td><td>—</td><td class="num">—</td><td><span class="badge badge-info">Terrain — absent Odoo</span></td></tr>
+      <tr class="eligible"><td>4</td><td><strong>Spar Namur</strong></td><td>#122958 NDB Diffusion</td><td>S05382 — 15/04</td><td class="num">346,67 €</td><td><span class="badge badge-ok">SO confirmée — Jérôme</span></td></tr>
+      <tr class="eligible"><td>5</td><td><strong>Spar Erezée</strong></td><td>non trouvé en avril</td><td>—</td><td class="num">—</td><td><span class="badge badge-info">Terrain — absent Odoo</span></td></tr>
+      <tr class="eligible"><td>6</td><td><strong>Spar Manhay</strong></td><td>#122944 Lambertdis SRL</td><td>S05380 — 11/04</td><td class="num">508,48 €</td><td><span class="badge badge-ok">SO confirmée — Jérôme</span></td></tr>
+      <tr class="eligible"><td>7</td><td><strong>Delhaize Ath</strong></td><td>#123144 Affilié 040490</td><td>aucune SO</td><td class="num">—</td><td><span class="badge badge-info">Partenaire créé 20/04, pas de SO</span></td></tr>
+      <tr class="eligible"><td>8</td><td><strong>Delhaize Enghien</strong></td><td>#123041 Affilié 44845</td><td>aucune SO</td><td class="num">—</td><td><span class="badge badge-info">Partenaire créé 15/04, pas de SO</span></td></tr>
+      <tr class="eligible"><td>9</td><td><strong>Delhaize Bertrix</strong></td><td>#123303 Affilié 41092</td><td>S05489 — 29/04</td><td class="num">641,88 €</td><td><span class="badge badge-warn">SO confirmée — Magasin Liège</span></td></tr>
+      <tr class="eligible"><td>10</td><td><strong>Hyper Carrefour Flémalle</strong></td><td>non trouvé en avril</td><td>—</td><td class="num">—</td><td><span class="badge badge-info">Terrain — absent Odoo</span></td></tr>
+      <tr class="eligible"><td>11</td><td><strong>Carrefour Market Bastogne</strong></td><td>#123189 Bastogne CC Port</td><td>S05467 — 23/04</td><td class="num">400,21 €</td><td><span class="badge badge-ok">SO confirmée — Jérôme</span></td></tr>
+      <tr class="eligible"><td>12</td><td><strong>Carrefour Market Bièvre</strong></td><td>#123069</td><td>S05476 — 27/04</td><td class="num">21,79 €</td><td><span class="badge badge-warn">SO confirmée — Nicolas Raes</span></td></tr>
+      <tr class="eligible"><td>13</td><td><strong>Intermarché Gembloux</strong></td><td>#123346 Gemblouxim</td><td>S05510 — 30/04</td><td class="num">530,93 €</td><td><span class="badge badge-warn">SO confirmée — Magasin Liège</span></td></tr>
+      <tr class="eligible"><td>14</td><td><strong>Intermarché Liège Blonden</strong></td><td>#123345 BLONFOOD SA</td><td>S05509 — 30/04</td><td class="num">442,48 €</td><td><span class="badge badge-warn">SO confirmée — Magasin Liège</span></td></tr>
+      <tr class="eligible"><td>15</td><td><strong>Intermarché Anthée</strong></td><td>#122991 Antheco SA</td><td>aucune SO</td><td class="num">—</td><td><span class="badge badge-info">Partenaire créé 13/04, pas de SO</span></td></tr>
+      <tr class="total-row"><td colspan="4">Total GMS — liste Adri officielle</td><td class="num">15 × 100 €</td><td class="num"><strong>1 500 €</strong></td></tr>
     </tbody>
   </table>
 
-  <h3>Displays à valider (SO encodées par Magasin Liège)</h3>
+  <div class="alert info">
+    <strong>Note Odoo :</strong> 9/15 magasins ont une SO Odoo confirmée. 3 magasins ont un partenaire créé en avril sans SO encore encodée (Ath, Enghien, Anthée). 3 sont absents d'Odoo (Spar Gembloux, Spar Erezée, Hyper Carrefour Flémalle). Conformément au principe Adri (déjà appliqué en mars : "déclencheur = installation, pas SO Odoo"), tous 15 sont retenus à 100 €.
+  </div>
 
-  <table>
-    <thead>
-      <tr><th>#</th><th>Magasin GMS</th><th>Partner Odoo</th><th>SO</th><th class="num">Montant HTVA</th><th>Statut</th></tr>
-    </thead>
-    <tbody>
-      <tr class="pending"><td>6</td><td>Alivim SRL</td><td>#123294</td><td>S05488 — 29/04</td><td class="num">328,85 €</td><td><span class="badge badge-pending">A valider</span></td></tr>
-      <tr class="pending"><td>7</td><td>BLONFOOD SA — Intermarché Liège Blonden</td><td>#123345</td><td>S05509 — 30/04</td><td class="num">442,48 €</td><td><span class="badge badge-pending">A valider</span></td></tr>
-      <tr class="pending"><td>8</td><td>Gemblouxim — Intermarché Gembloux</td><td>#123346</td><td>S05510 — 30/04</td><td class="num">530,93 €</td><td><span class="badge badge-pending">A valider</span></td></tr>
-      <tr class="total-row"><td colspan="4">Si validés : + 3 × 100 €</td><td class="num">300 €</td><td></td></tr>
-    </tbody>
-  </table>
-
-  <h3>GMS créés sans commande confirmée au 30/04 (report mois suivant)</h3>
-
-  <table>
-    <thead><tr><th>Client</th><th>Partner Odoo</th><th>Créé</th><th>Statut</th></tr></thead>
-    <tbody>
-      <tr class="rejected"><td>Antheco SA — Intermarché Anthée</td><td>#122991</td><td>13/04/26</td><td><span class="badge badge-no">Pas de SO</span></td></tr>
-      <tr class="rejected"><td>Gribouillon SRL</td><td>#123301</td><td>28/04/26</td><td><span class="badge badge-no">Pas de SO</span></td></tr>
-    </tbody>
-  </table>
-
-  <h3>Rattrapages GMS de mars (toujours sans SO)</h3>
-
-  <table>
-    <thead><tr><th>Client</th><th>Partner Odoo</th><th>Situation au 30/04</th></tr></thead>
-    <tbody>
-      <tr class="rejected"><td>Delhaize Recogne</td><td>#122091</td><td>Aucune SO confirmée</td></tr>
-      <tr class="rejected"><td>Carrefour Market Haine Saint Pierre</td><td>#122412</td><td>Aucune SO confirmée</td></tr>
-      <tr class="rejected"><td>Hyper Carrefour Bomerée</td><td>#122467</td><td>Aucune SO — livraison Gilles semaine 19 (mai)</td></tr>
-      <tr class="rejected"><td>Hyper Carrefour Gosselies</td><td>#122466</td><td>Aucune SO — livraison Gilles semaine 19 (mai)</td></tr>
-      <tr class="rejected"><td>Carrefour Market Wellin</td><td>#122589</td><td>Aucune SO confirmée</td></tr>
-      <tr class="rejected"><td>Hyper Carrefour Ans</td><td>#121818</td><td>Aucune SO confirmée</td></tr>
-    </tbody>
-  </table>
-
-  <div class="alert">
-    <strong>Bomerée + Gosselies :</strong> les 2 SO livrées par Gilles semaine 19 (4-10 mai) ne sont pas encodées dans Odoo au 30/04. Elles tomberont en commission de <strong>mai 2026</strong> dès encodage.
+  <div class="alert info">
+    <strong>Note Bastogne CC Port :</strong> dans le brouillon du 04/05, ce client était classé "borderline" (enfant Corporate Village, sans tag GMS). Adri le classe explicitement GMS à 100 € dans le document officiel — classification adoptée.
   </div>
 
 </div>
 
-<!-- VOLET 3 -->
-<h2>3. Commission nouveaux clients hors GMS</h2>
+<!-- VOLET HORECA -->
+<h2>3. Commission nouveaux clients Horeca — 4 × 65 € = 260 €</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Règle :</strong> 65 € par nouveau client (Horeca / B2B revendeurs), déclenchée à la <em>1re commande &ge; 240 € HTVA</em>.
+    <strong>Règle :</strong> 65 € par nouveau client Horeca, déclenchée à la première commande ≥ 240 € HTVA. Règle Adri : le déclencheur semble être l'ouverture du compte (voir note Le Walhère Roi).
   </div>
 
   <table>
     <thead>
-      <tr>
-        <th>Client</th>
-        <th>Type</th>
-        <th>SO Odoo</th>
-        <th class="num">Montant HTVA</th>
-        <th>Encodé par</th>
-        <th>Statut</th>
-      </tr>
+      <tr><th>#</th><th>Client</th><th>Partner Odoo</th><th>SO Odoo</th><th class="num">Montant HTVA</th><th>Statut</th></tr>
     </thead>
     <tbody>
-      <tr class="eligible"><td><strong>Le Brunch de Ginette</strong> (Ruiters Minina)</td><td>B2B+Horeca</td><td>S05378 — 11/04</td><td class="num">240,00 €</td><td>Jérôme</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="eligible"><td><strong>La Maison des Mégalithes</strong> (Cercle Hist. Durbuy)</td><td>B2B+Horeca</td><td>S05377 — 11/04</td><td class="num">270,37 €</td><td>Jérôme</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="eligible"><td><strong>KVA Bar — Groupe DonGiovanni</strong></td><td>Grossiste</td><td>S05471 — 24/04</td><td class="num">540,00 €</td><td>Jérôme</td><td><span class="badge badge-ok">Eligible</span></td></tr>
-      <tr class="pending"><td>Carrefour Market Bastogne CC Port</td><td>GMS ou non-GMS ?</td><td>S05467 — 23/04</td><td class="num">400,21 €</td><td>Jérôme</td><td><span class="badge badge-pending">A trancher</span></td></tr>
-      <tr class="pending"><td>Camping du Bout du Monde SRL</td><td>B2B+Horeca</td><td>S05349 — 07/04</td><td class="num">240,00 €</td><td>Aurelie</td><td><span class="badge badge-pending">A valider</span></td></tr>
-      <tr class="rejected"><td>Le Loft du Renard (#121779)</td><td>—</td><td>—</td><td class="num">—</td><td>—</td><td><span class="badge badge-no">Pas de SO &ge;240 € en avril</span></td></tr>
-      <tr class="rejected"><td>La Villa Lorraine (#121215)</td><td>—</td><td>—</td><td class="num">—</td><td>—</td><td><span class="badge badge-no">Pas de SO en avril</span></td></tr>
-      <tr class="total-row"><td colspan="4">Total certains (3 × 65 €)</td><td></td><td class="num"><strong>195 €</strong></td></tr>
+      <tr class="eligible"><td>1</td><td><strong>Le Walhère Roi</strong> (Labrassine Brice)</td><td>#123140</td><td>S05433 — 20/04</td><td class="num">110,00 €</td><td><span class="badge badge-ok">Retenu Adri</span></td></tr>
+      <tr class="eligible"><td>2</td><td><strong>Le Brunch de Ginette – Liège</strong> (enfant #122941)</td><td>#122940 parent</td><td>S05378 — 11/04</td><td class="num">240,00 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
+      <tr class="eligible"><td>3</td><td><strong>La Maison des Mégalithes</strong> (Cercle Hist. Durbuy)</td><td>#122938</td><td>S05377 — 11/04</td><td class="num">270,37 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
+      <tr class="eligible"><td>4</td><td><strong>Le Brunch de Ginette – Tilff</strong> (enfant #122942)</td><td>#122940 parent</td><td>S05379 — 11/04</td><td class="num">240,00 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
+      <tr class="rejected"><td>—</td><td>Au Gré des Saisons (Passion Cuisine SRL)</td><td>#122936</td><td>S05376 — 11/04</td><td class="num">70,00 €</td><td><span class="badge badge-no">Exclu — &lt; 240 €</span></td></tr>
+      <tr class="total-row"><td colspan="4">Total Horeca retenus</td><td class="num">4 × 65 €</td><td class="num"><strong>260 €</strong></td></tr>
     </tbody>
   </table>
 
   <div class="alert">
-    <strong>Bastogne CC Port (#123189) :</strong> nouveau point de vente Carrefour Market, enfant de Corporate Village (#6596) dans Odoo, sans tag GMS. SO S05467 encodée par Jérôme, 400,21 € HTVA. Deux lectures : GMS (100 €, volet 2) ou non-GMS (65 €, volet 3). A trancher par Nicolas.
+    <strong>Le Walhère Roi :</strong> SO S05433 à 110 € HTVA, sous le seuil de 240 €. Retenu par Adri malgré tout. Cela suggère que le déclencheur Adri est l'ouverture du compte commercial / installation physique, et non strictement la valeur de la 1re commande Odoo. Chiffre adopté tel quel.
   </div>
-  <div class="alert">
-    <strong>Camping du Bout du Monde (#122820) :</strong> 1re SO = 240,00 € exactement, encodée par Aurelie (pas Jérôme). Eligible si la commission s'applique sur tout nouveau client, non éligible si seulement sur clients apportés par Jérôme.
+  <div class="alert info">
+    <strong>Le Brunch de Ginette – Liège &amp; Tilff :</strong> deux entités distinctes créées le 11/04 comme partenaires enfants du parent Ruiters Minina (#122940). Les SO S05378 (livraison Liège) et S05379 (livraison Tilff) sont bien encodées sur le parent mais avec des adresses de livraison distinctes. Adri les comptabilise comme 2 clients séparés × 65 € — logique confirmée par la structure Odoo.
   </div>
 
 </div>
 
-<!-- TOTAL -->
-<h2>Total commission avril 2026</h2>
+<!-- VOLET GROSSISTES -->
+<h2>4. Commission Grossistes — 2 × 130 € = 260 € (Version A) ou 2 × 65 € = 130 € (Version B)</h2>
 
 <div class="card">
 
-  <h3>Scénario conservateur — certains uniquement</h3>
+  <div class="formula">
+    <strong>Règle Adri (Version A) :</strong> 1 grossiste = 2 × commission Horeca = 130 € brut.<br>
+    <strong>Règle mémoire stricte (Version B) :</strong> 65 € par nouveau revendeur/grossiste (assimilé Horeca).
+  </div>
 
   <table>
-    <thead><tr><th>Volet</th><th>Détail</th><th class="num">Montant brut</th></tr></thead>
+    <thead>
+      <tr><th>#</th><th>Client</th><th>Catégorie Odoo</th><th>Partner Odoo</th><th>SO Odoo</th><th class="num">Montant HTVA</th><th>Encodé par</th><th>Statut</th></tr>
+    </thead>
     <tbody>
-      <tr><td>Croissance CA B2B (+21,8 % — Option C)</td><td><code>50 × (21,8 − 10)</code></td><td class="num">589 €</td></tr>
-      <tr><td>Displays GMS (5 certains × 100 €)</td><td>Lambertdis, NDB, Micamik, Gmp La Louvière, PGHM Maissin</td><td class="num">500 €</td></tr>
-      <tr><td>Nouveaux clients hors GMS (3 certains × 65 €)</td><td>Le Brunch de Ginette, Maison Mégalithes, KVA Bar</td><td class="num">195 €</td></tr>
-      <tr class="total-row"><td>TOTAL conservateur</td><td></td><td class="num"><strong>1.284 € brut</strong></td></tr>
+      <tr class="eligible"><td>1</td><td><strong>Groupe DonGiovanni</strong> (KVA Bar)</td><td>Grossiste (tag 32)</td><td>#123207</td><td>S05471 — 24/04</td><td class="num">540,00 €</td><td>Jérôme</td><td><span class="badge badge-ok">SO confirmée — Jérôme</span></td></tr>
+      <tr class="eligible"><td>2</td><td><strong>Frigo Loco</strong> (Smart fridges srl)</td><td>—</td><td>#122658</td><td>S05324 — 01/04</td><td class="num">480,00 €</td><td>Aurelie</td><td><span class="badge badge-warn">SO par Aurelie — retenu Adri</span></td></tr>
+      <tr class="total-row"><td colspan="6">Version A (Adri — 130 €/grossiste)</td><td colspan="2"><strong>260 €</strong></td></tr>
+      <tr class="total-row"><td colspan="6">Version B (mémoire stricte — 65 €/grossiste)</td><td colspan="2"><strong>130 €</strong></td></tr>
     </tbody>
   </table>
 
-  <h3>Scénario optimiste — si tout validé</h3>
+  <div class="alert">
+    <strong>Frigo Loco :</strong> SO S05324 encodée par aurelie.thibaut@noenature.com (pas Jérôme Carlier). Aucune SO antérieure à avril 2026 dans Odoo — bien nouveau client. Adri le retient pour la commission Jérôme, ce qui suggère que la commission s'applique indépendamment du créateur de la SO.
+  </div>
+
+</div>
+
+<!-- DIVERGENCE GROSSISTE -->
+<h2>5. Point de divergence — Règle Grossiste (à valider Nicolas)</h2>
+
+<div class="card">
+  <div class="divergence-box">
+    <p><strong>Règle Adri (document officiel avril 2026) :</strong> <em>"1 grossiste = 2 × commission Horeca/Revendeur = 130 € brut"</em></p>
+    <p style="margin-top:.4rem;"><strong>Mémoire officielle Teatower :</strong> la règle grossiste à 130 € n'est pas formalisée dans <code>reference_commission_jerome_regles.md</code>. La mémoire mentionne uniquement 65 € pour Horeca/Revendeurs hors GMS.</p>
+    <p style="margin-top:.4rem;"><strong>Enjeu :</strong> 2 grossistes × (130 − 65) € = <strong>130 €</strong> de différence entre les deux versions.</p>
+  </div>
 
   <table>
-    <thead><tr><th>Volet</th><th>Détail</th><th class="num">Montant brut</th></tr></thead>
+    <thead><tr><th>Volet</th><th>Version A (Adri — officiel)</th><th>Version B (mémoire stricte)</th></tr></thead>
     <tbody>
-      <tr><td>Croissance CA B2B (+21,8 %)</td><td><code>50 × (21,8 − 10)</code></td><td class="num">589 €</td></tr>
-      <tr><td>Displays GMS (8 × 100 €)</td><td>+ Alivim, BLONFOOD, Gemblouxim</td><td class="num">800 €</td></tr>
-      <tr><td>Nouveaux clients hors GMS (4 × 65 €)</td><td>+ Camping du Bout du Monde</td><td class="num">260 €</td></tr>
-      <tr><td>Bastogne CC Port (si requalifié GMS)</td><td>1 display additionnel</td><td class="num">100 €</td></tr>
-      <tr class="total-row"><td>TOTAL optimiste</td><td></td><td class="num"><strong>1.749 € brut</strong></td></tr>
+      <tr><td>Croissance CA B2B</td><td class="num">400 €</td><td class="num">400 €</td></tr>
+      <tr><td>GMS (15 × 100 €)</td><td class="num">1 500 €</td><td class="num">1 500 €</td></tr>
+      <tr><td>Horeca (4 × 65 €)</td><td class="num">260 €</td><td class="num">260 €</td></tr>
+      <tr><td>Grossistes</td><td class="num">260 € (2 × 130 €)</td><td class="num">130 € (2 × 65 €)</td></tr>
+      <tr class="total-row"><td><strong>TOTAL</strong></td><td class="num"><strong>2 420 € brut</strong></td><td class="num"><strong>2 290 € brut</strong></td></tr>
     </tbody>
   </table>
 
   <div class="alert success">
-    La commission croissance de <strong>589 €</strong> est certaine (méthode et paliers figés). Seuls les displays Alivim/BLONFOOD/Gemblouxim et les clients Bastogne/Camping restent à valider.
+    <strong>Recommandation :</strong> si Nicolas confirme la règle Adri (Version A = 2 420 €), intégrer "grossiste = 130 €" dans la mémoire officielle <code>reference_commission_jerome_regles.md</code> pour les mois suivants.
   </div>
+</div>
 
+<!-- TABLEAU DIVERGENCES ODOO -->
+<h2>6. Tableau des divergences Odoo / Adri</h2>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr><th>Point</th><th>Odoo (vérification)</th><th>Adri (officiel)</th><th>Adopté</th></tr>
+    </thead>
+    <tbody>
+      <tr class="pending"><td>CA B2B avril 2025 (baseline)</td><td class="num">55 432,80 €</td><td class="num">63 500,00 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
+      <tr class="pending"><td>CA B2B avril 2026 (réalisé)</td><td class="num">67 672,19 €</td><td class="num">73 805,00 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
+      <tr class="pending"><td>Croissance</td><td>+22,1 % → 650 €</td><td>+16,2 % → 400 €</td><td><span class="badge badge-ok">Adri — 400 €</span></td></tr>
+      <tr class="pending"><td>GMS avec SO Odoo en avril</td><td>9 sur 15</td><td>15 sur 15</td><td><span class="badge badge-ok">Adri — 15 installations</span></td></tr>
+      <tr class="pending"><td>Le Walhère Roi (seuil 240 €)</td><td>SO à 110 € (sous seuil)</td><td>Retenu à 65 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
+      <tr class="pending"><td>Frigo Loco (encodé Aurelie)</td><td>SO par Aurelie, pas Jérôme</td><td>Retenu à 130 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- POINTS A VALIDER -->
-<h2>Points à valider avec Nicolas</h2>
+<h2>7. Points à valider avec Nicolas avant envoi à Jérôme</h2>
 
 <div class="card">
   <ol class="todo">
-    <li><strong>Méthode</strong> : TRANCHE le 04/05/2026 — Option C, SO confirmées, paliers 10-30 %. Commission croissance = 589 €.</li>
-    <li><strong>Displays Alivim SRL, BLONFOOD SA, Gemblouxim</strong> : 1res SO passées par "Magasin Liège", pas par Jérôme. Si le display est commercialement apporté par Jérôme, commission due ? (3 × 100 € = 300 € en jeu).</li>
-    <li><strong>Bastogne CC Port (#123189)</strong> : nouveau Carrefour Market. Classement GMS (100 €, volet 2) ou non-GMS (65 €, volet 3) ?</li>
-    <li><strong>Camping du Bout du Monde (#122820)</strong> : 1re SO encodée par Aurelie. Commission si pas Jérôme ?</li>
-    <li><strong>Bomerée + Gosselies</strong> (livraison Gilles semaine 19) : SO non encodées au 30/04, report en mai. Confirmer.</li>
-    <li><strong>Régularisation mars 2026</strong> (115 €) : à intégrer dans le payslip d'avril ou mai 2026.</li>
+    <li><strong>Version A (2 420 €) ou Version B (2 290 €) :</strong> confirmer si la règle "1 grossiste = 130 €" est officiellement intégrée. Si oui, mettre à jour la mémoire des règles.</li>
+    <li><strong>Frigo Loco (SO encodée par Aurelie) :</strong> Adri le retient — confirmer si la commission Jérôme est bien due indépendamment du créateur de la SO dans Odoo.</li>
+    <li><strong>Le Walhère Roi (SO à 110 € HTVA) :</strong> Adri le retient malgré le seuil de 240 €. Confirmer si le déclencheur est bien l'ouverture de compte (pas la valeur de la 1re SO).</li>
+    <li><strong>Bomerée + Gosselies (livraison Gilles semaine 19 mai) :</strong> ces 2 displays mars 2026 restent en attente — à comptabiliser en mai 2026 dès encodage des SO.</li>
+    <li><strong>Ne pas envoyer à Jérôme avant validation Nicolas.</strong></li>
   </ol>
 </div>
 
 <p class="footer">
-  Document généré automatiquement par l'agent Data-BI/Compta Teatower — 04/05/2026<br>
-  Source : Odoo XML-RPC + avenant contrat 17/03/2026 — méthode Option C (SO confirmées, tags Canal + héritage parent)<br>
-  Avril 2025 : 142 SO B2B, 55.572 EUR HT | Avril 2026 : 179 SO B2B, 67.672 EUR HT
+  Document généré automatiquement par l'agent Compta Teatower — 18/05/2026<br>
+  Source officielle : <code>Commission_avril_2026 (1).docx</code> (Adri) + Odoo XML-RPC<br>
+  Total Version A (Adri) : <strong>2 420 € brut</strong> | Total Version B (mémoire stricte) : <strong>2 290 € brut</strong><br>
+  Avril 2025 : 55 433 € HT Odoo (63 500 € Adri) | Avril 2026 : 67 672 € HT Odoo (73 805 € Adri)
 </p>
 
 </body>
