@@ -19,10 +19,6 @@
   .summary-card { background: var(--primary); color: #fff; border-radius: 8px; padding: 1rem .8rem; text-align: center; }
   .summary-card.zero { background: var(--muted); }
   .summary-card.total { background: var(--accent); font-size: 1.1em; }
-  .summary-card.total-b { background: #6c757d; font-size: 1.05em; }
-  .summary-card .num { font-size: 1.8rem; font-weight: 700; }
-  .summary-card .label { font-size: .75rem; text-transform: uppercase; opacity: .9; margin-top: .2rem; }
-  .summary-card .sub { font-size: .7rem; opacity: .8; margin-top: .15rem; }
   .card { background: var(--card); border-radius: 10px; padding: 1rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 1rem; }
   table { width: 100%; border-collapse: collapse; margin: .5rem 0; font-size: .88rem; }
   th, td { padding: .5rem .6rem; text-align: left; border-bottom: 1px solid #e9ecef; }
@@ -37,16 +33,11 @@
   .badge-ok { background: var(--accent); color: #fff; }
   .badge-no { background: #adb5bd; color: #fff; }
   .badge-warn { background: var(--warn); color: #fff; }
-  .badge-pending { background: #fd7e14; color: #fff; }
   .badge-info { background: #1971c2; color: #fff; }
   .formula { background: #f1f3f5; border-left: 3px solid var(--primary); padding: .6rem .9rem; margin: .5rem 0; font-size: .87rem; border-radius: 0 4px 4px 0; }
   .alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: .6rem 1rem; margin: .8rem 0; font-size: .87rem; border-radius: 0 6px 6px 0; }
   .alert.info { background: #e7f5ff; border-left-color: #1971c2; }
   .alert.success { background: #d1e7dd; border-left-color: var(--accent); }
-  .alert.danger { background: #f8d7da; border-left-color: #dc3545; }
-  ol.todo { padding-left: 1.4rem; font-size: .9rem; }
-  ol.todo li { margin: .5rem 0; }
-  .divergence-box { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: .8rem 1rem; margin: .8rem 0; font-size: .87rem; }
   .footer { color: var(--muted); font-size: .78rem; margin-top: 2rem; text-align: center; padding-top: 1rem; border-top: 1px solid #dee2e6; }
   @media(max-width:640px) {
     table { font-size: .78rem; }
@@ -61,8 +52,8 @@
 
 <div class="meta">
   <div><strong>Période :</strong> 01/04/2026 → 30/04/2026</div>
-  <div><strong>Sources :</strong> Avenant contrat 17/03/2026 + document Adri `Commission_avril_2026 (1).docx` + Odoo XML-RPC</div>
-  <div><strong>Date de calcul :</strong> 18/05/2026 (v2 — remplace brouillon obsolète du 04/05/2026)</div>
+  <div><strong>Sources :</strong> Avenant contrat 17/03/2026 + document Adri <code>Commission_avril_2026 (1).docx</code> + Odoo XML-RPC</div>
+  <div><strong>Date de calcul :</strong> 18/05/2026 — validé par Nicolas le 18/05/2026</div>
   <div><strong>Méthode croissance :</strong> Option C — SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage parent</div>
   <div><strong>Règle de précédence :</strong> en cas de divergence Odoo vs Adri, le chiffre Adri est adopté (source officielle contrat)</div>
 </div>
@@ -89,22 +80,17 @@
   <div class="summary-card">
     <div class="num">260 €</div>
     <div class="label">Grossistes</div>
-    <div class="sub">2 × 130 € (règle Adri)</div>
+    <div class="sub">2 × 130 € (1 grossiste = 2× Horeca)</div>
   </div>
   <div class="summary-card total">
     <div class="num">2 420 €</div>
-    <div class="label">Total brut — Version A (Adri)</div>
-    <div class="sub">grossiste = 130 €</div>
-  </div>
-  <div class="summary-card total-b">
-    <div class="num">2 290 €</div>
-    <div class="label">Total brut — Version B</div>
-    <div class="sub">grossiste = 65 € (mémoire stricte)</div>
+    <div class="label">Total brut</div>
+    <div class="sub">Validé Nicolas — 18/05/2026</div>
   </div>
 </div>
 
-<div class="alert danger">
-  <strong>Validation requise avant envoi à Jérôme :</strong> confirmer la règle grossiste = 130 € (Version A, source Adri) ou 65 € (Version B, mémoire stricte). Différence = 130 €. Voir section 6.
+<div class="alert success">
+  <strong>Rapport validé par Nicolas le 18/05/2026.</strong> Règle grossiste = 130 € (2× Horeca) confirmée officiellement et intégrée à la mémoire des règles de commission.
 </div>
 
 <!-- VOLET CROISSANCE -->
@@ -231,13 +217,12 @@
 </div>
 
 <!-- VOLET GROSSISTES -->
-<h2>4. Commission Grossistes — 2 × 130 € = 260 € (Version A) ou 2 × 65 € = 130 € (Version B)</h2>
+<h2>4. Commission Grossistes — 2 × 130 € = 260 €</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Règle Adri (Version A) :</strong> 1 grossiste = 2 × commission Horeca = 130 € brut.<br>
-    <strong>Règle mémoire stricte (Version B) :</strong> 65 € par nouveau revendeur/grossiste (assimilé Horeca).
+    <strong>Règle officielle :</strong> 1 grossiste = 2 × commission Horeca = 130 € brut. Confirmée par Nicolas le 18/05/2026.
   </div>
 
   <table>
@@ -247,45 +232,18 @@
     <tbody>
       <tr class="eligible"><td>1</td><td><strong>Groupe DonGiovanni</strong> (KVA Bar)</td><td>Grossiste (tag 32)</td><td>#123207</td><td>S05471 — 24/04</td><td class="num">540,00 €</td><td>Jérôme</td><td><span class="badge badge-ok">SO confirmée — Jérôme</span></td></tr>
       <tr class="eligible"><td>2</td><td><strong>Frigo Loco</strong> (Smart fridges srl)</td><td>—</td><td>#122658</td><td>S05324 — 01/04</td><td class="num">480,00 €</td><td>Aurelie</td><td><span class="badge badge-warn">SO par Aurelie — retenu Adri</span></td></tr>
-      <tr class="total-row"><td colspan="6">Version A (Adri — 130 €/grossiste)</td><td colspan="2"><strong>260 €</strong></td></tr>
-      <tr class="total-row"><td colspan="6">Version B (mémoire stricte — 65 €/grossiste)</td><td colspan="2"><strong>130 €</strong></td></tr>
+      <tr class="total-row"><td colspan="6">Total Grossistes (2 × 130 €)</td><td colspan="2"><strong>260 €</strong></td></tr>
     </tbody>
   </table>
 
-  <div class="alert">
-    <strong>Frigo Loco :</strong> SO S05324 encodée par aurelie.thibaut@noenature.com (pas Jérôme Carlier). Aucune SO antérieure à avril 2026 dans Odoo — bien nouveau client. Adri le retient pour la commission Jérôme, ce qui suggère que la commission s'applique indépendamment du créateur de la SO.
+  <div class="alert info">
+    <strong>Frigo Loco :</strong> SO S05324 encodée par aurelie.thibaut@noenature.com (pas Jérôme Carlier). Aucune SO antérieure à avril 2026 dans Odoo — bien nouveau client. Adri le retient pour la commission Jérôme — la commission s'applique indépendamment du créateur de la SO.
   </div>
 
-</div>
-
-<!-- DIVERGENCE GROSSISTE -->
-<h2>5. Point de divergence — Règle Grossiste (à valider Nicolas)</h2>
-
-<div class="card">
-  <div class="divergence-box">
-    <p><strong>Règle Adri (document officiel avril 2026) :</strong> <em>"1 grossiste = 2 × commission Horeca/Revendeur = 130 € brut"</em></p>
-    <p style="margin-top:.4rem;"><strong>Mémoire officielle Teatower :</strong> la règle grossiste à 130 € n'est pas formalisée dans <code>reference_commission_jerome_regles.md</code>. La mémoire mentionne uniquement 65 € pour Horeca/Revendeurs hors GMS.</p>
-    <p style="margin-top:.4rem;"><strong>Enjeu :</strong> 2 grossistes × (130 − 65) € = <strong>130 €</strong> de différence entre les deux versions.</p>
-  </div>
-
-  <table>
-    <thead><tr><th>Volet</th><th>Version A (Adri — officiel)</th><th>Version B (mémoire stricte)</th></tr></thead>
-    <tbody>
-      <tr><td>Croissance CA B2B</td><td class="num">400 €</td><td class="num">400 €</td></tr>
-      <tr><td>GMS (15 × 100 €)</td><td class="num">1 500 €</td><td class="num">1 500 €</td></tr>
-      <tr><td>Horeca (4 × 65 €)</td><td class="num">260 €</td><td class="num">260 €</td></tr>
-      <tr><td>Grossistes</td><td class="num">260 € (2 × 130 €)</td><td class="num">130 € (2 × 65 €)</td></tr>
-      <tr class="total-row"><td><strong>TOTAL</strong></td><td class="num"><strong>2 420 € brut</strong></td><td class="num"><strong>2 290 € brut</strong></td></tr>
-    </tbody>
-  </table>
-
-  <div class="alert success">
-    <strong>Recommandation :</strong> si Nicolas confirme la règle Adri (Version A = 2 420 €), intégrer "grossiste = 130 €" dans la mémoire officielle <code>reference_commission_jerome_regles.md</code> pour les mois suivants.
-  </div>
 </div>
 
 <!-- TABLEAU DIVERGENCES ODOO -->
-<h2>6. Tableau des divergences Odoo / Adri</h2>
+<h2>5. Tableau des divergences Odoo / Adri</h2>
 
 <div class="card">
   <table>
@@ -303,24 +261,11 @@
   </table>
 </div>
 
-<!-- POINTS A VALIDER -->
-<h2>7. Points à valider avec Nicolas avant envoi à Jérôme</h2>
-
-<div class="card">
-  <ol class="todo">
-    <li><strong>Version A (2 420 €) ou Version B (2 290 €) :</strong> confirmer si la règle "1 grossiste = 130 €" est officiellement intégrée. Si oui, mettre à jour la mémoire des règles.</li>
-    <li><strong>Frigo Loco (SO encodée par Aurelie) :</strong> Adri le retient — confirmer si la commission Jérôme est bien due indépendamment du créateur de la SO dans Odoo.</li>
-    <li><strong>Le Walhère Roi (SO à 110 € HTVA) :</strong> Adri le retient malgré le seuil de 240 €. Confirmer si le déclencheur est bien l'ouverture de compte (pas la valeur de la 1re SO).</li>
-    <li><strong>Bomerée + Gosselies (livraison Gilles semaine 19 mai) :</strong> ces 2 displays mars 2026 restent en attente — à comptabiliser en mai 2026 dès encodage des SO.</li>
-    <li><strong>Ne pas envoyer à Jérôme avant validation Nicolas.</strong></li>
-  </ol>
-</div>
-
 <p class="footer">
   Document généré automatiquement par l'agent Compta Teatower — 18/05/2026<br>
+  Validé par Nicolas Raes le 18/05/2026<br>
   Source officielle : <code>Commission_avril_2026 (1).docx</code> (Adri) + Odoo XML-RPC<br>
-  Total Version A (Adri) : <strong>2 420 € brut</strong> | Total Version B (mémoire stricte) : <strong>2 290 € brut</strong><br>
-  Avril 2025 : 55 433 € HT Odoo (63 500 € Adri) | Avril 2026 : 67 672 € HT Odoo (73 805 € Adri)
+  <strong>Total : 2 420 € brut</strong>
 </p>
 
 </body>
