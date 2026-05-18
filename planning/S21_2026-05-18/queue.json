@@ -158,11 +158,23 @@
     },
     {
       "day": "mercredi 2026-05-20",
-      "label": "Verviers / Liège Est (5 stops cluster overdue 60j+)",
-      "axis": "Baillonville → Spa → Dolhain → Welkenraedt → Heusy ×2 → retour",
+      "label": "Liège Est / Verviers (5 stops cluster overdue 60j+)",
+      "axis": "Baillonville → Remouchamps → Spa → Dolhain → Heusy ×2 → retour",
       "stops": [
         {
-          "time": "09:30-10:00",
+          "time": "09:00-09:30",
+          "type": "VISITE",
+          "partner_id": 2865,
+          "name": "Carrefour Market Remouchamps",
+          "address": "Av. de la Porallée 36A, 4920 Aywaille",
+          "phone": "043 84 05 50",
+          "email": "ms.market066@outlook.com",
+          "contact_comment": "Resp. rayon présent lundi/mardi/MERCREDI/vendredi (absent jeudi).",
+          "tier": "A", "last": "2026-04-10", "avg_eur": 909,
+          "brief": "Tier A — 909€ avg. Remouchamps déplacé du jeudi (resp. rayon absent jeudi). Ouverture mercredi OK. Réassort standard + photos."
+        },
+        {
+          "time": "10:05-10:35",
           "type": "VISITE",
           "partner_id": 7649,
           "name": "AD Delhaize Spa",
@@ -174,7 +186,7 @@
           "brief": "Tier B — 65j OVERDUE. Demander Arnaud"
         },
         {
-          "time": "10:35-11:05",
+          "time": "11:05-11:35",
           "type": "VISITE",
           "partner_id": 59928,
           "name": "AD Dolhain - Ets Alpo",
@@ -186,19 +198,7 @@
           "brief": "Tier B — 65j OVERDUE. Demander Sophie / Nicole / Anaïs"
         },
         {
-          "time": "11:20-11:50",
-          "type": "VISITE",
-          "partner_id": 59514,
-          "name": "Delhaize Welkenraedt",
-          "address": "Rue Gérard Delvoye 3A, 4840 Welkenraedt",
-          "phone": "+32 87 88 04 29",
-          "email": "magasin@adwelkenraedt.be",
-          "contact_comment": "Contact: Anaïs / Mme Fernandes. PAS DE VISITE LE MERCREDI → mardi/jeudi/vendredi privilégier.",
-          "tier": "B", "last": "2026-03-16", "avg_eur": 348,
-          "brief": "ATTENTION : magasin demande pas le mercredi. Plan B : si responsable absent confirmé, décaler en S22. Tester accueil rapide."
-        },
-        {
-          "time": "12:30-13:00",
+          "time": "11:55-12:25",
           "type": "VISITE",
           "partner_id": 120499,
           "name": "Delhaize Heusy",
@@ -219,33 +219,33 @@
           "email": "caroline.leidgens.intermarche@gmail.com",
           "contact_comment": "Contact: Caroline Leidgens",
           "tier": "B", "last": "2026-03-16", "avg_eur": 437,
-          "brief": "Tier B — 65j OVERDUE. Demander Caroline Leidgens"
+          "brief": "Tier B — 65j OVERDUE. Demander Caroline Leidgens. Déjeuner court 12:30-13:05 entre les 2 Heusy."
         }
       ],
-      "trajet": "Baillonville 08:25 → Spa 09:30 (1h05, 70 km via E25/E42) → Dolhain 10:35 (25 min, 25 km) → Welkenraedt 11:20 (15 min) → Heusy 12:30 (35 min retour A27 + déjeuner 12:00-12:30) → ITM Heusy 13:10 (5 min intra) → Baillonville 14:20 (1h10, 90 km via E25)",
-      "km_total": 235,
-      "retour_baillonville": "14:20",
-      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Av+Reine+Astrid+244+4900+Spa/Av+Reine+Astrid+3+4831+Bilstain-Limbourg/Rue+G%C3%A9rard+Delvoye+3+4840+Welkenraedt/Av+de+Spa+66+4802+Heusy/Chauss%C3%A9e+de+Theux+55+4802+Heusy/5377+Baillonville"
+      "trajet": "Baillonville 08:25 → Remouchamps (Aywaille) 09:00 (35 min, 35 km via E25) → Spa 10:05 (30 min, 25 km via N62/E25) → Dolhain 11:05 (25 min, 23 km) → Heusy (Av Spa) 11:55 (15 min, 13 km via A27/N61) → déjeuner court 12:30-13:05 → ITM Heusy (Theux) 13:10 (5 min intra) → Baillonville 14:35 (1h15, 80 km via E25)",
+      "km_total": 175,
+      "retour_baillonville": "14:35",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Av+de+la+Poral%C3%A9e+36+4920+Aywaille/Av+Reine+Astrid+244+4900+Spa/Av+Reine+Astrid+3+4831+Bilstain-Limbourg/Av+de+Spa+66+4802+Heusy/Chauss%C3%A9e+de+Theux+55+4802+Heusy/5377+Baillonville"
     },
     {
       "day": "jeudi 2026-05-21",
-      "label": "Liège centre + Hesbaye (6 stops mix Tier A/B)",
-      "axis": "Baillonville → Remouchamps → Liège Ardentes → Cointe → Fragnée → Faimes → Villers → Hannut → retour",
+      "label": "Welkenraedt + Liège centre + Hesbaye (6 stops mix Tier A/B)",
+      "axis": "Baillonville → Welkenraedt → Liège Ardentes → Cointe → Fragnée → Villers → Hannut → retour",
       "stops": [
         {
-          "time": "09:00-09:30",
+          "time": "09:10-09:40",
           "type": "VISITE",
-          "partner_id": 2865,
-          "name": "Carrefour Market Remouchamps",
-          "address": "Av. de la Porallée 36A, 4920 Aywaille",
-          "phone": "043 84 05 50",
-          "email": "ms.market066@outlook.com",
-          "contact_comment": "PAS DE VISITE LE JEUDI (resp. rayon absent) → décaler à mercredi/vendredi.",
-          "tier": "A", "last": "2026-04-10", "avg_eur": 909,
-          "brief": "ALERTE CONTRAINTE : pas le jeudi normalement. Plan B : remplacer par stop fixe ou prendre risque accueil (Tier A 909€ avg, vaut l'essai)."
+          "partner_id": 59514,
+          "name": "Delhaize Welkenraedt",
+          "address": "Rue Gérard Delvoye 3A, 4840 Welkenraedt",
+          "phone": "+32 87 88 04 29",
+          "email": "magasin@adwelkenraedt.be",
+          "contact_comment": "Contact: Anaïs / Mme Fernandes. Resp. présent mardi/JEUDI/vendredi (PAS le mercredi).",
+          "tier": "B", "last": "2026-03-16", "avg_eur": 348,
+          "brief": "Tier B — 65j OVERDUE. Welkenraedt déplacé du mercredi (resp. absent mercredi). Jeudi OK. Demander Anaïs ou Mme Fernandes."
         },
         {
-          "time": "09:55-10:25",
+          "time": "10:25-10:55",
           "type": "VISITE",
           "partner_id": 120156,
           "name": "Delhaize Liège Ardentes (Delardentes)",
@@ -257,7 +257,7 @@
           "brief": "Tier B — 42j. Demander Kevin Demarteau (0468 37 62 65). Thé en rayon, photos."
         },
         {
-          "time": "10:45-11:15",
+          "time": "11:15-11:45",
           "type": "VISITE",
           "partner_id": 121194,
           "name": "Intermarché Liège Cointe",
@@ -269,7 +269,7 @@
           "brief": "Tier B — 65j OVERDUE. Demander Mme Mossay"
         },
         {
-          "time": "11:30-12:00",
+          "time": "12:00-12:30",
           "type": "VISITE",
           "partner_id": 2965,
           "name": "Delhaize Fragnée",
@@ -281,19 +281,7 @@
           "brief": "Tier B — 65j OVERDUE. Mme Bastin / Mme Hicter. Réassort display. Noter intérêt passage rayon (brief Jérôme)."
         },
         {
-          "time": "13:00-13:30",
-          "type": "VISITE",
-          "partner_id": 3210,
-          "name": "Intermarché Faimes",
-          "address": "Rue de Huy 27, 4317 Faimes",
-          "phone": "019678378",
-          "email": "PDV06089@mousquetaires.com",
-          "contact_comment": "Pas de remarque merchandiser dédiée — demander accueil",
-          "tier": "B", "last": "2026-03-17", "avg_eur": 212,
-          "brief": "Tier B — 65j OVERDUE. Demander accueil pour resp. rayon"
-        },
-        {
-          "time": "13:50-14:20",
+          "time": "13:30-14:00",
           "type": "VISITE",
           "partner_id": 115879,
           "name": "Intermarché Villers-le-Bouillet",
@@ -302,10 +290,10 @@
           "email": "PDV05449@MOUSQUETAIRES.COM",
           "contact_comment": "Contact: Mr Johan. Visite mercredi ou vendredi matin si possible — demander Christophe ou Johan. Client demande visite toutes 3 sem (à espacer si pas de réassort régulier).",
           "tier": "B", "last": "2026-03-26", "avg_eur": 332,
-          "brief": "Tier B — 56j. Demander Christophe ou Johan. ATTENTION : valider espacement futur si rayon plein"
+          "brief": "Tier B — 56j. Demander Christophe ou Johan. Déjeuner sur autoroute 12:30-13:30 entre Fragnée et Villers. ATTENTION : valider espacement futur si rayon plein."
         },
         {
-          "time": "14:50-15:20",
+          "time": "14:25-14:55",
           "type": "VISITE",
           "partner_id": 121874,
           "name": "Intermarché Hannut",
@@ -317,10 +305,10 @@
           "brief": "Tier B — 49j. Demander Mr Wereau ou Valentin. Livraison fenêtre 6h-13h (si réassort)"
         }
       ],
-      "trajet": "Baillonville 08:25 → Remouchamps 09:00 (35 min, 35 km via N86) → Liège Ardentes 09:55 (25 min, 25 km) → Cointe 10:45 (15 min intra-Liège) → Fragnée 11:30 (10 min) → déjeuner 12:00-12:50 → Faimes 13:00 (10 min, A15) → Villers 13:50 (15 min, 15 km) → Hannut 14:50 (25 min, 22 km) → Baillonville 16:05 (1h15, 70 km via N80/N4)",
-      "km_total": 230,
-      "retour_baillonville": "16:05",
-      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Av+de+la+Poral%C3%A9e+36+4920+Aywaille/Chauss%C3%A9e+de+Tongres+269+4000+Li%C3%A8ge/Bd+Gustave+Kleyer+3+4000+Li%C3%A8ge/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Rue+de+Huy+27+4317+Faimes/Rue+du+Ch%C3%A2teau+d'eau+1+4530+Villers-le-Bouillet/Rue+de+Hesbaye+1+4280+Hannut/5377+Baillonville"
+      "trajet": "Baillonville 08:00 → Welkenraedt 09:10 (1h10, 75 km via E25/E40) → Liège Ardentes 10:25 (45 min, 38 km via E40) → Cointe 11:15 (20 min intra-Liège) → Fragnée 12:00 (15 min) → déjeuner sur autoroute A15 12:30-13:30 → Villers 13:30 (45 min, 35 km via A15/E42) → Hannut 14:25 (25 min, 22 km) → Baillonville 16:10 (1h15, 70 km via N80/N4)",
+      "km_total": 270,
+      "retour_baillonville": "16:10",
+      "gmaps": "https://www.google.com/maps/dir/5377+Baillonville/Rue+G%C3%A9rard+Delvoye+3+4840+Welkenraedt/Chauss%C3%A9e+de+Tongres+269+4000+Li%C3%A8ge/Bd+Gustave+Kleyer+3+4000+Li%C3%A8ge/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Rue+du+Ch%C3%A2teau+d'eau+1+4530+Villers-le-Bouillet/Rue+de+Hesbaye+1+4280+Hannut/5377+Baillonville"
     },
     {
       "day": "vendredi 2026-05-22",
@@ -419,10 +407,10 @@
     }
   ],
   "totaux": {
-    "stops": 28,
+    "stops": 27,
     "implantations": 2,
-    "visites": 26,
-    "km_semaine": 1185,
+    "visites": 25,
+    "km_semaine": 1145,
     "jours_actifs": 5
   },
   "reports_s22": [
@@ -430,9 +418,11 @@
     "Delhaize Ottignies #3016 (Tier B, avg 530€, OVERDUE) — pas casé v1 ven, à prendre S22 axe BW",
     "Hyper Carrefour Fleron #7760 (Tier X) — pas casé v1, S22 axe Liège",
     "Intermarché Herve #120491 — pas casé v1, S22 axe Verviers",
-    "Delhaize Barchon #119815 — pas casé v1, S22 axe Liège Est"
+    "Delhaize Barchon #119815 — pas casé v1, S22 axe Liège Est",
+    "Intermarché Faimes #3210 (Tier B 212€ avg, 65j OVERDUE) — retiré jeudi v3 (cap 16:30 après ajout Welkenraedt en début de tournée), à recaler S22 axe Hesbaye"
   ],
   "changelog": [
+    "v3 (2026-05-18) — Correction contraintes jour : Delhaize Welkenraedt #59514 déplacé mercredi → jeudi (resp. absent mercredi), CM Remouchamps #2865 déplacé jeudi → mercredi (resp. absent jeudi). Faimes #3210 retiré jeudi (cap horaire 16:30) → report S22. Mercredi 5 stops (axe Aywaille-Verviers, 175 km, retour 14:35). Jeudi 6 stops (axe Welkenraedt-Hesbaye, 270 km, retour 16:10).",
     "v2 (2026-05-17) — Correction lundi 18/05 : ajout IMPL initiale Braine-le-Comte #123466 (S05531, 30 min) en tête de tournée. IMPL prévue ven 15/05 (S20 v5) non faite, urgente. Walcourt #9016 reporté S22. Retour Baillonville 16:15 (marge 15 min).",
     "v1 (2026-05-16) — Publication initiale via build_planning_pool.py."
   ]

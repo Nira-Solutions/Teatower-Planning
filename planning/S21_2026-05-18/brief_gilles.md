@@ -1,8 +1,10 @@
-# Planning Merchandiser Gilles — S21 (18-22 mai 2026) — v2
+# Planning Merchandiser Gilles — S21 (18-22 mai 2026) — v3
 
 > **Base** : Baillonville (5377) | **Horaires** : 08h30 → 16h30 (retour max 16h30)
 > **Règles** : IMPL = 30 min sauf exception, VISITE = 30 min, pas de revisite S20 (sauf cas explicite)
-> **28 stops** sur 5 jours — **2 IMPL initiales** + 26 visites — ~1185 km
+> **27 stops** sur 5 jours — **2 IMPL initiales** + 25 visites — ~1145 km
+>
+> **Changelog v3 (18/05)** : correction contraintes jour. **Delhaize Welkenraedt #59514** déplacé mercredi → jeudi (resp. absent mercredi). **CM Remouchamps #2865** déplacé jeudi → mercredi (resp. absent jeudi). **Faimes #3210** retiré jeudi (cap horaire 16:30 après ajout Welkenraedt en début) → report S22.
 >
 > **Changelog v2 (17/05)** : ajout IMPL initiale **Braine-le-Comte #123466** lundi matin (oublié v1, IMPL prévue ven 15/05 NON FAITE). Walcourt #9016 reporté S22 (Tier C, lead Jérôme à reprendre).
 
@@ -58,57 +60,57 @@
 
 ---
 
-## Mercredi 20/05 — Verviers / Liège Est (5 stops cluster overdue 60j+)
+## Mercredi 20/05 — Liège Est / Verviers (5 stops cluster overdue 60j+)
 
-**Axe** : Baillonville → Spa → Dolhain → Welkenraedt → Heusy ×2 → retour
-**Trajet** : 235 km, retour Baillonville 14:20
-**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/Av+Reine+Astrid+244+4900+Spa/Av+Reine+Astrid+3+4831+Bilstain-Limbourg/Rue+G%C3%A9rard+Delvoye+3+4840+Welkenraedt/Av+de+Spa+66+4802+Heusy/Chauss%C3%A9e+de+Theux+55+4802+Heusy/5377+Baillonville)**
+**Axe** : Baillonville → Remouchamps → Spa → Dolhain → Heusy ×2 → retour
+**Trajet** : 175 km, retour Baillonville 14:35
+**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/Av+de+la+Poral%C3%A9e+36+4920+Aywaille/Av+Reine+Astrid+244+4900+Spa/Av+Reine+Astrid+3+4831+Bilstain-Limbourg/Av+de+Spa+66+4802+Heusy/Chauss%C3%A9e+de+Theux+55+4802+Heusy/5377+Baillonville)**
 
 | Heure | Type | Magasin | Adresse | Contact (full) |
 |---|---|---|---|---|
-| 09:30-10:00 | VISITE | **AD Delhaize Spa** #7649 | Av. Reine Astrid 244, 4900 Spa — tél +32 87 79 52 10 | Contact merchandiser: Arnaud |
-| 10:35-11:05 | VISITE | **AD Dolhain (Ets Alpo)** #59928 | Av. Reine Astrid 3, 4831 Bilstain-Limbourg — tél +32 87 76 01 76 | Demander Sophie ou Nicole, si absentes demander Anaïs |
-| 11:20-11:50 | VISITE | **Delhaize Welkenraedt** #59514 | Rue Gérard Delvoye 3A, 4840 Welkenraedt — tél +32 87 88 04 29 | **ATTENTION** Contact: Anaïs / Mme Fernandes. **PAS DE VISITE LE MERCREDI normalement** — Plan B si responsable absent : décaler S22. |
-| 12:00-12:30 | Déjeuner court | — | — | — |
-| 12:30-13:00 | VISITE | **Delhaize Heusy** #120499 | Av. de Spa 66, 4802 Heusy — tél +32 87 22 14 75 | Contact: Nicolas Crotteux ou Mme Simar |
+| **09:00-09:30** | VISITE | **CM Remouchamps** #2865 | Av. de la Porallée 36A, 4920 Aywaille — tél 043 84 05 50 | Resp. rayon présent lundi/mardi/**MERCREDI**/vendredi (absent jeudi). Tier A 909€ avg. |
+| 10:05-10:35 | VISITE | **AD Delhaize Spa** #7649 | Av. Reine Astrid 244, 4900 Spa — tél +32 87 79 52 10 | Contact merchandiser: Arnaud |
+| 11:05-11:35 | VISITE | **AD Dolhain (Ets Alpo)** #59928 | Av. Reine Astrid 3, 4831 Bilstain-Limbourg — tél +32 87 76 01 76 | Demander Sophie ou Nicole, si absentes demander Anaïs |
+| 11:55-12:25 | VISITE | **Delhaize Heusy** #120499 | Av. de Spa 66, 4802 Heusy — tél +32 87 22 14 75 | Contact: Nicolas Crotteux ou Mme Simar |
+| 12:30-13:05 | Déjeuner court | — | — | — |
 | 13:10-13:40 | VISITE | **Intermarché Heusy** (Wonka SA) #7003 | Chau. de Theux 55, 4802 Heusy — tél +32 472 09 23 90 | Contact: Caroline Leidgens |
 
 ### Brief par stop
 
+- **CM Remouchamps** : Tier A 909€ avg. **Déplacé du jeudi** (resp. absent jeudi). Mercredi OK. Réassort standard + photos.
 - **AD Spa** : Tier B, 65j OVERDUE. Demander Arnaud.
 - **AD Dolhain** : Tier B, 65j OVERDUE. Sophie / Nicole / Anaïs.
-- **Delhaize Welkenraedt** : **Contrainte jour** — si Anaïs/Mme Fernandes refuse car mercredi, ne pas insister, photos rayon + repli rapide. Décaler S22.
-- **Delhaize Heusy** : Tier B, 65j OVERDUE.
+- **Delhaize Heusy** : Tier B, 65j OVERDUE. Mr Crotteux ou Mme Simar.
 - **ITM Heusy** : Tier B, 65j OVERDUE. Demander Caroline Leidgens.
 
 ---
 
-## Jeudi 21/05 — Liège centre + Hesbaye (7 stops mix Tier A/B)
+## Jeudi 21/05 — Welkenraedt + Liège centre + Hesbaye (6 stops mix Tier A/B)
 
-**Axe** : Baillonville → Remouchamps → Liège Ardentes → Cointe → Fragnée → Faimes → Villers → Hannut → retour
-**Trajet** : 230 km, retour Baillonville 16:05
-**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/Av+de+la+Poral%C3%A9e+36+4920+Aywaille/Chauss%C3%A9e+de+Tongres+269+4000+Li%C3%A8ge/Bd+Gustave+Kleyer+3+4000+Li%C3%A8ge/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Rue+de+Huy+27+4317+Faimes/Rue+du+Ch%C3%A2teau+d'eau+1+4530+Villers-le-Bouillet/Rue+de+Hesbaye+1+4280+Hannut/5377+Baillonville)**
+**Axe** : Baillonville → Welkenraedt → Liège Ardentes → Cointe → Fragnée → Villers → Hannut → retour
+**Trajet** : 270 km, retour Baillonville 16:10 — **départ 08:00** (15 min plus tôt qu'usuel pour absorber Welkenraedt à 75 km)
+**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/Rue+G%C3%A9rard+Delvoye+3+4840+Welkenraedt/Chauss%C3%A9e+de+Tongres+269+4000+Li%C3%A8ge/Bd+Gustave+Kleyer+3+4000+Li%C3%A8ge/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Rue+du+Ch%C3%A2teau+d'eau+1+4530+Villers-le-Bouillet/Rue+de+Hesbaye+1+4280+Hannut/5377+Baillonville)**
 
 | Heure | Type | Magasin | Adresse | Contact (full) |
 |---|---|---|---|---|
-| 09:00-09:30 | VISITE | **CM Remouchamps** #2865 | Av. de la Porallée 36A, 4920 Aywaille — tél 043 84 05 50 | **ALERTE CONTRAINTE** — pas de visite le jeudi normalement (resp. rayon absent). Tier A 909€ avg, tenter accueil. |
-| 09:55-10:25 | VISITE | **Delhaize Liège Ardentes** #120156 | Chau. de Tongres 269, 4000 Liège — tél +32 4 342 85 58 | Contact: **Kevin Demarteau 0468 37 62 65**. Thé en rayon. |
-| 10:45-11:15 | VISITE | **ITM Liège Cointe** #121194 | Bd Gustave Kleyer 3, 4000 Liège — tél +32 4 250 34 82 | Contact: Mme Mossay |
-| 11:30-12:00 | VISITE | **Delhaize Fragnée** (Gimalex) #2965 | Rue de Fragnée 41, 4000 Liège — tél 042 52 87 63 | Pas de visite les lundis. Demander Mme Bastin ou Mme Hicter. Magasin veut passer en rayon comme ITM Tilff. |
-| 12:00-12:50 | Déjeuner | — | — | — |
-| 13:00-13:30 | VISITE | **ITM Faimes** #3210 | Rue de Huy 27, 4317 Faimes — tél 019678378 | Pas de remarque dédiée — demander accueil |
-| 13:50-14:20 | VISITE | **ITM Villers-le-Bouillet** #115879 | Rue du Château d'eau 1, 4530 Villers-le-Bouillet — tél +32 85 31 69 11 | Contact: Mr Johan. Visite mercredi/vendredi matin idéal — demander Christophe ou Johan. Client demande visite ttes 3 sem (à espacer). |
-| 14:50-15:20 | VISITE | **ITM Hannut** #121874 | Rue de Hesbaye 1, 4280 Hannut — tél +32 19 51 20 06 | Contact: Mr Christophe Wereau / Benjamin / Valentin. Livraison 6h-13h. |
+| **09:10-09:40** | VISITE | **Delhaize Welkenraedt** #59514 | Rue Gérard Delvoye 3A, 4840 Welkenraedt — tél +32 87 88 04 29 | Contact: Anaïs / Mme Fernandes. Resp. présent mardi/**JEUDI**/vendredi (PAS le mercredi). |
+| 10:25-10:55 | VISITE | **Delhaize Liège Ardentes** #120156 | Chau. de Tongres 269, 4000 Liège — tél +32 4 342 85 58 | Contact: **Kevin Demarteau 0468 37 62 65**. Thé en rayon. |
+| 11:15-11:45 | VISITE | **ITM Liège Cointe** #121194 | Bd Gustave Kleyer 3, 4000 Liège — tél +32 4 250 34 82 | Contact: Mme Mossay |
+| 12:00-12:30 | VISITE | **Delhaize Fragnée** (Gimalex) #2965 | Rue de Fragnée 41, 4000 Liège — tél 042 52 87 63 | Pas de visite les lundis. Demander Mme Bastin ou Mme Hicter. Magasin veut passer en rayon comme ITM Tilff. |
+| 12:30-13:30 | Déjeuner sur autoroute A15 | — | — | — |
+| 13:30-14:00 | VISITE | **ITM Villers-le-Bouillet** #115879 | Rue du Château d'eau 1, 4530 Villers-le-Bouillet — tél +32 85 31 69 11 | Contact: Mr Johan. Visite mercredi/vendredi matin idéal — demander Christophe ou Johan. Client demande visite ttes 3 sem (à espacer). |
+| 14:25-14:55 | VISITE | **ITM Hannut** #121874 | Rue de Hesbaye 1, 4280 Hannut — tél +32 19 51 20 06 | Contact: Mr Christophe Wereau / Benjamin / Valentin. Livraison 6h-13h. |
 
 ### Brief par stop
 
-- **CM Remouchamps** : **Contrainte jeudi** — si responsable absent, photos rapides + repli. Tier A à 909€ avg = priorité.
+- **Delhaize Welkenraedt** : Tier B 348€ avg, 65j OVERDUE. **Déplacé du mercredi** (resp. absent mercredi). Jeudi OK. Demander Anaïs ou Mme Fernandes.
 - **Delhaize Liège Ardentes** : Tier B, 42j. Demander Kevin Demarteau (0468 37 62 65).
-- **ITM Cointe** : Tier B, 65j OVERDUE.
+- **ITM Cointe** : Tier B, 65j OVERDUE. Mme Mossay.
 - **Delhaize Fragnée** : Tier B, 65j OVERDUE. Mme Bastin/Hicter. **Noter intérêt passage rayon** (brief Jérôme post-visite).
-- **ITM Faimes** : Tier B, 65j OVERDUE. Demander accueil.
 - **ITM Villers** : Tier B, 56j. Demander Christophe/Johan. **Valider espacement futur** si rayon plein.
 - **ITM Hannut** : Tier B, 49j. Mr Wereau ou Valentin.
+
+> **Note** : **ITM Faimes #3210** (Tier B 212€, 65j OVERDUE) **retiré du jeudi** (cap horaire 16:30 après ajout Welkenraedt à 75 km en début) → **reporté S22** axe Hesbaye.
 
 ---
 
@@ -145,12 +147,12 @@
 
 | Indicateur | Valeur |
 |---|---|
-| Stops total | **28** (1 IMPL + 27 visites) |
-| IMPLANTATIONS | 1 (La Louvière S05404 — 1h initiale) |
-| Visites | 27 |
+| Stops total | **27** (2 IMPL + 25 visites) |
+| IMPLANTATIONS | 2 (Braine-le-Comte 30 min + La Louvière 1h) |
+| Visites | 25 |
 | Jours actifs | 5 |
-| Km total semaine | ~1180 km |
-| Retour max | 16:05 (jeudi) — **toujours sous 16:30** |
+| Km total semaine | ~1145 km |
+| Retour max | 16:15 (lundi) — **toujours sous 16:30** |
 
 ## Vérifications
 
@@ -160,15 +162,17 @@
 - **Pas Debroux/LLN/Chaumont-Gistoux** (rayon plein 12/05, restent cycle normal).
 - **Pas de boutiques Teatower**.
 - **Trajets Google Maps simulés** — liens inclus chaque jour.
-- **Contraintes responsables** : Welkenraedt (mercredi NOK) + Remouchamps (jeudi NOK) signalés en Plan B sur place.
+- **Contraintes responsables** v3 : Welkenraedt (mercredi NOK) **déplacé jeudi** + Remouchamps (jeudi NOK) **déplacé mercredi** — règle dure respectée, plus de Plan B.
 - **Pas de calendar.event Odoo, pas de mails clients** (règle 07/05).
 
 ## Reports S22
 
+- Carrefour Market Walcourt #9016 (Tier C, avg 87€) — retiré lundi v2
 - Delhaize Ottignies #3016 (Tier B, avg 530€ OVERDUE) — boucle BW
 - Hyper Carrefour Fleron #7760 (Tier X) — axe Liège
 - Intermarché Herve #120491 — axe Verviers
 - Delhaize Barchon #119815 — axe Liège Est
+- **Intermarché Faimes #3210** (Tier B, 212€ avg, 65j OVERDUE) — retiré jeudi v3 (cap horaire)
 - ITM Spy #116686 / ITM Floriffoux #2958 (Namur ouest)
 
 ## Dashboard public
