@@ -1,5 +1,42 @@
 # LOG Compta Teatower
 
+## 2026-05-19 — Facturation masse B2B — 67 SO — INV/2026/02542 à INV/2026/02605
+
+- Type : facturation masse B2B — wizard `delivered` + envoi Peppol/email
+- Périmètre : 67 SO (61 clean + 6 partielles avec livraison utile)
+- Etape 1 — Transport forcé : 13 SO, 13 lignes TRANSPORT qty_delivered=product_uom_qty OK
+- Etape 2 — Wizard facturation (4 batches x 20/20/18/7) : 64 factures draft créées, 0 erreur
+  - IDs Odoo : 38243–38306
+  - Total TTC : 38 819,04 EUR — Total TVA : 2 042,75 EUR
+- Etape 3 — Post en lot (7 batches x 10) : 64/64 postées, 0 erreur
+  - Références : INV/2026/02542 à INV/2026/02605
+- Etape 4 — Envoi :
+  - Peppol (54 factures) : envoi via account.move.send.wizard, mode peppol, UBL BIS 3.0
+  - Email fallback (10 factures) : Le Fournil, L'Artiste, PAMPA, Cocoricoop, VENTE-PRIVEE.COM, Carrefour Belgium, La Thé Box, O'Brunch, La Pause Chocolat, Nouvel Air Coiffure
+  - Erreurs envoi : 0
+- SO exclues (non touchées) : S00738, S04347, S05192, S05454, S05529, S05484, S05582, S05585 (COFFRET partiel livré dans passe delivered), S05587, S05588
+
+## 2026-05-19 — Audit SO B2B en attente de facturation
+
+- Type : audit lecture seule — aucune écriture créée
+- Périmètre : 75 SO `to_invoice` filtrées → 60 SO B2B (hors GMS 14, hors Shopify 1)
+- Total HT estimé à facturer : 42 564,30 €
+- SO urgentes (> 15j) : 10 dont S00738 (370j) et S04347 (183j) — anomalies historiques
+- Transport à forcer qty_delivered : 13 SO
+- Rapport transmis à Nicolas (texte agent, 2026-05-19)
+
+## 2026-05-18 — Rapport commission Jérôme Carlier — Avril 2026 (v2 officiel)
+
+- Type : rapport commission — vérification Odoo + adoption chiffres Adri
+- Source : `Commission_avril_2026 (1).docx` (Adri) + Odoo XML-RPC (18/05/2026)
+- Fichiers produits :
+  - `compta/reports/2026-05-18_commission_jerome_avril2026.md`
+  - `Teatower-Planning/commission/avril-2026/index.html` (v2 — remplace brouillon obsolète 04/05)
+- Commit + push : 109974f (Teatower-Planning master)
+- Résultat : 2 420 € brut (Version A — grossiste 130 € Adri) ou 2 290 € (Version B — grossiste 65 € mémoire stricte)
+- Validation requise : règle grossiste 130 € à confirmer par Nicolas avant envoi Jérôme
+- CA B2B Odoo avril 2026 : 67 672,19 € HT / CA Adri : 73 805 € / Croissance Adri : +16,2 % → 400 €
+
 ## 2026-04-30 — Batch facturation run 6 — 17 factures draft (SO S05487–S05513)
 
 ### Correction lignes transport (nouvelle règle : transport = service, toujours facturer si marchandise partie)
