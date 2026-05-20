@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-20T16:51:39",
+  "updated": "2026-05-20T17:08:40",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3220,6 +3220,14 @@
       "status": "in_progress",
       "started": "2026-05-20T16:51",
       "request": "Retirer 1 Horeca sous min commande + monter palier croissance B2B suite retours Jerome"
+    },
+    {
+      "id": "t051",
+      "agent": "compta",
+      "task": "Commission Jerome avril 2026 v2 corrigee",
+      "status": "in_progress",
+      "started": "2026-05-20T17:08",
+      "request": "Corriger commission avril 2026 suite retours Jerome : -1 Horeca sous min commande, +palier croissance B2B"
     }
   ]
 }
