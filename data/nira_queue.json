@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-17T17:40:58",
+  "updated": "2026-05-20T16:51:39",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3212,6 +3212,14 @@
       "started": "2026-05-17T17:34",
       "request": "Braine-le-Comte oublie dans S21 lundi + IMPL non faite vendredi 15/05",
       "finished": "2026-05-17T17:40"
+    },
+    {
+      "id": "t050",
+      "agent": "compta",
+      "task": "Correction commission avril 2026 Jerome (Version B)",
+      "status": "in_progress",
+      "started": "2026-05-20T16:51",
+      "request": "Retirer 1 Horeca sous min commande + monter palier croissance B2B suite retours Jerome"
     }
   ]
 }
