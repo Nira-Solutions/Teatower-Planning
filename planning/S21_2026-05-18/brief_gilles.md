@@ -1,8 +1,10 @@
-# Planning Merchandiser Gilles — S21 (18-22 mai 2026) — v3
+# Planning Merchandiser Gilles — S21 (18-22 mai 2026) — v4
 
 > **Base** : Baillonville (5377) | **Horaires** : 08h30 → 16h30 (retour max 16h30)
 > **Règles** : IMPL = 30 min sauf exception, VISITE = 30 min, pas de revisite S20 (sauf cas explicite)
-> **27 stops** sur 5 jours — **2 IMPL initiales** + 25 visites — ~1145 km
+> **26 stops** sur 5 jours — **2 IMPL initiales** + 24 visites — ~1115 km
+>
+> **Changelog v4 (20/05)** : **Proxy Delhaize Lillois #114763 retiré vendredi 22/05** (décision Nicolas 20/05). Magasin trop petit pour visite merch → bascule en **APPEL ONLY** depuis info@teatower.com (tag posé dans res.partner.comment). Vendredi passe de 7 à 6 stops, retour Baillonville avancé ~15:00. Idem hors planning : **Carrefour Express Rhode-Saint-Genèse #120933**, **Carrefour Express CHIREC #120762**, **Proxy Delhaize Saint-Séverin #113445** — tous taggés APPEL ONLY (ils n'étaient pas en S21 mais ne reviendront plus dans les futurs cycles merch).
 >
 > **Changelog v3 (18/05)** : correction contraintes jour. **Delhaize Welkenraedt #59514** déplacé mercredi → jeudi (resp. absent mercredi). **CM Remouchamps #2865** déplacé jeudi → mercredi (resp. absent jeudi). **Faimes #3210** retiré jeudi (cap horaire 16:30 après ajout Welkenraedt en début) → report S22.
 >
@@ -114,11 +116,11 @@
 
 ---
 
-## Vendredi 22/05 — Bruxelles + Brabant Wallon (7 stops — boucle dense)
+## Vendredi 22/05 — Bruxelles + Brabant Wallon (6 stops — boucle dense)
 
-**Axe** : Baillonville → Linthout → Saint Michel → La Chasse → Flagey → Uccle Bascule → Maransart → Lillois → retour
-**Trajet** : 245 km, retour Baillonville 16:00
-**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/Av+Georges+Henri+481+1200+Woluwe-Saint-Lambert/Rue+de+l'Escadron+45+1040+Etterbeek/Rue+des+Champs+39+1040+Bruxelles/Rue+de+Hennin+18+1050+Ixelles/Chauss%C3%A9e+de+Waterloo+719+1180+Uccle/Route+de+l'Etat+217+1380+Lasne/Grand+Route+350+1428+Lillois/5377+Baillonville)**
+**Axe** : Baillonville → Linthout → Saint Michel → La Chasse → Flagey → Uccle Bascule → Maransart → retour
+**Trajet** : ~215 km, retour Baillonville ~15:00 (Lillois retiré v4 — APPEL ONLY)
+**[Google Maps tournée](https://www.google.com/maps/dir/5377+Baillonville/Av+Georges+Henri+481+1200+Woluwe-Saint-Lambert/Rue+de+l'Escadron+45+1040+Etterbeek/Rue+des+Champs+39+1040+Bruxelles/Rue+de+Hennin+18+1050+Ixelles/Chauss%C3%A9e+de+Waterloo+719+1180+Uccle/Route+de+l'Etat+217+1380+Lasne/5377+Baillonville)**
 
 | Heure | Type | Magasin | Adresse | Contact (full) |
 |---|---|---|---|---|
@@ -129,7 +131,7 @@
 | 12:15-12:45 | Déjeuner court (Uccle) | — | — | — |
 | 12:45-13:15 | VISITE | **CM Uccle Bascule** #2866 | Chau. de Waterloo 719, 1180 Uccle — tél 023 43 55 75 | Contact: Carmen |
 | 13:35-14:05 | VISITE | **Proxy Delhaize Maransart** #113217 | Route de l'Etat 217, 1380 Lasne — tél +32 2 633 13 25 | Contact: Marion Delannoy. Lundi après 10h, autres jours OK. |
-| 14:15-14:45 | VISITE | **Proxy Delhaize Lillois** #114763 | Grand-Route 350, 1428 Lillois — tél +32 2 384 48 83 | Contact: Mme Céline Vandamme |
+| ~~14:15-14:45~~ | ~~VISITE~~ | ~~Proxy Delhaize Lillois #114763~~ | ~~Grand-Route 350, 1428 Lillois~~ | **RETIRÉ v4 (20/05)** — bascule APPEL ONLY (trop petit). À appeler depuis info@teatower.com. |
 
 ### Brief par stop
 
@@ -138,8 +140,7 @@
 - **CM La Chasse** : Tier B, **88j OVERDUE +++**. Christopher (0499053761). EN DIRECT — display infusette + 4 glacés à vérifier.
 - **Delhaize Flagey** : Tier B, 49j. Mr Koumans.
 - **CM Uccle Bascule** : Tier C, 77j OVERDUE. Carmen.
-- **Proxy Maransart** : Tier B, 64j OVERDUE. Marion Delannoy.
-- **Proxy Lillois** : Tier B, 64j OVERDUE. Mme Vandamme.
+- **Proxy Maransart** : Tier B, 64j OVERDUE. Marion Delannoy. **Dernier stop** — retour direct Baillonville après ~14:05.
 
 ---
 
@@ -147,11 +148,11 @@
 
 | Indicateur | Valeur |
 |---|---|
-| Stops total | **27** (2 IMPL + 25 visites) |
+| Stops total | **26** (2 IMPL + 24 visites) |
 | IMPLANTATIONS | 2 (Braine-le-Comte 30 min + La Louvière 1h) |
-| Visites | 25 |
+| Visites | 24 |
 | Jours actifs | 5 |
-| Km total semaine | ~1145 km |
+| Km total semaine | ~1115 km |
 | Retour max | 16:15 (lundi) — **toujours sous 16:30** |
 
 ## Vérifications
