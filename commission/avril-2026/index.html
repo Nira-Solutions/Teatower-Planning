@@ -48,14 +48,15 @@
 <body>
 
 <h1>Commission Avril 2026 — Jérôme Carlier</h1>
-<p class="subtitle">Rapport officiel — source : <code>Commission_avril_2026 (1).docx</code> (Adri) + vérification Odoo XML-RPC (18/05/2026)</p>
+<p class="subtitle">Rapport officiel <strong>Version B — corrigée 20/05/2026</strong> — source : <code>Commission_avril_2026 (2).docx</code> (Adri, transmise par Jérôme) + captures CRM Odoo</p>
 
 <div class="meta">
   <div><strong>Période :</strong> 01/04/2026 → 30/04/2026</div>
-  <div><strong>Sources :</strong> Avenant contrat 17/03/2026 + document Adri <code>Commission_avril_2026 (1).docx</code> + Odoo XML-RPC</div>
-  <div><strong>Date de calcul :</strong> 18/05/2026 — validé par Nicolas le 18/05/2026</div>
+  <div><strong>Sources :</strong> Avenant contrat 17/03/2026 + document Adri <code>Commission_avril_2026 (2).docx</code> (corrigé) + captures CRM Odoo + Odoo XML-RPC</div>
+  <div><strong>Date de calcul :</strong> 20/05/2026 — Version B corrigée suite retours Jérôme</div>
+  <div><strong>Remplace :</strong> Version A du 18/05/2026 (2 420 € brut, commit <code>bda581a</code>)</div>
+  <div><strong>Corrections V2 :</strong> (1) Le Walhère Roi retiré du décompte Horeca (SO 110 € &lt; seuil 240 €) — (2) Palier croissance passé de 15-19,9 % (400 €) à 20-24,9 % (650 €)</div>
   <div><strong>Méthode croissance :</strong> Option C — SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage parent</div>
-  <div><strong>Règle de précédence :</strong> en cas de divergence Odoo vs Adri, le chiffre Adri est adopté (source officielle contrat)</div>
 </div>
 
 <!-- SYNTHESE -->
@@ -63,9 +64,9 @@
 
 <div class="summary">
   <div class="summary-card">
-    <div class="num">400 €</div>
+    <div class="num">650 €</div>
     <div class="label">Croissance CA B2B</div>
-    <div class="sub">+16,2 % — tranche 15–19,9 %</div>
+    <div class="sub">+22,1 % — tranche 20–24,9 % <strong>(V2 : +250 €)</strong></div>
   </div>
   <div class="summary-card">
     <div class="num">1 500 €</div>
@@ -73,9 +74,9 @@
     <div class="sub">15 × 100 € (liste Adri)</div>
   </div>
   <div class="summary-card">
-    <div class="num">260 €</div>
+    <div class="num">195 €</div>
     <div class="label">Nouveaux clients Horeca</div>
-    <div class="sub">4 × 65 €</div>
+    <div class="sub">3 × 65 € <strong>(V2 : −65 €)</strong></div>
   </div>
   <div class="summary-card">
     <div class="num">260 €</div>
@@ -83,14 +84,14 @@
     <div class="sub">2 × 130 € (1 grossiste = 2× Horeca)</div>
   </div>
   <div class="summary-card total">
-    <div class="num">2 420 €</div>
-    <div class="label">Total brut</div>
-    <div class="sub">Validé Nicolas — 18/05/2026</div>
+    <div class="num">2 605 €</div>
+    <div class="label">Total brut Version B</div>
+    <div class="sub">vs 2 420 € en V1 — Δ +185 €</div>
   </div>
 </div>
 
 <div class="alert success">
-  <strong>Rapport validé par Nicolas le 18/05/2026.</strong> Règle grossiste = 130 € (2× Horeca) confirmée officiellement et intégrée à la mémoire des règles de commission.
+  <strong>Version B — corrigée 20/05/2026.</strong> Suite aux retours de Jérôme : (1) Le Walhère Roi retiré du décompte Horeca car SO S05433 à 110 € HTVA &lt; seuil 240 € — (2) Croissance B2B retenue à +22,1 % (au lieu de +16,2 % en V1), faisant passer le palier de 15-19,9 % (400 €) à 20-24,9 % (650 €). Nouveau total : <strong>2 605 € brut</strong>.
 </div>
 
 <!-- VOLET CROISSANCE -->
@@ -112,12 +113,12 @@
     <tbody>
       <tr><td>Avril 2025 (baseline)</td><td class="num"><strong>63 500,00 €</strong></td><td class="num">55 432,80 €</td><td class="num">−8 067 €</td></tr>
       <tr class="eligible"><td><strong>Avril 2026 (réalisé)</strong></td><td class="num"><strong>73 805,00 €</strong></td><td class="num">67 672,19 €</td><td class="num">−6 133 €</td></tr>
-      <tr class="total-row"><td><strong>Croissance</strong></td><td class="num" colspan="3"><strong>+16,2 % (Adri — officiel)</strong> &nbsp;|&nbsp; +22,1 % selon Odoo seul</td></tr>
+      <tr class="total-row"><td><strong>Croissance retenue V2</strong></td><td class="num" colspan="3"><strong>+22,1 %</strong> (docx Adri V2, aligné Odoo Option C)</td></tr>
     </tbody>
   </table>
 
-  <div class="alert info">
-    <strong>Divergence Odoo / Adri :</strong> Odoo Option C donne +22,1 % (→ tranche 20–24,9 % → 650 €). Adri annonce +16,2 % (→ tranche 15–19,9 % → 400 €). L'écart sur la baseline 2025 (55 433 € Odoo vs 63 500 € Adri) s'explique probablement par des commandes 2025 dans le périmètre Adri absentes d'Odoo (migration, canaux offline). Le chiffre Adri est adopté conformément à la règle de précédence.
+  <div class="alert success">
+    <strong>Alignement Adri V2 ↔ Odoo :</strong> en V1 (18/05), Adri retenait +16,2 % (palier 15-19,9 % → 400 €) tandis qu'Odoo Option C donnait +22,1 % (palier 20-24,9 % → 650 €). En V2 (20/05), le docx Adri retient maintenant <strong>+22,1 %</strong> dans sa ligne récapitulative, alignant le pourcentage final sur le calcul Odoo indépendant. Les bases absolues affichées dans le docx restent 63 500 € / 73 805 € (le ratio strict donnerait +16,2 %), mais le palier officiel retenu par Adri/Jérôme en V2 est <strong>20-24,9 % = 650 €</strong>. Position adoptée : règle Adri/Jérôme = autorité.
   </div>
 
   <h3>Table des paliers officiels (source Adri — image PNG 04/05/2026)</h3>
@@ -127,8 +128,8 @@
     <tbody>
       <tr><td>&lt; 10 %</td><td class="num">0 €</td></tr>
       <tr><td>10 – 14,9 %</td><td class="num">250 €</td></tr>
-      <tr class="eligible"><td><strong>15 – 19,9 %</strong> ← avril 2026 (+16,2 %)</td><td class="num"><strong>400 €</strong></td></tr>
-      <tr><td>20 – 24,9 %</td><td class="num">650 €</td></tr>
+      <tr><td>15 – 19,9 %</td><td class="num">400 €</td></tr>
+      <tr class="eligible"><td><strong>20 – 24,9 %</strong> ← avril 2026 (+22,1 %, V2)</td><td class="num"><strong>650 €</strong></td></tr>
       <tr><td>25 – 29,9 %</td><td class="num">850 €</td></tr>
       <tr><td>30 – 30,9 %</td><td class="num">1 000 €</td></tr>
       <tr><td>31 – 39,9 %</td><td class="num">1 500 €</td></tr>
@@ -137,7 +138,7 @@
     </tbody>
   </table>
 
-  <p style="margin-top:.6rem;">Croissance retenue : <strong>+16,2 %</strong> (Adri). Objectif max (30 %) non atteint — écart sous seuil = −8 745 €. <strong style="color:var(--primary);">→ Commission croissance = 400 € brut.</strong></p>
+  <p style="margin-top:.6rem;">Croissance retenue V2 : <strong>+22,1 %</strong> (Adri/Jérôme, aligné Odoo). Objectif max (30 %) non atteint. <strong style="color:var(--primary);">→ Commission croissance = 650 € brut</strong> <em>(vs 400 € en V1, Δ +250 €)</em>.</p>
 
 </div>
 
@@ -185,12 +186,12 @@
 </div>
 
 <!-- VOLET HORECA -->
-<h2>3. Commission nouveaux clients Horeca — 4 × 65 € = 260 €</h2>
+<h2>3. Commission nouveaux clients Horeca — 3 × 65 € = 195 €</h2>
 
 <div class="card">
 
   <div class="formula">
-    <strong>Règle :</strong> 65 € par nouveau client Horeca, déclenchée à la première commande ≥ 240 € HTVA. Règle Adri : le déclencheur semble être l'ouverture du compte (voir note Le Walhère Roi).
+    <strong>Règle :</strong> 65 € par nouveau client Horeca, déclenchée à la première commande ≥ 240 € HTVA (seuil strict appliqué en V2).
   </div>
 
   <table>
@@ -198,17 +199,17 @@
       <tr><th>#</th><th>Client</th><th>Partner Odoo</th><th>SO Odoo</th><th class="num">Montant HTVA</th><th>Statut</th></tr>
     </thead>
     <tbody>
-      <tr class="eligible"><td>1</td><td><strong>Le Walhère Roi</strong> (Labrassine Brice)</td><td>#123140</td><td>S05433 — 20/04</td><td class="num">110,00 €</td><td><span class="badge badge-ok">Retenu Adri</span></td></tr>
-      <tr class="eligible"><td>2</td><td><strong>Le Brunch de Ginette – Liège</strong> (enfant #122941)</td><td>#122940 parent</td><td>S05378 — 11/04</td><td class="num">240,00 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
-      <tr class="eligible"><td>3</td><td><strong>La Maison des Mégalithes</strong> (Cercle Hist. Durbuy)</td><td>#122938</td><td>S05377 — 11/04</td><td class="num">270,37 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
-      <tr class="eligible"><td>4</td><td><strong>Le Brunch de Ginette – Tilff</strong> (enfant #122942)</td><td>#122940 parent</td><td>S05379 — 11/04</td><td class="num">240,00 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
+      <tr class="eligible"><td>1</td><td><strong>Le Brunch de Ginette – Liège</strong> (enfant #122941)</td><td>#122940 parent</td><td>S05378 — 11/04</td><td class="num">240,00 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
+      <tr class="eligible"><td>2</td><td><strong>La Maison des Mégalithes</strong> (Cercle Hist. Durbuy)</td><td>#122938</td><td>S05377 — 11/04</td><td class="num">270,37 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
+      <tr class="eligible"><td>3</td><td><strong>Le Brunch de Ginette – Tilff</strong> (enfant #122942)</td><td>#122940 parent</td><td>S05379 — 11/04</td><td class="num">240,00 €</td><td><span class="badge badge-ok">SO ≥ 240 € — Jérôme</span></td></tr>
+      <tr class="rejected"><td>—</td><td>Le Walhère Roi (Labrassine Brice)</td><td>#123140</td><td>S05433 — 20/04</td><td class="num">110,00 €</td><td><span class="badge badge-no">Exclu V2 — &lt; 240 €</span></td></tr>
       <tr class="rejected"><td>—</td><td>Au Gré des Saisons (Passion Cuisine SRL)</td><td>#122936</td><td>S05376 — 11/04</td><td class="num">70,00 €</td><td><span class="badge badge-no">Exclu — &lt; 240 €</span></td></tr>
-      <tr class="total-row"><td colspan="4">Total Horeca retenus</td><td class="num">4 × 65 €</td><td class="num"><strong>260 €</strong></td></tr>
+      <tr class="total-row"><td colspan="4">Total Horeca retenus V2</td><td class="num">3 × 65 €</td><td class="num"><strong>195 €</strong></td></tr>
     </tbody>
   </table>
 
   <div class="alert">
-    <strong>Le Walhère Roi :</strong> SO S05433 à 110 € HTVA, sous le seuil de 240 €. Retenu par Adri malgré tout. Cela suggère que le déclencheur Adri est l'ouverture du compte commercial / installation physique, et non strictement la valeur de la 1re commande Odoo. Chiffre adopté tel quel.
+    <strong>Correction V2 — Le Walhère Roi :</strong> en V1 ce client était retenu à 65 € sur la base de l'exception "ouverture de compte". En V2, Adri/Jérôme alignent la décision sur la règle stricte (1ère SO ≥ 240 € HTVA). La SO S05433 à 110 € est sous le seuil → <strong>client retiré du décompte commission</strong> (−65 €). Le statut passe à "— < 240 €", identique à Au Gré des Saisons.
   </div>
   <div class="alert info">
     <strong>Le Brunch de Ginette – Liège &amp; Tilff :</strong> deux entités distinctes créées le 11/04 comme partenaires enfants du parent Ruiters Minina (#122940). Les SO S05378 (livraison Liège) et S05379 (livraison Tilff) sont bien encodées sur le parent mais avec des adresses de livraison distinctes. Adri les comptabilise comme 2 clients séparés × 65 € — logique confirmée par la structure Odoo.
@@ -243,29 +244,33 @@
 </div>
 
 <!-- TABLEAU DIVERGENCES ODOO -->
-<h2>5. Tableau des divergences Odoo / Adri</h2>
+<h2>5. Tableau des divergences Odoo / Adri — réconciliation V2</h2>
 
 <div class="card">
   <table>
     <thead>
-      <tr><th>Point</th><th>Odoo (vérification)</th><th>Adri (officiel)</th><th>Adopté</th></tr>
+      <tr><th>Point</th><th>Odoo (vérification)</th><th>Adri V1 (18/05)</th><th>Adri V2 (20/05)</th><th>Adopté V2</th></tr>
     </thead>
     <tbody>
-      <tr class="pending"><td>CA B2B avril 2025 (baseline)</td><td class="num">55 432,80 €</td><td class="num">63 500,00 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
-      <tr class="pending"><td>CA B2B avril 2026 (réalisé)</td><td class="num">67 672,19 €</td><td class="num">73 805,00 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
-      <tr class="pending"><td>Croissance</td><td>+22,1 % → 650 €</td><td>+16,2 % → 400 €</td><td><span class="badge badge-ok">Adri — 400 €</span></td></tr>
-      <tr class="pending"><td>GMS avec SO Odoo en avril</td><td>9 sur 15</td><td>15 sur 15</td><td><span class="badge badge-ok">Adri — 15 installations</span></td></tr>
-      <tr class="pending"><td>Le Walhère Roi (seuil 240 €)</td><td>SO à 110 € (sous seuil)</td><td>Retenu à 65 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
-      <tr class="pending"><td>Frigo Loco (encodé Aurelie)</td><td>SO par Aurelie, pas Jérôme</td><td>Retenu à 130 €</td><td><span class="badge badge-ok">Adri</span></td></tr>
+      <tr class="pending"><td>CA B2B avril 2025 (baseline)</td><td class="num">55 432,80 €</td><td class="num">63 500,00 €</td><td class="num">63 500,00 €</td><td><span class="badge badge-ok">Adri (inchangé)</span></td></tr>
+      <tr class="pending"><td>CA B2B avril 2026 (réalisé)</td><td class="num">67 672,19 €</td><td class="num">73 805,00 €</td><td class="num">73 805,00 €</td><td><span class="badge badge-ok">Adri (inchangé)</span></td></tr>
+      <tr class="eligible"><td><strong>Croissance %</strong></td><td>+22,1 %</td><td>+16,2 %</td><td><strong>+22,1 %</strong></td><td><span class="badge badge-ok">Adri V2 = Odoo</span></td></tr>
+      <tr class="eligible"><td><strong>Palier croissance</strong></td><td>20-24,9 % → 650 €</td><td>15-19,9 % → 400 €</td><td><strong>20-24,9 % → 650 €</strong></td><td><span class="badge badge-ok">Adri V2 — 650 €</span></td></tr>
+      <tr class="pending"><td>GMS avec SO Odoo en avril</td><td>9 sur 15</td><td>15 sur 15</td><td>15 sur 15</td><td><span class="badge badge-ok">Adri — 15 installations</span></td></tr>
+      <tr class="eligible"><td><strong>Le Walhère Roi (seuil 240 €)</strong></td><td>SO à 110 € (sous seuil)</td><td>Retenu à 65 €</td><td><strong>Exclu — &lt; 240 €</strong></td><td><span class="badge badge-ok">Adri V2 — exclu</span></td></tr>
+      <tr class="pending"><td>Frigo Loco (encodé Aurelie)</td><td>SO par Aurelie, pas Jérôme</td><td>Retenu à 130 €</td><td>Retenu à 130 €</td><td><span class="badge badge-ok">Adri (inchangé)</span></td></tr>
     </tbody>
   </table>
+  <div class="alert info" style="margin-top:1rem;">
+    <strong>Note transparence :</strong> la légende du docx Adri V2 affiche "+22,1 % | 73 805 € vs 63 500 €". Arithmétiquement le ratio donne +16,2 % — il y a une incohérence interne au docx (soit une base 2025/2026 différente non répercutée dans la légende, soit alignement assumé sur le calcul Odoo Option C). Position adoptée V2 : <strong>le pourcentage et le palier retenus par Adri/Jérôme priment</strong> (règle Adri = autorité contractuelle). Si tu veux challenger cette incohérence avant payslip, dis-le.
+  </div>
 </div>
 
 <p class="footer">
-  Document généré automatiquement par l'agent Compta Teatower — 18/05/2026<br>
-  Validé par Nicolas Raes le 18/05/2026<br>
-  Source officielle : <code>Commission_avril_2026 (1).docx</code> (Adri) + Odoo XML-RPC<br>
-  <strong>Total : 2 420 € brut</strong>
+  Document généré automatiquement par l'agent Compta Teatower — Version B 20/05/2026<br>
+  Remplace la Version A du 18/05/2026 (2 420 € brut)<br>
+  Source officielle : <code>Commission_avril_2026 (2).docx</code> (Adri, transmise par Jérôme) + captures CRM Odoo + XML-RPC<br>
+  <strong>Total Version B : 2 605 € brut</strong> <em>(Δ +185 € vs V1)</em>
 </p>
 
 </body>
