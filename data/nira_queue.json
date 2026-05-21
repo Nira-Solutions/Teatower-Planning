@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-20T17:10:45",
+  "updated": "2026-05-21T12:57:53",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3229,6 +3229,14 @@
       "started": "2026-05-20T17:08",
       "request": "Corriger commission avril 2026 suite retours Jerome : -1 Horeca sous min commande, +palier croissance B2B",
       "finished": "2026-05-20T17:10"
+    },
+    {
+      "id": "t052",
+      "agent": "planning",
+      "task": "Ajouter Delhaize Bertrix au planning S22 + draft mail jour J",
+      "status": "in_progress",
+      "started": "2026-05-21T12:57",
+      "request": "pour le planning de la semaine prochaine AJOUTER DELHAIZE BERTRIX au PLANNING + prevenir client via mail exceptionnellement depuis USER jour de passage"
     }
   ]
 }
