@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T14:36:08",
+  "updated": "2026-05-21T14:37:27",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3274,6 +3274,14 @@
       "started": "2026-05-21T14:28",
       "request": "Build S22 complet avec lundi de Pentecote ferie, mardi Liege+TT Namur, mercredi Lux sud, jeu/ven densification reports+overdue",
       "finished": "2026-05-21T14:36"
+    },
+    {
+      "id": "t057",
+      "agent": "stock-manager",
+      "task": "ITM Villers-le-Bouillet — note Gilles : reprendre VRAC, remplacer par INFUSETTES",
+      "status": "in_progress",
+      "started": "2026-05-21T14:37",
+      "request": "Pour le prochain passage à Intermarché Villers le Bouillet, reprendre la gamme VRAC et remplacer par les INFUSETTES, mêmes références. Ajouter la note dans res.partner.comment pour le merchandiser."
     }
   ]
 }
