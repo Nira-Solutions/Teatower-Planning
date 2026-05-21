@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T13:48:56",
+  "updated": "2026-05-21T13:55:56",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3252,9 +3252,10 @@
       "id": "t054",
       "agent": "planning",
       "task": "Ajout last_so_date dans build_planning_pool + planning S22",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-21T13:48",
-      "request": "Ajouter date derniere visite (basee sur sale.order Odoo, pas anciens plannings) dans script source et rendu planning S22"
+      "request": "Ajouter date derniere visite (basee sur sale.order Odoo, pas anciens plannings) dans script source et rendu planning S22",
+      "finished": "2026-05-21T13:55"
     }
   ]
 }
