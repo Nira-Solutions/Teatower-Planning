@@ -1099,14 +1099,62 @@
 
 <div class="summary">
   <div class="summary-card"><div class="num">DRAFT</div><div class="label">Statut</div></div>
-  <div class="summary-card"><div class="num">1</div><div class="label">Journée publiée (Me)</div></div>
-  <div class="summary-card"><div class="num">4</div><div class="label">Stops Mercredi</div></div>
-  <div class="summary-card"><div class="num">~250</div><div class="label">km Mercredi</div></div>
+  <div class="summary-card"><div class="num">2</div><div class="label">Journées publiées (Ma/Me)</div></div>
+  <div class="summary-card"><div class="num">8</div><div class="label">Stops Ma+Me</div></div>
+  <div class="summary-card"><div class="num">~440</div><div class="label">km Ma+Me</div></div>
 </div>
 
 <div class="alert"><strong>v0 (21/05) — Ajout ciblé Delhaize Bertrix sur la boucle Lux sud du mercredi 27/05.</strong> Demande explicite Nicolas 21/05 : <strong>ajouter Delhaize Bertrix au planning S22 + prévenir le client par mail le jour J depuis la boîte de Nicolas (exception ponctuelle à la règle "pas de mail" — voir draft mail dans le brief Bertrix ci-dessous).</strong> Les autres jours S22 (Lu/Ma/Je/Ve) seront construits dans la v1 complète (intégration reports S21 : Ottignies, Fleron, Herve, Barchon, Spy, Floriffoux, Walcourt, Faimes + demande Bouge #114681 + passage Teatower Namur mardi 10 min dépôt commande).</div>
+<div class="alert alert-success"><strong>v0.1 (21/05) — Ajout journée Mardi 26/05 zone Liège (4 stops).</strong> Demande Nicolas 21/05 : <strong>Delhaize Fragnée à reprogrammer S22 pour push thés glacés GI0xxx (saison qui démarre, prix 9,50 € TTC).</strong> Construction d'une boucle Liège cohérente qui absorbe en plus 3 reports S21 zone Liège est (Barchon, Herve, Fleron). Pas de mail client cette fois (confirmation explicite Nicolas) — bandeau pro merchandiser standard.</div>
 <div class="alert alert-success"><strong>Pool maître régénéré 21/05</strong> (<code>scripts/build_planning_pool.py</code> → 153 GMS, 84 OVERDUE). Bertrix #123303 confirmé Tier B, next_visit_due 2026-05-27, retard 0j, cycle régulier 28j depuis SO S05489 du 29/04 (680,44 €, deliv full, inv full).</div>
 <div class="alert"><strong>Règle dure mails/calendrier rappel :</strong> AUCUN calendar.event Odoo créé. AUCUN mail automatique depuis le système. Le mail Bertrix du jour J est rédigé en draft ci-dessous, à <strong>copier/coller manuellement</strong> par Nicolas depuis sa boîte le matin du 27/05 (exception ponctuelle validée par Nicolas le 21/05).</div>
+
+<!-- MARDI 26/05 — BOUCLE LIEGE : FRAGNEE + BARCHON + HERVE + FLERON -->
+<div class="day">
+  <div class="day-header">Mardi 26/05 &mdash; 4 visites <span class="zone">Liège centre + Liège est : Fragnée → Barchon → Herve → Fleron</span></div>
+
+  <div class="alert alert-success" style="margin:.5rem 1rem;"><strong>Boucle Liège cohérente</strong> — 4 magasins Tier B sur axe E25/E40/N3. Démarrage 08:30, retour Baillonville ~16:00, marge 30 min avant 16:30. <strong>Angle focus journée : THÉS GLACÉS GI0xxx</strong> (saison démarre — push extension gamme & vérif rayon sur les 4 magasins). Trajets simulés Google Maps (liens dans chaque brief).</div>
+
+  <div class="alert" style="margin:.5rem 1rem;"><strong>Catalogue Thés Glacés Teatower (réf. brief) :</strong> 13 SKU GI0xxx + 7 SKU BGI0xxx (boîtes carton). PVP magasin <strong>9,50 € TTC</strong>. SKU les plus rotateurs été : <em>GI0617 Liberté glacée, GI0813 Thé du désert glacé, GI0826 Pinacolada, GI0847 Couleur Mojito, GI0848 Ginger Cool BIO, GI0880 Blue Earl Grey BIO, GI0735 Pêche de Vigne BIO</em>. Pour chaque magasin : (1) <strong>check si déjà présents en rayon</strong> (photo état actuel) (2) si oui → réassort + facings + photo après (3) si non → <strong>proposer extension gamme</strong> 3 à 5 SKU + photo emplacement potentiel + remonter intérêt à Jérôme.</div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:30 - 10:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">DEMANDE NICOLAS 21/05</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+    </div>
+    <div class="client">GIMALEX SA - Delhaize Fragnée <span style="color:#666;font-weight:400;font-size:.85rem;">#2965 (delivery #5580)</span></div>
+    <div class="contact-badge">Contact : <strong>Mme Bastin OU Mme Hicter</strong> (toujours demander l'une des deux pour remplir le display) — tel magasin +32 4 252 87 63 — mail siège g.harvie@gimalex.be</div>
+    <div class="details">Rue de Fragnée 41, 4000 Liège<br><strong>Trajet :</strong> ~60 min / 90 km depuis Baillonville via E25 nord (départ 08:30)<br><strong>Contrainte Odoo :</strong> <em>"Pas de visite les lundis"</em> → mardi OK.<br><strong>Brief Thés Glacés :</strong> <strong>Fragnée n'a JAMAIS commandé de GI0xxx</strong> (0 ligne historique 12 mois — vérifié XML-RPC 21/05). Dernière SO S05619 ce matin 21/05 (363,97 € — vrac uniquement V0xxx). Pousser <strong>extension gamme thés glacés</strong> : présenter les 7 SKU saison, proposer mini-commande de lancement 3-5 unités par SKU (~150-200 € HT). Photo emplacement rayon actuel + photo proposition zone push thés glacés.<br><strong>SIGNAL JÉRÔME (note Odoo) :</strong> <em>"Veut agrandir et passer en rayon comme Intermarché Tilff. Voir si Jérôme doit passer."</em> → Gilles confirme l'intérêt sur place, Nicolas/Jérôme à statuer post-visite (potentiel passage à un vrai rayon = +CA important, Tilff ref. = Tier A avg 460 €).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-05-26_Delhaize_Fragnee/</code> (avant rayon, avant emplacement proposé extension, après si réassort accepté)<br><a href="https://www.google.com/maps/dir/5377+Baillonville/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge" target="_blank">Google Maps Baillonville → Fragnée</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:45 - 11:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+    </div>
+    <div class="client">BARCHONEW SRL - Delhaize Barchon <span style="color:#666;font-weight:400;font-size:.85rem;">#119815</span></div>
+    <div class="contact-badge">Contact : <strong>Jérôme OU Jovani</strong> (à demander) — tel +32 4 362 27 33 — mail adbarchon@proximus.be</div>
+    <div class="details">Rue Champs de Tignée 32, 4671 Barchon<br><strong>Trajet :</strong> ~25 min / 16 km depuis Fragnée via E40 est<br><strong>Contrainte Odoo :</strong> <em>"Fermé lundi matin (ouvre midi). Autres jours 9h-19h."</em> → mardi 10h45 OK.<br><strong>Brief :</strong> Tier B, cycle 28j. Dernière SO S05460 du 22/04 (364,38 €). Cycle régulier. Check rotation rayon + photos + propositions réassort.<br><strong>Brief Thés Glacés :</strong> Vérifier si GI0xxx présents en rayon (jamais identifié comme client thés glacés actif — à confirmer sur place). Si absent → propo extension gamme 3-5 SKU saison.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-05-26_Delhaize_Barchon/</code><br><a href="https://www.google.com/maps/dir/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Rue+Champs+de+Tign%C3%A9e+32+4671+Barchon" target="_blank">Google Maps Fragnée → Barchon</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:45 - 12:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+    </div>
+    <div class="client">LEHDIS SA - Intermarché de Herve <span style="color:#666;font-weight:400;font-size:.85rem;">#120491</span></div>
+    <div class="contact-badge">Contact : Samuel Royen (merchandiser interne) — tel +32 87 30 77 00 — mail PDV06060@mousquetaire.com</div>
+    <div class="details">Avenue Reine Astrid 5, 4650 Herve<br><strong>Trajet :</strong> ~18 min / 13 km depuis Barchon via N3<br><strong>Brief :</strong> Tier B. Dernière SO S05462 du 23/04 (561,44 €). Cycle régulier. Demander Samuel Royen. <em>Note Odoo ancienne : "Gilles est passé déposer la commande le 27/02 c'est eux qui installeront la commande" — à actualiser sur place : qui installe, à quelle fréquence, est-ce que Gilles intervient ou pas ?</em> Remonter le statut clair de cette relation à Nicolas.<br><strong>Brief Thés Glacés :</strong> ITM Herve a un rayon thé costaud → fort potentiel. Check si GI0xxx déjà en rayon + photo. Si pas tous présents → propo extension. Si Samuel gère seul l'installation, lui fournir la liste des 7 SKU saison + flyer si dispo.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-05-26_ITM_Herve/</code><br><a href="https://www.google.com/maps/dir/Rue+Champs+de+Tign%C3%A9e+32+4671+Barchon/Avenue+Reine+Astrid+5+4650+Herve" target="_blank">Google Maps Barchon → Herve</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+    </div>
+    <div class="client">Hyper Carrefour Fleron <span style="color:#666;font-weight:400;font-size:.85rem;">#7760</span></div>
+    <div class="contact-badge">Contact merchandiser : Sébastien Malcousin — <strong>demander Maurine</strong> sur place — tel +32 4 355 86 11 — mail sebastien_mancuso_1@carrefour.com</div>
+    <div class="details">Rue de la Clef 30, 4620 Fleron<br><strong>Trajet :</strong> ~12 min / 11 km depuis Herve via N3 retour ouest (déjeuner court 12:15-13:30 sur le trajet ou à Fleron)<br><strong>Contrainte Hyper :</strong> visite Hyper plutôt matinée habituellement, mais 13h30 acceptable car même équipe rayon présente. Si Maurine pas dispo → demander Sébastien.<br><strong>Brief :</strong> Tier B, Hyper Carrefour intégré. Dernière SO S05459 du 22/04 (763,70 € — gros panier, important). Cycle 28j. Check rotation + facings + photos.<br><strong>Brief Thés Glacés :</strong> Hyper = vrai potentiel volume thés glacés. Check rayon (probable que partiels seulement). Push extension gamme complète 7 SKU saison. Photos rayon avant/après si réassort. Si décision = intervention Sébastien Malcousin (merchandiser Carrefour interne), lui fournir liste SKU + arguments saison.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-05-26_Hyper_Carrefour_Fleron/</code><br><a href="https://www.google.com/maps/dir/Avenue+Reine+Astrid+5+4650+Herve/Rue+de+la+Clef+30+4620+Fleron" target="_blank">Google Maps Herve → Fleron</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet :</strong> Baillonville 08:30 → Fragnée 09:30 (1h, 90 km via E25 nord) → Visite 09:30-10:00 → Barchon 10:45 (25 min, 16 km via E40 est) → Visite 10:45-11:15 → Herve 11:45 (18 min, 13 km via N3) → Visite 11:45-12:15 → déjeuner court 12:15-13:30 → Fleron 13:30 (12 min, 11 km via N3 retour) → Visite 13:30-14:00 → retour Baillonville ~16:00 (~1h30, ~110 km via E25 sud) | <strong>~240 km</strong> | <strong>Retour Baillonville 16:00 (marge 30 min avant 16:30)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Rue+de+Fragn%C3%A9e+41+4000+Li%C3%A8ge/Rue+Champs+de+Tign%C3%A9e+32+4671+Barchon/Avenue+Reine+Astrid+5+4650+Herve/Rue+de+la+Clef+30+4620+Fleron/5377+Baillonville" target="_blank">Google Maps tournée complète Mardi 26/05</a></div>
+</div>
 
 <!-- MERCREDI 27/05 — BOUCLE LUX SUD : RECOGNE + BERTRIX + BASTOGNE -->
 <div class="day">
@@ -1176,7 +1224,7 @@ nicolas.raes@teatower.com
   <div class="route"><strong>Trajet :</strong> Baillonville 08:30 → Recogne/Libramont 09:30 (1h, ~75 km via N4 sud) → Visite 09:30-10:00 → Bertrix 10:30 (18 min, 17 km via N89) → Visite 10:30-11:00 → trajet + déjeuner court 11:00-12:00 → CC Port Bastogne 12:00 (45 min, 50 km via N89/N40) → Visite 12:00-12:30 → AD Bastogne 12:45 (5 min, 5 km) → Visite 12:45-13:15 → retour Baillonville ~14:45 (1h30, ~75 km via N4 nord) | <strong>~250 km</strong> | Retour Baillonville 14:45 (marge 1h45 avant 16:30) | <a href="https://www.google.com/maps/dir/5377+Baillonville/Delhaize+Recogne+Libramont-Chevigny+6800/Route+des+Gohineaux+2+6880+Bertrix/Rue+Gustave+Delperdange+3+6600+Bastogne/Route+de+Marche+112+6660+Bastogne/5377+Baillonville" target="_blank">Google Maps tournée complète</a></div>
 </div>
 
-<div class="alert"><strong>Lundi 25/05, Mardi 26/05, Jeudi 28/05, Vendredi 29/05 :</strong> à construire dans la v1 complète S22 (intégration reports S21 + demande Bouge + Teatower Namur mardi). Cette v0 publie uniquement la journée Mercredi 27/05 sur demande explicite Nicolas du 21/05 (ajout Bertrix).</div>
+<div class="alert"><strong>Lundi 25/05, Jeudi 28/05, Vendredi 29/05 :</strong> à construire dans la v1 complète S22 (intégration reports S21 restants : Ottignies, Spy, Floriffoux, Walcourt, Faimes + demande Bouge #114681 + passage Teatower Namur 10 min dépôt commande à recaser sur l'un des trois jours). Cette v0.1 publie : <strong>Mardi 26/05</strong> (boucle Liège + push thés glacés Fragnée — demande Nicolas 21/05) et <strong>Mercredi 27/05</strong> (boucle Lux sud + ajout Bertrix — demande Nicolas 21/05).</div>
 
 </div><!-- /s25 -->
 
