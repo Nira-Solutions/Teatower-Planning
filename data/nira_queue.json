@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T13:06:20",
+  "updated": "2026-05-21T13:30:53",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3238,6 +3238,14 @@
       "started": "2026-05-21T12:57",
       "request": "pour le planning de la semaine prochaine AJOUTER DELHAIZE BERTRIX au PLANNING + prevenir client via mail exceptionnellement depuis USER jour de passage",
       "finished": "2026-05-21T13:06"
+    },
+    {
+      "id": "t053",
+      "agent": "planning",
+      "task": "Delhaize Fragnee S22 - the glaces",
+      "status": "in_progress",
+      "started": "2026-05-21T13:30",
+      "request": "Ajouter Delhaize Fragnee semaine 25-29 mai pour push thes glaces GI0xxx, grouper avec zone Liege (Fleron/Herve/Barchon) si possible, brief specifique the glace 9,50EUR TTC"
     }
   ]
 }
