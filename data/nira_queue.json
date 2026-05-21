@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T14:41:35",
+  "updated": "2026-05-21T14:46:44",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3283,6 +3283,14 @@
       "started": "2026-05-21T14:37",
       "request": "Pour le prochain passage à Intermarché Villers le Bouillet, reprendre la gamme VRAC et remplacer par les INFUSETTES, mêmes références. Ajouter la note dans res.partner.comment pour le merchandiser.",
       "finished": "2026-05-21T14:41"
+    },
+    {
+      "id": "t058",
+      "agent": "planning",
+      "task": "Ajout ITM Villers-le-Bouillet S22 (swap VRAC->INFUS)",
+      "status": "in_progress",
+      "started": "2026-05-21T14:46",
+      "request": "Integrer ITM Villers-le-Bouillet #115879 dans planning S22 (25-29 mai 2026) pour executer swap VRAC->INFUSETTES. Jour optimal: ma 26/05 (boucle Liege) ou ve 29/05 (Namur ouest). 30-45 min sur place. Brief avec liste 7 SKU V0->I0. Reprendre cartons VRAC. Override Nicolas swap gamme. Pas mail/calendar."
     }
   ]
 }
