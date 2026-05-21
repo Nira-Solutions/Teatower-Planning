@@ -60,7 +60,8 @@
   <a class="week-btn" href="#s27">S27/04-01/05</a>
   <a class="week-btn" href="#s04">S04-08/05 (S19)</a>
   <a class="week-btn" href="#s11">S11-15/05 (S20)</a>
-  <a class="week-btn active" href="#s18">S18-22/05 (S21)</a>
+  <a class="week-btn" href="#s18">S18-22/05 (S21)</a>
+  <a class="week-btn active" href="#s25">S25-29/05 (S22)</a>
 </div>
 
 <!-- ============================================================ -->
@@ -796,7 +797,7 @@
 <!-- SEMAINE 18-22/05 (S21 v1 publie 16/05)                       -->
 <!-- ============================================================ -->
 
-<div id="s18">
+<div id="s18" style="display:none;">
 <h2 class="section-title">Semaine du 18 au 22 mai 2026 (S21 — v4)</h2>
 
 <div class="summary">
@@ -1089,6 +1090,97 @@
 </div><!-- /s18 -->
 
 
+<!-- ============================================================ -->
+<!-- SEMAINE 25-29/05 (S22 — v0 DRAFT 21/05)                      -->
+<!-- ============================================================ -->
+
+<div id="s25">
+<h2 class="section-title">Semaine du 25 au 29 mai 2026 (S22 — v0 DRAFT 21/05)</h2>
+
+<div class="summary">
+  <div class="summary-card"><div class="num">DRAFT</div><div class="label">Statut</div></div>
+  <div class="summary-card"><div class="num">1</div><div class="label">Journée publiée (Me)</div></div>
+  <div class="summary-card"><div class="num">4</div><div class="label">Stops Mercredi</div></div>
+  <div class="summary-card"><div class="num">~250</div><div class="label">km Mercredi</div></div>
+</div>
+
+<div class="alert"><strong>v0 (21/05) — Ajout ciblé Delhaize Bertrix sur la boucle Lux sud du mercredi 27/05.</strong> Demande explicite Nicolas 21/05 : <strong>ajouter Delhaize Bertrix au planning S22 + prévenir le client par mail le jour J depuis la boîte de Nicolas (exception ponctuelle à la règle "pas de mail" — voir draft mail dans le brief Bertrix ci-dessous).</strong> Les autres jours S22 (Lu/Ma/Je/Ve) seront construits dans la v1 complète (intégration reports S21 : Ottignies, Fleron, Herve, Barchon, Spy, Floriffoux, Walcourt, Faimes + demande Bouge #114681 + passage Teatower Namur mardi 10 min dépôt commande).</div>
+<div class="alert alert-success"><strong>Pool maître régénéré 21/05</strong> (<code>scripts/build_planning_pool.py</code> → 153 GMS, 84 OVERDUE). Bertrix #123303 confirmé Tier B, next_visit_due 2026-05-27, retard 0j, cycle régulier 28j depuis SO S05489 du 29/04 (680,44 €, deliv full, inv full).</div>
+<div class="alert"><strong>Règle dure mails/calendrier rappel :</strong> AUCUN calendar.event Odoo créé. AUCUN mail automatique depuis le système. Le mail Bertrix du jour J est rédigé en draft ci-dessous, à <strong>copier/coller manuellement</strong> par Nicolas depuis sa boîte le matin du 27/05 (exception ponctuelle validée par Nicolas le 21/05).</div>
+
+<!-- MERCREDI 27/05 — BOUCLE LUX SUD : RECOGNE + BERTRIX + BASTOGNE -->
+<div class="day">
+  <div class="day-header">Mercredi 27/05 &mdash; 4 visites <span class="zone">Famenne / Luxembourg sud : Libramont → Bertrix → Bastogne</span></div>
+
+  <div class="alert alert-success" style="margin:.5rem 1rem;"><strong>Boucle Lux sud cohérente</strong> — 4 magasins Tier B sur axe N4/N89. Démarrage 08:30, retour Baillonville ~15:00, large marge avant 16:30. Trajets simulés Google Maps (liens dans chaque brief). <strong>Bertrix = cycle normal de visite 4 semaines après IMPL initiale du 06/05.</strong> Pas de réassort à livrer physiquement (toutes les SO récentes sont deliv=full, inv=full) — visites de check rotation rayon + photos + propositions réassort.</div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:30 - 10:00</span> <span class="badge badge-visite">Visite</span></span>
+    </div>
+    <div class="client">Delhaize Recogne / Libramont <span style="color:#666;font-weight:400;font-size:.85rem;">#122091 (Affilié 046780)</span></div>
+    <div class="contact-badge">Contact : Mme Nicole Levieux ou Emeric — tel +32 61 23 25 48 — mail Nicole.Levieux@lionsretail.be</div>
+    <div class="details">Libramont-Chevigny 6800<br><strong>Trajet :</strong> ~60 min / 75 km depuis Baillonville via N4 sud (départ 08:30)<br><strong>Brief :</strong> Visite Tier B — cycle 26j (next 02/06 quasi à terme, on l'avance pour grouper). Dernière SO S05525 du 05/05 (483,07 €) — historique régulier 400-720 €. Check rotation rayon + photos + propositions réassort (Mme Levieux ou Emeric).<br><a href="https://www.google.com/maps/dir/Baillonville+5377/Delhaize+Recogne+Libramont-Chevigny+6800" target="_blank">Google Maps Baillonville → Recogne</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:30 - 11:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">DEMANDE NICOLAS 21/05</span></span>
+    </div>
+    <div class="client">Delhaize Bertrix <span style="color:#666;font-weight:400;font-size:.85rem;">#123303 (Affilié 41092)</span></div>
+    <div class="contact-badge">Contact magasin : Manager Delhaize Bertrix — tel +32 61 41 27 36 — mail manager@delhaizebertrix.be</div>
+    <div class="details">Route des Gohineaux 2, 6880 Bertrix<br><strong>Trajet :</strong> ~18 min / 17 km depuis Recogne via N89<br><strong>Brief :</strong> 1ʳᵉ visite de réassort après IMPLANTATION initiale du 06/05. Cycle Tier B 28j depuis SO S05489 du 29/04 (680,44 € — 16 SKU livrés full). Check rotation rayon + état display M0005 + facings SRP Kraft EM0072 + photos avant (état actuel) + signaler ruptures par SKU et proposer commande réassort. <strong>Particulier :</strong> Nicolas envoie un mail courtois au manager le matin du 27/05 pour annoncer le passage de Gilles (draft ci-dessous à copier-coller depuis la boîte de Nicolas).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-05-27_Delhaize_Bertrix/</code><br><a href="https://www.google.com/maps/dir/Delhaize+Recogne+Libramont-Chevigny+6800/Route+des+Gohineaux+2+6880+Bertrix" target="_blank">Google Maps Recogne → Bertrix</a>
+
+    <div class="note-jerome" style="background:#e7f5ff;border-left:3px solid #1971c2;margin-top:.6rem;">
+      <strong>📧 Mail à envoyer le jour J (mer 27/05 matin) — copier/coller depuis la boîte de Nicolas</strong>
+      <hr style="margin:.4rem 0;border:none;border-top:1px solid #d0d7de;">
+      <strong>À :</strong> manager@delhaizebertrix.be<br>
+      <strong>Objet :</strong> Passage Teatower aujourd'hui — Delhaize Bertrix
+      <hr style="margin:.4rem 0;border:none;border-top:1px solid #d0d7de;">
+      <div style="white-space:pre-wrap;font-family:'Consolas',monospace;font-size:.85rem;background:#fff;padding:.6rem;border-radius:4px;border:1px solid #d0d7de;">Bonjour,
+
+Petit mot pour vous prévenir que Gilles, notre merchandiser, passera aujourd'hui dans votre magasin entre 10h30 et 11h00 pour la première visite de suivi du rayon Teatower (4 semaines après l'implantation initiale du 6 mai).
+
+Au programme : vérification de la rotation, état du display, photos du rayon, et si besoin proposition de réassort. Cela prend environ 30 minutes.
+
+Si un créneau ne vous arrange pas ou si la personne à voir est absente, n'hésitez pas à me prévenir — Gilles peut adapter.
+
+Merci d'avance et belle journée,
+
+Nicolas Raes
+Teatower
+nicolas.raes@teatower.com
++32 ...</div>
+    </div>
+    </div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span></span>
+    </div>
+    <div class="client">Carrefour Market Bastogne CC Port <span style="color:#666;font-weight:400;font-size:.85rem;">#123189 (Orkari — affilié 0523)</span></div>
+    <div class="contact-badge">Contact : Mme Neuville (à statuer Nicolas/Vanessa) — tel magasin +32 61 21 00 50 — mail bastogne@orkari.be — cc franchise michael_grosjean@franchisecrf.com</div>
+    <div class="details">Rue Gustave Delperdange 3, 6600 Bastogne<br><strong>Trajet :</strong> ~45 min / 50 km depuis Bertrix via N89/N40 (déjeuner court intégré)<br><strong>Brief :</strong> 1ʳᵉ visite de réassort après IMPL du 06/05 (SO S05467 du 23/04, 424,25 € — deliv full). Cycle Tier B. Check rotation 11 SKU + display M0005 + photos. Modèle facturation : Carrefour Belgium Corporate Village (intégré).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-05-27_CM_Bastogne_CCPort/</code><br><a href="https://www.google.com/maps/dir/Route+des+Gohineaux+2+6880+Bertrix/Rue+Gustave+Delperdange+3+6600+Bastogne" target="_blank">Google Maps Bertrix → CC Port Bastogne</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">12:45 - 13:15</span> <span class="badge badge-visite">Visite</span></span>
+    </div>
+    <div class="client">AD Delhaize Bastogne <span style="color:#666;font-weight:400;font-size:.85rem;">#8558 (SA Marer)</span></div>
+    <div class="contact-badge">Contact : Valentin Gilson (merchandiser) — tel +32 61 21 70 84 — mail compta2@irilux.lu</div>
+    <div class="details">Route de Marche 112-114, 6660 Bastogne<br><strong>Trajet :</strong> ~5 min / 5 km depuis CC Port via Bastogne centre<br><strong>Brief :</strong> Visite Tier B — dernière SO S05536 du 06/05 (217,01 €), avant ça S05258 23/03 (481,61 €). Cycle régulier. Demander Valentin Gilson. Réassort standard + check Thés Glacés.<br><a href="https://www.google.com/maps/dir/Rue+Gustave+Delperdange+3+6600+Bastogne/Route+de+Marche+112+6660+Bastogne" target="_blank">Google Maps CC Port → AD Bastogne</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet :</strong> Baillonville 08:30 → Recogne/Libramont 09:30 (1h, ~75 km via N4 sud) → Visite 09:30-10:00 → Bertrix 10:30 (18 min, 17 km via N89) → Visite 10:30-11:00 → trajet + déjeuner court 11:00-12:00 → CC Port Bastogne 12:00 (45 min, 50 km via N89/N40) → Visite 12:00-12:30 → AD Bastogne 12:45 (5 min, 5 km) → Visite 12:45-13:15 → retour Baillonville ~14:45 (1h30, ~75 km via N4 nord) | <strong>~250 km</strong> | Retour Baillonville 14:45 (marge 1h45 avant 16:30) | <a href="https://www.google.com/maps/dir/5377+Baillonville/Delhaize+Recogne+Libramont-Chevigny+6800/Route+des+Gohineaux+2+6880+Bertrix/Rue+Gustave+Delperdange+3+6600+Bastogne/Route+de+Marche+112+6660+Bastogne/5377+Baillonville" target="_blank">Google Maps tournée complète</a></div>
+</div>
+
+<div class="alert"><strong>Lundi 25/05, Mardi 26/05, Jeudi 28/05, Vendredi 29/05 :</strong> à construire dans la v1 complète S22 (intégration reports S21 + demande Bouge + Teatower Namur mardi). Cette v0 publie uniquement la journée Mercredi 27/05 sur demande explicite Nicolas du 21/05 (ajout Bertrix).</div>
+
+</div><!-- /s25 -->
+
+
 <!-- SEMAINE 11-15/05 (S20 — v1 publié 04/05)                     -->
 <!-- ============================================================ -->
 
@@ -1378,7 +1470,7 @@ document.querySelectorAll('.week-btn').forEach(btn => {
 });
 </script>
 
-<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Généré par Nira &mdash; Agent Planning Teatower | <strong>S21 v1 (16/05) PUBLIÉ — 28 stops sur 5 jours (1 IMPL initiale + 27 visites), ~1180 km</strong>. <strong>Lundi 18/05</strong> Hainaut : Bouffioulx + Bomerée + Walcourt + IMPL La Louvière S05404. <strong>Mardi 19/05</strong> Namur Sud : Rochefort + CM Ciney + Fernelmont (swap SKU thés glacés) + Andenne + Assesse. <strong>Mercredi 20/05</strong> Verviers cluster 60j+ : Spa + Dolhain + Welkenraedt + Heusy×2. <strong>Jeudi 21/05</strong> Liège+Hesbaye : Remouchamps + Liège Ardentes + Cointe + Fragnée + Faimes + Villers + Hannut. <strong>Vendredi 22/05</strong> Bxl+BW : Linthout + Saint Michel + La Chasse + Flagey + Uccle Bascule + Maransart + Lillois. Pas de mail / pas de calendar.event (règle 07/05).</p>
+<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Généré par Nira &mdash; Agent Planning Teatower | <strong>S22 v0 (21/05) DRAFT — Mercredi 27/05 publié</strong> : boucle Lux sud Recogne + <strong>Delhaize Bertrix (NOUVEAU, demande Nicolas 21/05)</strong> + CM Bastogne CC Port + AD Bastogne. Mail Nicolas → manager@delhaizebertrix.be à envoyer le jour J (draft prêt dans le brief). Reste de S22 (Lu/Ma/Je/Ve) à construire en v1 complète.</p>
 
 </body>
 </html>
