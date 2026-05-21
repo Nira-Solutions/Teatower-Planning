@@ -17,6 +17,15 @@ Convention pour last_visit_effective :
     max([VISITE YYYY-MM-DD] parsés dans res.partner.comment)
   )
 
+Convention pour last_so_date (CHAMP DÉDIÉ — règle Nicolas 21/05/2026) :
+  max(date_order) sur sale.order où state ∈ ['sale','done']
+  et (partner_id = pid OR partner_shipping_id = pid OR partner_invoice_id = pid)
+  → C'EST LA SEULE SOURCE DE VÉRITÉ pour "dernière visite client".
+  → NE JAMAIS se baser sur les anciens fichiers planning .md/.html du repo
+    (un magasin inscrit dans un planning passé n'a pas forcément été visité).
+  → Champs exposés : last_so_date (ISO), last_so_days_ago (int), last_so_label
+    (format "JJ/MM/AAAA (Xj)" ou "Jamais commandé").
+
 Convention pour Statut :
   - res.partner.sale_warn == 'block' AND comment contient '[ARRET' → Arret
   - sinon → Actif
@@ -382,6 +391,17 @@ def main():
         display = display_name(
             r["store_name"], r["billing_partner"], r["parent_name"], r["city"], pid
         )
+
+        # last_so_date enrichi : ancienneté + label lisible (règle Nicolas 21/05/2026)
+        # "Dernière visite client" dans le planning = dernière SO confirmée.
+        # JAMAIS extrapolé depuis les anciens .md/.html du repo planning.
+        if r["last_so_date"]:
+            last_so_days_ago = (today - r["last_so_date"]).days
+            last_so_label = f"{r['last_so_date'].strftime('%d/%m/%Y')} ({last_so_days_ago}j)"
+        else:
+            last_so_days_ago = None
+            last_so_label = "Jamais commandé"
+
         rows.append({
             "pid": pid,
             "store_name": r["store_name"],
@@ -398,6 +418,8 @@ def main():
             "avg_mois": round(avg_mois, 2),
             "first_so_date": r["first_so_date"].isoformat() if r["first_so_date"] else "",
             "last_so_date": r["last_so_date"].isoformat() if r["last_so_date"] else "",
+            "last_so_days_ago": last_so_days_ago if last_so_days_ago is not None else "",
+            "last_so_label": last_so_label,
             "last_visit": last_visit.isoformat() if last_visit else "",
             "last_visit_source": last_source or "",
             "next_visit": next_visit.isoformat() if next_visit else "",
@@ -441,20 +463,20 @@ def main():
         f.write(f"  - Arret  : {len(arret)}\n")
         f.write(f"- **OVERDUE Actifs** (next_visit < {stamp}) : {len(overdue)}\n\n")
         f.write(f"## OVERDUE — par retard décroissant\n\n")
-        f.write("| Tier | Retard | Magasin | Adresse | Cycle | Last visit | Source | Next visit | avg/mois |\n")
-        f.write("|---|---|---|---|---|---|---|---|---|\n")
+        f.write("| Tier | Retard | Magasin | Adresse | Cycle | Dernière SO | Last visit | Source | Next visit | avg/mois |\n")
+        f.write("|---|---|---|---|---|---|---|---|---|---|\n")
         for r in overdue[:200]:
             adresse = f"{r['street']}, {r['zip']} {r['city']}".strip(", ")
             # Règle dure : nom magasin TOUJOURS en clair (display_name) — pid en suffixe seulement
             label = f"{r['display_name']} (#{r['pid']})"
-            f.write(f"| {r['tier']} | **{r['retard_j']}j** | {label} | {adresse} | {r['cycle_days']}j | {r['last_visit']} | {r['last_visit_source']} | {r['next_visit']} | {r['avg_mois']:.0f}€ |\n")
+            f.write(f"| {r['tier']} | **{r['retard_j']}j** | {label} | {adresse} | {r['cycle_days']}j | {r['last_so_label']} | {r['last_visit']} | {r['last_visit_source']} | {r['next_visit']} | {r['avg_mois']:.0f}€ |\n")
         f.write("\n")
         f.write(f"## Tous Actifs (premiers 50 par retard puis Tier)\n\n")
-        f.write("| Statut | Tier | Magasin | Last visit | Next visit | Retard | avg/mois | SO 12m |\n")
-        f.write("|---|---|---|---|---|---|---|---|\n")
+        f.write("| Statut | Tier | Magasin | Dernière SO | Last visit | Next visit | Retard | avg/mois | SO 12m |\n")
+        f.write("|---|---|---|---|---|---|---|---|---|\n")
         for r in actifs[:50]:
             label = f"{r['display_name']} (#{r['pid']})"
-            f.write(f"| {r['statut']} | {r['tier']} | {label} | {r['last_visit']} | {r['next_visit']} | {r['retard_j']}j | {r['avg_mois']:.0f}€ | {r['so_count_12m']} |\n")
+            f.write(f"| {r['statut']} | {r['tier']} | {label} | {r['last_so_label']} | {r['last_visit']} | {r['next_visit']} | {r['retard_j']}j | {r['avg_mois']:.0f}€ | {r['so_count_12m']} |\n")
     print(f"[+] Markdown : {md_path}")
 
     print(f"\n[*] Synthèse :")

@@ -41,6 +41,14 @@
   .note-jerome { background: #fff3cd; border-left: 3px solid #ffc107; padding: .4rem .6rem; margin-top: .3rem; font-size: .82rem; border-radius: 0 4px 4px 0; }
   .contact-badge { background: #e7f5ff; border-left: 4px solid #1971c2; padding: .4rem .7rem; margin: .35rem 0; font-size: .9rem; border-radius: 0 4px 4px 0; color: #1864ab; font-weight: 600; }
   .contact-badge::before { content: "👤 "; }
+  /* Badge "Dernière SO" — source unique = sale.order Odoo (règle Nicolas 21/05/2026) */
+  .last-so { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .72rem; font-weight: 600; margin-left: 6px; vertical-align: middle; }
+  .last-so::before { content: "🛒 Dernière SO : "; font-weight: 400; opacity: .8; }
+  .last-so-fresh   { background: #d3f9d8; color: #2b8a3e; }   /* < 30j */
+  .last-so-mid     { background: #fff3bf; color: #b08400; }   /* 30-60j */
+  .last-so-stale   { background: #ffe0e0; color: #c92a2a; }   /* > 60j */
+  .last-so-never   { background: #e9ecef; color: #495057; }   /* aucune SO */
+  .last-so-too-fresh { background: #ffd8a8; color: #d9480f; border: 1px solid #fd7e14; }   /* < 7j = ALERTE */
   .route { background: #e9ecef; padding: .5rem 1rem; font-size: .8rem; color: #555; }
   .alert { background: #fff3cd; border-left: 4px solid var(--warn); padding: .6rem 1rem; margin-bottom: .5rem; border-radius: 0 6px 6px 0; font-size: .85rem; }
   .alert strong { color: var(--warn); }
@@ -1108,6 +1116,8 @@
 <div class="alert alert-success"><strong>v0.1 (21/05) — Ajout journée Mardi 26/05 zone Liège (4 stops).</strong> Demande Nicolas 21/05 : <strong>Delhaize Fragnée à reprogrammer S22 pour push thés glacés GI0xxx (saison qui démarre, prix 9,50 € TTC).</strong> Construction d'une boucle Liège cohérente qui absorbe en plus 3 reports S21 zone Liège est (Barchon, Herve, Fleron). Pas de mail client cette fois (confirmation explicite Nicolas) — bandeau pro merchandiser standard.</div>
 <div class="alert alert-success"><strong>Pool maître régénéré 21/05</strong> (<code>scripts/build_planning_pool.py</code> → 153 GMS, 84 OVERDUE). Bertrix #123303 confirmé Tier B, next_visit_due 2026-05-27, retard 0j, cycle régulier 28j depuis SO S05489 du 29/04 (680,44 €, deliv full, inv full).</div>
 <div class="alert"><strong>Règle dure mails/calendrier rappel :</strong> AUCUN calendar.event Odoo créé. AUCUN mail automatique depuis le système. Le mail Bertrix du jour J est rédigé en draft ci-dessous, à <strong>copier/coller manuellement</strong> par Nicolas depuis sa boîte le matin du 27/05 (exception ponctuelle validée par Nicolas le 21/05).</div>
+<div class="alert alert-success"><strong>🛒 Dernière SO Odoo affichée sur chaque visite (règle Nicolas 21/05/2026).</strong> Source unique = <code>sale.order</code> Odoo (state in sale/done) — JAMAIS les anciens fichiers planning .md/.html du repo. Légende code couleur : <span class="last-so last-so-fresh">vert &lt;30j</span> <span class="last-so last-so-mid">orange 30-60j</span> <span class="last-so last-so-stale">rouge &gt;60j</span> <span class="last-so last-so-never">gris jamais commandé</span> <span class="last-so last-so-too-fresh">orange foncé visite trop rapprochée (&lt;7j)</span>.</div>
+<div class="alert"><strong>⚠ Alerte mardi 26/05 — Delhaize Fragnée :</strong> dernière SO <strong>S05619 datée du 21/05/2026 (aujourd'hui)</strong>, 363,97 € vrac V0xxx. Visite Gilles prévue dans 5 jours, soit très tôt dans le cycle. <strong>À confirmer Nicolas</strong> : on maintient le push thés glacés GI0xxx (extension gamme, motif différent du réassort vrac) — OU on décale la visite à S23/S24 ? À trancher.</div>
 
 <!-- MARDI 26/05 — BOUCLE LIEGE : FRAGNEE + BARCHON + HERVE + FLERON -->
 <div class="day">
@@ -1119,7 +1129,7 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">09:30 - 10:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">DEMANDE NICOLAS 21/05</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+      <span><span class="time">09:30 - 10:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">DEMANDE NICOLAS 21/05</span> <span class="badge badge-priorite">Push Thés Glacés</span> <span class="last-so last-so-too-fresh">21/05/2026 (0j) — S05619 363,97 € ⚠ visite à 5j de la SO</span></span>
     </div>
     <div class="client">GIMALEX SA - Delhaize Fragnée <span style="color:#666;font-weight:400;font-size:.85rem;">#2965 (delivery #5580)</span></div>
     <div class="contact-badge">Contact : <strong>Mme Bastin OU Mme Hicter</strong> (toujours demander l'une des deux pour remplir le display) — tel magasin +32 4 252 87 63 — mail siège g.harvie@gimalex.be</div>
@@ -1128,7 +1138,7 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">10:45 - 11:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+      <span><span class="time">10:45 - 11:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span> <span class="last-so last-so-fresh">22/04/2026 (29j) — S05460 364,38 €</span></span>
     </div>
     <div class="client">BARCHONEW SRL - Delhaize Barchon <span style="color:#666;font-weight:400;font-size:.85rem;">#119815</span></div>
     <div class="contact-badge">Contact : <strong>Jérôme OU Jovani</strong> (à demander) — tel +32 4 362 27 33 — mail adbarchon@proximus.be</div>
@@ -1137,7 +1147,7 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">11:45 - 12:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+      <span><span class="time">11:45 - 12:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span> <span class="last-so last-so-fresh">23/04/2026 (28j) — S05462 561,44 €</span></span>
     </div>
     <div class="client">LEHDIS SA - Intermarché de Herve <span style="color:#666;font-weight:400;font-size:.85rem;">#120491</span></div>
     <div class="contact-badge">Contact : Samuel Royen (merchandiser interne) — tel +32 87 30 77 00 — mail PDV06060@mousquetaire.com</div>
@@ -1146,7 +1156,7 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span></span>
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">Report S21</span> <span class="badge badge-priorite">Push Thés Glacés</span> <span class="last-so last-so-fresh">22/04/2026 (29j) — S05459 763,70 €</span></span>
     </div>
     <div class="client">Hyper Carrefour Fleron <span style="color:#666;font-weight:400;font-size:.85rem;">#7760</span></div>
     <div class="contact-badge">Contact merchandiser : Sébastien Malcousin — <strong>demander Maurine</strong> sur place — tel +32 4 355 86 11 — mail sebastien_mancuso_1@carrefour.com</div>
@@ -1164,7 +1174,7 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">09:30 - 10:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span><span class="time">09:30 - 10:00</span> <span class="badge badge-visite">Visite</span> <span class="last-so last-so-fresh">05/05/2026 (16j) — S05525 483,07 €</span></span>
     </div>
     <div class="client">Delhaize Recogne / Libramont <span style="color:#666;font-weight:400;font-size:.85rem;">#122091 (Affilié 046780)</span></div>
     <div class="contact-badge">Contact : Mme Nicole Levieux ou Emeric — tel +32 61 23 25 48 — mail Nicole.Levieux@lionsretail.be</div>
@@ -1173,7 +1183,7 @@
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">10:30 - 11:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">DEMANDE NICOLAS 21/05</span></span>
+      <span><span class="time">10:30 - 11:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-fix">DEMANDE NICOLAS 21/05</span> <span class="last-so last-so-fresh">29/04/2026 (22j) — S05489 680,44 € (IMPL initiale)</span></span>
     </div>
     <div class="client">Delhaize Bertrix <span style="color:#666;font-weight:400;font-size:.85rem;">#123303 (Affilié 41092)</span></div>
     <div class="contact-badge">Contact magasin : Manager Delhaize Bertrix — tel +32 61 41 27 36 — mail manager@delhaizebertrix.be</div>
@@ -1205,7 +1215,7 @@ nicolas.raes@teatower.com
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="last-so last-so-fresh">23/04/2026 (28j) — S05467 424,25 € (IMPL initiale)</span></span>
     </div>
     <div class="client">Carrefour Market Bastogne CC Port <span style="color:#666;font-weight:400;font-size:.85rem;">#123189 (Orkari — affilié 0523)</span></div>
     <div class="contact-badge">Contact : Mme Neuville (à statuer Nicolas/Vanessa) — tel magasin +32 61 21 00 50 — mail bastogne@orkari.be — cc franchise michael_grosjean@franchisecrf.com</div>
@@ -1214,7 +1224,7 @@ nicolas.raes@teatower.com
 
   <div class="visit">
     <div class="visit-header">
-      <span><span class="time">12:45 - 13:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span><span class="time">12:45 - 13:15</span> <span class="badge badge-visite">Visite</span> <span class="last-so last-so-fresh">06/05/2026 (15j) — S05536 217,01 €</span></span>
     </div>
     <div class="client">AD Delhaize Bastogne <span style="color:#666;font-weight:400;font-size:.85rem;">#8558 (SA Marer)</span></div>
     <div class="contact-badge">Contact : Valentin Gilson (merchandiser) — tel +32 61 21 70 84 — mail compta2@irilux.lu</div>
@@ -1518,7 +1528,7 @@ document.querySelectorAll('.week-btn').forEach(btn => {
 });
 </script>
 
-<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Généré par Nira &mdash; Agent Planning Teatower | <strong>S22 v0 (21/05) DRAFT — Mercredi 27/05 publié</strong> : boucle Lux sud Recogne + <strong>Delhaize Bertrix (NOUVEAU, demande Nicolas 21/05)</strong> + CM Bastogne CC Port + AD Bastogne. Mail Nicolas → manager@delhaizebertrix.be à envoyer le jour J (draft prêt dans le brief). Reste de S22 (Lu/Ma/Je/Ve) à construire en v1 complète.</p>
+<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Généré par Nira &mdash; Agent Planning Teatower | <strong>S22 v0.2 (21/05) DRAFT — Ma+Me 26-27/05 publiés</strong> : boucle Liège Fragnée/Barchon/Herve/Fleron (push thés glacés) + boucle Lux sud Recogne/Bertrix/CC Port/AD Bastogne. <strong>Nouveau (21/05) : badge "Dernière SO" sur chaque visite, source Odoo <code>sale.order</code> uniquement</strong>. Reste de S22 (Lu/Je/Ve) à construire en v1 complète.</p>
 
 </body>
 </html>
