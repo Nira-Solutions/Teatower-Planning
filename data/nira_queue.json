@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T12:57:53",
+  "updated": "2026-05-21T13:06:20",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3234,9 +3234,10 @@
       "id": "t052",
       "agent": "planning",
       "task": "Ajouter Delhaize Bertrix au planning S22 + draft mail jour J",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-21T12:57",
-      "request": "pour le planning de la semaine prochaine AJOUTER DELHAIZE BERTRIX au PLANNING + prevenir client via mail exceptionnellement depuis USER jour de passage"
+      "request": "pour le planning de la semaine prochaine AJOUTER DELHAIZE BERTRIX au PLANNING + prevenir client via mail exceptionnellement depuis USER jour de passage",
+      "finished": "2026-05-21T13:06"
     }
   ]
 }
