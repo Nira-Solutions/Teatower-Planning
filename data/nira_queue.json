@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T14:27:03",
+  "updated": "2026-05-21T14:28:39",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3265,6 +3265,14 @@
       "started": "2026-05-21T14:23",
       "request": "on maintient mardi [Fragnee]. Tu as toujours bien Bertrix dans le planning la semaine prochaine et le passage au magasin Teatower de Namur ? Attention aussi que Lundi est ferie tu avais vu ?",
       "finished": "2026-05-21T14:27"
+    },
+    {
+      "id": "t056",
+      "agent": "planning",
+      "task": "Build planning S22 complet (4 jours visites + lundi ferie)",
+      "status": "in_progress",
+      "started": "2026-05-21T14:28",
+      "request": "Build S22 complet avec lundi de Pentecote ferie, mardi Liege+TT Namur, mercredi Lux sud, jeu/ven densification reports+overdue"
     }
   ]
 }
