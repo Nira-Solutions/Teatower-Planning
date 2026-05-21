@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T13:36:07",
+  "updated": "2026-05-21T13:48:56",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3247,6 +3247,14 @@
       "started": "2026-05-21T13:30",
       "request": "Ajouter Delhaize Fragnee semaine 25-29 mai pour push thes glaces GI0xxx, grouper avec zone Liege (Fleron/Herve/Barchon) si possible, brief specifique the glace 9,50EUR TTC",
       "finished": "2026-05-21T13:36"
+    },
+    {
+      "id": "t054",
+      "agent": "planning",
+      "task": "Ajout last_so_date dans build_planning_pool + planning S22",
+      "status": "in_progress",
+      "started": "2026-05-21T13:48",
+      "request": "Ajouter date derniere visite (basee sur sale.order Odoo, pas anciens plannings) dans script source et rendu planning S22"
     }
   ]
 }
