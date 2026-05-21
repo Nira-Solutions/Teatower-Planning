@@ -90,6 +90,74 @@
 
 ---
 
+## Vendredi 29/05 — ITM Villers-le-Bouillet #115879 — SWAP VRAC → INFUSETTES (OVERRIDE Nicolas)
+
+| Champ | Valeur |
+|---|---|
+| **Partner** | **#115879 — Intermarché Villers-le-Bouillet** |
+| **Adresse** | Rue du Château d'eau 1, **4530 Villers-le-Bouillet** |
+| **Province** | Liège (axe Huy-Liège, Hesbaye) |
+| **Contacts** | **Mr Johan** ou **Christophe** (du `comment` Odoo) |
+| **Dernière SO** | **S05620 du 21/05/2026** — 582 € (8 jours avant la visite) |
+| **Motif** | **SWAP gamme** (pas réassort) — passage VRAC → INFUSETTES, retirer cartons VRAC à mettre sur D5 |
+| **Source** | Demande directe Nicolas 21/05 (Gilles a déjà fait la visite cycle normal aujourd'hui 21/05, ce passage S22 est dédié au swap gamme) |
+| **Tag Odoo** | `[BRIEF MERCH 21/05/2026]` déjà posé dans `res.partner.comment` (scanné par `build_planning_pool.py` au build) |
+| **Override badge** | `[OVERRIDE Nicolas — swap VRAC→INFUS]` à afficher dans le brief jour (motif différent du badge "dernière SO 8j" — analogue cas Fragnée) |
+
+### Jour & créneau retenus
+
+- **Jour** : **VENDREDI 29/05/2026**
+- **Créneau** : **08:30 → 09:15** (visite 45 min — manipulation cartons VRAC inclus)
+- **Position dans la boucle** : **1ʳᵉ visite de la journée**, en début de boucle Namur ouest / Hesbaye
+
+### Justification jour (analyse trajets)
+
+| Option | Analyse | Verdict |
+|---|---|---|
+| **Ma 26/05** (boucle Liège) | Greffe Villers avant Fragnée = +50 min ; marge retour S21 v5 = 5 min déjà serrée → casse le cap 16:30 Baillonville | NO-GO |
+| **Me 27/05** (Luxembourg) | Hors zone (Bertrix/Bastogne sud province) | NO-GO |
+| **Je 28/05** (Brabant Wallon) | Hors zone (ouest, Wavre/Ottignies) | NO-GO |
+| **Ve 29/05** (Namur ouest / Hesbaye) | Villers-Floriffoux 45 min, axe cohérent Hesbaye, marge horaire confortable | **GO** |
+
+### Trajets vendredi 29/05 (à valider Google Maps au build)
+
+| Tronçon | Distance | Durée |
+|---|---|---|
+| Baillonville → Villers-le-Bouillet (départ 07:40) | ~45 km | ~50 min |
+| Villers-le-Bouillet → Floriffoux | ~38 km | ~45 min |
+| (suite boucle Namur ouest) | ... | ... |
+
+Lien Google Maps à insérer dans le brief final :
+`https://www.google.com/maps/dir/Baillonville,+Belgique/Rue+du+Ch%C3%A2teau+d%27eau+1,+4530+Villers-le-Bouillet/Floriffoux,+Belgique/`
+
+### Brief visite Gilles (à recopier dans le markdown jour au build)
+
+**SWAP VRAC → INFUSETTES** — Le client passe de la gamme vrac à la gamme infusettes. Reprendre les cartons vrac sur D5 en retour, installer les infusettes à la place.
+
+**Équivalents SKU à installer** (7 références) :
+
+| Retirer (VRAC) | Installer (INFUSETTES) | Nom commercial |
+|---|---|---|
+| V0301 (100 g vrac) | I0301 (20 infusettes) | Tisane tropicale |
+| V0600 (100 g vrac) | I0600 (20 infusettes) | La lampe merveilleuse |
+| V0631 (80 g vrac) | I0631 (20 infusettes) | Le thé des amoureux |
+| V0723 (80 g vrac) | I0723 (20 infusettes) | Namasté BIO |
+| V0735 (100 g vrac) | I0735 (20 infusettes) | Pêche de vigne - BIO |
+| V0751 (80 g vrac) | I0751 (20 infusettes) | I love you |
+| V0832 (100 g vrac) | I0832 (20 infusettes) | La Nana de Wépion |
+| **V0914** (Infusion du Printemps 2026) | **— pas d'équivalent infusette : retirer sans remplacer** | — |
+
+**Action sur place** :
+1. Vérifier disponibilité dans le rayon des 7 SKU I0xxx (sinon noter ce qui manque pour réassort prochain)
+2. Installer infusettes à la place du vrac sur le rayon
+3. Reprendre V0301/600/631/723/735/751/832/914 en cartons sur D5
+4. Confirmer avec **Mr Johan** ou **Christophe** que le swap est OK pour le magasin
+
+**Pas d'envoi de mail** — coordination par appel téléphonique avant arrivée (Gilles).
+**Pas de calendar.event** (règle 07/05).
+
+---
+
 ## Magasins basculés APPEL ONLY (NE PLUS INTÉGRER au planning merch)
 
 Décision Nicolas 20/05/2026 — magasins trop petits pour visite Gilles, réassort par téléphone depuis info@teatower.com :
@@ -117,6 +185,7 @@ Tag `[APPEL ONLY — NE PAS VISITER — décision Nicolas 2026-05-20]` posé dan
 - [ ] **Lundi 25/05 = férié** → 0 visite, bandeau visible
 - [ ] **Mardi 26/05** : boucle Liège avec Fragnée + dépôt TT Namur 10 min
 - [ ] **Mercredi 27/05** : boucle Luxembourg avec Bertrix 10:30 + Recogne + CM Bastogne CC Port + AD Bastogne
+- [ ] **Vendredi 29/05** : 1ʳᵉ visite ITM Villers-le-Bouillet 08:30 (SWAP VRAC→INFUS, OVERRIDE Nicolas) puis boucle Namur ouest
 - [ ] Densifier jeu/ven pour absorber les reports lundi férié
 - [ ] Vérifier cap 16:30 retour Baillonville pour chaque jour
 - [ ] Pas de mail / pas de calendar.event (règle 07/05)
