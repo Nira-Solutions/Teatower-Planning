@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T14:37:27",
+  "updated": "2026-05-21T14:41:35",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3279,9 +3279,10 @@
       "id": "t057",
       "agent": "stock-manager",
       "task": "ITM Villers-le-Bouillet — note Gilles : reprendre VRAC, remplacer par INFUSETTES",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-21T14:37",
-      "request": "Pour le prochain passage à Intermarché Villers le Bouillet, reprendre la gamme VRAC et remplacer par les INFUSETTES, mêmes références. Ajouter la note dans res.partner.comment pour le merchandiser."
+      "request": "Pour le prochain passage à Intermarché Villers le Bouillet, reprendre la gamme VRAC et remplacer par les INFUSETTES, mêmes références. Ajouter la note dans res.partner.comment pour le merchandiser.",
+      "finished": "2026-05-21T14:41"
     }
   ]
 }
