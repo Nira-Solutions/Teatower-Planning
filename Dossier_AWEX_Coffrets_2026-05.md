@@ -92,7 +92,7 @@
 
 ## 4. Grille tarifaire dégressive — règle Nicolas 21/05/2026
 
-> **Règle** : remise progressive de **–30 % à –40 %** sur le Prix de Vente Conseillé HT, par paliers 10 / 300 / 500 / 1000+.
+> **Règle** : remise progressive de **–30 % à –40 %** appliquée sur le **Prix de Vente HTVA** (= prix catalogue Teatower HT, hors TVA), par paliers 10 / 300 / 500 / 1000+. Le prix net AWEX = `PV HTVA × (1 − remise%)`.
 
 ### Grille proposée
 
@@ -142,14 +142,18 @@
 
 | Cas | Délai | Tarif HT |
 |---|---|---|
-| Stock disponible immédiat | 3-5 jours ouvrables | 15,00 € forfait Bruxelles (offerte ≥ 500 € HT) |
-| **Réapprovisionnement (hors stock)** | **8 semaines** | Idem |
+| Livraison colis (petites qtés) | 3-5 jours ouvrables | **10,00 € HT** |
+| Livraison palette (gros volumes) | 3-5 jours ouvrables | **45,00 € HT** |
+| **Livraison offerte** | — | **À partir de 500 € HT de commande** |
+| **Réapprovisionnement (hors stock)** | **8 semaines** | Tarif livraison idem |
 | Retrait gratuit boutique | Sur RDV | Gratuit — Namur / Liège / Waterloo |
 
 **Couverture stock vs paliers** :
 - C0102 (108 u) : couvre 10 + 100 unités, **8 sem au-delà**
 - C0200 (150 u) : couvre 10 + 140 unités, **8 sem au-delà**
 - C0106 Taste the World : **8 sem dès la 1ʳᵉ unité** (rupture actuelle)
+
+> Seuil colis → palette : à apprécier au moment de la commande selon volume/poids effectif. Pour 10 u C0102 ou C0200 = colis. Au-delà de 300 u, palette systématique.
 
 ---
 
@@ -236,8 +240,9 @@ DÉLAIS DE LIVRAISON
 ──────────────────────────────────────────────────
 LIVRAISON
 ──────────────────────────────────────────────────
-• Bruxelles (Place Sainctelette) : 15,00 € HT forfait
-  (offerte dès 500 € HT de commande)
+• Livraison colis : 10,00 € HT
+• Livraison palette (grosses quantités) : 45,00 € HT
+• Livraison offerte à partir de 500 € HT de commande
 
 ──────────────────────────────────────────────────
 
