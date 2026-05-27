@@ -28,6 +28,18 @@ Des questions ? Je suis dispo :raised_hands:
 
 ---
 
+## Version courte (annonce express — 1 bloc)
+
+:tea: :sunny: *Juin — 2 actions B2C*
+
+*1) « L'été en 3+1 »* — 3 thés glacés achetés = le 4e offert (au choix). Du *1er juin au 31 août*, en boutique (Namur/Liège/Waterloo) + teatower.com. Auto en caisse (valider le glacé offert) et sur le web. :arrow_right: Proposez-le à chaque client ! Pas de %, c'est un cadeau :wink:
+
+*2) Fête des pères (dim. 14/06)* — on pousse le *Coffret Trio de Matcha (55,66 €)* comme LE cadeau :gift: Mailing les 2 & 10 juin + tête de gondole en boutique. Prix plein, beau cadeau à suggérer.
+
+Questions ? Je suis là :raised_hands:
+
+---
+
 *Notes (ne pas inclure dans le post) :*
 - 3+1 actif uniquement sur les caisses Waterloo / Liège / Namur / Liege bis (Rocourt et pop-up exclus).
 - Si le canal a une équipe Rocourt : leur préciser qu'ils n'ont pas le 3+1 (en attente arbitrage Nicolas).
