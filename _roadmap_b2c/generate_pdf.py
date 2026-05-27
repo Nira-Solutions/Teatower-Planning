@@ -231,17 +231,20 @@ def main() -> None:
         [CH("Mois"), CH("Mecanique principale"), CH("Declencheur"),
          CH("Cadeau Y (SKU sur-stocke)")],
         [
-            C("<b>Juin</b>", bold=True),
-            C("Lancement socle BXGY"),
-            C("Panier Shopify >= 25 EUR"),
-            C("<b>I0617 Liberte</b> (401 u.) OU<br/>"
-              "<b>I0820 Marrakech BIO</b> (576 u.)<br/>au choix client"),
+            C("<b>Juin -> Aout</b>", bold=True),
+            C("L'ete en 3+1 (thes glaces)"),
+            C("3 thes glaces achetes"),
+            C("<b>Le 4e au choix offert</b><br/>"
+              "Collection Thes glaces (GI0xxx 9,50 EUR)<br/>"
+              "ecoulement GI0916 (783 u.) - LIVE 01/06"),
         ],
         [
             C("<b>Juin (1-14)</b>", bold=True),
-            C("Fete des peres (14/06)"),
-            C("2 thes 'robustes' achetes"),
-            C("Emballage cadeau + carte<br/>(geste boutique, pas de SKU)"),
+            C("Fete des peres - mailing dedie"),
+            C("Mise en avant (PAS de promo)"),
+            C("<b>C0200 Coffret Trio de Matcha</b> 55,66 EUR<br/>"
+              "le cadeau de papa, prix plein<br/>"
+              "envoi manuel Stephan/Nicolas - voir _mailings/"),
         ],
         [
             C("<b>Juillet-Aout</b>", bold=True),
@@ -371,18 +374,19 @@ def main() -> None:
         [CH("#"), CH("Action"), CH("Delai"), CH("Qui"), CH("Setup")],
         [
             C("1", bold=True),
-            C("<b>Corriger prix GI0xxx -> 9,50 EUR</b> (5 thes glaces)"),
-            C("J+3"),
-            C("Validation Nicolas<br/>Execution batch Shopify"),
-            C("15 min via API Shopify"),
+            C("<b>Prix GI0847 + GI0868 alignes a 9,50 EUR</b> "
+              "(9 thes glaces actifs homogenes)"),
+            C("FAIT"),
+            C("Nira - API Shopify"),
+            C("OK 27/05/2026"),
         ],
         [
             C("2", bold=True),
-            C("<b>Setup 'Panier >= 25 EUR = I0617/I0820 offert'</b> "
-              "sur Shopify"),
-            C("J+5"),
-            C("Moi (config)"),
-            C("Shopify Functions 'Buy X Get Y' natif - 1h"),
+            C("<b>3+1 'L'ete en 3+1' cree sur Shopify</b> "
+              "(collection Thes glaces, 3 achetes = le 4e offert)"),
+            C("FAIT"),
+            C("Nira - API Shopify"),
+            C("SCHEDULED 01/06 -> 31/08"),
         ],
         [
             C("3", bold=True),
