@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:47:24",
+  "updated": "2026-05-28T14:47:26",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3326,6 +3326,14 @@
       "status": "in_progress",
       "started": "2026-05-28T14:47",
       "request": "Nicolas demande forecast volumes doypacks I0 tous canaux, 12M glissants, avec hypothese nouveau POS = volume Liege en juillet 2026, croissance documentee, livrables tableau + top 5 + refs queue"
+    },
+    {
+      "id": "t063",
+      "agent": "stock-manager",
+      "task": "Validation refs I0 actives + MOQ/leadtime doypack imprimeur + risque BoM coffrets C0",
+      "status": "in_progress",
+      "started": "2026-05-28T14:47",
+      "request": "Valider refs I0 sale_ok=True, lister MOQ doypack imprimeur et lead time, signaler risque sous-estimation si I0 composant coffret C0 via mrp.bom, recommander timing commande pour pic Q3-Q4"
     }
   ]
 }
