@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:47:33",
+  "updated": "2026-05-28T14:47:49",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3335,6 +3335,14 @@
       "status": "in_progress",
       "started": "2026-05-28T14:47",
       "request": "Valider refs I0 sale_ok=True, lister MOQ doypack imprimeur et lead time, signaler risque sous-estimation si I0 composant coffret C0 via mrp.bom, recommander timing commande pour pic Q3-Q4"
+    },
+    {
+      "id": "t064",
+      "agent": "planning",
+      "task": "Edit S23 v3 HTML + commit",
+      "status": "in_progress",
+      "started": "2026-05-28T14:47",
+      "request": "Edition planning index.html S23 v3 avec 6 ajouts (Lontzen+Bouge+Floriffoux+Filature+Genval+CM Barvaux)"
     }
   ]
 }
