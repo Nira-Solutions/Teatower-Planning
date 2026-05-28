@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:03:43",
+  "updated": "2026-05-28T14:19:48",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3301,6 +3301,14 @@
       "started": "2026-05-28T13:53",
       "request": "Génère planning merchandiser Gilles S23 avec 5 IMPL prioritaires: Intermarché Grâce-Hollogne, Mons, Rumes + Delhaize Roodebeek + Intermarché Braine-le-Château. Reports S22, scan pool obligatoire, vérif Google, retour Baillonville 16h30 max.",
       "finished": "2026-05-28T14:03"
+    },
+    {
+      "id": "t060",
+      "agent": "planning",
+      "task": "Ajustement S23: -Genappe jeudi, +Braine-le-Chateau IMPL",
+      "status": "in_progress",
+      "started": "2026-05-28T14:19",
+      "request": "Retirer ITM Genappe jeudi 04/06 (visite 28/05 trop recente) + ajouter Intermarche Braine-le-Chateau IMPL placeholder lead #233"
     }
   ]
 }
