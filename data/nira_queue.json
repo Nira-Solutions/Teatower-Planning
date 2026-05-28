@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:47:26",
+  "updated": "2026-05-28T14:47:33",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3315,9 +3315,10 @@
       "id": "t061",
       "agent": "planning",
       "task": "Densif S23 v3 budget 25min/stop",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-28T14:46",
-      "request": "Recalcul fenetres + ajout stops mar/jeu/ven S23 avec nouveau budget 25min/stop"
+      "request": "Recalcul fenetres + ajout stops mar/jeu/ven S23 avec nouveau budget 25min/stop",
+      "finished": "2026-05-28T14:47"
     },
     {
       "id": "t062",
