@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:55:36",
+  "updated": "2026-05-28T14:56:02",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3346,6 +3346,14 @@
       "started": "2026-05-28T14:47",
       "request": "Edition planning index.html S23 v3 avec 6 ajouts (Lontzen+Bouge+Floriffoux+Filature+Genval+CM Barvaux)",
       "finished": "2026-05-28T14:55"
+    },
+    {
+      "id": "t065",
+      "agent": "production",
+      "task": "Cartographier BoM V0/I0 -> composants TT-PACK (qty par unite)",
+      "status": "in_progress",
+      "started": "2026-05-28T14:56",
+      "request": "Liste les composants TT-PACK consommés par les BoM des V0* et I0*, avec qty par unité produite"
     }
   ]
 }
