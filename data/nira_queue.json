@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:56:02",
+  "updated": "2026-05-28T14:56:05",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3354,6 +3354,14 @@
       "status": "in_progress",
       "started": "2026-05-28T14:56",
       "request": "Liste les composants TT-PACK consommés par les BoM des V0* et I0*, avec qty par unité produite"
+    },
+    {
+      "id": "t066",
+      "agent": "data-bi",
+      "task": "Forecast 12M TT-PACK : conso historique + Liege bis + 20%",
+      "status": "in_progress",
+      "started": "2026-05-28T14:56",
+      "request": "Conso 12M glissants par ref TT-PACK (MO done 2025-05->2026-05 sinon ventes V0/I0 x BoM), isoler part Liege, appliquer +Liege bis +20%"
     }
   ]
 }
