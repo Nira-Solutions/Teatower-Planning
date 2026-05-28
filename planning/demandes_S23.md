@@ -32,15 +32,33 @@
 
 À intégrer **obligatoirement** dans la queue S23. Sous-agent Planning doit identifier chaque partner Odoo (res.partner). Si absent du master Odoo, alerter Nicolas (NE PAS inventer ID).
 
-1. **Intermarché Grâce-Hollogne** — IMPL (30 min) — zone Liège ouest
-2. **Intermarché Mons** — IMPL (30 min) — zone Hainaut
-3. **Intermarché Rumes** — IMPL (30 min) — zone Hainaut (Tournaisis)
-4. **Delhaize Roodebeek** — IMPL (30 min) — zone Bruxelles
-5. **Intermarché Braine-le-Château** — IMPL (30 min) — zone Brabant Wallon
+1. **Intermarché Grâce-Hollogne** — IMPL (30 min) — zone Liège ouest ✓ intégré lundi 01/06 (partner #123900, SO S05636)
+2. **Intermarché Mons** — IMPL (30 min) — zone Hainaut ✓ intégré mercredi 03/06 (partner #123966, SO S05644)
+3. **Intermarché Rumes** — IMPL (30 min) — zone Hainaut (Tournaisis) ✓ intégré mercredi 03/06 (partner #123964, SO S05643)
+4. **Delhaize Roodebeek** — IMPL (30 min) — zone Bruxelles ✓ intégré jeudi 04/06 (partner #123997, SO S05652)
+5. **Intermarché Braine-le-Château** — IMPL (30 min) — zone Brabant Wallon ✓ **v2 28/05 : intégré jeudi 04/06 en PLACEHOLDER** (partner #TBD-233 / SO S05XXX) — **Nicolas finalise conversion lead CRM #233 + création SO avant lundi 01/06**.
 
 **Clustering géo conseillé** :
-- Mons + Rumes ensemble (jour Hainaut)
-- Roodebeek + Braine-le-Château ensemble (jour BXL/BW) — Roodebeek mardi/mercredi de préférence (accès magasin Delhaize)
-- Grâce-Hollogne sur le jour Liège (avec Embourg, Fragnée, Fleron, Herve, Barchon)
+- Mons + Rumes ensemble (jour Hainaut) ✓
+- Roodebeek + Braine-le-Château ensemble (jour BXL/BW) — Roodebeek mardi/mercredi de préférence (accès magasin Delhaize) ✓ v2 : Roodebeek + Nivelles + Braine-le-Château IMPL + Tilff (jeudi 04/06)
+- Grâce-Hollogne sur le jour Liège (avec Embourg, Fragnée, Fleron, Herve, Barchon) ✓
 
 **Status partner** : possiblement nouveau client (lead Gagné <14j ou partner créé <14j → tag "À IMPLANTER" auto). Vérifier scan Odoo.
+
+---
+
+## Ajustements v2 (2026-05-28, après publication v1)
+
+### Retrait ITM Genappe jeudi 04/06 → reporté S24
+
+- **Partner** : #2963 — GENADIS - Intermarché Genappe
+- **Motif** : visite Gilles **jeudi 28/05 S22** → 7j d'écart avec planif jeudi 04/06 v1, **règle 14-21j Tier B non respectée**.
+- **Action** : retiré du jeudi 04/06 v2, **reporté S24** (voir `demandes_S24.md`). Priorité haute (Tier B, 36j OVERDUE déjà au moment v1).
+
+### Ajout ITM Braine-le-Château jeudi 04/06 (IMPL placeholder)
+
+- **Lead CRM** : #233 "Intermarché Braine Le Château" — stage Gagné depuis 29/08/2025, **jamais converti en partner**.
+- **Placeholder** : partner #TBD-233 / SO S05XXX / montant ~323 € (cohérent avec autres IMPL ITM S23 à 323,41 € TTC).
+- **Action Nicolas avant lundi 01/06 matin** : convertir lead → res.partner, créer SO IMPL réelle, patcher le bloc jeudi (ID partner + n° SO + adresse précise + tel/mail merch).
+- **Tag** : IMPLANTATION (30 min sur place).
+- **Conséquence** : AD Filature #5443 (qui était proxy zone jeudi v1) **retiré du jeudi v2** — n'a plus de raison d'être maintenant que la vraie IMPL est planifiée. À reprendre dans une boucle BW future.
