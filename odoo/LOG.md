@@ -1,4 +1,35 @@
 
+## 2026-05-28 — Batch facturation B2B GO Nicolas (45 SO brouillon)
+
+- **Type** : Creation factures clients (out_invoice) + forçage transport
+- **Demande** : Nicolas GO facturation B2B "bien livre" 28/05/2026
+- **Scope** : 55 SO to_invoice dans dump _tmp_to_invoice.json, 8 exclues manuellement
+- **Etape 1 - Transport force** : 12 lignes [TRANSPORT] qty_delivered forcees a qty_ordered via write XML-RPC
+  - SO concernees : S05596, S05603, S05605, S05614, S05628, S05632, S05630, S05641, S05642, S05655, S05660, S05663
+- **Etape 2 - Wizard** : sale.advance.payment.inv mode `delivered` sur 45 SO
+  - 45 factures brouillon creees (IDs Odoo 38823 a 38867)
+  - Toutes en etat `draft` — NON postees, en attente validation Nicolas
+- **Total HT brouillon** : 20 546,78 EUR
+- **SO sautees** : #48143 (Jessica Masula, Shopify, 0 livraison), S05621 (Jarosz Amazon, 0 livraison)
+- **Anomalie S05484** : Facture brouillon 38823 = 59,44 EUR HT (2 lignes non encore livrees : 05V0880 Blue Earl Grey + 05V0717 Pomme d'amour). Les 10 autres lignes (154,27 EUR HT) etaient deja facturees anterieurement (qty_invoiced=1). A supprimer si livraison pas confirmee.
+- **Exclues batch** (decision Nicolas) : S00738/S04347/S05192 (anciens), S05643/S05644/S05652 (livraison Gilles imminente), S05454/S05600 (montant 0)
+
+## 2026-05-26 — Correction tags res.partner.category (audit data-bi forecast Mai 2026 B2B)
+
+- **Type** : Ecriture XML-RPC `res.partner.write` (category_id)
+- **Demande** : Nicolas valide correction de 3 partners mal tagges detectes par audit forecast
+- **Diagnostic** :
+  - Mapping tag IDs Odoo confirme : 27=GMS, 28=Revendeur, 85=Canal B2B Direct, 86=Canal DTC Shopify (3476 partners B2C), 88=Canal GMS
+  - Pattern observe : GMS magasins enfants utilisent surtout tag 88 (Canal GMS), tag 27 (GMS) est plutot sur personnes morales facturantes (104/119 partners 27 ont aussi 88)
+  - Pattern Revendeur : combo standard [85, 28] (Canal B2B Direct + Revendeur) sur 'Le Comptoir Local Linkebeek', 'Esprit de campagne', 'Au Comptoir Local'
+- **Actions** (instruction Nicolas suivie strictement, pas d'ajout 88/85 non demande) :
+  - #123449 VENTE-PRIVEE.COM : `[]` -> `[28 Revendeur]` (ajout)
+  - #9461 Proxy Delhaize St Michel (parent #2912 Delhaize Le Lion) : `[86 Canal DTC Shopify]` -> `[27 GMS]` (retrait 86 + ajout 27)
+  - #123069 Carrefour Market Bievre (parent #6596 Carrefour Belgium) : `[]` -> `[27 GMS]` (ajout)
+- **Note pour Nicolas** : Pour coherence avec autres magasins enfants Delhaize/Carrefour, les tags 88 (Canal GMS) pourraient aussi etre ajoutes a #9461 et #123069. Idem 85 (Canal B2B Direct) pour #123449. Non fait — strict respect du brief. A statuer.
+- **Impact** : 3 partners modifies, 0 erreur
+- **Scripts** : `odoo/_tag_audit_step{1,2,3,4,5}.py`, `odoo/_tag_audit_apply.py`, log JSON `odoo/_tag_audit_apply_log.json`
+
 ## 2026-05-13 — AUDIT LECTURE SEULE : Ecart P&L vs Tresorerie — Dethlefsen & Balk + Kirchner Fischer
 
 - **Type** : Audit lecture seule (aucune ecriture creee — regle dure respectee)
