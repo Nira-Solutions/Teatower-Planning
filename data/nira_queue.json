@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:58:03",
+  "updated": "2026-05-28T14:59:20",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3364,6 +3364,14 @@
       "started": "2026-05-28T14:56",
       "request": "Conso 12M glissants par ref TT-PACK (MO done 2025-05->2026-05 sinon ventes V0/I0 x BoM), isoler part Liege, appliquer +Liege bis +20%",
       "finished": "2026-05-28T14:58"
+    },
+    {
+      "id": "t067",
+      "agent": "planning",
+      "task": "S23 v4: retirer doublons vendredi 29/05",
+      "status": "in_progress",
+      "started": "2026-05-28T14:59",
+      "request": "Croiser S22 vendredi 29/05 avec S23 v3, retirer doublons, recaler journees"
     }
   ]
 }
