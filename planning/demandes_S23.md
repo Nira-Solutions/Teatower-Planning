@@ -25,3 +25,22 @@
 **Tag planning** : VISITE (30 min)
 **Justification** : Tier A à 654 €/mois, OVERDUE sur cycle 21 j. À caler sur la boucle Liège (jour Liège de S23), pas un jour Brabant Wallon / Namur ouest.
 **Note routage** : Baillonville → Embourg = ~47 min / 47 km (E25). Embourg est un détour quasi nul si la journée passe déjà par Fragnée/Fleron.
+
+---
+
+## 5 IMPLANTATIONS prioritaires S23 (demande Nicolas 2026-05-28)
+
+À intégrer **obligatoirement** dans la queue S23. Sous-agent Planning doit identifier chaque partner Odoo (res.partner). Si absent du master Odoo, alerter Nicolas (NE PAS inventer ID).
+
+1. **Intermarché Grâce-Hollogne** — IMPL (30 min) — zone Liège ouest
+2. **Intermarché Mons** — IMPL (30 min) — zone Hainaut
+3. **Intermarché Rumes** — IMPL (30 min) — zone Hainaut (Tournaisis)
+4. **Delhaize Roodebeek** — IMPL (30 min) — zone Bruxelles
+5. **Intermarché Braine-le-Château** — IMPL (30 min) — zone Brabant Wallon
+
+**Clustering géo conseillé** :
+- Mons + Rumes ensemble (jour Hainaut)
+- Roodebeek + Braine-le-Château ensemble (jour BXL/BW) — Roodebeek mardi/mercredi de préférence (accès magasin Delhaize)
+- Grâce-Hollogne sur le jour Liège (avec Embourg, Fragnée, Fleron, Herve, Barchon)
+
+**Status partner** : possiblement nouveau client (lead Gagné <14j ou partner créé <14j → tag "À IMPLANTER" auto). Vérifier scan Odoo.
