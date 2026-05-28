@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:54:05",
+  "updated": "2026-05-28T14:54:07",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3333,9 +3333,10 @@
       "id": "t063",
       "agent": "stock-manager",
       "task": "Validation refs I0 actives + MOQ/leadtime doypack imprimeur + risque BoM coffrets C0",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-28T14:47",
-      "request": "Valider refs I0 sale_ok=True, lister MOQ doypack imprimeur et lead time, signaler risque sous-estimation si I0 composant coffret C0 via mrp.bom, recommander timing commande pour pic Q3-Q4"
+      "request": "Valider refs I0 sale_ok=True, lister MOQ doypack imprimeur et lead time, signaler risque sous-estimation si I0 composant coffret C0 via mrp.bom, recommander timing commande pour pic Q3-Q4",
+      "finished": "2026-05-28T14:54"
     },
     {
       "id": "t064",
