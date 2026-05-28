@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T14:49:38",
+  "updated": "2026-05-28T13:53:46",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3292,6 +3292,14 @@
       "started": "2026-05-21T14:46",
       "request": "Integrer ITM Villers-le-Bouillet #115879 dans planning S22 (25-29 mai 2026) pour executer swap VRAC->INFUSETTES. Jour optimal: ma 26/05 (boucle Liege) ou ve 29/05 (Namur ouest). 30-45 min sur place. Brief avec liste 7 SKU V0->I0. Reprendre cartons VRAC. Override Nicolas swap gamme. Pas mail/calendar.",
       "finished": "2026-05-21T14:49"
+    },
+    {
+      "id": "t059",
+      "agent": "planning",
+      "task": "Planning Gilles S23 (1-5 juin 2026) + 5 IMPLANTATIONS",
+      "status": "in_progress",
+      "started": "2026-05-28T13:53",
+      "request": "Génère planning merchandiser Gilles S23 avec 5 IMPL prioritaires: Intermarché Grâce-Hollogne, Mons, Rumes + Delhaize Roodebeek + Intermarché Braine-le-Château. Reports S22, scan pool obligatoire, vérif Google, retour Baillonville 16h30 max."
     }
   ]
 }
