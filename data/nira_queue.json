@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:59:20",
+  "updated": "2026-05-28T15:07:34",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3369,9 +3369,10 @@
       "id": "t067",
       "agent": "planning",
       "task": "S23 v4: retirer doublons vendredi 29/05",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-28T14:59",
-      "request": "Croiser S22 vendredi 29/05 avec S23 v3, retirer doublons, recaler journees"
+      "request": "Croiser S22 vendredi 29/05 avec S23 v3, retirer doublons, recaler journees",
+      "finished": "2026-05-28T15:07"
     }
   ]
 }
