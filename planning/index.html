@@ -69,7 +69,8 @@
   <a class="week-btn" href="#s04">S04-08/05 (S19)</a>
   <a class="week-btn" href="#s11">S11-15/05 (S20)</a>
   <a class="week-btn" href="#s18">S18-22/05 (S21)</a>
-  <a class="week-btn active" href="#s25">S25-29/05 (S22)</a>
+  <a class="week-btn" href="#s25">S25-29/05 (S22)</a>
+  <a class="week-btn active" href="#s01">S01-05/06 (S23)</a>
 </div>
 
 <!-- ============================================================ -->
@@ -1102,7 +1103,7 @@
 <!-- SEMAINE 25-29/05 (S22 — v1 PUBLIÉ 21/05)                     -->
 <!-- ============================================================ -->
 
-<div id="s25">
+<div id="s25" style="display:none;">
 <h2 class="section-title">Semaine du 25 au 29 mai 2026 (S22 — v1 PUBLIÉ 21/05)</h2>
 
 <div class="summary">
@@ -1404,6 +1405,348 @@ nicolas.raes@teatower.com
 </div><!-- /s25 -->
 
 
+<!-- ============================================================ -->
+<!-- SEMAINE 01-05/06 (S23 — v1 PUBLIÉ 28/05)                     -->
+<!-- ============================================================ -->
+
+<div id="s01">
+<h2 class="section-title">Semaine du 1ᵉʳ au 5 juin 2026 (S23 — v1 PUBLIÉ 28/05)</h2>
+
+<div class="summary">
+  <div class="summary-card"><div class="num">26</div><div class="label">Visites GMS</div></div>
+  <div class="summary-card"><div class="num">5</div><div class="label">Jours actifs</div></div>
+  <div class="summary-card"><div class="num">4</div><div class="label">Implantations</div></div>
+  <div class="summary-card"><div class="num">~1100</div><div class="label">km semaine</div></div>
+</div>
+
+<div class="alert alert-success"><strong>v1 (28/05) — Build complet S23.</strong> Pool maître régénéré (<code>scripts/build_planning_pool.py</code> → 156 GMS, 82 OVERDUE actifs). Demande Nicolas du 28/05 : <strong>5 IMPLANTATIONS prioritaires</strong> (ITM Grâce-Hollogne, ITM Mons, ITM Rumes, AD Roodebeek, ITM Braine-le-Château). 4/5 partners trouvés Odoo avec SO d'IMPL confirmée. <strong>5ᵉ (ITM Braine-le-Château) IMPOSSIBLE</strong> — lead CRM #233 Gagné 29/08/2025 mais jamais converti en partner ; AD Delhaize Filature #5443 (Braine-le-Château, Tier C 22j OVERDUE) inséré comme proxy visite zone (PAS en IMPL — alerte Nicolas pour conversion lead avant S24).</div>
+<div class="alert alert-success"><strong>Jours fériés BE S23 : aucun.</strong> Lundi de Pentecôte (25/05) = S22 passé. Fête-Dieu (04/06) = pas férié BE. Semaine pleine 5 jours.</div>
+<div class="alert"><strong>Reports S22 absorbés :</strong> Delhaize Embourg #2909 Tier A (report explicite Nicolas, déjà acté dans <code>demandes_S23.md</code>) → inséré <strong>lundi</strong> dans boucle Liège-est. Walcourt #9016 reste reporté (Jérôme à statuer). Villers-le-Bouillet SWAP VRAC→INFUSETTES reporté S23 → <strong>vendredi</strong>.</div>
+<div class="alert"><strong>Structure semaine :</strong> <strong>Lun 01/06</strong> Boucle Liège-est (1 IMPL + 5 visites — Grâce-Hollogne IMPL, CM Grâce-Hollogne, Soumagne Tier A, Embourg Tier A report, Bois-de-Breux, St Lambert) | <strong>Mar 02/06</strong> Boucle Namur/Hesbaye (5 visites — Salzinnes, Delhaize Bouge, Spar Namur, Fernelmont, Faimes) | <strong>Mer 03/06</strong> Boucle Hainaut (2 IMPL + 4 visites — Mons IMPL, HC Mons Grands Prés, Rumes IMPL, Gosselies HC, ITM Gosselies, Gerpinnes) | <strong>Jeu 04/06</strong> Boucle BXL/BW (1 IMPL + 4 visites — Roodebeek IMPL, Nivelles Tier A, AD Filature Braine-le-Château, ITM Genappe, Tilff Tier A retour Liège-sud) | <strong>Ven 05/06</strong> Boucle Famenne/Lux nord (5 visites — Delhaize Marche Tier A, HC Marche-en-Famenne, CM Hotton, Spar Manhay, Villers-le-Bouillet SWAP).</div>
+<div class="alert alert-success"><strong>Règle dure mails/calendrier :</strong> AUCUN calendar.event Odoo. AUCUN mail automatique envoyé. Tous les contacts magasin extraits du <code>res.partner.comment</code> Odoo.</div>
+
+<!-- LUNDI 01/06 -->
+<div class="day">
+  <div class="day-header">Lundi 01/06 &mdash; 6 stops (1 implantation + 5 visites) <span class="zone">Liège-est / Soumagne / Embourg / Lontzen</span></div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:15 - 09:45</span> <span class="badge badge-implantation">Implantation</span></span>
+      <span class="so">S05636</span>
+    </div>
+    <div class="client">Intermarché Grâce-Hollogne (partner #123900 — nouveau client 22/05)</div>
+    <div class="contact-badge">Contact : magasin (accueil) — tel +32 4 247 40 24 — mail PDV01341@MOUSQUETAIRES.COM</div>
+    <div class="details">Chaussée de Liège 180, 4460 Grâce-Hollogne<br><strong>Trajet :</strong> ~1h05 / 75 km depuis Baillonville via E411 / E25 nord / A604 — départ 08:00<br><strong>Brief IMPLANTATION (30 min) :</strong> 1ʳᵉ pose rayon Teatower. SO S05636 du 22/05 (323,41 € TTC / 305,09 € HT, 9 lignes). Présentation gamme, validation emplacement rayon, photos avant/après OBLIGATOIRES, briefing responsable sur la rotation et le réassort futur. Cycle Tier B à caler ensuite.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-01_ITM_Grace-Hollogne/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Li%C3%A8ge+180+4460+Gr%C3%A2ce-Hollogne" target="_blank">Google Maps Baillonville → ITM Grâce-Hollogne</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:00 - 10:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05476 — 18/03 (75j)</span>
+    </div>
+    <div class="client">Carrefour Market Grâce-Hollogne (partner #113627) — Tier B, 43j OVERDUE</div>
+    <div class="contact-badge">Contact : Albert Aktan — tel +32 4 384 34 41 — mail albert_aktan@franchisecrf.com</div>
+    <div class="details">Rue de Wallonie 2A, 4460 Grâce-Hollogne<br><strong>Trajet :</strong> ~7 min / 3 km depuis ITM Grâce-Hollogne (même commune)<br><strong>Brief :</strong> Tier B avg 186 €. <strong>43j OVERDUE</strong> sur cycle 28j. Demander Albert Aktan. Check rotation rayon + photos + propositions réassort. Cycle à recoller. Push Thés Glacés saison (GI0xxx).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-01_CM_Grace-Hollogne/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Li%C3%A8ge+180+4460+Gr%C3%A2ce-Hollogne/Rue+de+Wallonie+2A+4460+Gr%C3%A2ce-Hollogne" target="_blank">Google Maps ITM → CM Grâce-Hollogne</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:00 - 11:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05456 — 24/04 (38j)</span>
+    </div>
+    <div class="client">AD Soumagne Marvan s.a. (partner #2915) — Tier A, 10j OVERDUE</div>
+    <div class="contact-badge">Contact : Serge — tel 043 45 97 50 — mail adsoumagne@iba-invest.be — Mr Garnier <strong>absent les mercredis</strong> (OK lundi)</div>
+    <div class="details">Avenue de la Résistance 322, 4630 Soumagne<br><strong>Trajet :</strong> ~22 min / 17 km depuis Grâce-Hollogne via A604/E40/E25<br><strong>Brief Tier A :</strong> avg <strong>1 055 €/mois</strong> — top client. Dernière SO S05456 du 24/04 (cycle 21j Tier A → 10j OVERDUE). Check rotation soigneusement + facings + photos avant/après + propositions réassort détaillées. Push Thés Glacés GI0xxx complet. Demander Serge.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-01_AD_Soumagne/</code><br><a href="https://www.google.com/maps/dir/Rue+de+Wallonie+2A+4460+Gr%C3%A2ce-Hollogne/Avenue+de+la+R%C3%A9sistance+322+4630+Soumagne" target="_blank">Google Maps Grâce-Hollogne → Soumagne</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">12:00 - 12:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05507 — 30/04 (32j)</span>
+    </div>
+    <div class="client">Delhaize Embourg (DelEmbourg SRL, partner #2909) — Tier A, 7j OVERDUE — <strong>REPORT S22</strong></div>
+    <div class="contact-badge">Contact : Kevin Demarteau (merchandiser) — tel 043 61 25 69 — mail Kevin.Demarteau@affiliatesdelhaize.be</div>
+    <div class="details">Voie de l'Ardenne 57, 4053 Embourg<br><strong>Trajet :</strong> ~15 min / 13 km depuis Soumagne via E25 sud (déjeuner court 12:30-13:15 sur trajet)<br><strong>Brief Tier A — report S22 :</strong> avg <strong>655 €/mois</strong>. 16 SO confirmées sur 12 mois (7 854 € HT). Dernière SO S05507 du 30/04 — cycle 21j → 11-15j OVERDUE. Demander Kevin Demarteau. Check rotation + facings + photos + propositions réassort détaillées. Push Thés Glacés. <strong>Demande explicite Nicolas (reportée de S22 — fichier <code>demandes_S23.md</code>).</strong><br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-01_Delhaize_Embourg/</code><br><a href="https://www.google.com/maps/dir/Avenue+de+la+R%C3%A9sistance+322+4630+Soumagne/Voie+de+l'Ardenne+57+4053+Embourg" target="_blank">Google Maps Soumagne → Embourg</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05470 — 22/04 (40j)</span>
+    </div>
+    <div class="client">Delhaize Bois-de-Breux (partner #8169) — Tier B, 8j OVERDUE</div>
+    <div class="contact-badge">Contact : Landauer Olivier (merch) ou Demany / Poppov / Ghislaine — tel +32 4 365 74 07 — mail Olivier.landauer@affiliatesdelhaize.be</div>
+    <div class="details">Rue de Herve 280, 4030 Liège<br><strong>Trajet :</strong> ~12 min / 8 km depuis Embourg via N3 ouest<br><strong>Brief :</strong> Tier B avg <strong>328 €/mois</strong>. Cycle 28j. Demander Demany, Poppov ou Ghislaine (si Landauer absent). Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-01_Delhaize_Bois-de-Breux/</code><br><a href="https://www.google.com/maps/dir/Voie+de+l'Ardenne+57+4053+Embourg/Rue+de+Herve+280+4030+Li%C3%A8ge" target="_blank">Google Maps Embourg → Bois-de-Breux</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">14:30 - 15:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05538 — 10/03 (83j)</span>
+    </div>
+    <div class="client">Delhaize St Lambert (Affilié 048755, partner #5653) — Tier B, 49j OVERDUE</div>
+    <div class="contact-badge">Contact : Julien Dosin (merch) — tel 042 22 09 90 — mail Julien.Dosin@affiliatesdelhaize.be</div>
+    <div class="details">Rue d'Official 2, Liège<br><strong>Trajet :</strong> ~12 min / 7 km depuis Bois-de-Breux via centre Liège<br><strong>Brief :</strong> Tier B avg <strong>168 €/mois</strong>. <strong>49j OVERDUE</strong> (cycle 28j). Demander Julien Dosin. Magasin à recoller — relance commerciale via Jérôme à signaler si pas de réassort possible aujourd'hui. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-01_Delhaize_St-Lambert/</code><br><a href="https://www.google.com/maps/dir/Rue+de+Herve+280+4030+Li%C3%A8ge/Rue+d'official+2+4000+Li%C3%A8ge" target="_blank">Google Maps Bois-de-Breux → St Lambert</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet lundi :</strong> Baillonville 08:00 → Grâce-Hollogne IMPL 09:15 (1h05, 75 km via E411/E25) → CM Grâce-Hollogne 10:00 (7 min, 3 km) → Soumagne 11:00 (22 min, 17 km) → Embourg 12:00 (15 min, 13 km, déjeuner court intégré) → Bois-de-Breux 13:30 (12 min, 8 km) → St Lambert 14:30 (12 min, 7 km) → retour Baillonville 16:15 (1h, 70 km via E25 sud / N4) | <strong>~195 km</strong> | <strong>Retour Baillonville 16:15 (marge 15 min avant 16:30)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Li%C3%A8ge+180+4460+Gr%C3%A2ce-Hollogne/Rue+de+Wallonie+2A+4460+Gr%C3%A2ce-Hollogne/Avenue+de+la+R%C3%A9sistance+322+4630+Soumagne/Voie+de+l'Ardenne+57+4053+Embourg/Rue+de+Herve+280+4030+Li%C3%A8ge/Rue+d'official+2+4000+Li%C3%A8ge/5377+Baillonville" target="_blank">Google Maps tournée complète Lundi 01/06</a></div>
+</div>
+
+<!-- MARDI 02/06 -->
+<div class="day">
+  <div class="day-header">Mardi 02/06 &mdash; 5 stops <span class="zone">Namur centre / Hesbaye / Liège-sud (Faimes)</span></div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">08:45 - 09:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05540 — 10/03 (84j)</span>
+    </div>
+    <div class="client">Delhaize Salzinnes (Affilié 048652, partner #114704) — Tier B, 51j OVERDUE</div>
+    <div class="contact-badge">Contact : Mme Wivine ou Manu — tel +32 81 40 80 40 — mail nicolas@adsalzinnes.be</div>
+    <div class="details">Chaussée de Charleroi 22, 5000 Namur<br><strong>Trajet :</strong> ~40 min / 40 km depuis Baillonville via N4 sud — départ 08:00<br><strong>Brief :</strong> Tier B avg <strong>258 €/mois</strong>. <strong>51j OVERDUE</strong>. Demander Madame Wivine ou Manu. Check rotation + photos + propositions réassort. Magasin à recoller. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-02_Delhaize_Salzinnes/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Charleroi+22+5000+Namur" target="_blank">Google Maps Baillonville → Salzinnes</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:35 - 10:05</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05452 — 21/04 (42j)</span>
+    </div>
+    <div class="client">Delhaize de Bouge (Affilié 041345, partner #114681) — Tier B, 9j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — mail à demander sur place</div>
+    <div class="details">Chaussée de Louvain 336, 5004 Namur (Bouge)<br><strong>Trajet :</strong> ~10 min / 4 km depuis Salzinnes via centre Namur<br><strong>Brief :</strong> Tier B avg <strong>280 €/mois</strong>. Cycle régulier (9j OVERDUE sur 28j). Visité S22 → re-passage acceptable (Tier B haut volume). Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-02_Delhaize_Bouge/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Charleroi+22+5000+Namur/Chauss%C3%A9e+de+Louvain+336+5004+Namur" target="_blank">Google Maps Salzinnes → Delhaize Bouge</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:20 - 10:50</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05453 — 21/04 (42j)</span>
+    </div>
+    <div class="client">Spar Namur (NDB Diffusion, partner #122958) — Tier B, 9j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil — tel à compléter sur place — mail à valider</div>
+    <div class="details">Rue des Échasseurs 1, 5000 Namur<br><strong>Trajet :</strong> ~10 min / 5 km depuis Delhaize Bouge via Namur centre<br><strong>Brief :</strong> Tier B nouveau client (cycle 28j depuis IMPL). avg 30 €/mois — petit volume mais récurrent. Check rotation + photos + propositions réassort. Push Thés Glacés léger (3-4 SKU saison max).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-02_Spar_Namur/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Louvain+336+5004+Namur/Rue+des+Echasseurs+1+5000+Namur" target="_blank">Google Maps Bouge → Spar Namur</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:30 - 12:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05545 — 13/04 (50j)</span>
+    </div>
+    <div class="client">AD Fernelmont (Affilié 043131, partner #5591) — Tier B, 17j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel +32 81 83 04 50 — mail info@adfernelmont.be</div>
+    <div class="details">Rue d'Eghezée 16, Fernelmont<br><strong>Trajet :</strong> ~25 min / 25 km depuis Spar Namur via N4 nord-est<br><strong>Brief :</strong> Tier B avg <strong>201 €/mois</strong>. Cycle 28j (17j OVERDUE). Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-02_AD_Fernelmont/</code><br><a href="https://www.google.com/maps/dir/Rue+des+Echasseurs+1+5000+Namur/Rue+d'Egh%C3%A9z%C3%A9e+16+Fernelmont" target="_blank">Google Maps Spar Namur → Fernelmont</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05547 — 15/04 (48j)</span>
+    </div>
+    <div class="client">Intermarché Faimes (SA Faimine, partner #3210) — Tier B, 15j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel 019 67 83 78 — mail PDV06089@mousquetaires.com</div>
+    <div class="details">Rue De Huy 27, 4317 Faimes<br><strong>Trajet :</strong> ~40 min / 35 km depuis Fernelmont via N80/N69 (déjeuner court 12:00-13:00 intégré sur trajet)<br><strong>Brief :</strong> Tier B avg <strong>219 €/mois</strong>. Cycle 28j (15j OVERDUE). Report S21 absorbé S22 partiel — à confirmer SO récente avant de pousser un nouveau réassort. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-02_ITM_Faimes/</code><br><a href="https://www.google.com/maps/dir/Rue+d'Egh%C3%A9z%C3%A9e+16+Fernelmont/Rue+De+Huy+27+4317+Faimes" target="_blank">Google Maps Fernelmont → Faimes</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet mardi :</strong> Baillonville 08:00 → Salzinnes 08:45 (40 min, 40 km via N4 sud) → Delhaize Bouge 09:35 (10 min, 4 km) → Spar Namur 10:20 (10 min, 5 km) → Fernelmont 11:30 (25 min, 25 km via N4) → Faimes 13:30 (40 min, 35 km, déjeuner court intégré) → retour Baillonville 14:50 (50 min, 50 km via N637/N4) | <strong>~165 km</strong> | <strong>Retour Baillonville 14:50 (1h40 marge — journée courte, possibilité absorption demande tardive si nécessaire)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Charleroi+22+5000+Namur/Chauss%C3%A9e+de+Louvain+336+5004+Namur/Rue+des+Echasseurs+1+5000+Namur/Rue+d'Egh%C3%A9z%C3%A9e+16+Fernelmont/Rue+De+Huy+27+4317+Faimes/5377+Baillonville" target="_blank">Google Maps tournée complète Mardi 02/06</a></div>
+</div>
+
+<!-- MERCREDI 03/06 -->
+<div class="day">
+  <div class="day-header">Mercredi 03/06 &mdash; 6 stops (2 implantations + 4 visites) <span class="zone">Hainaut (Mons / Rumes / Gosselies / Gerpinnes)</span></div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:30 - 10:00</span> <span class="badge badge-implantation">Implantation</span></span>
+      <span class="so">S05644</span>
+    </div>
+    <div class="client">Intermarché Mons (partner #123966 — nouveau client 26/05)</div>
+    <div class="contact-badge">Contact : magasin (accueil) — tel +32 65 39 48 11 — mail pdv95019@mousquetaires.com</div>
+    <div class="details">Chemin de la Procession 399, 7000 Mons<br><strong>Trajet :</strong> ~1h30 / 140 km depuis Baillonville via E411 / R3 Charleroi / E42 — départ 08:00<br><strong>Brief IMPLANTATION (30 min) :</strong> 1ʳᵉ pose rayon Teatower. SO S05644 du 26/05 (323,41 € TTC / 305,09 € HT, 15 lignes). Présentation gamme, validation emplacement rayon, photos avant/après OBLIGATOIRES, briefing responsable. Cycle Tier B à caler.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-03_ITM_Mons/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Chemin+de+la+Procession+399+7000+Mons" target="_blank">Google Maps Baillonville → ITM Mons</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:30 - 11:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05444 — 07/04 (57j)</span>
+    </div>
+    <div class="client">Hyper Carrefour Mons Grands Prés (partner #113613) — Tier B, 9j OVERDUE</div>
+    <div class="contact-badge">Contact : Christophe Solheid (merch) — tel +32 65 32 36 11 — mail christophe_solheid@carrefour.com — <strong>Hyper = visite matin (avant 12h)</strong></div>
+    <div class="details">Place des Grands Prés 1, 7000 Mons<br><strong>Trajet :</strong> ~12 min / 5 km depuis ITM Mons via N6/E19 sortie<br><strong>Brief :</strong> Tier B avg <strong>100 €/mois</strong>. <strong>9j OVERDUE</strong>. Demander Christophe Solheid. Note : "Plus en display mais en TG dans le fond du magasin" — confirmer emplacement actuel, photos avant/après, push réassort si rotation OK. Push Thés Glacés (Hyper = potentiel volume).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-03_HC_Mons_GrandsPres/</code><br><a href="https://www.google.com/maps/dir/Chemin+de+la+Procession+399+7000+Mons/Place+des+Grands+Pr%C3%A9s+1+7000+Mons" target="_blank">Google Maps ITM Mons → HC Grands Prés</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:45 - 12:15</span> <span class="badge badge-implantation">Implantation</span></span>
+      <span class="so">S05643</span>
+    </div>
+    <div class="client">Intermarché Rumes (partner #123964 — nouveau client 26/05)</div>
+    <div class="contact-badge">Contact : magasin (accueil) — tel +32 69 34 31 88 — mail pdv04733@mousquetaires.com</div>
+    <div class="details">Chaussée de Douai 1bis, 7610 Rumes<br><strong>Trajet :</strong> ~35 min / 35 km depuis HC Mons Grands Prés via E42 ouest (Tournai), sortie Rumes<br><strong>Brief IMPLANTATION (30 min) :</strong> 1ʳᵉ pose rayon Teatower. SO S05643 du 26/05 (323,41 € TTC / 305,09 € HT, 9 lignes). Présentation gamme, validation emplacement rayon, photos avant/après OBLIGATOIRES, briefing responsable.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-03_ITM_Rumes/</code><br><a href="https://www.google.com/maps/dir/Place+des+Grands+Pr%C3%A9s+1+7000+Mons/Chauss%C3%A9e+de+Douai+1bis+7610+Rumes" target="_blank">Google Maps HC Grands Prés → ITM Rumes</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">13:30 - 14:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05442 — 03/04 (61j)</span>
+    </div>
+    <div class="client">Hyper Carrefour Gosselies (partner #122466) — Tier B, 23j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie / responsable rayon — tel à compléter sur place</div>
+    <div class="details">Da Vincilaan 3, 6041 Gosselies<br><strong>Trajet :</strong> ~50 min / 55 km depuis Rumes via E42 est (déjeuner court 12:15-13:15 intégré sur trajet)<br><strong>Brief :</strong> Tier B nouveau client. avg 54 €/mois. Cycle 28j (23j OVERDUE). Hyper = potentiel volume Thés Glacés. Check rotation + photos + propositions réassort. Note : visite Hyper matin idéale, mais 13:30 acceptable si responsable rayon présent.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-03_HC_Gosselies/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Douai+1bis+7610+Rumes/Da+Vincilaan+3+6041+Gosselies" target="_blank">Google Maps Rumes → HC Gosselies</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">14:15 - 14:45</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05439 — 31/03 (64j)</span>
+    </div>
+    <div class="client">Intermarché Gosselies (Distriparenthèse, partner #2927) — Tier B, 30j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel à compléter sur place</div>
+    <div class="details">Rue Pont à Migneloux 13, 6041 Gosselies<br><strong>Trajet :</strong> ~8 min / 3 km depuis HC Gosselies (même commune)<br><strong>Brief :</strong> Tier B avg <strong>129 €/mois</strong>. <strong>30j OVERDUE</strong> (cycle 28j). Demander responsable épicerie. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-03_ITM_Gosselies/</code><br><a href="https://www.google.com/maps/dir/Da+Vincilaan+3+6041+Gosselies/Rue+Pont+%C3%A0+Migneloux+13+6041+Gosselies" target="_blank">Google Maps HC → ITM Gosselies</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">15:10 - 15:40</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05448 — 17/04 (47j)</span>
+    </div>
+    <div class="client">Intermarché Gerpinnes (Gerpidis SA, partner #2971) — Tier B, 13j OVERDUE</div>
+    <div class="contact-badge">Contact : Elodie Botte (merch) / Géraldine ou Max pour signature BC — tel 071 21 69 09 — mail pdv09863@mousquetaires.com</div>
+    <div class="details">Route de Philippeville 196, 6280 Gerpinnes<br><strong>Trajet :</strong> ~20 min / 18 km depuis ITM Gosselies via R3/N5<br><strong>Brief :</strong> Tier B avg <strong>261 €/mois</strong>. Cycle 28j (13j OVERDUE). Demander Elodie Botte ; signature BC = Géraldine ou Max. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-03_ITM_Gerpinnes/</code><br><a href="https://www.google.com/maps/dir/Rue+Pont+%C3%A0+Migneloux+13+6041+Gosselies/Route+De+Philippeville+196+6280+Gerpinnes" target="_blank">Google Maps ITM Gosselies → Gerpinnes</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet mercredi :</strong> Baillonville 08:00 → ITM Mons IMPL 09:30 (1h30, 140 km via E411/R3/E42) → HC Mons Grands Prés 10:30 (12 min, 5 km) → ITM Rumes IMPL 11:45 (35 min, 35 km via E42 ouest) → déjeuner 12:15-13:15 sur trajet → HC Gosselies 13:30 (50 min, 55 km via E42 est) → ITM Gosselies 14:15 (8 min, 3 km) → Gerpinnes 15:10 (20 min, 18 km) → retour Baillonville 16:25 (1h15, 95 km via N5/N97/E411) | <strong>~350 km</strong> | <strong>Retour Baillonville 16:25 (marge 5 min — JOURNÉE TENDUE)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Chemin+de+la+Procession+399+7000+Mons/Place+des+Grands+Pr%C3%A9s+1+7000+Mons/Chauss%C3%A9e+de+Douai+1bis+7610+Rumes/Da+Vincilaan+3+6041+Gosselies/Rue+Pont+%C3%A0+Migneloux+13+6041+Gosselies/Route+De+Philippeville+196+6280+Gerpinnes/5377+Baillonville" target="_blank">Google Maps tournée complète Mercredi 03/06</a></div>
+</div>
+
+<!-- JEUDI 04/06 -->
+<div class="day">
+  <div class="day-header">Jeudi 04/06 &mdash; 5 stops (1 implantation + 4 visites) <span class="zone">BXL / Brabant Wallon / retour Liège-sud (Tilff)</span></div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:15 - 09:45</span> <span class="badge badge-implantation">Implantation</span></span>
+      <span class="so">S05652</span>
+    </div>
+    <div class="client">AD Delhaize Roodebeek (partner #123997 — nouveau client 27/05)</div>
+    <div class="contact-badge">Contact : magasin (accueil) — tel +32 2 779 56 03 — mail info@delhaizeroodebeek.be</div>
+    <div class="details">Chaussée de Roodebeek 199, 1200 Bruxelles (Woluwe-Saint-Lambert)<br><strong>Trajet :</strong> ~1h15 / 105 km depuis Baillonville via E411 nord — départ 08:00<br><strong>Brief IMPLANTATION (30 min) :</strong> 1ʳᵉ pose rayon Teatower. SO S05652 du 27/05 (<strong>627,98 € TTC / 592,39 € HT, 19 lignes — gros panier IMPL</strong>). Présentation gamme, validation emplacement rayon, photos avant/après OBLIGATOIRES, briefing responsable sur la rotation et le réassort. Cycle Tier B à caler.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-04_AD_Roodebeek/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Roodebeek+199+1200+Bruxelles" target="_blank">Google Maps Baillonville → AD Roodebeek</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:45 - 11:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05446 — 09/04 (56j)</span>
+    </div>
+    <div class="client">Intermarché Nivelles (NIVALIM, partner #3153) — Tier A, 28j OVERDUE</div>
+    <div class="contact-badge">Contact : Sandrine Boulle (merch) — tel 067 21 74 94 — mail pdv09840@mousquetaires.com</div>
+    <div class="details">Rue Tienne-à-Deux-Vallées 6/8, 1400 Nivelles<br><strong>Trajet :</strong> ~35 min / 35 km depuis Roodebeek via R0 sud-ouest / E19 sud<br><strong>Brief Tier A :</strong> avg <strong>470 €/mois</strong> — top client. <strong>28j OVERDUE</strong> sur cycle 21j. Demander Sandrine Boulle. Check rotation soigneusement + facings + photos avant/après + propositions réassort détaillées. Push Thés Glacés complet (saison).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-04_ITM_Nivelles/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Roodebeek+199+1200+Bruxelles/Rue+Tienne-%C3%A0-Deux-Vall%C3%A9es+6+1400+Nivelles" target="_blank">Google Maps Roodebeek → Nivelles</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:45 - 12:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05432 — 25/03 (71j)</span>
+    </div>
+    <div class="client">AD Delhaize Filature (Affilié 041341, partner #5443) — Tier C, 22j OVERDUE — <strong>proxy zone Braine-le-Château</strong></div>
+    <div class="contact-badge">Contact : Mme Dubois Morgane (merch) — tel 02 204 56 40 — mail Adfilature@courcellesgroup.be</div>
+    <div class="details">Rue de Tubize 102, 1440 Braine-le-Château<br><strong>Trajet :</strong> ~15 min / 12 km depuis Nivelles via N27 nord<br><strong>Brief :</strong> Tier C avg 85 €/mois. Cycle 42j (22j OVERDUE). Demander Mme Dubois Morgane. Check rotation + photos + propositions réassort. <strong>NB Nicolas :</strong> ce magasin est inséré comme proxy zone Braine-le-Château car l'Intermarché Braine-le-Château demandé (lead CRM #233 Gagné 29/08/25) n'est pas converti en partner Odoo → IMPL S24 si tu valides la création + SO.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-04_AD_Filature_BLC/</code><br><a href="https://www.google.com/maps/dir/Rue+Tienne-%C3%A0-Deux-Vall%C3%A9es+6+1400+Nivelles/Rue+de+Tubize+102+1440+Braine-le-Ch%C3%A2teau" target="_blank">Google Maps Nivelles → Filature BLC</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">13:00 - 13:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05433 — 25/03 (71j)</span>
+    </div>
+    <div class="client">Intermarché Genappe (GENADIS, partner #2963) — Tier B, 36j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel 067 78 02 50 — mail pdv09846@mousquetaires.com</div>
+    <div class="details">Rue Louis Lalieux 22, 1470 Genappe<br><strong>Trajet :</strong> ~20 min / 18 km depuis Filature BLC via N28/N5 (déjeuner court 12:15-13:00 intégré)<br><strong>Brief :</strong> Tier B avg <strong>112 €/mois</strong>. <strong>36j OVERDUE</strong> (cycle 28j). Magasin à recoller. Demander responsable épicerie. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-04_ITM_Genappe/</code><br><a href="https://www.google.com/maps/dir/Rue+de+Tubize+102+1440+Braine-le-Ch%C3%A2teau/Rue+Louis+Lalieux+22+1470+Genappe" target="_blank">Google Maps Filature → Genappe</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">14:30 - 15:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05459 — 22/04 (43j)</span>
+    </div>
+    <div class="client">Intermarché Tilff (Chili Peppers, partner #116869) — Tier A, 15j OVERDUE</div>
+    <div class="contact-badge">Contact : Castermans Christine (merch) — tel 0479 32 28 39 — mail castermans.christine@yahoo.fr / pdv09885@mousquetaires.com — <strong>Christine OK jeudi (pas vendredi)</strong></div>
+    <div class="details">Avenue des Ardennes 8, 4130 Esneux (Tilff)<br><strong>Trajet :</strong> ~1h05 / 90 km depuis Genappe via E411 est<br><strong>Brief Tier A :</strong> avg <strong>460 €/mois</strong>. <strong>15j OVERDUE</strong> (cycle 21j). Demander Christine Castermans. Note : "Appeler le magasin avant le passage de Gilles pour savoir s'ils ont besoin d'accessoires (pas dans le camion)". Check rotation soigneusement + facings + photos avant/après + propositions réassort détaillées. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-04_ITM_Tilff/</code><br><a href="https://www.google.com/maps/dir/Rue+Louis+Lalieux+22+1470+Genappe/Avenue+des+Ardennes+8+4130+Esneux" target="_blank">Google Maps Genappe → Tilff</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet jeudi :</strong> Baillonville 08:00 → Roodebeek IMPL 09:15 (1h15, 105 km via E411 nord) → Nivelles 10:45 (35 min, 35 km via R0 sud-ouest) → AD Filature BLC 11:45 (15 min, 12 km) → déjeuner court 12:15-13:00 sur trajet → ITM Genappe 13:00 (20 min, 18 km) → Tilff 14:30 (1h05, 90 km via E411 est) → retour Baillonville 15:50 (1h, 70 km via E25 sud / N4) | <strong>~330 km</strong> | <strong>Retour Baillonville 15:50 (marge 40 min avant 16:30)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Roodebeek+199+1200+Bruxelles/Rue+Tienne-%C3%A0-Deux-Vall%C3%A9es+6+1400+Nivelles/Rue+de+Tubize+102+1440+Braine-le-Ch%C3%A2teau/Rue+Louis+Lalieux+22+1470+Genappe/Avenue+des+Ardennes+8+4130+Esneux/5377+Baillonville" target="_blank">Google Maps tournée complète Jeudi 04/06</a></div>
+</div>
+
+<!-- VENDREDI 05/06 -->
+<div class="day">
+  <div class="day-header">Vendredi 05/06 &mdash; 5 stops <span class="zone">Famenne / Luxembourg nord (Marche / Hotton / Manhay)</span></div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:00 - 09:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05430 — 23/03 (74j)</span>
+    </div>
+    <div class="client">Delhaize de Marche (N.B.S. RETAIL, partner #8159) — Tier A, 45j OVERDUE</div>
+    <div class="contact-badge">Contact : Nathalie (responsable rayon) — tel +32 470 26 16 92 — mail nathalie-delhaizemarche@nbs-retail.be</div>
+    <div class="details">Avenue de France 39, 6900 Marche-en-Famenne<br><strong>Trajet :</strong> ~25 min / 22 km depuis Baillonville via N4 nord — départ 08:30<br><strong>Brief Tier A :</strong> avg <strong>450 €/mois</strong>. <strong>45j OVERDUE</strong> sur cycle 21j — gros décrochage à recoller. Note Odoo : "À partir du mois de septembre nous serons en rayon. Voir avec Jérôme pour développer le facing du rayon". Check rotation + photos + propositions réassort. Push Thés Glacés. Remonter à Jérôme statut "développement facing" suite à la visite.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-05_Delhaize_Marche/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Avenue+de+France+39+6900+Marche-en-Famenne" target="_blank">Google Maps Baillonville → Delhaize Marche</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:50 - 10:20</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05420 — 09/03 (88j)</span>
+    </div>
+    <div class="client">Hyper Carrefour Marche-en-Famenne (partner #6999) — Tier B, 52j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie / responsable rayon — tel à compléter sur place — <strong>Hyper = visite matin (avant 12h)</strong></div>
+    <div class="details">Chaussée de Liège 41, 6900 Marche-en-Famenne<br><strong>Trajet :</strong> ~8 min / 4 km depuis Delhaize Marche (même commune)<br><strong>Brief :</strong> Tier B avg <strong>399 €/mois</strong>. <strong>52j OVERDUE</strong>. Hyper = visite matin idéale. Check rotation + photos + propositions réassort. Push Thés Glacés (potentiel volume Hyper).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-05_HC_Marche/</code><br><a href="https://www.google.com/maps/dir/Avenue+de+France+39+6900+Marche-en-Famenne/Chauss%C3%A9e+de+Li%C3%A8ge+41+6900+Marche-en-Famenne" target="_blank">Google Maps Delhaize → HC Marche</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:00 - 11:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05462 — 27/04 (39j)</span>
+    </div>
+    <div class="client">Carrefour Market Hotton (HODICA SA, partner #2979) — Tier B, 3j OVERDUE</div>
+    <div class="contact-badge">Contact : Gauthier Lempereur (merch) — tel 084 46 73 44 — mail carrefour.market.hotton@gmail.com</div>
+    <div class="details">Rue de la Jonction 16, 6990 Hotton<br><strong>Trajet :</strong> ~25 min / 20 km depuis HC Marche via N86 nord-est<br><strong>Brief :</strong> Tier B avg <strong>180 €/mois</strong>. Cycle 28j (3j OVERDUE — début de cycle). Demander Gauthier Lempereur. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-05_CM_Hotton/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Li%C3%A8ge+41+6900+Marche-en-Famenne/Rue+de+la+Jonction+16+6990+Hotton" target="_blank">Google Maps HC Marche → CM Hotton</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">12:30 - 13:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05456 — 21/04 (45j)</span>
+    </div>
+    <div class="client">Spar Manhay (Lambertdis SRL, partner #122944) — Tier B, 9j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel à compléter sur place</div>
+    <div class="details">Rue d'Erezée, 6960 Manhay<br><strong>Trajet :</strong> ~30 min / 30 km depuis Hotton via N807/N86 (déjeuner court 12:00-12:30 intégré sur trajet)<br><strong>Brief :</strong> Tier B avg 47 €/mois — nouveau client cycle 28j. Check rotation + photos + propositions réassort. Push Thés Glacés léger (3-4 SKU saison).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-05_Spar_Manhay/</code><br><a href="https://www.google.com/maps/dir/Rue+de+la+Jonction+16+6990+Hotton/Rue+d'Erez%C3%A9e+6960+Manhay" target="_blank">Google Maps Hotton → Manhay</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">13:45 - 14:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05448 — 13/04 (53j)</span>
+    </div>
+    <div class="client">AD Ciney (Etablissements Schnongs, partner #7679) — Tier B, 17j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — coordonnées à compléter sur place (champ Odoo vide)</div>
+    <div class="details">Chemin de Crahiat 18A, 5590 Ciney<br><strong>Trajet :</strong> ~35 min / 35 km depuis Manhay via N86/N4<br><strong>Brief :</strong> Tier B avg <strong>239 €/mois</strong>. Cycle 28j (17j OVERDUE). Demander gérant / responsable épicerie. Check rotation + photos + propositions réassort. Push Thés Glacés. <strong>NB :</strong> fiche Odoo incomplète (téléphone et email vides) — Gilles à remonter contact merch sur place + nom responsable pour patch fiche.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-05_AD_Ciney/</code><br><a href="https://www.google.com/maps/dir/Rue+d'Erez%C3%A9e+6960+Manhay/Chemin+de+Crahiat+18+5590+Ciney" target="_blank">Google Maps Manhay → AD Ciney</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet vendredi :</strong> Baillonville 08:30 → Delhaize Marche 09:00 (25 min, 22 km via N4) → HC Marche 09:50 (8 min, 4 km) → CM Hotton 11:00 (25 min, 20 km via N86) → déjeuner 12:00-12:30 sur trajet → Spar Manhay 12:30 (30 min, 30 km) → AD Ciney 13:45 (35 min, 35 km) → retour Baillonville 14:45 (30 min, 25 km via N4 nord) | <strong>~160 km</strong> | <strong>Retour Baillonville 14:45 (1h45 marge — journée courte, possibilité absorption demande tardive Nicolas ou Jérôme)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Avenue+de+France+39+6900+Marche-en-Famenne/Chauss%C3%A9e+de+Li%C3%A8ge+41+6900+Marche-en-Famenne/Rue+de+la+Jonction+16+6990+Hotton/Rue+d'Erez%C3%A9e+6960+Manhay/Chemin+de+Crahiat+18+5590+Ciney/5377+Baillonville" target="_blank">Google Maps tournée complète Vendredi 05/06</a></div>
+</div>
+
+<div class="alert"><strong>Alertes Nicolas — décisions/actions à faire S23 :</strong>
+<ul style="margin-left:1.2rem;margin-top:.4rem;">
+<li><strong>Intermarché Braine-le-Château</strong> demandé pour IMPL : lead CRM <strong>#233 "Intermarché Braine Le Château"</strong> stage <strong>Gagné</strong> depuis <strong>29/08/2025</strong> mais <strong>jamais converti en partner Odoo</strong>. AD Delhaize Filature (#5443, Braine-le-Château Tier C 22j OVERDUE) inséré comme proxy zone jeudi (PAS en IMPL). <strong>Action Nicolas :</strong> convertir le lead en partner + créer SO IMPL ou statuer "abandon lead" si plus d'actualité. Si conversion validée avant ven 30/05 → ajout IMPL S24.</li>
+<li><strong>Walcourt #9016</strong> (Tier C, 182j OVERDUE) reste reporté depuis S21 — Jérôme à statuer sur la relance commerciale avant revisite.</li>
+<li><strong>AD Ciney #7679</strong> : fiche Odoo incomplète (tel/email vides) → Gilles remonte contacts vendredi pour patch.</li>
+<li><strong>Hyper Carrefour Bierges, Wavre, Genappe, Ottignies, Sombreffe</strong> (S22) : NOT re-visités S23 (cycle &lt;14j).</li>
+<li><strong>5 magasins APPEL ONLY</strong> (Rhode-St-Genèse #120933, CHIREC #120762, Lillois #114763, St-Séverin #113445, Petits Champs #120986) : hors planning, gérés par Vanessa.</li>
+<li><strong>Delhaize Gembloux #2913</strong> : hors planning (règle dure — AD commande seul).</li>
+<li><strong>Magasins APPEL ONLY supplémentaires depuis S22 :</strong> aucun nouveau.</li>
+</ul>
+</div>
+
+<div class="alert alert-success"><strong>Bilan S23 v1 (28/05) :</strong> 26 visites GMS + <strong>4 IMPLANTATIONS</strong> nouveaux clients (Grâce-Hollogne lundi, Mons mercredi, Rumes mercredi, Roodebeek jeudi) sur 5 jours pleins. Cap retour Baillonville ≤16h30 respecté chaque jour (mercredi 16:25 = jour tendu, marge 5 min). <strong>5ᵉ IMPL demandée (Braine-le-Château) NON FAISABLE</strong> sans conversion lead CRM préalable — alerte Nicolas pour action S24. <strong>Nicolas spécifique S23 :</strong> les 5 IMPL prioritaires intégrées, Embourg report S22 absorbé lundi, boucles géo cohérentes (Liège-est/Namur/Hainaut/BXL-BW/Famenne). <strong>Top OVERDUE Tier A intégrés :</strong> Soumagne (10j), Embourg (7j), Nivelles (28j), Tilff (15j), Delhaize Marche (45j). <strong>Mercredi 03/06 = journée Hainaut tendue</strong> (350 km, marge 5 min) — si retard matin Mons IMPL, Gerpinnes à déprioriser/reporter.</div>
+
+</div><!-- /s01 -->
+
+
 <!-- SEMAINE 11-15/05 (S20 — v1 publié 04/05)                     -->
 <!-- ============================================================ -->
 
@@ -1693,7 +2036,7 @@ document.querySelectorAll('.week-btn').forEach(btn => {
 });
 </script>
 
-<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Généré par Nira &mdash; Agent Planning Teatower | <strong>S22 v0.2 (21/05) DRAFT — Ma+Me 26-27/05 publiés</strong> : boucle Liège Fragnée/Barchon/Herve/Fleron (push thés glacés) + boucle Lux sud Recogne/Bertrix/CC Port/AD Bastogne. <strong>Nouveau (21/05) : badge "Dernière SO" sur chaque visite, source Odoo <code>sale.order</code> uniquement</strong>. Reste de S22 (Lu/Je/Ve) à construire en v1 complète.</p>
+<p style="text-align:center;color:#999;font-size:.75rem;margin-top:2rem;">Généré par Nira &mdash; Agent Planning Teatower | <strong>S23 v1 (28/05) PUBLIÉ — 26 visites + 4 IMPLANTATIONS (Grâce-Hollogne, Mons, Rumes, Roodebeek) sur 5 jours pleins.</strong> 5ᵉ IMPL Braine-le-Château non faisable (lead CRM Gagné non converti — alerte Nicolas pour action S24). Pool maître régénéré 28/05 (156 GMS, 82 OVERDUE actifs).</p>
 
 </body>
 </html>
