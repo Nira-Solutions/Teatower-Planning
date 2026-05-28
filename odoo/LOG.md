@@ -1,4 +1,18 @@
 
+## 2026-05-28 — Config Peppol 22 partners email (batch 02728-02771)
+
+- **Type** : Configuration Peppol res.partner
+- **Demande** : Nicolas — activer Peppol sur les 22 partners qui ont recu email le 28/05
+- **Methode** : reverse engineering sur 21 partners Peppol confirmes (eas 0208/9925 BE) + verification via button_account_peppol_check_partner_endpoint
+- **Pattern Teatower** : Belgique = eas 0208 (BCE) endpoint sans BE, OU eas 9925 (BE VAT) endpoint avec BE prefixe
+- **Resultat** :
+  - 13/22 partenaires passes en method=peppol (verif=valid)
+  - 1 VAT normalise : Sandrine Tahir BE0786 417 996 -> BE0786417996 (reste not_valid, email maintenu)
+  - 6 restes email (not_valid Peppol) : Boulangerie Co'Pains, Brasserie Wolkraft, D.BRAIVES, Esprit de campagne, Cafes Delahaut (Facturation), Hello Bio (facturation)
+  - 2 restes email (pas de VAT) : Carrefour Belgium Corporate Village, Faire.Com
+  - Actions : write invoice_sending_method=peppol sur IDs [116231, 5437, 5432, 123845, 5625, 123843, 7027, 5448, 6024, 123901, 5572, 123969, 10103]
+- **Pas de re-envoi des factures deja envoyees** — config pour futures factures uniquement
+
 ## 2026-05-28 — Batch post + envoi 44 factures B2B (Peppol + Email)
 
 - **Type** : action_post + account.move.send.wizard (Peppol / Email)
