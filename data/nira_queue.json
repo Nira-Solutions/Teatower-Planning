@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T15:28:04",
+  "updated": "2026-05-28T15:29:08",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3378,9 +3378,10 @@
       "id": "t068",
       "agent": "compta",
       "task": "Liste B2B à facturer (hors GMS intégré)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-28T15:28",
-      "request": "qu'est-ce qu'il y a à facturer en B2B ?"
+      "request": "qu'est-ce qu'il y a à facturer en B2B ?",
+      "finished": "2026-05-28T15:29"
     }
   ]
 }
