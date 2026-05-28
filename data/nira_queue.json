@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:47:49",
+  "updated": "2026-05-28T14:54:05",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3324,9 +3324,10 @@
       "id": "t062",
       "agent": "data-bi",
       "task": "Forecast annuel doypacks I0 par canal (12M glissants + croissance + nouveau POS)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-28T14:47",
-      "request": "Nicolas demande forecast volumes doypacks I0 tous canaux, 12M glissants, avec hypothese nouveau POS = volume Liege en juillet 2026, croissance documentee, livrables tableau + top 5 + refs queue"
+      "request": "Nicolas demande forecast volumes doypacks I0 tous canaux, 12M glissants, avec hypothese nouveau POS = volume Liege en juillet 2026, croissance documentee, livrables tableau + top 5 + refs queue",
+      "finished": "2026-05-28T14:54"
     },
     {
       "id": "t063",
