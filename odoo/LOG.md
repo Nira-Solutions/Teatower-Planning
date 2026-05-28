@@ -1,4 +1,19 @@
 
+## 2026-05-28 — Batch post + envoi 44 factures B2B (Peppol + Email)
+
+- **Type** : action_post + account.move.send.wizard (Peppol / Email)
+- **Demande** : Nicolas GO post + envoi 28/05/2026
+- **Factures postees** : 44/44 — IDs 38824 a 38867 — INV/2026/02728 a INV/2026/02771
+- **38823 (La Gloriette)** : laissee en draft (anomalie, decision Nicolas en attente)
+- **Split envoi** :
+  - Peppol envoye : 21 factures (IDs : 38824, 38826, 38829, 38830, 38831, 38836, 38837, 38838, 38840, 38842, 38844, 38847, 38848, 38851, 38852, 38857, 38859, 38863, 38864, 38865, 38867)
+  - Email envoye : 22 factures (IDs : 38825, 38827, 38828, 38832, 38833, 38834, 38835, 38839, 38841, 38843, 38845, 38846, 38849, 38850, 38853, 38855, 38856, 38858, 38860, 38861, 38862, 38866)
+    - dont 38843 (Boulangerie Les Co'Pains BE0600867290) : Peppol refuse (not_valid), fallback email OK
+  - Manuel a traiter : 38854 (Faire.Com, 127,20 EUR) — aucun email ni Peppol
+- **Total envoye** : 43 factures sur 44 — 21 594,95 EUR TTC
+- **Echec final** : 0 (38843 resolu en email fallback)
+- **A traiter manuellement** : 38854 Faire.Com (enregistrer email dans Odoo ou envoyer manuellement)
+
 ## 2026-05-28 — Batch facturation B2B GO Nicolas (45 SO brouillon)
 
 - **Type** : Creation factures clients (out_invoice) + forçage transport
