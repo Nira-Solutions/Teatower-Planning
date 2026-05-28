@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:54:07",
+  "updated": "2026-05-28T14:55:36",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3342,9 +3342,10 @@
       "id": "t064",
       "agent": "planning",
       "task": "Edit S23 v3 HTML + commit",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-05-28T14:47",
-      "request": "Edition planning index.html S23 v3 avec 6 ajouts (Lontzen+Bouge+Floriffoux+Filature+Genval+CM Barvaux)"
+      "request": "Edition planning index.html S23 v3 avec 6 ajouts (Lontzen+Bouge+Floriffoux+Filature+Genval+CM Barvaux)",
+      "finished": "2026-05-28T14:55"
     }
   ]
 }
