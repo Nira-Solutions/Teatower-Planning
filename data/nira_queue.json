@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T14:46:33",
+  "updated": "2026-05-28T14:47:24",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3318,6 +3318,14 @@
       "status": "in_progress",
       "started": "2026-05-28T14:46",
       "request": "Recalcul fenetres + ajout stops mar/jeu/ven S23 avec nouveau budget 25min/stop"
+    },
+    {
+      "id": "t062",
+      "agent": "data-bi",
+      "task": "Forecast annuel doypacks I0 par canal (12M glissants + croissance + nouveau POS)",
+      "status": "in_progress",
+      "started": "2026-05-28T14:47",
+      "request": "Nicolas demande forecast volumes doypacks I0 tous canaux, 12M glissants, avec hypothese nouveau POS = volume Liege en juillet 2026, croissance documentee, livrables tableau + top 5 + refs queue"
     }
   ]
 }
