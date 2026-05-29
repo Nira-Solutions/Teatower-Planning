@@ -109,14 +109,14 @@ Règle instaurée le **2026-05-13** suite à l'omission **Delhaize Genval** (#55
 
 ## 3. JAMAIS de depassement horaire (REGLE DURE)
 
-**Le merchandiser ne peut JAMAIS depasser l'horaire de fin : 16h30.**
+**Le merchandiser ne peut JAMAIS depasser l'horaire de fin : 16h45.**
 
 ### Application
 
 1. Pour chaque journee, calculer l'heure de retour estimee a la base (Baillonville 5377) en additionnant :
    - l'heure de fin de la derniere visite/implantation
    - le temps de trajet retour vers Baillonville
-2. Si le retour estime depasse 16h30, la derniere visite (ou l'avant-derniere si necessaire) doit etre :
+2. Si le retour estime depasse 16h45, la derniere visite (ou l'avant-derniere si necessaire) doit etre :
    - deplacee a un autre jour de la meme semaine, OU
    - reportee a la semaine suivante
 3. Lors de la generation du planning, **refuser** toute entree qui provoquerait un depassement — ne jamais inscrire une visite "sous reserve de validation".
@@ -125,6 +125,8 @@ Règle instaurée le **2026-05-13** suite à l'omission **Delhaize Genval** (#55
 ### Contexte
 
 Regle instauree le 15/04/2026 suite au depassement prevu pour l'implantation Delhaize Enghien (S05413) le lundi 20/04 (retour estime 17h25, +55min). L'implantation a ete reportee a la semaine du 27/04.
+
+Plafond releve de 16h30 a 16h45 le 2026-05-29 par Nicolas.
 
 ---
 
@@ -196,12 +198,12 @@ Lors de la generation du planning, si un magasin figure dans ce tableau, utilise
 ## 6. Autres regles (rappel depuis la skill)
 
 - **Base** : Zone d'activite Nord 33, 5377 Baillonville
-- **Horaire** : 8h30 - 16h30 (retour obligatoire a 16h30)
+- **Horaire** : 8h30 - 16h45 (retour obligatoire a 16h45)
 - **Capacite** : 6 a 8 visites / jour (objectif maximisation), 30 min par visite
 - **Hyper** : toujours le matin (avant 12h), jamais l'apres-midi
 - **Exclusions Odoo permanentes** : "Delhaize Le Lion" et "Carrefour Belgium" (comptes centraux)
 - **Remarques magasin** (champ `comment` Odoo) : contraintes jours/horaires obligatoires a respecter
-- **Maximisation** : si un retour est prevu avant 14h30, ajouter des clients dans la zone jusqu'a la limite 16h30
+- **Maximisation** : si un retour est prevu avant 14h30, ajouter des clients dans la zone jusqu'a la limite 16h45
 
 ---
 
