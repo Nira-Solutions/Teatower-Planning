@@ -47,6 +47,20 @@
 
 ---
 
+## Ajustements v5 (2026-05-29)
+
+### Delhaize Ath #123144 — VISITE réassort thés glacés (mercredi 03/06)
+
+- **Partner** : #123144 — Affilié 040490 - Delhaize Ath, Rue de l'Abbaye 6, 7800 Ath
+- **Tier** : B — implantation initiale 22/04/2026 (SO S05437, 520,80 € TTC : 7 SKU GI0xxx × 12 unités + V0914 + Display M0005)
+- **Cadence appliquée** : standard Tier B (~28-30j), pas de délai custom — next-visit 20/05 mais glissé hors queue S21. Au 03/06 = 42j depuis IMPL → **OVERDUE 12j**.
+- **Source demande** : Nicolas 2026-05-29 — info terrain « énormément de thés glacés à remettre ».
+- **Insertion v5** : mercredi 03/06 entre HC Mons Grands Prés et ITM Rumes (11:07-11:32, 25 min sur place). +30 min route HC Mons → Ath via N56/E429, +35 min Ath → Rumes via N7/R56/E42.
+- **Décision Gerpinnes** : maintenu (option A confirmée Nicolas) — retour Baillonville 16:28 (marge 17 min sur cap 16h45 relevé même jour).
+- **Brief** : check rotation SKU par SKU (GI0820 / GI0735 / GI0634 / GI0832 / GI0916 / GI0912 + V0914), photos avant/après, prise commande sur place si rupture sévère, noter contact responsable rayon (info manquante depuis IMPL).
+
+---
+
 ## Ajustements v2 (2026-05-28, après publication v1)
 
 ### Retrait ITM Genappe jeudi 04/06 → reporté S24
