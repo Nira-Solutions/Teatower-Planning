@@ -1,5 +1,42 @@
 # LOG Compta Teatower
 
+## 2026-05-29 — Batch facturation B2B Peppol delta J+1 — 5 factures postées
+
+- Type : facturation B2B hors GMS — wizard `delivered` + envoi Peppol (bucket A) / postée sans envoi (bucket B)
+- SO scannées `to invoice` non-GMS : 14 total
+- SO exclues GMS (tag GMS sur partner) : S05652 AD Delhaize Roodebeek, S05668 Intermarché Braine, S05643 Intermarché Rumes, S05644 Intermarché Mons
+- SO exclues non livrées (qty_delivered=0 sur toutes lignes) : S05643, S05644
+- SO exclues B2C (fiscal position EU B2C) : S05621 Jarosz, #48143 Jessica Masula
+- SO exclues montant 0€ (100% remise, draft supprimés) : S05600 Café Ventuno, S05454 Marketing Teatower
+- Hélène BERTRAND S05192 : déjà facturée le 28/05 (INV/2026/01652). Draft supprimé (ligne MENU 0€ résiduelle).
+- B-Shock S05529 : déjà facturé le 28/05 (INV/2026/02728, 264,48 HT). Seule ligne résiduelle = filtres à thé 7,44 HT non encore facturés.
+
+### Transport forcé qty_delivered=qty_ordered
+- S05670 line 60308 TRANSPORT : 0→1 (10,00 EUR HT)
+- S05666 line 60267 TRANSPORT : 0→1 (10,00 EUR HT)
+- S00738 line 4648 TRANSPORT : 0→1 (10,00 EUR HT)
+
+### Bucket A — Peppol OK (peppol_verification_state=valid) — 3 factures
+| Facture | Partner | HT | TTC | Peppol state |
+|---|---|---|---|---|
+| INV/2026/02791 | MaxMara scrl (Max et moi) | 158,12 | 167,60 | processing |
+| INV/2026/02794 | B-Shock Coaching - Cravette Cédric | 7,44 | 9,00 | processing |
+| INV/2026/02795 | A2MG SRL | 198,12 | 210,00 | processing |
+| **Total A** | | **363,68** | **386,60** | |
+
+### Bucket B — Peppol KO (not_verified) — 2 factures — à statuer par Nicolas
+| Facture | Partner | HT | TTC | Raison |
+|---|---|---|---|---|
+| INV/2026/02792 | Douaire Café srl | 160,00 | 169,60 | peppol not_verified |
+| INV/2026/02793 | INFRABEL (Invoice Address) | 134,50 | 142,60 | peppol not_verified |
+| **Total B** | | **294,50** | **312,20** | |
+
+### Total batch 29/05
+- Grand total : HT 658,18 EUR / TTC 698,80 EUR
+- Anomalies : S05670 Douaire Café — 1 produit partiellement livré (HC250735 Pêche de vigne, 1 unité non livrée) ; facture partielle émise, solde à facturer à la prochaine livraison.
+
+---
+
 ## 2026-05-19 — Facturation masse B2B — 67 SO — INV/2026/02542 à INV/2026/02605
 
 - Type : facturation masse B2B — wizard `delivered` + envoi Peppol/email
