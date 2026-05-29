@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teatower — Business Case Recrutement Merchandiser GMS</title>
+<style>
+  :root{
+    --tt-green:#1f5d4c;
+    --tt-green-light:#2e7d63;
+    --tt-gold:#c9a24b;
+    --tt-ink:#1c2422;
+    --tt-grey:#5b6b66;
+    --tt-line:#e2e8e4;
+    --tt-bg-soft:#f4f7f5;
+    --tt-red:#b3402f;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    color:var(--tt-ink);
+    margin:0;
+    background:#dfe4e1;
+    line-height:1.5;
+    font-size:13px;
+  }
+  .page{
+    background:#fff;
+    width:210mm;
+    min-height:297mm;
+    margin:14px auto;
+    padding:18mm 16mm 16mm;
+    box-shadow:0 2px 14px rgba(0,0,0,.12);
+    position:relative;
+  }
+  h1,h2,h3{color:var(--tt-green);margin:0;}
+  h1{font-size:25px;font-weight:700;letter-spacing:-.3px;}
+  h2{font-size:17px;margin:26px 0 10px;padding-bottom:5px;border-bottom:2px solid var(--tt-line);}
+  h2 .num{color:var(--tt-gold);font-weight:700;margin-right:8px;}
+  h3{font-size:13.5px;margin:16px 0 5px;color:var(--tt-green-light);}
+  p{margin:7px 0;}
+  .muted{color:var(--tt-grey);}
+  .small{font-size:11.5px;}
+  .header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid var(--tt-green);padding-bottom:14px;}
+  .brand{font-size:13px;letter-spacing:3px;color:var(--tt-green);font-weight:700;text-transform:uppercase;}
+  .brand small{display:block;letter-spacing:1px;font-size:9px;color:var(--tt-grey);font-weight:400;margin-top:3px;}
+  .doc-meta{text-align:right;font-size:10.5px;color:var(--tt-grey);}
+  .subtitle{color:var(--tt-grey);font-size:14px;margin-top:6px;font-weight:400;}
+
+  /* KPI cards */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 6px;}
+  .kpi{background:var(--tt-bg-soft);border:1px solid var(--tt-line);border-top:3px solid var(--tt-green);border-radius:6px;padding:11px 12px;}
+  .kpi .v{font-size:20px;font-weight:700;color:var(--tt-green);line-height:1.1;}
+  .kpi .l{font-size:10px;color:var(--tt-grey);margin-top:5px;text-transform:uppercase;letter-spacing:.4px;}
+  .kpi.alert{border-top-color:var(--tt-red);}
+  .kpi.alert .v{color:var(--tt-red);}
+  .kpi.gold{border-top-color:var(--tt-gold);}
+  .kpi.gold .v{color:#a9842f;}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:12px;}
+  th,td{padding:6px 9px;text-align:left;border-bottom:1px solid var(--tt-line);}
+  th{background:var(--tt-green);color:#fff;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.3px;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;}
+  tr.total td{font-weight:700;background:var(--tt-bg-soft);border-top:2px solid var(--tt-green);border-bottom:2px solid var(--tt-green);}
+  tr.sub td{font-weight:600;background:#fbfcfb;}
+  tr.neg td.num{color:var(--tt-red);}
+  .tag{display:inline-block;font-size:9px;background:#eee;color:#777;border-radius:3px;padding:1px 5px;margin-left:5px;vertical-align:middle;letter-spacing:.3px;}
+
+  .callout{background:var(--tt-bg-soft);border-left:4px solid var(--tt-gold);padding:11px 14px;margin:14px 0;border-radius:0 6px 6px 0;}
+  .callout.green{border-left-color:var(--tt-green);}
+  .callout.red{border-left-color:var(--tt-red);}
+  .callout strong{color:var(--tt-green);}
+
+  ul{margin:7px 0;padding-left:20px;}
+  li{margin:4px 0;}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+  /* timeline */
+  .timeline{display:flex;gap:0;margin:14px 0;}
+  .tl-step{flex:1;text-align:center;position:relative;padding:0 4px;}
+  .tl-step .dot{width:14px;height:14px;border-radius:50%;background:var(--tt-green);margin:0 auto 8px;position:relative;z-index:2;}
+  .tl-step.alert .dot{background:var(--tt-red);}
+  .tl-step.gold .dot{background:var(--tt-gold);}
+  .tl-step:not(:last-child)::after{content:"";position:absolute;top:6px;left:50%;width:100%;height:2px;background:var(--tt-line);z-index:1;}
+  .tl-step .m{font-weight:700;font-size:12px;color:var(--tt-ink);}
+  .tl-step .d{font-size:10px;color:var(--tt-grey);margin-top:2px;}
+
+  .footer{margin-top:20px;border-top:1px solid var(--tt-line);padding-top:8px;font-size:9.5px;color:var(--tt-grey);display:flex;justify-content:space-between;}
+
+  .reco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px;}
+  .reco{border:1px solid var(--tt-line);border-radius:6px;padding:11px;}
+  .reco .h{font-weight:700;color:var(--tt-green);font-size:12.5px;margin-bottom:4px;}
+  .reco .n{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;background:var(--tt-gold);color:#fff;font-weight:700;font-size:11px;margin-right:6px;}
+
+  @media print{
+    body{background:#fff;}
+    .page{margin:0;box-shadow:none;width:auto;min-height:auto;}
+    .page+.page{page-break-before:always;}
+    @page{size:A4;margin:0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <div class="header">
+    <div class="brand">TEATOWER<small>Note stratégique — Direction</small></div>
+    <div class="doc-meta">
+      Document confidentiel — Conseil d'administration<br>
+      Émis le 29 mai 2026<br>
+      Source : données Odoo (12 mois glissants)
+    </div>
+  </div>
+
+  <h1 style="margin-top:18px;">Business Case — Recrutement d'un 2<sup>e</sup> merchandiser GMS</h1>
+  <div class="subtitle">Rentabilité du canal GMS, manque à gagner actuel et retour sur investissement du recrutement</div>
+
+  <div class="callout green" style="margin-top:16px;">
+    <strong>En une phrase.</strong> Le canal GMS dégage <strong>29,3 % de contribution</strong> (88,8 k€/an) ; il subit <strong>dès aujourd'hui</strong> un manque à gagner de ~14 k€/mois faute de capacité terrain. Un 2<sup>e</sup> merchandiser s'autofinance en <strong>moins de 5 mois</strong> et ajoute ~73,7 k€/an de contribution nette. À la croissance actuelle (+15 GMS/mois), le recrutement doit être lancé <strong>dès juin 2026</strong>.
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">302,8 k€</div><div class="l">CA GMS HT (12 mois)</div></div>
+    <div class="kpi"><div class="v">73,7 %</div><div class="l">Marge brute</div></div>
+    <div class="kpi"><div class="v">29,3 %</div><div class="l">Contribution canal</div></div>
+    <div class="kpi alert"><div class="v">~14 k€<span style="font-size:12px;">/mois</span></div><div class="l">Manque à gagner actuel</div></div>
+  </div>
+
+  <h2><span class="num">1.</span>Le constat — un canal rentable mais saturé</h2>
+  <p>Le parc GMS actif compte <strong>105 clients</strong>, dont <strong>100 nécessitent une visite physique</strong> régulière du merchandiser (réassort, tenue du rayon, implantations). La conversion accélérée des leads par le commercial (Jérôme) alimente une croissance de <strong>+15 nouveaux GMS/mois</strong> sur avril-mai 2026.</p>
+
+  <div class="two-col">
+    <div>
+      <h3>Charge requise vs capacité réelle</h3>
+      <table>
+        <tr><th>Indicateur</th><th class="num">Valeur</th></tr>
+        <tr><td>Visites nécessaires / mois <span class="muted small">(cycle cible 14-21j)</span></td><td class="num">140</td></tr>
+        <tr><td>Capacité réelle d'1 merchandiser</td><td class="num">109</td></tr>
+        <tr class="sub"><td>Taux de charge actuel</td><td class="num" style="color:var(--tt-red);">128 %</td></tr>
+      </table>
+      <p class="small muted">Gilles est déjà en surcharge de ~30 visites/mois. Le déficit se reporte sur l'allongement des cycles.</p>
+    </div>
+    <div>
+      <h3>Preuve dans les données Odoo</h3>
+      <table>
+        <tr><th>Symptôme de sous-couverture</th><th class="num">Réel</th></tr>
+        <tr><td>Intervalle moyen entre 2 commandes</td><td class="num">46 j</td></tr>
+        <tr><td>Cible Tier B/C</td><td class="num">21 j</td></tr>
+        <tr><td>Clients &gt; 30 jours sans visite</td><td class="num">45</td></tr>
+        <tr><td>Clients &gt; 45 jours sans visite</td><td class="num">22</td></tr>
+      </table>
+      <p class="small muted">Les magasins ne recommandent que lorsque Gilles repasse — pas quand le rayon est vide.</p>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <strong>Manque à gagner chiffré :</strong> 45 clients sous-couverts × 0,78 visite manquée/mois × 447 € (CA moyen/visite) = <strong>~14 000 € HT/mois</strong>, soit <strong>~168 000 € de CA non capté par an</strong> (≈ 124 k€ de marge brute perdue). Recoupé par 2 méthodes indépendantes (delta-fréquence et déficit de visites), les deux convergent.
+  </div>
+
+  <div class="footer">
+    <span>Teatower SA — Note stratégique recrutement merchandiser GMS</span>
+    <span>1 / 2</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="header">
+    <div class="brand">TEATOWER<small>Note stratégique — Direction</small></div>
+    <div class="doc-meta">Business Case Recrutement Merchandiser GMS — 29/05/2026</div>
+  </div>
+
+  <h2><span class="num">2.</span>P&amp;L du canal GMS — 12 mois glissants</h2>
+  <p class="small muted">Période : juin 2025 → mai 2026. Affectation de la masse salariale : Jérôme 70 % GMS / Vanessa 24,6 % (poids des commandes GMS) / Gilles 100 %.</p>
+  <table>
+    <tr><th>Compte de résultat — canal GMS</th><th class="num">Montant (€)</th><th class="num">% CA</th></tr>
+    <tr><td>CA GMS HT brut (factures)</td><td class="num">330 543</td><td class="num"></td></tr>
+    <tr class="neg"><td>− Avoirs &amp; retours</td><td class="num">−27 763</td><td class="num"></td></tr>
+    <tr class="sub"><td>= CA GMS HT net</td><td class="num">302 780</td><td class="num">100,0 %</td></tr>
+    <tr class="neg"><td>− COGS matière</td><td class="num">−79 783</td><td class="num">−26,4 %</td></tr>
+    <tr class="sub"><td>= Marge brute</td><td class="num">222 997</td><td class="num">73,7 %</td></tr>
+    <tr class="neg"><td>− Commissions Jérôme GMS <span class="tag">approx.</span></td><td class="num">−9 295</td><td class="num">−3,1 %</td></tr>
+    <tr class="sub"><td>= Marge sur coûts directs</td><td class="num">213 702</td><td class="num">70,6 %</td></tr>
+    <tr class="neg"><td>− Jérôme — commercial (70 % × 100 k)</td><td class="num">−70 000</td><td class="num">−23,1 %</td></tr>
+    <tr class="neg"><td>− Vanessa — CRM/commandes (24,6 % × 20 k) <span class="tag">hyp.</span></td><td class="num">−4 920</td><td class="num">−1,6 %</td></tr>
+    <tr class="neg"><td>− Gilles — merchandiser (100 % × 50 k)</td><td class="num">−50 000</td><td class="num">−16,5 %</td></tr>
+    <tr class="total"><td>= CONTRIBUTION CANAL GMS</td><td class="num">88 782</td><td class="num">29,3 %</td></tr>
+  </table>
+  <p class="small muted">P&amp;L de <strong>canal</strong> : il s'arrête à la contribution, avant frais généraux de siège (loyer, comptabilité, marketing, licences). Marge brute fiable à 91 % du CA (coût standard Odoo) ; 18 SKU sans coût standard traités à 60 % de marge (hypothèse prudente).</p>
+
+  <h2><span class="num">3.</span>ROI du 2<sup>e</sup> merchandiser</h2>
+  <div class="two-col">
+    <div>
+      <table>
+        <tr><th>Élément</th><th class="num">Montant</th></tr>
+        <tr><td>Coût annuel 2<sup>e</sup> merch (charges incl.)</td><td class="num">50 000 €</td></tr>
+        <tr><td>CA additionnel récupérable</td><td class="num">168 000 €</td></tr>
+        <tr><td>Marge brute associée (73,7 %)</td><td class="num">123 700 €</td></tr>
+        <tr class="total"><td>Contribution nette additionnelle</td><td class="num">+73 700 €</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="kpis" style="grid-template-columns:1fr 1fr;margin:0;">
+        <div class="kpi gold"><div class="v">4,8 mois</div><div class="l">Point mort</div></div>
+        <div class="kpi gold"><div class="v">+147 %</div><div class="l">ROI à 12 mois</div></div>
+        <div class="kpi"><div class="v">5 657 €<span style="font-size:11px;">/m</span></div><div class="l">CA mini pour couvrir le poste</div></div>
+        <div class="kpi"><div class="v">15-20</div><div class="l">Clients à réactiver pour rentabiliser</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout green">
+    Le seuil de rentabilité représente <strong>57 €/mois par client</strong> sur les 100 clients sous-couverts — soit un seul petit réassort. Les GMS actifs Teatower tournent à 250-400 €/mois en régime de croisière : il suffit de réactiver <strong>15 à 20 clients</strong> pour autofinancer le poste. Au-delà, le canal gagne <strong>+83 % de contribution</strong>.
+  </div>
+
+  <h2><span class="num">4.</span>Calendrier de recrutement recommandé</h2>
+  <div class="timeline">
+    <div class="tl-step gold"><div class="dot"></div><div class="m">Juin 2026</div><div class="d">Lancer le recrutement</div></div>
+    <div class="tl-step"><div class="dot"></div><div class="m">Juil. – Août</div><div class="d">Sélection + creux estival</div></div>
+    <div class="tl-step alert"><div class="dot"></div><div class="m">Sept. 2026</div><div class="d">Prise de poste (pic rentrée)</div></div>
+    <div class="tl-step"><div class="dot"></div><div class="m">Janv. 2027</div><div class="d">Point mort atteint</div></div>
+  </div>
+  <p class="small muted">Scénario central <strong>+15 GMS/mois</strong> (tendance avril-mai 2026). En scénario prudent +10/mois, le lancement peut être décalé à novembre 2026. Recruter en juin permet une prise de poste après le creux d'août, opérationnelle pour la montée en charge automne/hiver.</p>
+
+  <h2><span class="num">5.</span>Recommandations au Board</h2>
+  <div class="reco-grid">
+    <div class="reco">
+      <div class="h"><span class="n">1</span>Recruter</div>
+      <p class="small">Valider le recrutement d'un 2<sup>e</sup> merchandiser (~50 k€/an), lancement <strong>juin 2026</strong>, prise de poste septembre. ROI 4,8 mois.</p>
+    </div>
+    <div class="reco">
+      <div class="h"><span class="n">2</span>Basculer Tier C</div>
+      <p class="small">Passer les <strong>38 clients Tier C</strong> (&lt;100 €/mois) en commande directe via Vanessa. Libère ~30 % du temps de Gilles <strong>sans coût</strong>, dès maintenant.</p>
+    </div>
+    <div class="reco">
+      <div class="h"><span class="n">3</span>Fiabiliser la donnée</div>
+      <p class="small">Renseigner les <strong>18 SKU</strong> sans coût standard dans Odoo pour porter la marge à 100 % de fiabilité (seul angle mort du P&amp;L).</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Décision demandée au Board :</strong> autorisation de lancer le recrutement d'un 2<sup>e</sup> merchandiser GMS en juin 2026, budget annuel 50 k€, prise de poste septembre 2026.
+  </div>
+
+  <div class="footer">
+    <span>Teatower SA — Données Odoo au 29/05/2026 — éléments « approx. » / « hyp. » signalés</span>
+    <span>2 / 2</span>
+  </div>
+</div>
+
+</body>
+</html>
