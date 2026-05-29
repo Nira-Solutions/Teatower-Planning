@@ -1,4 +1,33 @@
 
+## 2026-05-29 — Plan GMS Option A — EXÉCUTION RÉELLE (WRITE)
+
+- **Type** : Configuration Odoo — écriture réelle (validée par Nicolas, Plan A uniquement)
+- **Demande** : Câbler le Plan A (sortie GMS native depuis warehouse GMS wh=2). Pas de Plan C, pas d'orderpoints, pas d'inventaire.
+- **Correction d'un raccourci du script dry-run** : le script parlait de "route 17". En réalité l'ID 17 = `stock.rule` "GMS: Stock → Customers (MTO)" (déjà active), portée par la route 1 (Replenish on Order / MTO). La vraie cause racine était bien le **picking type 13 inactif** que cette règle utilise.
+- **A1 (geste central)** : `stock.picking.type` id 13 "Stock Merchandiser: Bons de livraison" (OUT, src GMS/Stock 2737 → dest Partners/Customers 5, warehouse 2) — `active` **False → True**.
+- **A2** : NON appliqué (pas de filet salesperson, property_warehouse_id uid 6 non touché — conforme à la décision).
+- **A3** : devis `S05388` (id 8075, Antheco SA / Intermarché Anthée) — re-vérifié AVANT write : state=draft, picking_ids=[] → conditions OK. `warehouse_id` **1 (Teatower) → 2 (Stock Merchandiser)**.
+- **Vérifs post-write** :
+  - picking type 13 : active=True confirmé.
+  - règle 17 fonctionnelle : active=True, MTO, GMS/Stock → Customers, picking type 13.
+  - S05388 : state=draft, warehouse_id=2 confirmé.
+  - Non-ambiguïté : la SEULE règle de sortie client portée par le picking type 13 du WH2 est la règle 17. La règle 14 (route 9) va vers TT/Stock, pas vers le client → aucun conflit de résolution.
+- **Test bout-en-bout (lecture seule, aucune donnée créée)** : une SO confirmée sur warehouse_id=2 résout désormais sa livraison via la règle 17 → génère un picking **picking_type 13 (GMS/OUT), location_id=GMS/Stock, location_dest_id=Partners/Customers**. C'est le flux GMS voulu. Réappro GMS/Stock = règle 22 (route 12, TT/Stock→GMS/Stock, picking type 23) / orderpoints — hors périmètre de cette tâche.
+- **Impact** : 2 records modifiés (picking.type 13, sale.order 8075). 0 erreur. Le flux de sortie GMS est désormais vivant et natif sur le warehouse GMS.
+
+## 2026-05-29 — Plan GMS Option A (warehouse dédié) + scripts DRY-RUN
+
+- **Type** : Diagnostic + plan + scripts (LECTURE SEULE, aucune écriture Odoo)
+- **Demande** : Nicolas — Option A retenue (warehouse GMS wh=2, route native GMS->Customers, réappro auto TT/Stock->GMS/Stock). Produire plan A->D + scripts dry-run.
+- **Constats recon** (`odoo/_gms_planA_recon.json`) :
+  - Picking type 13 "Stock Merchandiser: Bons de livraison" (OUT GMS) = INACTIF -> route 17 morte. Cause racine du flux GMS cassé.
+  - Aucun champ default warehouse sur res.partner ; property_warehouse_id existe sur res.users seulement. Pas de user "Gilles".
+  - 828 SO GMS confirmées sur wh=1 (Teatower) + 1 devis draft (S05388). Sortie réelle GMS forcée manuellement sur pickings TT/PICK (src=GMS/Stock).
+  - Route 13 redondante : 0 produit/template -> désactivable. Rules parasites 21(Buy)/18(Manufacture) vers GMS/Stock.
+  - Orderpoints GMS : 2 sans route (18715 TEST, 18777 Display) à supprimer ; 12 avec qty_multiple=0 à corriger ; 7 SKU vendus sans orderpoint (dont 4 saisonniers Noël à valider).
+- **Livrables** : `odoo/gms_planA_warehouse_outflow.py`, `gms_planB_van_reload.py`, `gms_planC_cleanup_config.py`, `gms_planD_reservation.py` (tous DRY_RUN=True), recon `odoo/_gms_planA_recon.py`.
+- **Statut** : EN ATTENTE validation Nicolas avant tout write.
+
 ## 2026-05-28 — Config Peppol 22 partners email (batch 02728-02771)
 
 - **Type** : Configuration Peppol res.partner
