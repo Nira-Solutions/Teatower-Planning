@@ -184,6 +184,19 @@ def has_arret_tag(comment, sale_warn):
     return "[ARRET" in text
 
 
+def has_no_merch_tag(comment):
+    """Magasin qui passe commande seul — pas de suivi merchandiser (tag [NO-MERCH).
+
+    Le gérant/la gérante commande de lui-même : on ne l'inscrit jamais au planning
+    Gilles (visites/implantations). Indépendant du sale_warn (le magasin reste un
+    client actif, on lui livre toujours, on ne le visite simplement plus).
+    Ex. : AD Soumagne Marvan #2915, Carrefour Market Naninne #9079 (Nicolas 29/05/2026).
+    """
+    if not comment:
+        return False
+    return "[NO-MERCH" in str(comment)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--target-date", default=date.today().isoformat(),
@@ -372,7 +385,12 @@ def main():
             so_count=r["so_count"],
         )
 
-        statut = "Arret" if has_arret_tag(r["comment"], r["sale_warn"]) else "Actif"
+        if has_arret_tag(r["comment"], r["sale_warn"]):
+            statut = "Arret"
+        elif has_no_merch_tag(r["comment"]):
+            statut = "NoMerch"  # commande en autonomie — exclu des visites/implantations
+        else:
+            statut = "Actif"
 
         # last_visit_effective = max(last_picking, max([VISITE …] dans comment), last_so)
         candidates = []
@@ -451,6 +469,7 @@ def main():
     md_path = out_dir / f"planning_pool_{stamp}.md"
     actifs = [r for r in rows if r["statut"] == "Actif"]
     arret = [r for r in rows if r["statut"] == "Arret"]
+    no_merch = [r for r in rows if r["statut"] == "NoMerch"]
     overdue = [r for r in actifs if r["retard_j"] > 0]
     tier_counts = defaultdict(int)
     for r in actifs:
@@ -461,6 +480,7 @@ def main():
         f.write(f"- **Magasins GMS uniques** : {len(rows)}\n")
         f.write(f"  - Actifs : {len(actifs)} (Tier A={tier_counts['A']}, B={tier_counts['B']}, C={tier_counts['C']}, X={tier_counts['X']})\n")
         f.write(f"  - Arret  : {len(arret)}\n")
+        f.write(f"  - NoMerch (commande seul, hors planning) : {len(no_merch)}\n")
         f.write(f"- **OVERDUE Actifs** (next_visit < {stamp}) : {len(overdue)}\n\n")
         f.write(f"## OVERDUE — par retard décroissant\n\n")
         f.write("| Tier | Retard | Magasin | Adresse | Cycle | Dernière SO | Last visit | Source | Next visit | avg/mois |\n")
@@ -477,11 +497,19 @@ def main():
         for r in actifs[:50]:
             label = f"{r['display_name']} (#{r['pid']})"
             f.write(f"| {r['statut']} | {r['tier']} | {label} | {r['last_so_label']} | {r['last_visit']} | {r['next_visit']} | {r['retard_j']}j | {r['avg_mois']:.0f}€ | {r['so_count_12m']} |\n")
+        if no_merch:
+            f.write(f"\n## NoMerch — EXCLUS du planning (commande en autonomie)\n\n")
+            f.write("> Le gérant/la gérante passe commande seul(e). Ne JAMAIS inscrire au planning Gilles (tag `[NO-MERCH` dans res.partner.comment Odoo).\n\n")
+            f.write("| Magasin | Adresse | Dernière SO | avg/mois |\n")
+            f.write("|---|---|---|---|\n")
+            for r in no_merch:
+                adresse = f"{r['street']}, {r['zip']} {r['city']}".strip(", ")
+                f.write(f"| {r['display_name']} (#{r['pid']}) | {adresse} | {r['last_so_label']} | {r['avg_mois']:.0f}€ |\n")
     print(f"[+] Markdown : {md_path}")
 
     print(f"\n[*] Synthèse :")
     print(f"    Magasins GMS uniques : {len(rows)}")
-    print(f"    Actifs : {len(actifs)} | Arret : {len(arret)}")
+    print(f"    Actifs : {len(actifs)} | Arret : {len(arret)} | NoMerch : {len(no_merch)}")
     print(f"    Distribution Tier (Actifs) : A={tier_counts['A']} B={tier_counts['B']} C={tier_counts['C']} X={tier_counts['X']}")
     print(f"    OVERDUE actifs : {len(overdue)}")
 
