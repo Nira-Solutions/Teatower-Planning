@@ -1,3 +1,8 @@
+---
+title: "CA Mai 2026 — Ventilation par canal"
+layout: default
+---
+
 # CA Mai 2026 — Ventilation par canal | KPI#ca-canal-2026-06-01
 
 **Produit le** : 01/06/2026 — **revise le** : 01/06/2026 (correction double-vue facture/encaisse)
