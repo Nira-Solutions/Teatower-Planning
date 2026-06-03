@@ -1,0 +1,572 @@
+[
+  {
+    "id": 1,
+    "name": "Belgium B2B",
+    "auto_apply": true,
+    "vat_required": true,
+    "country_id": [
+      20,
+      "Belgium"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 1,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "EU B2C",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      20,
+      "Belgium"
+    ],
+    "country_group_id": [
+      1,
+      "European Union"
+    ],
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 2,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Intra-Community",
+    "auto_apply": true,
+    "vat_required": true,
+    "country_id": false,
+    "country_group_id": [
+      1,
+      "European Union"
+    ],
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 3,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Import/Export",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": false,
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 4,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "OSS B2C Croatie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      97,
+      "Croatia"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "OSS B2C Danemark",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      59,
+      "Denmark"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "OSS B2C Espagne",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      68,
+      "Spain"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "OSS B2C Estonie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      64,
+      "Estonia"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "OSS B2C Finlande",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      70,
+      "Finland"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "OSS B2C Grèce",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      88,
+      "Greece"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "OSS B2C Hongrie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      99,
+      "Hungary"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "OSS B2C Irlande",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      101,
+      "Ireland"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "OSS B2C Italie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      109,
+      "Italy"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "OSS B2C Lettonie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      134,
+      "Latvia"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "OSS B2C Lituanie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      132,
+      "Lithuania"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "OSS B2C Allemagne",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      57,
+      "Germany"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "OSS B2C Pologne",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      178,
+      "Poland"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "OSS B2C Portugal",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      183,
+      "Portugal"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "OSS B2C Roumanie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      188,
+      "Romania"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "OSS B2C République tchèque",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      56,
+      "Czech Republic"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "OSS B2C Slovaquie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      201,
+      "Slovakia"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "OSS B2C Slovénie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      199,
+      "Slovenia"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "OSS B2C Suède",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      196,
+      "Sweden"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "OSS B2C France",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      75,
+      "France"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "OSS B2C Pays-Bas",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      165,
+      "Netherlands"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "OSS B2C Luxembourg",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      133,
+      "Luxembourg"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "OSS B2C Malte",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      152,
+      "Malta"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "OSS B2C Autriche",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      12,
+      "Austria"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "OSS B2C Bulgarie",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      22,
+      "Bulgaria"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "OSS B2C Chypre",
+    "auto_apply": true,
+    "vat_required": false,
+    "country_id": [
+      55,
+      "Cyprus"
+    ],
+    "country_group_id": false,
+    "state_ids": [],
+    "zip_from": false,
+    "zip_to": false,
+    "sequence": 0,
+    "company_id": [
+      1,
+      "Teatower"
+    ]
+  }
+]
