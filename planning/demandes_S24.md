@@ -47,7 +47,16 @@ Audit doublons 28/05 nuit : 5 magasins planifiés à la fois vendredi 29/05 (S22
 
 ## Demandes nouvelles (à ajouter à la queue S24)
 
-*(vide — à compléter au fil de S23 par Nicolas/Nira)*
+### Demandes Nicolas du 03/06 (build S24 v1)
+
+- **🚚 LIVRAISON HC Jambes #9046** (lundi 08/06) — **EN ATTENTE**. Nicolas : « tu verras plus tard, je te ré-interrogerai **jeudi 04/06** car il y a des **implantations à rajouter** dans le planning ». → Au point jeudi : (1) contenu/SO de la livraison Jambes à créer, (2) nouvelles implantations à intégrer (partners + SO + jours). Slot Jambes déjà posé lundi 1ᵉ stop (Hyper matin) dans S24 v1.
+- **📦 Spar Namur #122958 — nouveau display x8** (lundi 08/06) — ✅ intégré S24 v1 (implantation).
+- **📍 Delhaize Ottignies #3016** (vendredi 12/06) — ✅ slot posé S24 v1 (Tier A, pas jeudi/Galletas). **Nicolas se renseigne** sur l'objet exact (livraison SO S05664 du 28/05 non livrée, ou visite réassort) → à confirmer.
+
+### À traiter jeudi 04/06 (re-interrogation Nicolas)
+
+- Nouvelles **implantations** à rajouter au planning S24 (détails à venir).
+- Finaliser commande/livraison HC Jambes.
 
 ---
 
