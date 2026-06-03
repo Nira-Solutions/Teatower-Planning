@@ -70,7 +70,8 @@
   <a class="week-btn" href="#s11">S11-15/05 (S20)</a>
   <a class="week-btn" href="#s18">S18-22/05 (S21)</a>
   <a class="week-btn" href="#s25">S25-29/05 (S22)</a>
-  <a class="week-btn active" href="#s01">S01-05/06 (S23)</a>
+  <a class="week-btn" href="#s01">S01-05/06 (S23)</a>
+  <a class="week-btn active" href="#s08">S08-12/06 (S24)</a>
 </div>
 
 <!-- ============================================================ -->
@@ -1409,7 +1410,341 @@ nicolas.raes@teatower.com
 <!-- SEMAINE 01-05/06 (S23 — v1 PUBLIÉ 28/05)                     -->
 <!-- ============================================================ -->
 
-<div id="s01">
+<!-- ============================================================ -->
+<!-- SEMAINE 08-12/06 (S24 — v1 build 03/06)                      -->
+<!-- ============================================================ -->
+
+<div id="s08">
+<h2 class="section-title">Semaine du 8 au 12 juin 2026 (S24 — v1 build 03/06)</h2>
+
+<div class="summary">
+  <div class="summary-card"><div class="num">24</div><div class="label">Stops GMS</div></div>
+  <div class="summary-card"><div class="num">5</div><div class="label">Jours actifs</div></div>
+  <div class="summary-card"><div class="num">1</div><div class="label">Implantation (x8)</div></div>
+  <div class="summary-card"><div class="num">~1150</div><div class="label">km semaine</div></div>
+</div>
+
+<div class="alert alert-success"><strong>Jours fériés BE S24 : aucun.</strong> Lundi de Pentecôte (25/05) = S22 passé. Semaine pleine 5 jours (8 → 12 juin).</div>
+
+<div class="alert" style="background:#cfe2ff;border-left:4px solid #0d6efd;"><strong>3 demandes explicites Nicolas (03/06) intégrées :</strong>
+<ol style="margin-left:1.2rem;margin-top:.4rem;">
+<li><strong>🚚 LIVRAISON Hyper Carrefour de Jambes #9046</strong> (lundi 08/06, 1ᵉ stop matin) — <strong>⚠ ACTION : la commande n'existe PAS encore dans Odoo</strong> (dernière SO S05355 du 08/04, déjà livrée ; commandes facturées sous Carrefour Belgium Corporate Village #6596 → livrées vers #9046). <strong>Le bon de commande doit être créé/confirmé (support-order) AVANT lundi matin</strong>, sinon Gilles n'a rien à livrer. Magasin déjà visité mardi 02/06 (S23) — ici c'est une <strong>livraison</strong>, pas une visite cycle.</li>
+<li><strong>📦 Spar Namur #122958 — nouveau display x8</strong> (lundi 08/06) — re-passage avec mise en place du <strong>nouveau display x8</strong> (implantation complémentaire à l'implantation initiale du 21/04). Magasin visité mardi 02/06 (S23) — ici c'est l'<strong>installation du nouveau display</strong>, justifie le re-passage rapproché.</li>
+<li><strong>📍 Delhaize Ottignies #3016</strong> (vendredi 12/06) — passage demandé. <strong>Tier A</strong> (~600 €/mois). Dernière SO <strong>S05664 du 28/05 (767 €) — confirmée mais AUCUN picking sortant</strong> = commande probablement <strong>pas encore livrée</strong> → vérifier si livraison/réassort à faire sur place. Contrainte Odoo : <strong>Mme Galletas absente le jeudi</strong> → placé vendredi. Contact merch <strong>Jolan Cailleau</strong> 0476 46 00 03.</li>
+</ol></div>
+
+<div class="alert"><strong>Reports S23 → S24 intégrés (cf. <code>demandes_S24.md</code>) :</strong> 5 magasins Namur/Hesbaye retirés mardi 02/06 (doublons vendredi 29/05 S22) → <strong>jeudi 11/06</strong> (Salzinnes, Delhaize Bouge, ITM Bouge, Floriffoux, Faimes — à 13j post-29/05, cycle 14-21j respecté). <strong>ITM Genappe #2963</strong> (visité 28/05 S22) → <strong>vendredi 12/06</strong> (15j post-visite, ≥14j OK).</div>
+
+<div class="alert" style="background:#f8d7da;border-left:4px solid #dc3545;"><strong>3 magasins EXCLUS (constraintes Odoo découvertes au build) :</strong>
+<ul style="margin-left:1.2rem;margin-top:.4rem;">
+<li><strong>❌ Delhaize Wavre #3226</strong> — note Odoo : <em>« le client ne veut pas de merchandiser, gère son display lui-même »</em> → candidat <strong>NoMerch</strong> (à confirmer + tag <code>[NO-MERCH</code> par Nicolas).</li>
+<li><strong>❌ HC Auderghem #8062</strong> — note Odoo : <em>« Plus de visite merchandiser, Mme Bourcy gère son rayon elle-même »</em> → candidat <strong>NoMerch</strong>.</li>
+<li><strong>⏭ CM City 2 #113997</strong> (pas le vendredi) et <strong>CM Eupen Rotenberg #113634</strong> (pas le mercredi) : contraintes incompatibles avec leurs jours géo respectifs → <strong>reportés S25</strong>.</li>
+</ul></div>
+
+<div class="alert alert-success"><strong>Règle dure mails/calendrier :</strong> AUCUN calendar.event Odoo. AUCUN mail automatique envoyé. Tous les contacts magasin extraits du <code>res.partner.comment</code> Odoo. Budget 25 min/stop. Cap retour Baillonville ≤ 16h45.</div>
+
+<!-- LUNDI 08/06 — Namur + Meuse-sud (Jambes LIVRAISON + Spar Namur display x8) -->
+<div class="day">
+  <div class="day-header">Lundi 08/06 &mdash; 5 stops (1 livraison + 1 implantation x8 + 3 visites) <span class="zone">Namur (Jambes / centre) → Meuse-sud (Godinne / Beauraing) → Marche</span></div>
+
+  <div class="alert" style="margin:.5rem 1rem;background:#cfe2ff;border-left:4px solid #0d6efd;"><strong>Journée porteuse des 2 demandes Namur de Nicolas.</strong> HC Jambes en 1ᵉ stop (Hyper = matin) pour la <strong>livraison</strong> (⚠ SO à créer avant lundi), puis Spar Namur pour le <strong>nouveau display x8</strong>. Boucle complétée vers la Meuse sud (Godinne, Beauraing) et retour via CM Marche.</div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">08:40 - 09:15</span> <span class="badge" style="background:#0d6efd;color:#fff;">Livraison</span> <span class="badge badge-fix">DEMANDE NICOLAS</span></span>
+      <span class="so">⚠ SO à créer</span>
+    </div>
+    <div class="client">Carrefour Hyper de Jambes (partner #9046) — Tier A</div>
+    <div class="contact-badge">Contact : accueil / responsable rayon épicerie — tel +32 81 33 20 11</div>
+    <div class="details">Avenue prince de Liège 57-59, 5100 Jambes<br><strong>Trajet :</strong> ~40 min / 35 km depuis Baillonville via N4 nord — départ 08:00<br><strong>HYPER → matin obligatoire (1ᵉ stop).</strong><br><strong>⚠ ACTION PRÉALABLE (support-order / Nicolas) :</strong> la commande à livrer <strong>n'existe pas encore dans Odoo</strong> (dernière SO S05355 du 08/04 déjà livrée). Créer/confirmer le bon de commande avant lundi matin — sans SO confirmée, pas de picking, pas de livraison possible.<br><strong>Brief livraison :</strong> dépose commande + réassort rayon + facings + photos avant/après. Note magasin (Odoo) : <em>« balisages à coller sur les languettes + arrêts rayon »</em> — apporter matériel de balisage si dispo. Push Thés Glacés GI0xxx (potentiel volume Hyper). Visité 02/06 en visite cycle (ici = livraison).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-08_HC_Jambes_livraison/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Avenue+prince+de+Li%C3%A8ge+57+5100+Jambes" target="_blank">Google Maps Baillonville → HC Jambes</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:25 - 09:55</span> <span class="badge badge-implantation">Implantation display x8</span> <span class="badge badge-fix">DEMANDE NICOLAS</span></span>
+      <span class="so">S05447 — 21/04 (48j)</span>
+    </div>
+    <div class="client">Spar Namur (NDB Diffusion, partner #122958) — Tier B</div>
+    <div class="contact-badge">Contact : accueil — tel +32 81 81 31 87 — mail info@sparnamur.com</div>
+    <div class="details">Rue des Échasseurs 1, 5000 Namur<br><strong>Trajet :</strong> ~10 min / 5 km depuis HC Jambes via pont Meuse<br><strong>Brief IMPLANTATION (nouveau display x8) :</strong> mise en place du <strong>nouveau display x8</strong> demandé par Nicolas (complément à l'implantation initiale du 21/04 : display complet + 16 réf + 16 SRP Kraft). Montage display, chargement 8 facings, étiquetage SKU, briefing rotation, photos avant/après. Push Thés Glacés saison. Visité 02/06 en visite cycle (ici = pose nouveau display).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-08_Spar_Namur_display_x8/</code><br><a href="https://www.google.com/maps/dir/Avenue+prince+de+Li%C3%A8ge+57+5100+Jambes/Rue+des+Echasseurs+1+5000+Namur" target="_blank">Google Maps HC Jambes → Spar Namur</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:25 - 10:50</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">19j OVERDUE</span></span>
+      <span class="so">S05390 — 22/04 (47j)</span>
+    </div>
+    <div class="client">Spar Godinne (Micamik SRL, partner #122995) — Tier B, 19j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil — tel +32 82 61 27 50 — mail spargodinne@icloud.com</div>
+    <div class="details">Rue de Mont 13, 5530 Godinne<br><strong>Trajet :</strong> ~25 min / 23 km depuis Spar Namur via N947 / Meuse rive gauche (sud)<br><strong>Brief (25 min) :</strong> Tier B (cycle 28j). Dernière SO S05390 du 22/04 (520,80 € — gros panier). Check rotation + photos + propositions réassort. Push Thés Glacés saison.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-08_Spar_Godinne/</code><br><a href="https://www.google.com/maps/dir/Rue+des+Echasseurs+1+5000+Namur/Rue+de+Mont+13+5530+Godinne" target="_blank">Google Maps Spar Namur → Spar Godinne</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:20 - 11:45</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">40j OVERDUE</span></span>
+      <span class="so">S05325 — 01/04 (68j)</span>
+    </div>
+    <div class="client">Delhaize Beauraing (SA Beausov New, partner #116008) — Tier B, 40j OVERDUE</div>
+    <div class="contact-badge">Contact : Mme Sovet — demander Gregory — tel +32 82 71 36 97 — mail Info@delhaize5570.be</div>
+    <div class="details">150 rue de Rochefort, 5570 Beauraing<br><strong>Trajet :</strong> ~30 min / 30 km depuis Spar Godinne via N947 / N95 (sud Meuse → Beauraing)<br><strong>Brief (25 min) :</strong> Tier B avg <strong>146 €/mois</strong>. Cycle 28j (40j OVERDUE). Demander Gregory (ou Mme Sovet). Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-08_Delhaize_Beauraing/</code><br><a href="https://www.google.com/maps/dir/Rue+de+Mont+13+5530+Godinne/150+rue+de+Rochefort+5570+Beauraing" target="_blank">Google Maps Godinne → Delhaize Beauraing</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">12:35 - 13:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">26j OVERDUE</span></span>
+      <span class="so">S05323 — 01/04 (68j)</span>
+    </div>
+    <div class="client">Carrefour Market Marche (Mardis, partner #3120) — Tier C, 26j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel 084 31 30 76 — mail carrefour.market.marche@gmail.com</div>
+    <div class="details">Avenue du Monument 1, 6900 Marche-en-Famenne<br><strong>Trajet :</strong> ~35 min / 35 km depuis Beauraing via N911/N4 (déjeuner court 11:45-12:35 sur trajet)<br><strong>Brief (25 min) :</strong> Tier C avg <strong>96 €/mois</strong>. Cycle 42j (26j OVERDUE). Dernière SO S05323 du 01/04 (462 €). Check rotation + photos + propositions réassort. Push Thés Glacés léger. Sur axe N4 retour Baillonville.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-08_CM_Marche/</code><br><a href="https://www.google.com/maps/dir/150+rue+de+Rochefort+5570+Beauraing/Avenue+du+Monument+1+6900+Marche-en-Famenne" target="_blank">Google Maps Beauraing → CM Marche</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet lundi :</strong> Baillonville 08:00 → HC Jambes 08:40 (40 min, 35 km via N4) → Livraison 08:40-09:15 (Hyper matin) → Spar Namur 09:25 (10 min, 5 km) → Display x8 09:25-09:55 → Spar Godinne 10:25 (25 min, 23 km via N947 sud) → Delhaize Beauraing 11:20 (30 min, 30 km) → déjeuner 11:45-12:35 → CM Marche 12:35 (35 min, 35 km via N4) → retour Baillonville 13:25 (25 min, 22 km) | <strong>~150 km</strong> | <strong>Retour Baillonville 13:25 (marge 3h20)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Avenue+prince+de+Li%C3%A8ge+57+5100+Jambes/Rue+des+Echasseurs+1+5000+Namur/Rue+de+Mont+13+5530+Godinne/150+rue+de+Rochefort+5570+Beauraing/Avenue+du+Monument+1+6900+Marche-en-Famenne/5377+Baillonville" target="_blank">Google Maps tournée complète Lundi 08/06</a></div>
+</div>
+
+<!-- MARDI 09/06 — Bruxelles (Tier A Kraainem relance + deep OVERDUE) -->
+<div class="day">
+  <div class="day-header">Mardi 09/06 &mdash; 5 stops (5 visites) <span class="zone">Bruxelles (Drogenbos / Ixelles / Etterbeek / Auderghem / Kraainem)</span></div>
+
+  <div class="alert" style="margin:.5rem 1rem;"><strong>Journée Bruxelles — récupération deep OVERDUE.</strong> Cluster BXL des plus gros retards historiques (Etterbeek 280j, Drogenbos 265j, Boondael 107j) + <strong>relance Tier A Delhaize Kraainem</strong> (dormant depuis SO 08/2025). Drogenbos = Hyper → 1ᵉ stop matin. <strong>City 2 #113997 retiré</strong> (pas le vendredi… ni intégrable mardi, hors fenêtre 6h-12h30 réaliste) → report. <strong>HC Auderghem #8062 retiré</strong> (NoMerch).</div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:35 - 10:00</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">265j OVERDUE</span></span>
+      <span class="so">06/08/2025 (307j)</span>
+    </div>
+    <div class="client">Hyper Carrefour de Drogenbos (partner #8488) — Tier C, 265j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil / responsable rayon épicerie — tel +32 2 446 15 25</div>
+    <div class="details">Avenue Paul Gilson 455, 1620 Drogenbos<br><strong>Trajet :</strong> ~1h30 / 110 km depuis Baillonville via E411 / R0 ouest — départ 08:00<br><strong>HYPER → matin obligatoire (1ᵉ stop).</strong><br><strong>Brief (25 min) — RÉCUPÉRATION :</strong> Tier C avg 90 €/mois, énorme retard (dernière trace 08/2025). Vérifier si rayon Teatower encore présent, état facings, photos. Si rayon vide/retiré → remonter à Jérôme pour relance commerciale. Push réassort + Thés Glacés si emplacement OK.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-09_HC_Drogenbos/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Avenue+Paul+Gilson+455+1620+Drogenbos" target="_blank">Google Maps Baillonville → HC Drogenbos</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:25 - 10:50</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">107j OVERDUE</span></span>
+      <span class="so">12/01/2026 (148j)</span>
+    </div>
+    <div class="client">Delhaize Boondael (partner #5426) — Tier C, 107j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil — mob 02 672 89 48 — mail 014024@delhaize.be</div>
+    <div class="details">120 Avenue du Bois de la Cambre, 1050 Ixelles<br><strong>Trajet :</strong> ~25 min / 14 km depuis Drogenbos via R0 / centre Ixelles<br><strong>Brief (25 min) :</strong> Tier C avg <strong>93 €/mois</strong>. Cycle 42j (107j OVERDUE — gros décrochage). Check rotation + état rayon + photos + propositions réassort. Remonter à Jérôme si rayon dégradé. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-09_Delhaize_Boondael/</code><br><a href="https://www.google.com/maps/dir/Avenue+Paul+Gilson+455+1620+Drogenbos/120+Avenue+du+Bois+de+la+Cambre+1050+Ixelles" target="_blank">Google Maps Drogenbos → Boondael</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:10 - 11:35</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">280j OVERDUE</span></span>
+      <span class="so">18/07/2025 (326j)</span>
+    </div>
+    <div class="client">Carrefour Market Etterbeek (partner #9159) — Tier C, 280j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil / responsable rayon — tel +32 2 772 87 76</div>
+    <div class="details">Cours St.Michel 80, 1040 Etterbeek<br><strong>Trajet :</strong> ~15 min / 6 km depuis Boondael via Bd Général Jacques<br><strong>Brief (25 min) — RÉCUPÉRATION :</strong> Tier C avg 88 €/mois, retard maximal (dernière trace 07/2025). Vérifier présence rayon Teatower, photos, état. Si rayon retiré → relance Jérôme prioritaire. Push réassort + Thés Glacés si OK.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-09_CM_Etterbeek/</code><br><a href="https://www.google.com/maps/dir/120+Avenue+du+Bois+de+la+Cambre+1050+Ixelles/Cours+Saint-Michel+80+1040+Etterbeek" target="_blank">Google Maps Boondael → Etterbeek</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:50 - 12:15</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">12/05 visite (28j)</span>
+    </div>
+    <div class="client">Delhaize Debroux (Affilié 044010, partner #5729) — Tier B</div>
+    <div class="contact-badge">Contact : magasin — tel 026 72 87 25 — mail Naberkan@delhaize.be</div>
+    <div class="details">Avenue Hermann Debroux 26, 1160 Auderghem<br><strong>Trajet :</strong> ~12 min / 6 km depuis Etterbeek via Bd du Souverain<br><strong>Brief (25 min) :</strong> Tier B avg <strong>127 €/mois</strong>. Visité 12/05 (rayon plein ce jour-là) → 28j, cycle recollé. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-09_Delhaize_Debroux/</code><br><a href="https://www.google.com/maps/dir/Cours+Saint-Michel+80+1040+Etterbeek/Avenue+Hermann+Debroux+26+1160+Auderghem" target="_blank">Google Maps Etterbeek → Debroux</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">12:55 - 13:20</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-priorite">Tier A relance</span></span>
+      <span class="so">S02237 — 14/08/2025 (299j)</span>
+    </div>
+    <div class="client">Delhaize Kraainem (Affilié 044725, partner #2914) — Tier A, dormant</div>
+    <div class="contact-badge">Contact : service achats — tel 027 84 36 48 — mail supplier@delhaize-kraainem.be</div>
+    <div class="details">Wezembeeklaan 112, 1950 Kraainem<br><strong>Trajet :</strong> ~25 min / 18 km depuis Debroux via R0 nord-est (déjeuner court 12:15-12:55 sur trajet)<br><strong>Brief (25 min) — RELANCE Tier A :</strong> historiquement Tier A (avg 441 €/mois, dernière grosse SO 1 963 € en 08/2025) mais <strong>dormant</strong> côté commande. Note Odoo : <em>« Gamme plus importante chez eux — vérifier si commande lors du passage, sinon relancer par téléphone et mail »</em>. Check rayon + facings + photos + <strong>prendre commande réassort si possible</strong>. Si pas de commande → remonter à Jérôme/Vanessa pour relance. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-09_Delhaize_Kraainem/</code><br><a href="https://www.google.com/maps/dir/Avenue+Hermann+Debroux+26+1160+Auderghem/Wezembeeklaan+112+1950+Kraainem" target="_blank">Google Maps Debroux → Kraainem</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet mardi :</strong> Baillonville 08:00 → HC Drogenbos 09:35 (1h30, 110 km via E411/R0 ouest) → Visite 09:35-10:00 (Hyper matin) → Boondael 10:25 (25 min, 14 km) → Etterbeek 11:10 (15 min, 6 km) → Debroux 11:50 (12 min, 6 km) → déjeuner 12:15-12:55 → Kraainem 12:55 (25 min, 18 km via R0 NE) → Visite 12:55-13:20 → retour Baillonville 14:50 (1h30, 115 km via E40/E411) | <strong>~270 km</strong> | <strong>Retour Baillonville 14:50 (marge 1h55)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Avenue+Paul+Gilson+455+1620+Drogenbos/120+Avenue+du+Bois+de+la+Cambre+1050+Ixelles/Cours+Saint-Michel+80+1040+Etterbeek/Avenue+Hermann+Debroux+26+1160+Auderghem/Wezembeeklaan+112+1950+Kraainem/5377+Baillonville" target="_blank">Google Maps tournée complète Mardi 09/06</a></div>
+</div>
+
+<!-- MERCREDI 10/06 — Liège-est / Eupen (deep OVERDUE) -->
+<div class="day">
+  <div class="day-header">Mercredi 10/06 &mdash; 4 stops (4 visites) <span class="zone">Hesbaye (Braives) → Liège (Longdoz) → Lontzen → Eupen</span></div>
+
+  <div class="alert" style="margin:.5rem 1rem;"><strong>Journée Liège-est / Eupen — récupération deep OVERDUE (longs trajets).</strong> Axe Hesbaye → Liège → Cantons de l'Est. 4 stops car drives longs (Eupen ~150 km de Baillonville). <strong>Delhaize Longdoz Médiacité 297j</strong> + 2 magasins Eupen ~190j = plus gros retards GMS du parc. <strong>CM Eupen Rotenberg #113634 retiré</strong> (pas le mercredi — contrainte Mme Meessen) → report S25 (jour Liège = mercredi). Longdoz « pas le lundi » → mercredi OK.</div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:00 - 09:25</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">77j OVERDUE</span></span>
+      <span class="so">09/02/2026 (121j)</span>
+    </div>
+    <div class="client">Proxy Delhaize Braives (Affilié 041895, partner #117130) — Tier C, 77j OVERDUE</div>
+    <div class="contact-badge">Contact : demander Yannick — tel +32 19 69 94 88 — mail maxime@proxybraives.be — note : seulement 3 références en rayon</div>
+    <div class="details">Chaussée de Tirlemont 6A, 4260 Braives<br><strong>Trajet :</strong> ~50 min / 50 km depuis Baillonville via N4/N80/N637 (Hesbaye) — départ 08:00<br><strong>Brief (25 min) :</strong> Tier C avg <strong>32 €/mois</strong>. Cycle 42j (77j OVERDUE). Demander Yannick. Attention : seulement 3 références en rayon — vérifier rotation, proposer élargissement gamme + Thés Glacés. Photos.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-10_Proxy_Braives/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Tirlemont+6A+4260+Braives" target="_blank">Google Maps Baillonville → Braives</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:10 - 10:35</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">297j OVERDUE</span></span>
+      <span class="so">04/07/2025 (340j)</span>
+    </div>
+    <div class="client">Delhaize Longdoz Médiacité (Affilié 045015, partner #5439) — Tier C, 297j OVERDUE</div>
+    <div class="contact-badge">Contact : Julie Martin — tel 043 42 49 02 — mail achef45015@delhaize.be — <strong>pas de visite le lundi</strong> (mercredi OK)</div>
+    <div class="details">Rue de Grétry 60, 4020 Liège (Médiacité)<br><strong>Trajet :</strong> ~40 min / 40 km depuis Braives via E42/E25 (centre Liège)<br><strong>Brief (25 min) — RÉCUPÉRATION :</strong> Tier C avg 35 €/mois, <strong>retard maximal du parc (297j)</strong>. Demander Julie Martin. Vérifier si rayon Teatower encore présent (Médiacité), photos, état facings. Si retiré → relance Jérôme prioritaire. Push réassort + Thés Glacés si emplacement OK.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-10_Delhaize_Longdoz/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Tirlemont+6A+4260+Braives/Rue+de+Gr%C3%A9try+60+4020+Li%C3%A8ge" target="_blank">Google Maps Braives → Longdoz</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:25 - 11:50</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">31j OVERDUE</span></span>
+      <span class="so">S05373 — 10/04 (61j)</span>
+    </div>
+    <div class="client">Carrefour Market Lontzen (partner #113675) — Tier B, 31j OVERDUE</div>
+    <div class="contact-badge">Contact : demander Virginie ou Benjamin — tel +32 87 67 42 27 — mail carrefour.lontzen@gmail.com</div>
+    <div class="details">Rue Mitoyenne B 910, 4710 Lontzen<br><strong>Trajet :</strong> ~35 min / 40 km depuis Longdoz via E40 est (vers Cantons de l'Est)<br><strong>Brief (25 min) :</strong> Tier B avg <strong>154 €/mois</strong>. Cycle 28j (31j OVERDUE). Dernière SO S05373 du 10/04 (577 €). Demander Virginie ou Benjamin. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-10_CM_Lontzen/</code><br><a href="https://www.google.com/maps/dir/Rue+de+Gr%C3%A9try+60+4020+Li%C3%A8ge/Rue+Mitoyenne+910+4710+Lontzen" target="_blank">Google Maps Longdoz → Lontzen</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">12:05 - 12:30</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">188j OVERDUE</span></span>
+      <span class="so">20/10/2025 (233j)</span>
+    </div>
+    <div class="client">Carrefour Market Eupen Herbesthalerstrasse (partner #113974) — Tier C, 188j OVERDUE</div>
+    <div class="contact-badge">Contact : demander Sarah — tel +32 87 21 30 30 — mail info@hypermarketeupen.be</div>
+    <div class="details">Rue de Herbesthal 203, 4700 Eupen<br><strong>Trajet :</strong> ~10 min / 8 km depuis Lontzen via N67 (Eupen)<br><strong>Brief (25 min) — RÉCUPÉRATION :</strong> Tier C avg 63 €/mois, 188j OVERDUE. Demander Sarah. Vérifier présence rayon Teatower, photos, état. Push réassort + Thés Glacés si OK. Si rayon dégradé → relance Jérôme.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-10_CM_Eupen_Herbesthal/</code><br><a href="https://www.google.com/maps/dir/Rue+Mitoyenne+910+4710+Lontzen/Rue+de+Herbesthal+203+4700+Eupen" target="_blank">Google Maps Lontzen → Eupen Herbesthal</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet mercredi :</strong> Baillonville 08:00 → Braives 09:00 (50 min, 50 km via N80) → Longdoz 10:10 (40 min, 40 km via E42/E25) → Lontzen 11:25 (35 min, 40 km via E40 est) → Eupen Herbesthal 12:05 (10 min, 8 km) → retour Baillonville 14:00 (1h35, 145 km via E40/E25/N4) | <strong>~280 km</strong> | <strong>Retour Baillonville 14:00 (marge 2h45)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Tirlemont+6A+4260+Braives/Rue+de+Gr%C3%A9try+60+4020+Li%C3%A8ge/Rue+Mitoyenne+910+4710+Lontzen/Rue+de+Herbesthal+203+4700+Eupen/5377+Baillonville" target="_blank">Google Maps tournée complète Mercredi 10/06</a></div>
+</div>
+
+<!-- JEUDI 11/06 — Namur centre + Hesbaye (5 reports S23) -->
+<div class="day">
+  <div class="day-header">Jeudi 11/06 &mdash; 5 stops (5 visites) <span class="zone">Namur (Floriffoux / Salzinnes / Bouge ×2) → Hesbaye (Faimes)</span></div>
+
+  <div class="alert alert-success" style="margin:.5rem 1rem;"><strong>Journée dédiée aux 5 reports S23 → S24</strong> (retirés mardi 02/06 v4 pour cause de doublon vendredi 29/05 S22). À 13 jours post-visite 29/05 → <strong>cycle 14-21j respecté</strong> (replanification idéale). Boucle Namur centre serrée (Floriffoux → Salzinnes → Bouge) + remontée Hesbaye (Faimes).</div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">08:50 - 09:15</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">24j OVERDUE</span></span>
+      <span class="so">S05435 — 20/04 (52j)</span>
+    </div>
+    <div class="client">Intermarché Floriffoux (Floridis SA, partner #2958) — Tier B, 24j OVERDUE</div>
+    <div class="contact-badge">Contact : Loredana / Manon sur place — tel 081 44 05 39 — mail PDV09900@mousquetaires.com</div>
+    <div class="details">Rue Emerée 4, 5150 Floriffoux<br><strong>Trajet :</strong> ~40 min / 42 km depuis Baillonville via N4/N90 (Sambre ouest) — départ 08:00<br><strong>Brief (25 min) :</strong> Tier B avg <strong>290 €/mois</strong>. Cycle 28j (24j OVERDUE). Demander Loredana ou Manon. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-11_ITM_Floriffoux/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Rue+Emer%C3%A9e+4+5150+Floriffoux" target="_blank">Google Maps Baillonville → Floriffoux</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:35 - 10:00</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05673 — 29/05 (13j)</span>
+    </div>
+    <div class="client">Delhaize Salzinnes (Affilié 048652, partner #114704) — Tier B</div>
+    <div class="contact-badge">Contact : demander Mme Wivine ou Manu — tel +32 81 40 80 40 — mail nicolas@adsalzinnes.be</div>
+    <div class="details">Chaussée de Charleroi 22, 5000 Namur<br><strong>Trajet :</strong> ~15 min / 10 km depuis Floriffoux via N90 (Namur centre)<br><strong>Brief (25 min) :</strong> Tier B avg <strong>258 €/mois</strong>. Dernière SO S05673 du 29/05 (883 € — gros panier récent) → réassort post-livraison + facings. Demander Mme Wivine ou Manu. Check rotation + photos. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-11_Delhaize_Salzinnes/</code><br><a href="https://www.google.com/maps/dir/Rue+Emer%C3%A9e+4+5150+Floriffoux/Chauss%C3%A9e+de+Charleroi+22+5000+Namur" target="_blank">Google Maps Floriffoux → Salzinnes</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:15 - 10:40</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05672 — 29/05 (13j)</span>
+    </div>
+    <div class="client">Delhaize de Bouge (Affilié 041345, partner #114681) — Tier B</div>
+    <div class="contact-badge">Contact magasin : Mme Destrée / Grandjean / Augustaine — tel +32 81 21 48 88 — mail helene.nols@affiliatesdelhaize.be</div>
+    <div class="details">Chaussée de Louvain 336, 5004 Namur (Bouge)<br><strong>Trajet :</strong> ~12 min / 7 km depuis Salzinnes via centre Namur / N4 nord<br><strong>Brief (25 min) :</strong> Tier B avg <strong>280 €/mois</strong>. Dernière SO S05672 du 29/05 (158 €) → réassort post-livraison. Magasin avec accessoires A0271 Filtre boule + A0374 Filtre pince (en avoir dans la camionnette si possible). Check rotation + photos. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-11_Delhaize_Bouge/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Charleroi+22+5000+Namur/Chauss%C3%A9e+de+Louvain+336+5004+Namur" target="_blank">Google Maps Salzinnes → Delhaize Bouge</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:45 - 11:10</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">23j OVERDUE</span></span>
+      <span class="so">S05449 — 21/04 (51j)</span>
+    </div>
+    <div class="client">Intermarché Bouge (Windmill SA, partner #3297) — Tier B, 23j OVERDUE</div>
+    <div class="contact-badge">Contact : Dany Decoster — tel 081 56 93 46 — mail pdv09883@mousquetaires.com</div>
+    <div class="details">Chaussée de Louvain 257, 5000 Bouge<br><strong>Trajet :</strong> ~3 min / 1 km depuis Delhaize de Bouge (même chaussée)<br><strong>Brief (25 min) :</strong> Tier B avg <strong>242 €/mois</strong>. Cycle 28j (23j OVERDUE). Demander Dany Decoster. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-11_ITM_Bouge/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Louvain+336+5004+Namur/Chauss%C3%A9e+de+Louvain+257+5000+Bouge" target="_blank">Google Maps Delhaize Bouge → ITM Bouge</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:55 - 12:20</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05675 — 29/05 (13j)</span>
+    </div>
+    <div class="client">Intermarché Faimes (SA Faimine, partner #3210) — Tier B</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel 019 67 83 78 — mail PDV06089@mousquetaires.com</div>
+    <div class="details">Rue De Huy 27, 4317 Faimes<br><strong>Trajet :</strong> ~35 min / 35 km depuis ITM Bouge via N4/N80 (Hesbaye nord)<br><strong>Brief (25 min) :</strong> Tier B avg <strong>219 €/mois</strong>. Dernière SO S05675 du 29/05 (351 €) → réassort post-livraison + facings. Check rotation + photos. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-11_ITM_Faimes/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Louvain+257+5000+Bouge/Rue+De+Huy+27+4317+Faimes" target="_blank">Google Maps ITM Bouge → Faimes</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet jeudi :</strong> Baillonville 08:00 → Floriffoux 08:50 (40 min, 42 km via N4/N90) → Salzinnes 09:35 (15 min, 10 km) → Delhaize Bouge 10:15 (12 min, 7 km) → ITM Bouge 10:45 (3 min, 1 km) → Faimes 11:55 (35 min, 35 km via N4/N80) → retour Baillonville 13:05 (50 min, 50 km via N80/N4) | <strong>~145 km</strong> | <strong>Retour Baillonville 13:05 (marge 3h40)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Rue+Emer%C3%A9e+4+5150+Floriffoux/Chauss%C3%A9e+de+Charleroi+22+5000+Namur/Chauss%C3%A9e+de+Louvain+336+5004+Namur/Chauss%C3%A9e+de+Louvain+257+5000+Bouge/Rue+De+Huy+27+4317+Faimes/5377+Baillonville" target="_blank">Google Maps tournée complète Jeudi 11/06</a></div>
+</div>
+
+<!-- VENDREDI 12/06 — Brabant Wallon (Ottignies cluster) -->
+<div class="day">
+  <div class="day-header">Vendredi 12/06 &mdash; 5 stops (1 passage Ottignies + 4 visites) <span class="zone">Brabant Wallon (Chaumont-Gistoux / LLN / Ottignies / Genappe)</span></div>
+
+  <div class="alert" style="margin:.5rem 1rem;background:#cfe2ff;border-left:4px solid #0d6efd;"><strong>Journée Brabant Wallon — porte la demande Nicolas « passage Delhaize Ottignies ».</strong> Vendredi choisi car <strong>Mme Galletas (Ottignies) absente le jeudi</strong> ET <strong>Mr Snaps (Delhaize LLN) absent le jeudi</strong> → vendredi compatible pour les deux. <strong>ITM Genappe</strong> (report S23, visité 28/05) atteint 15j → cycle 14-21j OK.</div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:00 - 09:25</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">37j OVERDUE</span></span>
+      <span class="so">S05360 — 08/04 (65j)</span>
+    </div>
+    <div class="client">Intermarché Chaumont-Gistoux (LSL RETAIL, partner #10134) — Tier B, 37j OVERDUE</div>
+    <div class="contact-badge">Contact : Mme Carine — tel +32 10 23 92 60 — mail pdv09930@mousquetaires.com</div>
+    <div class="details">Chaussée de Huy 47, 1325 Chaumont-Gistoux<br><strong>Trajet :</strong> ~50 min / 55 km depuis Baillonville via N4/E411 (BW est) — départ 08:00<br><strong>Brief (25 min) :</strong> Tier B avg <strong>215 €/mois</strong>. Cycle 28j (37j OVERDUE). Demander Mme Carine. (Visité 12/05 « rayon plein » → cycle normal). Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-12_ITM_Chaumont-Gistoux/</code><br><a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Huy+47+1325+Chaumont-Gistoux" target="_blank">Google Maps Baillonville → Chaumont-Gistoux</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:55 - 10:20</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">37j OVERDUE</span></span>
+      <span class="so">S05359 — 08/04 (65j)</span>
+    </div>
+    <div class="client">Delhaize de Louvain-La-Neuve (SRL AD LLN, partner #3223) — Tier B, 37j OVERDUE</div>
+    <div class="contact-badge">Contact : Mr Snaps — tel 010 45 86 57 — mob 0494 66 42 57 — mail Achef45040@delhaize.be — <strong>Mr Snaps absent le jeudi</strong> (vendredi OK)</div>
+    <div class="details">Place de l'accueil 10, 1348 Louvain-la-Neuve<br><strong>Trajet :</strong> ~20 min / 15 km depuis Chaumont-Gistoux via N238/N4<br><strong>Brief (25 min) :</strong> Tier B avg <strong>207 €/mois</strong>. Cycle 28j (37j OVERDUE). Demander Mr Snaps. (Visité 12/05 « rayon plein » → cycle normal). Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-12_Delhaize_LLN/</code><br><a href="https://www.google.com/maps/dir/Chauss%C3%A9e+de+Huy+47+1325+Chaumont-Gistoux/Place+de+l'accueil+10+1348+Louvain-la-Neuve" target="_blank">Google Maps Chaumont-Gistoux → Delhaize LLN</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:25 - 10:50</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">108j OVERDUE</span></span>
+      <span class="so">S04841 — 27/01 (136j)</span>
+    </div>
+    <div class="client">Spar Louvain-La-Neuve (Dynamic Food SRL, partner #113216) — Tier B, 108j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil — tel +32 10 86 03 94 — mail spar.louvainlaneuve@gmail.com — <strong>livraison Quai 7</strong> (entrée à côté du parking grand place, accès compliqué)</div>
+    <div class="details">Rue Charlemagne 7, 1348 Louvain-la-Neuve<br><strong>Trajet :</strong> ~5 min / 1,5 km depuis Delhaize LLN (même ville, campus LLN)<br><strong>Brief (25 min) — RÉCUPÉRATION :</strong> Tier B avg <strong>142 €/mois</strong>. <strong>108j OVERDUE</strong> (dernière SO S04841 du 27/01, 623 €). Vérifier état rayon, photos, proposer réassort + Thés Glacés. Accès livraison Quai 7. Si décrochage → remonter à Jérôme.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-12_Spar_LLN/</code><br><a href="https://www.google.com/maps/dir/Place+de+l'accueil+10+1348+Louvain-la-Neuve/Rue+Charlemagne+7+1348+Louvain-la-Neuve" target="_blank">Google Maps Delhaize LLN → Spar LLN</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:05 - 11:35</span> <span class="badge" style="background:#0d6efd;color:#fff;">Passage / Livraison ?</span> <span class="badge badge-fix">DEMANDE NICOLAS</span> <span class="badge badge-priorite">Tier A</span></span>
+      <span class="so">S05664 — 28/05 (15j)</span>
+    </div>
+    <div class="client">Delhaize Ottignies (KAIO Retail invest, partner #3016) — Tier A</div>
+    <div class="contact-badge">Contact merch : <strong>Jolan Cailleau</strong> — tel 010 40 15 69 — mob 0476 46 00 03 — mail jolan.cailleau@gmail.com — <strong>Mme Galletas absente le jeudi</strong></div>
+    <div class="details">Centre commercial du Douaire 1, 1340 Ottignies<br><strong>Trajet :</strong> ~10 min / 7 km depuis Spar LLN via N4/N238 (Ottignies centre)<br><strong>Brief (passage demandé par Nicolas, 25-30 min) :</strong> <strong>Tier A</strong> (~600 €/mois, gros client BW). Dernière SO <strong>S05664 du 28/05 (767 €) confirmée mais SANS picking sortant</strong> → <strong>vérifier si la commande du 28/05 est livrée / en rayon ou s'il y a un réassort à faire</strong>. Demander Jolan Cailleau. Check rotation soigneux + facings + photos avant/après + propositions réassort détaillées. Push Thés Glacés complet (saison).<br><strong>⚠ À confirmer par Nicolas :</strong> objet précis du passage (livraison de la SO S05664 ? simple visite réassort ?).<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-12_Delhaize_Ottignies/</code><br><a href="https://www.google.com/maps/dir/Rue+Charlemagne+7+1348+Louvain-la-Neuve/Centre+commercial+du+Douaire+1+1340+Ottignies" target="_blank">Google Maps Spar LLN → Delhaize Ottignies</a></div>
+  </div>
+
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:55 - 12:20</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">51j OVERDUE</span> <span class="badge badge-fix">REPORT S23</span></span>
+      <span class="so">S05279 — 25/03 (79j)</span>
+    </div>
+    <div class="client">Intermarché Genappe (GENADIS, partner #2963) — Tier B, 51j OVERDUE</div>
+    <div class="contact-badge">Contact : accueil épicerie — tel 067 78 02 50 — mail pdv09846@mousquetaires.com</div>
+    <div class="details">Rue Louis Lalieux 22, 1470 Genappe<br><strong>Trajet :</strong> ~20 min / 18 km depuis Ottignies via N237/N5 (BW sud)<br><strong>Brief (25 min) :</strong> Tier B avg <strong>112 €/mois</strong>. Cycle 28j (51j OVERDUE). Report S23 (visité 28/05 S22 → 15j, ≥14j OK). Demander responsable épicerie. Check rotation + photos + propositions réassort. Push Thés Glacés.<br><strong>Photos OBLIGATOIRES :</strong> upload <code>Merchandiser/2026-06-12_ITM_Genappe/</code><br><a href="https://www.google.com/maps/dir/Centre+commercial+du+Douaire+1+1340+Ottignies/Rue+Louis+Lalieux+22+1470+Genappe" target="_blank">Google Maps Ottignies → Genappe</a></div>
+  </div>
+
+  <div class="route"><strong>Trajet vendredi :</strong> Baillonville 08:00 → Chaumont-Gistoux 09:00 (50 min, 55 km via N4/E411) → Delhaize LLN 09:55 (20 min, 15 km) → Spar LLN 10:25 (5 min, 1,5 km) → Delhaize Ottignies 11:05 (10 min, 7 km) → ITM Genappe 11:55 (20 min, 18 km via N5) → retour Baillonville 13:15 (1h, 80 km via N5/N93/N4) | <strong>~175 km</strong> | <strong>Retour Baillonville 13:15 (marge 3h30)</strong> | <a href="https://www.google.com/maps/dir/5377+Baillonville/Chauss%C3%A9e+de+Huy+47+1325+Chaumont-Gistoux/Place+de+l'accueil+10+1348+Louvain-la-Neuve/Rue+Charlemagne+7+1348+Louvain-la-Neuve/Centre+commercial+du+Douaire+1+1340+Ottignies/Rue+Louis+Lalieux+22+1470+Genappe/5377+Baillonville" target="_blank">Google Maps tournée complète Vendredi 12/06</a></div>
+</div>
+
+<div class="alert"><strong>Alertes Nicolas — actions à faire avant/pendant S24 :</strong>
+<ul style="margin-left:1.2rem;margin-top:.4rem;">
+<li style="background:#cfe2ff;padding:.3rem .5rem;border-left:3px solid #0d6efd;"><strong>⚠ HC Jambes (lundi 08/06) — créer la SO AVANT lundi matin.</strong> Aucune commande postérieure au 08/04 dans Odoo. Sans bon de commande confirmé (→ support-order), pas de livraison possible. Préciser le contenu de la commande à livrer.</li>
+<li style="background:#cfe2ff;padding:.3rem .5rem;border-left:3px solid #0d6efd;"><strong>📍 Delhaize Ottignies (vendredi 12/06) — confirmer l'objet du passage.</strong> SO S05664 du 28/05 (767 €) confirmée mais non livrée (pas de picking) → livraison à charger dans la camionnette ? ou simple visite réassort ?</li>
+<li style="background:#f8d7da;padding:.3rem .5rem;border-left:3px solid #dc3545;"><strong>2 candidats NoMerch à valider :</strong> <strong>Delhaize Wavre #3226</strong> (« ne veut pas de merchandiser ») et <strong>HC Auderghem #8062</strong> (« Mme Bourcy gère son rayon »). Si confirmé → poser tag <code>[NO-MERCH</code> dans Odoo (je m'en charge sur ton accord).</li>
+<li><strong>Reports S25 :</strong> CM City 2 #113997 (pas vendredi) + CM Eupen Rotenberg #113634 (pas mercredi) — contraintes jour incompatibles cette semaine.</li>
+<li><strong>Walcourt #9016</strong> (182j+) reste reporté — Jérôme à statuer sur la relance commerciale avant revisite.</li>
+<li><strong>Fiches Odoo à compléter</strong> (tel/email/contact merch manquants, à remonter par Gilles sur place) : CM Etterbeek #9159, Delhaize Boondael #5426, CM Marche #3120, ITM Genappe #2963.</li>
+</ul></div>
+
+<div class="alert alert-success"><strong>Bilan S24 v1 (03/06) :</strong> <strong>24 stops</strong> sur 5 jours (1 livraison Jambes + 1 implantation display x8 Spar Namur + 22 visites). <strong>3 demandes Nicolas intégrées</strong> (Jambes livraison lundi, Spar Namur display x8 lundi, Delhaize Ottignies vendredi). <strong>6 reports S23 absorbés</strong> (5 Namur/Hesbaye jeudi + Genappe vendredi). <strong>Récupération deep OVERDUE</strong> : Etterbeek 280j, Longdoz 297j, Drogenbos 265j, Eupen 188j, Boondael 107j — magasins les plus en retard du parc relancés. <strong>3 magasins exclus</strong> (Wavre + Auderghem NoMerch, City 2/Eupen Rotenberg contraintes jour). <strong>Cap retour Baillonville ≤16h45 respecté chaque jour</strong> : Lun 13:25, Mar 14:50, Mer 14:00, Jeu 13:05, Ven 13:15 (marges confortables — densification possible si Nicolas ajoute des stops). Toutes contraintes jour/contact Odoo respectées (Ottignies/LLN pas jeudi, Longdoz pas lundi, Eupen Rotenberg pas mercredi).</div>
+
+</div><!-- /s08 -->
+
+
+<div id="s01" style="display:none;">
 <h2 class="section-title">Semaine du 1ᵉʳ au 5 juin 2026 (S23 — v4 PUBLIÉ 28/05 nuit)</h2>
 
 <div class="summary">
