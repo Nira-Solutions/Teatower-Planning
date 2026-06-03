@@ -1,4 +1,27 @@
 
+## 2026-06-03 — Fix double-TVA Shopify à la cause racine (backfill pays parents + cron) — WRITE, validé Nicolas
+
+- **Type** : Correction donnée partenaire + automation. AUCUNE écriture sur factures/écritures/FP existantes (passif 260 factures hors scope). Tout réversible.
+- **Cause racine confirmée** : connecteur Emipro crée un parent B2C Shopify SANS `country_id` et des enfants (invoice/delivery) AVEC le pays. L'auto-apply FP se base sur le pays du parent → parent sans pays → aucune FP → lignes restent en taxe HT 3/8 → double-TVA.
+- **VOLET 1 dry-run** (`_tva_shopify_dryrun.py/.json`) : 168 parents Shopify (`is_shopify_customer=True`, `country_id=False`, `parent_id=False`) sans pays. 167 non-ambigus à traiter (162 BE, 4 FR, 1 DE), 1 ambigu exclu (#120294 Daniel quetelard = BE+FR divergents, laissé pour décision Nicolas), 0 sans enfant avec pays. Logique : recopie pays enfant, priorité `delivery` > `invoice`.
+- **VOLET 2 backfill** (`_tva_shopify_backfill.py`) : `country_id` écrit sur 167 parents (valeur avant = False pour tous). Rollback complet dans `_tva_shopify_backfill_rollback.json` (ids + pays avant/après + enfant source). 0 skip. AUCUN recalcul des SO/factures passées.
+- **VOLET 3 automation** : `ir.cron` id=**82** "[TVA-SHOPIFY] Backfill pays parents Shopify (anti double-TVA)", `model_id=87 res.partner`, intervalle 1h, périmètre strict `is_shopify_customer=True` (jamais B2B/GMS manuels), même logique non-ambiguë (skip si pays enfants divergents). Réversible : `active=False` (1 clic) ou `unlink([82])`. Choix cron > base.automation : plus simple, idempotent, désactivable d'1 clic, ne dépend pas du timing d'écriture enfant→parent du connecteur.
+- **TEST FP** (`_tva_shopify_validate.py`) : devis draft temporaires créés sur 3 parents backfillés puis supprimés (aucun impact compta/stock). Résultat : BE #110830 → FP EU B2C ✔, FR #107220 → OSS B2C France ✔, DE #105153 → OSS B2C Allemagne ✔. Double-TVA stoppée, OSS préservé.
+- **Run cron manuel** : idempotent, ne reste que l'ambigu #120294. OK.
+- **Fichiers** : `odoo/_tva_shopify_dryrun.*`, `_tva_shopify_backfill.py`, `_tva_shopify_backfill_rollback.json`, `_tva_shopify_validate.*`, `_tva_shopify_create_cron.py`, `_tva_shopify_fpmap.json`.
+
+## 2026-06-03 — Investigation config connecteur Shopify (mapping TVA) — LECTURE SEULE
+
+- **Type** : Diagnostic config, AUCUNE écriture Odoo (validation Nicolas requise avant tout fix).
+- **Demande** : comprendre pourquoi certaines commandes Shopify prennent 128/129 (TTC, correct) et d'autres 3/8 (HT, double-TVA sur prix déjà TTC), trouver le point de réglage centralisé.
+- **Connecteur** : Emipro (`shopify.instance.ept`, suffixe `.ept`). Instance id=1 "Odoo x Shopify", créée 2025-11-10. Option `apply_tax_in_order = "odoo_tax"` (Odoo Default Tax Behaviour) → la taxe = taxe par défaut de la fiche produit, remappée par la position fiscale du client. Le connecteur N'IMPORTE PAS les taxes Shopify.
+- **Cause racine** : tous les produits sale_ok sont en taxe HT par défaut (1024 en `8`=6% HT, 392 en `3`=21% HT, seulement 1 en TTC). La conversion HT→TTC repose ENTIÈREMENT sur la position fiscale. FP "EU B2C" (id=2) remappe 3→129 et 8→128 (correct) ; FP "Belgium B2B" (id=1) ne remappe rien (normal, B2B HT). Quand le partenaire Shopify n'a pas de pays / pas de FP auto, ou que la FP est posée sur l'en-tête après figeage des lignes, le remap ne s'applique pas → lignes restent 3/8 → double-TVA.
+- **Preuve** : SO #48985 (FP=False) lignes en 8/3 vs SO #48986 (FP=EU B2C) lignes en 128 — même connecteur, même jour, 1h30 d'écart. Mapping EU B2C stable depuis 2025-03-31.
+- **Impact mesuré (12 mois)** : 260 factures touchées / 2963. TVA réellement surfacturée B2C ≈ 1218 EUR. Postes : produits thé/accessoires 1142 EUR, livraison Bpost 118 EUR, ateliers 53 EUR (discounts en négatif -95). Belgium B2B (67 factures) = faux positif (HT B2B légitime).
+- **Produits techniques en cause** : "Livraison Bpost"/"Livraison point relais" (taxe 3=21% HT, devraient être 129 TTC ou exonéré selon politique), "Shopify Discount Product"/"DISC" (taxe 8=6% HT).
+- **Reco livrée** : voir rapport. Solution la plus propre = forcer la FP côté connecteur/partenaire B2C (fiabiliser le pays à l'import) + s'assurer que les produits techniques (livraison/discount) sont mappés par la FP. Détail des options (a/b/c) dans le rapport remis à Nicolas.
+- **Fichiers** : `odoo/_diag_tva_shopify_step5.py` à `step16.py` + JSON associés.
+
 ## 2026-05-29 — Plan GMS Option A — EXÉCUTION RÉELLE (WRITE)
 
 - **Type** : Configuration Odoo — écriture réelle (validée par Nicolas, Plan A uniquement)
