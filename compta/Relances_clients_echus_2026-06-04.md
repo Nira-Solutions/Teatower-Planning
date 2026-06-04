@@ -35,7 +35,7 @@
 
 | Client | Échu | Retard | Contact |
 |---|---:|---|---|
-| Boulangerie Demoulin | 692 € | 36j | 081/21 48 77 — maisondemoulin@skynet.be |
+| ~~Boulangerie Demoulin~~ | ~~692 €~~ | **✅ PAYÉE** — virement 691,59 € du 29/04 retrouvé non rapproché, lettré le 04/06 | — |
 | Ma P'tite Épicerie (R. Daval) | 613 € | 62j | +32 472 62 09 26 — rachdaval@gmail.com |
 | Château de Vignée | 576 € | 48j | 084 69 00 50 — accounting@chateaudevignee.be |
 | ITM Tilff (Chili Peppers) | 602 € | 33j | +32 479 32 28 39 — pdv09885@mousquetaires.com — **Gilles y passe jeudi 11/06** |
