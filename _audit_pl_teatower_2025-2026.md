@@ -1091,3 +1091,26 @@ Décision Nicolas (04/06/2026) : retour au résultat **+87.055,05 EUR** (état a
 ⚠️ Réserve technique maintenue : le gain de 99.790,25 EUR de la session POS combinée du 28/02 avait été diagnostiqué comme écart fantôme (cf. §9). Nicolas le considère acquis — à revalider avec l'expert-comptable avant la clôture du 30/06.
 
 *Résultat posté FY25-26 après rollback : **+87.055,05 EUR** (vérifié Odoo 04/06/2026).*
+
+### 11.1 Dossier pour l'expert-comptable — gain 99.790,25 EUR du 28/02 (à trancher avant clôture 30/06)
+
+Décision Nicolas 04/06/2026 : le point est délégué à l'expert-comptable. Aucune écriture supplémentaire passée. Éléments factuels vérifiés dans Odoo le 04/06 :
+
+**Écriture d'origine** — `PBNK1/25-26/0432` du 28/02/2026 (combinaison paiements carte PdV, PAS un écart d'espèces) :
+
+| Compte | Débit | Crédit |
+|--------|-------|--------|
+| 550004 Outstanding Receipts (encours cartes) | 100.905,00 | |
+| 400100 Customers (POS) | | 1.114,75 |
+| 757100 Positive Payment Differences | | 99.790,25 |
+
+**Position Nicolas** : gain réel, corrigé dans la caisse quelques jours plus tard.
+
+**Vérifications effectuées (sans trouver la correction)** :
+- Mars 2026 entier : plus gros écart de caisse toutes boutiques = 204,50 EUR (Namur 13/03). Aucun mouvement ~100k en caisse, banque ou OD.
+- Seuls mouvements ±100k post-février : couple Waterloo CSH3 11/05 (+99.999,90 gain) / 12/05 (-99.999,85 perte) — ils se neutralisent entre eux (net +0,05 à 1 jour d'écart), ne corrigent pas le 28/02. NB : la perte du 12/05 est annulée par OD 0076/0077 (postées), le gain du 11/05 reste posté.
+- Compte 550004 : jamais dégonflé — delta +153.294 en février (dont les 100.905 de cette écriture), progression continue jusqu'à +500.123 cumulés au 30/06. Les 100.905 d'encours cartes du 28/02 n'ont jamais été matchés à un versement ING.
+
+**Question pour l'expert-comptable** : le gain 757100 de 99.790,25 est-il un produit réel (et dans ce cas où est passé l'encours 550004 correspondant ?) ou un artefact de la combinaison de paiements POS ? Étudier conjointement avec le solde 550004 (+500k) et le couple Waterloo 11-12/05.
+
+**Composition actuelle du net 757100 posté (+99.924,32)** : gains bruts 261.912 (LIE 12/01 : 51.440,36 ; PBNK1 28/02 : 99.790,25 ; POP 28/02 : 8.888,80 ; CSH3 11/05 : 99.999,90 ; divers ~1.793) moins ligne OD 0076 « dépôts en produits » -161.987,71. Compte 657100 net : -904,49.
