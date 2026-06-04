@@ -63,7 +63,7 @@ Audit doublons 28/05 nuit : 5 magasins planifiés à la fois vendredi 29/05 (S22
   - Les 4 SO livrées + facturées Peppol le 04/06. Fiches Odoo corrigées (email Amay, ville Tubize, note Tihange).
 - ✅ **NOUVELLE RÈGLE HORAIRE DURE (Nicolas 04/06)** : journée Gilles = 8h travail + 30 min pause = **08:30 → 17:00, JAMAIS dépassé** (remplace cap 16h45). Tous les jours S24 recalés (départ 08:30, pause 30 min).
 - ✅ **REPORT ITM Tilff #116869 (Tier A)** : passage jeudi 04/06 (S23) **non effectué** (signalé par Nicolas 04/06) → replanifié **jeudi 11/06** fin de boucle (Tihange → Tilff via E25 ; contrainte « Christine OK jeudi, pas vendredi » respectée).
-- ⏳ Finaliser commande/livraison HC Jambes (toujours en attente — SO à créer avant lundi 08/06 matin).
+- ✅ **HC Jambes RÉSOLU (04/06 soir)** : 2 SO confirmées dans Odoo — **S05714 (1 147,50 €) + S05716 (493,53 €)**, pickings validés (TT/OUT/08308-09), facturées Peppol. Gilles charge les 2 commandes lundi 08/06 matin → livraison 1ᵉ stop.
 
 ---
 
