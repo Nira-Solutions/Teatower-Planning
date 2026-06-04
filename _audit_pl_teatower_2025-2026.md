@@ -698,3 +698,396 @@ Le chiffre "85 547 EUR net POS fictif" reste valide dans son montant (251 230 en
 ---
 
 *Vérification 12/05/2026 — lecture seule stricte — aucune écriture Odoo.*
+
+---
+
+## 9. VÉRIFICATION PRÊTS BELFIUS — 12/05/2026
+
+**Périmètre : lecture seule stricte. Aucune écriture Odoo.**
+**Objectif : vérifier si des prêts Belfius gonflent le résultat de ~80 k€ (résultat affiché 476 891 € vs ~400 k€ attendu par Nicolas).**
+
+---
+
+### 9.1 Infrastructure Belfius dans Odoo
+
+- **Journal Belfius** : BNK2 — compte BE86 0689 5807 1350 (compte Odoo `552 BE86068958071350`, id=1216)
+- **Partenaire Belfius** : id=119773 `Belfius Banque-Bank`
+- **Total mouvements BNK2 sur l'exercice** : 25 écritures postées (volume très faible)
+
+---
+
+### 9.2 Flux Belfius identifiés — Exercice 01/07/2025 → 30/06/2026
+
+#### Tableau exhaustif des mouvements significatifs BNK2
+
+| Move | Date | Débit 552 (sortie) | Crédit 552 (entrée) | Contrepartie | Libellé | Verdict |
+|------|------|--------------------|---------------------|-------------|---------|---------|
+| BNK2/25-26/0015 | 2026-04-17 | **31 000,00** | — | 499000 Suspense | PAIEMENT DU PRET N 071-9570629-88 | Remboursement prêt — en suspense |
+| BNK2/25-26/0014 | 2026-04-17 | **12 000,00** | — | 499000 Suspense | PAIEMENT DU PRET N 071-9570628-87 | Remboursement prêt — en suspense |
+| BNK2/25-26/0013 | 2026-04-17 | **18 000,00** | — | 499000 Suspense | PAIEMENT DU PRET N 071-9570627-86 | Remboursement prêt — en suspense |
+| BNK2/25-26/0017 | 2026-04-20 | — | 250,00 | 499000 Suspense | FRAIS DE DOSSIER — BUSINESS CREDIT N 071-9570627-86 | Frais octroi/modification — en suspense |
+| BNK2/25-26/0016 | 2026-04-20 | — | 15,00 | 499000 Suspense | FRAIS GESTION BUSINESS CASH PLUS N 071-1257402-52 | Frais gestion crédit revolving |
+| BNK2/25-26/0019 | 2026-04-29 | — | 37 510,00 | 440000 Suppliers (Nira Solutions) | Ordre collectif Belfius Direct Net | Paiement fournisseur — OK |
+| BNK2/25-26/0001 | 2025-12-15 | 1 000,00 | — | 499000 Suspense | Virement de BE30 3631 6408 2311 TEATOWER SA (ING) | Virement ING→Belfius — suspense |
+| BNK2/25-26/0010 | 2026-04-16 | 2 602,12 | — | 499000 Suspense | Versement Vilna Gaon (Mollie) | Encaissement Vilna Gaon — suspense |
+
+**Total remboursements prêts Belfius sur l'exercice : 61 000 EUR** (3 prêts, remboursés en bloc le 17/04/2026)
+
+#### Produits identifiés dans le libellé bancaire
+
+- Prêts à terme : N 071-9570629-88, N 071-9570628-87, N 071-9570627-86
+- Crédit revolving (Business Cash Plus) : N 071-1257402-52
+
+---
+
+### 9.3 Recherche d'encaissements de prêts sur l'exercice
+
+**Aucun encaissement de prêt Belfius n'a été détecté sur l'exercice 01/07/2025 → 30/06/2026.**
+
+- Aucun crédit > 5 000 EUR sur le compte BNK2 hors paiements normaux (Nira Solutions = facture fournisseur)
+- Aucun libellé "tirage", "déblocage", "octroi", "loan" sur les journaux bancaires (BNK1 ING et BNK2 Belfius)
+- Les 3 prêts ont été contractés **avant le 01/07/2025** — leurs encaissements sont dans des exercices antérieurs
+- Les soldes initiaux de dettes (comptes 17xxx / 42xxx) ne figurent pas dans les balances d'ouverture Odoo (BO = 0 sur tous les comptes dettes financières)
+
+---
+
+### 9.4 Analyse des contreparties — Verdict par ligne
+
+| Move | Montant | Compte contrepartie | Classe | Verdict |
+|------|---------|--------------------|----|---------|
+| BNK2/25-26/0015 | 31 000 EUR | 499000 Suspense | Bilan | OK bilan — à imputer en 173/174 ou 424 |
+| BNK2/25-26/0014 | 12 000 EUR | 499000 Suspense | Bilan | OK bilan — à imputer en 173/174 ou 424 |
+| BNK2/25-26/0013 | 18 000 EUR | 499000 Suspense | Bilan | OK bilan — à imputer en 173/174 ou 424 |
+
+**Aucune des 3 lignes de remboursement n'est imputée en classe 7 (produits).** Le compte 499 Suspense est un compte de bilan neutre — il n'affecte pas le compte de résultat.
+
+**Aucune ligne Belfius en classe 7 (produits) ne gonfle le résultat.** Vérification exhaustive de toutes les lignes > 5 000 EUR en classe 7 sur l'exercice : seuls les 757100 (POS — déjà analysés sections 7 et 8) et le CA normal (700xxx) apparaissent.
+
+---
+
+### 9.5 Intérêts d'emprunt — État
+
+| Compte | Libellé | Total exercice |
+|--------|---------|---------------|
+| 650000 | Interest, Commission and Other Charges | 1 009,88 EUR |
+| 650100 | Frais bancaires (tenue de compte) | 234,24 EUR |
+| 650200 | Utilisé pour accises/Xerius (mal imputé, pas des intérêts) | 4 229,04 EUR |
+| 650600 | Intérêts leasing voiture ING | 2 094,96 EUR |
+| **Total intérêts financiers réels** | | **3 104,84 EUR** |
+
+**Intérêts Belfius spécifiques sur les 3 prêts : 0 EUR comptabilisé.**
+
+Estimation théorique : 3 prêts → capital moyen estimé ~100–150 k€ sur 9 mois (remboursement total le 17/04/2026 = 61 000 EUR, mais capital de départ inconnu). Si taux ~3-4 % → intérêts annuels attendus ~3 000–6 000 EUR. Absence de comptabilisation des intérêts Belfius = charges sous-estimées d'environ **2 000–5 000 EUR** (à confirmer avec les tableaux d'amortissement Belfius).
+
+---
+
+### 9.6 Anomalie subsidiaire — Frais d'octroi en 499 Suspense
+
+Les 265 EUR de frais de dossier Business Credit (BNK2/25-26/0017) et 15 EUR de frais Business Cash Plus (BNK2/25-26/0016) sont en 499 Suspense. Ils devraient être imputés en 650100 (frais financiers) ou 650000. Impact P&L : négligeable (280 EUR).
+
+---
+
+### 9.7 Conclusion — Verdict sur l'intuition de Nicolas
+
+**La piste "prêts Belfius gonflant le résultat" est infirmée.**
+
+| Vérification | Résultat |
+|-------------|---------|
+| Encaissements prêts Belfius imputés en classe 7 (produits) | **0 EUR — AUCUN** |
+| Remboursements imputés en classe 6 (charges fictives) | **0 EUR — AUCUN** |
+| Montant total prêts Belfius reçus sur exercice | **0 EUR (prêts antérieurs à l'exercice)** |
+| Imputation correcte (classe 17/42) | **0 EUR (restant en 499 suspense — bilan neutre)** |
+| Imputation erronée en classe 7 (gonfle résultat) | **0 EUR — PAS D'ANOMALIE** |
+| Intérêts Belfius non comptabilisés (estimation) | ~2 000–5 000 EUR (charges manquantes) |
+| **Impact net sur le résultat si correction** | **+2 000 à +5 000 EUR** (réduirait légèrement le résultat) |
+
+**L'écart ~80 k€ (476 891 € affiché vs ~400 k€ attendu) n'est pas dû aux prêts Belfius.** Les prêts ont été correctement encaissés avant l'exercice et les remboursements d'avril 2026 (61 000 EUR) sont en suspension comptable (499 Suspense), sans impact sur le résultat.
+
+**Le seul impact résiduel Belfius** : des intérêts d'emprunt probablement non comptabilisés (~2 000–5 000 EUR), qui si passés en charges réduiraient légèrement le résultat affiché — effet inverse de ce que Nicolas suspectait.
+
+**L'explication des ~80 k€ d'écart reste dans les anomalies POS déjà identifiées (section 7/8) :**
+- Erreurs de saisie POS nettes : +85 547 EUR (gonflent le résultat)
+- Provisions manquantes (commissions, stock obsolète, etc.) : ~28 000 EUR
+
+**Action requise :**
+1. Lettrer les 61 000 EUR en 499 Suspense vers le compte de dette adéquat (174100 "Prêt aménagement" ou 424000 "Autres prêts CT") — dispatcher vers agent `odoo`.
+2. Obtenir les tableaux d'amortissement Belfius pour calculer les intérêts à comptabiliser.
+3. Imputer les 280 EUR de frais en 650100.
+
+---
+
+*Vérification prêts Belfius — 12/05/2026 — lecture seule stricte — aucune écriture Odoo.*
+
+---
+
+## 10. AUDIT AMORTISSEMENTS — 12/05/2026
+
+**Périmètre : lecture seule stricte. Aucune écriture Odoo.**
+**Objectif : identifier la cause de l'absence d'amortissements et quantifier la dotation annuelle manquante.**
+
+---
+
+### 10.1 État du module account.asset dans Odoo
+
+**19 assets identifiés — tous en état "draft" (brouillon), aucun en "open" (confirmé).**
+
+Conséquence directe : aucune dotation n'a jamais été postée via le module d'amortissements Odoo. Les assets existent mais n'ont jamais été "confirmés" (action `validate_asset`) par l'utilisateur ou l'expert-comptable.
+
+**Dotations Odoo postées sur exercice 2025-2026 :**
+
+| Compte | Libellé | Montant |
+|--------|---------|---------|
+| 630100 | Depreciation of Intangible Fixed Assets | 0,00 EUR |
+| 630200 | Depreciation of Tangible Fixed Assets | 0,00 EUR |
+| **TOTAL dotations exercice 2025-2026** | | **0,00 EUR** |
+
+La seule dotation visible (AMO/24-25/06/0001 du 30/06/2025 = 11 295,65 EUR) concerne l'exercice **précédent** (24-25), pas l'exercice en cours.
+
+---
+
+### 10.2 Bilan des immobilisations existantes dans Odoo (tous temps)
+
+#### 10.2.1 Immobilisations incorporelles
+
+| Compte | Libellé | Brut (D) | Amort cumulé (C) | VNC |
+|--------|---------|----------|-----------------|-----|
+| 202000 | Frais de constitution | 5 000,00 | 0,00 | 5 000,00 |
+| 211003/211309 | Concessions / droits (BO + amort) | 45 000,00 | 40 500,00 | 4 500,00 |
+| 211400/211409 | Licences logiciels | 815,29 | 560,00 | 255,29 |
+| 212000/212009 | Goodwill Namur | 4 000,00 | 400,00 | 3 600,00 |
+| **TOTAL INCORPORELLES** | | **54 815,29** | **41 460,00** | **13 355,29** |
+
+**Note Goodwill :** Un montant de 10 000 EUR de "Question de Goûts" est imputé en débit sur le compte 212009 (amortissements — sens inversé) le 01/07/2025. Ce mouvement semble être le rachat du fonds de commerce Namur comptabilisé sur le mauvais compte. A soumettre à l'expert-comptable.
+
+#### 10.2.2 Immobilisations corporelles
+
+| Compte | Libellé | Brut (D) | Amort cumulé (C) | VNC |
+|--------|---------|----------|-----------------|-----|
+| 223100 | Droits réels immeubles (location équip. ING) | 3 800,36 | 1 900,18 | 1 900,18 |
+| 230500 | Aménagement magasin (Namur/Waterloo/Liège) | 20 053,32 | 0,00 | 20 053,32 |
+| 231000 | Installations/machines (Watts by Sun) | 1 890,00 | 0,00 | 1 890,00 |
+| 232000/232009 | Outillage divers (mobilier, kakémono, caisses) | 5 977,09 | 996,92 | 4 980,17 |
+| 240000/240009 | Mobilier et véhicules (Opel Movano + BO) | 32 957,35 | 16 207,35 | 16 750,00 |
+| 240500/240509 | Matériel informatique (BO) | 1 377,12 | 1 377,12 | 0,00 |
+| 241009 | Amort matériel roulant | 0,00 | 964,38 | -964,38 |
+| 252000 | Leasing (Rocourt) | 1 650,00 | 0,00 | 1 650,00 |
+| 260000 | Autres immo corporelles (BO 73 358 + DNP) | 76 904,90 | 0,00 | 76 904,90 |
+| 260001/260009 | Aménagement locaux (DNP + Nira Solutions) | 15 546,90 | 28 130,00 | -12 583,10 |
+| **TOTAL CORPORELLES** | | **160 157,04** | **49 575,95** | **110 581,09** |
+
+**Note 260000 :** Ce compte contient 73 358 EUR provenant du BO/24-25/04/0001 (bilan d'ouverture) + 3 546,90 EUR DNP Aménagements. Ces 73 358 EUR représentent les aménagements boutiques Namur/Liège antérieurs à avril 2025 (exercices précédents). Le compte 260009 (amort) contient 28 130 EUR de cumul d'amortissements — mais **aucune dotation nouvelle sur l'exercice 2025-2026**.
+
+**Note 260001 / 260009 :** La VNC négative de -12 583 EUR s'explique par un déséquilibre entre les 15 546,90 EUR bruts et les 28 130 EUR d'amortissements cumulés — ces amortissements en 260009 datent de l'exercice précédent et couvrent vraisemblablement le 260000. A clarifier avec l'expert-comptable (les comptes 260000 et 260001 devraient partager le même compte d'amortissement 260009).
+
+---
+
+### 10.3 Liste des 19 assets en draft — dotations théoriques exercice 2025-2026
+
+Tous les assets sont en **draft** — aucune dotation postée. Le tableau ci-dessous calcule la dotation que chaque asset aurait dû générer sur l'exercice 01/07/2025 → 30/06/2026, au prorata de la date d'acquisition.
+
+| Asset | Valeur brute | Durée | Dot/an | Mois exercice | Dot exercice | Compte |
+|-------|-------------|-------|--------|--------------|-------------|--------|
+| Opel Movano (véhicule utilitaire) | 16 500,00 | 5 ans | 3 300,00 | 12 | 3 300,00 | 240000 |
+| Nira Solutions — aménagement locaux (04/2026) | 12 000,00 | 5 ans | 2 400,00 | 3 | 600,00 | 260001 |
+| Main d'oeuvre rénovation magasin (04/2026) | 10 000,00 | 5 ans | 2 000,00 | 3 | 500,00 | 230500 |
+| Matériel informatique/déco (04/2026) | 9 000,00 | 5 ans | 1 800,00 | 3 | 450,00 | 230500 |
+| DNP Concept — service/asset (01/07/2025) | 3 546,90 | 5 ans | 709,38 | 12 | 709,38 | 260001 |
+| Frais de constitution "Question de Goûts" (01/2026) | 5 000,00 | 5 ans | 1 000,00 | 6 | 500,00 | 202000 |
+| Watts by Sun (panneaux solaires, 08/2025) | 1 890,00 | 5 ans | 378,00 | 11 | 346,50 | 231000 |
+| Location équipements ING (01/2026) | 1 900,18 | 5 ans | 380,04 | 6 | 190,02 | 223100 |
+| Etagères thé Waterloo | 1 402,32 | 5 ans | 280,46 | 12 | 280,46 | 232000 |
+| ROCOURT — leasing (09/2025) | 1 650,00 | 5 ans | 330,00 | 10 | 275,00 | 252000 |
+| Atelier Formes & Reliefs (aménagement Namur) | 1 053,32 | 5 ans | 210,66 | 12 | 210,66 | 230500 |
+| Kakémono (outillage) | 845,00 | 5 ans | 169,00 | 12 | 169,00 | 232000 |
+| Comptoir Waterloo | 467,49 | 5 ans | 93,50 | 12 | 93,50 | 232000 |
+| Caisse magasin Waterloo | 456,67 | 5 ans | 91,33 | 12 | 91,33 | 232000 |
+| Câble RJ45 Namur | 390,00 | 5 ans | 78,00 | 12 | 78,00 | 232000 |
+| Aspirateur / matériel Waterloo | 288,43 | 5 ans | 57,69 | 12 | 57,69 | 232000 |
+| Meuble divers | 250,00 | 5 ans | 50,00 | 12 | 50,00 | 240000 |
+| Anthropic (licence — à discuter pertinence immo) | 180,00 | 5 ans | 36,00 | 4 | 12,00 | 211400 |
+| Planning/shifts logiciel | 39,00 | 5 ans | 7,80 | 4 | 2,60 | 211400 |
+| **TOTAL assets en draft** | **66 859,31** | | **13 371,86** | | **7 916,14** | |
+
+**Remarque :** Les durées sont toutes paramétrées à 5 ans dans Odoo. Certains actifs auraient des durées standard différentes en droit comptable belge (voir section 10.5).
+
+---
+
+### 10.4 Immobilisations du bilan d'ouverture (BO 24-25) — dotations manquantes exercice courant
+
+Le BO/24-25/04/0001 a repris les actifs des exercices antérieurs. Ces actifs **ne figurent pas comme assets individuels** dans `account.asset` — seuls les soldes globaux ont été repris. La dotation annuelle sur ces actifs est donc entièrement absente.
+
+#### Actifs du BO estimés avec valeur brute et amortissements cumulés repris
+
+| Compte | Brut BO | Amort cumulé BO | VNC BO (avril 2025) | Durée estimée | Dot annuelle restante |
+|--------|---------|----------------|---------------------|--------------|----------------------|
+| 260000 Aménagements boutiques (Namur, Liège, Havelange) | 73 358,00 | 22 996,23 | 50 361,77 | 10 ans | ~5 036,00 |
+| 240000 Mobilier/véhicules BO | 16 207,35 | 16 207,35 | 0,00 | — | 0,00 (totalement amorti) |
+| 240500 Matériel informatique BO | 1 377,12 | 1 377,12 | 0,00 | — | 0,00 (totalement amorti) |
+| 232000 Outillage BO | 1 220,98 + 906,20 | 699,42 | ~1 428,00 | 5 ans | ~286,00 |
+| 211000 Concessions/droits (Odoo license?) | 40 000,00 | 36 000,00 | 4 000,00 | 5 ans | ~800,00 (dernière année) |
+
+**Dotation annuelle estimée sur actifs BO (exercice 2025-2026) : ~6 122 EUR**
+
+---
+
+### 10.5 Achats exercice 2025-2026 passés en charge — à évaluer pour reclassement
+
+#### Nasa Corporation (11 625 EUR en 612290 "Petit matériel")
+
+RESA88 — fournisseur "Nasa Corporation" — 11 625,16 EUR en 612290 le 27/08/2025. Le libellé "Nasa Corporation - 2025-08-13" n'est pas explicite. A demander à Nicolas : s'agit-il d'équipements IT (terminaux, caisses enregistreuses, hardware boutiques) ? Si oui et valeur unitaire > 500 EUR, à immobiliser en 240500. Dotation potentielle si 5 ans : **2 325 EUR/an**.
+
+Idem Nasa Deutschland GmbH (RESA90 — 2 941,83 EUR en 612290 le 01/07/2025) — même interrogation.
+
+#### Leasing véhicules — traitement comptable actuel
+
+La Volkswagen 2AEE479 est en **leasing opérationnel** chez Distrimarks/Van Mossel (loyers en 611301 = 1 273 EUR/2 mois sur 2 factures juillet 2025 seulement). Le VW ID.4 2FGN376 est chez Van Mossel (6 factures = ~8 328 EUR HT) et LIZY Belgium (4 factures = ~4 445 EUR HT). Le traitement en charge de loyers (611301/613550) est **correct pour du leasing opérationnel** — pas de reclassement nécessaire si ces véhicules ne sont pas en leasing financier. Un droit d'utilisation (IFRS 16 / adaptation CNC belge) pourrait être applicable si les contrats sont qualifiés de location-financement — à vérifier avec l'expert-comptable.
+
+**L'Opel Movano (16 500 EUR, compte 240000, asset en draft)** est un achat ferme — il devrait générer 3 300 EUR/an de dotation (voir tableau assets section 10.3).
+
+#### Displays GMS (Cellmade/Prison de Namur)
+
+3 factures Cellmade/Prison de Namur sur 603000 (Sous-traitance) :
+- RESA669 : 974,94 EUR (02/2026)
+- RESA605 : 358,97 EUR (02/2026)
+- RESA783 : 230,95 EUR (03/2026)
+- Total exercice : **1 564,86 EUR** en 603000
+
+Ce sont des insertions de displays (coût de fabrication des présentoirs GMS). Valeur unitaire faible (< 400 EUR/commande), fractionnées. Traitement en charge approprié pour ces montants — pas à immobiliser individuellement. Si des displays ont été acquis en propre (M0005/M0007) pour > 500 EUR unitaire, vérifier séparément — mais la recherche sur les libellés ne remonte rien de significatif en classe 2.
+
+---
+
+### 10.6 Tableau de synthèse — Dotation annuelle théorique TOTALE manquante
+
+| Catégorie | Valeur brute | Durée | Dotation annuelle | Dot exercice 2025-2026 | Compte d'amort |
+|-----------|-------------|-------|------------------|----------------------|----------------|
+| **Assets en draft — Opel Movano** | 16 500,00 | 5 ans | 3 300,00 | 3 300,00 | 630200 |
+| **Assets en draft — Aménagements boutiques** (Atelier F&R, Watts, DNP, Nira, M.O.) | 27 493,32 | 5 ans | 5 498,66 | 3 615,04 | 630200 |
+| **Assets en draft — Mobilier/outillage** (Etagères, comptoir, caisse, kakémono, etc.) | 3 543,57 | 5 ans | 708,71 | 708,71 | 630200 |
+| **Assets en draft — Leasing Rocourt** | 1 650,00 | 5 ans | 330,00 | 275,00 | 630200 |
+| **Assets en draft — Location équip. ING** | 1 900,18 | 5 ans | 380,04 | 190,02 | 630200 |
+| **Assets en draft — Frais constitution / licences** | 5 219,00 | 5 ans | 1 043,80 | 514,60 | 630100 |
+| **Sous-total assets draft** | **56 306,07** | | **11 261,21** | **8 603,37** | |
+| **BO — Aménagements boutiques 260000** (VNC 50 362 EUR) | 73 358,00 | 10 ans | 5 036,00 | 5 036,00 | 630200 |
+| **BO — Outillage 232000** (VNC ~1 428 EUR) | 2 127,18 | 5 ans | 286,00 | 286,00 | 630200 |
+| **BO — Concessions/droits 211000** (VNC 4 000 EUR) | 40 000,00 | 5 ans | 800,00 | 800,00 | 630100 |
+| **Sous-total actifs BO sans asset Odoo** | **115 485,18** | | **6 122,00** | **6 122,00** | |
+| **Achats 2025-2026 à qualifier (Nasa Corp.)** | 14 567,00 | 5 ans | 2 913,40 | 2 428,00 | 630200 |
+| **TOTAL DOTATION ANNUELLE MANQUANTE** | **186 358,25** | | **20 296,61** | **~17 153,37** | |
+
+> **Note :** La colonne "Dot exercice" applique le prorata depuis la date d'acquisition pour les assets acquis en cours d'exercice. Pour les actifs du BO, la pleine annualité est appliquée (actifs en service depuis plus d'un an).
+
+---
+
+### 10.7 Confrontation avec l'intuition Nicolas
+
+**Dotation annuelle manquante estimée : 17 153 EUR (prorata exercice) à 20 297 EUR (pleine annualité)**
+
+| Comparaison | Montant |
+|------------|---------|
+| Résultat affiché Odoo | 476 891 EUR |
+| Dotation amortissements manquante (estimation centrale) | ~17 000 – 20 000 EUR |
+| Impact si on ajoute la dotation | **Résultat corrigé : ~457 000 – 460 000 EUR** |
+
+**Verdict : la dotation manquante (~17-20 k EUR) n'explique pas à elle seule l'écart de ~80 k EUR** (476 891 EUR affiché vs ~400 k EUR attendu par Nicolas).
+
+Les amortissements manquants contribuent pour environ **17-20 k EUR** à l'écart total, pas 80 k EUR. Le delta restant (~60-63 k EUR) s'explique par les autres anomalies déjà auditées (section 7.4) :
+
+| Anomalie | Impact résultat |
+|----------|----------------|
+| Amortissements non passés (cette section) | **+17 000 à +20 000** |
+| Ecarts caisse POS nets (erreurs saisie) | +85 547 |
+| Commission Jérôme non provisionnée | +5 600 |
+| Honoraires comptable sous-provisionnés | +5 500 |
+| Stock obsolète EM080 non déprécié | +16 380 |
+| COGS manquant SKU std_price=0 | +6 688 |
+| PCA facturés non livrés | +3 645 |
+| **TOTAL GONFLEMENT RÉVISÉ (avec amortissements)** | **+140 360 à +143 360 EUR** |
+| **Résultat affiché Odoo** | **476 891 EUR** |
+| **Résultat retraité révisé** | **~333 000 à ~336 000 EUR** |
+
+> Le résultat réel serait ainsi autour de **335 k EUR**, inférieur à l'objectif Nicolas de 400 k EUR. L'écart résiduel de ~65 k EUR entre le retraité (~335 k) et l'attendu (~400 k) pourrait s'expliquer par : (a) des recettes boutiques encore à encaisser en juin 2026, (b) des achats Kirchner de fin d'exercice pas encore facturés (P00495/P00470/P00480 partiellement livrés), ou (c) une hypothèse de Nicolas basée sur un résultat avant certaines corrections POS.
+
+---
+
+### 10.8 Causes de l'absence d'amortissement
+
+1. **Cause principale : les 19 assets sont en "draft"** — jamais confirmés dans Odoo. Le module `account.asset` est installé et configuré, les assets ont été créés (probablement via les factures fournisseurs), mais personne n'a lancé la validation (`Confirm Asset`). Odoo ne génère les dotations automatiques **que si l'asset est en état "open"**.
+
+2. **Cause secondaire : les actifs du bilan d'ouverture** (BO 24-25) ont été repris en soldes globaux sans être créés comme assets individuels dans Odoo. Sans asset correspondant, aucune dotation automatique n'est possible.
+
+3. **Cause tertiaire : aucun journal d'amortissements en draft** n'est visible — même les dotations planifiées (AMO/24-25 = 11 296 EUR) n'ont pas eu de suite en 25-26.
+
+---
+
+### 10.9 Recommandations (à décider avec l'expert-comptable)
+
+#### A — Confirmer les assets en draft (PRIORITÉ 1)
+
+Action : ouvrir chaque asset dans Odoo → `Confirm Asset` → lancer le plan d'amortissement → poster les dotations au 30/06/2026 (date de clôture). Cette opération est dans le périmètre de l'agent `odoo` + validation Nicolas.
+
+Dotation à poster au 30/06/2026 pour clôturer l'exercice : **~17 153 EUR** (prorata depuis date d'achat de chaque asset).
+
+#### B — Créer les assets manquants pour les actifs du BO
+
+Les aménagements boutiques historiques (BO 260000 = 73 358 EUR brut, VNC ~50 362 EUR) ne sont pas dans `account.asset`. L'expert-comptable doit créer ces assets avec :
+- Valeur d'origine = 73 358 EUR
+- Amortissement déjà pratiqué = 22 996 EUR (repris du BO)
+- Date début amortissement = date de création des boutiques (à retrouver dans les dossiers)
+- Durée résiduelle = à calculer selon date de début
+
+Dotation annuelle estimée sur ces actifs : **5 036 EUR/an** pendant la durée résiduelle.
+
+#### C — Rattrapage des exercices antérieurs
+
+L'exercice précédent (01/07/2024 → 30/06/2025) affiche une dotation de 11 296 EUR (AMO/24-25/06/0001) — c'est la seule dotation postée dans l'historique Odoo. Si l'exercice 23-24 n'a pas non plus comptabilisé de dotations sur les actifs du BO, une correction d'erreur sur capitaux propres (compte 137xxx) peut être envisagée.
+
+**Recommandation :** Ne pas rattraper les exercices antérieurs en charge (impact sur résultat 25-26 artificiel) — passer la correction en capitaux propres si les montants sont significatifs. A trancher avec l'expert-comptable.
+
+#### D — Qualifier les achats Nasa Corporation
+
+Demander à Nicolas la nature exacte des 14 567 EUR (Nasa Corporation + Nasa Deutschland) en 612290. Si IT ou matériel boutique : reclasser en 240500 et créer les assets correspondants. Dotation potentielle supplémentaire : ~2 913 EUR/an.
+
+#### E — Leasing opérationnel vs financier
+
+Vérifier avec l'expert-comptable si les contrats Van Mossel (Volkswagen 2AEE479 + VW ID.4) et LIZY Belgium (véhicule électrique) sont des **leasings opérationnels** (charge en 611301/613550 = OK) ou des **leasings financiers** (reclassement en 252xxx + amortissement obligatoire). Montants annuels : Van Mossel ~8 328 EUR + LIZY ~4 445 EUR = **12 773 EUR/an de loyers**. Si financier : droit d'utilisation à inscrire au bilan et amortir.
+
+---
+
+### 10.10 Conclusion
+
+| Point | Constat |
+|-------|---------|
+| Assets Odoo | 19 assets créés, **tous en draft, aucune dotation postée** |
+| Dotation manquante exercice 2025-2026 | **~17 153 EUR** (prorata) à **~20 297 EUR** (pleine annualité) |
+| Dotation manquante sur actifs BO non créés | **~6 122 EUR** supplémentaires |
+| **Total dotation annuelle manquante** | **~17 000 à ~26 000 EUR** selon périmètre retenu |
+| Explication écart Nicolas | Amortissements = **~17-26 k EUR** sur ~80 k EUR d'écart total. Les ~57-63 k EUR restants viennent des erreurs POS (85 547 EUR nets) partiellement compensées par les provisions manquantes |
+| Risque exercice antérieur | Dotation 24-25 incomplète possible — à vérifier avec expert-comptable avant de décider un rattrapage en capitaux propres |
+
+**Action immédiate recommandée : confirmer les 19 assets dans Odoo et poster les dotations au 30/06/2026. Impact comptable : ~17 153 EUR de charges supplémentaires, résultat net réduit d'autant.**
+
+---
+
+*Audit amortissements — 12/05/2026 — lecture seule stricte — aucune écriture Odoo.*
+
+---
+
+## 11. ROLLBACK 04/06/2026 — annulation du dernier batch de corrections POS
+
+Décision Nicolas (04/06/2026) : retour au résultat **+87.055,05 EUR** (état après import paie SD Worx + annulation écarts caisse fantômes OD 0076/0077, avant le batch final).
+
+**4 OD annulées** (passées en `cancel` dans Odoo, numéros conservés) :
+
+| OD | Libellé | Impact P&L annulé |
+|----|---------|-------------------|
+| MISC/25-26/06/0078 (id 39534) | Correction symétrique : annulation faux écarts d'espèces | +161.994,01 |
+| MISC/25-26/06/0079 (id 39535) | Faux gain 99.790,25 session POS combinée 28/02 | +99.790,25 |
+| MISC/25-26/06/0080 (id 39536) | Recalage fonds de caisse boutiques via 580000 (bilan) | 0,00 |
+| MISC/25-26/06/0081 (id 39537) | Extourne partielle OD 0076 (ligne dépôts en produits) | -161.987,71 |
+
+**Restent postés** : 8 OD paie SD Worx (-411.645), provision Faire (-20.536), OD 0076 (+46.287) et 0077 (+67.294).
+**Reste en brouillon** : variation de stock 30/06 (+42.148, id 39538) — non comptée dans le +87k.
+
+⚠️ Réserve technique maintenue : le gain de 99.790,25 EUR de la session POS combinée du 28/02 avait été diagnostiqué comme écart fantôme (cf. §9). Nicolas le considère acquis — à revalider avec l'expert-comptable avant la clôture du 30/06.
+
+*Résultat posté FY25-26 après rollback : **+87.055,05 EUR** (vérifié Odoo 04/06/2026).*
