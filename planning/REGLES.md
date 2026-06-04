@@ -109,24 +109,26 @@ Règle instaurée le **2026-05-13** suite à l'omission **Delhaize Genval** (#55
 
 ## 3. JAMAIS de depassement horaire (REGLE DURE)
 
-**Le merchandiser ne peut JAMAIS depasser l'horaire de fin : 16h45.**
+**Fenetre journee Gilles : 08:30 -> 17:00 (8h de travail + 30 min de pause = 8h30 total). JAMAIS depassee.**
 
 ### Application
 
-1. Pour chaque journee, calculer l'heure de retour estimee a la base (Baillonville 5377) en additionnant :
+1. Depart Baillonville : jamais avant **08:30**. Pause dejeuner : **30 min exactement**.
+2. Pour chaque journee, calculer l'heure de retour estimee a la base (Baillonville 5377) en additionnant :
    - l'heure de fin de la derniere visite/implantation
    - le temps de trajet retour vers Baillonville
-2. Si le retour estime depasse 16h45, la derniere visite (ou l'avant-derniere si necessaire) doit etre :
+3. Si le retour estime depasse **17:00**, la derniere visite (ou l'avant-derniere si necessaire) doit etre :
    - deplacee a un autre jour de la meme semaine, OU
    - reportee a la semaine suivante
-3. Lors de la generation du planning, **refuser** toute entree qui provoquerait un depassement — ne jamais inscrire une visite "sous reserve de validation".
-4. Les implantations (duree longue, souvent 1h30) et les magasins eloignes de Baillonville (Enghien, Mons, Tournai, etc.) sont les premiers candidats au report si le timing est serre.
+4. Lors de la generation du planning, **refuser** toute entree qui provoquerait un depassement — ne jamais inscrire une visite "sous reserve de validation".
+5. Les implantations et les magasins eloignes de Baillonville (Enghien, Mons, Tournai, etc.) sont les premiers candidats au report si le timing est serre.
+6. Afficher l'heure de retour de chaque jour avec mention « OK <=17:00 » dans le rendu.
 
 ### Contexte
 
 Regle instauree le 15/04/2026 suite au depassement prevu pour l'implantation Delhaize Enghien (S05413) le lundi 20/04 (retour estime 17h25, +55min). L'implantation a ete reportee a la semaine du 27/04.
 
-Plafond releve de 16h30 a 16h45 le 2026-05-29 par Nicolas.
+Historique plafond : 16h30 -> 16h45 (2026-05-29, Nicolas) -> **fenetre 08:30-17:00** (2026-06-04, Nicolas : « l'horaire de Gilles doit etre 8h + 30 minutes de pause donc 8h30. Donc 8h30 - 17h00. Il ne peut JAMAIS etre depasse »).
 
 ---
 
@@ -198,12 +200,12 @@ Lors de la generation du planning, si un magasin figure dans ce tableau, utilise
 ## 6. Autres regles (rappel depuis la skill)
 
 - **Base** : Zone d'activite Nord 33, 5377 Baillonville
-- **Horaire** : 8h30 - 16h45 (retour obligatoire a 16h45)
-- **Capacite** : 6 a 8 visites / jour (objectif maximisation), 30 min par visite
+- **Horaire** : 08:30 - 17:00 (8h travail + 30 min pause — regle 04/06/2026, cf. §3)
+- **Capacite** : 6 a 8 visites / jour (objectif maximisation), 25 min par visite/implantation
 - **Hyper** : toujours le matin (avant 12h), jamais l'apres-midi
 - **Exclusions Odoo permanentes** : "Delhaize Le Lion" et "Carrefour Belgium" (comptes centraux)
 - **Remarques magasin** (champ `comment` Odoo) : contraintes jours/horaires obligatoires a respecter
-- **Maximisation** : si un retour est prevu avant 14h30, ajouter des clients dans la zone jusqu'a la limite 16h45
+- **Maximisation** : si un retour est prevu avant 14h30, ajouter des clients dans la zone jusqu'a la limite 17:00
 
 ---
 

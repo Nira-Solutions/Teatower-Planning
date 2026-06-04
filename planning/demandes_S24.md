@@ -53,10 +53,17 @@ Audit doublons 28/05 nuit : 5 magasins planifiés à la fois vendredi 29/05 (S22
 - **📦 Spar Namur #122958 — nouveau display x8** (lundi 08/06) — ✅ intégré S24 v1 (implantation).
 - **📍 Delhaize Ottignies #3016** (vendredi 12/06) — ✅ slot posé S24 v1 (Tier A, pas jeudi/Galletas). **Nicolas se renseigne** sur l'objet exact (livraison SO S05664 du 28/05 non livrée, ou visite réassort) → à confirmer.
 
-### À traiter jeudi 04/06 (re-interrogation Nicolas)
+### À traiter jeudi 04/06 (re-interrogation Nicolas) — ✅ TRAITÉ (v2 build 04/06)
 
-- Nouvelles **implantations** à rajouter au planning S24 (détails à venir).
-- Finaliser commande/livraison HC Jambes.
+- ✅ **4 implantations intégrées v2** (demande Nicolas 04/06) :
+  - **Delhaize Tubize #124182** (SO S05712, 738 €) → **mardi 09/06** (contrainte Odoo « pas le vendredi » ; ouvert mardi 08-20h vérif Google)
+  - **Delhaize Amay #124178** (SO S05710, 342 €) → **jeudi 11/06** (axe retour Hesbaye→Huy)
+  - **Proxy Delhaize Tihange #124180** (SO S05711, 342 €) → **jeudi 11/06** (enchaîné après Amay)
+  - **Spar Beauvechain #124148** (SO S05703, 369 €) → **vendredi 12/06** 1ᵉ stop (⚠ fermé le mardi — vérif Google)
+  - Les 4 SO livrées + facturées Peppol le 04/06. Fiches Odoo corrigées (email Amay, ville Tubize, note Tihange).
+- ✅ **NOUVELLE RÈGLE HORAIRE DURE (Nicolas 04/06)** : journée Gilles = 8h travail + 30 min pause = **08:30 → 17:00, JAMAIS dépassé** (remplace cap 16h45). Tous les jours S24 recalés (départ 08:30, pause 30 min).
+- ✅ **REPORT ITM Tilff #116869 (Tier A)** : passage jeudi 04/06 (S23) **non effectué** (signalé par Nicolas 04/06) → replanifié **jeudi 11/06** fin de boucle (Tihange → Tilff via E25 ; contrainte « Christine OK jeudi, pas vendredi » respectée).
+- ⏳ Finaliser commande/livraison HC Jambes (toujours en attente — SO à créer avant lundi 08/06 matin).
 
 ---
 
