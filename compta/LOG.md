@@ -1,5 +1,26 @@
 # LOG Compta Teatower
 
+## 2026-06-09 — Ventilation CA B2B 700000 FY24-25 — OD brouillon creee
+
+- Type : creation comptes + OD reclassement (brouillon, non postee)
+- Comptes crees :
+  - 700600 Ventes GMS (Grande Distribution) — ID Odoo 1220
+  - 700700 Ventes Institutions / Corporate — ID Odoo 1221
+  - Config : account_type=income, group 700-707, tag_id=1 (identique 700300/700500)
+- OD creee : ID Odoo 39813 — journal MISC (ID 11) — date 30/06/2025 — etat DRAFT
+  - Ref : Ventilation CA B2B 700000 par canal FY24-25
+  - Debit 700000 (ID 320) : 186 554,03 EUR
+  - Credit 700600 GMS : 61 805,17 EUR (46 clients GMS + AD Spa)
+  - Credit 700300 Horeca : 76 763,73 EUR (NIJSKENS inclus, Vignee Management inclus)
+  - Credit 700500 Revendeurs : 44 175,77 EUR (Revendeurs + DTC + dormants + petits non-id)
+  - Credit 700700 Institutions : 3 809,36 EUR
+  - Total debit = total credit = 186 554,03 EUR — equilibre verifie
+- Exclus de l'OD (restent sur 700000) :
+  - Tea Touch (ID 6973) : 73 263,98 EUR
+  - Lignes sans partenaire : 10 345,92 EUR
+  - Total residuel 700000 apres post eventuel : 83 609,90 EUR
+- A FAIRE : Nicolas doit poster l'OD explicitement (action_post sur ID 39813)
+
 ## 2026-05-29 — Batch facturation B2B Peppol delta J+1 — 5 factures postées
 
 - Type : facturation B2B hors GMS — wizard `delivered` + envoi Peppol (bucket A) / postée sans envoi (bucket B)
