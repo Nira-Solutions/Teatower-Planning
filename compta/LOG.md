@@ -1,5 +1,21 @@
 # LOG Compta Teatower
 
+## 2026-06-09 — POST OD ventilation 700000 — deux OD postees sur GO explicite Nicolas
+
+- Type : action_post sur deux OD de reclassement canal (brouillons -> posted)
+- OD 39813 | MISC/24-25/06/0034 | date 30/06/2025 | 186 554,03 EUR | posted OK
+  - Debit 700000 : 186 554,03 | Credits : 700600 GMS 61 805,17 + 700300 Horeca 76 763,73 + 700500 Revendeurs 44 175,77 + 700700 Institutions 3 809,36
+- OD 39826 | MISC/25-26/06/0086 | date 09/06/2026 | 821 416,36 EUR | posted OK
+  - Debit 700000 : 821 416,36 | Credits : 700600 GMS 305 389,00 + 700300 Horeca 294 159,76 + 700500 Revendeurs 203 890,70 + 700700 Institutions 17 976,90
+- Controles pre-post : state=draft, equilibre verifie (ecart 0,00), Tea Touch (6973) absent des deux OD
+- Soldes apres post (credit - debit, comptes produits) :
+  - 700000 FY24-25 : 83 609,90 EUR (residu Tea Touch + sans partenaire)
+  - 700000 FY25-26 : -14 216,99 EUR (flux POS techniques a investiguer — hors perimetre OD)
+  - 700600 GMS FY24-25 : 61 805,17 EUR | FY25-26 : 305 389,00 EUR
+  - 700300 Horeca FY24-25 : 298 867,08 EUR | FY25-26 : 294 159,76 EUR
+  - 700500 Revendeurs FY24-25 : 177 882,05 EUR | FY25-26 : 203 890,70 EUR
+  - 700700 Institutions FY24-25 : 3 809,36 EUR | FY25-26 : 17 976,90 EUR
+
 ## 2026-06-09 — Ventilation CA B2B 700000 FY24-25 — OD brouillon creee
 
 - Type : creation comptes + OD reclassement (brouillon, non postee)
