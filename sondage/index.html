@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teatower — Qui sommes-nous vraiment ?</title>
+<style>
+  :root{
+    --green:#2d6a4f; --green2:#40916c; --green-l:#d8f3dc; --gold:#b08d57;
+    --bg:#f4f7f4; --card:#fff; --text:#1b2a25; --muted:#5c6b64; --line:#e2eae4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+  .wrap{max-width:720px;margin:0 auto;padding:1rem}
+  header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border-radius:16px;padding:2rem 1.6rem;margin:1rem 0 1.4rem;box-shadow:0 6px 20px rgba(45,106,79,.18)}
+  header .logo{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;opacity:.85;font-weight:600}
+  header h1{font-size:1.7rem;margin:.4rem 0 .6rem;line-height:1.2}
+  header p{font-size:.96rem;opacity:.95}
+  header .time{display:inline-block;margin-top:.9rem;background:rgba(255,255,255,.18);padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600}
+  .section{background:var(--card);border-radius:14px;padding:1.3rem 1.3rem .4rem;margin-bottom:1.1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);border:1px solid var(--line)}
+  .section h2{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green2);margin-bottom:1.1rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+  .section h2 .dot{width:26px;height:26px;border-radius:50%;background:var(--green-l);color:var(--green);display:inline-flex;align-items:center;justify-content:center;font-size:.85rem}
+  .q{margin-bottom:1.4rem}
+  .q label.qt{display:block;font-weight:600;margin-bottom:.55rem;font-size:.98rem}
+  .q .hint{color:var(--muted);font-weight:400;font-size:.84rem}
+  .q.star label.qt{color:var(--green);background:var(--green-l);padding:.6rem .8rem;border-radius:8px;border-left:4px solid var(--green)}
+  input[type=text],textarea,select{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:.7rem .8rem;font-size:.95rem;font-family:inherit;background:#fcfdfc;color:var(--text);transition:border .15s}
+  input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--green2);background:#fff}
+  textarea{min-height:88px;resize:vertical}
+  /* échelle 1-5 */
+  .scale{display:flex;gap:.4rem;flex-wrap:wrap}
+  .scale label{flex:1;min-width:54px;text-align:center;cursor:pointer}
+  .scale input{position:absolute;opacity:0;width:0;height:0}
+  .scale .box{display:block;border:1.5px solid var(--line);border-radius:9px;padding:.6rem .2rem;font-weight:700;font-size:1.05rem;background:#fcfdfc;transition:.12s}
+  .scale input:checked + .box{background:var(--green);color:#fff;border-color:var(--green);transform:translateY(-2px);box-shadow:0 4px 10px rgba(45,106,79,.25)}
+  .scale-ends{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-top:.4rem}
+  /* choix radios */
+  .opts{display:flex;flex-direction:column;gap:.4rem}
+  .opts.cols{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+  .opt{display:flex;align-items:center;gap:.55rem;border:1.5px solid var(--line);border-radius:9px;padding:.55rem .7rem;cursor:pointer;background:#fcfdfc;font-size:.92rem;transition:.12s}
+  .opt:hover{border-color:var(--green2)}
+  .opt input{accent-color:var(--green);width:17px;height:17px;flex-shrink:0}
+  .opt.sel{background:var(--green-l);border-color:var(--green)}
+  .submit{width:100%;background:var(--green);color:#fff;border:none;border-radius:12px;padding:1rem;font-size:1.05rem;font-weight:700;cursor:pointer;margin:.4rem 0 2rem;box-shadow:0 4px 14px rgba(45,106,79,.3);transition:.15s}
+  .submit:hover{background:#235740}
+  .submit:disabled{opacity:.6;cursor:wait}
+  .req{color:#c0392b}
+  /* succès */
+  #done{display:none;text-align:center;padding:3rem 1.5rem}
+  #done .check{font-size:3.4rem}
+  #done h2{color:var(--green);margin:.6rem 0;font-size:1.5rem}
+  #done p{color:var(--muted)}
+  .err{display:none;background:#fdecea;color:#9b2c2c;border:1px solid #f5c6cb;border-radius:9px;padding:.8rem;margin-bottom:1rem;font-size:.9rem}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;padding:1rem 0 2rem}
+  @media(max-width:520px){.opts.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">🍵 Teatower</div>
+    <h1>Teatower, c'est quoi&nbsp;?</h1>
+    <p>Au dernier CA, on s'est posé une question simple mais essentielle&nbsp;: <strong>quels sont les 3 à 5 points qui définissent Teatower&nbsp;?</strong> Ton regard compte. Réponds spontanément — il n'y a pas de bonne ou mauvaise réponse, c'est <em>ta</em> perception qui nous intéresse.</p>
+    <span class="time">⏱️ ~7 minutes · réponses confidentielles</span>
+  </header>
+
+  <form id="f">
+
+    <div class="err" id="err"></div>
+
+    <!-- 1. TOI -->
+    <div class="section">
+      <h2><span class="dot">1</span> Toi</h2>
+      <div class="q">
+        <label class="qt">Ton prénom <span class="hint">(optionnel)</span></label>
+        <input type="text" name="name" autocomplete="off" placeholder="Ex. Jérôme">
+      </div>
+      <div class="q">
+        <label class="qt">Ton rôle / département</label>
+        <div class="opts cols" data-name="role">
+          <label class="opt"><input type="radio" name="role" value="Direction"><span>Direction</span></label>
+          <label class="opt"><input type="radio" name="role" value="Commercial"><span>Commercial</span></label>
+          <label class="opt"><input type="radio" name="role" value="Marketing / Newsletter"><span>Marketing / Newsletter</span></label>
+          <label class="opt"><input type="radio" name="role" value="Support ventes"><span>Support ventes</span></label>
+          <label class="opt"><input type="radio" name="role" value="Merchandising"><span>Merchandising</span></label>
+          <label class="opt"><input type="radio" name="role" value="Logistique / Stock"><span>Logistique / Stock</span></label>
+          <label class="opt"><input type="radio" name="role" value="Compta"><span>Compta</span></label>
+          <label class="opt"><input type="radio" name="role" value="Board / CA"><span>Board / CA</span></label>
+          <label class="opt"><input type="radio" name="role" value="Autre"><span>Autre</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. IDENTITÉ -->
+    <div class="section">
+      <h2><span class="dot">2</span> L'identité Teatower</h2>
+      <div class="q">
+        <label class="qt">Si tu devais résumer Teatower en 3 mots, lesquels&nbsp;?</label>
+        <input type="text" name="three_words" placeholder="Ex. authentique, belge, généreux">
+      </div>
+      <div class="q star">
+        <label class="qt">👉 Selon toi, quels sont les 3 à 5 points qui définissent Teatower&nbsp;? <span class="req">*</span></label>
+        <textarea name="defining_points" required placeholder="Liste 3 à 5 points, un par ligne si tu veux…"></textarea>
+      </div>
+      <div class="q">
+        <label class="qt">C'est quoi la mission de Teatower, avec tes mots&nbsp;?</label>
+        <textarea name="mission" placeholder="En une ou deux phrases…"></textarea>
+      </div>
+      <div class="q">
+        <label class="qt">Qu'est-ce qui te rend fier·e de travailler chez Teatower&nbsp;?</label>
+        <textarea name="fierte"></textarea>
+      </div>
+    </div>
+
+    <!-- 3. DIFFÉRENCIATION -->
+    <div class="section">
+      <h2><span class="dot">3</span> Différenciation &amp; marché</h2>
+      <div class="q">
+        <label class="qt">Pourquoi un client choisirait Teatower plutôt que Palais des Thés, Kusmi ou Dammann&nbsp;?</label>
+        <textarea name="vs_concurrents"></textarea>
+      </div>
+      <div class="q">
+        <label class="qt">Quel est notre principal atout face à la concurrence&nbsp;?</label>
+        <div class="opts" data-name="atout">
+          <label class="opt"><input type="radio" name="atout" value="Qualité produit"><span>Qualité produit</span></label>
+          <label class="opt"><input type="radio" name="atout" value="Prix"><span>Prix</span></label>
+          <label class="opt"><input type="radio" name="atout" value="Originalité des mélanges"><span>Originalité des mélanges</span></label>
+          <label class="opt"><input type="radio" name="atout" value="Identité visuelle / packaging"><span>Identité visuelle / packaging</span></label>
+          <label class="opt"><input type="radio" name="atout" value="Proximité / service client"><span>Proximité / service client</span></label>
+          <label class="opt"><input type="radio" name="atout" value="Ancrage local belge"><span>Ancrage local belge</span></label>
+          <label class="opt"><input type="radio" name="atout" value="Présence en GMS"><span>Présence en GMS</span></label>
+          <label class="opt"><input type="radio" name="atout" value="Autre"><span>Autre</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <label class="qt">Comment situes-tu Teatower sur le marché&nbsp;?</label>
+        <div class="scale" data-name="positionnement">
+          <label><input type="radio" name="positionnement" value="1"><span class="box">1</span></label>
+          <label><input type="radio" name="positionnement" value="2"><span class="box">2</span></label>
+          <label><input type="radio" name="positionnement" value="3"><span class="box">3</span></label>
+          <label><input type="radio" name="positionnement" value="4"><span class="box">4</span></label>
+          <label><input type="radio" name="positionnement" value="5"><span class="box">5</span></label>
+        </div>
+        <div class="scale-ends"><span>Très accessible</span><span>Très premium</span></div>
+      </div>
+      <div class="q">
+        <label class="qt">Qui est notre client type, selon toi&nbsp;?</label>
+        <textarea name="client_type"></textarea>
+      </div>
+    </div>
+
+    <!-- 4. PRODUIT -->
+    <div class="section">
+      <h2><span class="dot">4</span> Le produit</h2>
+      <div class="q">
+        <label class="qt">Comment évalues-tu la qualité de nos produits&nbsp;?</label>
+        <div class="scale" data-name="qualite">
+          <label><input type="radio" name="qualite" value="1"><span class="box">1</span></label>
+          <label><input type="radio" name="qualite" value="2"><span class="box">2</span></label>
+          <label><input type="radio" name="qualite" value="3"><span class="box">3</span></label>
+          <label><input type="radio" name="qualite" value="4"><span class="box">4</span></label>
+          <label><input type="radio" name="qualite" value="5"><span class="box">5</span></label>
+        </div>
+        <div class="scale-ends"><span>Faible</span><span>Excellente</span></div>
+      </div>
+      <div class="q">
+        <label class="qt">Notre gamme est-elle assez large / cohérente&nbsp;?</label>
+        <div class="scale" data-name="gamme_coherence">
+          <label><input type="radio" name="gamme_coherence" value="1"><span class="box">1</span></label>
+          <label><input type="radio" name="gamme_coherence" value="2"><span class="box">2</span></label>
+          <label><input type="radio" name="gamme_coherence" value="3"><span class="box">3</span></label>
+          <label><input type="radio" name="gamme_coherence" value="4"><span class="box">4</span></label>
+          <label><input type="radio" name="gamme_coherence" value="5"><span class="box">5</span></label>
+        </div>
+        <div class="scale-ends"><span>Trop dispersée</span><span>Très cohérente</span></div>
+      </div>
+      <div class="q">
+        <label class="qt">Quel produit incarne le mieux Teatower selon toi&nbsp;?</label>
+        <input type="text" name="produit_phare" placeholder="Ex. un mélange, un coffret, un thé glacé…">
+      </div>
+    </div>
+
+    <!-- 5. MARQUE & VISUEL -->
+    <div class="section">
+      <h2><span class="dot">5</span> La marque &amp; le visuel</h2>
+      <div class="q">
+        <label class="qt">Aimes-tu l'identité visuelle de Teatower (logo, couleurs)&nbsp;?</label>
+        <div class="scale" data-name="visuel">
+          <label><input type="radio" name="visuel" value="1"><span class="box">1</span></label>
+          <label><input type="radio" name="visuel" value="2"><span class="box">2</span></label>
+          <label><input type="radio" name="visuel" value="3"><span class="box">3</span></label>
+          <label><input type="radio" name="visuel" value="4"><span class="box">4</span></label>
+          <label><input type="radio" name="visuel" value="5"><span class="box">5</span></label>
+        </div>
+        <div class="scale-ends"><span>Je n'aime pas</span><span>J'adore</span></div>
+      </div>
+      <div class="q">
+        <label class="qt">Les couleurs de la marque collent-elles à ce qu'est Teatower&nbsp;?</label>
+        <div class="opts" data-name="couleurs">
+          <label class="opt"><input type="radio" name="couleurs" value="Tout à fait"><span>Tout à fait</span></label>
+          <label class="opt"><input type="radio" name="couleurs" value="Plutôt oui"><span>Plutôt oui</span></label>
+          <label class="opt"><input type="radio" name="couleurs" value="Mitigé"><span>Mitigé</span></label>
+          <label class="opt"><input type="radio" name="couleurs" value="Plutôt non"><span>Plutôt non</span></label>
+          <label class="opt"><input type="radio" name="couleurs" value="Pas du tout"><span>Pas du tout</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <label class="qt">Le nom «&nbsp;Teatower&nbsp;» est-il un bon nom pour la marque&nbsp;?</label>
+        <div class="scale" data-name="nom">
+          <label><input type="radio" name="nom" value="1"><span class="box">1</span></label>
+          <label><input type="radio" name="nom" value="2"><span class="box">2</span></label>
+          <label><input type="radio" name="nom" value="3"><span class="box">3</span></label>
+          <label><input type="radio" name="nom" value="4"><span class="box">4</span></label>
+          <label><input type="radio" name="nom" value="5"><span class="box">5</span></label>
+        </div>
+        <div class="scale-ends"><span>Mauvais nom</span><span>Excellent nom</span></div>
+      </div>
+      <div class="q">
+        <label class="qt">Nos packagings donnent-ils envie d'acheter&nbsp;?</label>
+        <div class="scale" data-name="packaging">
+          <label><input type="radio" name="packaging" value="1"><span class="box">1</span></label>
+          <label><input type="radio" name="packaging" value="2"><span class="box">2</span></label>
+          <label><input type="radio" name="packaging" value="3"><span class="box">3</span></label>
+          <label><input type="radio" name="packaging" value="4"><span class="box">4</span></label>
+          <label><input type="radio" name="packaging" value="5"><span class="box">5</span></label>
+        </div>
+        <div class="scale-ends"><span>Pas du tout</span><span>Énormément</span></div>
+      </div>
+      <div class="q">
+        <label class="qt">Si tu changeais UNE chose dans l'image de Teatower, ce serait quoi&nbsp;?</label>
+        <textarea name="changer_une_chose"></textarea>
+      </div>
+    </div>
+
+    <!-- 6. VALEURS & AVENIR -->
+    <div class="section">
+      <h2><span class="dot">6</span> Valeurs &amp; avenir</h2>
+      <div class="q">
+        <label class="qt">Quelles valeurs Teatower devrait incarner&nbsp;? <span class="hint">(plusieurs choix possibles)</span></label>
+        <div class="opts cols" data-name="valeurs">
+          <label class="opt"><input type="checkbox" name="valeurs" value="Qualité"><span>Qualité</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Authenticité"><span>Authenticité</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Créativité"><span>Créativité</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Convivialité"><span>Convivialité</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Durabilité / éco"><span>Durabilité / éco</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Belgitude / local"><span>Belgitude / local</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Premium"><span>Premium</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Accessibilité"><span>Accessibilité</span></label>
+          <label class="opt"><input type="checkbox" name="valeurs" value="Bien-être"><span>Bien-être</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <label class="qt">Dans 3 ans, Teatower devrait être connue pour…</label>
+        <textarea name="dans_3_ans"></textarea>
+      </div>
+      <div class="q">
+        <label class="qt">Un mot de la fin / une idée à partager au CA&nbsp;? <span class="hint">(optionnel)</span></label>
+        <textarea name="mot_fin"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="submit" id="btn">Envoyer mes réponses ✓</button>
+  </form>
+
+  <div id="done">
+    <div class="check">🍵✨</div>
+    <h2>Merci&nbsp;!</h2>
+    <p>Tes réponses ont bien été enregistrées.<br>Elles vont nourrir la réflexion du CA sur l'identité Teatower.</p>
+  </div>
+
+  <footer>Teatower · Sondage interne identité de marque · 2026</footer>
+</div>
+
+<script>
+  // ⚠️ À REMPLACER par l'URL de ton Web App Apps Script (voir README_DEPLOIEMENT.md)
+  const SCRIPT_URL = "__SCRIPT_URL__";
+
+  // surbrillance des choix sélectionnés
+  document.querySelectorAll('.opt input').forEach(inp=>{
+    const sync=()=>{
+      if(inp.type==='radio'){
+        document.querySelectorAll('input[name="'+inp.name+'"]').forEach(o=>o.closest('.opt').classList.remove('sel'));
+      }
+      inp.closest('.opt').classList.toggle('sel', inp.checked);
+    };
+    inp.addEventListener('change', sync);
+  });
+
+  const f=document.getElementById('f'), btn=document.getElementById('btn'), err=document.getElementById('err');
+
+  f.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    err.style.display='none';
+
+    const fd=new FormData(f);
+    const data={};
+    for(const [k,v] of fd.entries()){
+      if(k==='valeurs'){ (data.valeurs=data.valeurs||[]).push(v); }
+      else data[k]=v;
+    }
+
+    if(SCRIPT_URL.indexOf('__SCRIPT_URL__')!==-1){
+      err.textContent="Le formulaire n'est pas encore connecté (URL Apps Script manquante). Préviens Nicolas.";
+      err.style.display='block'; return;
+    }
+
+    btn.disabled=true; btn.textContent='Envoi en cours…';
+    try{
+      await fetch(SCRIPT_URL,{
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body:JSON.stringify(data)
+      });
+      f.style.display='none';
+      document.getElementById('done').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }catch(ex){
+      btn.disabled=false; btn.textContent='Envoyer mes réponses ✓';
+      err.textContent="Oups, l'envoi a échoué. Vérifie ta connexion et réessaie.";
+      err.style.display='block';
+    }
+  });
+</script>
+</body>
+</html>
