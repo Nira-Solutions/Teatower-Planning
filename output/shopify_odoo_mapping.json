@@ -1,0 +1,18 @@
+{
+  "C0200": {
+    "odoo_template_id": 10485,
+    "odoo_name": "Coffret assortiment Matcha",
+    "shopify_product_id": 10602155245907,
+    "shopify_handle": "coffret-assortiment-matcha",
+    "shopify_variant_id": 53811501793619,
+    "created_status": "draft"
+  },
+  "A1055": {
+    "odoo_template_id": 4184,
+    "odoo_name": "Mug Lorenzo",
+    "shopify_product_id": 9953834205523,
+    "shopify_handle": "mug-lorenzo-the-glaces",
+    "shopify_variant_id": 51166520705363,
+    "created_status": "active"
+  }
+}
