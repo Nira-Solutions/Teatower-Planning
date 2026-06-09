@@ -38,7 +38,23 @@
   - Tea Touch (ID 6973) : 0,00 EUR (faillite nov 2025 — aucun CA FY25-26 confirme)
   - Lignes sans partenaire : 0,00 EUR
   - A_ARBITRER (classification incertaine) : 17 051,51 EUR (350 clients, majoritairement personnes physiques sans tag)
-- A FAIRE : Nicolas doit (1) arbitrer les 31 clients significatifs A_ARBITRER, (2) poster l'OD explicitement (action_post sur ID 39826)
+- A FAIRE : Nicolas doit poster l'OD explicitement (action_post sur ID 39826)
+
+## 2026-06-09 — OD 39826 FY25-26 — Finalisation ventilation 100% CA B2B
+
+- Type : modification OD brouillon existante (non postee)
+- OD modifiee : ID Odoo 39826 — etat DRAFT inchange
+- Decision Nicolas/Nira : 17 051,51 EUR A_ARBITRER (350 micro-clients sans tag canal) affectes integralement au canal Revendeur
+- Modifications appliquees en une transaction ORM (account.move write, commandes (1, id, vals)) :
+  - Ligne 179408 debit 700000 : 804 364,85 -> 821 416,36 EUR
+  - Ligne 179411 credit 700500 Revendeurs : 186 839,19 -> 203 890,70 EUR
+- Lignes inchangees :
+  - Ligne 179409 credit 700600 GMS : 305 389,00 EUR
+  - Ligne 179410 credit 700300 Horeca : 294 159,76 EUR
+  - Ligne 179412 credit 700700 Institutions : 17 976,90 EUR
+- Controle equilibre : debit 821 416,36 = credit (305 389,00 + 294 159,76 + 203 890,70 + 17 976,90) = 821 416,36 EUR | ecart = 0,00 EUR
+- Couverture : 100% du CA B2B facture FY25-26 ventile (vs 97,9% avant)
+- Tea Touch (0 EUR) et flux POS (OD-RECLASSIF 700006) : absents de l'OD, confirme
 
 ## 2026-05-29 — Batch facturation B2B Peppol delta J+1 — 5 factures postées
 
