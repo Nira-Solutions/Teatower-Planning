@@ -1,5 +1,23 @@
 # LOG Compta Teatower
 
+## 2026-06-09 — DEBLOCAGE PEPPOL + POST + ENVOI — 5 factures débloquées (sur 6 en brouillon)
+
+- Type : reconfig EAS Peppol contacts enfants + action_post + envoi Peppol
+- Cause : 6 contacts Invoice Address avaient EAS 9925 avec préfixe BE (héritage script) alors que leurs sociétés mères étaient déjà 0208/valid
+- Action : correction EAS+endpoint sur 5 contacts (0208, sans préfixe BE), 1 contact Sodexo en 9925 sans préfixe
+- Re-vérification via button_account_peppol_check_partner_endpoint — un par un
+- 5 partners passés valid : Cafés Delahaut (5509), Alcodis SA (5453), CM Bastogne (5485), CM Remouchamps (5725), Gerpidis Gerpinnes (9035)
+- 1 partner resté not_valid : Sodexo Belgium (8158) EAS 9925 endpoint 0407246778 — endpoint non enregistré Peppol
+- 5 factures postées et envoyées via Peppol (canal exclusif, 0 email) :
+  - INV/2026/02972 — Cafés Delahaut — 755,25 EUR — peppol=processing — uuid=046afb62-47b0-4a3f-8280-8feae5494d40
+  - INV/2026/02973 — Alcodis SA — 74,20 EUR — peppol=processing — uuid=fc3b1ab3-b0cb-476f-bd11-31f7d63f4860
+  - INV/2026/02974 — CM Bastogne Pascalino — 291,20 EUR — peppol=processing — uuid=90cce73a-039c-4a69-96b9-b06f71326622
+  - INV/2026/02975 — CM Remouchamps — 541,07 EUR — peppol=processing — uuid=a9a4fafe-5e69-4150-a56b-f5e1f94aa74e
+  - INV/2026/02976 — Gerpidis SA Gerpinnes — 184,85 EUR — peppol=processing — uuid=3dbd1ced-28b3-4b5b-a224-8fcded88a07a
+- TOTAL ENVOYÉ : 1 846,57 EUR TTC
+- 1 facture restée en BROUILLON : 39855 Sodexo Belgium — not_valid — à traiter manuellement
+- Aucun envoi email — 0 email confirmé
+
 ## 2026-06-09 — POST + ENVOI PEPPOL — 18 factures postées et transmises (sur 24 brouillons)
 
 - Type : action_post + envoi Peppol (account.move.send.wizard, sending_methods=['peppol'] uniquement)
