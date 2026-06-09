@@ -1,5 +1,40 @@
 # LOG Compta Teatower
 
+## 2026-06-09 — POST + ENVOI PEPPOL — 18 factures postées et transmises (sur 24 brouillons)
+
+- Type : action_post + envoi Peppol (account.move.send.wizard, sending_methods=['peppol'] uniquement)
+- GO explicite Nicolas — aucun email envoyé
+- Partenaires bascules en Peppol avant envoi : Wallonie Entreprendre (3293 email->peppol), Brasserie Miroir (124310 False->peppol), Antheco SA (122991 False->peppol)
+- 18 factures postées et transmises (peppol_is_sent=True, peppol_move_state=processing) :
+  - INV/2026/02954 — KVA Bar — 500,85 EUR — processing
+  - INV/2026/02955 — Ardenne BNB — 30,80 EUR — processing
+  - INV/2026/02956 — Ardenne BNB — 77,00 EUR — processing
+  - INV/2026/02957 — Carrefour Belgium — 554,40 EUR — processing
+  - INV/2026/02958 — Wallonie Entreprendre — 784,00 EUR — processing
+  - INV/2026/02959 — Delhaize Le Lion — 323,48 EUR — processing
+  - INV/2026/02960 — Brasserie Miroir — 63,60 EUR — processing
+  - INV/2026/02961 — DB Kfé SRL — 500,85 EUR — processing
+  - INV/2026/02962 — Carrefour Belgium — 195,44 EUR — processing
+  - INV/2026/02963 — D-trois SRL Proxy Saint-Séverin — 323,40 EUR — processing
+  - INV/2026/02964 — Delhaize Le Lion (Ferrières) — 214,30 EUR — processing
+  - INV/2026/02965 — Pharmacie Badot — 292,24 EUR — processing
+  - INV/2026/02966 — Amessia Boutique — 90,40 EUR — processing
+  - INV/2026/02967 — Cocon Life store — 508,32 EUR — processing
+  - INV/2026/02968 — Antheco Intermarché Anthée — 319,20 EUR — processing
+  - INV/2026/02969 — Autobus Latour SA — 180,00 EUR — processing
+  - INV/2026/02970 — Lillodis SRL Proxy Lillois — 184,84 EUR — processing
+  - INV/2026/02971 — Moore Services Financiers — 212,60 EUR — processing
+- TOTAL POSTÉ + ENVOYÉ : 5 355,72 EUR TTC
+- 6 factures laissées en BROUILLON (partner Peppol non valide) :
+  - 39846 Cafés Delahaut (5509) — not_valid (EAS 9925 BE0418920135)
+  - 39847 Alcodis SA (5453) — not_verified (EAS 9925 BE0438048535)
+  - 39855 Sodexo Belgium (8158) — not_verified (EAS 9925 BE0407246778)
+  - 39859 CM Bastogne Pascalino (5485) — not_verified (EAS 9925 BE0442412248)
+  - 39862 CM Remouchamps (5725) — not_verified (EAS 9925 BE0446634817)
+  - 39864 Gerpidis SA Gerpinnes (9035) — not_verified (EAS 9925 BE0802039451)
+- TOTAL BLOQUÉ EN BROUILLON : 2 641,57 EUR TTC
+- Aucun envoi email — canal Peppol exclusif vérifié sur chaque wizard
+
 ## 2026-06-09 — Facturation B2B Peppol — 24 factures brouillon créées
 
 - Type : création factures clients (out_invoice) mode delivered — BROUILLON uniquement, aucune postée, aucun envoi
