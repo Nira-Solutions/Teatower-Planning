@@ -48,6 +48,9 @@ FLOOR = 14           # jamais plus serre que 14 j
 CEILING = 35         # jamais plus espace que 35 j
 DEMARRAGE_DEFAUT = 28  # cadence de demarrage si 1 seule commande 12m
 SUIVI_IMPL_JOURS = 15  # suivi post-implantation : 1er appel a impl + 15j (pas 28)
+IMPL_AUTO_DAYS = 75    # auto-detection implantation : 1ere SO d'un nouveau magasin
+                       # (so_count==1) datant de <= 75j = implantation -> suivi J+15
+                       # automatique, SANS tag manuel. Tag [IMPL date] = override.
 
 GMS_PARENT_NAMES = ["Delhaize Le Lion", "Carrefour Belgium"]
 GMS_NAME_TOKENS = ["Intermarch", "Spar ", "Spar-", " AD ", "AD Delhaize",
@@ -304,11 +307,17 @@ def main():
         next_call = anchor + timedelta(days=target)
         cadence_src_eff = cadence_src
 
-        # SUIVI POST-IMPLANTATION : si une implantation [IMPL date] a eu lieu et
-        # qu'aucun suivi televente n'a encore ete fait apres (pas de REFUS/NRP
-        # apres l'impl, pas de commande > impl+3j = au-dela de la cmd d'implant),
-        # on cale le 1er appel a impl + 15j (au lieu de 28) pour un suivi rapproche.
+        # SUIVI POST-IMPLANTATION : si une implantation a eu lieu et qu'aucun
+        # suivi televente n'a encore ete fait apres (pas de REFUS/NRP apres l'impl,
+        # pas de commande > impl+3j = au-dela de la cmd d'implant), on cale le 1er
+        # appel a impl + 15j (au lieu de 28) pour un suivi rapproche.
+        # impl_date = tag [IMPL date] explicite, SINON auto-detecte = 1ere SO d'un
+        # nouveau magasin (so_count==1) datant de <= IMPL_AUTO_DAYS (= implantation).
         impl_date = parse_impl(comment)
+        impl_auto = False
+        if impl_date is None and so_count == 1 and (today - dts[0]).days <= IMPL_AUTO_DAYS:
+            impl_date = dts[0]
+            impl_auto = True
         suivi_impl = False
         if impl_date:
             post = False
