@@ -21,13 +21,16 @@ var SHEET_NAME = 'Réponses';
 var FIELDS = ['ts','name','role','three_words','defining_points','mission','fierte',
   'vs_concurrents','atout','positionnement','client_type','qualite','gamme_coherence',
   'produit_phare','visuel','couleurs','nom','packaging','changer_une_chose','valeurs',
-  'dans_3_ans','mot_fin'];
+  'dans_3_ans','mot_fin',
+  'force','manque','boutiques_importance','magasins','export_priorite','export_marches'];
 
 var HEADERS = ['Horodatage','Prénom','Rôle','3 mots','★ Points qui définissent TT','Mission',
   'Fierté','Pourquoi TT vs concurrence','Principal atout','Positionnement (1-5)','Client type',
   'Qualité (1-5)','Cohérence gamme (1-5)','Produit phare','Identité visuelle (1-5)',
   'Couleurs collent ?','Nom Teatower (1-5)','Packaging (1-5)','Une chose à changer',
-  'Valeurs','Dans 3 ans connue pour','Mot de la fin'];
+  'Valeurs','Dans 3 ans connue pour','Mot de la fin',
+  '★ Plus grande force','★ Ce qui manque','Importance boutiques (1-5)',
+  'Avenir boutiques/retail','Export prioritaire (1-5)','Marchés export visés'];
 
 // Métadonnées pour le dashboard
 var META = [
@@ -41,6 +44,8 @@ var META = [
   {f:'atout', label:'Principal atout vs concurrence', type:'choice'},
   {f:'positionnement', label:'Positionnement marché (1 accessible → 5 premium)', type:'scale'},
   {f:'client_type', label:'Client type', type:'long'},
+  {f:'force', label:'★ La plus grande force de Teatower', type:'long', star:true},
+  {f:'manque', label:'★ Ce qui manque le plus à Teatower', type:'long', star:true},
   {f:'qualite', label:'Qualité produit (1 faible → 5 excellente)', type:'scale'},
   {f:'gamme_coherence', label:'Cohérence de la gamme (1 dispersée → 5 cohérente)', type:'scale'},
   {f:'produit_phare', label:'Produit qui incarne Teatower', type:'text'},
@@ -49,6 +54,10 @@ var META = [
   {f:'nom', label:'Le nom « Teatower » (1 mauvais → 5 excellent)', type:'scale'},
   {f:'packaging', label:'Packagings donnent envie (1 → 5)', type:'scale'},
   {f:'changer_une_chose', label:'Une chose à changer dans l\'image', type:'long'},
+  {f:'boutiques_importance', label:'Importance des boutiques Namur/Liège/Waterloo (1 accessoires → 5 essentielles)', type:'scale'},
+  {f:'magasins', label:'Avenir des boutiques / retail physique', type:'long'},
+  {f:'export_priorite', label:'Développement export / international (1 → 5)', type:'scale'},
+  {f:'export_marches', label:'Marchés export prioritaires', type:'long'},
   {f:'valeurs', label:'Valeurs à incarner', type:'multi'},
   {f:'dans_3_ans', label:'Dans 3 ans, connue pour…', type:'long'},
   {f:'mot_fin', label:'Mot de la fin', type:'long'}
