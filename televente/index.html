@@ -5,9 +5,14 @@
 <style>
   :root { --primary:#7b2d6a; --accent:#b5179e; --warn:#e76f51; --bg:#f8f9fa; --card:#fff; --text:#212529; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); padding:1rem; max-width:900px; margin:0 auto; }
+  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); padding:1rem; max-width:920px; margin:0 auto; }
   h1 { color:var(--primary); font-size:1.5rem; margin-bottom:.3rem; }
-  .subtitle { color:#666; font-size:.9rem; margin-bottom:1.2rem; }
+  .subtitle { color:#666; font-size:.9rem; margin-bottom:1rem; }
+  .tabs { display:flex; gap:.5rem; margin-bottom:1.2rem; }
+  .tab-btn { padding:.5rem 1.1rem; border-radius:6px; border:2px solid var(--primary); background:var(--card); color:var(--primary); font-weight:600; cursor:pointer; font-size:.9rem; }
+  .tab-btn.active { background:var(--primary); color:#fff; }
+  .view { display:none; }
+  .view.active { display:block; }
   .summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:.5rem; margin-bottom:1.2rem; }
   .summary-card { background:var(--primary); color:#fff; border-radius:8px; padding:.8rem; text-align:center; }
   .summary-card .num { font-size:1.7rem; font-weight:700; }
@@ -15,6 +20,7 @@
   .alert { background:#fff3cd; border-left:4px solid var(--warn); padding:.6rem 1rem; margin-bottom:.8rem; border-radius:0 6px 6px 0; font-size:.85rem; }
   .alert strong { color:var(--warn); }
   .rules { background:#f3e8f1; border-left:4px solid var(--accent); padding:.6rem 1rem; margin-bottom:1rem; border-radius:0 6px 6px 0; font-size:.82rem; color:#6a1b5a; }
+  .rules code { background:#fff; padding:1px 5px; border-radius:3px; }
   .section-title { font-size:1.2rem; color:var(--primary); margin:1.6rem 0 .5rem; border-bottom:2px solid var(--accent); padding-bottom:.3rem; }
   .day { background:var(--card); border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.1); margin-bottom:1rem; overflow:hidden; }
   .day-header { background:var(--primary); color:#fff; padding:.6rem 1rem; font-weight:600; display:flex; justify-content:space-between; align-items:center; }
@@ -22,6 +28,7 @@
   .day-ferie { background:#495057; }
   .call { padding:.6rem 1rem; border-bottom:1px solid #eee; }
   .call:last-child { border-bottom:none; }
+  .call.impl { background:#fff7f0; border-left:4px solid #fd7e14; }
   .call-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.3rem; }
   .rank { font-weight:700; color:var(--primary); }
   .client { font-weight:600; }
@@ -33,6 +40,7 @@
   .badge-nrp { background:#6c757d; color:#fff; }
   .badge-ok { background:#2b8a3e; color:#fff; }
   .badge-refus { background:#a61e4d; color:#fff; }
+  .badge-impl { background:#fd7e14; color:#fff; }
   .meta { font-size:.82rem; color:#555; margin-top:.35rem; line-height:1.5; }
   .meta strong { color:var(--text); }
   .contact-badge { background:#fde7f5; border-left:4px solid var(--accent); padding:.35rem .7rem; margin:.35rem 0; font-size:.9rem; border-radius:0 4px 4px 0; color:#7b2d6a; font-weight:600; }
@@ -40,27 +48,39 @@
   .refs { background:#eef6f5; padding:.35rem .6rem; margin-top:.35rem; font-size:.8rem; border-radius:4px; color:#1d6f63; }
   .refs::before { content:"\1F4E6 Refs habituelles : "; font-weight:600; opacity:.8; }
   .recap { background:var(--card); border-radius:8px; padding:.5rem 1rem; margin-bottom:.5rem; font-size:.85rem; box-shadow:0 1px 2px rgba(0,0,0,.08); }
-  @media(max-width:600px){ .call-header{ flex-direction:column; align-items:flex-start; } }
+  .filter { width:100%; padding:.55rem .8rem; font-size:.95rem; border:2px solid #ddd; border-radius:8px; margin-bottom:.8rem; }
+  table.contacts { width:100%; border-collapse:collapse; font-size:.83rem; background:var(--card); border-radius:8px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.1); }
+  table.contacts th { background:var(--primary); color:#fff; text-align:left; padding:.5rem .6rem; font-size:.74rem; text-transform:uppercase; }
+  table.contacts td { padding:.45rem .6rem; border-bottom:1px solid #eee; vertical-align:top; }
+  table.contacts tr:hover td { background:#faf0f7; }
+  .cname { font-weight:600; }
+  .cmiss { color:#c92a2a; font-style:italic; }
+  @media(max-width:600px){ .call-header{ flex-direction:column; align-items:flex-start; } table.contacts{ font-size:.75rem; } }
 </style></head><body>
 <h1>Planning Télévente — Teatower</h1>
 <p class="subtitle">Télévendeuse : Vanessa &nbsp;|&nbsp; Semaine S24 (08/06–12/06) &nbsp;|&nbsp; ~9 appels/jour &nbsp;|&nbsp; généré le 2026-06-09</p>
 
+<div class="tabs">
+  <button class="tab-btn active" id="tab-planning" onclick="showTab('planning')">📞 Planning S24</button>
+  <button class="tab-btn" id="tab-contacts" onclick="showTab('contacts')">📇 Contacts (47)</button>
+</div>
+
+<div class="view active" id="view-planning">
 <div class="summary">
-  <div class="summary-card"><div class="num">19</div><div class="label">À appeler</div></div>
-  <div class="summary-card"><div class="num">2</div><div class="label">Commandé S24</div></div>
+  <div class="summary-card"><div class="num">18</div><div class="label">À appeler</div></div>
+  <div class="summary-card"><div class="num">0</div><div class="label">📍 Suivi implant.</div></div>
+  <div class="summary-card"><div class="num">3</div><div class="label">Commandé S24</div></div>
   <div class="summary-card"><div class="num">0</div><div class="label">Refus S24</div></div>
   <div class="summary-card"><div class="num">0</div><div class="label">↪ Reportés S+1</div></div>
-  <div class="summary-card"><div class="num">10</div><div class="label">Win-back dispo</div></div>
 </div>
 
 <div class="rules">
   <strong>Issues d'appel — à saisir dans la fiche Odoo du magasin :</strong><br>
-  ✅ Commande → encoder la SO (recale tout seul).&nbsp;
-  ❌ Refus → tag <code>[APPEL 2026-06-09 REFUS]</code> (sort de la semaine, revient à +cadence).&nbsp;
-  ☎️ Injoignable → tag <code>[APPEL 2026-06-09 NRP]</code> (reporté S+1, reste dû).<br>
-  Segment : réfs ≤ 10 OU (dist &gt; 60 km ET réfs &lt; 20). Cadence ×0,75 clamp [14,35]j. Pas de mail/calendrier auto.
+  ✅ Commande → encoder la SO.&nbsp; ❌ Refus → <code>[APPEL 2026-06-09 REFUS]</code>.&nbsp; ☎️ Injoignable → <code>[APPEL 2026-06-09 NRP]</code>.<br>
+  📍 <strong>Suivi implantation</strong> : quand le merch pose <code>[IMPL date]</code> sur la fiche, le magasin arrive ici en appel de suivi à <strong>J+15</strong> (au lieu de 28j) — Vanessa vérifie si réassort nécessaire.<br>
+  Segment : réfs ≤ 10 OU (dist &gt; 60 km ET réfs &lt; 20). Pas de mail/calendrier auto.
 </div>
-<h2 class="section-title">📞 Semaine S24 — anti-rupture (19 appels)</h2><div class="day"><div class="day-header">Lundi 08/06 <span class="cnt">9 appels</span></div>
+<h2 class="section-title">📞 Semaine S24 — 18 appels</h2><div class="day"><div class="day-header">Lundi 08/06 <span class="cnt">9 appels</span></div>
   <div class="call">
     <div class="call-header">
       <span><span class="rank">1.</span> <span class="client">Carrefour express Petits Champs</span> <span style="color:#999;font-size:.78rem">#120986</span></span>
@@ -128,20 +148,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">6.</span> <span class="client">Hyper Carrefour Bomerée</span> <span style="color:#999;font-size:.78rem">#122467</span></span>
-      <span><span class="badge badge-retard">retard 46j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">69 km</span></span>
-    </div>
-    <div class="contact-badge">+32 71 29 72 11 &nbsp;|&nbsp; demoulin_michael@carrefour.com</div>
-    <div class="meta">
-      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+station+1,+6110,+Montigny-Le-Tilleul" target="_blank">Rue de la station 1, 6110, Montigny-Le-Tilleul</a> &nbsp;·&nbsp; 69 km<br>
-      🛒 Dernière cmd : <strong>2026-03-27</strong> (74j) &nbsp;·&nbsp;
-      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 22€/mois
-    </div>
-    <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [I0631] Le thé des amoureux (20 infusettes) (x6); [EM0072] SRP Kraft Horeca (x6); [I0723] Namasté BIO (20 infusettes) (x0)</div>
-  </div>
-  <div class="call">
-    <div class="call-header">
-      <span><span class="rank">7.</span> <span class="client">Carrefour Market Wellin</span> <span style="color:#999;font-size:.78rem">#122589</span></span>
+      <span><span class="rank">6.</span> <span class="client">Carrefour Market Wellin</span> <span style="color:#999;font-size:.78rem">#122589</span></span>
       <span><span class="badge badge-retard">retard 43j</span><span class="badge badge-petit">petit assort.</span></span>
     </div>
     <div class="contact-badge">+32 84 38 92 96 &nbsp;|&nbsp; carrefourwellin@gmail.com</div>
@@ -154,7 +161,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">8.</span> <span class="client">GENADIS - Intermarché Genappe</span> <span style="color:#999;font-size:.78rem">#2963</span></span>
+      <span><span class="rank">7.</span> <span class="client">GENADIS - Intermarché Genappe</span> <span style="color:#999;font-size:.78rem">#2963</span></span>
       <span><span class="badge badge-retard">retard 41j</span><span class="badge badge-loin">70 km</span></span>
     </div>
     <div class="contact-badge">067 78 02 50 &nbsp;|&nbsp; pdv09846@mousquetaires.com</div>
@@ -167,7 +174,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">9.</span> <span class="client">Affilié 041341 - AD Delhaize Filature</span> <span style="color:#999;font-size:.78rem">#5443</span></span>
+      <span><span class="rank">8.</span> <span class="client">Affilié 041341 - AD Delhaize Filature</span> <span style="color:#999;font-size:.78rem">#5443</span></span>
       <span><span class="badge badge-retard">retard 41j</span><span class="badge badge-loin">87 km</span></span>
     </div>
     <div class="contact-badge">02 204 56 40 &nbsp;|&nbsp; Adfilature@courcellesgroup.be</div>
@@ -177,26 +184,26 @@
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 15 réfs &nbsp;·&nbsp; CA 85€/mois
     </div>
     <div class="refs">[GI0735] Pêche de Vigne - BIO glacée (x16); [V0732] Gourmandise de Noël (100 g vrac) (x15); [GI0820] Marrakech Sunset - BIO glacé (x15); [GI0634] Gourmandise glacée (x14); [I0631] Le thé des amoureux (20 infusettes) (x12); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x12); [I0279] Le panier de grand maman (20 infusettes) (x11); [V0891] Trésor des lutins (100 g vrac) (x10)</div>
-  </div></div><div class="day"><div class="day-header">Mardi 09/06 <span class="cnt">9 appels</span></div>
+  </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">1.</span> <span class="client">V2V Express Two - Carrefour Express 1314</span> <span style="color:#999;font-size:.78rem">#3274</span></span>
+      <span><span class="rank">9.</span> <span class="client">V2V Express Two - Carrefour Express 1314</span> <span style="color:#999;font-size:.78rem">#3274</span></span>
       <span><span class="badge badge-retard">retard 41j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">75 km</span></span>
     </div>
-    <div class="contact-badge">02 633 11 90 &nbsp;|&nbsp; lasnedistribution@gmail.com</div>
+    <div class="contact-badge">Carrefour Express 1314 — 02 633 11 90 &nbsp;|&nbsp; comptabilite.expresslasne@gmail.com</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Route+de+l&#x27;Etat+47,+1380,+Lasne" target="_blank">Route de l&#x27;Etat 47, 1380, Lasne</a> &nbsp;·&nbsp; 75 km<br>
       🛒 Dernière cmd : <strong>2026-03-25</strong> (76j) &nbsp;·&nbsp;
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 34€/mois
     </div>
     <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x10); [GI0832] La Nana de Wépion glacée (x10); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x10); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x10); [GI0735] Pêche de Vigne - BIO glacée (x9); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0669] Vert Jasmin (20 infusettes) (x4)</div>
-  </div>
+  </div></div><div class="day"><div class="day-header">Mardi 09/06 <span class="cnt">9 appels</span></div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">2.</span> <span class="client">Distriparenthèse - Intermarché Gosselies</span> <span style="color:#999;font-size:.78rem">#2927</span></span>
+      <span><span class="rank">1.</span> <span class="client">Distriparenthèse - Intermarché Gosselies</span> <span style="color:#999;font-size:.78rem">#2927</span></span>
       <span><span class="badge badge-retard">retard 35j</span><span class="badge badge-loin">67 km</span></span>
     </div>
-    <div class="contact-badge">071/35.40.10 &nbsp;|&nbsp; pdv09920@mousquetaires.com</div>
+    <div class="contact-badge">Valentin Schirru — 071/35.40.10 &nbsp;|&nbsp; pdv09920@mousquetaires.com</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Pont+à+Migneloux,+13,+6041,+Gosselies" target="_blank">Rue Pont à Migneloux, 13, 6041, Gosselies</a> &nbsp;·&nbsp; 67 km<br>
       🛒 Dernière cmd : <strong>2026-03-31</strong> (70j) &nbsp;·&nbsp;
@@ -206,10 +213,10 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">3.</span> <span class="client">Lambertdis SRL - Spar Manhay</span> <span style="color:#999;font-size:.78rem">#122944</span></span>
+      <span><span class="rank">2.</span> <span class="client">Lambertdis SRL - Spar Manhay</span> <span style="color:#999;font-size:.78rem">#122944</span></span>
       <span><span class="badge badge-retard">retard 35j</span><span class="badge badge-petit">petit assort.</span></span>
     </div>
-    <div class="contact-badge">+32 86 45 55 87 &nbsp;|&nbsp; lambertfrancoise@skynet.be</div>
+    <div class="contact-badge">Koohn Samuel — +32 86 45 55 87 &nbsp;|&nbsp; samuelkoohn@live.be</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+d&#x27;erezée,,+6960,+Manhay" target="_blank">Rue d&#x27;erezée,, 6960, Manhay</a> &nbsp;·&nbsp; 23 km<br>
       🛒 Dernière cmd : <strong>2026-04-21</strong> (49j) &nbsp;·&nbsp;
@@ -219,7 +226,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">4.</span> <span class="client">Affilié 043145 - Delhaize Flagey</span> <span style="color:#999;font-size:.78rem">#120159</span></span>
+      <span><span class="rank">3.</span> <span class="client">Affilié 043145 - Delhaize Flagey</span> <span style="color:#999;font-size:.78rem">#120159</span></span>
       <span><span class="badge badge-retard">retard 32j</span><span class="badge badge-loin">91 km</span></span>
     </div>
     <div class="contact-badge">+32 471 53 40 15 &nbsp;|&nbsp; skoumans@outlook.com</div>
@@ -232,7 +239,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">5.</span> <span class="client">Affilié 44845 - Delhaize Enghien</span> <span style="color:#999;font-size:.78rem">#123041</span></span>
+      <span><span class="rank">4.</span> <span class="client">Affilié 44845 - Delhaize Enghien</span> <span style="color:#999;font-size:.78rem">#123041</span></span>
       <span><span class="badge badge-retard">retard 26j</span><span class="badge badge-loin">102 km</span></span>
     </div>
     <div class="contact-badge"> &nbsp;|&nbsp; dllenghienmestdag@gmail.com</div>
@@ -245,10 +252,10 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">6.</span> <span class="client">Gmp La Louvière - Delhaize La Louvière</span> <span style="color:#999;font-size:.78rem">#123035</span></span>
+      <span><span class="rank">5.</span> <span class="client">Gmp La Louvière - Delhaize La Louvière</span> <span style="color:#999;font-size:.78rem">#123035</span></span>
       <span><span class="badge badge-retard">retard 22j</span><span class="badge badge-loin">85 km</span></span>
     </div>
-    <div class="contact-badge">+32 64 44 44 08 &nbsp;|&nbsp; chef44686@delhaize.be</div>
+    <div class="contact-badge">Micha — +32 64 44 44 08 &nbsp;|&nbsp; floreal.micha@delhaize-lalouviere.be</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Franco-Belge+228,+7100,+La+Louvière" target="_blank">Rue de la Franco-Belge 228, 7100, La Louvière</a> &nbsp;·&nbsp; 85 km<br>
       🛒 Dernière cmd : <strong>2026-04-20</strong> (50j) &nbsp;·&nbsp;
@@ -258,10 +265,10 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">7.</span> <span class="client">VGS Company - Carrefour Express Rhode-Saint-Genèse</span> <span style="color:#999;font-size:.78rem">#120933</span></span>
+      <span><span class="rank">6.</span> <span class="client">VGS Company - Carrefour Express Rhode-Saint-Genèse</span> <span style="color:#999;font-size:.78rem">#120933</span></span>
       <span><span class="badge badge-retard">retard 19j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">86 km</span></span>
     </div>
-    <div class="contact-badge">+32 2 466 68 41 &nbsp;|&nbsp; carrefour.express.rsg@gmail.com</div>
+    <div class="contact-badge">Gilles Virgo — +32 2 466 68 41 &nbsp;|&nbsp; carrefour.express.rsg@gmail.com</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+Waterloo+230,+1640,+Rhode-Saint-Genèse" target="_blank">Chaussée de Waterloo 230, 1640, Rhode-Saint-Genèse</a> &nbsp;·&nbsp; 86 km<br>
       🛒 Dernière cmd : <strong>2026-04-16</strong> (54j) &nbsp;·&nbsp;
@@ -271,7 +278,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">8.</span> <span class="client">Gemblouxim - Intermarché Gembloux</span> <span style="color:#999;font-size:.78rem">#123346</span></span>
+      <span><span class="rank">7.</span> <span class="client">Gemblouxim - Intermarché Gembloux</span> <span style="color:#999;font-size:.78rem">#123346</span></span>
       <span><span class="badge badge-retard">retard 12j</span><span class="badge badge-petit">petit assort.</span></span>
     </div>
     <div class="contact-badge">+32 81 61 01 43 &nbsp;|&nbsp; PDV09844@MOUSQUETAIRES.COM</div>
@@ -284,7 +291,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">9.</span> <span class="client">BLONFOOD SA - Intermarché Liège Blonden</span> <span style="color:#999;font-size:.78rem">#123345</span></span>
+      <span><span class="rank">8.</span> <span class="client">BLONFOOD SA - Intermarché Liège Blonden</span> <span style="color:#999;font-size:.78rem">#123345</span></span>
       <span><span class="badge badge-retard">retard 12j</span><span class="badge badge-petit">petit assort.</span></span>
     </div>
     <div class="contact-badge">+32 4 229 34 98 &nbsp;|&nbsp; PDV09874@MOUSQUETAIRES.COM</div>
@@ -294,20 +301,20 @@
       cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 7 réfs &nbsp;·&nbsp; CA 37€/mois
     </div>
     <div class="refs">[V0914] Infusion du Printemps 2026 (x10); [GI0820] Marrakech Sunset - BIO glacé (x10); [GI0832] La Nana de Wépion glacée (x10); [GI0735] Pêche de Vigne - BIO glacée (x10); [GI0634] Gourmandise glacée (x10); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x10); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x10)</div>
-  </div></div><div class="day"><div class="day-header">Mercredi 10/06 <span class="cnt">1 appels</span></div>
+  </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">1.</span> <span class="client">Digretail - Intermarché Braine-le-Comte Digues</span> <span style="color:#999;font-size:.78rem">#123466</span></span>
+      <span><span class="rank">9.</span> <span class="client">Digretail - Intermarché Braine-le-Comte Digues</span> <span style="color:#999;font-size:.78rem">#123466</span></span>
       <span><span class="badge badge-retard">retard 7j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">92 km</span></span>
     </div>
-    <div class="contact-badge">+32 67 56 01 88 &nbsp;|&nbsp; PDV09832@MOUSQUETAIRES.COM</div>
+    <div class="contact-badge">Mr Termini - Boss — +32 67 56 01 88 &nbsp;|&nbsp; PDV09832@MOUSQUETAIRES.COM</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+des+Digues+60,+7090,+Braine-le-Comte" target="_blank">Rue des Digues 60, 7090, Braine-le-Comte</a> &nbsp;·&nbsp; 92 km<br>
       🛒 Dernière cmd : <strong>2026-05-05</strong> (35j) &nbsp;·&nbsp;
       cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 44€/mois
     </div>
     <div class="refs">[EM0072] SRP Kraft Horeca (x16); [GI0820] Marrakech Sunset - BIO glacé (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0634] Gourmandise glacée (x12); [GI0832] La Nana de Wépion glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x12); [V0914] Infusion du Printemps 2026 (x12)</div>
-  </div></div><div class="day"><div class="day-header">Jeudi 11/06 <span class="cnt">0 appels</span></div><div class="call" style="color:#888">— rien à appeler ce jour —</div></div><div class="day"><div class="day-header">Vendredi 12/06 <span class="cnt">0 appels</span></div><div class="call" style="color:#888">— rien à appeler ce jour —</div></div><h2 class="section-title">✔️ Réalisé cette semaine (2)</h2><div class="recap"><span class="badge badge-ok">commandé 2026-06-08</span> <strong>Hyper Carrefour Gosselies</strong> #122466</div><div class="recap"><span class="badge badge-ok">commandé 2026-06-08</span> <strong>Micamik SRL - Spar Godinne</strong> #122995</div><h2 class="section-title">🔄 Win-back — dormants &gt;90j (10)</h2><div class="alert">Clients perdus de vue. Discours réactivation. À traiter quand la semaine est creuse.</div>
+  </div></div><div class="day"><div class="day-header">Mercredi 10/06 <span class="cnt">0 appels</span></div><div class="call" style="color:#888">— rien à appeler ce jour —</div></div><div class="day"><div class="day-header">Jeudi 11/06 <span class="cnt">0 appels</span></div><div class="call" style="color:#888">— rien à appeler ce jour —</div></div><div class="day"><div class="day-header">Vendredi 12/06 <span class="cnt">0 appels</span></div><div class="call" style="color:#888">— rien à appeler ce jour —</div></div><h2 class="section-title">✔️ Réalisé cette semaine (3)</h2><div class="recap"><span class="badge badge-ok">commandé 2026-06-08</span> <strong>Hyper Carrefour Gosselies</strong> #122466</div><div class="recap"><span class="badge badge-ok">commandé 2026-06-08</span> <strong>Micamik SRL - Spar Godinne</strong> #122995</div><div class="recap"><span class="badge badge-ok">commandé 2026-06-09</span> <strong>Hyper Carrefour Bomerée</strong> #122467</div><h2 class="section-title">🔄 Win-back — dormants &gt;90j (10)</h2><div class="alert">Clients perdus de vue. Discours réactivation. À traiter quand la semaine est creuse.</div>
   <div class="call">
     <div class="call-header">
       <span><span class="rank">1.</span> <span class="client">KAIO Retail invest - Delhaize Ottignies</span> <span style="color:#999;font-size:.78rem">#5649</span></span>
@@ -391,7 +398,7 @@
       <span><span class="rank">7.</span> <span class="client">Distriwal SRL - Carrefour Market Walcourt</span> <span style="color:#999;font-size:.78rem">#9016</span></span>
       <span><span class="badge badge-retard">retard 201j</span><span class="badge badge-loin">65 km</span></span>
     </div>
-    <div class="contact-badge">+32 71 61 14 73 &nbsp;|&nbsp; labbe-r@hotmail.com</div>
+    <div class="contact-badge">Ronny LABBE — +32 475 40 37 25 &nbsp;|&nbsp; labbe-r@hotmail.com</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Forge,+34,+5650,+WALCOURT" target="_blank">Rue de la Forge, 34, 5650, WALCOURT</a> &nbsp;·&nbsp; 65 km<br>
       🛒 Dernière cmd : <strong>2025-10-16</strong> (236j) &nbsp;·&nbsp;
@@ -404,7 +411,7 @@
       <span><span class="rank">8.</span> <span class="client">Carrefour Market Braine-l&#x27;Alleud</span> <span style="color:#999;font-size:.78rem">#8339</span></span>
       <span><span class="badge badge-retard">retard 180j</span><span class="badge badge-loin">81 km</span></span>
     </div>
-    <div class="contact-badge" style="color:#c92a2a">☎️ TÉL MANQUANT — à compléter dans Odoo</div>
+    <div class="contact-badge" style="color:#c92a2a">☎️ CONTACT MANQUANT — à compléter dans Odoo</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Pl.+du+Môle+25,+1420,+Braine-l&#x27;alleud" target="_blank">Pl. du Môle 25, 1420, Braine-l&#x27;alleud</a> &nbsp;·&nbsp; 81 km<br>
       🛒 Dernière cmd : <strong>2025-11-06</strong> (215j) &nbsp;·&nbsp;
@@ -430,12 +437,24 @@
       <span><span class="rank">10.</span> <span class="client">Spirec SRL - Carrefour Express CHIREC</span> <span style="color:#999;font-size:.78rem">#120762</span></span>
       <span><span class="badge badge-retard">retard 96j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">87 km</span></span>
     </div>
-    <div class="contact-badge">+32 2 280 40 49 &nbsp;|&nbsp; express.chirec@gmail.com</div>
+    <div class="contact-badge">Gaspard Daxhelet — +32 470 30 45 45 &nbsp;|&nbsp; express.chirec@gmail.com</div>
     <div class="meta">
       📍 <a href="https://www.google.com/maps/search/?api=1&query=Boulevard+du+Triomphe,+201,+1160,+Auderghem" target="_blank">Boulevard du Triomphe, 201, 1160, Auderghem</a> &nbsp;·&nbsp; 87 km<br>
       🛒 Dernière cmd : <strong>2026-02-05</strong> (124j) &nbsp;·&nbsp;
       cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 7 réfs &nbsp;·&nbsp; CA 29€/mois
     </div>
     <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x8); [I0880] Blue Earl Grey BIO (20 infusettes) (x8); [I0751] I love you (20 infusettes) (x8); [I0735] Pêche de vigne - BIO (20 infusettes) (x8); [I0279] Le panier de grand maman (20 infusettes) (x8); [V0832] La Nana de Wépion (100 g vrac) (x8); [EM0072] SRP Kraft Horeca (x6)</div>
-  </div>
-</body></html>
+  </div></div><div class="view" id="view-contacts"><h2 class="section-title">📇 Contacts GMS — pool télévente</h2><input class="filter" id="cfilter" onkeyup="filterContacts()" placeholder="🔎 Filtrer (magasin, contact, ville, tél…)"><p style="font-size:.82rem;color:#666;margin-bottom:.6rem">47 magasins GMS suivis par Vanessa (pool télévente).</p><table class="contacts" id="ctable"><thead><tr><th>Magasin</th><th>Contact</th><th>Fonction</th><th>Tél</th><th>Email</th><th>Ville</th><th>km</th><th>Réfs</th><th>Dernière cmd</th></tr></thead><tbody><tr><td class="cname">AD Delhaize Roodebeek <span style="color:#aaa">#123997</span></td><td>Samir Hamadache</td><td>Directeur magasin</td><td>+32 488 60 79 79</td><td>samir.hamadache@delhaizeroodebeek.be</td><td>Bruxelles</td><td>89</td><td>18</td><td>2026-05-27</td></tr><tr><td class="cname">Affilié 040290 - AD Andenne <span style="color:#aaa">#5899</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 85 41 19 81</td><td>proxystema@gmail.com</td><td>Andenne</td><td>30</td><td>8</td><td>2026-02-13</td></tr><tr><td class="cname">Affilié 040490 - Delhaize Ath <span style="color:#aaa">#123144</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 477 85 67 07</td><td>lorickvanassche@outlook.com</td><td>Ath</td><td>116</td><td>8</td><td>2026-06-03</td></tr><tr><td class="cname">Affilié 041341 - AD Delhaize Filature <span style="color:#aaa">#5443</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>02 204 56 40</td><td>Adfilature@courcellesgroup.be</td><td>Braine-le-Château</td><td>87</td><td>15</td><td>2026-03-25</td></tr><tr><td class="cname">Affilié 041895 - Proxy Delhaize Braives <span style="color:#aaa">#117130</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 19 69 94 88</td><td>maxime@proxybraives.be</td><td>Braives</td><td>39</td><td>9</td><td>2026-02-09</td></tr><tr><td class="cname">Affilié 043145 - Delhaize Flagey <span style="color:#aaa">#120159</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 471 53 40 15</td><td>skoumans@outlook.com</td><td>Ixelles</td><td>91</td><td>18</td><td>2026-04-03</td></tr><tr><td class="cname">Affilié 049015 - Proxy Delhaize Tihange <span style="color:#aaa">#124180</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 85 25 29 39</td><td>delhaizetihange@yahoo.fr</td><td>Huy</td><td>26</td><td>9</td><td>2026-06-04</td></tr><tr><td class="cname">Affilié 049205 - Delhaize Tubize <span style="color:#aaa">#124182</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 355 42 60</td><td>adtubize@gmail.com</td><td>Tubize</td><td>92</td><td>16</td><td>2026-06-04</td></tr><tr><td class="cname">Affilié 44845 - Delhaize Enghien <span style="color:#aaa">#123041</span></td><td><span class="cmiss">à compléter</span></td><td></td><td><span class="cmiss">?</span></td><td>dllenghienmestdag@gmail.com</td><td>Enghien</td><td>102</td><td>12</td><td>2026-04-16</td></tr><tr><td class="cname">Antheco SA - Intermarché Anthée <span style="color:#aaa">#122991</span></td><td>Ronald &amp; Aurélie Leonet</td><td></td><td>+32 82 21 31 00</td><td>ronald.leonet-adh@mousquetaires.com</td><td>Onhaye</td><td>39</td><td>8</td><td>2026-06-05</td></tr><tr><td class="cname">BLONFOOD SA - Intermarché Liège Blonden <span style="color:#aaa">#123345</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 4 229 34 98</td><td>PDV09874@MOUSQUETAIRES.COM</td><td>Liège</td><td>43</td><td>7</td><td>2026-04-30</td></tr><tr><td class="cname">Carrefour Belgium - Corporate Village, Carrefour Market City 2 <span style="color:#aaa">#113997</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 476 73 31 60</td><td>constance_havet@carrefour.com</td><td>Bruxelles</td><td>94</td><td>14</td><td>2026-02-11</td></tr><tr><td class="cname">Carrefour express Petits Champs <span style="color:#aaa">#120986</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 354 35 22</td><td>cvg0973@hotmail.com</td><td>Waterloo</td><td>81</td><td>4</td><td>2026-02-11</td></tr><tr><td class="cname">Carrefour Hyper Auderghem <span style="color:#aaa">#8062</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 679 05 11</td><td>josiane_bourcy@carrefour.com</td><td>Auderghem</td><td>87</td><td>11</td><td>2026-01-13</td></tr><tr><td class="cname">Carrefour market Arlon Hydrion <span style="color:#aaa">#117404</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 63 44 51 90</td><td>markethydrion@gmail.com</td><td>Arlon</td><td>74</td><td>19</td><td>2026-03-19</td></tr><tr><td class="cname">Carrefour Market Boondael <span style="color:#aaa">#6598</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 627 05 11</td><td>NICOLAS_DEHON@CARREFOUR.COM</td><td>Ixelles</td><td>91</td><td>16</td><td>2026-05-12</td></tr><tr><td class="cname">Carrefour Market Braine-l&#x27;Alleud <span style="color:#aaa">#8339</span></td><td><span class="cmiss">à compléter</span></td><td></td><td><span class="cmiss">?</span></td><td></td><td>Braine-l&#x27;alleud</td><td>81</td><td>14</td><td>2025-11-06</td></tr><tr><td class="cname">Carrefour market Etterbeek <span style="color:#aaa">#9159</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 772 87 76</td><td></td><td>Etterbeek</td><td>90</td><td>19</td><td>2025-07-18</td></tr><tr><td class="cname">Carrefour Market Eupen centre Rotenberg <span style="color:#aaa">#113634</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 87 55 59 01</td><td>carrefoureupen@skynet.be</td><td>Eupen</td><td>62</td><td>19</td><td>2025-10-13</td></tr><tr><td class="cname">Carrefour Market Eupen Herbesthalerstrasse <span style="color:#aaa">#113974</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 87 21 30 30</td><td>info@hypermarketeupen.be</td><td>Eupen</td><td>62</td><td>19</td><td>2025-10-20</td></tr><tr><td class="cname">Carrefour Market Wellin <span style="color:#aaa">#122589</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 84 38 92 96</td><td>carrefourwellin@gmail.com</td><td>Wellin</td><td>30</td><td>6</td><td>2026-03-30</td></tr><tr><td class="cname">Delhaize Amay <span style="color:#aaa">#124178</span></td><td>Mme Lhomme Nathalie</td><td></td><td>+32 85 31 29 97</td><td>info@delhaize-amay.be</td><td>Amay</td><td>29</td><td>9</td><td>2026-06-04</td></tr><tr><td class="cname">Delhaize bois de breux <span style="color:#aaa">#7873</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 4 365 74 07</td><td></td><td></td><td></td><td>5</td><td>2025-08-06</td></tr><tr><td class="cname">Digretail - Intermarché Braine-le-Comte Digues <span style="color:#aaa">#123466</span></td><td>Mr Termini - Boss</td><td></td><td>+32 67 56 01 88</td><td>PDV09832@MOUSQUETAIRES.COM</td><td>Braine-le-Comte</td><td>92</td><td>9</td><td>2026-05-05</td></tr><tr><td class="cname">Distriparenthèse - Intermarché Gosselies <span style="color:#aaa">#2927</span></td><td>Valentin Schirru</td><td></td><td>071/35.40.10</td><td>pdv09920@mousquetaires.com</td><td>Gosselies</td><td>67</td><td>18</td><td>2026-03-31</td></tr><tr><td class="cname">Distriwal SRL - Carrefour Market Walcourt <span style="color:#aaa">#9016</span></td><td>Ronny LABBE</td><td></td><td>+32 475 40 37 25</td><td>labbe-r@hotmail.com</td><td>WALCOURT</td><td>65</td><td>17</td><td>2025-10-16</td></tr><tr><td class="cname">Gemblouxim - Intermarché Gembloux <span style="color:#aaa">#123346</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 81 61 01 43</td><td>PDV09844@MOUSQUETAIRES.COM</td><td>Gembloux</td><td>53</td><td>9</td><td>2026-04-30</td></tr><tr><td class="cname">GENADIS - Intermarché Genappe <span style="color:#aaa">#2963</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>067 78 02 50</td><td>pdv09846@mousquetaires.com</td><td>Genappe</td><td>70</td><td>16</td><td>2026-03-25</td></tr><tr><td class="cname">Gmp La Louvière - Delhaize La Louvière <span style="color:#aaa">#123035</span></td><td>Micha</td><td></td><td>+32 64 44 44 08</td><td>floreal.micha@delhaize-lalouviere.be</td><td>La Louvière</td><td>85</td><td>14</td><td>2026-04-20</td></tr><tr><td class="cname">Good 4 Food SRL - Proxy Delhaize Linthout <span style="color:#aaa">#120035</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 735 06 90</td><td>proxylinthout@gmail.com</td><td>Woluwe St Lambert</td><td>89</td><td>16</td><td>2026-05-22</td></tr><tr><td class="cname">Hyper Carrefour Bomerée <span style="color:#aaa">#122467</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 71 29 72 11</td><td>demoulin_michael@carrefour.com</td><td>Montigny-Le-Tilleul</td><td>69</td><td>9</td><td>2026-06-09</td></tr><tr><td class="cname">Hyper Carrefour de Drogendos <span style="color:#aaa">#8488</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 446 15 25</td><td></td><td>Drogenbos</td><td>91</td><td>9</td><td>2025-08-06</td></tr><tr><td class="cname">Hyper Carrefour Gosselies <span style="color:#aaa">#122466</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 71 25 06 11</td><td></td><td>Gosselies</td><td>67</td><td>19</td><td>2026-06-08</td></tr><tr><td class="cname">Intermarché Braine Le Château <span style="color:#aaa">#124037</span></td><td>Mr Marquez Alenjandro</td><td></td><td>+32 487 66 90 34</td><td>PDV09925@MOUSQUETAIRES.COM</td><td>Braine-le-Château</td><td>86</td><td>16</td><td>2026-05-29</td></tr><tr><td class="cname">Intermarché Mons <span style="color:#aaa">#123966</span></td><td>Guerino Bruno</td><td></td><td>+32 65 39 48 11</td><td>loregueri@gmail.com</td><td>Mons</td><td>100</td><td>9</td><td>2026-05-26</td></tr><tr><td class="cname">Intermarché Rumes - Hainaut <span style="color:#aaa">#123964</span></td><td>Ludovic Deval</td><td></td><td>+32 69 34 31 88</td><td>pdv04733@mousquetaires.com</td><td>Rumes</td><td>147</td><td>9</td><td>2026-05-29</td></tr><tr><td class="cname">KAIO Retail invest - Delhaize Ottignies <span style="color:#aaa">#5649</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>010 40 15 69</td><td>jolan.cailleau@gmail.com</td><td>Villers-La-Ville</td><td>66</td><td>6</td><td>2025-07-01</td></tr><tr><td class="cname">Lambertdis SRL - Spar Manhay <span style="color:#aaa">#122944</span></td><td>Koohn Samuel</td><td></td><td>+32 86 45 55 87</td><td>samuelkoohn@live.be</td><td>Manhay</td><td>23</td><td>10</td><td>2026-04-21</td></tr><tr><td class="cname">Lillodis SRL - Proxy Delhaize Lillois <span style="color:#aaa">#114763</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 2 384 48 83</td><td>proxylillois@gmail.com</td><td>Lillois</td><td>79</td><td>12</td><td>2026-06-05</td></tr><tr><td class="cname">Louis Delhaize - Haversin <span style="color:#aaa">#123844</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 83 69 95 01</td><td>cyanar@live.be</td><td>Haversin</td><td>16</td><td>9</td><td>2026-05-20</td></tr><tr><td class="cname">Micamik SRL - Spar Godinne <span style="color:#aaa">#122995</span></td><td>Dussart Sylvain</td><td>gérant</td><td>+32 82 61 27 50</td><td>spargodinne@icloud.com</td><td>Godinne</td><td>29</td><td>9</td><td>2026-06-08</td></tr><tr><td class="cname">Proxy Delhaize Bosvoorde - SPRL BROOMCORNER <span style="color:#aaa">#3191</span></td><td>Monsieur Sam</td><td></td><td>0486 45 07 56</td><td>Youbech.mesli@gmail.com</td><td>Watermael-Boitsfort</td><td>87</td><td>16</td><td>2026-05-12</td></tr><tr><td class="cname">Spar Barvaux <span style="color:#aaa">#123842</span></td><td><span class="cmiss">à compléter</span></td><td></td><td>+32 86 21 27 21</td><td>spar.barvaux@gmail.com</td><td>Durbuy</td><td>11</td><td>9</td><td>2026-05-20</td></tr><tr><td class="cname">Spar Beauvechain <span style="color:#aaa">#124148</span></td><td>Mr Sébastien Wautié</td><td></td><td>+32 10 86 60 37</td><td>spar.beauvechain@gmail.com</td><td>Beauvechain</td><td>68</td><td>10</td><td>2026-06-04</td></tr><tr><td class="cname">Spirec SRL - Carrefour Express CHIREC <span style="color:#aaa">#120762</span></td><td>Gaspard Daxhelet</td><td></td><td>+32 470 30 45 45</td><td>express.chirec@gmail.com</td><td>Auderghem</td><td>87</td><td>7</td><td>2026-02-05</td></tr><tr><td class="cname">V2V Express Two - Carrefour Express 1314 <span style="color:#aaa">#3274</span></td><td>Carrefour Express 1314</td><td></td><td>02 633 11 90</td><td>comptabilite.expresslasne@gmail.com</td><td>Lasne</td><td>75</td><td>9</td><td>2026-03-25</td></tr><tr><td class="cname">VGS Company - Carrefour Express Rhode-Saint-Genèse <span style="color:#aaa">#120933</span></td><td>Gilles Virgo</td><td></td><td>+32 2 466 68 41</td><td>carrefour.express.rsg@gmail.com</td><td>Rhode-Saint-Genèse</td><td>86</td><td>3</td><td>2026-04-16</td></tr></tbody></table></div><script>
+function showTab(t){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('view-'+t).classList.add('active');
+  document.getElementById('tab-'+t).classList.add('active');
+}
+function filterContacts(){
+  var q=document.getElementById('cfilter').value.toLowerCase();
+  document.querySelectorAll('#ctable tbody tr').forEach(function(tr){
+    tr.style.display = tr.innerText.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+  });
+}
+</script></body></html>
