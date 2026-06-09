@@ -8,763 +8,434 @@
   body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); padding:1rem; max-width:900px; margin:0 auto; }
   h1 { color:var(--primary); font-size:1.5rem; margin-bottom:.3rem; }
   .subtitle { color:#666; font-size:.9rem; margin-bottom:1.2rem; }
-  .summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.5rem; margin-bottom:1.2rem; }
+  .summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:.5rem; margin-bottom:1.2rem; }
   .summary-card { background:var(--primary); color:#fff; border-radius:8px; padding:.8rem; text-align:center; }
-  .summary-card .num { font-size:1.8rem; font-weight:700; }
-  .summary-card .label { font-size:.72rem; text-transform:uppercase; opacity:.85; }
+  .summary-card .num { font-size:1.7rem; font-weight:700; }
+  .summary-card .label { font-size:.7rem; text-transform:uppercase; opacity:.85; }
   .alert { background:#fff3cd; border-left:4px solid var(--warn); padding:.6rem 1rem; margin-bottom:.8rem; border-radius:0 6px 6px 0; font-size:.85rem; }
   .alert strong { color:var(--warn); }
   .rules { background:#f3e8f1; border-left:4px solid var(--accent); padding:.6rem 1rem; margin-bottom:1rem; border-radius:0 6px 6px 0; font-size:.82rem; color:#6a1b5a; }
   .section-title { font-size:1.2rem; color:var(--primary); margin:1.6rem 0 .5rem; border-bottom:2px solid var(--accent); padding-bottom:.3rem; }
-  .call { background:var(--card); border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.1); margin-bottom:.7rem; padding:.7rem 1rem; border-left:4px solid #ddd; }
-  .call.today { border-left:4px solid var(--accent); background:#fdf5fb; }
-  .call.dormant { border-left:4px solid #e63946; }
+  .day { background:var(--card); border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.1); margin-bottom:1rem; overflow:hidden; }
+  .day-header { background:var(--primary); color:#fff; padding:.6rem 1rem; font-weight:600; display:flex; justify-content:space-between; align-items:center; }
+  .day-header .cnt { font-weight:400; font-size:.85rem; opacity:.85; }
+  .day-ferie { background:#495057; }
+  .call { padding:.6rem 1rem; border-bottom:1px solid #eee; }
+  .call:last-child { border-bottom:none; }
   .call-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.3rem; }
-  .rank { font-weight:700; color:var(--primary); min-width:2rem; }
+  .rank { font-weight:700; color:var(--primary); }
   .client { font-weight:600; }
   .badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:.7rem; font-weight:600; text-transform:uppercase; margin-left:4px; }
   .badge-retard { background:#e63946; color:#fff; }
   .badge-bientot { background:#f4a261; color:#fff; }
-  .badge-ok { background:#adb5bd; color:#fff; }
   .badge-petit { background:#2a9d8f; color:#fff; }
   .badge-loin { background:#264653; color:#fff; }
-  .badge-today { background:var(--accent); color:#fff; }
+  .badge-nrp { background:#6c757d; color:#fff; }
+  .badge-ok { background:#2b8a3e; color:#fff; }
+  .badge-refus { background:#a61e4d; color:#fff; }
   .meta { font-size:.82rem; color:#555; margin-top:.35rem; line-height:1.5; }
   .meta strong { color:var(--text); }
   .contact-badge { background:#fde7f5; border-left:4px solid var(--accent); padding:.35rem .7rem; margin:.35rem 0; font-size:.9rem; border-radius:0 4px 4px 0; color:#7b2d6a; font-weight:600; }
   .contact-badge::before { content:"\1F4DE  "; }
   .refs { background:#eef6f5; padding:.35rem .6rem; margin-top:.35rem; font-size:.8rem; border-radius:4px; color:#1d6f63; }
   .refs::before { content:"\1F4E6 Refs habituelles : "; font-weight:600; opacity:.8; }
-  .notes { font-size:.78rem; color:#777; margin-top:.3rem; font-style:italic; }
+  .recap { background:var(--card); border-radius:8px; padding:.5rem 1rem; margin-bottom:.5rem; font-size:.85rem; box-shadow:0 1px 2px rgba(0,0,0,.08); }
   @media(max-width:600px){ .call-header{ flex-direction:column; align-items:flex-start; } }
 </style></head><body>
 <h1>Planning Télévente — Teatower</h1>
-<p class="subtitle">Télévendeuse : Vanessa &nbsp;|&nbsp; Cible : GMS petit assortiment ou éloignés &nbsp;|&nbsp; Capacité ~9 appels/jour &nbsp;|&nbsp; Généré le 2026-06-09</p>
+<p class="subtitle">Télévendeuse : Vanessa &nbsp;|&nbsp; Semaine S24 (08/06–12/06) &nbsp;|&nbsp; ~9 appels/jour &nbsp;|&nbsp; généré le 2026-06-09</p>
 
 <div class="summary">
-  <div class="summary-card"><div class="num">47</div><div class="label">Pool Vanessa</div></div>
-  <div class="summary-card"><div class="num">19</div><div class="label">En retard</div></div>
-  <div class="summary-card"><div class="num">10</div><div class="label">Dormants win-back</div></div>
-  <div class="summary-card"><div class="num">28,717€</div><div class="label">CA pool 12m</div></div>
+  <div class="summary-card"><div class="num">19</div><div class="label">À appeler</div></div>
+  <div class="summary-card"><div class="num">2</div><div class="label">Commandé S24</div></div>
+  <div class="summary-card"><div class="num">0</div><div class="label">Refus S24</div></div>
+  <div class="summary-card"><div class="num">0</div><div class="label">↪ Reportés S+1</div></div>
+  <div class="summary-card"><div class="num">10</div><div class="label">Win-back dispo</div></div>
 </div>
 
 <div class="rules">
-  <strong>Règles du pool</strong> (Nicolas 09/06/2026) — segment exclusif du merch Gilles.<br>
-  Vanessa = réfs ≤ 10 <em>OU</em> (distance &gt; 60 km <em>ET</em> réfs &lt; 20). Gros comptes éloignés (≥ 20 réfs) → restent à Gilles.<br>
-  Cadence : intervalle historique × 0,75, plancher 14j / plafond 35j (l'historique sous-estime le besoin réel à cause des appels oubliés).<br>
-  <em>Pas de mail ni de calendrier automatique. La prise de commande met à jour Odoo → le magasin redescend dans la file.</em>
+  <strong>Issues d'appel — à saisir dans la fiche Odoo du magasin :</strong><br>
+  ✅ Commande → encoder la SO (recale tout seul).&nbsp;
+  ❌ Refus → tag <code>[APPEL 2026-06-09 REFUS]</code> (sort de la semaine, revient à +cadence).&nbsp;
+  ☎️ Injoignable → tag <code>[APPEL 2026-06-09 NRP]</code> (reporté S+1, reste dû).<br>
+  Segment : réfs ≤ 10 OU (dist &gt; 60 km ET réfs &lt; 20). Cadence ×0,75 clamp [14,35]j. Pas de mail/calendrier auto.
 </div>
-
-<div class="alert"><strong>Lot du jour :</strong> les <strong>9 premiers</strong> de la file Anti-rupture (surlignés). Une fois la commande passée dans Odoo, le magasin sort automatiquement du haut de file au prochain rafraîchissement.</div>
-
-<h2 class="section-title">📞 File Anti-rupture (37)</h2>
-
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">1</span> <span class="client">Carrefour express Petits Champs</span> <span style="color:#999;font-size:.8rem">#120986</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 90j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">81 km</span></span>
+<h2 class="section-title">📞 Semaine S24 — anti-rupture (19 appels)</h2><div class="day"><div class="day-header">Lundi 08/06 <span class="cnt">9 appels</span></div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">1.</span> <span class="client">Carrefour express Petits Champs</span> <span style="color:#999;font-size:.78rem">#120986</span></span>
+      <span><span class="badge badge-retard">retard 90j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">81 km</span></span>
+    </div>
+    <div class="contact-badge">+32 2 354 35 22 &nbsp;|&nbsp; cvg0973@hotmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=CHAUSSEE+DE+BRUXELLES,+6,+1410,+Waterloo" target="_blank">CHAUSSEE DE BRUXELLES, 6, 1410, Waterloo</a> &nbsp;·&nbsp; 81 km<br>
+      🛒 Dernière cmd : <strong>2026-02-11</strong> (118j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 4 réfs &nbsp;·&nbsp; CA 20€/mois
+    </div>
+    <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x8); [I0279] Le panier de grand maman (20 infusettes) (x8); [I0735] Pêche de vigne - BIO (20 infusettes) (x8); [I0880] Blue Earl Grey BIO (20 infusettes) (x8)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">2.</span> <span class="client">Affilié 040290 - AD Andenne</span> <span style="color:#999;font-size:.78rem">#5899</span></span>
+      <span><span class="badge badge-retard">retard 88j</span><span class="badge badge-petit">petit assort.</span></span>
+    </div>
+    <div class="contact-badge">+32 85 41 19 81 &nbsp;|&nbsp; proxystema@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Roi+Albert+135A,+5300,+Andenne" target="_blank">Avenue Roi Albert 135A, 5300, Andenne</a> &nbsp;·&nbsp; 30 km<br>
+      🛒 Dernière cmd : <strong>2026-02-13</strong> (116j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 8 réfs &nbsp;·&nbsp; CA 46€/mois
+    </div>
+    <div class="refs">[I0832] La Nana de Wépion (20 infusettes) (x14); [I0735] Pêche de vigne - BIO (20 infusettes) (x12); [I0723] Namasté BIO (20 infusettes) (x11); [I0279] Le panier de grand maman (20 infusettes) (x11); [I0628] Oasis du désert - BIO (20 infusettes) (x10); [I0631] Le thé des amoureux (20 infusettes) (x10); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0635] Silhouette (20 infusettes) (x2)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">3.</span> <span class="client">Affilié 041895 - Proxy Delhaize Braives</span> <span style="color:#999;font-size:.78rem">#117130</span></span>
+      <span><span class="badge badge-retard">retard 85j</span><span class="badge badge-petit">petit assort.</span></span>
+    </div>
+    <div class="contact-badge">+32 19 69 94 88 &nbsp;|&nbsp; maxime@proxybraives.be</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+Tirlemont+6A,+4260,+Braives" target="_blank">Chaussée de Tirlemont 6A, 4260, Braives</a> &nbsp;·&nbsp; 39 km<br>
+      🛒 Dernière cmd : <strong>2026-02-09</strong> (120j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 32€/mois
+    </div>
+    <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x8); [I0880] Blue Earl Grey BIO (20 infusettes) (x8); [I0735] Pêche de vigne - BIO (20 infusettes) (x8); [V0711] Offrande des Rois Mages (100 g vrac) (x6); [V0732] Gourmandise de Noël (100 g vrac) (x6); [V0803] Le thé de la Mère Noël (100 g vrac) (x6); [V0891] Trésor des lutins (100 g vrac) (x6); [V0905] Un Noël Vanillé (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">4.</span> <span class="client">Carrefour Belgium - Corporate Village, Carrefour Market City 2</span> <span style="color:#999;font-size:.78rem">#113997</span></span>
+      <span><span class="badge badge-retard">retard 83j</span><span class="badge badge-loin">94 km</span></span>
+    </div>
+    <div class="contact-badge">+32 476 73 31 60 &nbsp;|&nbsp; constance_havet@carrefour.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Neuve+123,+1000,+Bruxelles" target="_blank">Rue Neuve 123, 1000, Bruxelles</a> &nbsp;·&nbsp; 94 km<br>
+      🛒 Dernière cmd : <strong>2026-02-11</strong> (118j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 14 réfs &nbsp;·&nbsp; CA 63€/mois
+    </div>
+    <div class="refs">[V0628] Oasis du désert - BIO (100 g vrac) (x12); [V0751] I love you (80 g vrac) (x12); [V0832] La Nana de Wépion (100 g vrac) (x12); [V0631] Le thé des amoureux (80 g vrac) (x9); [V0626] Sencha - BIO (100 g vrac) (x8); [V0600] La lampe merveilleuse (100 g vrac) (x8); [V0878] Guarana Boost (100 g vrac) (x8); [V0279] Le panier de grand maman (80 g vrac) (x8)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">5.</span> <span class="client">Carrefour market Arlon Hydrion</span> <span style="color:#999;font-size:.78rem">#117404</span></span>
+      <span><span class="badge badge-retard">retard 47j</span><span class="badge badge-loin">74 km</span></span>
+    </div>
+    <div class="contact-badge">+32 63 44 51 90 &nbsp;|&nbsp; markethydrion@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Parc+commerciale+de+l&#x27;Hydrion+1,+6700,+Arlon" target="_blank">Parc commerciale de l&#x27;Hydrion 1, 6700, Arlon</a> &nbsp;·&nbsp; 74 km<br>
+      🛒 Dernière cmd : <strong>2026-03-19</strong> (82j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 19 réfs &nbsp;·&nbsp; CA 69€/mois
+    </div>
+    <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x12); [I0880] Blue Earl Grey BIO (20 infusettes) (x9); [EM0072] SRP Kraft Horeca (x8); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [I0723] Namasté BIO (20 infusettes) (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">6.</span> <span class="client">Hyper Carrefour Bomerée</span> <span style="color:#999;font-size:.78rem">#122467</span></span>
+      <span><span class="badge badge-retard">retard 46j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">69 km</span></span>
+    </div>
+    <div class="contact-badge">+32 71 29 72 11 &nbsp;|&nbsp; demoulin_michael@carrefour.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+station+1,+6110,+Montigny-Le-Tilleul" target="_blank">Rue de la station 1, 6110, Montigny-Le-Tilleul</a> &nbsp;·&nbsp; 69 km<br>
+      🛒 Dernière cmd : <strong>2026-03-27</strong> (74j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 22€/mois
+    </div>
+    <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [I0631] Le thé des amoureux (20 infusettes) (x6); [EM0072] SRP Kraft Horeca (x6); [I0723] Namasté BIO (20 infusettes) (x0)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">7.</span> <span class="client">Carrefour Market Wellin</span> <span style="color:#999;font-size:.78rem">#122589</span></span>
+      <span><span class="badge badge-retard">retard 43j</span><span class="badge badge-petit">petit assort.</span></span>
+    </div>
+    <div class="contact-badge">+32 84 38 92 96 &nbsp;|&nbsp; carrefourwellin@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Station,+32,+6920,+Wellin" target="_blank">Rue de la Station, 32, 6920, Wellin</a> &nbsp;·&nbsp; 30 km<br>
+      🛒 Dernière cmd : <strong>2026-03-30</strong> (71j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 6 réfs &nbsp;·&nbsp; CA 35€/mois
+    </div>
+    <div class="refs">[V0628] Oasis du désert - BIO (100 g vrac) (x10); [I0880] Blue Earl Grey BIO (20 infusettes) (x10); [V0631] Le thé des amoureux (80 g vrac) (x10); [I0751] I love you (20 infusettes) (x10); [V0735] Pêche de vigne - BIO (100 g vrac) (x10); [I0279] Le panier de grand maman (20 infusettes) (x10)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">8.</span> <span class="client">GENADIS - Intermarché Genappe</span> <span style="color:#999;font-size:.78rem">#2963</span></span>
+      <span><span class="badge badge-retard">retard 41j</span><span class="badge badge-loin">70 km</span></span>
+    </div>
+    <div class="contact-badge">067 78 02 50 &nbsp;|&nbsp; pdv09846@mousquetaires.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Louis+Lalieux+22,+1470,+Genappe" target="_blank">Rue Louis Lalieux 22, 1470, Genappe</a> &nbsp;·&nbsp; 70 km<br>
+      🛒 Dernière cmd : <strong>2026-03-25</strong> (76j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 16 réfs &nbsp;·&nbsp; CA 112€/mois
+    </div>
+    <div class="refs">[I0735] Pêche de vigne - BIO (20 infusettes) (x22); [I0751] I love you (20 infusettes) (x20); [I0626] Sencha - BIO (20 infusettes) (x17); [I0205] Etoiles filantes (20 infusettes) (x17); [I0631] Le thé des amoureux (20 infusettes) (x14); [I0600] La lampe merveilleuse (20 infusettes) (x13); [I0279] Le panier de grand maman (20 infusettes) (x13); [I0868] Citron meringué (20 infusettes) (x11)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">9.</span> <span class="client">Affilié 041341 - AD Delhaize Filature</span> <span style="color:#999;font-size:.78rem">#5443</span></span>
+      <span><span class="badge badge-retard">retard 41j</span><span class="badge badge-loin">87 km</span></span>
+    </div>
+    <div class="contact-badge">02 204 56 40 &nbsp;|&nbsp; Adfilature@courcellesgroup.be</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Tubize+102,+Braine-le-Château" target="_blank">Rue de Tubize 102, Braine-le-Château</a> &nbsp;·&nbsp; 87 km<br>
+      🛒 Dernière cmd : <strong>2026-03-25</strong> (76j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 15 réfs &nbsp;·&nbsp; CA 85€/mois
+    </div>
+    <div class="refs">[GI0735] Pêche de Vigne - BIO glacée (x16); [V0732] Gourmandise de Noël (100 g vrac) (x15); [GI0820] Marrakech Sunset - BIO glacé (x15); [GI0634] Gourmandise glacée (x14); [I0631] Le thé des amoureux (20 infusettes) (x12); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x12); [I0279] Le panier de grand maman (20 infusettes) (x11); [V0891] Trésor des lutins (100 g vrac) (x10)</div>
+  </div></div><div class="day"><div class="day-header">Mardi 09/06 <span class="cnt">9 appels</span></div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">1.</span> <span class="client">V2V Express Two - Carrefour Express 1314</span> <span style="color:#999;font-size:.78rem">#3274</span></span>
+      <span><span class="badge badge-retard">retard 41j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">75 km</span></span>
+    </div>
+    <div class="contact-badge">02 633 11 90 &nbsp;|&nbsp; lasnedistribution@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Route+de+l&#x27;Etat+47,+1380,+Lasne" target="_blank">Route de l&#x27;Etat 47, 1380, Lasne</a> &nbsp;·&nbsp; 75 km<br>
+      🛒 Dernière cmd : <strong>2026-03-25</strong> (76j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 34€/mois
+    </div>
+    <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x10); [GI0832] La Nana de Wépion glacée (x10); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x10); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x10); [GI0735] Pêche de Vigne - BIO glacée (x9); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0669] Vert Jasmin (20 infusettes) (x4)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">2.</span> <span class="client">Distriparenthèse - Intermarché Gosselies</span> <span style="color:#999;font-size:.78rem">#2927</span></span>
+      <span><span class="badge badge-retard">retard 35j</span><span class="badge badge-loin">67 km</span></span>
+    </div>
+    <div class="contact-badge">071/35.40.10 &nbsp;|&nbsp; pdv09920@mousquetaires.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Pont+à+Migneloux,+13,+6041,+Gosselies" target="_blank">Rue Pont à Migneloux, 13, 6041, Gosselies</a> &nbsp;·&nbsp; 67 km<br>
+      🛒 Dernière cmd : <strong>2026-03-31</strong> (70j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 18 réfs &nbsp;·&nbsp; CA 118€/mois
+    </div>
+    <div class="refs">[I0832] La Nana de Wépion (20 infusettes) (x21); [V0914] Infusion du Printemps 2026 (x18); [I0868] Citron meringué (20 infusettes) (x17); [GI0820] Marrakech Sunset - BIO glacé (x16); [I0279] Le panier de grand maman (20 infusettes) (x14); [I0631] Le thé des amoureux (20 infusettes) (x13); [I0880] Blue Earl Grey BIO (20 infusettes) (x13); [I0751] I love you (20 infusettes) (x13)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">3.</span> <span class="client">Lambertdis SRL - Spar Manhay</span> <span style="color:#999;font-size:.78rem">#122944</span></span>
+      <span><span class="badge badge-retard">retard 35j</span><span class="badge badge-petit">petit assort.</span></span>
+    </div>
+    <div class="contact-badge">+32 86 45 55 87 &nbsp;|&nbsp; lambertfrancoise@skynet.be</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+d&#x27;erezée,,+6960,+Manhay" target="_blank">Rue d&#x27;erezée,, 6960, Manhay</a> &nbsp;·&nbsp; 23 km<br>
+      🛒 Dernière cmd : <strong>2026-04-21</strong> (49j) &nbsp;·&nbsp;
+      cadence cible : <strong>14j</strong> &nbsp;·&nbsp; 10 réfs &nbsp;·&nbsp; CA 47€/mois
+    </div>
+    <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x10); [I0631] Le thé des amoureux (20 infusettes) (x10); [I0751] I love you (20 infusettes) (x10); [I0735] Pêche de vigne - BIO (20 infusettes) (x10); [I0279] Le panier de grand maman (20 infusettes) (x10); [I0832] La Nana de Wépion (20 infusettes) (x10); [I0121] Lady Dodo (20 infusettes) (x10); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x8)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">4.</span> <span class="client">Affilié 043145 - Delhaize Flagey</span> <span style="color:#999;font-size:.78rem">#120159</span></span>
+      <span><span class="badge badge-retard">retard 32j</span><span class="badge badge-loin">91 km</span></span>
+    </div>
+    <div class="contact-badge">+32 471 53 40 15 &nbsp;|&nbsp; skoumans@outlook.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Hennin+18,+1050,+Ixelles" target="_blank">Rue de Hennin 18, 1050, Ixelles</a> &nbsp;·&nbsp; 91 km<br>
+      🛒 Dernière cmd : <strong>2026-04-03</strong> (67j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 18 réfs &nbsp;·&nbsp; CA 91€/mois
+    </div>
+    <div class="refs">[EM0072] SRP Kraft Horeca (x16); [I0279] Le panier de grand maman (20 infusettes) (x15); [I0735] Pêche de vigne - BIO (20 infusettes) (x14); [I0669] Vert Jasmin (20 infusettes) (x12); [I0868] Citron meringué (20 infusettes) (x12); [I0631] Le thé des amoureux (20 infusettes) (x11); [I0751] I love you (20 infusettes) (x11); [I0878] Guarana Boost (20 infusettes) (x11)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">5.</span> <span class="client">Affilié 44845 - Delhaize Enghien</span> <span style="color:#999;font-size:.78rem">#123041</span></span>
+      <span><span class="badge badge-retard">retard 26j</span><span class="badge badge-loin">102 km</span></span>
+    </div>
+    <div class="contact-badge"> &nbsp;|&nbsp; dllenghienmestdag@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Square+de+la+Dodane,+7850,+Enghien" target="_blank">Square de la Dodane, 7850, Enghien</a> &nbsp;·&nbsp; 102 km<br>
+      🛒 Dernière cmd : <strong>2026-04-16</strong> (54j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 12 réfs &nbsp;·&nbsp; CA 26€/mois
+    </div>
+    <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x4); [I0631] Le thé des amoureux (20 infusettes) (x4); [I0751] I love you (20 infusettes) (x4); [I0635] Silhouette (20 infusettes) (x4); [I0878] Guarana Boost (20 infusettes) (x4); [I0735] Pêche de vigne - BIO (20 infusettes) (x4); [I0205] Etoiles filantes (20 infusettes) (x4); [I0121] Lady Dodo (20 infusettes) (x4)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">6.</span> <span class="client">Gmp La Louvière - Delhaize La Louvière</span> <span style="color:#999;font-size:.78rem">#123035</span></span>
+      <span><span class="badge badge-retard">retard 22j</span><span class="badge badge-loin">85 km</span></span>
+    </div>
+    <div class="contact-badge">+32 64 44 44 08 &nbsp;|&nbsp; chef44686@delhaize.be</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Franco-Belge+228,+7100,+La+Louvière" target="_blank">Rue de la Franco-Belge 228, 7100, La Louvière</a> &nbsp;·&nbsp; 85 km<br>
+      🛒 Dernière cmd : <strong>2026-04-20</strong> (50j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 14 réfs &nbsp;·&nbsp; CA 40€/mois
+    </div>
+    <div class="refs">[EM0072] SRP Kraft Horeca (x11); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0631] Le thé des amoureux (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6); [I0751] I love you (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0635] Silhouette (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">7.</span> <span class="client">VGS Company - Carrefour Express Rhode-Saint-Genèse</span> <span style="color:#999;font-size:.78rem">#120933</span></span>
+      <span><span class="badge badge-retard">retard 19j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">86 km</span></span>
+    </div>
+    <div class="contact-badge">+32 2 466 68 41 &nbsp;|&nbsp; carrefour.express.rsg@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+Waterloo+230,+1640,+Rhode-Saint-Genèse" target="_blank">Chaussée de Waterloo 230, 1640, Rhode-Saint-Genèse</a> &nbsp;·&nbsp; 86 km<br>
+      🛒 Dernière cmd : <strong>2026-04-16</strong> (54j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 3 réfs &nbsp;·&nbsp; CA 18€/mois
+    </div>
+    <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x14); [I0832] La Nana de Wépion (20 infusettes) (x8); [I0205] Etoiles filantes (20 infusettes) (x8)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">8.</span> <span class="client">Gemblouxim - Intermarché Gembloux</span> <span style="color:#999;font-size:.78rem">#123346</span></span>
+      <span><span class="badge badge-retard">retard 12j</span><span class="badge badge-petit">petit assort.</span></span>
+    </div>
+    <div class="contact-badge">+32 81 61 01 43 &nbsp;|&nbsp; PDV09844@MOUSQUETAIRES.COM</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Campagne+d&#x27;Enée+1,+5030,+Gembloux" target="_blank">Campagne d&#x27;Enée 1, 5030, Gembloux</a> &nbsp;·&nbsp; 53 km<br>
+      🛒 Dernière cmd : <strong>2026-04-30</strong> (40j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 44€/mois
+    </div>
+    <div class="refs">[EM0072] SRP Kraft Horeca (x16); [GI0820] Marrakech Sunset - BIO glacé (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0634] Gourmandise glacée (x12); [GI0832] La Nana de Wépion glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x12); [V0914] Infusion du Printemps 2026 (x12)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">9.</span> <span class="client">BLONFOOD SA - Intermarché Liège Blonden</span> <span style="color:#999;font-size:.78rem">#123345</span></span>
+      <span><span class="badge badge-retard">retard 12j</span><span class="badge badge-petit">petit assort.</span></span>
+    </div>
+    <div class="contact-badge">+32 4 229 34 98 &nbsp;|&nbsp; PDV09874@MOUSQUETAIRES.COM</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Blonden+26,+4000,+Liège" target="_blank">Avenue Blonden 26, 4000, Liège</a> &nbsp;·&nbsp; 43 km<br>
+      🛒 Dernière cmd : <strong>2026-04-30</strong> (40j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 7 réfs &nbsp;·&nbsp; CA 37€/mois
+    </div>
+    <div class="refs">[V0914] Infusion du Printemps 2026 (x10); [GI0820] Marrakech Sunset - BIO glacé (x10); [GI0832] La Nana de Wépion glacée (x10); [GI0735] Pêche de Vigne - BIO glacée (x10); [GI0634] Gourmandise glacée (x10); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x10); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x10)</div>
+  </div></div><div class="day"><div class="day-header">Mercredi 10/06 <span class="cnt">1 appels</span></div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">1.</span> <span class="client">Digretail - Intermarché Braine-le-Comte Digues</span> <span style="color:#999;font-size:.78rem">#123466</span></span>
+      <span><span class="badge badge-retard">retard 7j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">92 km</span></span>
+    </div>
+    <div class="contact-badge">+32 67 56 01 88 &nbsp;|&nbsp; PDV09832@MOUSQUETAIRES.COM</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+des+Digues+60,+7090,+Braine-le-Comte" target="_blank">Rue des Digues 60, 7090, Braine-le-Comte</a> &nbsp;·&nbsp; 92 km<br>
+      🛒 Dernière cmd : <strong>2026-05-05</strong> (35j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 44€/mois
+    </div>
+    <div class="refs">[EM0072] SRP Kraft Horeca (x16); [GI0820] Marrakech Sunset - BIO glacé (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0634] Gourmandise glacée (x12); [GI0832] La Nana de Wépion glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x12); [V0914] Infusion du Printemps 2026 (x12)</div>
+  </div></div><div class="day"><div class="day-header">Jeudi 11/06 <span class="cnt">0 appels</span></div><div class="call" style="color:#888">— rien à appeler ce jour —</div></div><div class="day"><div class="day-header">Vendredi 12/06 <span class="cnt">0 appels</span></div><div class="call" style="color:#888">— rien à appeler ce jour —</div></div><h2 class="section-title">✔️ Réalisé cette semaine (2)</h2><div class="recap"><span class="badge badge-ok">commandé 2026-06-08</span> <strong>Hyper Carrefour Gosselies</strong> #122466</div><div class="recap"><span class="badge badge-ok">commandé 2026-06-08</span> <strong>Micamik SRL - Spar Godinne</strong> #122995</div><h2 class="section-title">🔄 Win-back — dormants &gt;90j (10)</h2><div class="alert">Clients perdus de vue. Discours réactivation. À traiter quand la semaine est creuse.</div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">1.</span> <span class="client">KAIO Retail invest - Delhaize Ottignies</span> <span style="color:#999;font-size:.78rem">#5649</span></span>
+      <span><span class="badge badge-retard">retard 315j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">66 km</span></span>
+    </div>
+    <div class="contact-badge">010 40 15 69 &nbsp;|&nbsp; jolan.cailleau@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Bois+Pinchet,+2,+Villers-La-Ville" target="_blank">Bois Pinchet, 2, Villers-La-Ville</a> &nbsp;·&nbsp; 66 km<br>
+      🛒 Dernière cmd : <strong>2025-07-01</strong> (343j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 6 réfs &nbsp;·&nbsp; CA 13€/mois
+    </div>
+    <div class="refs">[V0301] Tisane tropicale (100 g vrac) (x8); [GI0634] Gourmandise glacée (x8); [V0723] Namasté BIO (80 g vrac) (x3); [V0279] Le panier de grand maman (80 g vrac) (x3); [V0121] Lady Dodo (80 g vrac) (x2); [V0751] I love you (80 g vrac) (x1)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">2.</span> <span class="client">Carrefour market Etterbeek</span> <span style="color:#999;font-size:.78rem">#9159</span></span>
+      <span><span class="badge badge-retard">retard 298j</span><span class="badge badge-loin">90 km</span></span>
+    </div>
+    <div class="contact-badge">+32 2 772 87 76</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Cours+st.Michel+80,+1040,+Etterbeek" target="_blank">Cours st.Michel 80, 1040, Etterbeek</a> &nbsp;·&nbsp; 90 km<br>
+      🛒 Dernière cmd : <strong>2025-07-18</strong> (326j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 19 réfs &nbsp;·&nbsp; CA 88€/mois
+    </div>
+    <div class="refs">[GI0634] Gourmandise glacée (x13); [V0895] Matcha japonais (x13); [GI0820] Marrakech Sunset - BIO glacé (x13); [GI0735] Pêche de Vigne - BIO glacée (x13); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x13); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x13); [I0205] Etoiles filantes (20 infusettes) (x6); [I0279] Le panier de grand maman (20 infusettes) (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">3.</span> <span class="client">Hyper Carrefour de Drogendos</span> <span style="color:#999;font-size:.78rem">#8488</span></span>
+      <span><span class="badge badge-retard">retard 279j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">91 km</span></span>
+    </div>
+    <div class="contact-badge">+32 2 446 15 25</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Paul+Gilson+455,+1620,+Drogenbos" target="_blank">Avenue Paul Gilson 455, 1620, Drogenbos</a> &nbsp;·&nbsp; 91 km<br>
+      🛒 Dernière cmd : <strong>2025-08-06</strong> (307j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 9 réfs &nbsp;·&nbsp; CA 36€/mois
+    </div>
+    <div class="refs">[I0279] Le panier de grand maman (20 infusettes) (x12); [GI0820] Marrakech Sunset - BIO glacé (x12); [I0751] I love you (20 infusettes) (x6); [V0895] Matcha japonais (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [V0723] Namasté BIO (80 g vrac) (x6); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">4.</span> <span class="client">Delhaize bois de breux</span> <span style="color:#999;font-size:.78rem">#7873</span></span>
+      <span><span class="badge badge-retard">retard 279j</span><span class="badge badge-petit">petit assort.</span></span>
+    </div>
+    <div class="contact-badge">+32 4 365 74 07</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=" target="_blank"></a> &nbsp;·&nbsp;  km<br>
+      🛒 Dernière cmd : <strong>2025-08-06</strong> (307j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 5 réfs &nbsp;·&nbsp; CA 29€/mois
+    </div>
+    <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x15); [I0735] Pêche de vigne - BIO (20 infusettes) (x10); [I0832] La Nana de Wépion (20 infusettes) (x10); [GI0634] Gourmandise glacée (x10); [I0628] Oasis du désert - BIO (20 infusettes) (x8)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">5.</span> <span class="client">Carrefour Market Eupen centre Rotenberg</span> <span style="color:#999;font-size:.78rem">#113634</span></span>
+      <span><span class="badge badge-retard">retard 211j</span><span class="badge badge-loin">62 km</span></span>
+    </div>
+    <div class="contact-badge">+32 87 55 59 01 &nbsp;|&nbsp; carrefoureupen@skynet.be</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rotenberg+12,+4700,+Eupen" target="_blank">Rotenberg 12, 4700, Eupen</a> &nbsp;·&nbsp; 62 km<br>
+      🛒 Dernière cmd : <strong>2025-10-13</strong> (239j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 19 réfs &nbsp;·&nbsp; CA 64€/mois
+    </div>
+    <div class="refs">[EM0072] SRP Kraft Horeca (x16); [V0914] Infusion du Printemps 2026 (x6); [I0279] Le panier de grand maman (20 infusettes) (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0301] Tisane tropicale (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">6.</span> <span class="client">Carrefour Market Eupen Herbesthalerstrasse</span> <span style="color:#999;font-size:.78rem">#113974</span></span>
+      <span><span class="badge badge-retard">retard 204j</span><span class="badge badge-loin">62 km</span></span>
+    </div>
+    <div class="contact-badge">+32 87 21 30 30 &nbsp;|&nbsp; info@hypermarketeupen.be</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Herbesthal+203,+4700,+Eupen" target="_blank">Rue de Herbesthal 203, 4700, Eupen</a> &nbsp;·&nbsp; 62 km<br>
+      🛒 Dernière cmd : <strong>2025-10-20</strong> (232j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 19 réfs &nbsp;·&nbsp; CA 63€/mois
+    </div>
+    <div class="refs">[EM0072] SRP Kraft Horeca (x16); [I0279] Le panier de grand maman (20 infusettes) (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0301] Tisane tropicale (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [I0751] I love you (20 infusettes) (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">7.</span> <span class="client">Distriwal SRL - Carrefour Market Walcourt</span> <span style="color:#999;font-size:.78rem">#9016</span></span>
+      <span><span class="badge badge-retard">retard 201j</span><span class="badge badge-loin">65 km</span></span>
+    </div>
+    <div class="contact-badge">+32 71 61 14 73 &nbsp;|&nbsp; labbe-r@hotmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Forge,+34,+5650,+WALCOURT" target="_blank">Rue de la Forge, 34, 5650, WALCOURT</a> &nbsp;·&nbsp; 65 km<br>
+      🛒 Dernière cmd : <strong>2025-10-16</strong> (236j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 17 réfs &nbsp;·&nbsp; CA 95€/mois
+    </div>
+    <div class="refs">[EM0072] SRP Kraft Horeca (x16); [I0751] I love you (20 infusettes) (x14); [I0279] Le panier de grand maman (20 infusettes) (x14); [I0631] Le thé des amoureux (20 infusettes) (x12); [I0301] Tisane tropicale (20 infusettes) (x12); [I0669] Vert Jasmin (20 infusettes) (x11); [I0880] Blue Earl Grey BIO (20 infusettes) (x11); [I0735] Pêche de vigne - BIO (20 infusettes) (x11)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">8.</span> <span class="client">Carrefour Market Braine-l&#x27;Alleud</span> <span style="color:#999;font-size:.78rem">#8339</span></span>
+      <span><span class="badge badge-retard">retard 180j</span><span class="badge badge-loin">81 km</span></span>
+    </div>
+    <div class="contact-badge" style="color:#c92a2a">☎️ TÉL MANQUANT — à compléter dans Odoo</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Pl.+du+Môle+25,+1420,+Braine-l&#x27;alleud" target="_blank">Pl. du Môle 25, 1420, Braine-l&#x27;alleud</a> &nbsp;·&nbsp; 81 km<br>
+      🛒 Dernière cmd : <strong>2025-11-06</strong> (215j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 14 réfs &nbsp;·&nbsp; CA 54€/mois
+    </div>
+    <div class="refs">[I0735] Pêche de vigne - BIO (20 infusettes) (x10); [V0711] Offrande des Rois Mages (100 g vrac) (x10); [V0732] Gourmandise de Noël (100 g vrac) (x10); [V0803] Le thé de la Mère Noël (100 g vrac) (x10); [V0891] Trésor des lutins (100 g vrac) (x10); [GI0634] Gourmandise glacée (x8); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x8); [I0751] I love you (20 infusettes) (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">9.</span> <span class="client">Carrefour Hyper Auderghem</span> <span style="color:#999;font-size:.78rem">#8062</span></span>
+      <span><span class="badge badge-retard">retard 112j</span><span class="badge badge-loin">87 km</span></span>
+    </div>
+    <div class="contact-badge">+32 2 679 05 11 &nbsp;|&nbsp; josiane_bourcy@carrefour.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Bd+du+Souverain-Vorstlaan+240,+1160,+Auderghem" target="_blank">Bd du Souverain-Vorstlaan 240, 1160, Auderghem</a> &nbsp;·&nbsp; 87 km<br>
+      🛒 Dernière cmd : <strong>2026-01-13</strong> (147j) &nbsp;·&nbsp;
+      cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 11 réfs &nbsp;·&nbsp; CA 53€/mois
+    </div>
+    <div class="refs">[I0301] Tisane tropicale (20 infusettes) (x12); [I0751] I love you (20 infusettes) (x12); [I0878] Guarana Boost (20 infusettes) (x12); [I0631] Le thé des amoureux (20 infusettes) (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [I0121] Lady Dodo (20 infusettes) (x6); [I0279] Le panier de grand maman (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6)</div>
+  </div>
+  <div class="call">
+    <div class="call-header">
+      <span><span class="rank">10.</span> <span class="client">Spirec SRL - Carrefour Express CHIREC</span> <span style="color:#999;font-size:.78rem">#120762</span></span>
+      <span><span class="badge badge-retard">retard 96j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">87 km</span></span>
+    </div>
+    <div class="contact-badge">+32 2 280 40 49 &nbsp;|&nbsp; express.chirec@gmail.com</div>
+    <div class="meta">
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Boulevard+du+Triomphe,+201,+1160,+Auderghem" target="_blank">Boulevard du Triomphe, 201, 1160, Auderghem</a> &nbsp;·&nbsp; 87 km<br>
+      🛒 Dernière cmd : <strong>2026-02-05</strong> (124j) &nbsp;·&nbsp;
+      cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 7 réfs &nbsp;·&nbsp; CA 29€/mois
+    </div>
+    <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x8); [I0880] Blue Earl Grey BIO (20 infusettes) (x8); [I0751] I love you (20 infusettes) (x8); [I0735] Pêche de vigne - BIO (20 infusettes) (x8); [I0279] Le panier de grand maman (20 infusettes) (x8); [V0832] La Nana de Wépion (100 g vrac) (x8); [EM0072] SRP Kraft Horeca (x6)</div>
   </div>
-  <div class="contact-badge">+32 2 354 35 22 &nbsp;|&nbsp; cvg0973@hotmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=CHAUSSEE+DE+BRUXELLES,+6,+1410,+Waterloo" target="_blank">CHAUSSEE DE BRUXELLES, 6, 1410, Waterloo</a> &nbsp;·&nbsp; 81 km<br>
-    🛒 Dernière cmd : <strong>2026-02-11</strong> (118j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    4 réfs &nbsp;·&nbsp; CA 20€/mois
-  </div>
-  <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x8); [I0279] Le panier de grand maman (20 infusettes) (x8); [I0735] Pêche de vigne - BIO (20 infusettes) (x8); [I0880] Blue Earl Grey BIO (20 infusettes) (x8)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour express Petits champs Contact merchandiser: Mr Serge Voir pour le suivi merchandiser car que 4 référence en magasin</div>
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">2</span> <span class="client">Affilié 040290 - AD Andenne</span> <span style="color:#999;font-size:.8rem">#5899</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 88j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 85 41 19 81 &nbsp;|&nbsp; proxystema@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Roi+Albert+135A,+5300,+Andenne" target="_blank">Avenue Roi Albert 135A, 5300, Andenne</a> &nbsp;·&nbsp; 30 km<br>
-    🛒 Dernière cmd : <strong>2026-02-13</strong> (116j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    8 réfs &nbsp;·&nbsp; CA 46€/mois
-  </div>
-  <div class="refs">[I0832] La Nana de Wépion (20 infusettes) (x14); [I0735] Pêche de vigne - BIO (20 infusettes) (x12); [I0723] Namasté BIO (20 infusettes) (x11); [I0279] Le panier de grand maman (20 infusettes) (x11); [I0628] Oasis du désert - BIO (20 infusettes) (x10); [I0631] Le thé des amoureux (20 infusettes) (x10); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0635] Silhouette (20 infusettes) (x2)</div>
-  
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">3</span> <span class="client">Affilié 041895 - Proxy Delhaize Braives</span> <span style="color:#999;font-size:.8rem">#117130</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 85j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 19 69 94 88 &nbsp;|&nbsp; maxime@proxybraives.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+Tirlemont+6A,+4260,+Braives" target="_blank">Chaussée de Tirlemont 6A, 4260, Braives</a> &nbsp;·&nbsp; 39 km<br>
-    🛒 Dernière cmd : <strong>2026-02-09</strong> (120j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 32€/mois
-  </div>
-  <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x8); [I0880] Blue Earl Grey BIO (20 infusettes) (x8); [I0735] Pêche de vigne - BIO (20 infusettes) (x8); [V0711] Offrande des Rois Mages (100 g vrac) (x6); [V0732] Gourmandise de Noël (100 g vrac) (x6); [V0803] Le thé de la Mère Noël (100 g vrac) (x6); [V0891] Trésor des lutins (100 g vrac) (x6); [V0905] Un Noël Vanillé (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Proxy Delhaize Braives Contact merchandiser: Yannick Demander Yannick. Attention que 3 références en rayon.</div>
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">4</span> <span class="client">Carrefour Belgium - Corporate Village, Carrefour Market City 2</span> <span style="color:#999;font-size:.8rem">#113997</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 83j</span><span class="badge badge-loin">94 km</span></span>
-  </div>
-  <div class="contact-badge">+32 476 73 31 60 &nbsp;|&nbsp; constance_havet@carrefour.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Neuve+123,+1000,+Bruxelles" target="_blank">Rue Neuve 123, 1000, Bruxelles</a> &nbsp;·&nbsp; 94 km<br>
-    🛒 Dernière cmd : <strong>2026-02-11</strong> (118j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    14 réfs &nbsp;·&nbsp; CA 63€/mois
-  </div>
-  <div class="refs">[V0628] Oasis du désert - BIO (100 g vrac) (x12); [V0751] I love you (80 g vrac) (x12); [V0832] La Nana de Wépion (100 g vrac) (x12); [V0631] Le thé des amoureux (80 g vrac) (x9); [V0626] Sencha - BIO (100 g vrac) (x8); [V0600] La lampe merveilleuse (100 g vrac) (x8); [V0878] Guarana Boost (100 g vrac) (x8); [V0279] Le panier de grand maman (80 g vrac) (x8)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Market City 2 Contact merchandiser: Mme Havet ou Laurent Schayes demander Mme Havet ou Laurent Schayes - Pas de visite le vendredi - se présenter de 6h à 12h30</div>
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">5</span> <span class="client">Carrefour market Arlon Hydrion</span> <span style="color:#999;font-size:.8rem">#117404</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 47j</span><span class="badge badge-loin">74 km</span></span>
-  </div>
-  <div class="contact-badge">+32 63 44 51 90 &nbsp;|&nbsp; markethydrion@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Parc+commerciale+de+l&#x27;Hydrion+1,+6700,+Arlon" target="_blank">Parc commerciale de l&#x27;Hydrion 1, 6700, Arlon</a> &nbsp;·&nbsp; 74 km<br>
-    🛒 Dernière cmd : <strong>2026-03-19</strong> (82j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    19 réfs &nbsp;·&nbsp; CA 69€/mois
-  </div>
-  <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x12); [I0880] Blue Earl Grey BIO (20 infusettes) (x9); [EM0072] SRP Kraft Horeca (x8); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [I0723] Namasté BIO (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Market Arlon Hydrion Contact merchandiser: Mme Hoffelt Personne de contact Mégane.</div>
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">6</span> <span class="client">Hyper Carrefour Bomerée</span> <span style="color:#999;font-size:.8rem">#122467</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 46j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">69 km</span></span>
-  </div>
-  <div class="contact-badge">+32 71 29 72 11 &nbsp;|&nbsp; demoulin_michael@carrefour.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+station+1,+6110,+Montigny-Le-Tilleul" target="_blank">Rue de la station 1, 6110, Montigny-Le-Tilleul</a> &nbsp;·&nbsp; 69 km<br>
-    🛒 Dernière cmd : <strong>2026-03-27</strong> (74j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 22€/mois
-  </div>
-  <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [I0631] Le thé des amoureux (20 infusettes) (x6); [EM0072] SRP Kraft Horeca (x6); [I0723] Namasté BIO (20 infusettes) (x0)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Hyper Carrefour Bomerée Contact merchandiser: Demoulin michael Ok pour le suivi merchandiser demander Mr Demoulin ou Darion Do Santos. Préférence de passage lundi ou mardi ( Attention, 6 référence en magasin)</div>
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">7</span> <span class="client">Carrefour Market Wellin</span> <span style="color:#999;font-size:.8rem">#122589</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 43j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 84 38 92 96 &nbsp;|&nbsp; carrefourwellin@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Station,+32,+6920,+Wellin" target="_blank">Rue de la Station, 32, 6920, Wellin</a> &nbsp;·&nbsp; 30 km<br>
-    🛒 Dernière cmd : <strong>2026-03-30</strong> (71j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    6 réfs &nbsp;·&nbsp; CA 35€/mois
-  </div>
-  <div class="refs">[V0628] Oasis du désert - BIO (100 g vrac) (x10); [I0880] Blue Earl Grey BIO (20 infusettes) (x10); [V0631] Le thé des amoureux (80 g vrac) (x10); [I0751] I love you (20 infusettes) (x10); [V0735] Pêche de vigne - BIO (100 g vrac) (x10); [I0279] Le panier de grand maman (20 infusettes) (x10)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Market Wellin Contact merchandiser: Gwenaëlle Trousse Ok pour le suivi merchandiser demander Gwenaëlle. Jour fixe dans son horaire le lundi et vendredi</div>
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">8</span> <span class="client">GENADIS - Intermarché Genappe</span> <span style="color:#999;font-size:.8rem">#2963</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 41j</span><span class="badge badge-loin">70 km</span></span>
-  </div>
-  <div class="contact-badge">067 78 02 50 &nbsp;|&nbsp; pdv09846@mousquetaires.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Louis+Lalieux+22,+1470,+Genappe" target="_blank">Rue Louis Lalieux 22, 1470, Genappe</a> &nbsp;·&nbsp; 70 km<br>
-    🛒 Dernière cmd : <strong>2026-03-25</strong> (76j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    16 réfs &nbsp;·&nbsp; CA 112€/mois
-  </div>
-  <div class="refs">[I0735] Pêche de vigne - BIO (20 infusettes) (x22); [I0751] I love you (20 infusettes) (x20); [I0626] Sencha - BIO (20 infusettes) (x17); [I0205] Etoiles filantes (20 infusettes) (x17); [I0631] Le thé des amoureux (20 infusettes) (x14); [I0600] La lampe merveilleuse (20 infusettes) (x13); [I0279] Le panier de grand maman (20 infusettes) (x13); [I0868] Citron meringué (20 infusettes) (x11)</div>
-  
-</div>
-<div class="call today">
-  <div class="call-header">
-    <span><span class="rank">9</span> <span class="client">Affilié 041341 - AD Delhaize Filature</span> <span style="color:#999;font-size:.8rem">#5443</span></span>
-    <span><span class="badge badge-today">lot du jour</span><span class="badge badge-retard">retard 41j</span><span class="badge badge-loin">87 km</span></span>
-  </div>
-  <div class="contact-badge">02 204 56 40 &nbsp;|&nbsp; Adfilature@courcellesgroup.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Tubize+102,+Braine-le-Château" target="_blank">Rue de Tubize 102, Braine-le-Château</a> &nbsp;·&nbsp; 87 km<br>
-    🛒 Dernière cmd : <strong>2026-03-25</strong> (76j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    15 réfs &nbsp;·&nbsp; CA 85€/mois
-  </div>
-  <div class="refs">[GI0735] Pêche de Vigne - BIO glacée (x16); [V0732] Gourmandise de Noël (100 g vrac) (x15); [GI0820] Marrakech Sunset - BIO glacé (x15); [GI0634] Gourmandise glacée (x14); [I0631] Le thé des amoureux (20 infusettes) (x12); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x12); [I0279] Le panier de grand maman (20 infusettes) (x11); [V0891] Trésor des lutins (100 g vrac) (x10)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 AD Delhaize Filature Contact merchandiser: Mme Dubois Morgane</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">10</span> <span class="client">V2V Express Two - Carrefour Express 1314</span> <span style="color:#999;font-size:.8rem">#3274</span></span>
-    <span><span class="badge badge-retard">retard 41j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">75 km</span></span>
-  </div>
-  <div class="contact-badge">02 633 11 90 &nbsp;|&nbsp; lasnedistribution@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Route+de+l&#x27;Etat+47,+1380,+Lasne" target="_blank">Route de l&#x27;Etat 47, 1380, Lasne</a> &nbsp;·&nbsp; 75 km<br>
-    🛒 Dernière cmd : <strong>2026-03-25</strong> (76j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 34€/mois
-  </div>
-  <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x10); [GI0832] La Nana de Wépion glacée (x10); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x10); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x10); [GI0735] Pêche de Vigne - BIO glacée (x9); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0669] Vert Jasmin (20 infusettes) (x4)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Express 1314 Lasne Contact merchandiser: Marie Van Vyve</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">11</span> <span class="client">Distriparenthèse - Intermarché Gosselies</span> <span style="color:#999;font-size:.8rem">#2927</span></span>
-    <span><span class="badge badge-retard">retard 35j</span><span class="badge badge-loin">67 km</span></span>
-  </div>
-  <div class="contact-badge">071/35.40.10 &nbsp;|&nbsp; pdv09920@mousquetaires.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Pont+à+Migneloux,+13,+6041,+Gosselies" target="_blank">Rue Pont à Migneloux, 13, 6041, Gosselies</a> &nbsp;·&nbsp; 67 km<br>
-    🛒 Dernière cmd : <strong>2026-03-31</strong> (70j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    18 réfs &nbsp;·&nbsp; CA 118€/mois
-  </div>
-  <div class="refs">[I0832] La Nana de Wépion (20 infusettes) (x21); [V0914] Infusion du Printemps 2026 (x18); [I0868] Citron meringué (20 infusettes) (x17); [GI0820] Marrakech Sunset - BIO glacé (x16); [I0279] Le panier de grand maman (20 infusettes) (x14); [I0631] Le thé des amoureux (20 infusettes) (x13); [I0880] Blue Earl Grey BIO (20 infusettes) (x13); [I0751] I love you (20 infusettes) (x13)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Intermarché Parenthèse Gosselie Contact merchandiser: Valentin Schirru</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">12</span> <span class="client">Lambertdis SRL - Spar Manhay</span> <span style="color:#999;font-size:.8rem">#122944</span></span>
-    <span><span class="badge badge-retard">retard 35j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 86 45 55 87 &nbsp;|&nbsp; lambertfrancoise@skynet.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+d&#x27;erezée,,+6960,+Manhay" target="_blank">Rue d&#x27;erezée,, 6960, Manhay</a> &nbsp;·&nbsp; 23 km<br>
-    🛒 Dernière cmd : <strong>2026-04-21</strong> (49j) &nbsp;·&nbsp;
-    cadence cible : <strong>14j</strong> &nbsp;·&nbsp;
-    10 réfs &nbsp;·&nbsp; CA 47€/mois
-  </div>
-  <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x10); [I0631] Le thé des amoureux (20 infusettes) (x10); [I0751] I love you (20 infusettes) (x10); [I0735] Pêche de vigne - BIO (20 infusettes) (x10); [I0279] Le panier de grand maman (20 infusettes) (x10); [I0832] La Nana de Wépion (20 infusettes) (x10); [I0121] Lady Dodo (20 infusettes) (x10); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x8)</div>
-  <div class="notes">Client GMS 11/04/2026 --- Remarques merchandiser --- Horaire ouverture : pas de livraison ni visite le lundi avant 13h30. Magasin fermé le matin le lundi. (info 2026-05-04)</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">13</span> <span class="client">Affilié 043145 - Delhaize Flagey</span> <span style="color:#999;font-size:.8rem">#120159</span></span>
-    <span><span class="badge badge-retard">retard 32j</span><span class="badge badge-loin">91 km</span></span>
-  </div>
-  <div class="contact-badge">+32 471 53 40 15 &nbsp;|&nbsp; skoumans@outlook.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Hennin+18,+1050,+Ixelles" target="_blank">Rue de Hennin 18, 1050, Ixelles</a> &nbsp;·&nbsp; 91 km<br>
-    🛒 Dernière cmd : <strong>2026-04-03</strong> (67j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    18 réfs &nbsp;·&nbsp; CA 91€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [I0279] Le panier de grand maman (20 infusettes) (x15); [I0735] Pêche de vigne - BIO (20 infusettes) (x14); [I0669] Vert Jasmin (20 infusettes) (x12); [I0868] Citron meringué (20 infusettes) (x12); [I0631] Le thé des amoureux (20 infusettes) (x11); [I0751] I love you (20 infusettes) (x11); [I0878] Guarana Boost (20 infusettes) (x11)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Delhaize Flagey Contact merchandiser: Mr Koumans ⚠️ Accès uniquement le MARDI — pas d&#x27;autres jours possibles pour visite/livraison merchandiser.</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">14</span> <span class="client">Affilié 44845 - Delhaize Enghien</span> <span style="color:#999;font-size:.8rem">#123041</span></span>
-    <span><span class="badge badge-retard">retard 26j</span><span class="badge badge-loin">102 km</span></span>
-  </div>
-  <div class="contact-badge"> &nbsp;|&nbsp; dllenghienmestdag@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Square+de+la+Dodane,+7850,+Enghien" target="_blank">Square de la Dodane, 7850, Enghien</a> &nbsp;·&nbsp; 102 km<br>
-    🛒 Dernière cmd : <strong>2026-04-16</strong> (54j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    12 réfs &nbsp;·&nbsp; CA 26€/mois
-  </div>
-  <div class="refs">[I0628] Oasis du désert - BIO (20 infusettes) (x4); [I0631] Le thé des amoureux (20 infusettes) (x4); [I0751] I love you (20 infusettes) (x4); [I0635] Silhouette (20 infusettes) (x4); [I0878] Guarana Boost (20 infusettes) (x4); [I0735] Pêche de vigne - BIO (20 infusettes) (x4); [I0205] Etoiles filantes (20 infusettes) (x4); [I0121] Lady Dodo (20 infusettes) (x4)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">15</span> <span class="client">Gmp La Louvière - Delhaize La Louvière</span> <span style="color:#999;font-size:.8rem">#123035</span></span>
-    <span><span class="badge badge-retard">retard 22j</span><span class="badge badge-loin">85 km</span></span>
-  </div>
-  <div class="contact-badge">+32 64 44 44 08 &nbsp;|&nbsp; chef44686@delhaize.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Franco-Belge+228,+7100,+La+Louvière" target="_blank">Rue de la Franco-Belge 228, 7100, La Louvière</a> &nbsp;·&nbsp; 85 km<br>
-    🛒 Dernière cmd : <strong>2026-04-20</strong> (50j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    14 réfs &nbsp;·&nbsp; CA 40€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x11); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0631] Le thé des amoureux (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6); [I0751] I love you (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0635] Silhouette (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6)</div>
-  <div class="notes">Client GMS 15/04/2026</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">16</span> <span class="client">VGS Company - Carrefour Express Rhode-Saint-Genèse</span> <span style="color:#999;font-size:.8rem">#120933</span></span>
-    <span><span class="badge badge-retard">retard 19j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">86 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 466 68 41 &nbsp;|&nbsp; carrefour.express.rsg@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+Waterloo+230,+1640,+Rhode-Saint-Genèse" target="_blank">Chaussée de Waterloo 230, 1640, Rhode-Saint-Genèse</a> &nbsp;·&nbsp; 86 km<br>
-    🛒 Dernière cmd : <strong>2026-04-16</strong> (54j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    3 réfs &nbsp;·&nbsp; CA 18€/mois
-  </div>
-  <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x14); [I0832] La Nana de Wépion (20 infusettes) (x8); [I0205] Etoiles filantes (20 infusettes) (x8)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Express Rhode-Saint-Genèse Contact merchandiser: Gilles Virgo Voir pour le suivi merchandiser car que 3 référence en magasin --- [APPEL ONLY — NE PAS VISITER — décision Nicolas 2026-05-20] --- Magasin trop petit pour justifier visite merchand</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">17</span> <span class="client">Gemblouxim - Intermarché Gembloux</span> <span style="color:#999;font-size:.8rem">#123346</span></span>
-    <span><span class="badge badge-retard">retard 12j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 81 61 01 43 &nbsp;|&nbsp; PDV09844@MOUSQUETAIRES.COM</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Campagne+d&#x27;Enée+1,+5030,+Gembloux" target="_blank">Campagne d&#x27;Enée 1, 5030, Gembloux</a> &nbsp;·&nbsp; 53 km<br>
-    🛒 Dernière cmd : <strong>2026-04-30</strong> (40j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 44€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [GI0820] Marrakech Sunset - BIO glacé (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0634] Gourmandise glacée (x12); [GI0832] La Nana de Wépion glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x12); [V0914] Infusion du Printemps 2026 (x12)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">18</span> <span class="client">BLONFOOD SA - Intermarché Liège Blonden</span> <span style="color:#999;font-size:.8rem">#123345</span></span>
-    <span><span class="badge badge-retard">retard 12j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 4 229 34 98 &nbsp;|&nbsp; PDV09874@MOUSQUETAIRES.COM</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Blonden+26,+4000,+Liège" target="_blank">Avenue Blonden 26, 4000, Liège</a> &nbsp;·&nbsp; 43 km<br>
-    🛒 Dernière cmd : <strong>2026-04-30</strong> (40j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    7 réfs &nbsp;·&nbsp; CA 37€/mois
-  </div>
-  <div class="refs">[V0914] Infusion du Printemps 2026 (x10); [GI0820] Marrakech Sunset - BIO glacé (x10); [GI0832] La Nana de Wépion glacée (x10); [GI0735] Pêche de Vigne - BIO glacée (x10); [GI0634] Gourmandise glacée (x10); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x10); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x10)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">19</span> <span class="client">Digretail - Intermarché Braine-le-Comte Digues</span> <span style="color:#999;font-size:.8rem">#123466</span></span>
-    <span><span class="badge badge-retard">retard 7j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">92 km</span></span>
-  </div>
-  <div class="contact-badge">+32 67 56 01 88 &nbsp;|&nbsp; PDV09832@MOUSQUETAIRES.COM</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+des+Digues+60,+7090,+Braine-le-Comte" target="_blank">Rue des Digues 60, 7090, Braine-le-Comte</a> &nbsp;·&nbsp; 92 km<br>
-    🛒 Dernière cmd : <strong>2026-05-05</strong> (35j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 44€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [GI0820] Marrakech Sunset - BIO glacé (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0634] Gourmandise glacée (x12); [GI0832] La Nana de Wépion glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x12); [V0914] Infusion du Printemps 2026 (x12)</div>
-  <div class="notes">OK pour Gilles =&amp;gt; Mr Damien</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">20</span> <span class="client">Proxy Delhaize Bosvoorde - SPRL BROOMCORNER</span> <span style="color:#999;font-size:.8rem">#3191</span></span>
-    <span><span class="badge badge-bientot">dû dans 6j</span><span class="badge badge-loin">87 km</span></span>
-  </div>
-  <div class="contact-badge">02 672 33 99 &nbsp;|&nbsp; Youbech.mesli@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+la+Hulpe+255,+1170,+Watermael-Boitsfort" target="_blank">Chaussée de la Hulpe 255, 1170, Watermael-Boitsfort</a> &nbsp;·&nbsp; 87 km<br>
-    🛒 Dernière cmd : <strong>2026-05-12</strong> (28j) &nbsp;·&nbsp;
-    cadence cible : <strong>34j</strong> &nbsp;·&nbsp;
-    16 réfs &nbsp;·&nbsp; CA 78€/mois
-  </div>
-  <div class="refs">[I0279] Le panier de grand maman (20 infusettes) (x14); [I0832] La Nana de Wépion (20 infusettes) (x13); [I0735] Pêche de vigne - BIO (20 infusettes) (x12); [I0723] Namasté BIO (20 infusettes) (x11); [I0631] Le thé des amoureux (20 infusettes) (x10); [I0121] Lady Dodo (20 infusettes) (x10); [I0880] Blue Earl Grey BIO (20 infusettes) (x9); [GI0832] La Nana de Wépion glacée (x8)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Proxy Delhaize Bosvoorde - / Watermael bois fort Ok suivi Merchandiser une fois par mois. Demander Youssef, Mélissa ou Saïd</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">21</span> <span class="client">Carrefour Market Boondael</span> <span style="color:#999;font-size:.8rem">#6598</span></span>
-    <span><span class="badge badge-bientot">dû dans 7j</span><span class="badge badge-loin">91 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 627 05 11 &nbsp;|&nbsp; NICOLAS_DEHON@CARREFOUR.COM</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+Boondael+444,+1050,+Ixelles" target="_blank">Chaussée de Boondael 444, 1050, Ixelles</a> &nbsp;·&nbsp; 91 km<br>
-    🛒 Dernière cmd : <strong>2026-05-12</strong> (28j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    16 réfs &nbsp;·&nbsp; CA 69€/mois
-  </div>
-  <div class="refs">[I0600] La lampe merveilleuse (20 infusettes) (x12); [I0751] I love you (20 infusettes) (x12); [V0895] Matcha japonais (x6); [I0121] Lady Dodo (20 infusettes) (x6); [I0205] Etoiles filantes (20 infusettes) (x6); [I0279] Le panier de grand maman (20 infusettes) (x6); [I0868] Citron meringué (20 infusettes) (x6); [I0628] Oasis du désert - BIO (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Market Boondael Contact merchandiser: Nicolas Dehon Demande des flyers des mise en avant pour développer les ventes. Voir mail du 07/03/2026</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">22</span> <span class="client">Louis Delhaize - Haversin</span> <span style="color:#999;font-size:.8rem">#123844</span></span>
-    <span><span class="badge badge-ok">échéance 8j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 83 69 95 01 &nbsp;|&nbsp; cyanar@live.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Barvaux+141,+5590,+Haversin" target="_blank">Rue de Barvaux 141, 5590, Haversin</a> &nbsp;·&nbsp; 16 km<br>
-    🛒 Dernière cmd : <strong>2026-05-20</strong> (20j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 25€/mois
-  </div>
-  <div class="refs">[V0914] Infusion du Printemps 2026 (x12); [EM0072] SRP Kraft Horeca (x8); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0832] La Nana de Wépion glacée (x6); [GI0735] Pêche de Vigne - BIO glacée (x6); [GI0634] Gourmandise glacée (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x6)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">23</span> <span class="client">Spar Barvaux</span> <span style="color:#999;font-size:.8rem">#123842</span></span>
-    <span><span class="badge badge-ok">échéance 8j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 86 21 27 21 &nbsp;|&nbsp; spar.barvaux@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Route+de+Marche+41,+6940,+Durbuy" target="_blank">Route de Marche 41, 6940, Durbuy</a> &nbsp;·&nbsp; 11 km<br>
-    🛒 Dernière cmd : <strong>2026-05-20</strong> (20j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 25€/mois
-  </div>
-  <div class="refs">[V0914] Infusion du Printemps 2026 (x12); [EM0072] SRP Kraft Horeca (x8); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0832] La Nana de Wépion glacée (x6); [GI0735] Pêche de Vigne - BIO glacée (x6); [GI0634] Gourmandise glacée (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x6)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">24</span> <span class="client">Intermarché Mons</span> <span style="color:#999;font-size:.8rem">#123966</span></span>
-    <span><span class="badge badge-ok">échéance 14j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">100 km</span></span>
-  </div>
-  <div class="contact-badge">+32 65 39 48 11 &nbsp;|&nbsp; pdv95019@mousquetaires.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chemin+de+la+Procession+399,+7000,+Mons" target="_blank">Chemin de la Procession 399, 7000, Mons</a> &nbsp;·&nbsp; 100 km<br>
-    🛒 Dernière cmd : <strong>2026-05-26</strong> (14j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 19€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x8); [GI0820] Marrakech Sunset - BIO glacé (x7); [GI0832] La Nana de Wépion glacée (x7); [GI0634] Gourmandise glacée (x7); [GI0735] Pêche de Vigne - BIO glacée (x7); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x7); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x7); [EM0107] Display Teatower GMS - 8 produits 2026 (x1)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">25</span> <span class="client">AD Delhaize Roodebeek</span> <span style="color:#999;font-size:.8rem">#123997</span></span>
-    <span><span class="badge badge-ok">échéance 15j</span><span class="badge badge-loin">89 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 779 56 03 &nbsp;|&nbsp; info@delhaizeroodebeek.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+De+Roodebeek,+199,+1200,+Bruxelles" target="_blank">Chaussée De Roodebeek, 199, 1200, Bruxelles</a> &nbsp;·&nbsp; 89 km<br>
-    🛒 Dernière cmd : <strong>2026-05-27</strong> (13j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    18 réfs &nbsp;·&nbsp; CA 49€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [V0914] Infusion du Printemps 2026 (x6); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0832] La Nana de Wépion glacée (x6); [GI0735] Pêche de Vigne - BIO glacée (x6); [GI0634] Gourmandise glacée (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x6)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">26</span> <span class="client">Good 4 Food SRL - Proxy Delhaize Linthout</span> <span style="color:#999;font-size:.8rem">#120035</span></span>
-    <span><span class="badge badge-ok">échéance 17j</span><span class="badge badge-loin">89 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 735 06 90 &nbsp;|&nbsp; proxylinthout@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Av+Georges+Henri+481,+1200,+Woluwe+St+Lambert" target="_blank">Av Georges Henri 481, 1200, Woluwe St Lambert</a> &nbsp;·&nbsp; 89 km<br>
-    🛒 Dernière cmd : <strong>2026-05-22</strong> (18j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    16 réfs &nbsp;·&nbsp; CA 67€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x22); [I0723] Namasté BIO (20 infusettes) (x15); [I0832] La Nana de Wépion (20 infusettes) (x15); [I0880] Blue Earl Grey BIO (20 infusettes) (x13); [I0735] Pêche de vigne - BIO (20 infusettes) (x12); [I0631] Le thé des amoureux (20 infusettes) (x11); [I0628] Oasis du désert - BIO (20 infusettes) (x8); [I0279] Le panier de grand maman (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Proxy Delhaize Linthout Contact merchandiser: Mme Custers Ok merchandiser. Demander Mme Custers pas de visite le mercredi.</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">27</span> <span class="client">Intermarché Braine Le Château</span> <span style="color:#999;font-size:.8rem">#124037</span></span>
-    <span><span class="badge badge-ok">échéance 17j</span><span class="badge badge-loin">86 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 366 21 69 &nbsp;|&nbsp; PDV09925@MOUSQUETAIRES.COM</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Nivelles+186A,+1440,+Braine-le-Château" target="_blank">Rue de Nivelles 186A, 1440, Braine-le-Château</a> &nbsp;·&nbsp; 86 km<br>
-    🛒 Dernière cmd : <strong>2026-05-29</strong> (11j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    16 réfs &nbsp;·&nbsp; CA 49€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0832] La Nana de Wépion glacée (x12); [GI0634] Gourmandise glacée (x6); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x6); [I0628] Oasis du désert - BIO (20 infusettes) (x6)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">28</span> <span class="client">Intermarché Rumes - Hainaut</span> <span style="color:#999;font-size:.8rem">#123964</span></span>
-    <span><span class="badge badge-ok">échéance 17j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">147 km</span></span>
-  </div>
-  <div class="contact-badge">+32 69 34 31 88 &nbsp;|&nbsp; pdv04733@mousquetaires.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussée+de+Douai+1bis,+7610,+Rumes" target="_blank">Chaussée de Douai 1bis, 7610, Rumes</a> &nbsp;·&nbsp; 147 km<br>
-    🛒 Dernière cmd : <strong>2026-05-29</strong> (11j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 25€/mois
-  </div>
-  <div class="refs">[V0914] Infusion du Printemps 2026 (x12); [EM0072] SRP Kraft Horeca (x8); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0832] La Nana de Wépion glacée (x6); [GI0735] Pêche de Vigne - BIO glacée (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x6); [GI0634] Gourmandise glacée (x6)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">29</span> <span class="client">Affilié 049205 - Delhaize Tubize</span> <span style="color:#999;font-size:.8rem">#124182</span></span>
-    <span><span class="badge badge-ok">échéance 23j</span><span class="badge badge-loin">92 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 355 42 60 &nbsp;|&nbsp; adtubize@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Déportation,+61,+1480,+Tubize" target="_blank">Rue de la Déportation, 61, 1480, Tubize</a> &nbsp;·&nbsp; 92 km<br>
-    🛒 Dernière cmd : <strong>2026-06-04</strong> (5j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    16 réfs &nbsp;·&nbsp; CA 58€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0832] La Nana de Wépion glacée (x12); [GI0634] Gourmandise glacée (x6); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x6); [I0628] Oasis du désert - BIO (20 infusettes) (x6)</div>
-  <div class="notes">Pas de visite ni implantation le vendredi</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">30</span> <span class="client">Spar Beauvechain</span> <span style="color:#999;font-size:.8rem">#124148</span></span>
-    <span><span class="badge badge-ok">échéance 23j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">68 km</span></span>
-  </div>
-  <div class="contact-badge">+32 10 86 60 37 &nbsp;|&nbsp; spar.beauvechain@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+du+Village+2,+1320,+Beauvechain" target="_blank">Rue du Village 2, 1320, Beauvechain</a> &nbsp;·&nbsp; 68 km<br>
-    🛒 Dernière cmd : <strong>2026-06-04</strong> (5j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    10 réfs &nbsp;·&nbsp; CA 29€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x8); [GI0735] Pêche de Vigne - BIO glacée (x6); [GI0832] La Nana de Wépion glacée (x6); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0631] Le thé des amoureux (20 infusettes) (x6); [I0628] Oasis du désert - BIO (20 infusettes) (x6)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">31</span> <span class="client">Affilié 049015 - Proxy Delhaize Tihange</span> <span style="color:#999;font-size:.8rem">#124180</span></span>
-    <span><span class="badge badge-ok">échéance 23j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 85 25 29 39 &nbsp;|&nbsp; delhaizetihange@yahoo.fr</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Avenue+de+l&#x27;industrie+26,+4500,+Huy" target="_blank">Avenue de l&#x27;industrie 26, 4500, Huy</a> &nbsp;·&nbsp; 26 km<br>
-    🛒 Dernière cmd : <strong>2026-06-04</strong> (5j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 27€/mois
-  </div>
-  <div class="refs">[D011] Gobelet dégustation (x200); [GI0735] Pêche de Vigne - BIO glacée (x13); [GI0832] La Nana de Wépion glacée (x13); [EM0072] SRP Kraft Horeca (x8); [GI0634] Gourmandise glacée (x7); [GI0820] Marrakech Sunset - BIO glacé (x7); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x7); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x7)</div>
-  <div class="notes">--- Remarques merchandiser (maj 2026-06-04) --- 📍 Proxy Delhaize Tihange Nouveau client (lead #179 gagne 02/06/2026). 1re implantation 11/06/2026. Horaires : lun 10:00-18:45, mar-sam 09:00-18:45, dim ferme.</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">32</span> <span class="client">Delhaize Amay</span> <span style="color:#999;font-size:.8rem">#124178</span></span>
-    <span><span class="badge badge-ok">échéance 23j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 85 31 29 97 &nbsp;|&nbsp; info@delhaize-amay.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Chaussee+Roosevelt+101,+4540,+Amay" target="_blank">Chaussee Roosevelt 101, 4540, Amay</a> &nbsp;·&nbsp; 29 km<br>
-    🛒 Dernière cmd : <strong>2026-06-04</strong> (5j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 27€/mois
-  </div>
-  <div class="refs">[D011] Gobelet dégustation (x200); [GI0735] Pêche de Vigne - BIO glacée (x13); [GI0832] La Nana de Wépion glacée (x13); [EM0072] SRP Kraft Horeca (x8); [GI0634] Gourmandise glacée (x7); [GI0820] Marrakech Sunset - BIO glacé (x7); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x7); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x7)</div>
-  
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">33</span> <span class="client">Lillodis SRL - Proxy Delhaize Lillois</span> <span style="color:#999;font-size:.8rem">#114763</span></span>
-    <span><span class="badge badge-ok">échéance 24j</span><span class="badge badge-loin">79 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 384 48 83 &nbsp;|&nbsp; proxylillois@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Grand’Route+350,+1428,+Lillois" target="_blank">Grand’Route 350, 1428, Lillois</a> &nbsp;·&nbsp; 79 km<br>
-    🛒 Dernière cmd : <strong>2026-06-05</strong> (4j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    12 réfs &nbsp;·&nbsp; CA 74€/mois
-  </div>
-  <div class="refs">[I0205] Etoiles filantes (20 infusettes) (x20); [I0751] I love you (20 infusettes) (x16); [I0279] Le panier de grand maman (20 infusettes) (x14); [I0631] Le thé des amoureux (20 infusettes) (x12); [V0891] Trésor des lutins (100 g vrac) (x12); [V0732] Gourmandise de Noël (100 g vrac) (x11); [V0803] Le thé de la Mère Noël (100 g vrac) (x11); [I0880] Blue Earl Grey BIO (20 infusettes) (x8)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Proxy Delhaize lillois Contact merchandiser: Mme Céline Vandamme --- [APPEL ONLY — NE PAS VISITER — décision Nicolas 2026-05-20] --- Magasin trop petit pour justifier visite merchandiser Gilles. Réassort à organiser par APPEL TÉLÉPHONIQUE périodique de</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">34</span> <span class="client">Antheco SA - Intermarché Anthée</span> <span style="color:#999;font-size:.8rem">#122991</span></span>
-    <span><span class="badge badge-ok">échéance 24j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 82 21 31 00 &nbsp;|&nbsp; PDV06651@mousquetaires.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+Maréchal+Franchet+d&#x27;Esperey+2,+5520,+Onhaye" target="_blank">Rue Maréchal Franchet d&#x27;Esperey 2, 5520, Onhaye</a> &nbsp;·&nbsp; 39 km<br>
-    🛒 Dernière cmd : <strong>2026-06-05</strong> (4j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    8 réfs &nbsp;·&nbsp; CA 25€/mois
-  </div>
-  <div class="refs">[GI0832] La Nana de Wépion glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [EM0072] SRP Kraft Horeca (x8); [GI0634] Gourmandise glacée (x6); [GI0820] Marrakech Sunset - BIO glacé (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6); [GI0735] Pêche de Vigne - BIO glacée (x6); [EM0107] Display Teatower GMS - 8 produits 2026 (x1)</div>
-  <div class="notes">Client GMS 13/04/26</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">35</span> <span class="client">Affilié 040490 - Delhaize Ath</span> <span style="color:#999;font-size:.8rem">#123144</span></span>
-    <span><span class="badge badge-ok">échéance 26j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">116 km</span></span>
-  </div>
-  <div class="contact-badge">+32 477 85 67 07 &nbsp;|&nbsp; lorickvanassche@outlook.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+l&#x27;Abbaye+6,+7800,+Ath" target="_blank">Rue de l&#x27;Abbaye 6, 7800, Ath</a> &nbsp;·&nbsp; 116 km<br>
-    🛒 Dernière cmd : <strong>2026-06-03</strong> (6j) &nbsp;·&nbsp;
-    cadence cible : <strong>32j</strong> &nbsp;·&nbsp;
-    8 réfs &nbsp;·&nbsp; CA 99€/mois
-  </div>
-  <div class="refs">[GI0832] La Nana de Wépion glacée (x44); [GI0820] Marrakech Sunset - BIO glacé (x28); [GI0735] Pêche de Vigne - BIO glacée (x28); [GI0634] Gourmandise glacée (x28); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x28); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x28); [V0914] Infusion du Printemps 2026 (x12); [M0005] Display Teatower (x1)</div>
-  <div class="notes">Client GMS 20/04/2026</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">36</span> <span class="client">Hyper Carrefour Gosselies</span> <span style="color:#999;font-size:.8rem">#122466</span></span>
-    <span><span class="badge badge-ok">échéance 34j</span><span class="badge badge-loin">67 km</span></span>
-  </div>
-  <div class="contact-badge">+32 71 25 06 11</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Da+Vincilaan+3,+6041,+Gosselies" target="_blank">Da Vincilaan 3, 6041, Gosselies</a> &nbsp;·&nbsp; 67 km<br>
-    🛒 Dernière cmd : <strong>2026-06-08</strong> (1j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    19 réfs &nbsp;·&nbsp; CA 70€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [I0631] Le thé des amoureux (20 infusettes) (x12); [I0279] Le panier de grand maman (20 infusettes) (x12); [I0121] Lady Dodo (20 infusettes) (x12); [I0735] Pêche de vigne - BIO (20 infusettes) (x12); [I0600] La lampe merveilleuse (20 infusettes) (x6); [I0628] Oasis du désert - BIO (20 infusettes) (x6); [I0751] I love you (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Hyper Carrefour Gosselies Contact merchandiser: Vincent Ok pour le suivi merchandiser demander Vincent- ou Benjamin. Passage de 8h à 12h</div>
-</div>
-<div class="call">
-  <div class="call-header">
-    <span><span class="rank">37</span> <span class="client">Micamik SRL - Spar Godinne</span> <span style="color:#999;font-size:.8rem">#122995</span></span>
-    <span><span class="badge badge-ok">échéance 34j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 82 61 27 50 &nbsp;|&nbsp; spargodinne@icloud.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Mont+13,+5530,+Godinne" target="_blank">Rue de Mont 13, 5530, Godinne</a> &nbsp;·&nbsp; 29 km<br>
-    🛒 Dernière cmd : <strong>2026-06-08</strong> (1j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 69€/mois
-  </div>
-  <div class="refs">[GI0832] La Nana de Wépion glacée (x30); [EM0072] SRP Kraft Horeca (x25); [GI0820] Marrakech Sunset - BIO glacé (x24); [GI0735] Pêche de Vigne - BIO glacée (x24); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x24); [GI0634] Gourmandise glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [V0914] Infusion du Printemps 2026 (x12)</div>
-  <div class="notes">Client GMS 14/04/2026</div>
-</div>
-<h2 class="section-title">🔄 Win-back — comptes dormants &gt;90j (10)</h2>
-<div class="alert">Clients perdus de vue (souvent les "oublis"). Discours réactivation, pas anti-rupture. À traiter quand la file principale est creuse.</div>
-
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">1</span> <span class="client">KAIO Retail invest - Delhaize Ottignies</span> <span style="color:#999;font-size:.8rem">#5649</span></span>
-    <span><span class="badge badge-retard">retard 315j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">66 km</span></span>
-  </div>
-  <div class="contact-badge">010 40 15 69 &nbsp;|&nbsp; jolan.cailleau@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Bois+Pinchet,+2,+Villers-La-Ville" target="_blank">Bois Pinchet, 2, Villers-La-Ville</a> &nbsp;·&nbsp; 66 km<br>
-    🛒 Dernière cmd : <strong>2025-07-01</strong> (343j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    6 réfs &nbsp;·&nbsp; CA 13€/mois
-  </div>
-  <div class="refs">[V0301] Tisane tropicale (100 g vrac) (x8); [GI0634] Gourmandise glacée (x8); [V0723] Namasté BIO (80 g vrac) (x3); [V0279] Le panier de grand maman (80 g vrac) (x3); [V0121] Lady Dodo (80 g vrac) (x2); [V0751] I love you (80 g vrac) (x1)</div>
-  
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">2</span> <span class="client">Carrefour market Etterbeek</span> <span style="color:#999;font-size:.8rem">#9159</span></span>
-    <span><span class="badge badge-retard">retard 298j</span><span class="badge badge-loin">90 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 772 87 76</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Cours+st.Michel+80,+1040,+Etterbeek" target="_blank">Cours st.Michel 80, 1040, Etterbeek</a> &nbsp;·&nbsp; 90 km<br>
-    🛒 Dernière cmd : <strong>2025-07-18</strong> (326j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    19 réfs &nbsp;·&nbsp; CA 88€/mois
-  </div>
-  <div class="refs">[GI0634] Gourmandise glacée (x13); [V0895] Matcha japonais (x13); [GI0820] Marrakech Sunset - BIO glacé (x13); [GI0735] Pêche de Vigne - BIO glacée (x13); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x13); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x13); [I0205] Etoiles filantes (20 infusettes) (x6); [I0279] Le panier de grand maman (20 infusettes) (x6)</div>
-  
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">3</span> <span class="client">Hyper Carrefour de Drogendos</span> <span style="color:#999;font-size:.8rem">#8488</span></span>
-    <span><span class="badge badge-retard">retard 279j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">91 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 446 15 25</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Paul+Gilson+455,+1620,+Drogenbos" target="_blank">Avenue Paul Gilson 455, 1620, Drogenbos</a> &nbsp;·&nbsp; 91 km<br>
-    🛒 Dernière cmd : <strong>2025-08-06</strong> (307j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    9 réfs &nbsp;·&nbsp; CA 36€/mois
-  </div>
-  <div class="refs">[I0279] Le panier de grand maman (20 infusettes) (x12); [GI0820] Marrakech Sunset - BIO glacé (x12); [I0751] I love you (20 infusettes) (x6); [V0895] Matcha japonais (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [V0723] Namasté BIO (80 g vrac) (x6); [GI0911] Paradise Punch - Infusion de fruits : Litchi - Ananas (x6); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x6)</div>
-  
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">4</span> <span class="client">Delhaize bois de breux</span> <span style="color:#999;font-size:.8rem">#7873</span></span>
-    <span><span class="badge badge-retard">retard 279j</span><span class="badge badge-petit">petit assort.</span></span>
-  </div>
-  <div class="contact-badge">+32 4 365 74 07</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=" target="_blank"></a> &nbsp;·&nbsp;  km<br>
-    🛒 Dernière cmd : <strong>2025-08-06</strong> (307j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    5 réfs &nbsp;·&nbsp; CA 29€/mois
-  </div>
-  <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x15); [I0735] Pêche de vigne - BIO (20 infusettes) (x10); [I0832] La Nana de Wépion (20 infusettes) (x10); [GI0634] Gourmandise glacée (x10); [I0628] Oasis du désert - BIO (20 infusettes) (x8)</div>
-  
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">5</span> <span class="client">Carrefour Market Eupen centre Rotenberg</span> <span style="color:#999;font-size:.8rem">#113634</span></span>
-    <span><span class="badge badge-retard">retard 211j</span><span class="badge badge-loin">62 km</span></span>
-  </div>
-  <div class="contact-badge">+32 87 55 59 01 &nbsp;|&nbsp; carrefoureupen@skynet.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rotenberg+12,+4700,+Eupen" target="_blank">Rotenberg 12, 4700, Eupen</a> &nbsp;·&nbsp; 62 km<br>
-    🛒 Dernière cmd : <strong>2025-10-13</strong> (239j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    19 réfs &nbsp;·&nbsp; CA 64€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [V0914] Infusion du Printemps 2026 (x6); [I0279] Le panier de grand maman (20 infusettes) (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0301] Tisane tropicale (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 carrefour Market Eupen centre Rotenberg Contact merchandiser: Mme Meesen Cindy Demander Mme Meessen Cindy pas de visite le mercredi</div>
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">6</span> <span class="client">Carrefour Market Eupen Herbesthalerstrasse</span> <span style="color:#999;font-size:.8rem">#113974</span></span>
-    <span><span class="badge badge-retard">retard 204j</span><span class="badge badge-loin">62 km</span></span>
-  </div>
-  <div class="contact-badge">+32 87 21 30 30 &nbsp;|&nbsp; info@hypermarketeupen.be</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Herbesthal+203,+4700,+Eupen" target="_blank">Rue de Herbesthal 203, 4700, Eupen</a> &nbsp;·&nbsp; 62 km<br>
-    🛒 Dernière cmd : <strong>2025-10-20</strong> (232j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    19 réfs &nbsp;·&nbsp; CA 63€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [I0279] Le panier de grand maman (20 infusettes) (x6); [I0832] La Nana de Wépion (20 infusettes) (x6); [I0301] Tisane tropicale (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6); [I0878] Guarana Boost (20 infusettes) (x6); [I0735] Pêche de vigne - BIO (20 infusettes) (x6); [I0751] I love you (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Market Eupen Herbesthalerstrasse Contact merchandiser: Sarah</div>
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">7</span> <span class="client">Distriwal SRL - Carrefour Market Walcourt</span> <span style="color:#999;font-size:.8rem">#9016</span></span>
-    <span><span class="badge badge-retard">retard 201j</span><span class="badge badge-loin">65 km</span></span>
-  </div>
-  <div class="contact-badge">+32 71 61 14 73 &nbsp;|&nbsp; labbe-r@hotmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Forge,+34,+5650,+WALCOURT" target="_blank">Rue de la Forge, 34, 5650, WALCOURT</a> &nbsp;·&nbsp; 65 km<br>
-    🛒 Dernière cmd : <strong>2025-10-16</strong> (236j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    17 réfs &nbsp;·&nbsp; CA 95€/mois
-  </div>
-  <div class="refs">[EM0072] SRP Kraft Horeca (x16); [I0751] I love you (20 infusettes) (x14); [I0279] Le panier de grand maman (20 infusettes) (x14); [I0631] Le thé des amoureux (20 infusettes) (x12); [I0301] Tisane tropicale (20 infusettes) (x12); [I0669] Vert Jasmin (20 infusettes) (x11); [I0880] Blue Earl Grey BIO (20 infusettes) (x11); [I0735] Pêche de vigne - BIO (20 infusettes) (x11)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Market Walcourt Contact merchandiser: Ronny Labbé Envoyer mail le 10/03 pour avoir l&#x27;accord du magasin au bon de commande suite au passage de gilles (2 fois pour rien ) Voir si retour. Gilles est repasser ce 31/03 encore pour rien. Jérôme doi</div>
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">8</span> <span class="client">Carrefour Market Braine-l&#x27;Alleud</span> <span style="color:#999;font-size:.8rem">#8339</span></span>
-    <span><span class="badge badge-retard">retard 180j</span><span class="badge badge-loin">81 km</span></span>
-  </div>
-  <div class="contact-badge" style="color:#c92a2a">☎️ TÉL MANQUANT — à compléter dans Odoo</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Pl.+du+Môle+25,+1420,+Braine-l&#x27;alleud" target="_blank">Pl. du Môle 25, 1420, Braine-l&#x27;alleud</a> &nbsp;·&nbsp; 81 km<br>
-    🛒 Dernière cmd : <strong>2025-11-06</strong> (215j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    14 réfs &nbsp;·&nbsp; CA 54€/mois
-  </div>
-  <div class="refs">[I0735] Pêche de vigne - BIO (20 infusettes) (x10); [V0711] Offrande des Rois Mages (100 g vrac) (x10); [V0732] Gourmandise de Noël (100 g vrac) (x10); [V0803] Le thé de la Mère Noël (100 g vrac) (x10); [V0891] Trésor des lutins (100 g vrac) (x10); [GI0634] Gourmandise glacée (x8); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x8); [I0751] I love you (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Market Braine-l&#x27;Alleud 2 visites sans commande j&#x27;ai augmenté le délais de visite à 56 jours</div>
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">9</span> <span class="client">Carrefour Hyper Auderghem</span> <span style="color:#999;font-size:.8rem">#8062</span></span>
-    <span><span class="badge badge-retard">retard 112j</span><span class="badge badge-loin">87 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 679 05 11 &nbsp;|&nbsp; josiane_bourcy@carrefour.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Bd+du+Souverain-Vorstlaan+240,+1160,+Auderghem" target="_blank">Bd du Souverain-Vorstlaan 240, 1160, Auderghem</a> &nbsp;·&nbsp; 87 km<br>
-    🛒 Dernière cmd : <strong>2026-01-13</strong> (147j) &nbsp;·&nbsp;
-    cadence cible : <strong>35j</strong> &nbsp;·&nbsp;
-    11 réfs &nbsp;·&nbsp; CA 53€/mois
-  </div>
-  <div class="refs">[I0301] Tisane tropicale (20 infusettes) (x12); [I0751] I love you (20 infusettes) (x12); [I0878] Guarana Boost (20 infusettes) (x12); [I0631] Le thé des amoureux (20 infusettes) (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [I0121] Lady Dodo (20 infusettes) (x6); [I0279] Le panier de grand maman (20 infusettes) (x6); [I0880] Blue Earl Grey BIO (20 infusettes) (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Hyper Auderghem Pas de visite le mardi ni le vendredi car madame Josiane Bourcy n&#x27;est pas présente. Plus de visite merchandiser. Madame Bourcy va gérer son rayon elle-même. Voir visite merchandiser du 11/03/2026</div>
-</div>
-<div class="call dormant">
-  <div class="call-header">
-    <span><span class="rank">10</span> <span class="client">Spirec SRL - Carrefour Express CHIREC</span> <span style="color:#999;font-size:.8rem">#120762</span></span>
-    <span><span class="badge badge-retard">retard 96j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">87 km</span></span>
-  </div>
-  <div class="contact-badge">+32 2 280 40 49 &nbsp;|&nbsp; express.chirec@gmail.com</div>
-  <div class="meta">
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=Boulevard+du+Triomphe,+201,+1160,+Auderghem" target="_blank">Boulevard du Triomphe, 201, 1160, Auderghem</a> &nbsp;·&nbsp; 87 km<br>
-    🛒 Dernière cmd : <strong>2026-02-05</strong> (124j) &nbsp;·&nbsp;
-    cadence cible : <strong>28j</strong> &nbsp;·&nbsp;
-    7 réfs &nbsp;·&nbsp; CA 29€/mois
-  </div>
-  <div class="refs">[I0631] Le thé des amoureux (20 infusettes) (x8); [I0880] Blue Earl Grey BIO (20 infusettes) (x8); [I0751] I love you (20 infusettes) (x8); [I0735] Pêche de vigne - BIO (20 infusettes) (x8); [I0279] Le panier de grand maman (20 infusettes) (x8); [V0832] La Nana de Wépion (100 g vrac) (x8); [EM0072] SRP Kraft Horeca (x6)</div>
-  <div class="notes">--- Remarques merchandiser (import Sheet) --- 📍 Carrefour Express CHIREC Contact merchandiser: Gaspard Daxhelet --- [APPEL ONLY — NE PAS VISITER — décision Nicolas 2026-05-20] --- Magasin trop petit pour justifier visite merchandiser Gilles. Réassort à organiser par APPEL TÉLÉPHONIQUE périodique dep</div>
-</div>
 </body></html>

@@ -53,6 +53,30 @@ GMS_NAME_TOKENS = ["Intermarch", "Spar ", "Spar-", " AD ", "AD Delhaize",
                    "Proxy Delhaize", "Affili", "Carrefour Market", "Carrefour Hyper",
                    "Hyper Carrefour", "Carrefour Express", "CARREFOUR MARKET", "Delhaize "]
 NUMERIC_PREFIX_RE = re.compile(r"^\s*\d{4,}\s*[-_:.\s]*")
+# Tag d'issue d'appel pose par Vanessa dans res.partner.comment :
+#   [APPEL AAAA-MM-JJ REFUS]  -> refus de commander : reset cadence (revient a +cible)
+#   [APPEL AAAA-MM-JJ NRP]    -> injoignable : reste du, retente S+1 (ne reset PAS)
+APPEL_RE = re.compile(r"\[APPEL\s+(\d{4}-\d{2}-\d{2})\s+(REFUS|NRP)\]", re.IGNORECASE)
+
+
+def parse_appels(comment):
+    """Retourne (last_refus_date|None, last_nrp_date|None) depuis les tags [APPEL ...]."""
+    last_refus, last_nrp = None, None
+    if not comment:
+        return last_refus, last_nrp
+    text = re.sub(r"<[^>]+>", " ", str(comment))
+    for m in APPEL_RE.finditer(text):
+        try:
+            d = date.fromisoformat(m.group(1))
+        except ValueError:
+            continue
+        if m.group(2).upper() == "REFUS":
+            if last_refus is None or d > last_refus:
+                last_refus = d
+        else:
+            if last_nrp is None or d > last_nrp:
+                last_nrp = d
+    return last_refus, last_nrp
 
 
 def is_gms(name, parent_name):
@@ -226,9 +250,15 @@ def main():
         else:
             target = DEMARRAGE_DEFAUT
             cadence_src = "demarrage (1 cmd)"
-        next_call = last_order + timedelta(days=target)
+
+        # Issues d'appel (tags Odoo). Un REFUS recale la cadence (le client a ete
+        # touche, il revient a sa prochaine echeance) ; un NRP ne recale PAS
+        # (toujours du, a retenter S+1) mais on le memorise.
+        last_refus, last_nrp = parse_appels(comment)
+        anchor = max([d for d in (last_order, last_refus) if d is not None])
+        next_call = anchor + timedelta(days=target)
         overdue = (today - next_call).days  # >0 = en retard
-        urgency = round(days_since / target, 2)
+        urgency = round((today - anchor).days / target, 2)
 
         # top produits habituels
         pq = store_prodqty.get(sp, {})
@@ -256,6 +286,8 @@ def main():
             "next_call": next_call.isoformat(),
             "overdue_days": overdue,
             "urgency": urgency,
+            "last_refus": last_refus.isoformat() if last_refus else "",
+            "last_nrp": last_nrp.isoformat() if last_nrp else "",
             "reason": reason,
             "top_products": top_products,
             "notes": strip_html(comment)[:300],
