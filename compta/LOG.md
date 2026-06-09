@@ -21,6 +21,25 @@
   - Total residuel 700000 apres post eventuel : 83 609,90 EUR
 - A FAIRE : Nicolas doit poster l'OD explicitement (action_post sur ID 39813)
 
+## 2026-06-09 — Ventilation CA B2B 700000 FY25-26 (YTD) — OD brouillon creee
+
+- Type : OD reclassement canal (brouillon, non postee)
+- OD creee : ID Odoo 39826 — journal MISC (ID 11) — date 09/06/2026 — etat DRAFT
+  - Ref : Ventilation CA B2B 700000 par canal FY25-26 (YTD)
+  - Perimetre : factures out_invoice+out_refund 01/07/2025-09/06/2026 sur 700000
+  - Solde total 700000 (factures clients) : 821 416,36 EUR
+  - Debit 700000 (ID 320) : 804 364,85 EUR (ventilable certain)
+  - Credit 700600 GMS (ID 1220) : 305 389,00 EUR — 93 partenaires
+  - Credit 700300 Horeca (ID 915) : 294 159,76 EUR — 243 partenaires
+  - Credit 700500 Revendeurs (ID 917) : 186 839,19 EUR — 202 partenaires
+  - Credit 700700 Institutions (ID 1221) : 17 976,90 EUR — 80 partenaires
+  - Total debit = total credit = 804 364,85 EUR — equilibre verifie
+- Exclus de l'OD (restent sur 700000 en attente arbitrage) :
+  - Tea Touch (ID 6973) : 0,00 EUR (faillite nov 2025 — aucun CA FY25-26 confirme)
+  - Lignes sans partenaire : 0,00 EUR
+  - A_ARBITRER (classification incertaine) : 17 051,51 EUR (350 clients, majoritairement personnes physiques sans tag)
+- A FAIRE : Nicolas doit (1) arbitrer les 31 clients significatifs A_ARBITRER, (2) poster l'OD explicitement (action_post sur ID 39826)
+
 ## 2026-05-29 — Batch facturation B2B Peppol delta J+1 — 5 factures postées
 
 - Type : facturation B2B hors GMS — wizard `delivered` + envoi Peppol (bucket A) / postée sans envoi (bucket B)
