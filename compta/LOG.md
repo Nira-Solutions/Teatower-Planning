@@ -1,5 +1,41 @@
 # LOG Compta Teatower
 
+## 2026-06-09 — Facturation B2B Peppol — 24 factures brouillon créées
+
+- Type : création factures clients (out_invoice) mode delivered — BROUILLON uniquement, aucune postée, aucun envoi
+- Périmètre : 37 SO invoice_status=to_invoice scannées, hors Tea Touch (6973), hors Shopify/Amazon/POS
+- Vérification Peppol par client : champ peppol_verification_state + commercial_partner_id
+- Lignes TRANSPORT forcées qty_delivered=qty_ordered (8 lignes) : S05755/S05753/S05748/S05744/S05740/S05724/S05722/S05721
+- Factures créées en brouillon (24) :
+  - inv_id=39842 S05761 KVA Bar 0720819470 HT=472,50 TVA=28,35 TTC=500,85
+  - inv_id=39843 S05758 Christine Poncin 0717880766 HT=29,04 TVA=1,76 TTC=30,80
+  - inv_id=39844 S05759 Christine Poncin 0717880766 HT=72,60 TVA=4,40 TTC=77,00
+  - inv_id=39845 S05757 Carrefour Belgium 0448826918 HT=523,02 TVA=31,38 TTC=554,40
+  - inv_id=39846 S05756 Cafes Delahaut 0418920135 HT=712,50 TVA=42,75 TTC=755,25
+  - inv_id=39847 S05755 Alcodis SA 0438048535 HT=70,00 TVA=4,20 TTC=74,20
+  - inv_id=39848 S05723 Wallonie Entreprendre 0793630244 HT=739,61 TVA=44,39 TTC=784,00
+  - inv_id=39849 S05754 Delhaize Le Lion 0402206045 HT=305,14 TVA=18,34 TTC=323,48
+  - inv_id=39850 S05753 Brasserie Miroir 0688912806 HT=60,00 TVA=3,60 TTC=63,60
+  - inv_id=39851 S05749 DB Kfé SRL 0508863582 HT=472,50 TVA=28,35 TTC=500,85
+  - inv_id=39852 S05748 Carrefour Belgium 0448826918 HT=184,36 TVA=11,08 TTC=195,44
+  - inv_id=39853 S05746 D-trois SRL 0895931194 HT=305,08 TVA=18,32 TTC=323,40
+  - inv_id=39854 S05744 Delhaize (Ferrières) 0402206045 HT=202,16 TVA=12,14 TTC=214,30
+  - inv_id=39855 S05743 Sodexo Belgium 0407246778 HT=750,00 TVA=45,00 TTC=795,00
+  - inv_id=39856 S05742 Pharmacie Badot 0651311250 HT=271,57 TVA=20,67 TTC=292,24
+  - inv_id=39857 S05740 Amessia Boutique 1026857935 HT=85,28 TVA=5,12 TTC=90,40
+  - inv_id=39858 S05739 Cocon Life store 0657633274 HT=479,54 TVA=28,78 TTC=508,32
+  - inv_id=39859 S05738 Carrefour Market Bastogne 0442412248 HT=274,71 TVA=16,49 TTC=291,20
+  - inv_id=39860 S05737 Antheco Intermarché 0828785123 HT=301,12 TVA=18,08 TTC=319,20
+  - inv_id=39861 S05724 Autobus Latour 0401403519 HT=169,82 TVA=10,18 TTC=180,00
+  - inv_id=39862 S05733 Carrefour Market Remouchamps 0446634817 HT=510,45 TVA=30,62 TTC=541,07
+  - inv_id=39863 S05731 Lillodis SRL 0567568873 HT=174,36 TVA=10,48 TTC=184,84
+  - inv_id=39864 S05728 Gerpidis SA 0802039451 HT=174,37 TVA=10,48 TTC=184,85
+  - inv_id=39865 S05721 Moore Services Financiers 0748770516 HT=200,53 TVA=12,07 TTC=212,60
+- TOTAL : HT=7.540,26 EUR | TVA=457,03 EUR | TTC=7.997,29 EUR
+- Exclues Peppol non vérifié (8 SO) : S05767/S05730/S05729/S05741/S05722/S05621/S05763/S05727
+- Exclues hors périmètre B2B (5 SO) : S05765/S05764/S05726/#48534/#48143 (Amazon/Shopify)
+- Confirmé : 0 facture postée, 0 envoi Peppol effectué
+
 ## 2026-06-09 — POST OD ventilation 700000 — deux OD postees sur GO explicite Nicolas
 
 - Type : action_post sur deux OD de reclassement canal (brouillons -> posted)
