@@ -47,6 +47,10 @@ RESSERREMENT = 0.75  # on appelle a 75% de l'intervalle historique observe
 FLOOR = 14           # jamais plus serre que 14 j
 CEILING = 35         # jamais plus espace que 35 j
 DEMARRAGE_DEFAUT = 28  # cadence de demarrage si 1 seule commande 12m
+SUIVI_IMPL_JOURS = 15  # suivi post-implantation : 1er appel a impl + 15j (pas 28)
+IMPL_AUTO_DAYS = 75    # auto-detection implantation : 1ere SO d'un nouveau magasin
+                       # (so_count==1) datant de <= 75j = implantation -> suivi J+15
+                       # automatique, SANS tag manuel. Tag [IMPL date] = override.
 
 GMS_PARENT_NAMES = ["Delhaize Le Lion", "Carrefour Belgium"]
 GMS_NAME_TOKENS = ["Intermarch", "Spar ", "Spar-", " AD ", "AD Delhaize",
@@ -57,6 +61,23 @@ NUMERIC_PREFIX_RE = re.compile(r"^\s*\d{4,}\s*[-_:.\s]*")
 #   [APPEL AAAA-MM-JJ REFUS]  -> refus de commander : reset cadence (revient a +cible)
 #   [APPEL AAAA-MM-JJ NRP]    -> injoignable : reste du, retente S+1 (ne reset PAS)
 APPEL_RE = re.compile(r"\[APPEL\s+(\d{4}-\d{2}-\d{2})\s+(REFUS|NRP)\]", re.IGNORECASE)
+# Tag pose quand une IMPLANTATION est executee (merch) -> declenche le suivi
+# televente J+15 :  [IMPL AAAA-MM-JJ]
+IMPL_RE = re.compile(r"\[IMPL(?:ANTATION)?\s+(\d{4}-\d{2}-\d{2})\]", re.IGNORECASE)
+
+
+def parse_impl(comment):
+    """Date d'implantation la plus recente depuis les tags [IMPL ...], sinon None."""
+    if not comment:
+        return None
+    text = re.sub(r"<[^>]+>", " ", str(comment))
+    dates = []
+    for m in IMPL_RE.finditer(text):
+        try:
+            dates.append(date.fromisoformat(m.group(1)))
+        except ValueError:
+            pass
+    return max(dates) if dates else None
 
 
 def parse_appels(comment):
@@ -212,6 +233,33 @@ def main():
         store_revenue[sp] += l.get("price_subtotal") or 0.0
         store_prodname[prod_id] = clean_name(prod_name)
 
+    # contacts rattaches (res.partner enfants du magasin) -> personne de contact
+    store_pids = list(store_dates.keys())
+    contacts = []
+    for i in range(0, len(store_pids), 200):
+        contacts += models.execute_kw(DB, uid, PASSWORD, "res.partner", "search_read",
+            [[("parent_id", "in", store_pids[i:i + 200])]],
+            {"fields": ["parent_id", "name", "function", "phone", "mobile", "email", "type"]})
+    store_contacts = defaultdict(list)
+    for c in contacts:
+        if c.get("parent_id"):
+            store_contacts[c["parent_id"][0]].append(c)
+
+    def best_contact(sp, fallback):
+        """Meilleur contact : priorite a celui qui a une fonction, puis un tel."""
+        cs = store_contacts.get(sp, [])
+        cs = [c for c in cs if (c.get("name") or "").strip()]
+        if not cs:
+            return {"name": "", "function": "",
+                    "phone": fallback.get("phone") or fallback.get("mobile") or "",
+                    "email": fallback.get("email") or ""}
+        cs.sort(key=lambda c: (0 if c.get("function") else 1,
+                               0 if (c.get("phone") or c.get("mobile")) else 1))
+        c = cs[0]
+        return {"name": clean_name(c.get("name")), "function": c.get("function") or "",
+                "phone": c.get("phone") or c.get("mobile") or fallback.get("phone") or "",
+                "email": c.get("email") or fallback.get("email") or ""}
+
     rows = []
     for sp, dts in store_dates.items():
         p = pmap.get(sp, {})
@@ -257,8 +305,36 @@ def main():
         last_refus, last_nrp = parse_appels(comment)
         anchor = max([d for d in (last_order, last_refus) if d is not None])
         next_call = anchor + timedelta(days=target)
+        cadence_src_eff = cadence_src
+
+        # SUIVI POST-IMPLANTATION : si une implantation a eu lieu et qu'aucun
+        # suivi televente n'a encore ete fait apres (pas de REFUS/NRP apres l'impl,
+        # pas de commande > impl+3j = au-dela de la cmd d'implant), on cale le 1er
+        # appel a impl + 15j (au lieu de 28) pour un suivi rapproche.
+        # impl_date = tag [IMPL date] explicite, SINON auto-detecte = 1ere SO d'un
+        # nouveau magasin (so_count==1) datant de <= IMPL_AUTO_DAYS (= implantation).
+        impl_date = parse_impl(comment)
+        impl_auto = False
+        if impl_date is None and so_count == 1 and (today - dts[0]).days <= IMPL_AUTO_DAYS:
+            impl_date = dts[0]
+            impl_auto = True
+        suivi_impl = False
+        if impl_date:
+            post = False
+            if last_refus and last_refus > impl_date:
+                post = True
+            if last_nrp and last_nrp > impl_date:
+                post = True
+            if last_order > impl_date + timedelta(days=3):
+                post = True
+            if not post:
+                suivi_impl = True
+                next_call = impl_date + timedelta(days=SUIVI_IMPL_JOURS)
+                cadence_src_eff = "suivi implantation J+15"
+
         overdue = (today - next_call).days  # >0 = en retard
         urgency = round((today - anchor).days / target, 2)
+        ct = best_contact(sp, p)
 
         # top produits habituels
         pq = store_prodqty.get(sp, {})
@@ -272,6 +348,8 @@ def main():
             "street": p.get("street") or "",
             "phone": p.get("phone") or "", "mobile": p.get("mobile") or "",
             "email": p.get("email") or "",
+            "contact_name": ct["name"], "contact_function": ct["function"],
+            "contact_phone": ct["phone"], "contact_email": ct["email"],
             "dist_km": dist if dist is not None else "",
             "dist_src": dist_src,
             "n_refs": n_refs,
@@ -282,12 +360,14 @@ def main():
             "days_since": days_since,
             "median_interval": median_int if median_int is not None else "",
             "target_interval": target,
-            "cadence_src": cadence_src,
+            "cadence_src": cadence_src_eff,
             "next_call": next_call.isoformat(),
             "overdue_days": overdue,
             "urgency": urgency,
             "last_refus": last_refus.isoformat() if last_refus else "",
             "last_nrp": last_nrp.isoformat() if last_nrp else "",
+            "impl_date": impl_date.isoformat() if impl_date else "",
+            "suivi_impl": "1" if suivi_impl else "",
             "reason": reason,
             "top_products": top_products,
             "notes": strip_html(comment)[:300],
