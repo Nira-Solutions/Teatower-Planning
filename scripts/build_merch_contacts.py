@@ -63,6 +63,8 @@ def main():
     csv_path = cands[-1]
     stamp = csv_path.stem.replace("planning_pool_", "")
     rows = list(csv.DictReader(csv_path.open(encoding="utf-8")))
+    # Perimetre Gilles : on exclut les magasins televente (suivi Vanessa par appels)
+    rows = [r for r in rows if r.get("statut") != "Televente"]
 
     # contacts rattaches
     common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
@@ -80,14 +82,16 @@ def main():
             cmap[c["parent_id"][0]].append(c)
 
     def best(pid, r):
+        """Liste TOUS les contacts nommes (joints), + tel/email du 1er dispo / societe."""
         cs = [c for c in cmap.get(pid, []) if (c.get("name") or "").strip()]
         if not cs:
             return ("", "", r.get("phone") or "", r.get("email") or "")
         cs.sort(key=lambda c: (0 if c.get("function") else 1, 0 if (c.get("phone") or c.get("mobile")) else 1))
-        c = cs[0]
-        return (c.get("name") or "", c.get("function") or "",
-                c.get("phone") or c.get("mobile") or r.get("phone") or "",
-                c.get("email") or r.get("email") or "")
+        names = ", ".join((c["name"] + (f" ({c['function']})" if c.get("function") else "")) for c in cs)
+        funcs = ", ".join(c["function"] for c in cs if c.get("function"))
+        tel = next((c.get("phone") or c.get("mobile") for c in cs if c.get("phone") or c.get("mobile")), None) or r.get("phone") or ""
+        mail = next((c.get("email") for c in cs if c.get("email")), None) or r.get("email") or ""
+        return (names, funcs, tel, mail)
 
     actifs = [r for r in rows if r["statut"] == "Actif"]
     body = [f'<input class="filter" id="cf" onkeyup="f()" placeholder="🔎 Filtrer (magasin, contact, ville, tél, tier…)">']

@@ -210,6 +210,25 @@ def main():
     today = date.fromisoformat(args.target_date)
     lookback = today - timedelta(days=30 * args.lookback_months)
 
+    # EXCLUSIVITE (Nicolas 09/06/2026) : les magasins du pool TELEVENTE (Vanessa)
+    # sortent du cycle de VISITES merch de Gilles. Pools exclusifs. On lit la
+    # derniere liste televente_pool_*.csv (produite par build_televente_pool.py,
+    # a lancer AVANT) -> ces pids passent en statut "Televente".
+    # NB : les implantations (nouveau client sans SO) ne sont pas dans ce pool,
+    # donc elles restent merch -> aucun conflit pour l'implantation.
+    televente_pids = set()
+    tv_csvs = sorted(Path(args.out_dir).glob("televente_pool_*.csv"))
+    if tv_csvs:
+        with tv_csvs[-1].open(encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                try:
+                    televente_pids.add(int(row["pid"]))
+                except (KeyError, ValueError):
+                    pass
+        print(f"[*] Exclusivite : {len(televente_pids)} magasins televente lus depuis {tv_csvs[-1].name}")
+    else:
+        print("[!] Aucun televente_pool_*.csv -> exclusivite non appliquee (lance build_televente_pool.py avant)")
+
     uid, models = connect()
     print(f"[*] Odoo connecté uid={uid} | target_date={today} | lookback={lookback}\n")
 
@@ -389,6 +408,8 @@ def main():
             statut = "Arret"
         elif has_no_merch_tag(r["comment"]):
             statut = "NoMerch"  # commande en autonomie — exclu des visites/implantations
+        elif pid in televente_pids:
+            statut = "Televente"  # suivi par Vanessa (appels) — exclu des visites Gilles
         else:
             statut = "Actif"
 
@@ -470,6 +491,7 @@ def main():
     actifs = [r for r in rows if r["statut"] == "Actif"]
     arret = [r for r in rows if r["statut"] == "Arret"]
     no_merch = [r for r in rows if r["statut"] == "NoMerch"]
+    televente = [r for r in rows if r["statut"] == "Televente"]
     overdue = [r for r in actifs if r["retard_j"] > 0]
     tier_counts = defaultdict(int)
     for r in actifs:
@@ -481,6 +503,7 @@ def main():
         f.write(f"  - Actifs : {len(actifs)} (Tier A={tier_counts['A']}, B={tier_counts['B']}, C={tier_counts['C']}, X={tier_counts['X']})\n")
         f.write(f"  - Arret  : {len(arret)}\n")
         f.write(f"  - NoMerch (commande seul, hors planning) : {len(no_merch)}\n")
+        f.write(f"  - Televente (suivi Vanessa, hors visites Gilles) : {len(televente)}\n")
         f.write(f"- **OVERDUE Actifs** (next_visit < {stamp}) : {len(overdue)}\n\n")
         f.write(f"## OVERDUE — par retard décroissant\n\n")
         f.write("| Tier | Retard | Magasin | Adresse | Cycle | Dernière SO | Last visit | Source | Next visit | avg/mois |\n")
@@ -505,11 +528,20 @@ def main():
             for r in no_merch:
                 adresse = f"{r['street']}, {r['zip']} {r['city']}".strip(", ")
                 f.write(f"| {r['display_name']} (#{r['pid']}) | {adresse} | {r['last_so_label']} | {r['avg_mois']:.0f}€ |\n")
+        if televente:
+            f.write(f"\n## Televente — EXCLUS des visites Gilles (suivi Vanessa par appels)\n\n")
+            f.write("> Pool exclusif télévente (réfs≤10 OU dist>60km & réfs<20). Réassort par téléphone (Vanessa). "
+                    "L'implantation initiale reste merch. Voir planning télévente.\n\n")
+            f.write("| Magasin | Adresse | Dernière SO | avg/mois |\n")
+            f.write("|---|---|---|---|\n")
+            for r in televente:
+                adresse = f"{r['street']}, {r['zip']} {r['city']}".strip(", ")
+                f.write(f"| {r['display_name']} (#{r['pid']}) | {adresse} | {r['last_so_label']} | {r['avg_mois']:.0f}€ |\n")
     print(f"[+] Markdown : {md_path}")
 
     print(f"\n[*] Synthèse :")
     print(f"    Magasins GMS uniques : {len(rows)}")
-    print(f"    Actifs : {len(actifs)} | Arret : {len(arret)} | NoMerch : {len(no_merch)}")
+    print(f"    Actifs : {len(actifs)} | Arret : {len(arret)} | NoMerch : {len(no_merch)} | Televente : {len(televente)}")
     print(f"    Distribution Tier (Actifs) : A={tier_counts['A']} B={tier_counts['B']} C={tier_counts['C']} X={tier_counts['X']}")
     print(f"    OVERDUE actifs : {len(overdue)}")
 
