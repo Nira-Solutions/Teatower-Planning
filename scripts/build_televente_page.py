@@ -21,7 +21,7 @@ from pathlib import Path
 DATA = Path(r"C:\Users\FlowUP\OneDrive\Teatower\data")
 OUT = Path(r"C:\Users\FlowUP\OneDrive\Teatower-Planning\televente\index.html")
 DORMANT_THRESHOLD = 90
-DAILY = 9
+DAILY = 6  # capacite Vanessa : 1h/jour @ 10 min/appel (regle Nicolas 09/06/2026)
 JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
 FERIES_BE = {
     date(2026, 1, 1), date(2026, 4, 6), date(2026, 5, 1), date(2026, 5, 14),
