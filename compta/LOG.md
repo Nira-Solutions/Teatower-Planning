@@ -1,5 +1,61 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — LETTRAGE MOLLIE JOURNAL MOL/ — 13 paires lettrées — 1.095,10 EUR sortis balance âgée
+
+### Lettrage paiements Mollie historiques vs factures clients 400000 — ZÉRO impact P&L
+
+**Journal Mollie :** id=17, code=MOL, type=bank  
+**Compte :** 400000 Customers (id=162)  
+**Méthode :** account.partial.reconcile pur, 400000 vs 400000 — aucune écriture 6/7 générée
+
+| PR Odoo | MOL (crédit) | Facture (débit) | Partenaire | Montant lettré |
+|---------|-------------|-----------------|-----------|----------------|
+| 13965 | MOL/25-26/4409 (158459) | INV/2026/02905 (178150) | Thomas Dethier DELTATEC | 197,60 EUR |
+| 13966 | MOL/25-26/3699 (133948) | INV/2026/01774 (152286) | FIDUCIAIRE HUYNEN SRL | 96,09 EUR |
+| 13967 | MOL/25-26/1718 (88301) | INV/2025/04064 (88299) | BOSS IMMO SA | 58,54 EUR |
+| 13968 | MOL/25-26/0965 (72614) | INV/2025/03003 (72612) | Veoware BV | 58,14 EUR |
+| 13969 | MOL/25-26/0758 (67037) | INV/2025/02650 (67035) | Sorel CHALEU | 75,12 EUR |
+| 13970 | MOL/25-26/3230 (120813) | INV/2026/00232 (119807) | CATHY LEQUERTIER | 19,00 EUR |
+| 13971 | MOL/25-26/1845 (90622) | INV/2026/02904 (178109) | Marylene Heindrichs | 80,00 EUR |
+| 13972 | MOL/25-26/1189 (76773) | INV/2025/03300 (76771) | Catherine Vincent | 110,13 EUR |
+| 13973 | MOL/25-26/0756 (66989) | INV/2025/02647 (66987) | Catherine Vincent | 99,30 EUR |
+| 13974 | MOL/25-26/1170 (76519) | INV/2025/03279 (76517) | Devillers Srl | 56,70 EUR |
+| 13975 | MOL/25-26/1090 (75725) | INV/2025/03199 (75723) | Thill I.T. Consulting | 83,38 EUR |
+| 13976 | MOL/25-26/1017 (73618) | INV/2025/03074 (73616) | MULOT MENUISERIE | 100,18 EUR |
+| 13977 | MOL/25-26/0854 (70182) | INV/2025/02833 (70180) | Blandine Demarche | 60,92 EUR |
+
+**Total lettré : 1.095,10 EUR — tous 13 PR sur compte 400000 uniquement, confirmé.**
+
+### Résidus laissés ouverts (écarts frais Mollie — AUCUN passage en 6/7)
+
+| Partenaire | Sens | Montant résidu | Note |
+|-----------|------|---------------|------|
+| Thomas Dethier DELTATEC | MOL résidu | 16,97 EUR | MOL 214,57 vs INV 197,60 |
+| FIDUCIAIRE HUYNEN SRL | INV résidu | 0,81 EUR | MOL 96,09 vs INV 96,90 |
+| BOSS IMMO SA | INV résidu | 3,06 EUR | MOL 58,54 vs INV 61,60 |
+| Veoware BV | INV résidu | 3,06 EUR | MOL 58,14 vs INV 61,20 |
+| Sorel CHALEU | INV résidu | 4,00 EUR | MOL 75,12 vs INV 79,12 |
+| CATHY LEQUERTIER | MOL résidu | 11,80 EUR | MOL 30,80 vs INV 19,00 |
+| Marylene Heindrichs | INV résidu | 5,50 EUR | MOL 80,00 vs INV 85,50 |
+| Catherine Vincent | INV résidu | 5,77 EUR | paire 1 |
+| Catherine Vincent | INV résidu | 5,20 EUR | paire 2 |
+| Devillers Srl | INV résidu | 3,00 EUR | MOL 56,70 vs INV 59,70 |
+| Thill I.T. Consulting | INV résidu | 4,37 EUR | MOL 83,38 vs INV 87,75 |
+| MULOT MENUISERIE | INV résidu | 5,27 EUR | MOL 100,18 vs INV 105,45 |
+| Blandine Demarche | INV résidu | 3,21 EUR | MOL 60,92 vs INV 64,13 |
+
+### Orphelins MOL non lettrés (79 partenaires, 5.201,44 EUR)
+Paiements Mollie sans facture Odoo correspondante = commandes Shopify pré-migration non facturées. Laissés ouverts, décision Nicolas requise.
+
+### Exclusions (factures non posted)
+- Thomas Dethier INV/2026/02049 (line 158457) : state=cancel — non lettrable
+- Jean-Yves EISCHEN move 24813 : state=cancel — non lettrable
+- marie France bajot INV/2025/04108 (line 88986) : state=draft — non lettrable
+
+### Impact P&L : ZÉRO — résultat +87.055 EUR intact
+
+---
+
 ## 2026-06-10 — WRITE-OFF MICRO-RESIDUELS CLIENTS — 3 factures soldées — résultat FY25-26 : +80.632,01 EUR
 
 ### Write-off écarts de paiement ≤ 1,00 EUR (phase 1+2)
