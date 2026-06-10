@@ -128,6 +128,17 @@ Bandeau jour minimal autorisé (opérationnel, pas de la réflexion) : date, nb 
 
 Les colonnes `controle_stock` / `methode_reassort` / `regle_magasin` sont fournies par `planning_pool_YYYY-MM-DD.csv`. Voir le gabarit de référence `planning/_TEMPLATE_tournee.html`.
 
+### Génération de la page — `build_planning_page.py` (REUSABLE)
+
+Le rendu HTML épuré n'est plus écrit à la main : il est généré par
+`scripts/build_planning_page.py` à partir de `scripts/planning_data.py` (structure
+semaine → jour → stop). Workflow :
+1. Pour (re)faire une semaine : éditer `scripts/planning_data.py` (objet `S25`, `S24`, …),
+   chaque stop = `{t, k(impl/visite/livr), b[badges], so, n, ls, lsc, a, c, note, st, re, rg}`.
+2. `python scripts/build_planning_page.py` → écrit `planning/index.html`.
+3. La page garde **2 semaines** (courante + suivante) ; l'historique reste dans git.
+4. Les liens Google Maps (par stop + tournée complète/jour) sont générés automatiquement.
+
 ### Travail de réflexion → fichier séparé (pas dans le planning Gilles)
 
 La queue, les clients en retard non planifiés, les motifs de report : à garder dans `planning/queue_*.md` (vue Nicolas/agent), **jamais** dans `index.html`.
