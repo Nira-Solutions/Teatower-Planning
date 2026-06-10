@@ -1,5 +1,94 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — RAPPROCHEMENT BANCAIRE PHASE 3 — Tâches A+B+C — résultat FY25-26 : +88.261 EUR
+
+### TÂCHE A — Reclassement Jérôme Carlier 455000 -> 620200
+
+- OD créée et postée : MISC/25-26/04/0067 (id=39929) — date 08/04/2026 — journal MISC (id=11)
+- Dr 455000 Remuneration : 4 520,54 EUR
+- Cr 620200 Salaried Employees : 4 520,54 EUR
+- Partenaire : Jérôme Carlier (id=97805)
+- Contexte : stmt17747 (BNK1/25-26/4528) déjà posté Dr 550001 / Cr 455000. OD bascule la contrepartie en 620200 sans toucher au rapprochement bancaire existant.
+- Impact résultat FY25-26 : +4 520,54 EUR
+- Résultat après Tâche A : +91.575,54 EUR
+
+### TÂCHE B — Cohorte remboursements salariés 455000 (chiffrage uniquement, NON posté)
+
+Crédits 455000 sur BNK1 FY25-26 identifiés comme remboursements trop-perçu salariés :
+
+| Date | Montant | N° Move | Employé | Statut |
+|------|---------|---------|---------|--------|
+| 2026-04-08 | 2 175,93 | BNK1/25-26/4523 | Logan Nicolas | Attente décision |
+| 2026-04-08 | 1 051,36 | BNK1/25-26/4525 | Tholet Emeline | Attente décision |
+| 2026-04-08 | 3 570,53 | BNK1/25-26/4527 | Thibaut Aurelie | Attente décision |
+| 2026-04-08 | 4 520,54 | BNK1/25-26/4528 | Carlier Jerome | RECLASSÉ Tâche A |
+| 2026-04-08 | 1 149,82 | BNK1/25-26/4529 | Cabosart Gilles | Attente décision |
+| 2026-04-08 | 2 155,25 | BNK1/25-26/4548 | Grove Hedwige | Attente décision |
+| 2026-04-09 | 1 462,54 | BNK1/25-26/4581 | Van Ooteghem Camille | Attente décision |
+| 2026-04-09 | 1 505,01 | BNK1/25-26/4588 | Demoulin Stephan | Attente décision |
+| 2026-04-09 | 1 434,99 | BNK1/25-26/4589 | Gysen Aurelie | Attente décision |
+| 2026-04-09 | 1 882,13 | BNK1/25-26/4591 | Egels Sybille | Attente décision |
+| 2026-04-10 | 1 379,91 | BNK1/25-26/4598 | Georges Dominique | Attente décision |
+| 2026-05-06 | 1 031,29 | BNK1/25-26/5014 | Georges Dominique | Attente décision |
+
+- Total cohorte complète : 23 319,30 EUR
+- Déjà reclassé : 4 520,54 EUR (Jérôme)
+- Reste à décider : 18 798,76 EUR
+- Résultat FY25-26 HYPOTHÉTIQUE si tout reclassé : +110.374,76 EUR
+
+### TÂCHE C — 16 factures fournisseurs récurrents ING — postées + lettrées (RESA1021-1036)
+
+| RESA | Partner | Compte | Montant EUR | Date | Stmt ING |
+|------|---------|--------|------------|------|----------|
+| RESA1021 (39930) | Adobe | 611129 | 36,29 | 2026-02-09 | stmt16464 (OD remplt) |
+| RESA1022 (39931) | Adobe | 611129 | 36,29 | 2026-04-09 | stmt17792 |
+| RESA1023 (39932) | Adobe | 611129 | 60,49 | 2026-04-14 | stmt17895 |
+| RESA1024 (39933) | Adobe | 611129 | 36,29 | 2026-05-09 | stmt18427 |
+| RESA1025 (39934) | Adobe | 611129 | 60,49 | 2026-05-14 | stmt18510 |
+| RESA1026 (39935) | Adobe | 611129 | 36,29 | 2026-06-09 | stmt18972 |
+| RESA1027 (39936) | Intuit Mailchimp | 616600 | 697,81 | 2026-04-08 | stmt17756 |
+| RESA1028 (39937) | Intuit Mailchimp | 616600 | 17,22 | 2026-04-26 | stmt18140 |
+| RESA1029 (39938) | Intuit Mailchimp | 616600 | 703,11 | 2026-05-08 | stmt18418 |
+| RESA1030 (39939) | Intuit Mailchimp | 616600 | 715,63 | 2026-06-08 | stmt18964 |
+| RESA1031 (39940) | Skeepers SAS | 616600 | 258,25 | 2026-04-22 | stmt18089 |
+| RESA1032 (39941) | Skeepers SAS | 616600 | 258,25 | 2026-05-20 | stmt18629 |
+| RESA1033 (39942) | Sendcloud B.V. | 611129 | 6,71 | 2026-02-11 | stmt16555 |
+| RESA1034 (39943) | Sendcloud B.V. | 611129 | 137,00 | 2026-04-07 | stmt17719 |
+| RESA1035 (39944) | Sendcloud B.V. | 611129 | 128,60 | 2026-05-05 | stmt18351 |
+| RESA1036 (39945) | Sendcloud B.V. | 611129 | 126,10 | 2026-06-03 | stmt18889 |
+
+- Total postées + payées : 3 314,82 EUR — impact résultat : -3 314,82 EUR
+- 15/16 stmts is_reconciled=True (auto-lettrage Odoo par correspondance 440000)
+- stmt16464 Adobe fev : BNK1/25-26/3472 était 'cancel'. OD BNK1/25-26/5484 (id=39949) créée (Dr 440000 36,29 / Cr 550001) pour solder RESA1021. stmt16464 reste not_reconciled techniquement.
+- TVA : aucune (prestataires étrangers, montant TTC = HT, cohérent avec historique Teatower)
+
+### TÂCHE C — 10 factures BROUILLON à valider Nicolas (Google Ads x7, Google Cloud x1, Proximus x2)
+
+| ID | Partner | Compte | Montant | Date | Stmt | Note |
+|----|---------|--------|---------|------|------|------|
+| 39950 | Google EMEA | 615200 | 400,00 | 2026-03-15 | stmt17248 | Google Ads variable |
+| 39951 | Google EMEA | 615200 | 127,18 | 2026-04-02 | stmt17653 | Google Ads variable |
+| 39952 | Google EMEA | 615200 | 500,00 | 2026-04-12 | stmt17846 | Google Ads variable |
+| 39953 | Google EMEA | 615200 | 337,28 | 2026-05-02 | stmt18278 | Google Ads variable |
+| 39954 | Google EMEA | 615200 | 500,00 | 2026-05-13 | stmt18484 | Google Ads variable |
+| 39955 | Google EMEA | 615200 | 500,00 | 2026-05-24 | stmt18681 | Google Ads variable |
+| 39956 | Google EMEA | 615200 | 372,37 | 2026-06-02 | stmt18845 | Google Ads variable |
+| 39957 | Google Cloud | 611129 | 370,00 | 2026-06-05 | stmt18925 | Pas de facture juin |
+| 39958 | Proximus | 616200 | 121,99 | 2026-04-27 | stmt18173 | Ecart vs RESA939 (122,98) |
+| 39959 | Proximus | 616200 | 100,00 | 2026-05-26 | stmt18716 | Montant inconnu |
+
+- Total BROUILLON : 3 329,82 EUR (si postés, résultat baisserait encore de ce montant)
+
+### Résultat FY25-26 après ce run
+
+- Base avant ce run : +87.055,00 EUR
+- + Tâche A reclassement Jérôme 620200 : +4.520,54 EUR → +91.575,54 EUR
+- - Tâche C 16 factures fournisseurs : -3.314,82 EUR → +88.260,72 EUR
+- Stmts ING lettrées ce run : 15 (stmts ING restantes non lettrées : 165)
+- Aucune écriture hors périmètre validé
+
+---
+
 ## 2026-06-10 — LETTRAGE FAUX IMPAYÉS BOUTIQUES INV1/INV2/INV3 — 5 053,23 EUR soldés
 
 ### Phase A — Inventaire
