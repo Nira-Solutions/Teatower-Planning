@@ -1,5 +1,29 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — LETTRAGE KIRCHNER NETS — BNK 18130 / 18733 / 18090 — NEUTRE P&L (hors 0,01 EUR)
+
+**Contexte :** Rapprochement bancaire ING (BNK1) — lignes Kirchner, Fischer & Co GmbH (#7195) avec suspense 499000.
+Méthode : OD MISC (reclassement 499000 -> 440000) + account.partial.reconcile sur les lignes 440000 et 499000.
+
+| BNK | Date | Move BNK | Montant | Facture(s) lettrée(s) | Partiel lettré | Résiduel ouvert | Impact P&L |
+|-----|------|----------|---------|----------------------|----------------|-----------------|-----------|
+| 18130 | 2026-04-24 | BNK1/25-26/4829 | -1.184,86 | RESA733 (1.184,85) | intégral | 0,00 (soldée) | 0,01 EUR 657100 (write-off autorisé) |
+| 18733 | 2026-05-26 | BNK1/25-26/5298 | -8.706,97 | RESA730 (6.821,21 intégral) + RESA729 (1.885,76 partiel) | RESA729: 1.885,76/2.025,90 | 140,14 EUR ouvert RESA729 | 0 |
+| 18090 | 2026-04-22 | BNK1/25-26/4798 | -18.451,00 (part suspense 5.944,74) | RESA734 (5.944,74 partiel sur 6.105,30) | partiel | 160,56 EUR ouvert RESA734 | 0 |
+
+**OD créées (postées) :**
+- `MISC/25-26/04/0069` (id=39982) — BNK18130/RESA733 — 440000 D=1.184,85 + 657100 D=0,01 / 499000 C=1.184,86
+- `MISC/25-26/05/0124` (id=39983) — BNK18733/RESA730+RESA729 — 440000 D=6.821,21+1.885,76 / 499000 C=8.706,97
+- `MISC/25-26/04/0070` (id=39984) — BNK18090/RESA734 — 440000 D=5.944,74 / 499000 C=5.944,74
+
+**Partial reconciles créés :** PR13988/13989 (CAS1), PR13990/13991/13992 (CAS2), PR13993/13994 (CAS3).
+**Résultat P&L :** neutre sauf 0,01 EUR en 657100 (Negative Payment Differences) — autorisé par instruction.
+**Factures non touchées :** RESA735 (déjà payée), RESA506 (déjà payée).
+**Cas réservés intacts :** BNK17722, BNK18022, BNK18525, BNK18834.
+**Base résultat :** -67.016 EUR inchangée (hors 0,01 EUR négligeable).
+
+---
+
 ## 2026-06-10 — TACHE 1 : LETTRAGE DOUBLE-SALAIRE VERRIEST + VECCHIA — 1.518,83 EUR — NEUTRE P&L
 
 **Contexte :** Estelle Verriest et Fiona Vecchia (employées) ont rendu leur double-salaire d'avril 2026.
