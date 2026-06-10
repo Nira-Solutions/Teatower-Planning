@@ -179,8 +179,47 @@ window.addEventListener('DOMContentLoaded', function(){{
 """
 
 
+def check_pools_exclusifs(weeks):
+    """GARDE-FOU pools exclusifs (REGLES §12) : aucun magasin merch ne doit etre
+    dans le pool televente (Vanessa), SAUF les implantations (k='impl', toujours
+    physiques). Extrait le #pid du nom de chaque stop et le compare au dernier
+    televente_pool_*.csv. Affiche un WARNING bloquant a l'oeil."""
+    import csv, re
+    from glob import glob
+    data_dir = OUT.resolve().parent.parent.parent / "Teatower" / "data"
+    csvs = sorted(glob(str(data_dir / "televente_pool_*.csv")))
+    if not csvs:
+        print("[!] pas de televente_pool_*.csv -> garde-fou non applique")
+        return
+    tv = set()
+    with open(csvs[-1], encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            try:
+                tv.add(int(row["pid"]))
+            except (KeyError, ValueError):
+                pass
+    pid_re = re.compile(r"#(\d+)")
+    bad = []
+    for w in weeks:
+        for d in w["days"]:
+            for s in d["stops"]:
+                if s.get("k") == "impl":
+                    continue  # implantation = toujours merch
+                m = pid_re.search(s.get("n", ""))
+                if m and int(m.group(1)) in tv:
+                    bad.append(f"{w['id']}/{d['h']}: {s['n']}")
+    if bad:
+        print(f"[!!!] {len(bad)} magasin(s) MERCH presents dans le pool TELEVENTE "
+              f"(a retirer -> Vanessa, REGLES §12) :")
+        for b in bad:
+            print(f"      - {b}")
+    else:
+        print(f"[OK] garde-fou pools exclusifs : aucun magasin merch en televente ({csvs[-1].split('/')[-1]})")
+
+
 def main():
     from planning_data import WEEKS
+    check_pools_exclusifs(WEEKS)
     html = build(WEEKS)
     OUT.write_text(html, encoding="utf-8")
     n = sum(len(d["stops"]) for w in WEEKS for d in w["days"])
