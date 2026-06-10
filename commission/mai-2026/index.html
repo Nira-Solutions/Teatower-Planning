@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commission Mai 2026 — Jérôme Carlier | Teatower</title>
+<style>
+  :root { --primary: #2d6a4f; --accent: #40916c; --warn: #e76f51; --bg: #f8f9fa; --card: #fff; --text: #212529; --muted: #6c757d; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 1rem; max-width: 960px; margin: 0 auto; line-height: 1.5; }
+  h1 { color: var(--primary); font-size: 1.6rem; margin-bottom: .3rem; }
+  h2 { color: var(--primary); font-size: 1.15rem; margin: 1.5rem 0 .6rem; border-bottom: 2px solid var(--accent); padding-bottom: .3rem; }
+  h3 { color: var(--text); font-size: 1rem; margin: 1rem 0 .4rem; }
+  .subtitle { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+  .meta { background: var(--card); border-radius: 8px; padding: .8rem 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 1.5rem; font-size: .88rem; }
+  .meta div { margin: .15rem 0; }
+  .meta strong { color: var(--primary); }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .6rem; margin-bottom: 1.5rem; }
+  .summary-card { background: var(--primary); color: #fff; border-radius: 8px; padding: 1rem .8rem; text-align: center; }
+  .summary-card .num { font-size: 1.6rem; font-weight: 700; }
+  .summary-card .label { font-size: .8rem; opacity: .9; }
+  .summary-card .sub { font-size: .72rem; opacity: .8; margin-top: .2rem; }
+  .summary-card.total { background: var(--accent); font-size: 1.1em; }
+  .card { background: var(--card); border-radius: 10px; padding: 1rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 1rem; }
+  table { width: 100%; border-collapse: collapse; margin: .5rem 0; font-size: .88rem; }
+  th, td { padding: .5rem .6rem; text-align: left; border-bottom: 1px solid #e9ecef; }
+  th { background: #f1f3f5; font-weight: 600; color: var(--primary); font-size: .8rem; text-transform: uppercase; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.eligible { background: #d1e7dd; }
+  tr.eligible td:first-child { border-left: 3px solid var(--accent); }
+  tr.rejected { color: var(--muted); }
+  tr.total-row td { font-weight: 700; background: #f1f3f5; border-top: 2px solid var(--primary); border-bottom: none; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .7rem; font-weight: 600; text-transform: uppercase; }
+  .badge-ok { background: var(--accent); color: #fff; }
+  .badge-no { background: #adb5bd; color: #fff; }
+  .formula { background: #f1f3f5; border-left: 3px solid var(--primary); padding: .6rem .9rem; margin: .5rem 0; font-size: .87rem; border-radius: 0 4px 4px 0; }
+  .alert { background: #fff3cd; border-left: 4px solid #ffc107; padding: .6rem 1rem; margin: .8rem 0; font-size: .87rem; border-radius: 0 6px 6px 0; }
+  .alert.info { background: #e7f5ff; border-left-color: #1971c2; }
+  .alert.success { background: #d1e7dd; border-left-color: var(--accent); }
+  .footer { color: var(--muted); font-size: .78rem; margin-top: 2rem; text-align: center; padding-top: 1rem; border-top: 1px solid #dee2e6; }
+  @media(max-width:640px) { table { font-size: .78rem; } th, td { padding: .35rem .4rem; } }
+</style>
+</head>
+<body>
+
+<h1>Commission Mai 2026 — Jérôme Carlier</h1>
+<p class="subtitle">Rapport officiel — source : <code>Commission_mai_2026 (1).docx</code> (Adri) + calcul Odoo Option C pour la croissance CA</p>
+
+<div class="meta">
+  <div><strong>Période :</strong> 01/05/2026 → 31/05/2026</div>
+  <div><strong>Sources :</strong> Avenant contrat 17/03/2026 + document Adri <code>Commission_mai_2026 (1).docx</code> + Odoo XML-RPC (croissance CA)</div>
+  <div><strong>Date de calcul :</strong> 10/06/2026 — validé Nicolas</div>
+  <div><strong>Méthode croissance :</strong> Option C — SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage parent, base HT</div>
+</div>
+
+<h2>Synthèse</h2>
+<div class="summary">
+  <div class="summary-card">
+    <div class="num">2 200 €</div><div class="label">Croissance CA B2B</div>
+    <div class="sub">+41,26 % — tranche 40–49,9 %</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">1 000 €</div><div class="label">Displays GMS</div>
+    <div class="sub">10 × 100 € (liste Adri)</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">585 €</div><div class="label">Nouveaux clients hors GMS</div>
+    <div class="sub">8 Horeca + 1 Revendeur × 65 €</div>
+  </div>
+  <div class="summary-card total">
+    <div class="num">3 785 €</div><div class="label">Total brut Mai 2026</div>
+    <div class="sub">validé 10/06/2026</div>
+  </div>
+</div>
+
+<div class="alert success">
+  <strong>Premier mois à dépasser le seuil de 30 % de croissance.</strong> Mars (+12,3 % → 250 €) et avril (+22,1 % → 650 €) restaient dans le bas du barème ; mai atteint <strong>+41,26 %</strong> → palier <strong>40–49,9 % = 2 200 €</strong>.
+</div>
+
+<h2>1. Commission croissance CA B2B</h2>
+<div class="card">
+  <div class="formula">
+    <strong>Périmètre (Option C) :</strong> SO confirmées (state = sale/done), tags Canal GMS+B2B+Horeca (88/27/85/28/32/84/26/31/33) + héritage partenaire parent, base HT.<br>
+    Calcul Odoo direct (Adri avait laissé cette partie « en attente du CA réel »).
+  </div>
+  <h3>CA B2B mai 2025 vs mai 2026</h3>
+  <table>
+    <thead><tr><th>Période</th><th class="num">CA HT Odoo (Option C)</th><th class="num">SO retenues</th></tr></thead>
+    <tbody>
+      <tr><td>Mai 2025 (baseline N-1)</td><td class="num"><strong>53 127,89 €</strong></td><td class="num">123 / 472</td></tr>
+      <tr class="eligible"><td><strong>Mai 2026 (réalisé)</strong></td><td class="num"><strong>75 051,05 €</strong></td><td class="num">153 / 470</td></tr>
+      <tr class="total-row"><td><strong>Croissance</strong></td><td class="num" colspan="2"><strong>+41,26 %</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Table des paliers officiels (source Adri — image PNG 04/05/2026)</h3>
+  <table>
+    <thead><tr><th>Tranche croissance</th><th class="num">Commission brute</th></tr></thead>
+    <tbody>
+      <tr><td>&lt; 10 %</td><td class="num">0 €</td></tr>
+      <tr><td>10 – 14,9 %</td><td class="num">250 €</td></tr>
+      <tr><td>15 – 19,9 %</td><td class="num">400 €</td></tr>
+      <tr><td>20 – 24,9 %</td><td class="num">650 €</td></tr>
+      <tr><td>25 – 29,9 %</td><td class="num">850 €</td></tr>
+      <tr><td>30 – 30,9 %</td><td class="num">1 000 €</td></tr>
+      <tr><td>31 – 39,9 %</td><td class="num">1 500 €</td></tr>
+      <tr class="eligible"><td><strong>40 – 49,9 %</strong> ← mai 2026 (+41,26 %)</td><td class="num"><strong>2 200 €</strong></td></tr>
+      <tr><td>50 – 64,9 %</td><td class="num">3 200 €</td></tr>
+      <tr><td>65 – 79,9 %</td><td class="num">4 500 €</td></tr>
+      <tr><td>80 – 100 %</td><td class="num">6 000 €</td></tr>
+      <tr><td>&gt; 100 %</td><td class="num">proratisation sans plafond</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:.6rem;">Croissance <strong>+41,26 %</strong> → <strong style="color:var(--primary);">Commission croissance = 2 200 € brut</strong>.</p>
+</div>
+
+<h2>2. Commission displays GMS — 10 × 100 € = 1 000 €</h2>
+<div class="card">
+  <div class="formula"><strong>Règle :</strong> 100 € par display GMS installé (déclencheur = installation terrain, pas de seuil SO). Source : liste Adri.</div>
+  <table>
+    <thead><tr><th>#</th><th>Magasin GMS</th><th class="num">Commission</th></tr></thead>
+    <tbody>
+      <tr class="eligible"><td>1</td><td>Louis Delhaize – Haversin</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>2</td><td>Intermarché Rumes (Tournai)</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>3</td><td>Spar Beauvechain</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>4</td><td>Spar Barvaux</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>5</td><td>Spar Godinne</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>6</td><td>Intermarché Braine-le-Château</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>7</td><td>Intermarché Braine-le-Comte Digues</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>8</td><td>Intermarché Mons</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>9</td><td>Intermarché Grace Hollogne</td><td class="num">100 €</td></tr>
+      <tr class="eligible"><td>10</td><td>Delhaize Roodebeek</td><td class="num">100 €</td></tr>
+      <tr class="total-row"><td colspan="2">Total displays GMS (liste Adri)</td><td class="num"><strong>1 000 €</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>3. Commission nouveaux clients hors GMS — 9 × 65 € = 585 €</h2>
+<div class="card">
+  <div class="formula"><strong>Règle :</strong> 65 € par nouveau client Horeca/Revendeur, 1ère commande ≥ 240 € HTVA. Source : liste Adri.</div>
+  <table>
+    <thead><tr><th>#</th><th>Client</th><th>Catégorie</th><th class="num">Commission</th></tr></thead>
+    <tbody>
+      <tr class="eligible"><td>1</td><td>Bistro Le Moulin</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>2</td><td>Le Rivage</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>3</td><td>Pampa Bar</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>4</td><td>Le temps d'un délice</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>5</td><td>L'artiste – Babette (Falaen)</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>6</td><td>Taverne Prince Albert</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>7</td><td>Tabiloo – BXL</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>8</td><td>Les Bijoux d'Olga</td><td>Horeca</td><td class="num">65 €</td></tr>
+      <tr class="eligible"><td>9</td><td>Magasin Georgette</td><td>Revendeur</td><td class="num">65 €</td></tr>
+      <tr class="rejected"><td>—</td><td>La Cave de David – Ciney</td><td>Horeca</td><td class="num"><span class="badge badge-no">&lt; 240 €</span></td></tr>
+      <tr class="rejected"><td>—</td><td>La Table de Manon</td><td>Horeca</td><td class="num"><span class="badge badge-no">&lt; 240 €</span></td></tr>
+      <tr class="total-row"><td colspan="3">Total clients hors GMS (8 Horeca + 1 Revendeur)</td><td class="num"><strong>585 €</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>4. Récapitulatif total</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Volet</th><th class="num">Montant brut</th></tr></thead>
+    <tbody>
+      <tr><td>1. Croissance CA B2B (+41,26 %)</td><td class="num">2 200 €</td></tr>
+      <tr><td>2. Displays GMS (10 × 100 €)</td><td class="num">1 000 €</td></tr>
+      <tr><td>3. Nouveaux clients hors GMS (9 × 65 €)</td><td class="num">585 €</td></tr>
+      <tr class="total-row"><td><strong>TOTAL COMMISSION BRUTE — MAI 2026</strong></td><td class="num"><strong>3 785 €</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="footer">
+  Document généré par l'agent Compta Teatower — 10/06/2026, validé Nicolas<br>
+  Source : <code>Commission_mai_2026 (1).docx</code> (Adri) + Odoo XML-RPC (Option C)<br>
+  <strong>Total : 3 785 € brut</strong>
+</p>
+
+</body>
+</html>
