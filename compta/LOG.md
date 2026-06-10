@@ -57,6 +57,89 @@ Même traitement que la cohorte Logan/Tholet/Thibaut/Carlier (avril 2026).
 
 **Controle P&L :** 27 moves analyses — ZERO ligne sur comptes 6/7. Mouvements bilan pur (Dr 550001 / Cr 58x003).
 
+---
+
+## 2026-06-10 — LEVIERS AMELIORATION RESULTAT FY25-26 — 4 leviers analysés, 2 postés
+
+### L5a — DOUBLON FOURNISSEUR BOXMAKER (+1.836,80 EUR) — POSTÉ
+
+**Analyse :** RESA385 (id=27211, paid) et RESA428 (id=27689, in_payment), même réf 20250578, même montant 2.222,53 EUR TTC.
+- BNK1/25-26/3161 (20/01/2026, comm. 20250578, ING) lettre avec RESA385 via partial.reconcile 9254 = seul paiement réel sorti pour cette réf.
+- RESA428 : ligne 440000 non lettrée (residual -2222.53) → doublon d'encodage confirmé.
+- 3 autres paiements Boxmaker de 2222.53 EUR sortis (mars/mai 2026) = autres factures distinctes (réf 20260091, 20260180).
+
+**Action :** Avoir fournisseur miroir via wizard account.move.reversal.
+- Avoir créé : RBILL/25-26/06/0001 (id=39978), 2026-06-10, Boxmaker B.V.B.A., 2.222,53 EUR TTC.
+- RESA428 payment_state → reversed.
+- **Impact P&L : +1.836,80 EUR HT** (C 604024 = 1.827,00 + C 600000 = 9,80 — annulation charge double).
+- TVA : -385,73 EUR 411000 (déductible annulée, normal pour avoir fournisseur).
+
+---
+
+### L2 — DOUBLON ONSS/PP SD WORX (plancher +26.225,98 EUR) — POSTÉ
+
+**Analyse :** 7 RESA SD Worx (713/789/790/791/935/936/938) ont passé ONSS+PP en 613310 alors que les OD de paie MISC créaient déjà les dettes 454000/453000.
+- Solde FY25-26 454000 (NSSO) créditeur : 16.848,29 EUR.
+- Solde FY25-26 453000 (PP) créditeur : 9.377,69 EUR.
+- Total plancher certain : 26.225,98 EUR.
+- Delta incertain (~11.464 EUR) non posté — correspond potentiellement à DmfA Q4 2025 ou cotisations hors OD de paie.
+
+**OD postée :** MISC/25-26/06/0094 (id=39979), 2026-06-30.
+
+| Compte | Débit | Crédit | Libellé |
+|--------|-------|--------|---------|
+| 454000 NSSO | 16.848,29 | — | Apurement dette ONSS |
+| 453000 PP | 9.377,69 | — | Apurement dette PP |
+| 613310 Secrétariat social | — | 26.225,98 | Annulation charge doublon |
+
+**Garde-fou OK :** Après post, soldes 454000 et 453000 = 0,00 (ni débiteurs ni créditeurs résiduels).
+**Impact P&L : +26.225,98 EUR** (annulation charge en double sur 613310).
+**Delta en attente : ~11.464 EUR** — à confirmer avec SD Worx/DmfA avant de poster.
+
+---
+
+### L4 — EXTOURNE PROVISION FAIRE — NON POSTÉ
+
+**Analyse :** OD MISC/25-26/06/0075 (id=39509), provision nette 20.536,11 EUR (D 604024 / C 440000 Faire.Com).
+- Aucune facture Faire reçue depuis le 04/06 (vérifié Odoo).
+- Mais la provision couvre des achats RÉELS déjà payés en banque (22.052,95 EUR sortis, 1.516,84 remboursements).
+- 4.278 EUR supplémentaires payés depuis avril 2026 sans facture → flux Faire toujours actif.
+- L'OD elle-même indique «à extourner lors de l'encodage des factures Faire».
+
+**Décision : NE PAS EXTOURNER avant réception des factures Faire.**
+Extourner avant = supprimer une charge réelle provisionnée = résultat fictif.
+Écriture d'extourne prête (D 440000 22.052,95 + D 604024 1.516,84 / C 604024 22.052,95 + C 440000 1.516,84) → à poster quand toutes les factures Faire 08/2025-05/2026 sont encodées.
+**Impact posté : 0 EUR.**
+
+---
+
+### L3a — CA MOLLIE ORPHELIN — NON POSTÉ
+
+**Analyse :** 69 lignes crédit sur 400000 (total 5.716,82 EUR) liées au journal Mollie (id=17).
+Structure réelle : chaque move Mollie = D 551102 Pmt à recevoir / C 400000.
+Les factures des SO correspondants sont déjà en payment_state=in_payment via d'AUTRES moves Mollie (lettrage correct existant).
+Ces 69 crédits = problème d'import/doublons d'enregistrement, pas du CA non reconnu.
+Créer des factures pour lettrer = doublon de CA = INTERDIT.
+**Impact posté : 0 EUR.** A investiguer séparément (apurement 400000 vs 551102 par OD neutre au résultat).
+
+---
+
+### RÉCAPITULATIF LEVIERS FY25-26
+
+| Levier | Move | Montant posté | Statut |
+|--------|------|--------------|--------|
+| L5a Boxmaker doublon | RBILL/25-26/06/0001 (id=39978) | +1.836,80 EUR | POSTÉ |
+| L2 ONSS/PP plancher | MISC/25-26/06/0094 (id=39979) | +26.225,98 EUR | POSTÉ |
+| L4 Provision Faire | — | 0 EUR | EN ATTENTE factures Faire |
+| L3a Mollie orphelins | — | 0 EUR | Pb lettrage, pas CA |
+| **Total posté** | | **+28.062,78 EUR** | |
+
+**Résultat estimé FY25-26 :** 80.633 + 28.062,78 = **108.695,78 EUR** (avant audit/ISOC).
+
+**Confirmations externes à obtenir :**
+1. SD Worx : demander détail DmfA Q4 2025 et vérifier si ~11.464 EUR = vraie cotisation ou doublon → potentiel +11.464 EUR supplémentaire.
+2. Faire.com : dès réception et encodage de toutes les factures 08/2025-05/2026 → poster l'extourne MISC/25-26/06/0075 → +20.536,11 EUR.
+
 **Soldes comptes d'attente (FLAG CA POS a investiguer) :**
 
 | Compte | Libelle | Solde crediteur | Flag |
