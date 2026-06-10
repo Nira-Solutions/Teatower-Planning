@@ -1,5 +1,73 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — TACHE 1/2 LOT KIRCHNER/NASA/SINAS — SUITE RAPPROCHEMENT BANCAIRE — is_reconciled flags + write-offs + brouillons
+
+### TACHE 1 : Clôture flags bancaires 3 lignes Kirchner (BNK 18130 / 18733 / 18090)
+
+**Methode :** activation reconcile=True sur compte 499000 (id=221), action_undo_reconciliation + account.move.line.reconcile sur les paires ML 499000 (BNK <-> OD).
+Pour BNK18090, l'undo avait defait les lettrages 440000 -> rebuild complet du move 36792 (reset draft + 3 lignes 440000+499000 + post + reconcile chaque ligne).
+
+| BNK | Move bancaire | OD | is_reconciled apres | Factures restaurees |
+|-----|--------------|-----|--------------------|--------------------|
+| 18130 | BNK1/25-26/4829 (id=36892, poster) | MISC/25-26/04/0069 (id=39982) | True | RESA733 paid |
+| 18733 | BNK1/25-26/5298 (id=38796) | MISC/25-26/05/0124 (id=39983) | True | RESA730+RESA729 inchanges |
+| 18090 | BNK1/25-26/4798 (id=36792, rebuild) | MISC/25-26/04/0070 (id=39984) | True | RESA506 paid, RESA735 paid, RESA734 partial (160,56 ouvert) |
+
+### TACHE 2 : Lettrage avec write-off BNK 17722 + BNK 18834
+
+| BNK | Move bancaire | Facture | Ecart | Write-off compte | is_reconciled |
+|-----|--------------|---------|-------|-----------------|--------------|
+| 17722 | BNK1/25-26/4508 (id=35816) | RESA462 (4.360,69, Mount Everest) | 5,39 EUR | 657100 D=5,39 | True |
+| 18834 | BNK1/25-26/5378 (id=39194) | RESA743 (1.198,65, Kirchner) | 0,74 EUR | 657100 C=0,74 (dans BNK move) | True |
+
+**Impact P&L Tache 2 :** -6,13 EUR total (5,39 + 0,74 en 657100 Negative Payment Differences). Residuel = -67.016 - 6,13 = -67.022 EUR (negligeable, autorise par instruction Nicolas).
+
+**Note BNK 18834 :** match par montant uniquement (ref RGK26-01990 introuvable dans Odoo). A confirmer si Nicolas identifie une autre facture.
+
+### TACHE 3 : Brouillons Sinas + NASA
+
+**SINAS GmbH (id=6421, Allemagne, Intra-Community FP=3) :**
+
+| ID Odoo | Ref fournisseur | Montant | Date | BNK paiement | TVA |
+|---------|----------------|---------|------|-------------|-----|
+| 39990 | 197610 | 2.648,58 EUR | 2026-02-18 | BNK16715 | 0% (autoliquidation intracom) |
+| 39991 | 199235 | 839,37 EUR | 2026-04-10 | BNK17832 | 0% (autoliquidation intracom) |
+| 39992 | 199587 | 2.514,77 EUR | 2026-04-24 | BNK18129 | 0% (autoliquidation intracom) |
+
+Compte charge : 600000 (Purchases of Raw Materials). State=draft. A poster apres validation Nicolas.
+
+**NASA Corporation (id=6409, Japon, hors-UE) :**
+
+| ID Odoo | Ref | Montant | Date | BNK | TVA |
+|---------|-----|---------|------|-----|-----|
+| 39993 | SOJP202604-0054 | 5.419,82 EUR (978.100 JPY) | 2026-04-23 | BNK18116 | 0% sur facture (TVA import via doc douanier) |
+
+State=draft. A poster apres validation Nicolas.
+
+**Recommandations NASA :**
+1. RESA825 (id=36192, state=posted, amount=0 EUR, payment_state=paid, ref=SOJP202604-0054) = placeholder a corriger ou annuler (wizard reversal) avant de poster le brouillon id=39993 pour eviter doublon de ref.
+2. TVA import (6% ou 21% sur valeur CIF) a saisir depuis le document douanier/agent en douane, pas depuis la facture fournisseur — compte TVA import deductible separate.
+3. BNK 16571 (-5.161,89 EUR, 907.750 JPY, 12/02/2026) vs RESA581 (4.921,00 EUR, non_paid) : ecart 240,89 EUR = probablement frais de change/commission banque JPY. NE PAS LETTRER avant confirmation Nicolas. Apres confirmation : lettrage RESA581 + 240,89 EUR en 654000 ou 657000 (frais financiers change).
+
+**Impact P&L Tache 3 :** 0 EUR (tous en brouillon, aucun poste).
+
+### TACHE 4 : Lignes en suspens — docs a fournir
+
+| BNK | Montant | Date | Communication | Statut |
+|-----|---------|------|--------------|--------|
+| 18022 (BNK1/25-26/4757) | -2.000,54 EUR | 2026-04-20 | Kirchner SEPA, ref "See Docket from 16.04.26" | Facture originale du 16/04 a fournir par Nicolas |
+| 18525 (BNK1/25-26/5140) | -1.029,74 EUR | 2026-05-15 | Kirchner SEPA, ref RGK26-01561 | Ref non trouvee dans Odoo — facture originale a fournir |
+
+### Compteurs apres ce lot
+
+- Lignes ING lettrées dans ce lot : 5 (BNK 18130, 18733, 18090, 17722, 18834)
+- Lignes ING non reconciliees restantes : 122 (vs 127 avant ce lot)
+- Lignes en suspens actif (brouillons Sinas/NASA) : 4 BNK (16715, 17832, 18129, 18116) + 1 NASA ecart (16571)
+- Lignes sans doc (tache 4) : 2 BNK (18022, 18525)
+- Compte 499000 : reconcile=True (active pour permettre les lettrages 499000)
+
+---
+
 ## 2026-06-10 — LETTRAGE KIRCHNER NETS — BNK 18130 / 18733 / 18090 — NEUTRE P&L (hors 0,01 EUR)
 
 **Contexte :** Rapprochement bancaire ING (BNK1) — lignes Kirchner, Fischer & Co GmbH (#7195) avec suspense 499000.
