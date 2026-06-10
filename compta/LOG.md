@@ -89,6 +89,40 @@ Crédits 455000 sur BNK1 FY25-26 identifiés comme remboursements trop-perçu sa
 
 ---
 
+## 2026-06-10 — RECLASSEMENT AVANCES SALARIALES GILLES CABOSART (partner #9711)
+
+### Etape 1 — Garde-fou doublon 1.000 €
+Analyse des bank statement lines ING autour des 4 dates :
+
+| Date | Montant | BSL ID | Référence ING | Virement réel ? |
+|------|---------|--------|---------------|-----------------|
+| 14/10/2025 | -18,89 € | 13913 | "Virement SEPA Vers: Cabosart Gilles" | OUI |
+| 05/11/2025 | -49,90 € | 14372 | "ING app Vers: Gilles Cabosart — Auto5" | OUI |
+| 15/01/2026 | -1 000,00 € | 15994 | "ING app Vers: Cabosart Gilles — Avant février" | OUI |
+| 16/03/2026 | -1 000,00 € | 17261 | "Business'Bank Instant Vers: Cabosart Gilles — avance mars" | OUI |
+
+Verdict : les DEUX 1.000 € sont des virements bancaires RÉELS et distincts (référence communication différente : "Avant février" vs "avance mars", canaux différents : ING app vs Business'Bank Instant, dates séparées de 2 mois). La ligne du 16/03 "Solde d'ouverture de -1.000,00" est le libellé Odoo lors de l'import du relevé (mode de comptabilisation), NON un re-report de solde. Il n'y a pas de doublon. Total des vraies avances = 2.068,79 €.
+
+### Etape 2 — OD de reclassement créée et postée
+
+- OD : MISC/25-26/06/0090 (move_id=39962) — date 2026-06-10 — journal MISC (id=11)
+- Dr 416000 Sundry Amounts Receivable : 2 068,79 EUR (avances au personnel — Gilles Cabosart)
+- Cr 400000 Customers : 2 068,79 EUR (soldage compte client)
+- Garde-fou classe 6/7 : NÉANT — uniquement classe 4 (416000 + 400000)
+- Impact P&L : ZÉRO — résultat +87.055 EUR intact
+- Lettrage : les 4 lignes débit ouvertes sur 400000 / #9711 (ML 95966, 152127, 123139, 152094) lettrées contre ML 180313 (crédit OD) — match_ids 13949/13950/13951/13952 — reconciled=True pour les 5 lignes
+
+### Etat après reclassement
+- Compte 400000 / partner #9711 : solde ouvert = 0,00 € (compte client soldé)
+- Compte 416000 / partner #9711 : solde débiteur = 2 068,79 € (créance sur personnel en attente de régularisation — compensation future sur fiche de paie ou remboursement)
+- Note 416000 : compte reconcile=False → lettrage manuel lors du remboursement/compensation
+
+### Recommandation complémentaire
+- Créer un compte 416xxx dédié "Avances sur rémunérations" pour séparer des autres créances sundry
+- Régulariser en accord avec SD Worx : déduire les 2.068,79 € de la prochaine fiche de paie de Gilles ou OD de compensation 416000 / 620200 + 455000
+
+---
+
 ## 2026-06-10 — LETTRAGE FAUX IMPAYÉS BOUTIQUES INV1/INV2/INV3 — 5 053,23 EUR soldés
 
 ### Phase A — Inventaire
