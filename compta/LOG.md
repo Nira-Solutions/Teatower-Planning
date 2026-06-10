@@ -17,6 +17,63 @@ Même traitement que la cohorte Logan/Tholet/Thibaut/Carlier (avril 2026).
 
 ---
 
+## 2026-06-10 — TACHE 2 Phase B : IMPUTATION CHEQUES-REPAS + SMARTBOX — 27 LIGNES — 1.866,04 EUR — NEUTRE P&L
+
+**Contexte :** Suite diagnostic Phase A. Decision Nicolas : imputer les 27 lignes bancaires Edenred/Pluxee/Monizze/Smartbox sur comptes d'attente dedies (classe 5), sans toucher les comptes 6/7.
+
+**Compte 580004 cree :** id=1225 — "Bons cadeaux Smartbox" — account_type=asset_current — modele 580003.
+
+**Tableau des 27 lignes imputees :**
+
+| BSL ID | Date | Type | Montant EUR | Compte impute | Boutique |
+|--------|------|------|-------------|--------------|---------|
+| 17368 | 2026-03-19 | MONIZZE | 57,83 | 580003 | non identifiable |
+| 17605 | 2026-03-31 | SMARTBOX | 199,08 | 580004 | non identifiable |
+| 17607 | 2026-03-31 | MONIZZE | 43,38 | 580003 | non identifiable |
+| 17650 | 2026-04-01 | EDENRED | 21,62 | 580003 | non identifiable |
+| 17755 | 2026-04-08 | EDENRED | 21,43 | 580003 | non identifiable |
+| 17758 | 2026-04-08 | MONIZZE | 21,60 | 580003 | non identifiable |
+| 17762 | 2026-04-08 | EDENRED | 9,34 | 580003 | non identifiable |
+| 17763 | 2026-04-08 | EDENRED | 31,45 | 580003 | non identifiable |
+| 17801 | 2026-04-09 | PLUXEE | 65,58 | 580003 | non identifiable |
+| 17841 | 2026-04-10 | PLUXEE | 14,29 | 580003 | non identifiable |
+| 17923 | 2026-04-14 | SMARTBOX | 290,08 | 580004 | non identifiable |
+| 18070 | 2026-04-21 | MONIZZE | 73,22 | 580003 | non identifiable |
+| 18082 | 2026-04-22 | PLUXEE | 28,53 | 580003 | non identifiable |
+| 18135 | 2026-04-24 | PLUXEE | 43,65 | 580003 | non identifiable |
+| 18207 | 2026-04-28 | PLUXEE | 23,08 | 580003 | non identifiable |
+| 18329 | 2026-05-05 | PLUXEE | 9,53 | 580003 | non identifiable |
+| 18335 | 2026-05-05 | SMARTBOX | 261,08 | 580004 | non identifiable |
+| 18398 | 2026-05-07 | EDENRED | 89,06 | 580003 | non identifiable |
+| 18493 | 2026-05-13 | PLUXEE | 27,58 | 580003 | non identifiable |
+| 18494 | 2026-05-13 | EDENRED | 29,49 | 580003 | non identifiable |
+| 18589 | 2026-05-19 | EDENRED | 49,15 | 580003 | non identifiable |
+| 18616 | 2026-05-20 | EDENRED | 28,01 | 580003 | non identifiable |
+| 18881 | 2026-06-03 | EDENRED | 42,48 | 580003 | non identifiable |
+| 18882 | 2026-06-03 | PLUXEE | 9,29 | 580003 | non identifiable |
+| 18913 | 2026-06-04 | EDENRED | 28,55 | 580003 | non identifiable |
+| 18928 | 2026-06-05 | PLUXEE | 139,48 | 580003 | non identifiable |
+| 18958 | 2026-06-08 | SMARTBOX | 208,18 | 580004 | non identifiable |
+
+**Controle P&L :** 27 moves analyses — ZERO ligne sur comptes 6/7. Mouvements bilan pur (Dr 550001 / Cr 58x003).
+
+**Soldes comptes d'attente (FLAG CA POS a investiguer) :**
+
+| Compte | Libelle | Solde crediteur | Flag |
+|--------|---------|----------------|------|
+| 580003 | Paiement Sodexo-Edenred (principal) | 1.308,36 EUR | FLAG |
+| 580004 | Bons cadeaux Smartbox (nouveau) | 958,42 EUR | FLAG |
+| 581003 | Sodexo-Edenred-Monizze Liege | 807,75 EUR | FLAG |
+| 582003 | Sodexo-Edenred-Monizze Namur | 28,50 EUR | FLAG |
+| 583003 | Sodexo-Edenred-Monizze Waterloo | 0,00 EUR | OK (lettre) |
+
+Total solde crediteur ouvert = 3.103,03 EUR (CA POS potentiellement non reconnu a investiguer).
+
+**Lignes ING restantes non lettrées après traitement :** 127 lignes (total -134.781,83 EUR — majoritairement débits/charges).
+**Lignes Belfius restantes non lettrées :** 0.
+
+---
+
 ## 2026-06-10 — TACHE 2 Phase A : DIAGNOSTIC CHEQUES-REPAS + SMARTBOX — FLAGS SUSPENS
 
 **Lignes bancaires non lettrées identifiées (ING BNK1, mars-juin 2026) :**
