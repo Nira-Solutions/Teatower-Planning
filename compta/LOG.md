@@ -1,5 +1,39 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — RAPPROCHEMENT BANCAIRE PHASE 2 — 23 lignes traitées (17 ING + 6 Belfius)
+
+### Matchs nets fournisseurs — 8 factures soldées
+- Shyfter SA : RESA661 47,19 EUR (stmt17156), RESA824 47,19 EUR (stmt17822), RESA897 47,19 EUR (stmt18435) — 3 factures PAID
+- ING Belgique SA : RESA687 0,61 EUR (stmt15839), RESA659 0,61 EUR (stmt17129), RESA839 14,52 EUR (stmt18120), RESA979 31,00 EUR (stmt18268) — 4 factures PAID
+- ING Equipment Lease Belgium : RESA803 14,52 EUR (via ML 152048 déjà modifiée), RESA774 2 299,22 EUR (stmt18018) — 2 factures PAID
+
+### Matchs nets clients — 4 factures soldées
+- CPSP Belgie → INV/2026/01297 Center Parcs 675,75 EUR (stmt18300) — PAID
+- CPSP Belgie → INV/2026/02145 Sunparks 333,90 EUR + INV/2026/02061 Sunparks 333,90 EUR = 667,80 EUR (stmt18688) — 2 factures PAID
+
+### Opérations neutres P&L — comptes bilan
+- Prêts actionnaires : Vilna Gaon +5 000 EUR (stmt17658→489000), Tilman Jean Noël +10 000 EUR (stmt17659→489000), Nira Solutions +5 000 EUR (stmt17707→489000)
+- Virement interne : Teatower +3 000 EUR (stmt18955→580001)
+- TVA SPF Finances ING : -700 EUR (stmt14373), -2 935,02 EUR (stmt15468), -96,47 EUR (stmt16481) → 451000
+- TVA SPF Finances Belfius : -2 991,59 EUR (stmt18385→451000)
+- Mollie/Vilna Gaon Belfius : +2 602,12 EUR (stmt18040→580200), +10 EUR (stmt18041→580200), +3 045,41 EUR (stmt18485→580200)
+- Virement interne Belfius ING→Belfius : +1 000 EUR (stmt18031→580001), retour Vilna Gaon -10 EUR (stmt18042→489000)
+
+### Cas Jérôme Carlier — EN ATTENTE confirmation Nicolas
+- stmt17747 +4 520,54 EUR — remboursement salaire non imputé
+- FLAG: si Cr 455000 Rémunération → résultat FY25-26 = +87 055 + 4 520,54 = +91 576 EUR
+- Si Cr 461000 Avances reçues → neutre P&L — attendre instruction Nicolas
+
+### Suspens (non traités ce run)
+- Prêts Belfius 071-9570627/628/629 : +18k + +12k + +31k = 61 000 EUR — aucun compte 17x existant → attente création sous-compte
+- ING RESA492 22,08 EUR (dec) — pas de stmt correspondante
+- ING RESA895 31,01 EUR (avr) — pas de stmt -31,01
+- ING stmt16306 -40,68 EUR vs RESA533 40,69 EUR — écart 0,01 → write-off à confirmer
+- ING stmt17816 -0,61 EUR (avr) — pas de facture ING 0,61 non payée pour avril
+- 7 write-offs douteux + 3 crédits à qualifier + hors-scope §5 (181 lignes ING, 18 Belfius)
+
+### Résultat P&L FY25-26 : NON MODIFIÉ par ce run (toutes imputations sur comptes bilan)
+
 ## 2026-06-09 — DEBLOCAGE PEPPOL + POST + ENVOI — 5 factures débloquées (sur 6 en brouillon)
 
 - Type : reconfig EAS Peppol contacts enfants + action_post + envoi Peppol
