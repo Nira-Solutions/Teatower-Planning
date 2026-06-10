@@ -1,5 +1,55 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — RAPPROCHEMENT BANCAIRE PHASE 4 — Tâches 1+2+3 — résultat FY25-26 : +80.633,35 EUR
+
+### TÂCHE 1 — CAS B : double-paiement resté en 455000, revert Jérôme
+
+**Preuve trouvée :** Les deux fichiers SEPA de paie d'avril (BNK1/25-26/4496 du 07/04 et BNK1/25-26/4534 du 08/04, 2 x 25 038,26 €) ont débité **455000 Remuneration** (pas un compte 620xxx). La sur-disbursement reste en 455000 (bilan), pas en charge.
+
+**CAS B retenu :** Les remboursements entrants sont la contrepartie du débit 455000. Passer en 620 aurait créé une fausse réduction de charge. Cohorte 11 lignes reste en 455000.
+
+**Action :** Contre-passe de l'OD 39929 (MISC/25-26/04/0067) :
+- OD créée et postée : MISC/25-26/04/0068 (id=39961) — date 30/04/2026 — journal MISC (id=11)
+- Dr 620200 Salaried Employees : 4 520,54 EUR
+- Cr 455000 Remuneration : 4 520,54 EUR
+- Effet net des deux OD (39929 + 39961) : 0,00 EUR sur chaque compte — annulation totale
+- Impact résultat : -4 520,54 EUR
+
+### TÂCHE 2 — 8 factures Google postées + lettrées
+
+| RESA | Partner | Compte | Montant EUR | Stmt ING |
+|------|---------|--------|------------|----------|
+| RESA1037 (39950) | Google EMEA Ads | 615200 | 400,00 | stmt17248 (BNK1/25-26/4120) |
+| RESA1038 (39951) | Google EMEA Ads | 615200 | 127,18 | stmt17653 (BNK1/25-26/4459) |
+| RESA1039 (39952) | Google EMEA Ads | 615200 | 500,00 | stmt17846 (BNK1/25-26/4616) |
+| RESA1040 (39953) | Google EMEA Ads | 615200 | 337,28 | stmt18278 (BNK1/25-26/4947) |
+| RESA1041 (39954) | Google EMEA Ads | 615200 | 500,00 | stmt18484 (BNK1/25-26/5109) |
+| RESA1042 (39955) | Google EMEA Ads | 615200 | 500,00 | stmt18681 (BNK1/25-26/5257) |
+| RESA1043 (39956) | Google EMEA Ads | 615200 | 372,37 | stmt18845 (BNK1/25-26/5389) |
+| RESA1044 (39957) | Google Cloud | 611129 | 370,00 | stmt18925 (BNK1/25-26/5450) |
+
+- Méthode : action_post + write account_id 499000->440000 sur lignes suspense des stmts -> lettrage auto Odoo
+- 8/8 stmts is_reconciled=True — partial reconciles 13953 à 13960
+- Proximus ids 39958 (121,99) et 39959 (100,00) : laissés en BROUILLON non touchés
+- Impact résultat : -3 106,83 EUR
+
+### TÂCHE 3 — Régularisation stmt16464 Adobe
+
+- Action : write move_id=39949 sur stmt16464 (repointe vers OD BNK1/25-26/5484 posted+lettrée avec RESA1021)
+- Résultat : stmt16464 is_reconciled=True — sans double imputation
+- Impact P&L : ZÉRO
+
+### Résultat FY25-26 après Phase 4
+
+- Entrée : +88 260,72 EUR
+- Tâche 1 revert Jérôme : -4 520,54 EUR
+- Tâche 2 Google : -3 106,83 EUR
+- **RÉSULTAT FINAL : +80 633,35 EUR**
+- Stmts BNK1 non lettrées : 156 (sur 6 851 total)
+- Aucune écriture hors périmètre validé
+
+---
+
 ## 2026-06-10 — RAPPROCHEMENT BANCAIRE PHASE 3 — Tâches A+B+C — résultat FY25-26 : +88.261 EUR
 
 ### TÂCHE A — Reclassement Jérôme Carlier 455000 -> 620200
