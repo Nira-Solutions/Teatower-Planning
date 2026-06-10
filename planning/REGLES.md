@@ -289,6 +289,24 @@ Certains gros clients que la regle de segmentation televente (refs<=10 OU dist>6
 
 ---
 
+## 12. Pools EXCLUSIFS merch / televente — recroiser AVANT de finaliser (REGLE DURE, 2026-06-10)
+
+**Un magasin du pool televente (Vanessa) ne doit JAMAIS apparaitre dans le planning merch (Gilles), et inversement.** Pools exclusifs (cf. memory `project_televente_planning_vanessa`).
+
+Le pool merch (`build_planning_pool.py`) exclut deja les pids televente. **MAIS** les magasins ajoutes a la main (reports S-1, demandes Nicolas/Jerome, "a implanter") court-circuitent ce filtre → ils DOIVENT etre recroises avec le dernier `televente_pool_*.csv`.
+
+### Application
+
+1. Avant de finaliser un planning merch : pour CHAQUE stop (surtout les ajouts manuels), verifier que son pid n'est pas dans `data/televente_pool_<date>.csv`.
+2. **Exception : les IMPLANTATIONS restent toujours merch** (la pose physique est faite par Gilles), meme si le magasin est petit/loin → il basculera en suivi televente J+15 APRES l'implantation.
+3. **Garde-fou automatique** : `build_planning_page.py` execute `check_pools_exclusifs()` a chaque generation — il extrait le `#pid` de chaque magasin et alerte `[!!!]` si un stop merch (non-impl) est dans le pool televente. Ne jamais publier avec une alerte non resolue.
+
+### Contexte
+
+Instauree le 10/06/2026 (Nicolas) apres oubli : City 2 #113997, CM Eupen Rotenberg #113634 (62 km / 19 refs) et ITM Genappe #2963 (70 km / 16 refs) — ajoutes en merch depuis des "reports S24" sans recroisement, alors qu'ils sont en pool televente. Garde-fou code dans la foulee.
+
+---
+
 ## Liste complète des clients "Arret" au 2026-04-15
 
 | Magasin | Société | Odoo ID | Motif |
