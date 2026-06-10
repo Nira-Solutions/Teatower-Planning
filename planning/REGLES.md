@@ -190,10 +190,15 @@ Sans le responsable, la visite perd 50 a 80 % de sa valeur. Le merchandiser fait
 | Magasin | Odoo ID | Tier | Cadence par defaut | Cadence override | Source |
 |---|---|---|---|---|---|
 | Distriparenthese - Intermarche Gosselies (6041) | 2927 | C | 50j (Tier C) | **28j (4 semaines)** | Nicolas 2026-04-20 |
+| Lambertdis SRL - Spar Manhay (televente) | 122944 | B | 28j | **25j** (espacer les reassorts) | Nicolas 2026-06-10 |
 
 ### Application
 
 Lors de la generation du planning, si un magasin figure dans ce tableau, utiliser la cadence override au lieu de `max_days` du Tier. Un magasin est OVERDUE uniquement si `days_since_last > cadence_override`.
+
+**IMPLEMENTE (2026-06-10)** : les overrides sont desormais codes dans les scripts
+(`CADENCE_OVERRIDE_PID`) — `build_planning_pool.py` (merch) ET `build_televente_pool.py`
+(televente, ou loge Spar Manhay). Pour ajouter un override, editer le dict par pid.
 
 ---
 
@@ -206,6 +211,81 @@ Lors de la generation du planning, si un magasin figure dans ce tableau, utilise
 - **Exclusions Odoo permanentes** : "Delhaize Le Lion" et "Carrefour Belgium" (comptes centraux)
 - **Remarques magasin** (champ `comment` Odoo) : contraintes jours/horaires obligatoires a respecter
 - **Maximisation** : si un retour est prevu avant 14h30, ajouter des clients dans la zone jusqu'a la limite 17:00
+
+---
+
+## 7. Champs terrain merchandiser — CONTROLE STOCK / METHODE REASSORT / REGLE MAGASIN (REGLE DURE, 2026-06-10)
+
+**Chaque magasin peut porter 3 infos terrain affichees sous lui dans la tournee. Source = tags dans `res.partner.comment` Odoo** (jamais un fichier separe). Le pool les parse (`build_planning_pool.py`), le rendu les affiche.
+
+| Champ planning | Tag Odoo (dans `comment`) | Sens |
+|---|---|---|
+| **CONTROLE STOCK** | `[STOCK: reserve]` (ou `[STOCK: ailleurs ...]`) | Ou controler le stock AVANT remplissage (s'il y a du stock en reserve) |
+| **METHODE REASSORT** | `[REASSORT: GUN]` (ou `manuel`, `bon papier`, ...) | Methode de remplissage attendue en magasin |
+| **REGLE MAGASIN** | `[REGLE: etiquettes sur produits + antivol]` | Regle specifique magasin (etiquetage, antivol, acces reserve, ...) |
+
+### Application
+
+1. Un champ ne s'affiche **que s'il est renseigne** pour le magasin. **Pas de valeur par defaut** (pas de "GUN" automatique — Nicolas 10/06/2026).
+2. Pour renseigner : ajouter le tag dans le champ Notes internes (`comment`) de la fiche Odoo. Plusieurs tags cohabitent avec `[VISITE]`, `[ARRET]`, `[IMPL]`, `[NO-MERCH]`.
+3. Ces 3 champs **remplacent** les anciennes "notes / brief" verbeuses sous chaque magasin (cf. §8).
+
+---
+
+## 8. Format du planning — EPURE pour le merchandiser (REGLE DURE, 2026-06-10)
+
+**Le planning publie est l'outil de terrain de Gilles. Il doit etre LISIBLE, pas un rapport.**
+
+### Ce qu'on RETIRE
+
+- **Le gros recap / la "reflexion" en haut** de chaque semaine (cartes de synthese Visites/Jours/Implantations/km, blocs `.alert` explicatifs de version, justifications de deplacement). Le merchandiser n'a pas besoin du raisonnement de l'agent.
+- **Les notes/brief verbeux apres l'adresse** de chaque magasin (anciens `Brief : ...`, dump du `comment` Odoo).
+
+### Ce qu'on GARDE — ligne magasin epuree
+
+Sous chaque magasin, dans cet ordre, uniquement :
+1. **Adresse**
+2. **Contact** (regle "contacts visibles" — extrait du `comment` / contacts enfants, non tronque)
+3. **CONTROLE STOCK** — si renseigne (§7)
+4. **METHODE REASSORT** — si renseigne (§7)
+5. **REGLE MAGASIN** — si renseigne (§7)
+6. **Trajet Google Maps** (lien) — toujours
+
+Le bandeau d'en-tete jour minimal (date, nb de stops, zone, heure de retour `OK <=17:00`) reste autorise : c'est operationnel, pas de la "reflexion".
+
+---
+
+## 9. Implantations — premiers stops + maximum 3/jour (REGLE DURE, 2026-06-10)
+
+1. **Les implantations sont planifiees en PREMIERS stops de la journee.** Le materiel d'implantation (display, stock de lancement) charge dans la camionnette bloque la place pour le reste : il faut le sortir en premier. Une implantation tardive = camionnette bloquee toute la journee.
+2. **Maximum 3 implantations par jour.** Au-dela, pas assez de place dans la camionnette pour charger tout le materiel + le reassort des autres visites.
+3. Si un jour cumule >3 implantations candidates, en reporter a un autre jour de la semaine ou a S+1.
+4. Combine avec §3 (horaire) : les implantations restent les premieres candidates au report si le timing serre (une implantation = plus longue qu'une visite).
+
+---
+
+## 10. Planning genere en cours de semaine — visites a venir NON faites (REGLE DURE renforcee, 2026-06-10)
+
+**Quand on genere un planning (ex. le jeudi pour S+1), les visites deja planifiees mais PAS ENCORE EXECUTEES de la semaine courante (vendredi, voire le jour meme) ne doivent PAS etre traitees comme faites.**
+
+1. Avant de tirer les candidats S+1, scanner les jours **restants** (non executes) de la semaine courante S(n) et **exclure leurs magasins** du nouveau planning (pas de doublon).
+2. Ne jamais considerer un magasin "a jour" sur la seule base qu'il figure dans un planning futur : la source de "derniere visite" reste la derniere SO Odoo + tags `[VISITE]` (cf. §0), jamais un planning .md/.html.
+3. Inversement, ne pas re-planifier en S+1 un magasin du vendredi S(n) en pensant qu'il est "en retard" : il va etre fait vendredi.
+
+### Contexte
+
+Regle initiale 28/05/2026 (incident doublon jour restant). Durcie le 10/06/2026 (Nicolas : "planning genere jeudi, bien faire attention que les visites du vendredi ne sont pas faites, pas toujours respecte").
+
+---
+
+## 11. Force merch — gros clients gardes pour Gilles (2026-06-10)
+
+Certains gros clients que la regle de segmentation televente (refs<=10 OU dist>60km & refs<20) enverrait a tort chez Vanessa restent suivis **physiquement par Gilles**. Codes dans `build_televente_pool.py` (`FORCE_MERCH_PIDS` / `FORCE_MERCH_TOKENS`) — exclus du pool televente, donc presents en merch.
+
+| Magasin | Odoo ID | Raison |
+|---|---|---|
+| KAIO Retail invest - Delhaize Ottignies | 3016 / 5649 / 6838 | Gros client, juste au-dela du seuil distance (Nicolas 10/06/2026) |
+| Affilie 044725 - Delhaize Kraainem | 2914 | Gros client garde en merch (Nicolas 10/06/2026) |
 
 ---
 
