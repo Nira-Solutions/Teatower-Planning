@@ -1,5 +1,33 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — LETTRAGE FAUX IMPAYÉS BOUTIQUES INV1/INV2/INV3 — 5 053,23 EUR soldés
+
+### Phase A — Inventaire
+- 116 factures clients ouvertes dans journaux boutiques (INV1=Liège, INV2=Namur, INV3=Waterloo)
+- Total résiduel initial : 5 073,23 EUR
+- 2 factures à résiduel=0 exclues d'office (Mollie déjà réglées, payment_state=in_payment)
+- 112 factures actives : CAS 1 (68 in_process/move_id=False) + CAS 2 (44 paid/move_id=False)
+- 1 facture CAS 3 (aucun paiement) : INV3/25-26/0130 — 1380 Smiles — 20,00 EUR → EN ATTENTE
+
+### Phase B — Création ODs de lettrage (bilan pur, zéro P&L)
+- OD Waterloo : MISC/25-26/06/0087 (move_id=39946) — 13 lignes — 360,12 EUR — posté 2026-06-10
+  - Débit 573000 Caisse Waterloo / Crédit 400000 Clients — 13 paires
+- OD Namur : MISC/25-26/06/0088 (move_id=39947) — 52 lignes — 2 759,30 EUR — posté 2026-06-10
+  - Débit 572000 Caisse Namur / Crédit 400000 Clients — 52 paires
+- OD Liège : MISC/25-26/06/0089 (move_id=39948) — 47 lignes — 1 933,81 EUR — posté 2026-06-10
+  - Débit 571000 Caisse Liège / Crédit 400000 Clients — 47 paires
+- Total ODs : 112 lignes, 5 053,23 EUR — lettrage automatique Odoo au post
+
+### Garde-fou P&L
+- Vérification ligne par ligne : AUCUN compte classe 6 ou 7 dans aucune des 3 ODs
+- Uniquement classe 4 (400000 Clients) et classe 5 (571000/572000/573000 Caisses)
+- 112/112 lignes 400000 des ODs : reconciled=True après post
+- Résultat +87 055 EUR INTACT — zéro impact P&L
+
+### Cas à confirmer Nicolas
+- INV3/25-26/0130 — 1380 Smiles (id=8847) — 2026-03-06 — 20,00 EUR — payment_state=not_paid
+  - Aucun paiement enregistré — vérifier si règlement caisse Waterloo reçu ou facture à annuler
+
 ## 2026-06-10 — NETTOYAGE FAUX IMPAYES POS TEA TREE CAISSE — 55 040,01 EUR soldés
 
 ### Etape 1 — Annulation 6 paiements en double (state=in_process, move_id=False)
