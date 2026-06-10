@@ -1,5 +1,46 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — TACHE 1 : LETTRAGE DOUBLE-SALAIRE VERRIEST + VECCHIA — 1.518,83 EUR — NEUTRE P&L
+
+**Contexte :** Estelle Verriest et Fiona Vecchia (employées) ont rendu leur double-salaire d'avril 2026.
+Même traitement que la cohorte Logan/Tholet/Thibaut/Carlier (avril 2026).
+
+**Méthode :** Modification des moves bancaires de la stmt line (remplacement 499000 Suspense -> 455000 Rémunération).
+
+| Stmt line | Move bancaire | Employée | Montant | Compte imputé | Impact P&L |
+|-----------|--------------|---------|---------|--------------|-----------|
+| BNK1/25-26/4522 (id=17741) | BNK1/25-26/4522 (id=35881) | Estelle Verriest (#113334) | 975,53 EUR | Dr 550001 / Cr 455000 | 0 |
+| BNK1/25-26/4526 (id=17745) | BNK1/25-26/4526 (id=35885) | Fiona Vecchia (#107544) | 543,30 EUR | Dr 550001 / Cr 455000 | 0 |
+
+- Résultat P&L = INCHANGÉ. 455000 = compte bilan (classe 4 rémunérations dues).
+- Compteur : 171 -> 169 lignes non lettrées (BNK1: 154, BNK2: 15).
+
+---
+
+## 2026-06-10 — TACHE 2 Phase A : DIAGNOSTIC CHEQUES-REPAS + SMARTBOX — FLAGS SUSPENS
+
+**Lignes bancaires non lettrées identifiées (ING BNK1, mars-juin 2026) :**
+
+| Catégorie | Nb lignes | Total EUR |
+|-----------|-----------|-----------|
+| Edenred | 10 | 350,58 |
+| Pluxee | 9 | 361,01 |
+| Monizze | 4 | 196,03 |
+| Smartbox | 4 | 958,42 |
+| **TOTAL** | **27** | **1.866,04** |
+
+**Diagnostic comptes d'attente :**
+- Comptes 580003/581003/582003/583003 (Sodexo-Edenred par boutique) : AUCUNE écriture depuis nov 2025.
+- Config POS : 2 méthodes seulement (Carte = journal ING / Espèces). Aucun PM dédié Edenred/Pluxee/Monizze/Smartbox.
+- Les virements acquéreur Worldline ('Virement R:') transitent par 581002/582002 (Visa/MC). Les virements Edenred/Pluxee/Monizze/Smartbox sont des flux SÉPARÉS sans contrepartie POS dédiée dans la config actuelle.
+- Pas de compte d'attente actif côté POS pour ces moyens de paiement (FY25-26).
+
+**Conclusion Phase B : LETTRAGE NON EXÉCUTÉ — EN SUSPENS**
+Condition Phase B non remplie : il n'existe pas de créance POS distincte en face des virements émetteurs.
+Décision Nicolas requise : imputer sur 580003 (compte existant dédié) après confirmation que le CA est bien inclus dans les sessions POS 'Carte' (à croiser avec les relevés terminaux).
+
+---
+
 ## 2026-06-10 — LETTRAGE MOLLIE PASSE APPROFONDIE — 2 factures supplémentaires soldées — PR 13980+13981
 
 ### Re-matching approfondi 87 partenaires MOL/ encore ouverts — zéro impact P&L
