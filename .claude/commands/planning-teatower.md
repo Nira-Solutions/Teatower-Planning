@@ -39,9 +39,10 @@ Ce script produit (dans `C:\Users\FlowUP\OneDrive\Teatower\data\`) :
 ## Paramètres merchandiser
 
 - **Base** : Zone d'activité Nord 33, 5377 Baillonville
-- **Horaire** : 8h30 – 16h30 (doit être rentré à 16h30)
-- **Durée visite** : 30 minutes par magasin
-- **Capacité** : 5-6 visites par jour maximum (selon distance)
+- **Horaire** : **08:30 – 17:00** (8h travail + 30 min pause = 8h30 ; JAMAIS dépassé — REGLES §3)
+- **Durée visite/implantation** : **25 minutes** par magasin (REGLES recalibré 28/05/2026)
+- **Capacité** : 6 à 8 visites/jour (objectif maximisation), selon distance
+- **Implantations** : en **premiers stops** du jour, **max 3/jour** (REGLES §9)
 - **Semaine** : lundi au vendredi
 
 ## Modèle de scoring (tiers) — automatique via `build_planning_pool.py`
@@ -102,21 +103,33 @@ Les remarques merchandiser sont dans le champ `comment` (Notes internes) de chaq
 - Si on te dit **"mets à jour la remarque de [client]"** → update les notes internes Odoo
 - Si on te dit **"publie"** → push sur GitHub Pages
 
-## Format de sortie planning
+## Format de sortie planning — ÉPURÉ (REGLES §8, règle dure 2026-06-10)
 
-Le planning doit contenir pour chaque visite :
-- Heure estimée
-- Nom du magasin
-- Adresse complète
-- Téléphone
-- Tier (A/B/C/D)
-- Jours depuis dernière commande + flag OVERDUE si applicable
-- CA moyen par commande
-- Remarques (contact, contraintes horaires) — en texte propre, pas de HTML
+**Le planning publié est l'outil terrain de Gilles : lisible, pas un rapport.**
 
-Inclure aussi :
-- Récapitulatif par jour (nb visites, km estimés, heure retour)
-- Liste des clients en retard non planifiés
-- Liste des clients non planifiés avec la raison
+### NE PAS mettre (réflexion de l'agent — à bannir du rendu)
+
+- ❌ Le gros récap en haut de semaine (cartes Visites/Jours/Implantations/km).
+- ❌ Les blocs `.alert` explicatifs (justifications de version, déplacements, raisonnement).
+- ❌ Les notes/brief verbeux après l'adresse (ancien `Brief : …`, dump du `comment` Odoo).
+
+### Ligne magasin — UNIQUEMENT, dans cet ordre
+
+1. **Heure** estimée + badge (Implantation / Visite) + n° SO
+2. **Nom du magasin** + badge OVERDUE si applicable + badge `Dernière SO` (source `sale.order`)
+3. **Adresse**
+4. **Contact** (non tronqué — extrait du `comment` / contacts enfants Odoo)
+5. **CONTROLE STOCK** — *seulement si* tag `[STOCK: …]` présent (REGLES §7)
+6. **METHODE REASSORT** — *seulement si* tag `[REASSORT: …]` présent
+7. **REGLE MAGASIN** — *seulement si* tag `[REGLE: …]` présent
+8. **Trajet Google Maps** (lien) — toujours
+
+Bandeau jour minimal autorisé (opérationnel, pas de la réflexion) : date, nb de stops, zone, heure de retour `OK ≤17:00`.
+
+Les colonnes `controle_stock` / `methode_reassort` / `regle_magasin` sont fournies par `planning_pool_YYYY-MM-DD.csv`. Voir le gabarit de référence `planning/_TEMPLATE_tournee.html`.
+
+### Travail de réflexion → fichier séparé (pas dans le planning Gilles)
+
+La queue, les clients en retard non planifiés, les motifs de report : à garder dans `planning/queue_*.md` (vue Nicolas/agent), **jamais** dans `index.html`.
 
 $ARGUMENTS
