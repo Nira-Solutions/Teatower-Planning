@@ -1,5 +1,38 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — LETTRAGE MOLLIE PASSE APPROFONDIE — 2 factures supplémentaires soldées — PR 13980+13981
+
+### Re-matching approfondi 87 partenaires MOL/ encore ouverts — zéro impact P&L
+
+**Phase A :** Scan de TOUS les partenaires avec crédit MOL/ ouvert sur 400000 (tous journaux confondus).
+- Partenaires MOL/ ouverts : 87 (110 lignes, 6 258,24 EUR crédit résiduel)
+- Partenaires avec au moins 1 débit ouvert sur 400000 : 2 (Veoware BV + Sorel CHALEU)
+- Vrais orphelins purs (crédit MOL sans aucun débit en face) : 85
+
+**Phase B :** 2 lettrages exécutés (PR 13980 + 13981) :
+
+| PR | Débit (facture) | Crédit (MOL) | Partenaire | Montant lettré | Résidu crédit restant |
+|----|----------------|--------------|-----------|--------------|----------------------|
+| 13980 | INV/2025/03003 line 72612 (résidu 3,06) | MOL/25-26/3607 line 131236 | Veoware BV - Tina SPLETINCKX | 3,06 EUR | -62,31 EUR |
+| 13981 | INV/2025/02650 line 67035 (résidu 4,00) | MOL/25-26/3503 line 128614 | Sorel CHALEU | 4,00 EUR | -59,89 EUR |
+
+- Garde-fou : 4/4 lignes impliquées sur compte 400000 uniquement — aucun compte 6/7 touché
+- Les 2 factures (INV/2025/03003 + INV/2025/02650) : payment_state=in_payment, amount_residual=0,00
+- Les résidus crédit MOL restants (62,31 + 59,89 EUR) : lignes orphelines, client a trop payé vs facture — décision Nicolas
+
+**Phase C — 85 vrais orphelins restants (6.251,18 EUR total) :**
+Ces clients ont payé via Mollie sans facture Odoo correspondante (commandes Shopify non facturées).
+Ce sont des SOLDES CRÉDITEURS clients (avoirs implicites), PAS des impayés.
+Lettrage impossible sans création de facture (impact P&L = reconnaissance de CA). Décision Nicolas requise.
+
+Top 10 : Catherine VINCENT 335,01 | Clouds and Waves 288,01 | Thomas Dethier DELTATEC 286,33 | t Grof Zout 258,62 | Fabry et Fils 256,02 | Pierre Lemaire 231,02 | Fiduciaire Huynen 221,93 | Perficienz 220,20 | BOSS IMMO 220,07 | MTBC 197,37
+
+**Bilan cumulé toutes passes Mollie (PR 13965-13981) :**
+- 17 PR créés | Montant total lettré : 1.106,03 EUR | Comptes touchés : 400000 uniquement
+- Aucun compte classe 6/7 — zéro impact P&L
+
+---
+
 ## 2026-06-10 — LETTRAGE MOLLIE JOURNAL MOL/ — 13 paires lettrées — 1.095,10 EUR sortis balance âgée
 
 ### Lettrage paiements Mollie historiques vs factures clients 400000 — ZÉRO impact P&L
