@@ -1,5 +1,35 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — NETTOYAGE FAUX IMPAYES POS TEA TREE CAISSE — 55 040,01 EUR soldés
+
+### Etape 1 — Annulation 6 paiements en double (state=in_process, move_id=False)
+- PAY00645 (id=7364) state=canceled — Groupe A mauvais journal Caisse Rocourt
+- PAY00646 (id=7365) state=canceled — Groupe A mauvais journal Caisse Rocourt
+- PAY00647 (id=7366) state=canceled — Groupe A mauvais journal Caisse Rocourt
+- PAY00648 (id=7367) state=canceled — Groupe B doublon exact
+- PAY00649 (id=7368) state=canceled — Groupe B doublon exact
+- PAY00650 (id=7369) state=canceled — Groupe B doublon exact
+- Garde-fou : move_id=False et reconciled_invoices=[] vérifiés avant annulation pour chacun
+
+### Etape 2 — Création écritures et lettrage 3 paiements valides
+- PAY00654 (id=7373) 4 167,40 EUR — INV/2025/00507 — journal Caisse Liège (571000)
+  - Move créé : CSH2/25-26/0001 (id=39926) — 571000 D 4167,40 / 400000 C 4167,40 — posté 2026-06-10
+  - Lettrage : line 17105 (INV debit 400000) <-> line 180021 (paiement credit 400000) — match_id=13818
+  - Résultat : INV/2025/00507 payment_state=paid, amount_residual=0,00
+- PAY00655 (id=7374) 21 318,07 EUR — INV/2025/02610 — journal Espèces (570001)
+  - Move créé : LIEGE/25-26/0059 (id=39927) — 570001 D 21318,07 / 400000 C 21318,07 — posté 2026-06-10
+  - Lettrage : line 66282 (INV debit 400000) <-> line 180023 (paiement credit 400000) — match_id=13819
+  - Résultat : INV/2025/02610 payment_state=paid, amount_residual=0,00
+- PAY00656 (id=7375) 29 554,54 EUR — INV/2025/02608 — journal Cash (570001)
+  - Move créé : NAMUR/25-26/0344 (id=39928) — 570001 D 29554,54 / 400000 C 29554,54 — posté 2026-06-10
+  - Lettrage : line 66201 (INV debit 400000) <-> line 180025 (paiement credit 400000) — match_id=13820
+  - Résultat : INV/2025/02608 payment_state=paid, amount_residual=0,00
+
+### Garde-fou P&L
+- Aucun compte classe 6 ou 7 dans aucune des écritures créées (vérification ligne par ligne)
+- Total sorti balance âgée : 55 040,01 EUR (= 4 167,40 + 21 318,07 + 29 554,54)
+- Résultat +87 055 EUR INTACT — aucune charge ni produit ajouté
+
 ## 2026-06-10 — RAPPROCHEMENT BANCAIRE PHASE 2 — 23 lignes traitées (17 ING + 6 Belfius)
 
 ### Matchs nets fournisseurs — 8 factures soldées
