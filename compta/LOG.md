@@ -1,5 +1,25 @@
 # LOG Compta Teatower
 
+## 2026-06-10 — WRITE-OFF MICRO-RESIDUELS CLIENTS — 3 factures soldées — résultat FY25-26 : +80.632,01 EUR
+
+### Write-off écarts de paiement ≤ 1,00 EUR (phase 1+2)
+
+3 factures clients (out_invoice, posted, payment_state partial) avec résiduel absolu ≤ 1,00 EUR identifiées et soldées via OD journal MISC + lettrage compte 400000.
+
+| Facture | Partner | Total | Résiduel | Compte | OD Odoo |
+|---|---|---|---|---|---|
+| INV/2025/03864 | Carrefour Belgium | 420,01 € | 0,52 € | 657100 | MISC/25-26/06/0092 (id=39969) |
+| INV/2026/01774 | Fiduciaire Huynen SRL | 96,90 € | 0,81 € | 657100 | MISC/25-26/06/0093 (id=39970) |
+| INV/2026/02007 | SPRL Durant-Rabaey | 420,00 € | 0,01 € | 657100 | MISC/25-26/06/0091 (id=39968) |
+
+- Total write-off en charge (657100) : 1,34 EUR
+- Toutes les 3 en payment_state = paid / in_payment, résiduel = 0,00 EUR
+- Aucune facture client restante avec résiduel ≤ 1,00 EUR (vérifié post-opération)
+- Impact P&L FY25-26 : -1,34 EUR sur résultat
+- Résultat FY25-26 avant : +80.633,35 EUR → après : +80.632,01 EUR
+
+---
+
 ## 2026-06-10 — RAPPROCHEMENT BANCAIRE PHASE 4 — Tâches 1+2+3 — résultat FY25-26 : +80.633,35 EUR
 
 ### TÂCHE 1 — CAS B : double-paiement resté en 455000, revert Jérôme
