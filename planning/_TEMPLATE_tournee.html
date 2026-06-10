@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GABARIT — Tournée épurée (référence merch)</title>
+<!--
+  GABARIT DE RÉFÉRENCE — format de tournée ÉPURÉ (REGLES §8, Nicolas 2026-06-10).
+  Ce fichier n'est PAS publié : il sert de modèle au rendu de planning/index.html.
+  Règles montrées ici :
+    - PAS de gros récap / cartes / blocs réflexion en haut.
+    - Sous chaque magasin : Adresse · Contact · [STOCK] · [REASSORT] · [REGLE] · Google Maps.
+    - Les 3 champs terrain ne s'affichent QUE s'ils sont renseignés (tags Odoo).
+    - Implantations = premiers stops, max 3/jour.
+-->
+<style>
+  :root { --primary: #2d6a4f; --accent: #40916c; --warn: #e76f51; --bg: #f8f9fa; --card: #fff; --text: #212529; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 1rem; max-width: 900px; margin: 0 auto; }
+  h1 { color: var(--primary); font-size: 1.4rem; margin-bottom: .3rem; }
+  .subtitle { color: #666; font-size: .9rem; margin-bottom: 1.2rem; }
+  .day { background: var(--card); border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.1); margin-bottom: 1rem; overflow: hidden; }
+  .day-header { background: var(--primary); color: #fff; padding: .6rem 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .3rem; }
+  .day-header .zone { font-weight: 400; font-size: .85rem; opacity: .85; }
+  .visit { padding: .7rem 1rem; border-bottom: 1px solid #eee; }
+  .visit:last-child { border-bottom: none; }
+  .visit-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .3rem; }
+  .time { font-weight: 600; color: var(--primary); min-width: 110px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .7rem; font-weight: 600; text-transform: uppercase; }
+  .badge-implantation { background: #e76f51; color: #fff; }
+  .badge-visite { background: #2a9d8f; color: #fff; }
+  .badge-overdue { background: #e63946; color: #fff; margin-left: 4px; }
+  .so { color: var(--accent); font-size: .85rem; font-weight: 600; }
+  .client { font-weight: 600; margin-top: .25rem; }
+  .last-so { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .72rem; font-weight: 600; margin-left: 6px; vertical-align: middle; }
+  .last-so::before { content: "🛒 Dernière SO : "; font-weight: 400; opacity: .8; }
+  .last-so-fresh { background: #d3f9d8; color: #2b8a3e; }
+  .last-so-stale { background: #ffe0e0; color: #c92a2a; }
+  .addr { font-size: .85rem; color: #555; margin-top: .3rem; }
+  .contact-badge { background: #e7f5ff; border-left: 4px solid #1971c2; padding: .35rem .7rem; margin: .35rem 0; font-size: .88rem; border-radius: 0 4px 4px 0; color: #1864ab; font-weight: 600; }
+  .contact-badge::before { content: "👤 "; }
+  /* Les 3 champs terrain — n'apparaissent QUE si renseignés (tags Odoo) */
+  .field { font-size: .85rem; padding: .3rem .6rem; margin: .25rem 0; border-radius: 0 4px 4px 0; font-weight: 600; }
+  .field .lbl { font-weight: 700; letter-spacing: .02em; }
+  .field-stock    { background: #fff4e6; border-left: 4px solid #e8590c; color: #d9480f; }
+  .field-stock::before    { content: "📦 "; }
+  .field-reassort { background: #f3f0ff; border-left: 4px solid #7048e8; color: #6741d9; }
+  .field-reassort::before { content: "🔫 "; }
+  .field-regle    { background: #fff0f6; border-left: 4px solid #c2255c; color: #a61e4d; }
+  .field-regle::before    { content: "⚠️ "; }
+  .route { background: #e9ecef; padding: .5rem 1rem; font-size: .85rem; }
+  .route a { color: var(--primary); font-weight: 600; text-decoration: none; }
+  .route a::before { content: "🗺️ "; }
+  @media(max-width:600px) { .visit-header { flex-direction: column; align-items: flex-start; } }
+</style>
+</head>
+<body>
+
+<h1>Planning Merchandiser — Teatower <span style="font-size:.7rem;color:#999">(GABARIT)</span></h1>
+<p class="subtitle">Merchandiser : Gilles | Base : Baillonville (5377) | Horaire : 08h30 – 17h00</p>
+
+<div class="day">
+  <div class="day-header">
+    <span>Lundi 15/06 — 5 stops (2 implantations + 3 visites)</span>
+    <span class="zone">Namur + BW · retour ~16:20 · OK ≤17:00</span>
+  </div>
+
+  <!-- IMPLANTATION : toujours en premier stop (matériel sort en 1er) -->
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">09:00 – 09:25</span> <span class="badge badge-implantation">Implantation</span></span>
+      <span class="so">S05xxx</span>
+    </div>
+    <div class="client">Intermarché Anthée <span class="last-so last-so-fresh">commande passée</span></div>
+    <div class="addr">Rue de la Station 12, 5520 Anthée</div>
+    <div class="contact-badge">Mme Antheco (gérante) · 082 xx xx xx</div>
+    <div class="field field-stock"><span class="lbl">CONTROLE STOCK :</span> réserve (fond de magasin, à gauche)</div>
+    <div class="field field-reassort"><span class="lbl">METHODE REASSORT :</span> GUN</div>
+    <div class="field field-regle"><span class="lbl">REGLE MAGASIN :</span> étiquettes prix sur chaque produit</div>
+    <div class="route"><a href="https://www.google.com/maps/dir/?api=1&destination=Rue+de+la+Station+12,+5520+Anth%C3%A9e" target="_blank">Itinéraire Google Maps</a></div>
+  </div>
+
+  <!-- VISITE simple : aucun tag terrain renseigné -> on n'affiche que l'essentiel -->
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">10:10 – 10:35</span> <span class="badge badge-visite">Visite</span> <span class="badge badge-overdue">OVERDUE 12j</span></span>
+      <span class="so">S05yyy</span>
+    </div>
+    <div class="client">Spar Exemple <span class="last-so last-so-stale">02/05/2026 (44j)</span></div>
+    <div class="addr">Grand Route 99, 5000 Namur</div>
+    <div class="contact-badge">Demander Julie (rayon)</div>
+    <div class="route"><a href="https://www.google.com/maps/dir/?api=1&destination=Grand+Route+99,+5000+Namur" target="_blank">Itinéraire Google Maps</a></div>
+  </div>
+
+  <!-- VISITE avec uniquement REGLE MAGASIN (antivol) -->
+  <div class="visit">
+    <div class="visit-header">
+      <span><span class="time">11:05 – 11:30</span> <span class="badge badge-visite">Visite</span></span>
+      <span class="so">S05zzz</span>
+    </div>
+    <div class="client">Delhaize Exemple <span class="last-so last-so-fresh">28/05/2026 (18j)</span></div>
+    <div class="addr">Chaussée de Louvain 5, 1300 Wavre</div>
+    <div class="contact-badge">M. Dupont (chef rayon)</div>
+    <div class="field field-regle"><span class="lbl">REGLE MAGASIN :</span> antivol sur boîtes métal, voir accueil</div>
+    <div class="route"><a href="https://www.google.com/maps/dir/?api=1&destination=Chauss%C3%A9e+de+Louvain+5,+1300+Wavre" target="_blank">Itinéraire Google Maps</a></div>
+  </div>
+
+</div>
+
+</body>
+</html>

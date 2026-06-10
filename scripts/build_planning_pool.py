@@ -82,6 +82,31 @@ TIER_RULES = [
 
 VISITE_TAG_RE = re.compile(r"\[VISITE (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 
+# Tags merchandiser terrain (Nicolas 10/06/2026) — parsés depuis res.partner.comment
+# et exposés dans le planning sous chaque magasin (remplacent les "notes" verbeuses).
+#   [STOCK: réserve]            -> CONTROLE STOCK : où contrôler le stock avant remplissage
+#   [REASSORT: GUN]             -> METHODE REASSORT : méthode de remplissage (gun, manuel, ...)
+#   [REGLE: étiquettes+antivol] -> REGLE MAGASIN : règle spécifique magasin
+STOCK_RE = re.compile(r"\[STOCK:\s*([^\]]+)\]", re.IGNORECASE)
+REASSORT_RE = re.compile(r"\[REASSORT:\s*([^\]]+)\]", re.IGNORECASE)
+REGLE_RE = re.compile(r"\[REGLE:\s*([^\]]+)\]", re.IGNORECASE)
+
+# Overrides de cadence (jours) par magasin — priment sur le cycle déduit du Tier.
+# Clé = pid Odoo. Voir REGLES.md §5.
+CADENCE_OVERRIDE_PID = {
+    2927: 28,    # Distriparenthese - Intermarché Gosselies (Nicolas 20/04/2026)
+    122944: 25,  # Lambertdis SRL - Spar Manhay : espacer les réassorts (Nicolas 10/06/2026)
+}
+
+
+def parse_tag_field(comment, regex):
+    """Extrait la valeur d'un tag [CLE: valeur] du comment (HTML strippé), sinon ''."""
+    if not comment:
+        return ""
+    text = re.sub(r"<[^>]+>", " ", str(comment))
+    m = regex.search(text)
+    return m.group(1).strip() if m else ""
+
 # Règle dure : nom magasin TOUJOURS affiché en clair (jamais l'ID seul, jamais un prefix numérique).
 # Si le store_name est vide ou commence par un ID Odoo numérique (≥4 chiffres), fallback billing_partner
 # puis fallback "Enseigne — ville" déduit du billing_partner / parent_name.
@@ -403,6 +428,10 @@ def main():
             today=today,
             so_count=r["so_count"],
         )
+        # Override cadence par magasin (REGLES.md §5) — prime sur le cycle du Tier.
+        cycle_override = CADENCE_OVERRIDE_PID.get(pid)
+        if cycle_override:
+            cycle = cycle_override
 
         if has_arret_tag(r["comment"], r["sale_warn"]):
             statut = "Arret"
@@ -430,6 +459,11 @@ def main():
         display = display_name(
             r["store_name"], r["billing_partner"], r["parent_name"], r["city"], pid
         )
+
+        # Champs terrain merchandiser (tags Odoo) — affichés sous le magasin
+        controle_stock = parse_tag_field(r["comment"], STOCK_RE)
+        methode_reassort = parse_tag_field(r["comment"], REASSORT_RE)
+        regle_magasin = parse_tag_field(r["comment"], REGLE_RE)
 
         # last_so_date enrichi : ancienneté + label lisible (règle Nicolas 21/05/2026)
         # "Dernière visite client" dans le planning = dernière SO confirmée.
@@ -463,6 +497,9 @@ def main():
             "last_visit_source": last_source or "",
             "next_visit": next_visit.isoformat() if next_visit else "",
             "retard_j": retard_j,
+            "controle_stock": controle_stock,
+            "methode_reassort": methode_reassort,
+            "regle_magasin": regle_magasin,
         })
 
     # 7) Tri : Actif d'abord, retard décroissant, Tier A>B>C>X, CA total décroissant

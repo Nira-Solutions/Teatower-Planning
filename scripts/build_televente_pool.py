@@ -42,6 +42,20 @@ REFS_MAX = 10        # <= 10 refs -> Vanessa (porte "petit assortiment")
 DIST_MIN = 60        # > 60 km -> Vanessa (eloigne)
 REFS_CARVEOUT = 20   # >= 20 refs : reste a Gilles meme si loin
 
+# FORCE MERCH (Nicolas 10/06/2026) : gros clients que la regle distance/refs
+# enverrait a tort en televente -> restent suivis physiquement par Gilles.
+# Cle = pid Odoo (magasin + adresse de livraison). Exclus du pool Vanessa.
+FORCE_MERCH_PIDS = {
+    3016, 5649,   # KAIO Retail invest - Delhaize Ottignies (gros client, +1km au seuil)
+    2914,         # Affilie 044725 - Delhaize Kraainem
+}
+FORCE_MERCH_TOKENS = ["Delhaize Ottignies", "Delhaize Kraainem"]
+
+# Override cadence d'appel (jours) par magasin -> prime sur la cadence calculee.
+CADENCE_OVERRIDE_PID = {
+    122944: 25,  # Lambertdis SRL - Spar Manhay : espacer les reassorts (Nicolas 10/06/2026)
+}
+
 # --- Cadence d'appel ---
 RESSERREMENT = 0.75  # on appelle a 75% de l'intervalle historique observe
 FLOOR = 14           # jamais plus serre que 14 j
@@ -268,6 +282,10 @@ def main():
         no_merch = "[NO-MERCH" in str(comment)
         if arret or no_merch:
             continue
+        # Force merch : gros clients gardes pour Gilles (jamais en televente)
+        pname = p.get("name") or ""
+        if sp in FORCE_MERCH_PIDS or any(t in pname for t in FORCE_MERCH_TOKENS):
+            continue
 
         n_refs = len(store_refs.get(sp, set()))
         dist, dist_src = distance_km(p.get("zip"), p.get("city"), zmap, cmap)
@@ -298,6 +316,11 @@ def main():
         else:
             target = DEMARRAGE_DEFAUT
             cadence_src = "demarrage (1 cmd)"
+
+        # Override cadence par magasin (prime sur le calcul)
+        if sp in CADENCE_OVERRIDE_PID:
+            target = CADENCE_OVERRIDE_PID[sp]
+            cadence_src = "override magasin"
 
         # Issues d'appel (tags Odoo). Un REFUS recale la cadence (le client a ete
         # touche, il revient a sa prochaine echeance) ; un NRP ne recale PAS
