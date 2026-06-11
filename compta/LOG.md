@@ -1,5 +1,19 @@
 # LOG Compta Teatower
 
+## 2026-06-11 — OD BROUILLON variation de stock FY25-26 (id=40092)
+
+| Champ | Valeur |
+|---|---|
+| Type | OD brouillon (state=draft, NON POSTÉ) |
+| Journal | MISC (id=11) |
+| Date | 30/06/2026 |
+| Débit | 340000 Marchandises — 64.180,45 EUR |
+| Crédit | 609400 Variation stocks marchandises — 64.180,45 EUR |
+| Écart brut quant vs 340000 | 65.171,29 EUR |
+| Écarté (coûts aberrants) | 990,84 EUR (Gyokuro MP coût>PV + Miel HH005) |
+| Montant défendable retenu | 64.180,45 EUR |
+| Statut | EN ATTENTE validation expert-comptable (>5.000 EUR) |
+
 ## 2026-06-11 — RESTAURATION RESA812 (Shyfter, id=35935)
 
 | Champ | Avant | Apres |
