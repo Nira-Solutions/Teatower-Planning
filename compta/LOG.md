@@ -1,5 +1,20 @@
 # LOG Compta Teatower
 
+## 2026-06-11 — RESTAURATION RESA812 (Shyfter, id=35935)
+
+| Champ | Avant | Apres |
+|---|---|---|
+| state | cancel | posted |
+| payment_state | not_paid | not_paid |
+| amount_total | 47,19 EUR | 47,19 EUR |
+| ref | 2026040554 | 2026040554 |
+| partner | Shyfter SA (#121991) | Shyfter SA (#121991) |
+| invoice_date | 2026-04-10 | 2026-04-10 |
+| invoice_date_due | 2026-05-10 | 2026-05-10 |
+
+Methode : button_draft (cancel->draft) + action_post (draft->posted). Aucun paiement ni lettrage existant (not_paid), pas de reversal lie (reversed_entry_id=False). Move lines apres repost : 611129 D:39,00 / 411000 D:8,19 / 440000 C:47,19 — coheres avec TVA 21%. Aucune ecriture parasite creee aujourd'hui pour Shyfter. Les 4 autres annulations du lot (Shopify transport + Google Cloud) restent inchangees.
+
+
 ## 2026-06-10 — TACHE 1/2 LOT KIRCHNER/NASA/SINAS — SUITE RAPPROCHEMENT BANCAIRE — is_reconciled flags + write-offs + brouillons
 
 ### TACHE 1 : Clôture flags bancaires 3 lignes Kirchner (BNK 18130 / 18733 / 18090)
