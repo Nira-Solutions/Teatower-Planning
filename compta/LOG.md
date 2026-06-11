@@ -68,6 +68,25 @@ State=draft. A poster apres validation Nicolas.
 
 ---
 
+## 2026-06-11 — ANNULATION 5 DOUBLONS FOURNISSEURS — IMPACT P&L +2.428,12 EUR
+
+**Contexte :** Audit P&L FY25-26. 5 factures fournisseurs en double identifiees et validees par Nicolas pour annulation.
+Procedure : button_draft + button_cancel sur les doublons non payes. Aucune ecriture bancaire touchee.
+
+| Annulee | ID Odoo | Fournisseur | Ref fournisseur | Date | Montant TTC | Conservee | Critere |
+|---------|---------|-------------|----------------|------|-------------|-----------|---------|
+| RESA539 | 30768 | Shopify | Bill #460671442 | 2025-12-17 | 777,43 EUR | RESA412 (id=27476) | RESA412 anterieure (id plus petit), les 2 non payees |
+| RESA534 | 30718 | Shopify | Bill #474838643 | 2026-01-16 | 607,11 EUR | RESA484 (id=29800) | RESA484 anterieure, les 2 non payees |
+| RESA752 | 34465 | Shopify | Bill #503279326 | 2026-03-17 | 628,47 EUR | RESA742 (id=34275) | RESA742 anterieure, les 2 non payees |
+| RESA572 | 31080 | Google Cloud | 5473148878 | 2026-01-31 | 367,92 EUR | RESA525 (id=31002) | RESA525 anterieure, les 2 non payees |
+| RESA812 | 35935 | Shyfter SA | 2026040554 | 2026-04-10 | 47,19 EUR | RESA824 (id=35945) | RESA824 est payee/lettree (payment=paid) |
+
+**Impact P&L :** +2.428,12 EUR (reduction charges 6xxxxx/614140/611129).
+**Etat final :** 5 factures state=cancel | 5 factures conservees state=posted.
+**Aucun double paiement detecte** — toutes les factures annulees etaient not_paid/non lettrées.
+
+---
+
 ## 2026-06-10 — LETTRAGE KIRCHNER NETS — BNK 18130 / 18733 / 18090 — NEUTRE P&L (hors 0,01 EUR)
 
 **Contexte :** Rapprochement bancaire ING (BNK1) — lignes Kirchner, Fischer & Co GmbH (#7195) avec suspense 499000.
