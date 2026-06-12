@@ -1,5 +1,20 @@
 # LOG Compta Teatower
 
+## 2026-06-12 — OD BROUILLON Doublon ONSS/PP SD Worx résiduel avril 2026 (id=40147)
+
+| Champ | Valeur |
+|---|---|
+| Type | OD brouillon (state=draft, NON POSTÉ) |
+| Journal | MISC (id=11) |
+| Date | 30/06/2026 |
+| Débit 454000 | 8.350,00 EUR — Apurement dette ONSS (RESA935+938+936 avril 2026) |
+| Débit 453000 | 2.818,21 EUR — Apurement dette PP (RESA935 avril 2026) |
+| Crédit 613310 | 11.168,21 EUR — Annulation charge doublon ONSS+PP |
+| Correctif déjà posté | MISC/25-26/06/0094 — 26.225,98 EUR (mars 2026, 7 RESA) |
+| Résiduel traité ici | RESA935 + RESA938 + RESA936 (avril 2026) |
+| Statut | EN ATTENTE validation expert-comptable (>5.000 EUR) |
+| Alerte | Vérifier DmfA/DMF avant validation — doublon comptable ≠ forcément double cotisation |
+
 ## 2026-06-11 — OD BROUILLON variation de stock FY25-26 (id=40092)
 
 | Champ | Valeur |
