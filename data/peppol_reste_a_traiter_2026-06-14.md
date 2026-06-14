@@ -1,0 +1,77 @@
+# Peppol — reste a traiter (14/06/2026)
+
+## [D] 21 clients sans config BE auto
+
+- 114916 Alexis Lambert                         VAT:TVabe475883087   pays:False state:not_verified
+- 2949 FAVRE S.A R.L.                         VAT:LU31941785       pays:Luxembourg state:not_valid
+- 9352 Icb Sarl                               VAT:LU21062652       pays:Luxembourg state:not_verified
+- 117803 Isabelle gokinan                       VAT:TVabe0754800550  pays:False state:not_verified
+- 122503 Jacinto architecture                   VAT:06136926942      pays:False state:not_valid
+- 59400 LAINAMOUREE - PAULINE SANZAY           VAT:FR45842756090    pays:France state:not_valid
+- 3042 La Th� Box                             VAT:FR36818905242    pays:France state:not_valid
+- 101979 goeury alix                            VAT:be748481791      pays:False state:not_valid
+- 110669 Michel coopman                         VAT:BE742876478      pays:False state:not_valid
+- 115059 NL Distri S.� r.l.                     VAT:LU29664508       pays:Luxembourg state:not_valid
+- 9716 OUFTI KITCHEN                          VAT:FR75821104924    pays:France state:not_verified
+- 3190 Prisca MEESTERS                        VAT:LU24148326       pays:Belgium state:not_verified
+- 3196 Restaurant Careme                      VAT:LU15955668       pays:Luxembourg state:not_valid
+- 3215 SAS Aquaval Aquatonic - Natacha HOUDIN VAT:FR76895780245    pays:France state:not_valid
+- 114915 Serge Hauss                            VAT:TVbe475342857    pays:False state:not_verified
+- 3240 Smartbox Group                         VAT:IE9693638B       pays:Ireland state:not_valid_format
+- 123449 VENTE-PRIVEE.COM                       VAT:FR70434317293    pays:France state:not_verified
+- 3303 cyrille VERMOT                         VAT:FR89522170943    pays:France state:not_verified
+- 116372 de goes fiona                          VAT:CC01002116403    pays:False state:not_valid
+- 3305 fabrice HUGONNEAUX                     VAT:FR53434434916    pays:France state:not_verified
+- 124168 sas bien etre et gourmandise           VAT:FR74983027541    pays:France state:not_verified
+
+## [C] 49 clients BE configures mais endpoint injoignable sur le reseau
+
+- NOT_VALID        8847 1380 Smiles                        -> not_valid
+- NOT_VALID        2774 ACD Nettoyage - R�gis Kampangala   -> not_valid
+- NOT_VALID        8526 Administration Communale de March� -> not_valid
+- NOT_VALID        7260 Amazon Business Eu SARL            -> not_valid
+- NOT_VALID        7240 BELGALITA FOOD - H�l�ne ZINCK - Br -> not_valid
+- NOT_VALID        9672 BIO-Vital                          -> not_valid
+- NOT_VALID      119570 Bouteiller Victor � Avocat         -> not_valid
+- NOT_VALID       59385 Cabinet M�dical Timoth� Renard     -> not_valid
+- NOT_VALID        2870 Cathy PREUVENEERS                  -> not_valid
+- NOT_VALID       59398 Celine Durlet                      -> not_valid
+- NOT_VALID        2890 Cocoon Coiffure                    -> not_valid
+- NOT_VALID        2901 D.BRAIVES - Le Cornuchamp          -> not_valid
+- NOT_VALID        2908 Daviane LEGROS                     -> not_valid
+- NOT_VALID        2926 Distrimarks S.A                    -> not_valid
+- NOT_VALID        8294 Dm Pedopsy                         -> not_valid
+- NOT_VALID        2937 Elodie BLAUWART                    -> not_valid
+- NOT_VALID        2945 Fabry et Fils SRL - Etienne FABRY  -> not_valid
+- NOT_VALID        8988 Famenne Ardenne Finance SRL        -> not_valid
+- NOT_VALID      115867 Galler M�diacit�                   -> not_valid
+- NOT_VALID      114826 Hayoit Barbara                     -> not_valid
+- NOT_VALID        2999 Isabelle HEULERS                   -> not_valid
+- NOT_VALID_FORMAT   7643 John Cockerill SA - Natalie Vande  -> not_valid_format
+- NOT_VALID        3011 Joseph FORNASARI                   -> not_valid
+- NOT_VALID        3033 LO-restaurants sprl - M. Leandre T -> not_valid
+- NOT_VALID       59394 La coque frite                     -> not_valid
+- NOT_VALID      100974 Laurence dehard                    -> not_valid
+- NOT_VALID        3067 Le F�licien                        -> not_valid
+- NOT_VALID        3080 Le repos du Moineau                -> not_valid
+- NOT_VALID_FORMAT   3095 Licence 2 Grill - Nerocaf�         -> not_valid_format
+- NOT_VALID      115154 Magali Warnon                      -> not_valid
+- NOT_VALID        3124 Marie BAGUETTE                     -> not_valid
+- NOT_VALID        3127 Marketing Teatower                 -> not_valid
+- NOT_VALID      113489 Monneau Pauline                    -> not_valid
+- NOT_VALID        3149 Myriam MAILLEN                     -> not_valid
+- NOT_VALID      120660 Natalia LIGA                       -> not_valid
+- NOT_VALID        3165 O'Brunch Coffee                    -> not_valid
+- NOT_VALID      116006 Persoons Gabriel                   -> not_valid
+- NOT_VALID      110131 Romain Van hove                    -> not_valid
+- NOT_VALID      117073 S.C.Pneumo                         -> not_valid
+- NOT_VALID      124370 Scrl m�dical docteur Laetitia Rous -> not_valid
+- NOT_VALID        9817 Sebio                              -> not_valid
+- NOT_VALID        6973 Tea Touch                          -> not_valid
+- NOT_VALID      122276 Thalea                             -> not_valid
+- NOT_VALID      122871 Urgentex                           -> not_valid
+- NOT_VALID       59396 Vaesen Fanny                       -> not_valid
+- NOT_VALID        3295 Wery-Mottin (Les Pothym)           -> not_valid
+- NOT_VALID      111133 Stella Marchetta                   -> not_valid
+- NOT_VALID        3309 muriel SCHREDER                    -> not_valid
+- NOT_VALID        3312 rebecca DE CUYPER                  -> not_valid
