@@ -1,5 +1,14 @@
 # LOG Compta Teatower
 
+## 2026-06-14 — Salve Peppol complémentaire — 3 clients flag corrigé + factures postées + envoyées (2.689,53 EUR TTC)
+
+| N° Facture | Client | SO source | Montant TTC | Peppol state | EAS | Note |
+|---|---|---|---|---|---|---|
+| INV/2026/03055 | Cafes Delahaut (fact. id=5509) | S05794 | 1.311,75 EUR | processing | 0208 | qty_delivered forcée (0→livré), invoice_sending_method email→peppol |
+| INV/2026/03056 | Spar Momignies | S05780 | 688,89 EUR | processing | 0208 | invoice_sending_method None→peppol |
+| INV/2026/03057 | Carrefour market Courcelles | S05779 | 688,89 EUR | processing | 0208 | invoice_sending_method None→peppol |
+| **TOTAL** | | **3 SO** | **2.689,53 EUR** | | | |
+
 ## 2026-06-14 — Salve facturation Peppol — 7 factures postées + envoyées (4.372,65 EUR TTC)
 
 | N° Facture | Client | SO source | Montant TTC | Peppol state | EAS | Alerte |
