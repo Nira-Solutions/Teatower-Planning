@@ -1,5 +1,21 @@
 # LOG Compta Teatower
 
+## 2026-06-14 — Salve facturation Peppol — 7 factures postées + envoyées (4.372,65 EUR TTC)
+
+| N° Facture | Client | SO source | Montant TTC | Peppol state | EAS | Alerte |
+|---|---|---|---|---|---|---|
+| INV/2026/03048 | SPRL Durant-Rabaey | S05787 | 1.003,80 EUR | processing | 9925 | EAS obsolète — surveiller |
+| INV/2026/03049 | Gemblouxim - Intermarché Gembloux | S05790 | 399,00 EUR | processing | 0208 | — |
+| INV/2026/03050 | Emilie Gigot - Green Coffee | S05792 | 355,45 EUR | processing | 0208 | — |
+| INV/2026/03051 | Cafés Antillia | S05793 | 898,35 EUR | processing | 9925 | EAS obsolète — surveiller |
+| INV/2026/03052 | Carrefour Belgium | S05795 | 663,65 EUR | processing | 0208 | — |
+| INV/2026/03053 | Carrefour Belgium | S05796 | 798,00 EUR | processing | 0208 | — |
+| INV/2026/03054 | ASBL Restaurants Universitaires | S05798 | 254,40 EUR | processing | 0208 | — |
+| **TOTAL** | | **7 SO** | **4.372,65 EUR** | | | |
+
+Bloqués Peppol (10 SO — 3.861,14 EUR) : voir tableau dans rapport ci-dessous. Non facturés.
+
+
 ## 2026-06-12 — OD BROUILLON Doublon ONSS/PP SD Worx résiduel avril 2026 (id=40147)
 
 | Champ | Valeur |
