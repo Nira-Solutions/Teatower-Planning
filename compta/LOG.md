@@ -1,5 +1,60 @@
 # LOG Compta Teatower
 
+## 2026-06-15 — Lettrage banque ING — 10 lignes reconciliées + 1 avance salaire + 5 write-offs (total 0,18 EUR)
+
+### Journal/Compte
+- Journal : ING BE30 3631 6408 2311 (id=14), code BNK1
+- Compte banque : 550001 Bank
+- Compte suspens : 499000 Suspense Accounts
+- Compte write-off perte : 657100 Negative Payment Differences
+- Compte write-off gain : 757100 Positive Payment Differences
+
+### Factures clients lettrées — soldées (paid)
+
+| BL id | Date BL | Montant reçu | Client | Facture | Montant facture | Ecart | Write-off | Résultat |
+|---|---|---|---|---|---|---|---|---|
+| 18929 | 2026-06-05 | 672,71 | DEMARS SA Carrefour Beauraing | INV/2026/02328 | 672,73 | -0,02 | 657100 | paid |
+| 18980 | 2026-06-09 | 545,31 | UNIC SA Carrefour Florenville | INV/2026/02409 | 545,31 | 0,00 | — | paid |
+| 19012 | 2026-06-10 | 341,98 | Delhaize Amay | INV/2026/02890 | 342,00 | -0,02 | 657100 | paid |
+| 19015 | 2026-06-10 | 562,79 | Gemblouxim Intermarché Gembloux | INV/2026/02604 | 562,81 | -0,02 | 657100 | paid |
+| 19016 | 2026-06-10 | 412,30 | SA Barthe Intermarché Assesse | INV/2026/02183 | 412,30 | 0,00 | — | paid |
+| 18827 | 2026-06-01 | 424,38 | SA Barthe Intermarché Assesse | INV/2026/02166 | 424,40 | -0,02 | 657100 | paid |
+| 19053 | 2026-06-12 | 250,11 | Anaïs Michoel les petits pots | INV/2026/02752 | 250,01 | +0,10 | 757100 | paid |
+| 19011 | 2026-06-10 | 217,00 | SA Marer AD Delhaize Bastogne | INV/2026/02408 | 217,00 | 0,00 | — | paid |
+
+### Factures clients — lettrées partiellement (écart > 1 EUR, pas de write-off)
+
+| BL id | Date BL | Montant reçu | Client | Facture | Montant facture | Résiduel restant | Note |
+|---|---|---|---|---|---|---|---|
+| 18002 | 2026-04-20 | 527,62 | Carrefour Belgium | INV/2026/01581 | 581,03 | 53,41 | Paiement partiel, ref /INV/2026/01581 dans virement |
+| 18522 | 2026-05-15 | 365,71 | Carrefour Belgium | INV/2026/01962 | 688,94 | 323,23 | Paiement partiel, ref /INV/2026/01962 dans virement |
+
+### Avance salaire
+
+| BL id | Date | Montant | Bénéficiaire | Compte imputé | OD |
+|---|---|---|---|---|---|
+| 19042 | 2026-06-11 | -500,00 | Audrey Vansimpsen | 455000 Remuneration | OD id=40346 |
+
+Note: 455000 cohérent avec les avances précédentes d'Audrey (02/2026, 12/2025, 10/2025).
+
+### Write-offs passés (total 0,18 EUR)
+
+| OD id | Date | Montant | Compte | Facture concernée |
+|---|---|---|---|---|
+| 40334 | 2026-06-05 | 0,02 | 657100 | INV/2026/02328 DEMARS |
+| 40337 | 2026-06-10 | 0,02 | 657100 | INV/2026/02890 Delhaize Amay |
+| 40339 | 2026-06-10 | 0,02 | 657100 | INV/2026/02604 Gemblouxim |
+| 40342 | 2026-06-01 | 0,02 | 657100 | INV/2026/02166 SA Barthe |
+| 40344 | 2026-06-12 | 0,10 | 757100 | INV/2026/02752 Anaïs Michoel (trop-perçu) |
+
+**Total write-offs : 0,18 EUR** (4x 657100 = 0,08 EUR perte | 1x 757100 = 0,10 EUR gain)
+
+### Lignes en suspens (à traiter manuellement par Nicolas)
+
+Voir rapport détaillé dans la réponse compta du 15/06/2026 — 22 lignes, total 4.443,62 EUR.
+
+
+
 ## 2026-06-14 — Salve Peppol complémentaire — 3 clients flag corrigé + factures postées + envoyées (2.689,53 EUR TTC)
 
 | N° Facture | Client | SO source | Montant TTC | Peppol state | EAS | Note |
