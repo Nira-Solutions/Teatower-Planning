@@ -419,3 +419,19 @@
 - **En attente validation Nicolas pour exécution.**
 - Diag snapshot : `odoo/_mo_flood_diag.json`. Scripts : `odoo/_diag_mo_flood.py`, `odoo/_mo_flood_extra.py`, `odoo/_cancel_mo_flood.py`.
 - **Next cron** : 2026-04-22 14:29:39 → si on n'a pas retiré la route Manufacture des 687 produits / 293 orderpoints d'ici là, le flood reviendra. Piste : soit désactiver le cron temporairement, soit retirer route_ids=6 des templates non concernés (garder uniquement C0200 id=10485 qui était la cible initiale).
+
+## 2026-06-15 — Orderpoints Rocourt: bascule manual → auto
+- Demande Nicolas (autorisation explicite): passer les règles de réappro ROCOURT en déclenchement AUTOMATIQUE.
+- Warehouse confirmé: Magasin Rocourt id=9, code=ROC, lot_stock_id=ROC/Stock (loc 4712).
+- Source réassort confirmée: route 53 "Réapprovisionnement ROCOURT", rule#106 pull src=TT/Stock(8) → dest=ROC/Stock(4712). Source = entrepôt principal TT. OK.
+- Orderpoints ROC/Stock: total 388, déjà auto 1, basculés manual→auto 387, erreurs 0.
+- Aucun orderpoint manual hors route 53 (rien d'ambigu ignoré).
+- NON touchés: product_min_qty / product_max_qty / product_id / route_id (témoins #18806 min40/max60 et #18807 min5/max6 inchangés).
+- État final: 388 auto / 0 manual sur ROC/Stock.
+
+## 2026-06-15 — Inventaire Waterloo : carte "Bon de livraison" manquante
+- Demande Nicolas : faire apparaître la vue/carte "Bon de livraison" dans l'aperçu Inventaire du magasin Waterloo.
+- Diagnostic : warehouse "Magasin Waterloo" (id=4, code WAT) avait bien out_type_id=39 ("Bons de livraison", code outgoing, seq OUT, barcode WATOUT) MAIS le picking type 39 était archivé (active=False). D'où l'absence de carte dans l'aperçu.
+- Vérif non-régression : PT39 alimenté par 2 stock rules ACTIVES (id 37 route 20 "WAT Livrer 1 étape", id 40 MTO) et déjà utilisé par 2 livraisons réelles done (WAT/OUT/00001 08/06, WAT/OUT/00002 14/06). Séquence 60 + barcode intacts. Aucun impact Shopify (routing sur warehouse_id, pas sur active). Liège/Namur OUT aussi archivés mais 0 picking (pur POS) — Waterloo seul vrai point de livraison.
+- Action : stock.picking.type write [39] active=True.
+- Résultat : PT39 actif. Aperçu WAT montre désormais 3 cartes : Transferts internes (INT), Commandes du PdV (POS), Bons de livraison (OUT).
