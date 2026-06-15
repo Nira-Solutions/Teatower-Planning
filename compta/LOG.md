@@ -1,5 +1,53 @@
 # LOG Compta Teatower
 
+## 2026-06-15 — Lettrage banque ING (2eme passage) — 7 lignes reconciliees, 3 write-offs (total 0,04 EUR), 15 en suspens
+
+### Methode : matching par communication (OGM / reference facture)
+| BL | Date | Montant | Communication lue | Client identifie | Action | Facture soldee |
+|----|------|---------|-------------------|-----------------|--------|----------------|
+| 18071 | 21/04 | 143,25 | RINV/25-26/0149 RINV/25-26/0217 +++000/0024/90977+++ | SA Faimine (9196) -> INV/2025/04563 | Reclassement OD 40360 + lettrage auto | Partiel, residuel 195,29 EUR |
+| 18328 | 05/05 | 171,76 | /INV/60640061348 + INV/2026/01816 | Carrefour Belgium (6596) -> INV/2026/01816 | Reclassement OD 40361 + lettrage auto | Partiel, residuel 105,50 EUR |
+| 18445 | 11/05 | 166,62 | ***000/0035/26150*** | JAMBIS (8119) -> INV/2026/01855 (total 166,62 residuel 103,85) | OD 40359 : 103,85 sur facture + 62,77 trop-paye en 499000 | Facture soldee (reversed), trop-paye 62,77 EUR en suspens |
+| 19013 | 10/06 | 527,80 | ***000/0039/14958*** | Delhaize Bois-de-breux via ADROPICO SRL (59995) -> INV/2026/02834 (527,81) | OD 40355 + WO 40357 (ecart 0,01 EUR en 657100) | Soldee (paid) |
+| 19014 | 10/06 | 520,45 | ***000/0036/65990*** | Delhaize Bois-de-breux via ADROPICO SRL (59995) -> INV/2026/02188 (520,46) | OD 40356 + WO 40358 (ecart 0,01 EUR en 657100) | Soldee (paid) |
+| 19041 | 11/06 | 6,50 | 000004005288 | Veronique Nihoul (99542) | Deja reconciliee avant ce passage | - |
+| 19045 | 11/06 | 508,30 | ***000/0039/85888*** | Cocon Lifestore (2889) via LEROY CORINNE -> INV/2026/02967 (508,32) | OD 40353 + WO 40354 (ecart 0,02 EUR en 657100) | Soldee (paid) |
+
+**Total lettré : 2.038,18 EUR | Write-offs : 0,04 EUR (657100) | Trop-payé JAMBIS : 62,77 EUR (499000)**
+
+### OD crees (MISC)
+- OD 40353 (MISC/25-26/06/00xx) : Reclassement BL 19045 Cocon Lifestore 508,30 EUR
+- OD 40354 (MISC/25-26/06/00xx) : Write-off 0,02 EUR Cocon Lifestore 657100
+- OD 40355 (MISC/25-26/06/00xx) : Reclassement BL 19013 Adropico/Delhaize Bois 527,80 EUR
+- OD 40356 (MISC/25-26/06/00xx) : Reclassement BL 19014 Adropico/Delhaize Bois 520,45 EUR
+- OD 40357 (MISC/25-26/06/00xx) : Write-off 0,01 EUR Delhaize Bois INV/2026/02834 657100
+- OD 40358 (MISC/25-26/06/00xx) : Write-off 0,01 EUR Delhaize Bois INV/2026/02188 657100
+- OD 40359 (MISC/25-26/06/00xx) : Reclassement BL 18445 JAMBIS 103,85 + trop-paye 62,77 en 499000
+- OD 40360 (MISC/25-26/06/00xx) : Reclassement BL 18071 Faimine 143,25 EUR
+- OD 40361 (MISC/25-26/06/00xx) : Reclassement BL 18328 Carrefour Belgium 171,76 EUR
+- OD 40352 (MISC/25-26/06/00xx) : ANNULE (mauvais sens D/C, remplace par 40353)
+
+### Lignes en suspens (15) - explications
+| BL | Montant | Motif suspens |
+|----|---------|---------------|
+| 13505 | 543,06 | DEPA Lebbeke : comm '202501681' non identifiable dans Odoo, pas de partenaire GMS Lebbeke |
+| 14600 | 688,92 | Shopping Center Schaus Sankt-Vith : OGM 000/0022/22815 = INV/2025/03733 Carrefour DEJA PAYEE (reconciliee avec BNK1/25-26/2039). Double paiement a confirmer Nicolas |
+| 17574 | 33,10 | Pirlot-Willem Hannut : comm 'Wero TEATOWER' - pas de ref facture |
+| 17815 | 307,30 | D-Trois Nandrin : comm INV/2026/01900 mais facture DEJA PAYEE le 18/05 (BNK1/25-26/5153). Double paiement probable a confirmer Nicolas |
+| 17840 | 330,21 | Carpentier Elise Namur : comm 'Retour' - probablement remboursement, pas de facture client |
+| 18095 | 16,64 | Reclosable Packaging BV NL : remboursement fournisseur ('Overpaid amount on order'), pas une facture client |
+| 18382 | 53,00 | CPAS Marche-Famenne : OGM 000/0034/19046 = INV/2026/01553 Maison Repos Libert DEJA PAYEE. Double paiement ou fausse communication a confirmer |
+| 18524 | 21,28 | Amazon Payments : remboursement marketplace, pas une facture client |
+| 18657 | 21,63 | Walbaum Reims : remboursement CB fournisseur, pas une facture client |
+| 18867 | 69,31 | DFH Market Liege : pas de communication OGM, montant ne correspond pas aux factures ouvertes (161,70 / 453,62) |
+| 18880 | 262,49 | OFAC Assurances Arlon : 'PARTICIPATION BENEFICIAIRE 2025' - revenu assurance, pas une facture client - a imputer en 754xxx ou 755xxx |
+| 18899 | 6,50 | Baguette-Moyse : OGM 000/0039/13544 = INV/2026/02833 Melanie Baguette REVERSED (annulee). Paiement apres annulation - a reconcilier manuellement |
+| 18984 | 21,45 | EPS Monizze Bruxelles : tickets repas Monizze, pas une facture client |
+| 19044 | 12,14 | Edenred Belgium : tickets repas Edenred, pas une facture client |
+| 19062 | 11,91 | Amazon Payments : remboursement marketplace, pas une facture client |
+
+**Total en suspens : 2.221,22 EUR** (dont 2 doubles paiements a confirmer : 307,30 + 688,92 = 996,22 EUR)
+
 ## 2026-06-15 — Lettrage banque ING — 10 lignes reconciliées + 1 avance salaire + 5 write-offs (total 0,18 EUR)
 
 ### Journal/Compte
