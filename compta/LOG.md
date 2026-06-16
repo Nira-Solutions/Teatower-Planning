@@ -1,5 +1,16 @@
 # LOG Compta Teatower
 
+## 2026-06-16 — Imputation + lettrage frais bancaires ING + carburant — 2 BSL (34,68 EUR)
+
+| BSL | Date | Libelle | Montant | Compte charge | OD | Lettree |
+|-----|------|---------|---------|--------------|-----|---------|
+| BNK1/25-26/1320 (id=13723) | 03/10/2025 | FACTURE ING Marnix — frais CODA reporting BE30 3631 6408 2311 | -9,68 EUR | 650100 | MISC/25-26/10/0016 (id=40446) | Oui — is_reconciled=True |
+| BNK1/25-26/0411 (id=12611) | 29/07/2025 | Paiement Bancontact TOTAL NB005071 MARCHE 6900 - MARCHE EN FAM | -25,00 EUR | 611305 Carburant voiture Nicolas Raes | MISC/25-26/07/0006 (id=40447) | Oui — is_reconciled=True |
+
+- Compte 650100 = compte historiquement utilise pour frais ING CODA/reporting (confirme sur BNK1/24-25/4241 meme libelle)
+- Compte 611305 = valide par Nicolas, TTC sans TVA (ticket banque, pas de facture TVA detaillee)
+- Sens OD : D <compte charge> / C 499000 | Lettrage : D 499000 (BSL) + C 499000 (OD) = residual 0,00 EUR
+
 ## 2026-06-16 — Imputation + lettrage frais restaurant ING — 4 BSL (252,30 EUR)
 
 | BSL | Date | Libelle exact | Montant | OD creee | Lettrage |
