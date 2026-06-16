@@ -1,5 +1,58 @@
 # LOG Compta Teatower
 
+## 2026-06-16 — Imputation + lettrage LOT frais bancaires/notes de frais ING — 32 BSL (-1.870,14 EUR nets)
+
+32 OD MISC postees + 32 BSL lettrées (is_reconciled=True) — 0 erreur.
+
+Comptes utilisés (ajustements vs demande initiale) :
+- 650000 frais bancaires ING (et pas 650100 qui = "Depreciation of Loan Issue Expenses")
+- 611305 carburant Nicolas Raes (inchangé)
+- 611134 entretien véhicule (contrôle technique Autosécurité — pas de 612100 dans plan)
+- 613550 location voitures (Sixt — pas de 612200 ; 612200 n'existe pas)
+- 615330 frais de restaurant (inchangé)
+- 615400 cotisations / Adobe (inchangé)
+- 612410 fournitures de bureau (Amazon, Lyreco, HomeDeco, Plan-it — 615100 n'existe pas)
+- 650110 frais divers pour parking Düsseldorf (615200 = "Publicité" — mauvaise imputation)
+
+| Date | Libellé | Montant | Compte | OD | Lettré |
+|------|---------|---------|--------|----|--------|
+| 01/11/2025 | ING frais tenue de compte oct.2025 n302279940 | -17,30 | 650000 | MISC/25-26/11/0018 | Oui |
+| 01/11/2025 | ING cotisation Mastercard Business annuelle 5476-85 | -27,00 | 650000 | MISC/25-26/11/0019 | Oui |
+| 30/11/2025 | ING frais tenue de compte n2025/01/003272604 | -9,68 | 650000 | MISC/25-26/11/0020 | Oui |
+| 01/12/2025 | ING frais tenue de compte n2025/01/003407662 | -17,30 | 650000 | MISC/25-26/12/0027 | Oui |
+| 30/01/2026 | ING correction cotisation Mastercard | +22,50 | 650000 | MISC/25-26/01/0022 | Oui |
+| 01/02/2026 | ING frais tenue de compte n2026/01/003774109 | -40,68 | 650000 | MISC/25-26/02/0050 | Oui |
+| 01/03/2026 | ING cotisation mensuelle Mastercard fev.2026 | -2,25 | 650000 | MISC/25-26/03/0050 | Oui |
+| 01/04/2026 | ING cotisation mensuelle Mastercard mars 2026 | -2,25 | 650000 | MISC/25-26/04/0073 | Oui |
+| 10/04/2026 | ING micro-frais n2026/01/004564419 | -0,61 | 650000 | MISC/25-26/04/0074 | Oui |
+| 01/05/2026 | ING cotisation mensuelle Mastercard avr.2026 | -2,25 | 650000 | MISC/25-26/05/0129 | Oui |
+| 01/06/2026 | ING cotisation mensuelle Mastercard mai 2026 | -2,25 | 650000 | MISC/25-26/06/0102 | Oui |
+| 01/06/2026 | ING frais tenue de compte n2026/01/005069685 mai 2026 | -31,00 | 650000 | MISC/25-26/06/0103 | Oui |
+| 10/06/2026 | ING frais tenue de compte n2026/01/005196418 | -14,52 | 650000 | MISC/25-26/06/0104 | Oui |
+| 19/02/2026 | Q8 AYE AdBlue | -21,75 | 611305 | MISC/25-26/02/0051 | Oui |
+| 19/02/2026 | Q8 AYE carburant | -40,00 | 611305 | MISC/25-26/02/0052 | Oui |
+| 27/03/2026 | AUTOSECURITE STATION 7 AYE contrôle technique | -77,00 | 611134 | MISC/25-26/03/0051 | Oui |
+| 12/04/2026 | Sixt Bruxelles location véhicule | -585,98 | 613550 | MISC/25-26/04/0075 | Oui |
+| 03/04/2026 | sr-Get your mug Liège | -37,60 | 615330 | MISC/25-26/04/0076 | Oui |
+| 17/04/2026 | AU BLEU SARRAU Erpent | -135,17 | 615330 | MISC/25-26/04/0077 | Oui |
+| 14/03/2026 | Adobe Creative Cloud Dublin mars 2026 | -60,49 | 615400 | MISC/25-26/03/0052 | Oui |
+| 14/06/2026 | Adobe Creative Cloud Dublin juin 2026 | -60,49 | 615400 | MISC/25-26/06/0105 | Oui |
+| 24/01/2026 | Lyreco Belgium NV Vottem | -49,57 | 612410 | MISC/25-26/01/0023 | Oui |
+| 25/02/2026 | parkservice24.de Düsseldorf | -14,00 | 650110 | MISC/25-26/02/0053 | Oui |
+| 19/10/2025 | AMZN Mktp FR HX9JL1735 | -41,66 | 612410 | MISC/25-26/10/0017 | Oui |
+| 28/10/2025 | AMZN Mktp FR 8L1118EX5 | -134,47 | 612410 | MISC/25-26/10/0018 | Oui |
+| 01/12/2025 | AMZN Mktp FR ZX5DY2TC4 | -45,91 | 612410 | MISC/25-26/12/0028 | Oui |
+| 11/03/2026 | AMAZON.BE QG0YW6QT5 | -20,48 | 612410 | MISC/25-26/03/0053 | Oui |
+| 11/03/2026 | WWW.AMAZON PF6112WV5 | -23,38 | 612410 | MISC/25-26/03/0054 | Oui |
+| 17/03/2026 | AMAZON.BE WA8A75505 | -97,75 | 612410 | MISC/25-26/03/0055 | Oui |
+| 08/05/2026 | AMAZON.BE N66EQ5IL4 | -79,90 | 612410 | MISC/25-26/05/0130 | Oui |
+| 04/02/2026 | HomeDeco.nl Amsterdam | -131,96 | 612410 | MISC/25-26/02/0054 | Oui |
+| 20/02/2026 | PLAN-IT 4203 Rocourt | -67,99 | 612410 | MISC/25-26/02/0055 | Oui |
+
+Total charges nettes : -1.870,14 EUR (32 lignes)
+
+---
+
 ## 2026-06-16 — Imputation + lettrage frais bancaires ING + carburant — 2 BSL (34,68 EUR)
 
 | BSL | Date | Libelle | Montant | Compte charge | OD | Lettree |
