@@ -435,3 +435,13 @@
 - Vérif non-régression : PT39 alimenté par 2 stock rules ACTIVES (id 37 route 20 "WAT Livrer 1 étape", id 40 MTO) et déjà utilisé par 2 livraisons réelles done (WAT/OUT/00001 08/06, WAT/OUT/00002 14/06). Séquence 60 + barcode intacts. Aucun impact Shopify (routing sur warehouse_id, pas sur active). Liège/Namur OUT aussi archivés mais 0 picking (pur POS) — Waterloo seul vrai point de livraison.
 - Action : stock.picking.type write [39] active=True.
 - Résultat : PT39 actif. Aperçu WAT montre désormais 3 cartes : Transferts internes (INT), Commandes du PdV (POS), Bons de livraison (OUT).
+
+## 2026-06-16 — EDI Carrefour : diag module + retrait lignes GTIN-less
+- Diag : aucun module/modèle DESADV/EDI Carrefour dans l'Odoo Teatower. Cockpits "Avis d'expédition 86..106" + "Envoi EDI" fournisseur TEA TREE = portail EDI EXTERNE, hors Odoo. Factures Carrefour partent en Peppol UBL BIS3 (peppol_move_state=done).
+- Root cause UBL : 049 = pas de DespatchDocumentReference émis par BIS3 standard ; 004/010 = ship-to en peppol_eas=0208 (entreprise) jamais 0088 (GLN), 0 partner en 0088.
+- Corrections data (reset draft → unlink → repost) :
+  - INV/2026/02953 (id39840) : -EM0072 (0€), total 521,51 inchangé.
+  - INV/2026/02962 (id39852) : -TRANSPORT, total 195,44 → 184,84 (-10,60 TVAC). ⚠️ re-facturer transport hors EDI si besoin.
+  - INV/2026/02982 (id39875) : -EM0072 -M0005 (0€), total 798,00 inchangé.
+- GLN : seul Mons #113613 renseigné (ref=GLN:5400102606004). Waterloo/Bomerée/Gosselies/Marche manquants.
+- Détails : memory/project_edi_carrefour_rejets.md
