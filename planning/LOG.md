@@ -58,3 +58,11 @@
 - Retours tous ≤17:00 (mer 15:55, jeu 15:20, ven 15:55).
 - Reportés S26 (justifiés §0.5) : Hyper Bierges 109j, Le Beau Rivage Dinant 90j, Hyper Boncelles/Fleron (matin), CM Lontzen (marge horaire), CM Marche, Spar Namur NDB. Détail : planning/queue_S25_2026-06-15.md.
 - ⚠ Delhaize Wavre #3226 : client refuse merch → à passer NO-MERCH (à trancher Nicolas).
+
+## 2026-06-16 — Génération S26 (22-26/06) — semaine prochaine
+- Contraintes Nicolas : AUCUN passage mardi 23/06 (camionnette indispo) ; Delhaize Bertrix #123303 + Delhaize Ottignies #3016 = passages demandés.
+- 19 stops / 4 jours (lun/mer/jeu/ven). Pool 16/06 : 95 actifs, 31 OVERDUE.
+- Lun Famenne+Lux (Delhaize Marche, CM Marche, Bertrix, Etalle) ; Mer Liège (Boncelles+Fleron hypers matin, Lontzen, Embourg, Remouchamps) ; Jeu Namur+Dinant (Le Beau Rivage 91j, Fosses, Floriffoux, Naninne, Spar Namur, Materne) ; Ven BW (Nivelles, Ottignies, Wavre, Kraainem).
+- Hyper Marche #6999 ÉCARTÉ (passage uniquement le mardi). S25 exclus. Floriffoux/Wavre = revisite S24 à 14j (espacement OK).
+- Garde-fou pools exclusifs : OK (0 merch en télévente). Retours tous ≤17:00.
+- S24 sort de l'affichage (historique git). WEEKS = [S26, S25].
