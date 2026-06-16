@@ -1,5 +1,30 @@
 # LOG Compta Teatower
 
+## 2026-06-16 — Imputation + lettrage frais restaurant ING — 4 BSL (252,30 EUR)
+
+| BSL | Date | Libelle exact | Montant | OD creee | Lettrage |
+|-----|------|---------------|---------|----------|---------|
+| BNK1/25-26/1758 (id=14253) | 30/10/2025 | Paiement Bancontact 30/10/25 10h04 - 2591 Waterloo 1410 - WATERLOO - BEL | -50,89 EUR | MISC/25-26/10/0014 (id=40440) | Oui — partial #14222 — is_reconciled=True |
+| BNK1/25-26/1770 (id=14265) | 30/10/2025 | Paiement Bancontact 30/10/25 10h27 - MDM 471 WATERLOO 1410 - WATERLOO - BEL | -71,98 EUR | MISC/25-26/10/0015 (id=40441) | Oui — partial #14223 — is_reconciled=True |
+| BNK1/25-26/5031 (id=18383) | 06/05/2026 | Paiement Debit Mastercard 06/05/26 17h23 - WALBAUM 51100 - REIMS - FRA | -129,80 EUR | MISC/25-26/05/0127 (id=40442) | Oui — partial #14224 — is_reconciled=True |
+| BNK1/25-26/5238 (id=18657) | 21/05/2026 | Remboursement Debit Mastercard 21/05/26 11h38 - WALBAUM 51100 - REIMS - FRA | +21,63 EUR | MISC/25-26/05/0128 (id=40443) | Oui — partial #14218 — is_reconciled=True |
+
+- Compte de charge : 615330 frais de restaurant (TTC, TVA non deductible)
+- Sens OD depense : D 615330 / C 499000 | Sens OD remboursement : D 499000 / C 615330
+- WALBAUM remboursement = credit note restaurant (annule partielle de la depense 06/05)
+- 2 lignes NON traitees : MARNIX 03/10 = frais bancaires ING (pas un restaurant) ; TOTAL 29/07 = station-service carburant (pas 615330)
+
+## 2026-06-16 — Imputation + rapprochement BSL Delahaut cafe 4,50 EUR
+
+| Element | Detail |
+|---------|--------|
+| BSL | id=17980 — BNK1/25-26/4724 — 17/04/2026 |
+| Libelle | Paiement Bancontact 17/04/26 - 11h50 - CAFES DELAHAUT 5020 - SUARLEE - BEL |
+| Montant | -4,50 EUR |
+| Methode | OD MISC/25-26/04/0072 : D 615330 / C 499000 = 4,50 ; lettrage 499000 (BSL ligne 182777 vs OD ligne 182781) |
+| Resultat | BSL is_reconciled=True ; 615330 debite 4,50 EUR ; 499000 solde residuel=0 ; TVA non deductible (montant brut TTC en charge) |
+| OD Odoo | MISC/25-26/04/0072 (move_id=40438) — posted — date 17/04/2026 |
+
 ## 2026-06-15 — Lettrage banque ING (2eme passage) — 7 lignes reconciliees, 3 write-offs (total 0,04 EUR), 15 en suspens
 
 ### Methode : matching par communication (OGM / reference facture)
