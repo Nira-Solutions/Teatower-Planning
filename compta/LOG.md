@@ -1,5 +1,54 @@
 # LOG Compta Teatower
 
+## 2026-06-18 — Lettrage bancaire ING — 8 paiements créés (4 clients + 4 fournisseurs)
+
+### Méthode
+Odoo 18 Enterprise via XML-RPC : `account.payment.register` wizard.
+La méthode `reconcile()` sur BSL n'est pas exposée XML-RPC en Odoo 18.
+Résultat : factures en `in_payment` = considérées payées, aucun rappel ne part.
+Passage final `in_payment` → `paid` à faire dans l'interface Odoo > Banque > ING (bouton Valider/Correspondre).
+
+### Comptes write-off utilisés
+- 657100 Negative Payment Differences : on encaisse/paie moins que la facture
+- 757100 Positive Payment Differences : on encaisse/paie plus que la facture
+
+### Lettrages clients
+
+| PAY | BSL | Montant encaissé | Facture | Montant facture | Ecart | Write-off | Statut |
+|-----|-----|-----------------|---------|----------------|-------|-----------|--------|
+| PAY00696 | 19154 (15/06) | 457,79 EUR | INV/2026/02482 Belgradis Belgrade | 457,80 EUR | +0,01 | 657100 | in_payment |
+| PAY00697 | 19126 (16/06) | 368,21 EUR | INV/2026/02615 Wonka Heusy | 368,20 EUR | -0,01 | 757100 | in_payment |
+| PAY00698 | 19130 (16/06) | 602,04 EUR | INV/2026/02224 Chili Peppers Tilf | 602,05 EUR | +0,01 | 657100 | in_payment |
+| PAY00699 | 18769 (28/05) | 143,35 EUR | INV/2026/01013 Carrefour Belgium (Wdistri) | 142,66 EUR | -0,69 | 757100 | in_payment |
+
+Total encaissements : 1.571,39 EUR | Write-offs nets : -0,68 EUR (757100)
+
+### Lettrages fournisseurs
+
+| PAY | BSL | Montant payé | Facture | Montant facture | Ecart | Write-off | Statut |
+|-----|-----|-------------|---------|----------------|-------|-----------|--------|
+| PAY00700 | 16715 (16/02) | 2.648,58 EUR | RESA1063 Sinas GmbH | 2.648,58 EUR | 0,00 | — | in_payment |
+| PAY00701 | 18173 (27/04) | 121,99 EUR | RESA1048 Proximus | 121,99 EUR | 0,00 | — | in_payment |
+| PAY00702 | 18716 (26/05) | 100,00 EUR | RESA1045 Proximus | 100,00 EUR | 0,00 | — | in_payment |
+| PAY00703 | 18019 (20/04) | 517,49 EUR | RESA967 Worldline | 518,39 EUR | +0,90 | 757100 | in_payment |
+
+Total fournisseurs : 3.388,06 EUR | Write-off : +0,90 EUR (757100)
+
+### Incident technique
+- BSL 19099 (Belgradis 457,79 EUR, 15/06) supprimée lors d'un test XML-RPC unlink
+- Recréée : BSL 19154 (BNK1/25-26/5655) — même montant, date, partenaire
+- Impact comptable : nul (BSL non réconciliée, solde 550001 inchangé)
+- PAY00694 et PAY00695 créés et annulés dans la foulée (état canceled)
+
+### Lignes restant en suspens (73 au total — extrait des principales)
+- BSL importantes sans match : 16572 Vilna Gaon -5.250 EUR, 17572 Kirchner -20.606 EUR, 17892 Huissiers MILIS -4.374 EUR, 18895 salaires -16.871 EUR, 18963 préavis -6.616 EUR
+- Chèques-repas à imputer 580003 : BSL 18984 (+21,45), 19044 (+12,14), 19123 (+21,60)
+- Avances personnelles : BSL 19083 Cabosart Gilles -1.000 EUR (imputer 455000)
+- Doubles paiements à confirmer : BSL 14600 Schaus +688,92, BSL 17815 D-TROIS +307,30
+- Remboursements non facturables : BSL 18880 OFAC assurances +262,49, BSL 16154 Alain ALBERT +96,47
+
+---
+
 ## 2026-06-18 — Audit P&L FY25-26 + facturation SO livrées (salve 2)
 
 ### Résultat P&L lu dans Odoo (internal_group income/expense, postées FY25-26)
