@@ -18,7 +18,7 @@ Passage final `in_payment` → `paid` à faire dans l'interface Odoo > Banque > 
 |-----|-----|-----------------|---------|----------------|-------|-----------|--------|
 | PAY00696 | 19154 (15/06) | 457,79 EUR | INV/2026/02482 Belgradis Belgrade | 457,80 EUR | +0,01 | 657100 | in_payment |
 | PAY00697 | 19126 (16/06) | 368,21 EUR | INV/2026/02615 Wonka Heusy | 368,20 EUR | -0,01 | 757100 | in_payment |
-| PAY00698 | 19130 (16/06) | 602,04 EUR | INV/2026/02224 Chili Peppers Tilf | 602,05 EUR | +0,01 | 657100 | in_payment |
+| PAY00698 | 19130 (16/06) | 602,04 EUR | INV/2026/02224 Chili Peppers Tilf | 602,05 EUR | +0,01 | 657100 | **paid** ✓ (lettrage complet 18/06 via reconcile.wizard) |
 | PAY00699 | 18769 (28/05) | 143,35 EUR | INV/2026/01013 Carrefour Belgium (Wdistri) | 142,66 EUR | -0,69 | 757100 | in_payment |
 
 Total encaissements : 1.571,39 EUR | Write-offs nets : -0,68 EUR (757100)
@@ -46,6 +46,15 @@ Total fournisseurs : 3.388,06 EUR | Write-off : +0,90 EUR (757100)
 - Avances personnelles : BSL 19083 Cabosart Gilles -1.000 EUR (imputer 455000)
 - Doubles paiements à confirmer : BSL 14600 Schaus +688,92, BSL 17815 D-TROIS +307,30
 - Remboursements non facturables : BSL 18880 OFAC assurances +262,49, BSL 16154 Alain ALBERT +96,47
+
+### Correction 18/06 — INV/2026/02224 Chili Peppers Tilff (PAY00698)
+- PAY00698 était en state=in_process sans move_id (paiement fantôme, écriture jamais créée)
+- Action : cancel PAY00698 → facture revenue à not_paid/602,05
+- Réconciliation directe via account.reconcile.wizard (id=18) :
+  - move_line_ids : 183591 (499000 Suspense, crédit 602,04) + 161509 (400000 Clients, débit 602,05)
+  - Transfert automatique 499000→400000 (602,04 EUR)
+  - Write-off 0,01 EUR sur 657100 (Negative Payment Differences) / MISC / 16-06-2026
+- Résultat : facture INV/2026/02224 → payment_state=paid, amount_residual=0,00, BSL 19130 is_reconciled=True
 
 ---
 
