@@ -1,5 +1,62 @@
 # LOG Compta Teatower
 
+## 2026-06-18 — Facturation B2B delivered + corrections Peppol + envoi Peppol
+
+### Corrections Peppol (EAS 9925 -> 0208)
+| ID Partner | Nom | Ancien EAS | Nouveau EAS | Endpoint | Etat final |
+|---|---|---|---|---|---|
+| 5882 | La vie est Belge - Brikci Amin | 9925 | 0208 | 0672856336 | valid |
+| 5449 | Affilié 048875 - AD Sombreffe | 9925 | 0208 | 0402206045 | valid |
+| 3266 | Thomas Dethier - DELTATEC | 9925 | 0208 | 0428586085 | valid |
+| 6821 | Carrefour Market Waterloo | 0208 (not_verified) | 0208 | 0448826918 | valid (re-vérif) |
+| 6999 | Carrefour Hyper Marche-en-Famenne | 0208 (not_verified) | 0208 | 0448826918 | valid (re-vérif) |
+
+### Transport qty_delivered forcées
+| SO | Ligne ID | Qty forcée |
+|---|---|---|
+| S05819 | 62936 | 1.0 |
+| S05818 | 62930 | 1.0 |
+| S05816 | 62852 | 1.0 |
+| S05813 | 62788 | 1.0 |
+| S05807 | 62779 | 1.0 |
+
+### Factures créées, postées et envoyées Peppol
+| Facture | SO | Partner | Montant TTC | Peppol |
+|---|---|---|---|---|
+| INV/2026/03115 | S05819 | AD Delhaize Roodebeek | 210,10 EUR | envoye |
+| INV/2026/03116 | S05818 | SASPJ Ferme du moligna BORLON RAMELOT | 210,05 EUR | envoye |
+| INV/2026/03117 | S05817 | Affilié 048875 - AD Sombreffe | 1.566,04 EUR | envoye |
+| INV/2026/03118 | S05816 | magibe | 124,60 EUR | envoye |
+| INV/2026/03119 | S05815 | Pharmacie Bia SRL - Fabienne BIA | 408,95 EUR | envoye |
+| INV/2026/03120 | S05813 | Immo-bois-sart | 127,20 EUR | envoye |
+| INV/2026/03121 | S05811 | Brasserie - Restaurant Volle Gas | 86,40 EUR | envoye |
+| INV/2026/03122 | S05807 | Centrale Intermarché | 235,60 EUR | envoye |
+| INV/2026/03123 | S05806 | Spar Barvaux | 130,30 EUR | envoye |
+| INV/2026/03124 | S05805 | Delhaize Le Lion S.A | 415,87 EUR | envoye |
+| INV/2026/03125 | S05768 | Carrefour Market Waterloo | 0,00 EUR (SRP 100% remise GMS) | envoye |
+| INV/2026/03126 | S05748 | Carrefour Belgium | 10,60 EUR (transport seul) | envoye |
+| INV/2026/03127 | S05730 | Carrefour Hyper Marche-en-Famenne | 0,00 EUR (SRP+Display 100% remise GMS) | envoye |
+| INV/2026/03128 | S05714 | Carrefour Belgium | 1.147,50 EUR | envoye |
+| INV/2026/03129 | S05692 | Carrefour Belgium | 936,00 EUR | envoye |
+| INV/2026/03130 | S05691 | Carrefour Belgium | 366,75 EUR | envoye |
+| INV/2026/03131 | #48534 | Thomas Dethier - DELTATEC | 214,57 EUR | envoye |
+
+Total facturé : 6.190,53 EUR TTC (17 factures)
+
+### SO bloquées Peppol (non facturées — action manuelle requise)
+| SO | Partner | Raison | VAT |
+|---|---|---|---|
+| S05820 | Perte marchandise (ID 114682) | pas de VAT BE, pas de Peppol possible | - |
+| #49036 | Linda Mertens (ID 124288) | particulier sans VAT | - |
+
+### SO sans livraison (non facturées)
+- S05824 — La vie est belge Mons SRL (qty_delivered=0)
+- S05821 — Comdis (qty_delivered=0)
+- S05799 — Cafés Préko s.a. (partiellement déjà facturé, reste une ligne qty_delivered=0)
+- #48143 — Jessica Masula (qty_delivered=0)
+
+---
+
 ## 2026-06-16 — Imputation + lettrage LOT frais bancaires/notes de frais ING — 32 BSL (-1.870,14 EUR nets)
 
 32 OD MISC postees + 32 BSL lettrées (is_reconciled=True) — 0 erreur.
