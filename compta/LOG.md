@@ -1,5 +1,38 @@
 # LOG Compta Teatower
 
+## 2026-06-18 — Audit P&L FY25-26 + facturation SO livrées (salve 2)
+
+### Résultat P&L lu dans Odoo (internal_group income/expense, postées FY25-26)
+- Avant actions du jour : -57.510 EUR
+- Après facturation S05827 + S05821 : **-56.667 EUR**
+- CA 700xxx : 1.856.335 EUR
+- Charges totales : 2.015.533 EUR
+- Produits totaux : 1.958.865 EUR
+- Note : 100.019 EUR en 757100 (gains POS fantômes) NON nettoyés = à traiter avec expert-comptable
+
+### Factures postées (salve 2 — SO livrées uniquement)
+| Facture | SO | Partner | Montant TTC | Note |
+|---|---|---|---|---|
+| INV/2026/03145 | S05827 | Delhaize Le Lion S.A | 319,20 EUR | Peppol 0208 OK |
+| INV/2026/03146 | S05821 | Comdis | 574,02 EUR | Peppol 0208 OK |
+
+Total salve 2 : 893,22 EUR TTC / 842,66 EUR HT
+
+### SO restantes to_invoice (non livrées — à facturer dès livraison effective)
+| SO | Partner | Montant TTC | Raison blocage |
+|---|---|---|---|
+| S05833 | Carrefour Belgium | 961,96 | qty_delivered=0 |
+| S05832 | Urban Therapy | 2.323,79 | qty_delivered=0 |
+| S05831 | DB Kfé SRL | 437,25 | qty_delivered=0 |
+| S05830 | Ramaut | 1.058,33 | qty_delivered=0 |
+| S05829 | Lisa MATHIEU | 205,19 | qty_delivered=0 |
+| S05828 | La Vieille Demeure | 210,83 | qty_delivered=0 |
+| S05826 | Pharmacie Tilman | 1.033,89 | qty_delivered=0 |
+| #49036 | Linda Mertens | 60,00 | particulier — del=6 mais Shopify, facturer manuellement |
+| #48143 | Jessica Masula | 43,50 | qty_delivered=0 |
+
+---
+
 ## 2026-06-18 — Facturation B2B delivered + corrections Peppol + envoi Peppol
 
 ### Corrections Peppol (EAS 9925 -> 0208)
