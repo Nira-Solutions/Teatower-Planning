@@ -155,6 +155,58 @@ Total facturé : 6.190,53 EUR TTC (17 factures)
 
 ---
 
+## 2026-06-18 — Extourne doublon ONSS+PP residuel SD Worx mars-mai 2026 (MISC/25-26/06/0112)
+
+### Analyse RESA par RESA (9 factures SD Worx mars-mai en 613310)
+
+| RESA | Date | Total net 613310 | Part DOUBLON (extournee) | Part LEGIT (conservee) |
+|---|---|---|---|---|
+| RESA713 | 2026-03-04 | 10.729,70 | 10.421,26 | 308,44 |
+| RESA802 | 2026-03-21 | 9.505,99 | 9.456,49 | 49,50 |
+| RESA791 | 2026-03-31 | 12.170,39 | 11.459,74 | 710,65 |
+| RESA790 | 2026-03-31 | 750,41 | 750,41 | 0,00 |
+| RESA789 | 2026-03-31 | 2.841,33 | 2.841,33 | 0,00 |
+| RESA935 | 2026-04-30 | 11.192,10 | 11.161,80 | 30,30 |
+| RESA936 | 2026-04-30 | 2,12 | 2,12 | 0,00 |
+| RESA938 | 2026-04-30 | 4,29 | 4,29 | 0,00 |
+| RESA937 | 2026-05-01 | 32,73 | 32,73 | 0,00 |
+| **TOTAL** | | **47.229,06** | **46.130,17** | **1.098,89** |
+
+Part LEGIT conservee : frais d'administration SD Worx + frais travaux speciaux (charges reelles)
+Part DOUBLON : ONSS patronal + cotisations speciales + PP + reductions ONSS = aussi en 621200/621300/454000/453000 via OD paie MISC/25-26/03/0045, 04/0063, 05/0121
+
+### Extourne deja passee : MISC/25-26/06/0094 (16/06/2026)
+- Credit 613310 : 26.225,98 EUR
+- Debit 454000 : 16.848,29 EUR + Debit 453000 : 9.377,69 EUR
+- Note : 453000 legerement sur-extourne de 177,40 EUR vs PP reel RESA (9.200,29 EUR)
+
+### Extourne residuelle today : MISC/25-26/06/0112 (18/06/2026)
+- Credit 613310 : 19.904,19 EUR
+- Debit 454000 : 19.904,19 EUR (contrepartie unique 454000 car 453000 deja solde via 0094)
+- Ecart balance : 0,0000 EUR
+
+### Resultats
+| Indicateur | Avant OD 0112 | Apres OD 0112 |
+|---|---|---|
+| Produits (70-79) | 3.728.149,15 | 3.728.149,15 |
+| Charges (60-69) | 3.785.067,94 | 3.765.163,75 |
+| **Resultat Odoo** | **-56.918,79** | **-37.014,60** |
+| Gain net OD | | **+19.904,19 EUR** |
+
+### Soldes comptes tiers apres OD 0112
+- 454000 (ONSS dette) : -8.212,68 EUR (crediteur = dette restante coherente)
+- 453000 (PP dette) : -2.825,32 EUR (crediteur = PP encore a payer, inchange)
+- 613310 (secretariat social charge) : +16.235,32 EUR (debiteur = frais legit restants + RESA jan-fev + frais admin)
+
+### Reconciliation total doublon FY25-26
+- Doublon total identifie : 46.130,17 EUR
+- Extourne 0094 : 26.225,98 EUR
+- Extourne 0112 : 19.904,19 EUR
+- **Total extourne : 46.130,17 EUR (100% du doublon confirme)**
+- Frais admin SD Worx conserves en charge : 1.098,89 EUR
+
+---
+
 ## 2026-06-16 — Imputation + lettrage LOT frais bancaires/notes de frais ING — 32 BSL (-1.870,14 EUR nets)
 
 32 OD MISC postees + 32 BSL lettrées (is_reconciled=True) — 0 erreur.
