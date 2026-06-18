@@ -1,5 +1,12 @@
 # LOG Compta Teatower
 
+## 2026-06-18 — Lettrage BSL 19126 — Wonka S.A. Intermarché Heusy — INV/2026/02615
+
+- PAY00697 (paiement fantôme, move_id=False, state=in_process) annulé → facture libérée en not_paid
+- Partner Wonka (#7003) posé sur BSL 19126 + AML 499000 (183583)
+- account.reconcile.wizard id=19 : AML 499000 (crédit 368,21) + AML 400000 (débit 368,20) + write-off -0,01 EUR sur 757100 (Positive Payment Differences) journal MISC date 2026-06-16
+- Résultat : INV/2026/02615 payment_state=paid, amount_residual=0,00 EUR — BSL 19126 is_reconciled=True
+
 ## 2026-06-18 — Lettrage bancaire ING — 8 paiements créés (4 clients + 4 fournisseurs)
 
 ### Méthode
