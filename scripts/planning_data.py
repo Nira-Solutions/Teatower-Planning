@@ -293,7 +293,10 @@ S25 = {
              "a": "Avenue de France 22, 6852 Paliseul", "c": "accueil — +32 61 61 11 71"},
             {"t": "14:40 - 15:05", "k": "visite", "b": ["5j OVERDUE"],
              "n": "Carrefour Market Bièvre (#123069)", "ls": "13/05 (33j)", "lsc": "mid",
-             "a": "Rue de Bouillon 106, 5555 Bièvre", "c": "accueil — (demander resp. épicerie)"},
+             "a": "Rue de Bouillon 106, 5555 Bièvre", "c": "accueil — (demander resp. épicerie)",
+             "st": "Pas de réserve magasin — rien à contrôler avant remplissage",
+             "re": "Manuel — pas d'appareil pour rentrer la marchandise",
+             "rg": "Contrôle marchandise à l'entrée OBLIGATOIRE"},
          ]},
     ],
 }
