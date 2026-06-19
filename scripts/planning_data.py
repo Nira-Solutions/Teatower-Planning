@@ -8,7 +8,7 @@ S26 = {
     "id": "s26", "nav": "S26 · 22-26/06 (à venir)", "active": True,
     "title": "Semaine du 22 au 26 juin 2026 (S26)",
     "note": ("🚫 AUCUN passage le MARDI 23/06 (camionnette indisponible). Implantations (1ᵉˢ stops) : Hyper Carrefour Arlon (lun — SO S05841 1004€, Hyper = matin) · "
-             "Spar Clavier (mer) · Intermarché Ciney (jeu). ⚠ Clavier + Ciney : SO de lancement à encoder/confirmer AVANT le passage (sinon rien à monter). "
+             "Spar Clavier (mer) · Intermarché Ciney (jeu — display de lancement). "
              "Passages demandés : Delhaize Bertrix (lun) · Delhaize Ottignies (ven, Mme Galletas absente jeudi). "
              "Intermarché Heusy ajouté mercredi (Liège-est). Magasins déjà couverts en S25 exclus. Aucun jour férié BE."),
     "days": [
@@ -47,9 +47,9 @@ S26 = {
                    "Voie de l'Ardenne 57, 4053 Embourg", "Avenue de la Porallée 36A, 4920 Aywaille"],
          "stops": [
             {"t": "08:45 - 09:10", "k": "impl", "b": ["Nouveau client", "Demande Nicolas"],
-             "n": "Spar Clavier (lead #453)", "ls": "lancement à confirmer", "lsc": "never",
+             "n": "Spar Clavier (lead #453)", "ls": "display de lancement", "lsc": "fresh",
              "a": "Rue de la Gendarmerie 70, 4560 Clavier", "c": "accueil / responsable — +32 85 21 12 77",
-             "note": "IMPLANTATION nouveau client — 1ᵉ stop (matériel). ⚠ Lead encore au stade PROSPECT : créer fiche client + SO de lancement (display) et la CONFIRMER avant le passage, sinon rien à monter."},
+             "note": "IMPLANTATION nouveau client — 1ᵉ stop (matériel chargé). Montage display + facings + étiquetage SKU + photos avant/après."},
             {"t": "09:40 - 10:05", "k": "visite", "b": ["25j OVERDUE"],
              "n": "Carrefour Hyper Boncelles (#60001)", "ls": "22/04 (61j)", "lsc": "stale",
              "a": "Rue du Condroz 16, 4100 Boncelles", "c": "accueil épicerie",
@@ -78,9 +78,9 @@ S26 = {
                    "Rue des Echasseurs 1, 5000 Namur", "Avenue Jean Materne 109, 5100 Jambes"],
          "stops": [
             {"t": "09:10 - 09:35", "k": "impl", "b": ["Nouveau client", "Demande Nicolas"],
-             "n": "Intermarché Ciney (lead #245 Gagné)", "ls": "lancement à confirmer", "lsc": "never",
+             "n": "Intermarché Ciney (lead #245 Gagné)", "ls": "display de lancement", "lsc": "fresh",
              "a": "Rue du Commerce 79, 5590 Ciney", "c": "accueil / responsable — +32 83 21 69 25",
-             "note": "IMPLANTATION nouveau client — 1ᵉ stop (matériel). ⚠ Lead Gagné mais fiche client + SO de lancement (display) PAS encore en Odoo : créer le partner + commande et la CONFIRMER avant le passage, sinon rien à monter."},
+             "note": "IMPLANTATION nouveau client — 1ᵉ stop (matériel chargé). Montage display + facings + étiquetage SKU + photos avant/après."},
             {"t": "10:15 - 10:40", "k": "visite", "b": ["91j OVERDUE"],
              "n": "Proxy Delhaize Le Beau Rivage Dinant (Affilié 044780, #8779)", "ls": "17/02 (125j)", "lsc": "stale",
              "a": "Quai de Meuse 1/1, 5500 Dinant", "c": "Xavier Despeghel — +32 82 22 37 62 — visite le jeudi ✓"},
