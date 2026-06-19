@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T15:29:08",
+  "updated": "2026-06-19T12:47:50",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3382,6 +3382,14 @@
       "started": "2026-05-28T15:28",
       "request": "qu'est-ce qu'il y a à facturer en B2B ?",
       "finished": "2026-05-28T15:29"
+    },
+    {
+      "id": "t069",
+      "agent": "product-data",
+      "task": "Fiches HC250 — lecture V0735/V0626/V0121/V0666 + export xlsx",
+      "status": "in_progress",
+      "started": "2026-06-19T12:47",
+      "request": "Nicolas — 4 nouvelles refs HC250, héritage ingrédients V0, fichier local"
     }
   ]
 }
