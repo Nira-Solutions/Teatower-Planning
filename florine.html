@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#e84a7f">
+<title>Une surprise pour Florine 💖</title>
+<style>
+  :root{
+    --pink:#e84a7f; --pink-d:#c43368; --cream:#fff7fb; --ink:#3a2230;
+    --wall:#e84a7f; --path:#fff7fb;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0; height:100%;}
+  body{
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(160deg,#ffd9e8 0%,#ffe9f1 40%,#fff4f9 100%);
+    color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    min-height:100%; overflow:hidden; position:relative;
+    user-select:none;
+  }
+  .card{
+    width:min(94vw,440px);
+    background:#fff;
+    border-radius:24px;
+    box-shadow:0 18px 50px rgba(200,51,104,.25);
+    padding:18px 18px 22px;
+    text-align:center;
+    position:relative; z-index:2;
+  }
+  h1{font-size:1.35rem; margin:.2em 0 .1em; color:var(--pink-d);}
+  p.sub{margin:.1em 0 .7em; font-size:.95rem; color:#7a5567;}
+  /* ---- intro ---- */
+  #intro .big{font-size:3rem; margin:.1em 0;}
+  .btn{
+    appearance:none; border:0; cursor:pointer;
+    background:linear-gradient(135deg,var(--pink),var(--pink-d));
+    color:#fff; font-weight:700; font-size:1.05rem;
+    padding:13px 26px; border-radius:999px;
+    box-shadow:0 8px 18px rgba(232,74,127,.4);
+    transition:transform .12s ease;
+  }
+  .btn:active{transform:scale(.95);}
+  /* ---- game ---- */
+  #game{display:none;}
+  #board{
+    width:100%; aspect-ratio:11/13;
+    display:block; border-radius:16px;
+    background:var(--path);
+    box-shadow:inset 0 0 0 3px #ffe1 ;
+    touch-action:none;
+  }
+  .hint{font-size:.82rem; color:#9a7385; margin:.55em 0 .2em;}
+  /* ---- d-pad ---- */
+  #pad{
+    margin:.4em auto 0; width:172px; height:172px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(3,1fr);
+    gap:8px;
+  }
+  #pad button{
+    appearance:none; border:0; cursor:pointer;
+    background:#ffe3ee; color:var(--pink-d);
+    font-size:1.5rem; border-radius:14px;
+    box-shadow:0 3px 0 #f3c4d6; transition:transform .08s;
+  }
+  #pad button:active{transform:translateY(2px); box-shadow:0 1px 0 #f3c4d6;}
+  #pad .up{grid-area:1/2/2/3;}
+  #pad .left{grid-area:2/1/3/2;}
+  #pad .right{grid-area:2/3/3/4;}
+  #pad .down{grid-area:3/2/4/3;}
+  #pad .mid{grid-area:2/2/3/3; background:none; box-shadow:none; font-size:1.4rem; pointer-events:none;}
+  /* ---- win ---- */
+  #win{display:none;}
+  #win .party{font-size:2.6rem; margin:.1em 0;}
+  #win .reveal{
+    background:linear-gradient(135deg,#fff0f6,#ffe3ee);
+    border-radius:16px; padding:14px 12px; margin:.6em 0;
+    font-size:1.02rem; line-height:1.45;
+  }
+  #win .reveal b{color:var(--pink-d);}
+  #qrwrap{
+    margin:.5em auto; width:200px; height:200px;
+    background:#fff; border-radius:18px; padding:10px;
+    box-shadow:0 10px 26px rgba(200,51,104,.3);
+    display:flex; align-items:center; justify-content:center;
+  }
+  #qrwrap img{width:100%; height:100%; image-rendering:pixelated;}
+  .qrcap{font-size:.85rem; color:#9a7385; margin-top:-.2em;}
+  .link-btn{
+    display:inline-block; margin-top:.5em; text-decoration:none;
+    background:linear-gradient(135deg,var(--pink),var(--pink-d));
+    color:#fff; font-weight:700; padding:11px 22px; border-radius:999px;
+    box-shadow:0 8px 18px rgba(232,74,127,.4);
+  }
+  .signed{margin-top:.9em; font-size:.9rem; color:#7a5567; font-style:italic;}
+  /* floating hearts layer */
+  #hearts{position:fixed; inset:0; pointer-events:none; z-index:1; overflow:hidden;}
+  .fh{position:absolute; bottom:-40px; font-size:1.6rem; animation:rise linear forwards;}
+  @keyframes rise{
+    0%{transform:translateY(0) rotate(0); opacity:0;}
+    10%{opacity:1;}
+    100%{transform:translateY(-115vh) rotate(360deg); opacity:0;}
+  }
+  /* kiss pop */
+  #kiss{
+    position:fixed; inset:0; display:none; z-index:5;
+    align-items:center; justify-content:center; pointer-events:none;
+  }
+  #kiss span{font-size:5.5rem; animation:pop .9s ease forwards;}
+  @keyframes pop{
+    0%{transform:scale(.2); opacity:0;}
+    35%{transform:scale(1.25); opacity:1;}
+    70%{transform:scale(1); opacity:1;}
+    100%{transform:scale(1.05); opacity:0;}
+  }
+  @media (max-height:720px){
+    #pad{width:148px; height:148px;}
+    #board{aspect-ratio:11/11;}
+  }
+</style>
+</head>
+<body>
+  <div id="hearts"></div>
+  <div id="kiss"><span>😘</span></div>
+
+  <div class="card">
+    <!-- ============ INTRO ============ -->
+    <section id="intro">
+      <div class="big">💖🌷</div>
+      <h1>Joyeux anniversaire, Florine&nbsp;!</h1>
+      <p class="sub">Un petit jeu rien que pour toi…</p>
+      <p style="font-size:.96rem; line-height:1.5; color:#5d3d4d;">
+        Je me suis perdu dans un labyrinthe&nbsp;🌀<br>
+        <b>Retrouve-moi</b> et viens me faire un <b>bisou</b>&nbsp;💋<br>
+        Une surprise t'attend à l'arrivée…&nbsp;🎁
+      </p>
+      <p style="margin:.7em 0;">
+        <button class="btn" id="startBtn">C'est parti&nbsp;💕</button>
+      </p>
+    </section>
+
+    <!-- ============ GAME ============ -->
+    <section id="game">
+      <h1 style="margin:.1em 0 .3em;">Retrouve-moi&nbsp;💋</h1>
+      <canvas id="board" width="550" height="650"></canvas>
+      <p class="hint">Flèches / clavier, balaie l'écran, ou utilise les boutons&nbsp;👇</p>
+      <div id="pad">
+        <button class="up" data-dir="up" aria-label="haut">▲</button>
+        <button class="left" data-dir="left" aria-label="gauche">◀</button>
+        <span class="mid">❤️</span>
+        <button class="right" data-dir="right" aria-label="droite">▶</button>
+        <button class="down" data-dir="down" aria-label="bas">▼</button>
+      </div>
+    </section>
+
+    <!-- ============ WIN ============ -->
+    <section id="win">
+      <div class="party">🎉💏🎉</div>
+      <h1>Tu m'as trouvé&nbsp;!</h1>
+      <p class="sub">Et ce bisou… 💋 le plus beau cadeau.</p>
+      <div class="reveal">
+        Mais ce n'est pas tout, mon amour…<br>
+        Je t'emmène à <b>Gand</b>&nbsp;🏰<br>
+        Un séjour à l'<b>Hôtel Pillows 5★</b><br>
+        le <b>22 août 2026</b>&nbsp;✨<br>
+        <span style="font-size:.9rem; color:#7a5567;">Scanne le code pour découvrir notre hôtel&nbsp;👇</span>
+      </div>
+      <div id="qrwrap"><img id="qr" alt="QR code de l'hôtel"></div>
+      <div class="qrcap">…ou clique directement&nbsp;:</div>
+      <a class="link-btn" id="hotelLink" target="_blank" rel="noopener">Voir notre hôtel&nbsp;🛎️</a>
+      <p class="signed">Je t'aime — Nicolas&nbsp;❤️</p>
+    </section>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- destination & QR ---------- */
+  var HOTEL_URL = "https://www.pillowshotels.com/?utm_source=google&utm_medium=cpc&utm_campaign=2059088386&utm_content=75776615963&utm_term=hotel%20pillows&gad_source=1&gad_campaignid=2059088386&gbraid=0AAAAACvhCsx3KtFthACx7CrWInNRdcYS5&gclid=CjwKCAjw0dPRBhAPEiwAE5vTTlGGaj6JY_YbHcGM8aD9exoQTKIpUs9B0GN1rXIdCG9ldGXELAE-uRoCw1YQAvD_BwE";
+  document.getElementById('hotelLink').href = HOTEL_URL;
+  document.getElementById('qr').src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=0&color=c43368&data=" +
+    encodeURIComponent(HOTEL_URL);
+
+  /* ---------- maze generation (recursive backtracker = always solvable) ---------- */
+  var COLS = 11, ROWS = 13;
+  var grid = [];           // each cell: {n,e,s,w walls true=wall}
+  function idx(c,r){ return r*COLS + c; }
+
+  function buildMaze(){
+    grid = [];
+    for(var i=0;i<COLS*ROWS;i++) grid.push({n:true,e:true,s:true,w:true,v:false});
+    var stack=[], cur=0;
+    grid[0].v=true; var visited=1, total=COLS*ROWS;
+    function neighbours(c){
+      var col=c%COLS, row=(c/COLS)|0, list=[];
+      if(row>0 && !grid[idx(col,row-1)].v) list.push([idx(col,row-1),'n','s']);
+      if(col<COLS-1 && !grid[idx(col+1,row)].v) list.push([idx(col+1,row),'e','w']);
+      if(row<ROWS-1 && !grid[idx(col,row+1)].v) list.push([idx(col,row+1),'s','n']);
+      if(col>0 && !grid[idx(col-1,row)].v) list.push([idx(col-1,row),'w','e']);
+      return list;
+    }
+    while(visited<total){
+      var nb=neighbours(cur);
+      if(nb.length){
+        var pick=nb[(Math.random()*nb.length)|0];
+        grid[cur][pick[1]]=false;
+        grid[pick[0]][pick[2]]=false;
+        stack.push(cur);
+        cur=pick[0]; grid[cur].v=true; visited++;
+      } else {
+        cur=stack.pop();
+      }
+    }
+  }
+
+  /* ---------- rendering ---------- */
+  var cvs=document.getElementById('board'), ctx=cvs.getContext('2d');
+  var player={c:0,r:0}, goal={c:COLS-1,r:ROWS-1};
+  var cell, ox, oy, won=false;
+
+  function layout(){
+    var W=cvs.width, H=cvs.height, pad=8;
+    cell=Math.min((W-pad*2)/COLS,(H-pad*2)/ROWS);
+    ox=(W-cell*COLS)/2; oy=(H-cell*ROWS)/2;
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,cvs.width,cvs.height);
+    ctx.lineCap='round';
+    // walls
+    ctx.strokeStyle='#e84a7f'; ctx.lineWidth=Math.max(3,cell*0.13);
+    for(var r=0;r<ROWS;r++){
+      for(var c=0;c<COLS;c++){
+        var x=ox+c*cell, y=oy+r*cell, g=grid[idx(c,r)];
+        ctx.beginPath();
+        if(g.n){ctx.moveTo(x,y);ctx.lineTo(x+cell,y);}
+        if(g.s){ctx.moveTo(x,y+cell);ctx.lineTo(x+cell,y+cell);}
+        if(g.w){ctx.moveTo(x,y);ctx.lineTo(x,y+cell);}
+        if(g.e){ctx.moveTo(x+cell,y);ctx.lineTo(x+cell,y+cell);}
+        ctx.stroke();
+      }
+    }
+    // goal halo
+    var gx=ox+goal.c*cell+cell/2, gy=oy+goal.r*cell+cell/2;
+    var pulse=0.5+0.5*Math.sin(Date.now()/300);
+    ctx.fillStyle='rgba(232,74,127,'+(0.12+0.12*pulse)+')';
+    ctx.beginPath(); ctx.arc(gx,gy,cell*0.55,0,7); ctx.fill();
+    // emojis
+    ctx.font=(cell*0.62)+'px serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('🧔', gx, gy);
+    ctx.fillText('❤️', ox+player.c*cell+cell/2, oy+player.r*cell+cell/2);
+  }
+
+  function loop(){ if(!won){ draw(); requestAnimationFrame(loop);} }
+
+  /* ---------- movement ---------- */
+  function move(dir){
+    if(won) return;
+    var g=grid[idx(player.c,player.r)];
+    if(dir==='up' && !g.n) player.r--;
+    else if(dir==='down' && !g.s) player.r++;
+    else if(dir==='left' && !g.w) player.c--;
+    else if(dir==='right'&& !g.e) player.c++;
+    if(player.c===goal.c && player.r===goal.r) win();
+  }
+
+  /* ---------- inputs ---------- */
+  var keymap={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',
+              w:'up',s:'down',a:'left',d:'right',z:'up',q:'left'};
+  window.addEventListener('keydown',function(e){
+    var dir=keymap[e.key];
+    if(dir){ e.preventDefault(); move(dir); }
+  });
+  document.querySelectorAll('#pad button').forEach(function(b){
+    b.addEventListener('click',function(){ move(b.dataset.dir); });
+  });
+  // swipe
+  var sx=0,sy=0,sw=false;
+  cvs.addEventListener('touchstart',function(e){
+    var t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY; sw=true;
+  },{passive:true});
+  cvs.addEventListener('touchend',function(e){
+    if(!sw) return; sw=false;
+    var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Math.abs(dx)<18 && Math.abs(dy)<18) return;
+    if(Math.abs(dx)>Math.abs(dy)) move(dx>0?'right':'left');
+    else move(dy>0?'down':'up');
+  },{passive:true});
+
+  /* ---------- hearts ---------- */
+  var heartsEl=document.getElementById('hearts');
+  var HEARTS=['❤️','💕','💖','💗','💞','🩷','🌸'];
+  function spawnHeart(){
+    var h=document.createElement('div'); h.className='fh';
+    h.textContent=HEARTS[(Math.random()*HEARTS.length)|0];
+    h.style.left=(Math.random()*100)+'vw';
+    h.style.fontSize=(1.1+Math.random()*1.6)+'rem';
+    h.style.animationDuration=(4+Math.random()*4)+'s';
+    heartsEl.appendChild(h);
+    setTimeout(function(){h.remove();},9000);
+  }
+  var heartTimer=null;
+
+  /* ---------- screens ---------- */
+  function show(id){
+    ['intro','game','win'].forEach(function(s){
+      document.getElementById(s).style.display = (s===id)?'block':'none';
+    });
+  }
+
+  document.getElementById('startBtn').addEventListener('click',function(){
+    buildMaze();
+    player={c:0,r:0}; won=false;
+    show('game'); layout(); loop();
+  });
+
+  function win(){
+    won=true;
+    // kiss pop
+    var k=document.getElementById('kiss');
+    k.style.display='flex';
+    setTimeout(function(){
+      k.style.display='none';
+      show('win');
+      // heart shower
+      for(var i=0;i<25;i++) setTimeout(spawnHeart,i*60);
+      heartTimer=setInterval(spawnHeart,350);
+    },950);
+  }
+
+  window.addEventListener('resize',function(){ if(document.getElementById('game').style.display==='block'){layout();} });
+})();
+</script>
+</body>
+</html>
