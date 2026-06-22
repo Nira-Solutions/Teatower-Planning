@@ -445,3 +445,11 @@
   - INV/2026/02982 (id39875) : -EM0072 -M0005 (0€), total 798,00 inchangé.
 - GLN : seul Mons #113613 renseigné (ref=GLN:5400102606004). Waterloo/Bomerée/Gosselies/Marche manquants.
 - Détails : memory/project_edi_carrefour_rejets.md
+
+## 2026-06-22 — Création 13 réfs Teabags (TB0) + PO draft Kirchner P00568
+- Partner: Kirchner, Fischer & Co GmbH (id 7195, supplier_rank 192) — le 9989 "(Nouveau)" inutilisé écarté.
+- Config copiée sur TB0 existants: type=consu+is_storable, categ 68 Composante, UoM Units, taxes vente [8], achat [18] 6%M, invoice_policy delivery.
+- Règle Nicolas: default_code ET supplierinfo.product_code = TB0 (pas MP_1V0). price=0.10 partout.
+- 9 templates CRÉÉS (10535-10543), 4 RÉUTILISÉS (10523/10524/10525/10526) + supplierinfo product_code TB0 renseigné/MAJ (prix forcés 0.10).
+- PO P00568 (id 572) DRAFT, 13 lignes, 262.000 u, 26.200 € HT. NON confirmé.
+- AMBIGU: les 13 MP_1V0xxx existent en parallèle (matière première liée au V0 fini) — doublons à statuer avec Nicolas.
