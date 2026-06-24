@@ -96,6 +96,9 @@ REGLE_RE = re.compile(r"\[REGLE:\s*([^\]]+)\]", re.IGNORECASE)
 CADENCE_OVERRIDE_PID = {
     2927: 28,    # Distriparenthese - Intermarché Gosselies (Nicolas 20/04/2026)
     122944: 25,  # Lambertdis SRL - Spar Manhay : espacer les réassorts (Nicolas 10/06/2026)
+    7760: 30,    # Hyper Carrefour Fleron : pas de passage avant 30j (Nicolas 24/06/2026)
+    113498: 30,  # Affilié 044471 - Delhaize Materne : pas de passage avant 30j (Nicolas 24/06/2026)
+    8779: 30,    # Affilié 044780 - Proxy Delhaize Le Beau Rivage : cadence 30j (Nicolas 24/06/2026)
 }
 
 
