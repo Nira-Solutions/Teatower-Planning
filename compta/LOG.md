@@ -41,6 +41,58 @@ Total encaissements : 1.571,39 EUR | Write-offs nets : -0,68 EUR (757100)
 
 Total fournisseurs : 3.388,06 EUR | Write-off : +0,90 EUR (757100)
 
+## 2026-06-24 — Facturation pro B2B — 17 factures créées + envoyées Peppol
+
+### Contexte
+Scan 32 SO en invoice_status=to_invoice, filtrage Peppol (EAS=0208, state=valid), mode delivered.
+
+### Transport forcé (qty_delivered = qty_ordered)
+Lignes [TRANSPORT] à 0 forcées avant wizard : SO S05849 (line 63434), S05851 (63451), S05853 (63468), S05854 (63475), S05864 (63769).
+
+### Factures postées et envoyées Peppol (peppol_move_state=processing)
+
+| Facture | Partner | HT | TTC | Origin | Peppol UUID |
+|---------|---------|-----|-----|--------|-------------|
+| INV/2026/03215 | Cafes Preko s.a. | 280,00 | 296,80 | S05838 | 2b9c7a61-bb40-4f97-baca-a989bf33916f |
+| INV/2026/03216 | Delhaize Le Lion S.A | 952,97 | 1 010,51 | S05856/S05865 | 6f71fcf0-b387-4b08-9e58-0eeb0e339ccb |
+| INV/2026/03217 | Spar Clavier | 301,12 | 319,20 | S05840 | 4d9a288c-009a-413c-bc8d-c73115e6e5d8 |
+| INV/2026/03218 | Delhaize Vise | 301,12 | 319,20 | S05855 | b3720fab-1693-488a-8cea-ff3bb5c9faa1 |
+| INV/2026/03219 | Carrefour Belgium | 907,44 | 961,96 | S05833 | 8ea963ac-74cb-480d-99be-da6942501fa5 |
+| INV/2026/03220 | Brasserie Miroir | 150,00 | 159,00 | S05849 | 92fc3b77-fc66-45d4-a59b-64632d49cc99 |
+| INV/2026/03221 | Pharmacie Tilman S.A. | 973,61 | 1 033,89 | S05826 | db802a89-e7d1-4849-a04c-91deeb9bb2b7 |
+| INV/2026/03222 | Cafermi | 301,14 | 319,20 | S05839 | 9b6a5609-f796-4832-9421-beb395ba8a6b |
+| INV/2026/03223 | Ibis Namur Centre | 210,39 | 227,20 | S05853 | c4e1a6b3-6dc9-468a-b31b-9220a43047f8 |
+| INV/2026/03224 | MM concept store SA | 190,00 | 201,40 | S05851 | 08ad8236-b840-4a9b-abe0-2d1357048d40 |
+| INV/2026/03225 | Alcodis SA - Veronique Goffaux | 70,00 | 74,20 | S05864 | 26fa9767-e562-488d-893e-baf88d647fda |
+| INV/2026/03226 | Esprit de campagne | 625,40 | 662,94 | S05846 | 07ef8916-f738-4923-9f8b-63b0e492b18c |
+| INV/2026/03227 | Urban Therapy | 2 192,25 | 2 323,79 | S05832 | 88adb4d5-25b5-4e04-884d-81ad4f5c262c |
+| INV/2026/03228 | Pharmacie Saint Pierre SA | 258,54 | 274,07 | S05848 | d5cd1b35-1f33-40ac-a75f-a944d8fd3929 |
+| INV/2026/03229 | SRL Ghigny & Associes | 444,78 | 471,50 | S05863 | 65591713-5bcf-419d-8340-3b4051e04608 |
+| INV/2026/03230 | Creative Ceramic - Verschelden Elora | 0,00 | 0,00 | S05854 | f3623666-6cc3-414c-ac5d-2da420b45e17 |
+| INV/2026/03231 | Louis Delhaize - Haversin | 263,48 | 279,30 | S05870 | eb34ada0-7b9b-4c81-88b1-d80c5d9664ce |
+| **TOTAL** | | **8 422,24** | **8 934,16** | | |
+
+Note : Creative Ceramic = remise 100% sur toutes lignes (commande echantillons), facture 0 EUR correcte.
+
+### Commandes bloquees (12) — non facturees
+- EAS 9925 (schema BE incorrect) : S05869 Brasserie Maziers, S05861 PC Distribution/Point Chaud, S05852 Joffrey Helson, S05847 Maison du Peket, S05831 DB Kfe, S05830 Ramaut, S05829 La bergerie de lives, S05828 La Vieille Demeure
+- Peppol not_verified : S05841 Hyper Carrefour Arlon, S05860 Marketing Teatower, #49036 Linda Mertens, #48143 Jessica Masula
+- Non livrees (qty_delivered=0) : S05866 The Torrefactory Project (2 596,75 EUR), S05867 Centrale Intermarche (48,10 EUR)
+
+## 2026-06-22 — Annulation faux gains POS 757100 — clôtures 21/06 Waterloo + Liège
+
+- OD créée et postée : **MISC/25-26/06/0114** (id=40962) | journal Miscellaneous Operations | date 21/06/2026
+- Schéma identique aux corrections OD0078-0079 du 04/06/26
+- Lignes :
+  | Compte | Débit | Crédit | Libellé |
+  |--------|-------|--------|---------|
+  | 757100 Positive Payment Differences | 96.545,88 | — | Annulation faux gains POS 21/06 Waterloo + Liège |
+  | 572 Espèces | — | 70.077,15 | Annulation faux gain caisse Waterloo (CSH3/25-26/0291) |
+  | 550004 Outstanding Receipts | — | 26.468,73 | Annulation faux gain Outstanding Receipts Liège (PBNK1/25-26/0725) |
+- Solde 757100 FY25-26 après : 100.070,38 EUR crédit net (vs 196.616,26 EUR avant)
+- Résultat net FY25-26 après : **-26.177 EUR** (vs +70.369 EUR avant = faux positif)
+- Autorisation Nicolas Raes explicite 22/06/2026
+
 ### Incident technique
 - BSL 19099 (Belgradis 457,79 EUR, 15/06) supprimée lors d'un test XML-RPC unlink
 - Recréée : BSL 19154 (BNK1/25-26/5655) — même montant, date, partenaire
