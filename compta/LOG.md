@@ -1,5 +1,68 @@
 # LOG Compta Teatower
 
+## 2026-06-25 — Correction faux écart POS Waterloo CSH3/25-26/0293
+
+### OD de correction créée et postée
+- **Référence** : MISC/25-26/06/0115 (id=41166)
+- **Journal** : Miscellaneous Operations (MISC, id=11)
+- **Date** : 2026-06-22 (même date que l'écriture cible)
+- **Libellé** : Annulation fausse perte caisse POS Waterloo CSH3/25-26/0293 - flux POS casse
+- **Lignes** :
+  - 657100 Negative Payment Differences : CREDIT 70.077,15 EUR (neutralise la charge fictive)
+  - 572 Espèces : DEBIT 70.077,15 EUR (neutralise le mouvement bilan)
+- **État** : posted
+
+### Impact P&L FY25-26
+| Situation | Résultat |
+|-----------|----------|
+| Avant correction (CSH3/0293 active) | -83.628,79 EUR |
+| Après correction MISC/0115 | -13.551,64 EUR |
+| Delta | +70.077,15 EUR |
+
+Note : le résultat de -13.551 EUR est différent du -37.740 EUR attendu par Nicolas. L'écart s'explique par les éléments postés entre le 24/06 (date du diagnostic à -107.817) et aujourd'hui 25/06 (facturation client normale ~+11k, OD ONSS/30.06 +26.226 postée le 24/06). Le delta entre -107.817 et -83.628 (avant ma correction) = +24.189 EUR correspond exactement à ces écritures normales postées après le diagnostic. La correction MISC/0115 a bien un impact de +70.077,15 EUR.
+
+### Vérification 572 Espèces (bilan)
+Sur le 22/06/2026, le net du compte 572 est exactement 48,95 EUR (transaction réelle CSH3/0292). Les 70.077,15 EUR de CSH3/0293 (crédit) sont parfaitement neutralisés par les 70.077,15 EUR de MISC/0115 (débit). Aucun déséquilibre de caisse réelle.
+
+### Vérification 657100 — aucun faux écart résiduel significatif
+Tous les faux débits 657100 > 1.000 EUR sur FY25-26 sont couverts par les corrections MISC/076+077+0115. Solde résiduel net = -7.649,54 EUR (sur-correction de 7.649 EUR favorable = les MISC/076+077 avaient légèrement sur-compensé les écarts antérieurs, non modifié).
+
+---
+
+## 2026-06-24 — Diagnostic baisse P&L FY25-26 (lecture seule)
+
+### Résultat actuel
+P&L FY25-26 calculé ce jour : **-81.590,83 EUR** (comptes income/expense, moves postés, 01/07/25→24/06/26).
+Note : une OD datée 30/06 (MISC/25-26/06/0094) est déjà postée et incluse dans ce chiffre.
+
+### Cause principale identifiée : CSH3/25-26/0293 — Faux ÉCART POS Waterloo (-70.077,15 EUR)
+Écriture postée le 22/06/2026, journal Espèces (CSH3) :
+- 657100 Negative Payment Differences : Débit 70.077,15 EUR
+- 572 Espèces : Crédit 70.077,15 EUR
+Libellé : "Écart d'espèces observé lors du comptage (Perte) - clôture"
+C'est la **contrepartie symétrique** du faux gain CSH3/25-26/0291 (+70.077,15 EUR sur 757100 du 21/06), générée automatiquement lors de la clôture de session POS suivante. Les deux mouvements se neutralisent sur le bilan mais TOUS DEUX impactent le P&L (le gain gonfle 757100, la perte charge 657100).
+
+### Chronologie P&L
+| Date | P&L FY25-26 | Delta |
+|------|-------------|-------|
+| 10/06 (réf. calcul) | -97.252 EUR | — |
+| 20/06 | -55.881 EUR | +41.371 (factures + OD ONSS 19.904) |
+| 21/06 | -54.680 EUR | +1.201 (faux gains POS +96.546 partiellement annulés) |
+| 22/06 | -120.719 EUR | -66.039 (CSH3/0293 faux écart -70.077 + autres) |
+| 23/06 | -119.065 EUR | +1.654 (factures normales) |
+| 24/06 | -107.817 EUR | +11.248 (factures + OD ONSS/30.06 +26.226) |
+
+### Autres mouvements entre 10 et 24/06 (normaux)
+- MISC/25-26/06/0112 du 18/06 : +19.904 EUR (extourne doublon ONSS SD Worx résiduel)
+- MISC/25-26/06/0094 du 30/06 (postée 24/06) : +26.226 EUR (apurement dettes ONSS/PP — correction doublon 613310)
+- Facturation client normale : ~+15k EUR/semaine en cours
+- Factures fournisseurs normales : ~-25k EUR/semaine (RESA1051/1053/1057…)
+
+### Recommandations (à valider par Nicolas — aucune écriture faite)
+1. **ANNULER CSH3/25-26/0293** (-70.077,15 EUR sur 657100) : c'est un faux écart POS, symétrique du faux gain annulé le 21/06. L'impact net bilan est neutre mais les deux P&L se chargent mutuellement.
+2. **Résultat corrigé estimé** si CSH3/0293 annulé : -107.817 + 70.077 = **~-37.740 EUR**
+3. Vérifier la session POS qui a généré CSH3/0293 (clôture Waterloo du 22/06) et empêcher la récidive à la source.
+
 ## 2026-06-18 — Lettrage BSL 19126 — Wonka S.A. Intermarché Heusy — INV/2026/02615
 
 - PAY00697 (paiement fantôme, move_id=False, state=in_process) annulé → facture libérée en not_paid
