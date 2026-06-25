@@ -182,9 +182,13 @@ def main():
     csv_path = cands[-1]
     stamp = csv_path.stem.replace("televente_pool_", "")
     today = date.fromisoformat(stamp)
-    mon = today - timedelta(days=today.weekday())
+    # Semaine cible : par defaut la semaine du pool ; override par argv[1] (date ISO
+    # dans la semaine voulue) -> permet de generer "la semaine a venir".
+    import sys
+    anchor = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else today
+    mon = anchor - timedelta(days=anchor.weekday())
     fri = mon + timedelta(days=4)
-    iso_week = today.isocalendar()[1]
+    iso_week = anchor.isocalendar()[1]
     in_week = lambda d: d is not None and mon <= d <= fri
 
     rows = list(csv.DictReader(csv_path.open(encoding="utf-8")))
