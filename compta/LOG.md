@@ -1,5 +1,45 @@
 # LOG Compta Teatower
 
+## 2026-06-25 — Lettrage bancaire ING : 8 statements lettrées, 8 factures soldées
+
+### Perimetre
+Journal ING BE30 3631 6408 2311 (ID=14) — 105 lignes non rapprochées identifiées.
+Analyse lecture seule + lettrage des cas clairs (match exact ou écart ≤ 1,00 EUR).
+
+### Méthode appliquée
+OD dans le journal ING (BNK1/25-26/5767 à 5774) comportant :
+- Crédit 400000 Customers (montant facture) → reconcilié avec la ligne receivable de la facture
+- Débit 499000 Suspense (montant virement) → reconcilié avec la ligne suspense de la statement line
+- Write-off sur 657100 Negative Payment Differences si écart positif (client paie moins)
+
+### Lettrages exécutés
+
+| Statement | Date | Montant | Partenaire | Facture | Montant fact. | Ecart | OD | Résultat |
+|-----------|------|---------|-----------|---------|--------------|-------|-----|---------|
+| 19166 | 17/06 | 291,19 | Carrefour Market Pascalino | INV/2026/02974 | 291,20 | −0,01 | BNK1/25-26/5767 | PAID |
+| 19205 | 18/06 | 1 003,77 | SPRL Durant-Rabaey | INV/2026/03048 | 1 003,80 | −0,03 | BNK1/25-26/5768 | PAID |
+| 19232 | 19/06 | 254,40 | Belgian Events MJ PAMPA | INV/2026/02553 | 254,40 | 0,00 | BNK1/25-26/5769 | PAID |
+| 19293 | 23/06 | 755,25 | Sorescol (Di Michele) | INV/2026/02584 | 755,25 | 0,00 | BNK1/25-26/5770 | PAID |
+| 19311 | 23/06 | 120,00 | Le Ponti II SRL | INV/2026/03014 | 120,00 | 0,00 | BNK1/25-26/5771 | PAID |
+| 19270 | 22/06 | 715,50 | CPSP Belgie / Center Parcs | INV/2026/02567 | 715,50 | 0,00 | BNK1/25-26/5772 | PAID |
+| 19269 | 22/06 | 572,40 | CPSP Belgie | INV/2026/01781 (318,00) + INV/2026/02187 (254,40) | 572,40 | 0,00 | BNK1/25-26/5773 | PAID x2 |
+| 19315 | 24/06 | 1 306,19 | DelEmbourg SRL | INV/2026/02826 | 1 306,23 | −0,04 | BNK1/25-26/5774 | PAID |
+
+**Total rapproché : 5 018,70 EUR | 8 statements soldées | 9 factures passées en paid**
+**Write-offs appliqués : 657100 — 0,01 + 0,03 + 0,04 = 0,08 EUR total**
+
+Note: PAY00721 (paiement orphelin créé en cours de procédure) = annulé. Impact zéro.
+
+### Lignes non rapprochées restantes : 97
+
+Principaux motifs de non-lettrage :
+- Pas de facture Odoo ouverte trouvée pour le partenaire/montant (MARER, BARTHE, SHOPPING CENTER SCHAUS, BELGRADIS in_payment déjà géré, WDISTRI, CPAS MARCHE, OFAC, BAGUETTE, SIPS ASBL, DFH MARKET paiement partiel, D-TROIS déjà payée)
+- Paiements de charges (Kirchner, Worldline, SD Worx, Qwetch, Vilna Gaon, Proximus, EZCharge, Shopify, Google) sans facture fournisseur correspondante encodée dans Odoo
+- Flux internes (salaires, Google Ads, cartes bancaires, remboursements divers)
+- Carrefour Belgium 615,33 EUR : 3 factures citées (INV/2026/02016 + INV/2026/02484 + n° Carrefour) mais total ne correspond pas, écart 72,77 EUR — à analyser avec Nicolas
+
+
+
 ## 2026-06-25 — RÉPARATION RACINE flux POS écarts de caisse fantômes
 
 ### Cause racine PROUVÉE
