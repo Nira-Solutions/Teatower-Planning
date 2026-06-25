@@ -1,5 +1,39 @@
 # LOG Compta Teatower
 
+## 2026-06-25 — RÉPARATION RACINE flux POS écarts de caisse fantômes
+
+### Cause racine PROUVÉE
+Les écarts de comptage POS (compté − théorique) à la clôture étaient déversés directement dans le **compte de résultat** :
+- profit (gain de caisse) → 757100 Positive Payment Differences (income) — et même 700006 Recettes magasins 6% pour les journaux LIEGE/NAMUR (gonflait le CA)
+- loss (perte de caisse) → 657100 Negative Payment Differences (expense)
+
+Mécanique du bug reproduite sur les sessions Waterloo (config 1) :
+- POS/00754 (21/06, 2 min) : ouvre 707,85 → clôture réelle saisie **70.785,00** (faute de frappe ×100, virgule décalée) → cash_register_difference **+70.077,15** posté en GAIN 757100.
+- POS/00758 (22/06) : ouvre **70.785,00** (Odoo reporte le faux comptage) → clôture réelle 756,80 → diff **−70.077,15** posté en PERTE 657100.
+- Aucun plafond ne bloque un écart de cette taille. Le "correctif" caissière crée un 2e écart au lieu d'annuler le 1er.
+
+Config lue en live (avant fix) : les 6 pos.config ont cash_control=True ; les comptes de différence sont portés par les JOURNAUX de caisse/banque, pas par le POS :
+- CSH3(27)/LIE(34)/POP(35)/CROC(38)/BNK1-ING(14) : profit=757100, loss=657100
+- LIEGE(31)/NAMUR(15) : profit=**700006** (incohérent, polluait le CA), loss=657100
+
+Solde au 25/06 (FY25-26, postés) : 757100 = −100.187,85 € (≈100k faux gains résiduels antérieurs), 657100 = +1.240,14 €.
+
+### FIX appliqué (config réversible, zéro écriture comptable)
+- Créé compte **499100 "Ecarts de caisse a analyser (POS)"** (id 1226, liability_current, reconcile=True) — bilan.
+- Redirigé profit_account_id ET loss_account_id des 7 journaux POS (CSH3, LIEGE, NAMUR, LIE, POP, CROC, BNK1) vers **499100**.
+- Effet : tout futur écart de comptage POS atterrit en compte d'attente BILAN, n'impacte plus JAMAIS le résultat. Corrige aussi l'incohérence 700006.
+- Les OD de correction passées (MISC/0114, 0115) NON touchées. Aucune nouvelle écriture créée.
+
+### Contrôle sessions ouvertes
+Aucun solde d'ouverture aberrant (Waterloo 756,80 / Namur 1645,45 / Liège bis 341,55 / POP 20 / Rocourt 0). Le fonds fantôme 70.785 du 22/06 est purgé. Aucun faux écart armé pour la prochaine clôture.
+Signalé : session zombie Liège POS/00468 ouverte depuis le 03/03/2026 (0 commande, solde 0) — à clôturer, sans risque.
+
+### Reste (hors périmètre de ce fix, pour validation Nicolas)
+- ~100k € faux gains 757100 ANTÉRIEURS (28/02 + 11/05) non soldés.
+- Plafond d'écart de clôture + restriction "Close & Post" à un POS Manager = nécessitent code/droits, NON appliqués (voir rapport).
+
+---
+
 ## 2026-06-25 — Correction faux écart POS Waterloo CSH3/25-26/0293
 
 ### OD de correction créée et postée
