@@ -48,6 +48,7 @@ REFS_CARVEOUT = 20   # >= 20 refs : reste a Gilles meme si loin
 FORCE_MERCH_PIDS = {
     3016, 5649,   # KAIO Retail invest - Delhaize Ottignies (gros client, +1km au seuil)
     2914,         # Affilie 044725 - Delhaize Kraainem
+    123144,       # Affilie 040490 - Delhaize Ath : bascule merch permanent, cadence 15j (Nicolas 28/06/2026)
 }
 FORCE_MERCH_TOKENS = ["Delhaize Ottignies", "Delhaize Kraainem"]
 
