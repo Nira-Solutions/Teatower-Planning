@@ -5,7 +5,7 @@
 ---
 
 **Prestataire :** TEATOWER SA — Entrepôt de Baillonville
-**Destinataire :** Maverick Woyaffe — PREMIUM SERVICES (société en cours de constitution, reprise des actifs Distrimarks)
+**Destinataire :** Maverick Woyaffe (société en cours de constitution — reprise des actifs Distrimarks)
 **Date :** 30/06/2026
 **Validité de l'offre :** 30 jours
 
