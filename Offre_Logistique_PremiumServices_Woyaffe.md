@@ -42,8 +42,7 @@ Chaque entrée fait l'objet d'un bon de réception, chaque sortie d'un ordre de 
 
 | Prestation | Unité | Prix unitaire |
 |---|---|---|
-| Préparation commande — forfait colis (jusqu'à 3 lignes, emballage standard inclus) | par colis expédié | **2,50 €** |
-| Ligne de picking supplémentaire (au-delà de 3) | par ligne | **0,50 €** |
+| Préparation commande (picking + emballage standard inclus, quel que soit le nombre de lignes) | par colis expédié | **2,50 €** |
 | Préparation au temps (commandes complexes, kitting, assortiments) | par heure | **28,00 €** |
 | Consommables d'emballage — colis S / M / L | par colis | **0,50 / 0,80 / 1,20 €** |
 
@@ -71,7 +70,7 @@ Domiciliation de la nouvelle société à l'adresse **Zone d'Activités Nord 33,
 | Prestation | Unité | Prix |
 |---|---|---|
 | Domiciliation siège social (adresse + réception du courrier) | par mois | **50,00 €** |
-| Gestion du courrier : réception, scan/notification, mise à disposition | inclus | jusqu'à 20 plis / mois |
+| Gestion du courrier : réception, scan/notification, mise à disposition | inclus | inclus |
 | Réexpédition physique du courrier (sur demande) | par envoi | au coût d'affranchissement réel |
 
 > **Point juridique à cadrer :** la domiciliation d'un siège social engage Teatower (l'adresse devient le siège statutaire BCE de Premium Services). Elle fait l'objet d'un **contrat de domiciliation distinct** précisant les responsabilités (notamment vis-à-vis de l'administration fiscale et de la BCE). À valider avec Stephan / le comptable avant signature.
@@ -80,7 +79,7 @@ Domiciliation de la nouvelle société à l'adresse **Zone d'Activités Nord 33,
 
 ## 6. CONDITIONS GÉNÉRALES
 
-- **Facturation :** mensuelle, le dernier jour ouvrable du mois, via Odoo Teatower. Référence `TT-PREMIUM-AAAAMM`.
+- **Facturation :** mensuelle, le dernier jour ouvrable du mois, via Odoo Teatower. Référence `TT-LOG-AAAAMM`.
 - **Paiement :** 30 jours fin de mois, par virement.
 - **Durée :** contrat à durée indéterminée, préavis de résiliation 30 jours.
 - **Traçabilité :** accès lecture Odoo + rapport mensuel de mouvements joint à chaque facture.
