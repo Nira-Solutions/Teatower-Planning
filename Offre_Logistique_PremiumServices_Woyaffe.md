@@ -1,16 +1,16 @@
 # PROPOSITION DE PRESTATION LOGISTIQUE
 ## Stockage — Préparation de commandes — Expédition — Domiciliation
-### Entrepôt OPALYA — Baillonville (Zone d'Activités Nord 33, 5377 Baillonville)
+### Entrepôt Teatower — Baillonville (Zone d'Activités Nord 33, 5377 Baillonville)
 
 ---
 
-**Prestataire :** TEATOWER SA — Entrepôt OPALYA, Baillonville
+**Prestataire :** TEATOWER SA — Entrepôt de Baillonville
 **Destinataire :** Maverick Woyaffe — PREMIUM SERVICES (société en cours de constitution, reprise des actifs Distrimarks)
 **Date :** 30/06/2026
 **Validité de l'offre :** 30 jours
 
 > Tous les prix sont indiqués **HTVA**. TVA belge 21 % applicable.
-> Prestations gérées et tracées via la plateforme **Odoo Teatower**, entrepôt OPALYA, emplacement OPA/Stock — accès en lecture temps réel au stock pour le Client.
+> Prestations gérées et tracées via la plateforme **Odoo Teatower** — accès en lecture temps réel au stock pour le Client.
 
 ---
 
@@ -80,7 +80,7 @@ Domiciliation de la nouvelle société à l'adresse **Zone d'Activités Nord 33,
 
 ## 6. CONDITIONS GÉNÉRALES
 
-- **Facturation :** mensuelle, le dernier jour ouvrable du mois, via Odoo Teatower. Référence `OPALYA-PREMIUM-AAAAMM`.
+- **Facturation :** mensuelle, le dernier jour ouvrable du mois, via Odoo Teatower. Référence `TT-PREMIUM-AAAAMM`.
 - **Paiement :** 30 jours fin de mois, par virement.
 - **Durée :** contrat à durée indéterminée, préavis de résiliation 30 jours.
 - **Traçabilité :** accès lecture Odoo + rapport mensuel de mouvements joint à chaque facture.
@@ -109,4 +109,4 @@ Hypothèse : 30 palettes en stock permanent, 10 réceptions/mois, 200 colis e-co
 
 ---
 
-*Offre établie sur la base du modèle logistique OPALYA. Tarifs révisables annuellement au 1er janvier. Pour toute question : [contact Teatower].*
+*Offre établie sur la base du modèle logistique Teatower. Tarifs révisables annuellement au 1er janvier. Pour toute question : [contact Teatower].*
