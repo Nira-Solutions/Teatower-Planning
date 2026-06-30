@@ -1,5 +1,47 @@
 # LOG Compta Teatower
 
+## 2026-06-30 — Action A+B : correction EAS 9925 + facturation 11 SO + facture 0EUR Marketing TT
+
+### Action A — Correction EAS 9925 → 0208 (10 partenaires uniques)
+
+| Partenaire | pid | EAS avant | EAS apres | Endpoint avant | Endpoint apres | State avant | State apres |
+|---|---|---|---|---|---|---|---|
+| Joffrey Helson Menuiserie SRL | 3009 | 9925 | 0208 | BE0669775201 | 0669775201 | valid | valid |
+| La Vieille Demeure | 3043 | 9925 | 0208 | BE0834145362 | 0834145362 | valid | valid |
+| PC DISTRIBUTION SRL - Point Chaud | 3172 | 9925 | 0208 | BE0449231249 | 0449231249 | valid | valid |
+| La vie est belge Mons SRL | 2877 | 9925 | 0208 | BE0672856336 | 0672856336 | valid | valid |
+| Maison du Peket | 3117 | 9925 | 0208 | BE0806828776 | 0806828776 | valid | valid |
+| DB Kfe SRL | 2902 | 9925 | 0208 | BE0508863582 | 0508863582 | valid | valid |
+| Ramaut, Invoice Address | 5625 | 9925 | 0208 | BE0448466236 | 0448466236 | valid | valid |
+| Lisa MATHIEU - La bergerie de lives | 3099 | 9925 | 0208 | BE0676637653 | 0676637653 | valid | valid |
+| Brasserie Maziers Srl, Invoice Address | 5437 | 9925 | 0208 | BE0404335491 | 0404335491 | valid | valid |
+| The Torrefactory Project Sa, Facturation | 5565 | 9925 | 0208 | BE0679686720 | 0679686720 | not_verified | valid |
+
+### Action A — Factures creees, postees, envoyees Peppol (11 SO)
+
+Transport force : S05887 (ligne 64005), S05847 (ligne 63413), S05829 (ligne 63039), S05828 (ligne 63029)
+
+| SO | Facture | Partenaire | Montant TTC | Peppol | UUID |
+|----|---------|-----------|-------------|--------|------|
+| S05909 | INV/2026/03301 | La vie est belge Mons SRL | 270,00 EUR | processing | 1cbcdd00-df64-4de2-98da-1316b74ef6c3 |
+| S05887 | INV/2026/03302 | Joffrey Helson Menuiserie SRL | 182,82 EUR | processing | ae727033-1b36-4d25-8ffd-2d7bca4c7f5e |
+| S05869 | INV/2026/03303 | Brasserie Maziers Srl | 516,75 EUR | processing | 54aaad93-fd5c-4da4-8496-015b6cc6ccf2 |
+| S05866 | INV/2026/03304 | The Torrefactory Project Sa | 2 596,75 EUR | processing | b0646c32-58bd-427b-bdfa-d012e9b32d63 |
+| S05861 | INV/2026/03305 | PC DISTRIBUTION SRL - Point Chaud | 556,50 EUR | processing | bc0554c3-2ee6-4030-80b0-7a1a2ff86e79 |
+| S05852 | INV/2026/03306 | Joffrey Helson Menuiserie SRL | 266,00 EUR | processing | 9cd44e32-98ce-4445-b0e6-ecf2fe2073da |
+| S05847 | INV/2026/03307 | Maison du Peket | 74,20 EUR | processing | 15098324-ca11-4ad1-bd53-361e31eb4198 |
+| S05831 | INV/2026/03308 | DB Kfe SRL | 437,25 EUR | processing | c15b5f46-4bb2-40f9-a625-8aa33f206aef |
+| S05830 | INV/2026/03309 | Ramaut | 1 058,33 EUR | processing | 329659ef-4150-41bc-a674-3944f22bc534 |
+| S05829 | INV/2026/03310 | Lisa MATHIEU - La bergerie de lives | 205,19 EUR | processing | b118adc4-f26a-417f-b063-a67804dd9658 |
+| S05828 | INV/2026/03311 | La Vieille Demeure | 210,83 EUR | processing | 79143b7c-0892-4867-a682-534b65fe5bc6 |
+
+Total facture Action A : 6 374,62 EUR | 11/11 KO → 0 (aucun reste en echec)
+
+### Action B — Facture 0EUR Marketing Teatower
+INV/2026/03312 | Marketing Teatower | 0,00 EUR | state=posted | Peppol : non envoye (montant nul)
+
+---
+
 ## 2026-06-25 — Lettrage bancaire ING : 8 statements lettrées, 8 factures soldées
 
 ### Perimetre
