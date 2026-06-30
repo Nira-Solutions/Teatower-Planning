@@ -103,6 +103,49 @@ Tous les faux débits 657100 > 1.000 EUR sur FY25-26 sont couverts par les corre
 
 ---
 
+## 2026-06-30 — Facturation Groupe 1 + Envoi Peppol (7 SO)
+
+### Perimetre
+7 SO totalement livrees, Peppol valide (EAS 0208, state=valid) — 2 320,53 EUR TTC.
+
+### Etape 1 — Forcage qty_delivered TRANSPORT
+3 lignes transport forcees (qty_delivered 0→1) :
+- S05879 (Intermarche Mons) ligne 63893
+- S05874 (Les deux sil SPRL) ligne 63859
+- S05867 (Centrale Intermarche) ligne 63793
+
+### Etape 2+3 — Factures creees et postees
+
+| SO | Facture | Partenaire | Montant TTC | Date | Echeance |
+|----|---------|-----------|-------------|------|---------|
+| S05906 | INV/2026/03294 | Carrefour Belgium | 541,83 EUR | 2026-06-30 | 2026-07-30 |
+| S05900 | INV/2026/03297 | Centrale Intermarche | 675,00 EUR | 2026-06-30 | 2026-07-30 |
+| S05892 | INV/2026/03295 | Pharmacie Saint Pierre SA | 307,80 EUR | 2026-06-30 | 2026-07-30 |
+| S05879 | INV/2026/03298 | Intermarche Mons | 250,00 EUR | 2026-06-30 | 2026-07-30 |
+| S05878 | INV/2026/03299 | Maison Depouhon | 360,00 EUR | 2026-06-30 | 2026-07-30 |
+| S05874 | INV/2026/03296 | Les deux sil SPRL | 137,80 EUR | 2026-06-30 | 2026-07-30 |
+| S05867 | INV/2026/03300 | Centrale Intermarche | 48,10 EUR | 2026-06-30 | 2026-07-30 |
+
+Total facture : 2 320,53 EUR
+
+### Etape 4 — Envoi Peppol (ubl_bis3, EAS 0208)
+Toutes les 7 factures en state=processing (envoyees au reseau Peppol, attente confirmation reception)
+
+| Facture | Partenaire | UUID Peppol |
+|---------|-----------|-------------|
+| INV/2026/03294 | Carrefour Belgium | 3e29e4a1-3d16-48dd-b909-1707bd710bd0 |
+| INV/2026/03297 | Centrale Intermarche | 754baf92-f522-4fb9-9e5f-fa503a4e8432 |
+| INV/2026/03295 | Pharmacie Saint Pierre SA | e329bf9b-a62f-4fbb-81e2-332e5358c25f |
+| INV/2026/03298 | Intermarche Mons | 0397e1ab-9f93-48f0-b476-5bc0458c8966 |
+| INV/2026/03299 | Maison Depouhon | 508d5010-972b-479f-8213-cd437ca8a299 |
+| INV/2026/03296 | Les deux sil SPRL | c0b8e0dc-5368-46f5-8db6-3005194dba16 |
+| INV/2026/03300 | Centrale Intermarche | 11b64b7b-c92a-4608-a331-c56bdd322174 |
+
+### Note incidentelle
+INV/2026/03130 (Carrefour Belgium, 366,75 EUR) — facture postee existante, deja en state=ready, envoyee Peppol (uuid=e017d83d-d7f2-4210-8271-754beb830326) lors du test du mecanisme wizard. La facture etait legitime et attendait d'etre envoyee. Impact : peppol_move_state passe de 'ready' a 'processing'.
+
+---
+
 ## 2026-06-24 — Diagnostic baisse P&L FY25-26 (lecture seule)
 
 ### Résultat actuel
