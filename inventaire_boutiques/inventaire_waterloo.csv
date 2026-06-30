@@ -4,8 +4,8 @@ All;A1124;Théière Cœur 550ml;5.0;Units
 All;A1140;Boite mandala rose 500g;10.0;Units
 All;C0190;Pack;2.0;Units
 All;EM0085;Sachet KG;60.0;Units
-All;GI0911;Paradise Punch - Infusion de fruits : Litchi - Ananas;25.0;Units
-All;GI0912;Passion Exotique - Infusion de fruits : Mangue - Passion;29.0;Units
+All;GI0911;Paradise Punch - Infusion de fruits : Litchi - Ananas;15.0;Units
+All;GI0912;Passion Exotique - Infusion de fruits : Mangue - Passion;1.0;Units
 All;HH003;Miel crémeux 100% belge 275g - Honey Honey;11.0;Units
 All;HH004;Miel fluide 100% belge 275g - Honey Honey;11.0;Units
 All;HH005;Miel Menthe 100% belge 275g - Honey Honey;7.0;Units
@@ -13,20 +13,20 @@ All;HH006;Grande cuillère miel;-2.0;Units
 All;MP_1V0807;Sakura;2.0;kg
 All;V0914;Infusion du Printemps 2026;5.0;Units
 All / Accessoires;A0260;Filtres à thé jetables L;25.0;Units
-All / Accessoires;A0261;Filtres à thé jetables M;10.0;Units
+All / Accessoires;A0261;Filtres à thé jetables M;9.0;Units
 All / Accessoires;A0266;Filtre panier noir - 7 cm;10.0;Units
 All / Accessoires;A0271;Filtre boule Diam. 4,5cm;15.0;Units
-All / Accessoires;A0274;Filtre pince Diam. 4,5cm;54.0;Units
+All / Accessoires;A0274;Filtre pince Diam. 4,5cm;53.0;Units
 All / Accessoires;A0297;Fouet à Matcha en Bambou;18.0;Units
-All / Accessoires;A0298;Cuillère à matcha Bambou;19.0;Units
+All / Accessoires;A0298;Cuillère à matcha Bambou;17.0;Units
 All / Accessoires;A0300;Bombilla;11.0;Units
-All / Accessoires;A0304;Verre à thé double paroi Teatower 300ml;19.0;Units
+All / Accessoires;A0304;Verre à thé double paroi Teatower 300ml;20.0;Units
 All / Accessoires;A0312;Tasse à Matcha Blanc;1.0;Units
 All / Accessoires;A0376;Théière en verre Little Lounge;5.0;Units
-All / Accessoires;A0378;Théière en verre Wide Globe Maxi;5.0;Units
-All / Accessoires;A0503;Filtre feuille verte;14.0;Units
+All / Accessoires;A0378;Théière en verre Wide Globe Maxi;2.0;Units
+All / Accessoires;A0503;Filtre feuille verte;13.0;Units
 All / Accessoires;A0511;Porte fouet Matcha gris;5.0;Units
-All / Accessoires;A0557;Carafe thé glacé avec filtre 1,5 L;6.0;Units
+All / Accessoires;A0557;Carafe thé glacé avec filtre 1,5 L;5.0;Units
 All / Accessoires;A0577;Bouilloire Tea Aroma Plus Gastroback;3.0;Units
 All / Accessoires;A0844;"Sablier ""Tasty brew""";14.0;Units
 All / Accessoires;A0845;Calebasse Nero;3.0;Units
@@ -35,7 +35,7 @@ All / Accessoires;A0912;Boite Teatower Bleu ciel 20 g;19.0;Units
 All / Accessoires;A0913;Boite Teatower Bleu foncé 20 g;21.0;Units
 All / Accessoires;A0914;Boite Teatower Bleu gris 20 g;19.0;Units
 All / Accessoires;A0915;Boite Teatower Vert clair 25 g;18.0;Units
-All / Accessoires;A0916;Boite Teatower Kaki 20 g;21.0;Units
+All / Accessoires;A0916;Boite Teatower Kaki 20 g;20.0;Units
 All / Accessoires;A0917;Boite Teatower Moutarde 20 g;22.0;Units
 All / Accessoires;A0918;Boite Teatower Rouille 20 g;24.0;Units
 All / Accessoires;A0920;Boite Teatower Bordeaux 20 g;17.0;Units
@@ -58,7 +58,7 @@ All / Accessoires;A1036;Filtre Noël 2022 sucre orge;-12.0;Units
 All / Accessoires;A1048;Tasse Tea Time saint-valentin;6.0;Units
 All / Accessoires;A1049;Porte fouet noir;4.0;Units
 All / Accessoires;A1052;"Mug ""Merry Mistletoe""";5.0;Units
-All / Accessoires;A1055;Mug Lorenzo;7.0;Units
+All / Accessoires;A1055;Mug Lorenzo;4.0;Units
 All / Accessoires;A1056;Filtre à thé Gladys;5.0;Units
 All / Accessoires;A1057;Tisanière porcelaine Saara pétrole - Teatower;2.0;Units
 All / Accessoires;A1058;Tisanière Saara procelaine grise - Teatower;2.0;Units
@@ -78,7 +78,7 @@ All / Accessoires;A1072;Tasse en grès rouge Ho Ho Ho - Décor de Noël;6.0;Unit
 All / Accessoires;A1073;Pince à thé sapin de Noël;6.0;Units
 All / Accessoires;A1074;Fouet électrique Matcha;8.0;Units
 All / Accessoires;A1075;Verre à Matcha à double bulle motif coeur;8.0;Units
-All / Accessoires;A1076;Paille en verre incurvé;7.0;Units
+All / Accessoires;A1076;Paille en verre incurvé;10.0;Units
 All / Accessoires;A1078;Théière en verre 320ml Qwetch - bouchon bambou;-1.0;Units
 All / Accessoires;A1079;Boule à thé coeur en acier inoxydable;1.0;Units
 All / Accessoires;A1080;Bol à matcha Taiki;5.0;Units
@@ -98,52 +98,56 @@ All / Accessoires;A1093;Set de tasses en porcelaine 0,25l - 5 assortiments;5.0;U
 All / Accessoires;A1094;"Mug ""Mick"" en céramique 0,5l";-1.0;Units
 All / Accessoires;A1095;"Mug ""Jarl' en céramique avec relief 0,5l";9.0;Units
 All / Accessoires;A1096;Bouteille isotherme Qwetch Original Anémones 500ml;4.0;Units
-All / Accessoires;A1097;Bouteille isotherme ORIGINALS QWETCH - Pastel - Rose - 500ml;3.0;Units
+All / Accessoires;A1097;Bouteille isotherme ORIGINALS QWETCH - Pastel - Rose - 500ml;2.0;Units
 All / Accessoires;A1098;Bouteille isotherme ORIGINALS QWETCH - Noir intégral - 500ml;1.0;Units
-All / Accessoires;A1099;Bouteille isotherme ORIGINALS QWETCH - Inox brossé - 500ml;3.0;Units
-All / Accessoires;A1100;Bouteille isotherme ORIGINALS QWETCH - Inox brossé - 1000ml;5.0;Units
-All / Accessoires;A1101;Bouteille isotherme inox - Matt - Bleu marine QWETCH - 500ml;5.0;Units
-All / Accessoires;A1102;Bouteille isotherme ORIGINALS QWETCH - Granite - Kaki - 500ml;5.0;Units
-All / Accessoires;A1103;Carafe Dibrix;3.0;Units
-All / Accessoires;A1104;Travel mug isotherme inox - Matt - Noir - 350ml Qwetch;3.0;Units
+All / Accessoires;A1099;Bouteille isotherme ORIGINALS QWETCH - Inox brossé - 500ml;2.0;Units
+All / Accessoires;A1100;Bouteille isotherme ORIGINALS QWETCH - Inox brossé - 1000ml;3.0;Units
+All / Accessoires;A1101;Bouteille isotherme inox - Matt - Bleu marine QWETCH - 500ml;4.0;Units
+All / Accessoires;A1102;Bouteille isotherme ORIGINALS QWETCH - Granite - Kaki - 500ml;4.0;Units
+All / Accessoires;A1103;Carafe Dibrix;2.0;Units
+All / Accessoires;A1104;Travel mug isotherme inox - Matt - Noir - 350ml Qwetch;4.0;Units
 All / Accessoires;A1105;Travel mug isotherme inox - Pastel - Rose - 350ml Qwetch;4.0;Units
-All / Accessoires;A1106;Bouchon infuseur - 9cm - 260/500ml Qwetch;3.0;Units
-All / Accessoires;A1112;Boîte à thé Medhi 150 g;16.0;Units
-All / Accessoires;A1123;Infuseur à thé - Forme de cœur - Poignée - or rose;-2.0;Units
+All / Accessoires;A1106;Bouchon infuseur - 9cm - 260/500ml Qwetch;2.0;Units
+All / Accessoires;A1112;Boîte à thé Medhi 150 g;15.0;Units
+All / Accessoires;A1123;Infuseur à thé - Forme de cœur - Poignée - or rose;-3.0;Units
 All / Accessoires;A1125;Tasse à thé en verre avec cœur de 250 ml;11.0;Units
 All / Accessoires;A1126;Bougie Pluie de coeur - Parfum Gardénia;1.0;Units
 All / Accessoires;A1127;Sachets infusion réutilisables - en coton bio;50.0;Units
 All / Accessoires;A1129;Tasse verte ombrée émaillée par dip;10.0;Units
-All / Accessoires;A1130;Tasse rose ombrée à glaçure trempée;5.0;Units
-All / Accessoires;A1131;Tasse turquoise ombrée à glaçure trempée;5.0;Units
+All / Accessoires;A1130;Tasse rose ombrée à glaçure trempée;10.0;Units
+All / Accessoires;A1131;Tasse turquoise ombrée à glaçure trempée;10.0;Units
 All / Accessoires;A1132;Bouilloire digitale à température variable 1,7 L;4.0;Units
 All / Accessoires;A1133;"Bol à matcha latte Chawan avec bec verseur ""Shado"", 450 ml";6.0;Units
 All / Accessoires;A1134;Canette en verre avec impression « Iced Matcha Latte »;4.0;Units
-All / Accessoires;A1135;Coffret Cadeau Ensemble Matcha Traditionnel;5.0;Units
+All / Accessoires;A1135;Coffret Cadeau Ensemble Matcha Traditionnel;4.0;Units
 All / Accessoires;A1136;Ensemble mate en acier inoxydable avec bombilla;5.0;Units
 All / Accessoires;A1141;Boite mandala noir 500g;9.0;Units
 All / Accessoires;A1142;Boule à thé Théière;24.0;Units
 All / Accessoires;A1143;Boule à thé Oskar;19.0;Units
-All / Accessoires;A1144;Boule à thé Carla;24.0;Units
+All / Accessoires;A1144;Boule à thé Carla;23.0;Units
 All / Autre;CHEQUE025;Chèque cadeau d'une valeur de 25€;-1.0;Units
 All / Autre;OLD-V0711;OLD-Offrande des rois mages;6.0;Units
 All / Autre;OLD-V0732;OLD-Gourmandise de Noël;6.0;Units
 All / Autre;OLD-V0803;OLD-Mere Noel Vrac;6.0;Units
 All / Autre;V0904;The noel 2024;6.0;Units
-All / Cafe;TF002;Cafe Bresil - Grain 500 gr;2.0;Units
-All / Cafe;TF003;Cafe Costa Rica - Grain 500 gr;3.0;Units
-All / Cafe;TF004;Cafe Espresso Bio - Grain 500 gr;3.0;Units
+All / Cafe;TF001;Cafe Ethiopie Bio - Grain 500 gr;4.0;Units
+All / Cafe;TF002;Cafe Bresil - Grain 500 gr;4.0;Units
+All / Cafe;TF003;Cafe Costa Rica - Grain 500 gr;2.0;Units
+All / Cafe;TF004;Cafe Espresso Bio - Grain 500 gr;5.0;Units
+All / Cafe;TF005;Cafe Colombie Bio - Grain 500 gr;4.0;Units
 All / Cafe;TF006;Cafe Decafactory (decafeine) - Grain 500 gr;3.0;Units
+All / Cafe;TF007;Cafe Ethiopie Bio - Moulus 250 gr;5.0;Units
 All / Cafe;TF008;Cafe Bresil - Moulu 250 gr;5.0;Units
 All / Cafe;TF009;Cafe Costa Rica - Moulu 250 gr;3.0;Units
-All / Coffret;C0102;Assortiment découverte;10.0;Units
+All / Cafe;TF010;Cafe Colombie Bio - Moulu 250 gr;4.0;Units
+All / Coffret;C0102;Assortiment découverte;7.0;Units
 All / Coffret;C0106;Coffret taste the world - Infusions;-10.0;Units
 All / Coffret;C0107;Coffret taste the world - Thés;4.0;Units
 All / Coffret;C0172;Calendrier de l'avent 2022;6.0;Units
 All / Coffret;C0174;Coffret Noël Vanillé;24.0;Units
 All / Coffret;C0179;Coffret cadeau en bois Teatower;6.0;Units
 All / Coffret;C0183;Coffret Matcha Teatower x Alpro;-2.0;Units
-All / Coffret;C0189;Coffret ZEN - 3 boites 20gr ;-17.0;Units
+All / Coffret;C0189;Coffret ZEN - 3 boites 20gr ;-18.0;Units
 All / Coffret;C0191;Boite 50gr Trésor des lutins;13.0;Units
 All / Coffret;C0192;Boite 50gr Gourmandise de Noël;17.0;Units
 All / Coffret;C0200;Coffret trio Matcha Teatower;30.0;Units
@@ -152,10 +156,10 @@ All / Composante;1627;Sachet Stand-up papier kraft sans alu - marron;200.0;Units
 All / Composante;A1145;Gobelet enfant Atelier;5.0;Units
 All / Composante;C0021;TEA TREE POCHETTE PAPIER 14*21*7.5;6.0;Units
 All / Composante;C0022;Sac sortie de caisse 36*12*40 TT;506.0;Units
-All / Composante;C0023;Sac sortie de caisse 22*29*10 TT;1917.0;Units
-All / Composante;D011;Gobelet dégustation;2450.0;Units
+All / Composante;C0023;Sac sortie de caisse 22*29*10 TT;2167.0;Units
+All / Composante;D011;Gobelet dégustation;2950.0;Units
 All / Composante;D0846;Ginger Smith - version detox 50gr;-2.0;Units
-All / Composante;D0848;Ginger-cool Bio - version detox 50gr;-2.0;Units
+All / Composante;D0848;Ginger-cool Bio - version detox 50gr;-3.0;Units
 All / Composante;EM0072;SRP Kraft Horeca;200.0;Units
 All / Fruits;05V0841;Lacquemant liégeois (500 g vrac);1.0;Units
 All / Fruits;05V0856;Sorbet framboise - BIO (500 g vrac);1.0;Units
@@ -167,52 +171,52 @@ All / Fruits;1V0717;Vrac 1 kg Pomme d'Amour;1.0;Units
 All / Fruits;1V0832;Vrac 1kg La nana de Wépion;1.04;Units
 All / Fruits;1V0847;Vrac 1kg Couleur Mojito;1.0;Units
 All / Fruits;1V0868;Vrac 1kg Citron meringué;0.54;Units
-All / Fruits;GI0634;Gourmandise glacée;36.0;Units
-All / Fruits;GI0832;La Nana de Wépion glacée;28.0;Units
+All / Fruits;GI0634;Gourmandise glacée;27.0;Units
+All / Fruits;GI0832;La Nana de Wépion glacée;21.0;Units
 All / Fruits;I0253;Voyage à Venise (20 infusettes);5.0;Units
 All / Fruits;I0257;Pomme vanille (20 infusettes);8.0;Units
 All / Fruits;I0267;Promenade en forêt (20 infusettes);8.0;Units
-All / Fruits;I0279;Le panier de grand maman (20 infusettes);3.0;Units
+All / Fruits;I0279;Le panier de grand maman (20 infusettes);8.0;Units
 All / Fruits;I0301;Tisane tropicale (20 infusettes);6.0;Units
-All / Fruits;I0634;Gourmandise (20 infusettes);7.0;Units
+All / Fruits;I0634;Gourmandise (20 infusettes);6.0;Units
 All / Fruits;I0709;Parfums d'été (20 infusettes);9.0;Units
-All / Fruits;I0710;Mandarine (20 infusettes);6.0;Units
+All / Fruits;I0710;Mandarine (20 infusettes);5.0;Units
 All / Fruits;I0719;Saveur exotique (20 infusettes);6.0;Units
 All / Fruits;I0822;Sous les cocotiers (20 infusettes);8.0;Units
 All / Fruits;I0826;Pinacolada (20 infusettes);6.0;Units
 All / Fruits;I0828;Pêché Mignon (20 infusettes);6.0;Units
-All / Fruits;I0832;La Nana de Wépion (20 infusettes);20.0;Units
+All / Fruits;I0832;La Nana de Wépion (20 infusettes);19.0;Units
 All / Fruits;I0841;Lacquemant liégeois (20 infusettes);7.0;Units
 All / Fruits;I0847;Couleur Mojito (20 infusettes);7.0;Units
 All / Fruits;I0856;Sorbet framboise - BIO (20 infusettes);5.0;Units
-All / Fruits;I0858;Tarte à la rhubarbe (20 infusettes);6.0;Units
+All / Fruits;I0858;Tarte à la rhubarbe (20 infusettes);7.0;Units
 All / Fruits;I0865;Délice de Barbarie (20 infusettes);7.0;Units
 All / Fruits;I0867;Douceur épicée (20 infusettes);7.0;Units
-All / Fruits;I0868;Citron meringué (20 infusettes);19.0;Units
+All / Fruits;I0868;Citron meringué (20 infusettes);17.0;Units
 All / Fruits;I0881;Cherry Chili (20 infusettes);6.0;Units
 All / Fruits;I0883;Le panier de grand - maman - BIO (20 infusettes);4.0;Units
 All / Fruits;I0888;La maison en pain d'épices (20 infusettes);6.0;Units
 All / Fruits;V0253;Voyage à Venise (80 g vrac);6.0;Units
-All / Fruits;V0257;Pomme vanille (100 g vrac);8.0;Units
+All / Fruits;V0257;Pomme vanille (100 g vrac);7.0;Units
 All / Fruits;V0267;Promenade en forêt (100 g vrac);6.0;Units
-All / Fruits;V0279;Le panier de grand maman (80 g vrac);11.0;Units
+All / Fruits;V0279;Le panier de grand maman (80 g vrac);9.0;Units
 All / Fruits;V0301;Tisane tropicale (100 g vrac);7.0;Units
 All / Fruits;V0634;Gourmandise (80 g vrac);5.0;Units
 All / Fruits;V0709;Parfums d'été (80 g vrac);6.0;Units
-All / Fruits;V0710;Mandarine (80 g vrac);8.0;Units
-All / Fruits;V0717;Pomme d'amour (80 g vrac);6.0;Units
+All / Fruits;V0710;Mandarine (80 g vrac);7.0;Units
+All / Fruits;V0717;Pomme d'amour (80 g vrac);7.0;Units
 All / Fruits;V0822;Sous les cocotiers (100 g vrac);8.0;Units
-All / Fruits;V0826;Pinacolada (100 g vrac);4.0;Units
-All / Fruits;V0828;Pêché Mignon (100 g vrac);7.0;Units
-All / Fruits;V0832;La Nana de Wépion (100 g vrac);5.0;Units
-All / Fruits;V0841;Lacquemant liégeois (100 g vrac);8.0;Units
-All / Fruits;V0846;Ginger Smith (80 g vrac);7.0;Units
-All / Fruits;V0847;Couleur Mojito (100 g vrac);6.0;Units
-All / Fruits;V0856;Sorbet framboise - BIO (100 g vrac);8.0;Units
-All / Fruits;V0858;Tarte à la rhubarbe (100 g vrac);6.0;Units
+All / Fruits;V0826;Pinacolada (100 g vrac);7.0;Units
+All / Fruits;V0828;Pêché Mignon (100 g vrac);6.0;Units
+All / Fruits;V0832;La Nana de Wépion (100 g vrac);4.0;Units
+All / Fruits;V0841;Lacquemant liégeois (100 g vrac);7.0;Units
+All / Fruits;V0846;Ginger Smith (80 g vrac);6.0;Units
+All / Fruits;V0847;Couleur Mojito (100 g vrac);7.0;Units
+All / Fruits;V0856;Sorbet framboise - BIO (100 g vrac);7.0;Units
+All / Fruits;V0858;Tarte à la rhubarbe (100 g vrac);7.0;Units
 All / Fruits;V0865;Délice de Barbarie (100 g vrac);6.0;Units
 All / Fruits;V0867;Douceur épicée (100 g vrac);6.0;Units
-All / Fruits;V0868;Citron meringué (100 g vrac);9.0;Units
+All / Fruits;V0868;Citron meringué (100 g vrac);10.0;Units
 All / Fruits;V0888;La maison en pain d'épices (100 g vrac);6.0;Units
 All / Fruits;V0899;Mumbai Mango - BIO (100 g vrac);5.0;Units
 All / Fruits;VR0279;Vrac remplissage Le panier de grand maman;66.0;Units
@@ -240,13 +244,13 @@ All / Maté;I0834;Nuage Coco (20 infusettes);6.0;Units
 All / Maté;I0877;Impulso (20 infusettes);6.0;Units
 All / Maté;I0878;Guarana Boost (20 infusettes);15.0;Units
 All / Maté;I0879;Amazônia (20 infusettes);8.0;Units
-All / Maté;I0889;Granada (20 infusettes);7.0;Units
-All / Maté;V0635;Silhouette (80 g vrac);14.0;Units
+All / Maté;I0889;Granada (20 infusettes);5.0;Units
+All / Maté;V0635;Silhouette (80 g vrac);13.0;Units
 All / Maté;V0664;Maté vert du Brésil (100 g vrac);18.0;Units
-All / Maté;V0834;Nuage Coco (100 g vrac);16.0;Units
-All / Maté;V0878;Guarana Boost (100 g vrac);18.0;Units
-All / Maté;V0879;Amazônia (100 g vrac);16.0;Units
-All / Maté;V0889;Granada (100 g vrac);17.0;Units
+All / Maté;V0834;Nuage Coco (100 g vrac);12.0;Units
+All / Maté;V0878;Guarana Boost (100 g vrac);14.0;Units
+All / Maté;V0879;Amazônia (100 g vrac);15.0;Units
+All / Maté;V0889;Granada (100 g vrac);13.0;Units
 All / Maté;VR0664;Vrac remplissage Maté vert du brésil;500.0;Units
 All / Maté;VR0878;Vrac remplissage Guarana Boost;1000.0;Units
 All / Maté;VR0879;Vrac remplissage Amazonia;1000.0;Units
@@ -268,26 +272,26 @@ All / Plantes;1V0723;Vrac 1 kg Namasté_ BE-BIO-01;0.95;Units
 All / Plantes;1V0728;Vrac 1 kg Jardin Gourmand;0.95;Units
 All / Plantes;1V0729;Vrac 1 kg Relax_ BE-BIO-01;0.9;Units
 All / Plantes;1V0854;Vrac 1kg Camomille matricaire_ BE-BIO-01;1.55;Units
-All / Plantes;I0121;Lady Dodo (20 infusettes);7.0;Units
-All / Plantes;I0638;Sérénité - BIO (20 infusettes);5.0;Units
+All / Plantes;I0121;Lady Dodo (20 infusettes);6.0;Units
+All / Plantes;I0638;Sérénité - BIO (20 infusettes);6.0;Units
 All / Plantes;I0681;Menthe douce - BIO (20 infusettes);8.0;Units
 All / Plantes;I0720;Pour elle...  (20 infusettes);6.0;Units
 All / Plantes;I0723;Namasté BIO (20 infusettes);16.0;Units
-All / Plantes;I0727;L'après-repas (20 infusettes);8.0;Units
+All / Plantes;I0727;L'après-repas (20 infusettes);5.0;Units
 All / Plantes;I0728;Jardin gourmand (20 infusettes);7.0;Units
-All / Plantes;I0729;Relax BIO (20 infusettes);5.0;Units
+All / Plantes;I0729;Relax BIO (20 infusettes);6.0;Units
 All / Plantes;I0842;Plaisir chocolaté (20 infusettes);8.0;Units
 All / Plantes;I0854;Camomille Matricaire - BIO (20 infusettes);7.0;Units
-All / Plantes;V0121;Lady Dodo (80 g vrac);7.0;Units
-All / Plantes;V0638;Sérénité - BIO (100 g vrac);8.0;Units
+All / Plantes;V0121;Lady Dodo (80 g vrac);6.0;Units
+All / Plantes;V0638;Sérénité - BIO (100 g vrac);10.0;Units
 All / Plantes;V0681;Menthe douce - BIO (50 g vrac);10.0;Units
 All / Plantes;V0720;Pour elle...  (80 g vrac);6.0;Units
 All / Plantes;V0723;Namasté BIO (80 g vrac);8.0;Units
-All / Plantes;V0727;L'après-repas (80 g vrac);8.0;Units
+All / Plantes;V0727;L'après-repas (80 g vrac);10.0;Units
 All / Plantes;V0728;Jardin gourmand (80 g vrac);7.0;Units
-All / Plantes;V0729;Relax BIO (80 g vrac);6.0;Units
+All / Plantes;V0729;Relax BIO (80 g vrac);7.0;Units
 All / Plantes;V0842;Plaisir chocolaté (100 g vrac);6.0;Units
-All / Plantes;V0852;Verveine Odorante - BIO (50g vrac);5.0;Units
+All / Plantes;V0852;Verveine Odorante - BIO (50g vrac);4.0;Units
 All / Plantes;V0854;Camomille Matricaire - BIO (50g vrac);6.0;Units
 All / Plantes;VR0121;Vrac remplissage Lady Dodo;620.0;Units
 All / Plantes;VR0638;Vrac remplissage Sérénithé _ BE-BIO-01;-586.0;Units
@@ -295,7 +299,7 @@ All / Plantes;VR0723;Vrac remplissage Namasté_ BE-BIO-01;508.0;Units
 All / Plantes;VR0729;Vrac remplissage Relax_ BE-BIO-01;700.0;Units
 All / Plantes;VR0854;Vrac remplissage Camomille matricaire_ BE-BIO-01;355.0;Units
 All / Pu Erh;I0869;Hansel & Gretel (20 infusettes);7.0;Units
-All / Pu Erh;I0870;French Riviera (20 infusettes);8.0;Units
+All / Pu Erh;I0870;French Riviera (20 infusettes);7.0;Units
 All / Pu Erh;I0897;Sicile Sanguine - BIO (20 infusettes);6.0;Units
 All / Pu Erh;I0899;Mumbai Mango - BIO (20 infusettes);6.0;Units
 All / Pu Erh;V0869;Hansel & Gretel (100 g vrac);8.0;Units
@@ -307,20 +311,20 @@ All / Rooibos;05V0734;Jardin de Babylone (500 g vrac);1.0;Units
 All / Rooibos;05V0874;Café liégeois (500 g vrac);1.0;Units
 All / Rooibos;1V0205;Vrac 1 kg Etoiles filantes;0.95;Units
 All / Rooibos;1V0734;Vrac 1 kg Jardin de babylone;0.7;Units
-All / Rooibos;GI0735;Pêche de Vigne - BIO glacée;24.0;Units
+All / Rooibos;GI0735;Pêche de Vigne - BIO glacée;35.0;Units
 All / Rooibos;I0205;Etoiles filantes (20 infusettes);18.0;Units
-All / Rooibos;I0315;Orange Royale (20 infusettes);5.0;Units
+All / Rooibos;I0315;Orange Royale (20 infusettes);8.0;Units
 All / Rooibos;I0632;Les dunes du Sahara (20 infusettes);8.0;Units
 All / Rooibos;I0662;Rooibos - BIO (20 infusettes);6.0;Units
 All / Rooibos;I0734;Jardin de Babylone (20 infusettes);6.0;Units
-All / Rooibos;I0735;Pêche de vigne - BIO (20 infusettes);3.0;Units
+All / Rooibos;I0735;Pêche de vigne - BIO (20 infusettes);5.0;Units
 All / Rooibos;I0737;Plaisir caramel  (20 infusettes);7.0;Units
 All / Rooibos;I0873;Mowgli Bounty (20 infusettes);6.0;Units
 All / Rooibos;I0874;Café liégeois (20 infusettes);6.0;Units
 All / Rooibos;I0875;Souvenir de La havane (20 infusettes);6.0;Units
-All / Rooibos;V0205;Etoiles filantes (100 g vrac);15.0;Units
+All / Rooibos;V0205;Etoiles filantes (100 g vrac);14.0;Units
 All / Rooibos;V0315;Orange Royale (100 g vrac);7.0;Units
-All / Rooibos;V0632;Les dunes du Sahara (100 g vrac);6.0;Units
+All / Rooibos;V0632;Les dunes du Sahara (100 g vrac);5.0;Units
 All / Rooibos;V0662;Rooibos - BIO (100 g vrac);6.0;Units
 All / Rooibos;V0734;Jardin de Babylone (100 g vrac);10.0;Units
 All / Rooibos;V0735;Pêche de vigne - BIO (100 g vrac);7.0;Units
@@ -331,9 +335,9 @@ All / Rooibos;VR0205;Vrac remplissage Etoiles filantes;850.0;Units
 All / Rooibos;VR0734;Vrac remplissage Jardin de babylone;815.0;Units
 All / Thé Blanc;05V0625;Pai Mu Tan - BIO (250 g vrac);2.0;Units
 All / Thé Blanc;I0751;I love you (20 infusettes);21.0;Units
-All / Thé Blanc;I0752;Eden's Garden (20 infusettes);4.0;Units
+All / Thé Blanc;I0752;Eden's Garden (20 infusettes);3.0;Units
 All / Thé Blanc;V0299;Pine needles (50g vrac);7.0;Units
-All / Thé Blanc;V0303;Coquetterie (50g vrac);6.0;Units
+All / Thé Blanc;V0303;Coquetterie (50g vrac);5.0;Units
 All / Thé Blanc;V0751;I love you (80 g vrac);6.0;Units
 All / Thé Blanc;V0752;Eden's Garden (80 g vrac);7.0;Units
 All / Thé Blanc;V0835;Aloe Fraisa (50g vrac);11.0;Units
@@ -349,41 +353,41 @@ All / Thé Noir;1V0767;Vrac 1 kg Earl grey;1.91;Units
 All / Thé Noir;1V0821;Vrac 1 kg Poupée Russe;1.33;Units
 All / Thé Noir;I0376;Coup de foudre (20 infusettes);8.0;Units
 All / Thé Noir;I0600;La lampe merveilleuse (20 infusettes);17.0;Units
-All / Thé Noir;I0610;Earl Grey Supérieur (20 infusettes);7.0;Units
+All / Thé Noir;I0610;Earl Grey Supérieur (20 infusettes);6.0;Units
 All / Thé Noir;I0666;English Breakfast  (20 infusettes);7.0;Units
 All / Thé Noir;I0674;Eveil Majestueux (20 infusettes);6.0;Units
 All / Thé Noir;I0685;Darjeeling SF FTGFOP1 - BIO (20 infusettes);7.0;Units
-All / Thé Noir;I0767;Earl grey (20 infusettes);7.0;Units
+All / Thé Noir;I0767;Earl grey (20 infusettes);6.0;Units
 All / Thé Noir;I0768;Earl Grey Bleu Royal (20 infusettes);6.0;Units
 All / Thé Noir;I0772;Black Mango (20 infusettes);14.0;Units
-All / Thé Noir;I0773;New York (20 infusettes);7.0;Units
+All / Thé Noir;I0773;New York (20 infusettes);6.0;Units
 All / Thé Noir;I0775;Promenade à venise (20 infusettes);8.0;Units
 All / Thé Noir;I0778;Spéculoos & Cie (20 infusettes);18.0;Units
 All / Thé Noir;I0821;Poupée russe (20 infusettes);7.0;Units
 All / Thé Noir;I0839;Caramel Beurre salé (20 infusettes);6.0;Units
 All / Thé Noir;I0859;Délice de Montélimar (20 infusettes);20.0;Units
 All / Thé Noir;I0866;Escale à Cassis (20 infusettes);8.0;Units
-All / Thé Noir;I0880;Blue Earl Grey BIO (20 infusettes);5.0;Units
+All / Thé Noir;I0880;Blue Earl Grey BIO (20 infusettes);8.0;Units
 All / Thé Noir;I0892;Le thé du père noel - BIO (20 infusettes);6.0;Units
 All / Thé Noir;I0900;Bora Bora - BIO (20 infusettes);6.0;Units
 All / Thé Noir;V0013;Ceylon OP1 Shawlands  (100 g vrac);6.0;Units
-All / Thé Noir;V0044;Lapsang Souchong (100 g vrac);7.0;Units
-All / Thé Noir;V0376;Coup de foudre (100 g vrac);7.0;Units
-All / Thé Noir;V0600;La lampe merveilleuse (100 g vrac);28.0;Units
-All / Thé Noir;V0610;Earl Grey Supérieur (100 g vrac);6.0;Units
+All / Thé Noir;V0044;Lapsang Souchong (100 g vrac);8.0;Units
+All / Thé Noir;V0376;Coup de foudre (100 g vrac);5.0;Units
+All / Thé Noir;V0600;La lampe merveilleuse (100 g vrac);27.0;Units
+All / Thé Noir;V0610;Earl Grey Supérieur (100 g vrac);8.0;Units
 All / Thé Noir;V0666;English Breakfast  (100 g vrac);6.0;Units
 All / Thé Noir;V0674;Eveil Majestueux (100 g vrac);6.0;Units
 All / Thé Noir;V0685;Darjeeling SF FTGFOP1 - BIO (100 g vrac);6.0;Units
-All / Thé Noir;V0767;Earl grey (100 g vrac);8.0;Units
-All / Thé Noir;V0772;Black Mango (100 g vrac);17.0;Units
+All / Thé Noir;V0767;Earl grey (100 g vrac);6.0;Units
+All / Thé Noir;V0772;Black Mango (100 g vrac);16.0;Units
 All / Thé Noir;V0773;New York (100 g vrac);6.0;Units
 All / Thé Noir;V0775;Promenade à venise (100 g vrac);8.0;Units
-All / Thé Noir;V0778;Spéculoos & Cie (100 g vrac);4.0;Units
+All / Thé Noir;V0778;Spéculoos & Cie (100 g vrac);5.0;Units
 All / Thé Noir;V0821;Poupée russe (100 g vrac);7.0;Units
 All / Thé Noir;V0839;Caramel Beurre salé (100 g vrac);7.0;Units
-All / Thé Noir;V0859;Délice de Montélimar (100 g vrac);6.0;Units
-All / Thé Noir;V0866;Escale à Cassis (100 g vrac);6.0;Units
-All / Thé Noir;V0880;Blue Earl Grey BIO (100 g vrac);6.0;Units
+All / Thé Noir;V0859;Délice de Montélimar (100 g vrac);8.0;Units
+All / Thé Noir;V0866;Escale à Cassis (100 g vrac);5.0;Units
+All / Thé Noir;V0880;Blue Earl Grey BIO (100 g vrac);7.0;Units
 All / Thé Noir;V0892;Le thé du père noel - BIO (100 g vrac);6.0;Units
 All / Thé Noir;V0900;Bora Bora - BIO (100 g vrac);6.0;Units
 All / Thé Noir;VR0666;Vrac remplissage English Breakfast;-2506.0;Units
@@ -400,11 +404,11 @@ All / Thé Vert;05V0848;Ginger Cool - BIO (500 g vrac);2.0;Units
 All / Thé Vert;1V0607;Vrac 1 kg Sensuali-thé;0.74;Units
 All / Thé Vert;1V0617;Vrac 1 kg Liberté;0.66;Units
 All / Thé Vert;1V0626;Vrac 1 kg Sencha_ BE-BIO-01;1.0;Units
-All / Thé Vert;1V0631;Vrac 1 kg Le thé des amoureux;0.95;Units
+All / Thé Vert;1V0631;Vrac 1 kg Le thé des amoureux;0.93;Units
 All / Thé Vert;1V0813;Vrac 1 kg Thé du désert;0.79;Units
 All / Thé Vert;1V0820;Vrac 1 kg Marrakech Sunset BE-BIO-01;1.7;Units
 All / Thé Vert;1V0848;Vrac 1kg Ginger Cool_ BE-BIO-01;0.86;Units
-All / Thé Vert;GI0820;Marrakech Sunset - BIO glacé;25.0;Units
+All / Thé Vert;GI0820;Marrakech Sunset - BIO glacé;29.0;Units
 All / Thé Vert;I0252;Tonus (20 infusettes);6.0;Units
 All / Thé Vert;I0280;Envolée Andalouse (20 infusettes);8.0;Units
 All / Thé Vert;I0483;Green zest - BIO (20 infusettes);5.0;Units
@@ -412,24 +416,24 @@ All / Thé Vert;I0601;Acai & goji (20 infusettes);5.0;Units
 All / Thé Vert;I0607;Sensualité (20 infusettes);7.0;Units
 All / Thé Vert;I0608;Earl Green (20 infusettes);6.0;Units
 All / Thé Vert;I0617;Liberté (20 infusettes);27.0;Units
-All / Thé Vert;I0626;Sencha - BIO (20 infusettes);5.0;Units
-All / Thé Vert;I0628;Oasis du désert - BIO (20 infusettes);6.0;Units
-All / Thé Vert;I0631;Le thé des amoureux (20 infusettes);13.0;Units
+All / Thé Vert;I0626;Sencha - BIO (20 infusettes);7.0;Units
+All / Thé Vert;I0628;Oasis du désert - BIO (20 infusettes);7.0;Units
+All / Thé Vert;I0631;Le thé des amoureux (20 infusettes);12.0;Units
 All / Thé Vert;I0669;Vert Jasmin (20 infusettes);21.0;Units
 All / Thé Vert;I0793;Orangipane (20 infusettes);14.0;Units
-All / Thé Vert;I0794;Bien-être (20 infusettes);7.0;Units
+All / Thé Vert;I0794;Bien-être (20 infusettes);6.0;Units
 All / Thé Vert;I0796;Fraîcheur acidulée BIO (20 infusettes);5.0;Units
 All / Thé Vert;I0799;Zest & Ginger (20 infusettes);6.0;Units
 All / Thé Vert;I0807;Sakura (20 infusettes);5.0;Units
 All / Thé Vert;I0813;Thé du désert (20 infusettes);6.0;Units
 All / Thé Vert;I0815;Perle des Caraibes (20 infusettes);6.0;Units
 All / Thé Vert;I0816;Vitalité - BIO (20 infusettes);6.0;Units
-All / Thé Vert;I0820;Marrakech Sunset - BIO (20 infusettes);18.0;Units
+All / Thé Vert;I0820;Marrakech Sunset - BIO (20 infusettes);17.0;Units
 All / Thé Vert;I0829;Tropical Sun (20 infusettes);7.0;Units
 All / Thé Vert;I0837;Vert Pistache (20 infusettes);6.0;Units
 All / Thé Vert;I0845;Mamy Granny - BIO (20 infusettes);6.0;Units
 All / Thé Vert;I0848;Ginger Cool - BIO (20 infusettes);7.0;Units
-All / Thé Vert;I0885;Cococabana (20 infusettes);5.0;Units
+All / Thé Vert;I0885;Cococabana (20 infusettes);6.0;Units
 All / Thé Vert;I0887;Cookie & cie (20 infusettes);9.0;Units
 All / Thé Vert;I0890;Aie caramba (20 infusettes);6.0;Units
 All / Thé Vert;V0252;Tonus (100 g vrac);6.0;Units
@@ -438,21 +442,22 @@ All / Thé Vert;V0477;Sencha Vietnamien (100 g vrac);6.0;Units
 All / Thé Vert;V0483;Green zest - BIO (100 g vrac);6.0;Units
 All / Thé Vert;V0601;Acai & goji (100 g vrac);10.0;Units
 All / Thé Vert;V0607;Sensualité (80 g vrac);9.0;Units
-All / Thé Vert;V0608;Earl Green (80 g vrac);8.0;Units
+All / Thé Vert;V0608;Earl Green (80 g vrac);6.0;Units
 All / Thé Vert;V0614;Chun Mee - BIO;6.0;Units
 All / Thé Vert;V0615;Gyokuro Asahi - BIO (50 g vrac);7.0;Units
 All / Thé Vert;V0617;Liberté (100 g vrac);5.0;Units
-All / Thé Vert;V0626;Sencha - BIO (100 g vrac);5.0;Units
-All / Thé Vert;V0628;Oasis du désert - BIO (100 g vrac);5.0;Units
-All / Thé Vert;V0631;Le thé des amoureux (80 g vrac);8.0;Units
+All / Thé Vert;V0626;Sencha - BIO (100 g vrac);7.0;Units
+All / Thé Vert;V0628;Oasis du désert - BIO (100 g vrac);7.0;Units
+All / Thé Vert;V0631;Le thé des amoureux (80 g vrac);7.0;Units
 All / Thé Vert;V0659;China perles de jade au jasmin - BIO (50 g vrac);6.0;Units
 All / Thé Vert;V0661;Samba (100 g vrac);6.0;Units
+All / Thé Vert;V0669;Vert Jasmin (80 g vrac);6.0;Units
 All / Thé Vert;V0788;Japan Sencha Yamato - Finest quality (50g vrac);5.0;Units
-All / Thé Vert;V0793;Orangipane (100 g vrac);7.0;Units
-All / Thé Vert;V0794;Bien-être (100 g vrac);5.0;Units
-All / Thé Vert;V0796;Fraîcheur acidulée BIO (100 g vrac);6.0;Units
+All / Thé Vert;V0793;Orangipane (100 g vrac);8.0;Units
+All / Thé Vert;V0794;Bien-être (100 g vrac);4.0;Units
+All / Thé Vert;V0796;Fraîcheur acidulée BIO (100 g vrac);5.0;Units
 All / Thé Vert;V0799;Zest & Ginger (100 g vrac);6.0;Units
-All / Thé Vert;V0807;Sakura (100 g vrac);10.0;Units
+All / Thé Vert;V0807;Sakura (100 g vrac);9.0;Units
 All / Thé Vert;V0812;Thé des Mayas (100 g vrac);6.0;Units
 All / Thé Vert;V0813;Thé du désert (100 g vrac);6.0;Units
 All / Thé Vert;V0815;Perle des Caraibes (80 g vrac);6.0;Units
@@ -462,12 +467,12 @@ All / Thé Vert;V0829;Tropical Sun (100 g vrac);8.0;Units
 All / Thé Vert;V0837;Vert Pistache (100 g vrac);6.0;Units
 All / Thé Vert;V0844;Jade Dong Ding;6.0;Units
 All / Thé Vert;V0845;Mamy Granny - BIO (100 g vrac);6.0;Units
-All / Thé Vert;V0848;Ginger Cool - BIO (100 g vrac);9.0;Units
+All / Thé Vert;V0848;Ginger Cool - BIO (100 g vrac);7.0;Units
 All / Thé Vert;V0885;Cococabana (100 g vrac);5.0;Units
 All / Thé Vert;V0886;Japan Matcha Genmaicha - BIO (50g vrac);8.0;Units
 All / Thé Vert;V0887;Cookie & cie (100 g vrac);10.0;Units
-All / Thé Vert;V0890;Aie caramba (100 g vrac);6.0;Units
-All / Thé Vert;V0895;Matcha japonais;5.0;Units
+All / Thé Vert;V0890;Aie caramba (100 g vrac);5.0;Units
+All / Thé Vert;V0895;Matcha japonais;7.0;Units
 All / Thé Vert;V0896;Matcha de cuisine - BIO;1.0;Units
 All / Thé Vert;V0907;Matcha Fruit de la passion;14.0;Units
 All / Thé Vert;V0910;Matcha Biscuit 50gr;18.0;Units
@@ -478,20 +483,20 @@ All / Thé Vert;VR0631;Vrac remplissage Le thé des amoureux;-810.0;Units
 All / Thé Vert;VR0813;Vrac remplissage Thé du désert;791.0;Units
 All / Thé Vert;VR0820;Vrac remplissage Marrakech Sunset BIO;900.0;Units
 All / Thé Vert;VR0848;Vrac remplissage Ginger Cool_ BE-BIO-01;949.0;Units
-All / Thés glacés;GI0916;Vergers d’Été: saveurs: Pomme - Poire;26.0;Units
+All / Thés glacés;GI0916;Vergers d’Été: saveurs: Pomme - Poire;27.0;Units
 All / noel 2025;A1118;Service à thé avec 4 tasses incluses;4.0;Units
-All / noel 2025;A1119;Service à thé japonais traditionnel 6 pièces 620 ml;4.0;Units
+All / noel 2025;A1119;Service à thé japonais traditionnel 6 pièces 620 ml;3.0;Units
 All / noel 2025;A1121;Tisanière avec Filtre Blanche avec Boîte Cadeau;-3.0;Units
 All / noel 2025;A1122;Tisanière avec Filtre Noire avec Boîte Cadeau;-6.0;Units
 All / noel 2025;C0186;Coffret cacahuète Thé 2025;-1.0;Units
 All / noel 2025;C0187;Coffret découverte de Noël 2025;-1.0;Units
-All / noel 2025;V0711;Offrande des Rois Mages (100 g vrac);5.0;Units
-All / noel 2025;V0732;Gourmandise de Noël (100 g vrac);53.0;Units
-All / noel 2025;V0803;Le thé de la Mère Noël (100 g vrac);61.0;Units
-All / noel 2025;V0905;Un Noël Vanillé;57.0;Units
+All / noel 2025;V0732;Gourmandise de Noël (100 g vrac);52.0;Units
+All / noel 2025;V0803;Le thé de la Mère Noël (100 g vrac);51.0;Units
+All / noel 2025;V0905;Un Noël Vanillé;50.0;Units
 All / Échantillons;E0628;Oasis du désert - BIO (Echantillon);500.0;Units
 All / Échantillons;E0735;Pêche de vigne - BIO (Echantillon);500.0;Units
 All / Échantillons;E0768;Earl Grey Bleu Royal (Echantillon);6.0;Units
+All / Échantillons;E0834;Nuage Coco (Echantillon);-1.0;Units
 All / Épices;05V0817;Samyama - BIO (400 g vrac);2.0;Units
 All / Épices;1V0287;Vrac 1 kg Détox;1.0;Units
 All / Épices;1V0825;Vrac 1 kg Ginger Hot;1.0;Units
@@ -505,9 +510,9 @@ All / Épices;I0863;Masala Chai  (20 infusettes);8.0;Units
 All / Épices;V0287;Détox (100 g vrac);8.0;Units
 All / Épices;V0340;Miss Réglisse (100 g vrac);7.0;Units
 All / Épices;V0700;Anti Fatigue (100 g vrac);7.0;Units
-All / Épices;V0825;Ginger Hot (100 g vrac);7.0;Units
+All / Épices;V0825;Ginger Hot (100 g vrac);5.0;Units
 All / Épices;V0836;Ayurveda - BIO (100 g vrac);8.0;Units
-All / Épices;V0863;Masala Chai  (100 g vrac);9.0;Units
+All / Épices;V0863;Masala Chai  (100 g vrac);6.0;Units
 All / Épices;VR0825;Vrac remplissage Ginger Hot;-1035.0;Units
 All / Épices;VR0863;Vrac remplissage Masala Chai;778.0;Units
 Atelier;ATELIER-FROMAGE-WAT-20260604;Atelier Thé & Fromages — Teatower x La Fromagerie St Michel;8.0;Units
