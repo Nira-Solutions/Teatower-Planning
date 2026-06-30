@@ -1,5 +1,22 @@
 # LOG Compta Teatower
 
+## 2026-06-30 — Facture Terracotta Beauty SRL (recurrence mensuelle stockage)
+
+### Partenaire
+[123541] Terracotta Beauty SRL — EAS=0208 | endpoint=0782993304 | state=valid | send_method=peppol
+
+### Factures precedentes (identiques)
+- INV/2026/02422 (30/04/2026) : 215,00 EUR HT / 260,15 EUR TTC | echeance 30/05/2026
+- INV/2026/02989 (10/06/2026) : 215,00 EUR HT / 260,15 EUR TTC | echeance 30/06/2026
+
+### Nouvelle facture
+- **INV/2026/03315** | 215,00 EUR HT / 260,15 EUR TTC
+- Date : 2026-06-30 | Echeance : 2026-07-30 (J+30)
+- Lignes : [OPA-STOCK] x19 @ 10,00 EUR + [OPA-GESTION] x1 @ 25,00 EUR | TVA 21% | compte 700000
+- Peppol : processing | uuid=4c91b174-d70b-453f-8a74-49d7cc1cfd16
+
+---
+
 ## 2026-06-30 — Action A+B : correction EAS 9925 + facturation 11 SO + facture 0EUR Marketing TT
 
 ### Action A — Correction EAS 9925 → 0208 (10 partenaires uniques)
