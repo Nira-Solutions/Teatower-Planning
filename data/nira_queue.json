@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-19T12:53:53",
+  "updated": "2026-07-01T17:02:17",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3391,6 +3391,14 @@
       "started": "2026-06-19T12:47",
       "request": "Nicolas — 4 nouvelles refs HC250, héritage ingrédients V0, fichier local",
       "finished": "2026-06-19T12:53"
+    },
+    {
+      "id": "t070",
+      "agent": "compta",
+      "task": "Facturation PRO delivered + envoi Peppol strict (valid only)",
+      "status": "in_progress",
+      "started": "2026-07-01T17:02",
+      "request": "Facturer tout delivered+facturable PRO uniquement, envoi strictement Peppol clients valid, TRANSPORT force qty, lister bloques"
     }
   ]
 }
