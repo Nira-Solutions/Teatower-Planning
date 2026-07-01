@@ -1,5 +1,34 @@
 # LOG Compta Teatower
 
+## 2026-07-01 — Ecriture OD variation de stock cloture FY25-26 (BROUILLON, non postee)
+
+Accord explicite Nicolas (leve la regle "pas d'ecriture sans accord" pour ce cas precis).
+Stock en mode manual_periodic + cout standard -> aucune ecriture stock automatique, ajustement manuel necessaire pour cloture 30/06/2026.
+
+### Constat
+- Valorisation stock physique (stock.quant, locations internes, societe Teatower, champ `value`) : **333 528,18 EUR** au 01/07/2026 (verification independante XML-RPC)
+  - Chiffre transmis initialement par Nicolas/agent odoo : 333 636,63 EUR -> **ecart de 108,45 EUR** entre les deux lectures (source : timing de lecture different ou cout standard revalorise entre-temps). A CLARIFIER avant post — ecart > 0,01 EUR, motif non confirme.
+- Solde comptable stock poste au 30/06/2026 :
+  - 340000 "Goods Purchased for Resale - Acquisition Value" (id 153) = 235 982,65 EUR
+  - 300000 "Raw Materials - Acquisition Value" (id 145) = 19,81 EUR
+  - Total = 236 002,46 EUR
+- Ecart retenu pour l'ecriture (instruction Nicolas) = 333 636,63 - 236 002,46 = **97 634,17 EUR**
+- Pas de ventilation par categorie possible (aucun product.category n'a de property_stock_valuation_account_id configure en mode manual_periodic) -> totalite de l'ajustement passee sur 340000 vs 609400, rien sur 300000/609000 (solde 300000 deja quasi nul).
+
+### Ecriture creee (DRAFT — NON POSTEE)
+- **account.move id = 41575**, state = draft, journal = Miscellaneous Operations (MISC, id 11), date = 2026-06-30
+- Ref : "Variation de stock de cloture FY25-26 - mise a niveau valo inventaire 30/06/2026"
+- Ligne 1 : DEBIT 340000 (Goods Purchased for Resale - Acquisition Value) = 97 634,17 EUR
+- Ligne 2 : CREDIT 609400 (Decrease (Increase) in Stocks of Goods Purchased for Resale) = 97 634,17 EUR
+- Equilibre debit=credit : OK (97 634,17 = 97 634,17)
+- Impact P&L si postee : **+97 634,17 EUR** sur le resultat FY25-26 (credit en classe 6 = reduction de charge)
+
+### A faire avant post
+- Trancher l'ecart de 108,45 EUR entre les deux lectures de valorisation stock (333 636,63 vs 333 528,18) — reverifier stock.quant.value au moment du post, ajuster le montant de l'ecriture 41575 si necessaire.
+- Validation finale Nicolas puis `action_post` sur move id 41575.
+
+---
+
 ## 2026-06-30 — Facture Terracotta Beauty SRL (recurrence mensuelle stockage)
 
 ### Partenaire
