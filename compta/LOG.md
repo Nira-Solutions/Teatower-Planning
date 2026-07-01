@@ -1,5 +1,19 @@
 # LOG Compta Teatower
 
+## 2026-07-01 — Facturation B2B Peppol (livre + facturable, PRO uniquement)
+
+Script : `scripts/facturation_b2b_peppol.py` (existant, adapte pour exclusion team B2C/web + verif Peppol sur le partenaire de facturation reel).
+
+- 21 SO en `invoice_status='to invoice'` scannees, dont 2 exclues (team "Odoo x Shopify" = B2C, #49036 Linda Mertens 60,00€ / #48143 Jessica Masula 43,50€).
+- 19 SO PRO (team "Sales") : 6 exclues car rien de reellement livre (delivery_status pending malgre invoice_status='to invoice', du a des produits en invoice_policy='order' — S05919 Brasserie Miroir, S05918 Cellmade, S05917 Pharmacie Badot, S05916 Anais Michoel, S05914 Carrefour Belgium, S05908 PC Distribution, total 2 348,80€ non factures).
+- 1 SO bloquee Peppol : S05894 Ma Pharmacie de Baillonville — adresse de facturation enfant (partner 117367) `peppol_verification_state=not_verified` alors que la maison mere (partner 3184) est valid. 383,60€ non facture, a corriger cote partenaire avant nouvelle tentative.
+- 1 facture creee mais NON postee : DRAFT_41725 (Maison Depouhon, SO S05915) — montant 0,00€ (100% de remise sur echantillons/menus), laissee en draft pour arbitrage manuel plutot que de poster/envoyer une facture a 0€.
+- 3 lignes TRANSPORT forcees qty_delivered 0->1 avant facturation (SO S05902, S05889, S05886).
+- **11 factures creees, postees et envoyees via Peppol** (wizard `account.move.send.wizard`, sending_methods=['peppol'], `action_send_and_print`) : INV/2026/03329 a INV/2026/03339, total **4 611,54 EUR**. Toutes en `peppol_move_state=processing` avec UUID assigne (transmission en cours reseau Peppol), zero email envoye (verifie `mail.mail` vide sur ces moves).
+- Detail : cf rapport agent ci-dessous / IDs Odoo dans le tableau final.
+
+---
+
 ## 2026-07-01 — Ecriture OD variation de stock cloture FY25-26 — POSTEE (rafraichie + validee Nicolas)
 
 Accord explicite Nicolas pour POSTER l'ecriture (leve la regle "pas d'ecriture sans accord" pour ce cas precis).
