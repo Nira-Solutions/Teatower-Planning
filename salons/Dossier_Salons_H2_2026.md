@@ -9,11 +9,11 @@
 | Salon | Dates | Lieu | Type | Rôle Teatower | Décision clé |
 |---|---|---|---|---|---|
 | C'est Bon C'est Wallon | **3-4 oct** (sa-di) | WEX Marche-en-Famenne | B2C terroir | Vente directe pop-up | ✅ RETENU |
-| Made in Asia | **17-18 oct** (sa-di) | Brussels Expo Heysel | B2C pop-culture | — | ❌ ABANDONNÉ (clash SIAL) |
+| Made in Asia | **17-18 oct** (sa-di) | Brussels Expo Heysel | B2C pop-culture | Vente directe — **angle matcha** | ✅ RETENU |
 | SIAL Paris | **17-21 oct** (sa-me) | Paris Nord Villepinte | **B2B export** | Prospection distributeurs/import | ✅ RETENU — **via pavillon AWEX** |
 | Brussels Coffee Show | **6-8 nov** (ve-di) | Gare Maritime, Tour & Taxis | B2B/B2C spécialité | Notoriété + horeca/specialty + matcha | ✅ RETENU |
 
-> **DÉCISIONS ACTÉES (01/07/2026, Nicolas)** : SIAL Paris confirmé **via le pavillon collectif AWEX/Wallonia**. En conséquence, **Made in Asia est abandonné** (même week-end que SIAL, une seule équipe). Programme H2 final = **3 salons** : C'est Bon C'est Wallon, SIAL Paris (AWEX), Brussels Coffee Show.
+> **DÉCISIONS ACTÉES (01/07/2026, Nicolas)** : **les 4 salons sont maintenus.** SIAL Paris confirmé **via le pavillon collectif AWEX/Wallonia** (Jérôme seul). Le week-end du **17-18 oct, Made in Asia (Bruxelles) et SIAL (Paris) tournent en parallèle avec des équipes distinctes** — Nicolas confirme pouvoir mobiliser des personnes différentes le même jour. → pic de 3 personnes ces 2 jours.
 >
 > ⏰ **URGENCE AWEX** : on est à ~3,5 mois du salon. Les inscriptions aux pavillons collectifs ferment généralement 6-9 mois avant. **Appeler l'AWEX cette semaine** (téléphone, pas seulement mail) pour vérifier qu'il reste de la place et connaître le tarif + la deadline. Si le pavillon est complet/clos → SIAL reporté à 2028 (biennal).
 
@@ -67,15 +67,15 @@
 
 ---
 
-## 2. Made in Asia — 17-18 octobre (Brussels Expo, Heysel) — ❌ ABANDONNÉ
+## 2. Made in Asia — 17-18 octobre (Brussels Expo, Heysel) — ✅ RETENU
 
-> **Décision 01/07/2026 : abandonné.** Même week-end que SIAL Paris (17-21 oct) qu'on a retenu via AWEX → une seule équipe, on ne peut pas faire les deux. Section conservée pour mémoire / réévaluation édition suivante (l'angle matcha reste pertinent pour une future édition).
+> **Décision 01/07/2026 : retenu, en parallèle de SIAL.** Équipe distincte de celle de SIAL (2 personnes à Bruxelles pendant que Jérôme est à Paris). Angle **matcha** (fort sur cette cible jeune).
 
 **Type** : B2C pop-culture (manga/anime/cosplay/gaming), 60 000+ visiteurs, cible jeune. **Fit thé faible en direct**, mais **fort sur le matcha** (produit tendance sur cette audience).
 
 ### 2.1 Calendrier & logistique
-- ⚠️ **Clash total avec SIAL Paris (17-21 oct).** À trancher : on ne peut pas être aux deux.
-- Si retenu : réservation stand Brussels Expo (secteur food/retail du salon). Public dense → prévoir file, stock profond, TPE rapide.
+- Tourne **en parallèle de SIAL** (Jérôme à Paris, 2 autres pers ici) — équipes distinctes, OK confirmé Nicolas.
+- Réservation stand Brussels Expo (secteur food/retail du salon). Public dense → prévoir file, stock profond, TPE rapide.
 - Staffing : 2-3 pers, énergie « festival », pas de posture premium classique.
 
 ### 2.2 Stock & assortiment POS — **100 % matcha / thés asiatiques**
