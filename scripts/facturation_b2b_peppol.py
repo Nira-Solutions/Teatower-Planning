@@ -1,10 +1,17 @@
 """
 Facturation B2B Peppol - Teatower
+- Exclut les commandes B2C/web (team_id dans EXCLUDE_TEAM_IDS, ex: "Odoo x Shopify")
 - Corrige EAS 9925 -> 0208 sur partenaires BE
 - Force qty_delivered sur lignes TRANSPORT
-- Cree factures en mode delivered
-- Poste les factures
-- Envoie via Peppol uniquement si client valid
+- Cree factures en mode delivered (ne facture que qty_delivered - qty_invoiced > 0)
+- Verifie le Peppol sur le PARTENAIRE DE FACTURATION REEL (partner_invoice_id de la SO,
+  qui peut differer du partner_id principal, ex: adresses enfants) et non le partenaire
+  principal — un partenaire enfant peut etre not_verified alors que le parent est valid.
+- Poste les factures (skip les factures a 0.00 EUR, laissees en draft pour arbitrage manuel)
+- Envoie via Peppol UNIQUEMENT si client valid, via account.move.send.wizard
+  (sending_methods=['peppol'] + action_send_and_print). NOTE: account.move.action_send_and_print
+  seul (sans passer par le wizard) NE DECLENCHE PAS l'envoi reel — l'invoice reste en
+  peppol_move_state='ready' au lieu de passer a 'processing'. Toujours utiliser le wizard.
 """
 import re, sys, xmlrpc.client
 from datetime import date
@@ -32,11 +39,15 @@ print(f"MODE: {'DRY-RUN (rien ecrit)' if DRY else 'APPLY (ecriture reelle)'}")
 print()
 
 # =========================================================
-# ETAPE 1 : Récupérer les SO to invoice
+# ETAPE 1 : Récupérer les SO to invoice (PRO uniquement, exclut B2C/web)
 # =========================================================
-sos = call('sale.order','search_read',
-    [[['invoice_status','=','to invoice'],['state','=','sale']]],
-    {'fields':['id','name','partner_id','amount_total'],'limit':200})
+EXCLUDE_TEAM_IDS = {4}  # 4 = "Odoo x Shopify" (B2C/web) — a adapter si d'autres teams B2C existent
+
+sos_all = call('sale.order','search_read',
+    [[['invoice_status','=','to invoice'],['state','in',('sale','done')]]],
+    {'fields':['id','name','partner_id','partner_invoice_id','amount_total','team_id'],'limit':200})
+sos = [s for s in sos_all if not s.get('team_id') or s['team_id'][0] not in EXCLUDE_TEAM_IDS]
+sos_excluded_b2c = [s for s in sos_all if s.get('team_id') and s['team_id'][0] in EXCLUDE_TEAM_IDS]
 
 so_ids = [s['id'] for s in sos]
 pid_to_sos = {}
@@ -44,13 +55,17 @@ for s in sos:
     pid = s['partner_id'][0]
     pid_to_sos.setdefault(pid,[]).append(s)
 
-print(f"SO to invoice: {len(sos)} pour {len(pid_to_sos)} partenaires")
+print(f"SO to invoice: {len(sos_all)} total | PRO retenues: {len(sos)} | exclues B2C/web: {len(sos_excluded_b2c)}")
+for s in sos_excluded_b2c:
+    print(f"  EXCLU B2C  {s['name']:10} {s['partner_id'][1][:35]:35} team={s['team_id'][1]}")
 
 # =========================================================
-# ETAPE 2 : Lire état Peppol des partenaires
+# ETAPE 2 : Lire état Peppol des partenaires (principal + facturation reel)
 # =========================================================
 PFIELDS = ['id','name','vat','peppol_eas','peppol_endpoint','peppol_verification_state','invoice_sending_method','is_company','company_type']
-partners = call('res.partner','read',[list(pid_to_sos.keys())],{'fields':PFIELDS})
+inv_pids = set(s['partner_invoice_id'][0] for s in sos if s.get('partner_invoice_id'))
+all_pids = sorted(set(pid_to_sos.keys()) | inv_pids)
+partners = call('res.partner','read',[all_pids],{'fields':PFIELDS})
 p_map = {p['id']:p for p in partners}
 
 # =========================================================
@@ -144,12 +159,16 @@ so_nothing_delivered = []  # rien de livré
 
 for s in sos:
     sid = s['id']
-    pid = s['partner_id'][0]
-    p = p_map[pid]
+    # Peppol verifie sur le VRAI partenaire de facturation (peut differer du partner_id
+    # principal, ex: adresse enfant "Invoice Address" avec son propre etat peppol)
+    inv_pid = s['partner_invoice_id'][0] if s.get('partner_invoice_id') else s['partner_id'][0]
+    p = p_map.get(inv_pid, {})
     peppol_state = p.get('peppol_verification_state')
+    peppol_eas = p.get('peppol_eas')
     ll = so_lines.get(sid, [])
 
-    # Lignes à facturer (delivered > invoiced)
+    # Lignes à facturer (delivered > invoiced) — seul le reellement livre compte,
+    # meme si invoice_status SO='to invoice' a cause de produits en invoice_policy='order'
     to_bill = [l for l in ll if (l['qty_delivered'] - l['qty_invoiced']) > 0]
     # Exclure lignes shopify discount (0€, qty 0)
     real_to_bill = [l for l in to_bill if not ('SHOPIFY' in str(l.get('name','')).upper())]
@@ -159,13 +178,13 @@ for s in sos:
         print(f"  SKIP  {s['name']} - rien à facturer (delivered=0 ou tout déjà facturé)")
         continue
 
-    if peppol_state != 'valid':
-        so_blocked_peppol.append({'so':s,'partner':p,'reason':peppol_state})
-        print(f"  BLOCK {s['name']} - {p['name'][:35]} - peppol={peppol_state}")
+    if peppol_state != 'valid' or peppol_eas != '0208':
+        so_blocked_peppol.append({'so':s,'partner':p,'inv_pid':inv_pid,'reason':f"state={peppol_state} eas={peppol_eas}"})
+        print(f"  BLOCK {s['name']} - {s['partner_id'][1][:35]} - facturation-partner ID={inv_pid} peppol state={peppol_state} eas={peppol_eas}")
         continue
 
     so_facturable.append(s)
-    print(f"  OK    {s['name']} - {p['name'][:35]} - peppol=valid -> A FACTURER")
+    print(f"  OK    {s['name']} - {s['partner_id'][1][:35]} - peppol=valid (partner ID={inv_pid}) -> A FACTURER")
 
 print(f"\n  Facturables Peppol: {len(so_facturable)}")
 print(f"  Bloqués Peppol:     {len(so_blocked_peppol)}")
@@ -231,7 +250,8 @@ for s in so_facturable:
         if inv:
             inv_rec = inv[0]
             print(f"  CREATED {inv_rec['name'] or '(no seq yet)'} pour {s['name']} | {s['partner_id'][1][:30]} | {inv_rec['amount_total']:.2f} EUR (draft)")
-            created_invoices.append({'so':s['name'],'status':'draft','inv_id':inv_rec['id'],'inv_name':inv_rec['name'] or f"DRAFT_{inv_rec['id']}",'amount':inv_rec['amount_total'],'partner_id':s['partner_id'][0],'partner_name':s['partner_id'][1]})
+            inv_pid = s['partner_invoice_id'][0] if s.get('partner_invoice_id') else s['partner_id'][0]
+            created_invoices.append({'so':s['name'],'status':'draft','inv_id':inv_rec['id'],'inv_name':inv_rec['name'] or f"DRAFT_{inv_rec['id']}",'amount':inv_rec['amount_total'],'partner_id':s['partner_id'][0],'partner_name':s['partner_id'][1],'inv_pid':inv_pid})
         else:
             print(f"  WARN  {s['name']} - wizard lancé mais facture draft non trouvée")
             failed_invoices.append({'so':s['name'],'reason':'invoice not found after wizard'})
@@ -240,11 +260,12 @@ for s in so_facturable:
         failed_invoices.append({'so':s['name'],'reason':str(e)[:120]})
 
 # =========================================================
-# ETAPE 7 : Poster les factures
+# ETAPE 7 : Poster les factures (skip les 0.00 EUR -> laissees en draft)
 # =========================================================
 print("\n=== ETAPE 7 : POST FACTURES ===")
 
 posted_invoices = []
+zero_amount = []
 for inv_info in created_invoices:
     if inv_info.get('status') == 'DRY':
         print(f"  DRY   POST {inv_info['so']}")
@@ -255,11 +276,16 @@ for inv_info in created_invoices:
     if DRY:
         print(f"  DRY   POST {inv_info['inv_name']}")
         continue
+    if inv_info.get('amount', 0) == 0:
+        print(f"  SKIP-0EUR {inv_info['inv_name']} pour {inv_info['so']} - montant 0.00 EUR, laissee en DRAFT (arbitrage manuel, pas d'interet a poster/envoyer un Peppol a 0€)")
+        zero_amount.append(inv_info)
+        continue
     try:
         m.execute_kw(DB,uid,PWD,'account.move','action_post',[[inv_id]],[])
         rec = call('account.move','read',[[inv_id]],{'fields':['name','state','amount_total']})
         print(f"  POSTED {rec[0]['name']} | {inv_info['partner_name'][:30]:30} | {rec[0]['amount_total']:.2f} EUR | state={rec[0]['state']}")
         inv_info['status'] = 'posted'
+        inv_info['inv_name'] = rec[0]['name']
         posted_invoices.append(inv_info)
     except Exception as e:
         print(f"  ERR   POST {inv_info.get('inv_name','')} : {str(e)[:120]}")
@@ -268,6 +294,10 @@ for inv_info in created_invoices:
 # =========================================================
 # ETAPE 8 : Envoi Peppol
 # =========================================================
+# IMPORTANT : account.move.action_send_and_print() seul NE DECLENCHE PAS l'envoi reel
+# (l'invoice reste peppol_move_state='ready'). Il FAUT passer par le wizard
+# account.move.send.wizard : create({'move_id':inv_id}) puis action_send_and_print()
+# sur le wizard. Verifie -> peppol_move_state passe a 'processing' avec un peppol_message_uuid.
 print("\n=== ETAPE 8 : ENVOI PEPPOL ===")
 
 peppol_sent = []
@@ -275,10 +305,10 @@ peppol_failed = []
 
 for inv_info in posted_invoices:
     inv_id = inv_info['inv_id']
-    pid = inv_info['partner_id']
-    p = p_map[pid]
+    inv_pid = inv_info.get('inv_pid', inv_info['partner_id'])
+    p = p_map.get(inv_pid, {})
     if p.get('peppol_verification_state') != 'valid':
-        print(f"  SKIP  {inv_info['inv_name']} - partner peppol not valid (state={p.get('peppol_verification_state')})")
+        print(f"  SKIP  {inv_info['inv_name']} - invoice-partner ID={inv_pid} peppol not valid (state={p.get('peppol_verification_state')})")
         peppol_failed.append({'inv':inv_info['inv_name'],'reason':f"peppol state={p.get('peppol_verification_state')}"})
         continue
     if DRY:
@@ -286,30 +316,24 @@ for inv_info in posted_invoices:
         peppol_sent.append(inv_info)
         continue
     try:
-        # Envoyer via Peppol : action_send_and_print ou send_and_print_action
-        # En Odoo 17/18, l'envoi edi se fait via account.move action_send_and_print
-        # ou via le wizard account.move.send
-        # Approche : créer wizard account.move.send avec send_peppol=True
-        wizard_ctx = {'active_ids':[inv_id],'active_model':'account.move'}
-        # Essai direct action
-        try:
-            send_wiz_id = m.execute_kw(DB,uid,PWD,'account.move.send','create',
-                [{'move_ids':[[6,0,[inv_id]]],'send_peppol':True}],{'context':wizard_ctx})
-            m.execute_kw(DB,uid,PWD,'account.move.send','action_send_and_print',[[send_wiz_id]],{'context':wizard_ctx})
-            print(f"  SENT  PEPPOL {inv_info['inv_name']} -> {inv_info['partner_name'][:30]}")
+        ctx = {'active_model':'account.move','active_ids':[inv_id],'active_id':inv_id}
+        wiz_id = m.execute_kw(DB,uid,PWD,'account.move.send.wizard','create',[{'move_id':inv_id}],{'context':ctx})
+        wiz = call('account.move.send.wizard','read',[[wiz_id]],{'fields':['sending_methods']})
+        methods = wiz[0]['sending_methods']
+        if not methods or 'peppol' not in methods:
+            # forcer peppol explicitement si pas selectionne par defaut
+            m.execute_kw(DB,uid,PWD,'account.move.send.wizard','write',[[wiz_id],{'sending_methods':['peppol']}])
+        m.execute_kw(DB,uid,PWD,'account.move.send.wizard','action_send_and_print',[[wiz_id]],{'context':ctx})
+        mo_after = call('account.move','read',[[inv_id]],{'fields':['peppol_move_state','peppol_message_uuid']})[0]
+        if mo_after.get('peppol_move_state') in ('processing','done','to_send'):
+            print(f"  SENT  PEPPOL {inv_info['inv_name']} -> {inv_info['partner_name'][:30]} | state={mo_after['peppol_move_state']} uuid={mo_after.get('peppol_message_uuid')}")
             peppol_sent.append(inv_info)
-        except Exception as e1:
-            # Fallback: account.move _send_peppol direct
-            try:
-                m.execute_kw(DB,uid,PWD,'account.move','action_send_and_print',[[inv_id]],[])
-                print(f"  SENT  PEPPOL (fallback) {inv_info['inv_name']} -> {inv_info['partner_name'][:30]}")
-                peppol_sent.append(inv_info)
-            except Exception as e2:
-                print(f"  ERR   PEPPOL {inv_info['inv_name']} : {str(e2)[:120]}")
-                peppol_failed.append({'inv':inv_info['inv_name'],'reason':str(e2)[:120]})
+        else:
+            print(f"  WARN  {inv_info['inv_name']} - wizard execute mais peppol_move_state toujours '{mo_after.get('peppol_move_state')}' (envoi non confirme)")
+            peppol_failed.append({'inv':inv_info['inv_name'],'reason':f"peppol_move_state={mo_after.get('peppol_move_state')} apres wizard"})
     except Exception as e:
-        print(f"  ERR   PEPPOL {inv_info['inv_name']} : {str(e)[:120]}")
-        peppol_failed.append({'inv':inv_info['inv_name'],'reason':str(e)[:120]})
+        print(f"  ERR   PEPPOL {inv_info['inv_name']} : {str(e)[:150]}")
+        peppol_failed.append({'inv':inv_info['inv_name'],'reason':str(e)[:150]})
 
 # =========================================================
 # RAPPORT FINAL
@@ -332,6 +356,10 @@ for inv in created_invoices:
     partner_str = (inv.get('partner_name') or '?')[:30]
     print(f"  {inv_name_str:20} | SO={inv['so']:10} | {partner_str:30} | {inv.get('amount',0):.2f} EUR | {status}")
 
+print(f"\nFactures 0.00 EUR non postees (draft, arbitrage manuel) : {len(zero_amount)}")
+for z in zero_amount:
+    print(f"  {z['inv_name']} | SO={z['so']} | {z['partner_name']}")
+
 print(f"\nFactures postées : {len(posted_invoices)}")
 print(f"Factures Peppol envoyées : {len(peppol_sent)}")
 print(f"Factures Peppol ECHEC : {len(peppol_failed)}")
@@ -341,7 +369,8 @@ for f in peppol_failed:
 print(f"\nSO bloquées Peppol (non facturées) : {len(so_blocked_peppol)}")
 for b in so_blocked_peppol:
     p = b['partner']
-    print(f"  {b['so']['name']:12} | {p['name'][:40]:40} | peppol={b['reason']} | VAT={p.get('vat')} | EAS={p.get('peppol_eas')} | EP={p.get('peppol_endpoint')}")
+    pname = str(p.get('name') or f"(adresse enfant, ID={b.get('inv_pid')})")
+    print(f"  {b['so']['name']:12} | {pname[:40]:40} | inv_partner_id={b.get('inv_pid')} | {b['reason']} | VAT={p.get('vat')} | EP={p.get('peppol_endpoint')}")
 
 print(f"\nSO sans livraison (non facturées) : {len(so_nothing_delivered)}")
 for s in so_nothing_delivered:
