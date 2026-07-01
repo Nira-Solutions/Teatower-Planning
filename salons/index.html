@@ -45,6 +45,11 @@
   tr:last-child td { border-bottom:none; }
   tfoot td { font-weight:700; background:#eef6f1; color:var(--primary); }
   .center { text-align:center; }
+  .v { color:#2b8a3e; font-weight:800; } .x { color:#c92a2a; font-weight:800; } .na { color:#adb5bd; }
+  .logi { list-style:none; font-size:.9rem; } .logi li { padding:.35rem 0; border-bottom:1px dashed #e3e3e3; }
+  .logi li:last-child { border-bottom:none; } .logi .day { color:var(--primary); font-weight:700; }
+  h3 { color:var(--accent); font-size:1rem; margin:1rem 0 .5rem; }
+  .legend { font-size:.8rem; color:var(--muted); margin:.3rem 0 .8rem; }
 
   /* Actions */
   ol.actions { list-style:none; counter-reset:a; }
@@ -111,7 +116,7 @@
       <span class="k">Staffing</span><span class="staff">2 pers/jour</span>
       <span class="k">Objectif</span><span>CA comptoir — le plus rentable des 4</span>
       <span class="k">Assortiment</span><span>Gamme signature + coffrets + amorce Noël</span>
-      <span class="k">Promo</span><span>Buy X Get Y (jamais de %)</span>
+      <span class="k">Promo</span><span><strong>Pas de promo</strong></span>
       <span class="k">Budget</span><span>~800-1 500 € stand <em>(à confirmer)</em></span>
     </div>
     <div class="note">Réactiver la caisse POP-UP (<code>pos.config #2</code>) avec l'assortiment automne.</div>
@@ -127,7 +132,7 @@
       <span class="k">Objectif</span><span>CA comptoir, prix d'impulsion</span>
       <span class="k">Assortiment</span><span><strong>Matcha</strong> (doypacks + C0200) + verts + matcha latte à emporter</span>
       <span class="k">Promo</span><span>Buy X Get Y, entrées de gamme</span>
-      <span class="k">Budget</span><span>~1 500-3 000 € stand <em>(à confirmer)</em></span>
+      <span class="k">Budget</span><span><strong>5 000 €</strong> (enveloppe fixée)</span>
     </div>
     <div class="note warn">Tourne en parallèle de SIAL → équipe distincte de celle de Paris.</div>
   </div>
@@ -139,6 +144,7 @@
     <div class="grid">
       <span class="k">Type</span><span>B2B export international (biennal, 8 000 exposants)</span>
       <span class="k">Staffing</span><span class="staff">Jérôme seul · 5 j</span>
+      <span class="k">Orga</span><span><strong>Toute l'organisation pilotée par Jérôme Carlier</strong></span>
       <span class="k">Objectif</span><span>Leads distributeurs / importateurs — <strong>pas de CA jour J</strong></span>
       <span class="k">Assortiment</span><span>Échantillons + catalogue export FR/EN + coffrets premium</span>
       <span class="k">Com</span><span>Offre 1ʳᵉ commande export, relance leads sous 5-10 j</span>
@@ -160,6 +166,79 @@
       <span class="k">Budget</span><span>~1 500-3 500 € stand <em>(à confirmer)</em></span>
     </div>
     <div class="note">Timing pré-Noël idéal. Posture premium/expert — quelqu'un qui sait parler matcha. Démo préparation au stand.</div>
+  </div>
+</div>
+
+<h2>🚚 Montage / démontage & disponibilités</h2>
+<p class="legend">Calendrier des dispos : <span class="v">V</span> = disponible / assigné · <span class="x">X</span> = non disponible · <span class="na">—</span> = non concerné</p>
+
+<div class="card">
+  <div class="card-head"><span class="t">C'est Bon C'est Wallon</span><span class="d">2-4 oct</span></div>
+  <div class="card-body">
+    <ul class="logi">
+      <li><span class="day">Ven 02/10</span> — 🔧 Montage : <strong>Gilles</strong></li>
+      <li><span class="day">Sam 03/10</span> — Tenue stand (2 pers)</li>
+      <li><span class="day">Dim 04/10</span> — Tenue stand + 📦 Démontage : <strong>Nicolas</strong></li>
+    </ul>
+    <table>
+      <thead><tr><th>Personne</th><th class="center">Ven 02<br><small>montage</small></th><th class="center">Sam 03</th><th class="center">Dim 04<br><small>démontage</small></th></tr></thead>
+      <tbody>
+        <tr><td>Gilles</td><td class="center v">V</td><td class="center x">X</td><td class="center x">X</td></tr>
+        <tr><td>Nicolas <small>(sam <em>ou</em> dim, au choix)</small></td><td class="center na">—</td><td class="center v">V</td><td class="center v">V</td></tr>
+        <tr><td>2ᵉ personne stand</td><td class="center na">—</td><td class="center">à désigner</td><td class="center">à désigner</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="t">Made in Asia</span><span class="d">16-18 oct</span></div>
+  <div class="card-body">
+    <ul class="logi">
+      <li><span class="day">Ven 16/10</span> — 🔧 Montage : <strong>Gilles</strong></li>
+      <li><span class="day">Sam 17/10</span> — Tenue stand (2 pers)</li>
+      <li><span class="day">Dim 18/10</span> — Tenue stand + 📦 Démontage <strong>au soir</strong> : <strong>Alan ou externe</strong></li>
+    </ul>
+    <table>
+      <thead><tr><th>Personne</th><th class="center">Ven 16<br><small>montage</small></th><th class="center">Sam 17</th><th class="center">Dim 18<br><small>démontage soir</small></th></tr></thead>
+      <tbody>
+        <tr><td>Gilles</td><td class="center v">V</td><td class="center x">X</td><td class="center x">X</td></tr>
+        <tr><td>Nicolas <small>(sam <em>ou</em> dim, au choix)</small></td><td class="center na">—</td><td class="center v">V</td><td class="center v">V</td></tr>
+        <tr><td>Alan / externe</td><td class="center na">—</td><td class="center x">X</td><td class="center v">V</td></tr>
+        <tr><td>2ᵉ personne stand</td><td class="center na">—</td><td class="center">à désigner</td><td class="center">à désigner</td></tr>
+      </tbody>
+    </table>
+    <p class="note warn">Même week-end que SIAL (Jérôme est à Paris) → ces personnes doivent être distinctes de Jérôme.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="t">SIAL Paris</span><span class="d">17-21 oct</span></div>
+  <div class="card-body">
+    <ul class="logi">
+      <li>🧭 <strong>Toute l'organisation (montage, stand, logistique, démontage) est pilotée par Jérôme Carlier.</strong></li>
+    </ul>
+    <table>
+      <thead><tr><th>Personne</th><th class="center">Sam 17</th><th class="center">Dim 18</th><th class="center">Lun 19</th><th class="center">Mar 20</th><th class="center">Mer 21</th></tr></thead>
+      <tbody>
+        <tr><td>Jérôme Carlier</td><td class="center v">V</td><td class="center v">V</td><td class="center v">V</td><td class="center v">V</td><td class="center v">V</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="t">Brussels Coffee Show</span><span class="d">6-8 nov</span></div>
+  <div class="card-body">
+    <ul class="logi">
+      <li>🗓️ <strong>Logistique montage / démontage / staffing : à prévoir.</strong></li>
+    </ul>
+    <table>
+      <thead><tr><th>Personne</th><th class="center">Jeu 05<br><small>montage ?</small></th><th class="center">Ven 06</th><th class="center">Sam 07</th><th class="center">Dim 08<br><small>démontage ?</small></th></tr></thead>
+      <tbody>
+        <tr><td>À définir</td><td class="center">?</td><td class="center">?</td><td class="center">?</td><td class="center">?</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

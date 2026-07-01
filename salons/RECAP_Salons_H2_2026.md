@@ -45,6 +45,41 @@
 
 ---
 
+## 🚚 Montage / démontage & disponibilités
+
+*V = disponible / assigné · X = non disponible · — = non concerné*
+
+### C'est Bon C'est Wallon (2-4 oct)
+- **Ven 02/10** → Montage : **Gilles**
+- **Sam 03/10** → Tenue stand (2 pers)
+- **Dim 04/10** → Tenue stand + Démontage : **Nicolas**
+
+| Personne | Ven 02 (montage) | Sam 03 | Dim 04 (démontage) |
+|---|:--:|:--:|:--:|
+| Gilles | V | X | X |
+| Nicolas *(sam ou dim, au choix)* | — | V | V |
+| 2ᵉ personne stand | — | à désigner | à désigner |
+
+### Made in Asia (16-18 oct)
+- **Ven 16/10** → Montage : **Gilles**
+- **Sam 17/10** → Tenue stand (2 pers)
+- **Dim 18/10** → Tenue stand + Démontage **au soir** : **Alan ou externe**
+
+| Personne | Ven 16 (montage) | Sam 17 | Dim 18 (démontage soir) |
+|---|:--:|:--:|:--:|
+| Gilles | V | X | X |
+| Nicolas *(sam ou dim, au choix)* | — | V | V |
+| Alan / externe | — | X | V |
+| 2ᵉ personne stand | — | à désigner | à désigner |
+
+### SIAL Paris (17-21 oct)
+- **Toute l'organisation** (montage, stand, logistique, démontage) **pilotée par Jérôme Carlier** — présent les 5 jours.
+
+### Brussels Coffee Show (6-8 nov)
+- **Logistique montage / démontage / staffing : à prévoir.**
+
+---
+
 ## ⏰ Actions & deadlines
 
 | # | Action | Deadline | Qui | Statut |
@@ -67,7 +102,7 @@
 
 | | Objectif | Assortiment cœur | Promo |
 |---|---|---|---|
-| **C'est Bon C'est Wallon** | CA comptoir (le + rentable) | Gamme signature + coffrets + amorce Noël | Buy X Get Y |
+| **C'est Bon C'est Wallon** | CA comptoir (le + rentable) | Gamme signature + coffrets + amorce Noël | **Pas de promo** |
 | **Made in Asia** | CA comptoir cible jeune | **Matcha** (doypacks + C0200) + verts + matcha latte à emporter | Buy X Get Y, prix impulsion |
 | **SIAL Paris** | **Leads distributeurs/import export** (pas de CA jour J) | Échantillons + catalogue export + coffrets premium | Offre 1ʳᵉ commande export (B2B) |
 | **Brussels Coffee Show** | CA comptoir + contacts horeca/specialty | **Matcha** + verts japonais + coffrets Noël | Buy X Get Y + précommande avent |
