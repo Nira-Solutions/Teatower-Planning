@@ -8,10 +8,14 @@
 
 | Salon | Dates | Lieu | Type | Rôle Teatower | Décision clé |
 |---|---|---|---|---|---|
-| C'est Bon C'est Wallon | **3-4 oct** (sa-di) | WEX Marche-en-Famenne | B2C terroir | Vente directe pop-up | Reconduire (déjà fait en mai) |
-| Made in Asia | **17-18 oct** (sa-di) | Brussels Expo Heysel | B2C pop-culture | Vente directe — **angle matcha uniquement** | ⚠️ Clash SIAL + fit à valider |
-| SIAL Paris | **17-21 oct** (sa-me) | Paris Nord Villepinte | **B2B export** | Prospection distributeurs/import | ⚠️ Clash + coût — **passer par AWEX** |
-| Brussels Coffee Show | **6-8 nov** (ve-di) | Gare Maritime, Tour & Taxis | B2B/B2C spécialité | Notoriété + horeca/specialty + matcha | Reconduire |
+| C'est Bon C'est Wallon | **3-4 oct** (sa-di) | WEX Marche-en-Famenne | B2C terroir | Vente directe pop-up | ✅ RETENU |
+| Made in Asia | **17-18 oct** (sa-di) | Brussels Expo Heysel | B2C pop-culture | — | ❌ ABANDONNÉ (clash SIAL) |
+| SIAL Paris | **17-21 oct** (sa-me) | Paris Nord Villepinte | **B2B export** | Prospection distributeurs/import | ✅ RETENU — **via pavillon AWEX** |
+| Brussels Coffee Show | **6-8 nov** (ve-di) | Gare Maritime, Tour & Taxis | B2B/B2C spécialité | Notoriété + horeca/specialty + matcha | ✅ RETENU |
+
+> **DÉCISIONS ACTÉES (01/07/2026, Nicolas)** : SIAL Paris confirmé **via le pavillon collectif AWEX/Wallonia**. En conséquence, **Made in Asia est abandonné** (même week-end que SIAL, une seule équipe). Programme H2 final = **3 salons** : C'est Bon C'est Wallon, SIAL Paris (AWEX), Brussels Coffee Show.
+>
+> ⏰ **URGENCE AWEX** : on est à ~3,5 mois du salon. Les inscriptions aux pavillons collectifs ferment généralement 6-9 mois avant. **Appeler l'AWEX cette semaine** (téléphone, pas seulement mail) pour vérifier qu'il reste de la place et connaître le tarif + la deadline. Si le pavillon est complet/clos → SIAL reporté à 2028 (biennal).
 
 ### ⚠️ Les 3 arbitrages à trancher AVANT de réserver
 
@@ -63,7 +67,9 @@
 
 ---
 
-## 2. Made in Asia — 17-18 octobre (Brussels Expo, Heysel) — ⚠️ OPTION
+## 2. Made in Asia — 17-18 octobre (Brussels Expo, Heysel) — ❌ ABANDONNÉ
+
+> **Décision 01/07/2026 : abandonné.** Même week-end que SIAL Paris (17-21 oct) qu'on a retenu via AWEX → une seule équipe, on ne peut pas faire les deux. Section conservée pour mémoire / réévaluation édition suivante (l'angle matcha reste pertinent pour une future édition).
 
 **Type** : B2C pop-culture (manga/anime/cosplay/gaming), 60 000+ visiteurs, cible jeune. **Fit thé faible en direct**, mais **fort sur le matcha** (produit tendance sur cette audience).
 
@@ -99,7 +105,7 @@
 **Type** : le plus grand salon alimentaire mondial (biennal, ~8 000 exposants, 285 000 pros). **B2B pur** : on n'y vend pas au comptoir, on y rencontre **distributeurs, importateurs, centrales, acheteurs export**. Objectif = pipeline, pas CA jour J.
 
 ### 3.1 Calendrier & logistique
-- ⚠️ **Clash avec Made in Asia** + salon de **5 jours** (sa→me) = mobilisation lourde (hôtel Paris 5 nuits, transport, 2 pers min en permanence).
+- Salon de **5 jours** (sa→me). **Staffing : Jérôme (commercial) seul** — décision Nicolas 01/07/2026. Cohérent avec un salon B2B de prospection (le pavillon AWEX fournit accueil/support mutualisé). Hôtel Paris 5 nuits × 1 pers.
 - **LEVIER MAJEUR — le pavillon collectif Wallonie/AWEX.** L'AWEX organise quasi systématiquement un pavillon régional à SIAL avec stands clés-en-main subventionnés. On a **déjà un contact AWEX actif** (Sherilyn Baltus, dossier coffrets mai 2026). → **Action immédiate : appeler l'AWEX pour savoir s'il reste de la place sur le pavillon Wallonia SIAL 2026 et à quel tarif.** C'est ça qui rend SIAL faisable.
 - Si pas de place pavillon → stand solo Villepinte = très cher (voir budget) → je recommande de **reporter à SIAL 2028**.
 
@@ -113,7 +119,7 @@
 |---|---|---|
 | Stand (min 9-12 m² Villepinte) | ~6 000-12 000 € | **fortement réduit / subventionné** |
 | Aménagement/mobilier | ~2 000-5 000 € | inclus clés-en-main |
-| Hôtel Paris 5 nuits × 2 pers | ~2 500-4 000 € | idem |
+| Hôtel Paris 5 nuits × 1 pers (Jérôme) | ~1 300-2 000 € | idem |
 | Transport + repas + échantillons | ~1 500-2 500 € | idem |
 | **Total ordre de grandeur** | **~12 000-25 000 €** | **une fraction** |
 
@@ -162,7 +168,7 @@
 
 | # | Décision | Deadline | Qui |
 |---|---|---|---|
-| 1 | **Trancher clash 17-18 oct** : Made in Asia OU SIAL (ou ni l'un ni l'autre) | ASAP | Nicolas |
+| 1 | ~~Trancher clash 17-18 oct~~ → **ACTÉ : SIAL retenu, Made in Asia abandonné** | ✅ fait | Nicolas |
 | 2 | **Appeler AWEX** — place sur pavillon Wallonia SIAL 2026 ? tarif ? | Cette semaine | Nicolas |
 | 3 | Réserver stand **C'est Bon C'est Wallon** (se remplit) | ASAP | Nicolas |
 | 4 | Demander **devis stand Brussels Coffee Show** | Juillet | Nicolas |
