@@ -1,6 +1,34 @@
 # LOG Compta Teatower
 
-## 2026-07-01 — Ecriture OD variation de stock cloture FY25-26 (BROUILLON, non postee)
+## 2026-07-01 — Ecriture OD variation de stock cloture FY25-26 — POSTEE (rafraichie + validee Nicolas)
+
+Accord explicite Nicolas pour POSTER l'ecriture (leve la regle "pas d'ecriture sans accord" pour ce cas precis).
+
+### Rafraichissement valo au moment du post
+- Methode imposee : somme(stock.quant.quantity x product.standard_price) sur toutes les locations internes (usage=internal) de la societe Teatower (company_id=1), tous produits stockes confondus (2 479 quants, 797 produits).
+- Resultat recalcule a l'instant du post (01/07/2026) : **334 032,58 EUR**.
+- Ecart constate avec le champ natif `stock.quant.value` (333 528,18 EUR) = 504,40 EUR, du a 5 produits dont le quant.value est reste a 0 alors que qty>0 et standard_price>0 (quants issus d'ajustements d'inventaire directs, hors flux facture -> non valorises automatiquement en mode manual_periodic). Coherent avec le constat deja logge que le mode manual_periodic ne genere aucune ecriture de valorisation automatique -> le champ `value` de stock.quant n'est pas fiable, la formule qty x standard_price est la reference retenue (instruction explicite de ce tour).
+- Solde comptable classe 3 au moment du post (inchange depuis la creation du brouillon) :
+  - 340000 (id 153) = 235 982,65 EUR
+  - 300000 (id 145) = 19,81 EUR
+  - Total = 236 002,46 EUR
+- **Ecart recalcule = 334 032,58 - 236 002,46 = 98 030,12 EUR** (vs 97 634,17 EUR dans le brouillon initial -> difference de 395,95 EUR, > 0,01 EUR -> mise a jour obligatoire des lignes avant post).
+
+### Mise a jour + post
+- Lignes du move 41575 mises a jour de 97 634,17 -> **98 030,12 EUR** (debit 340000 / credit 609400), equilibre debit=credit verifie avant post.
+- `action_post` execute avec succes.
+- **account.move id 41575 -> nom MISC/25-26/06/0133, state = posted, date = 2026-06-30 (dans FY25-26), journal = Miscellaneous Operations.**
+
+### Verification post-post
+- Solde 340000 apres post = 235 982,65 + 98 030,12 = **334 012,77 EUR**
+- Solde 300000 (inchange, hors perimetre ajustement) = 19,81 EUR
+- Total classe 3 = 334 012,77 + 19,81 = **334 032,58 EUR** = match exact avec la valo physique recalculee. OK.
+- Solde 609400 apres post = -322 602,59 EUR (credit net, ecriture bien portee sur ce compte de variation de stock).
+- **Impact P&L FY25-26 : +98 030,12 EUR** (credit classe 6 = reduction de charge / amelioration du resultat).
+
+---
+
+## 2026-07-01 (archive) — Ecriture OD variation de stock cloture FY25-26 (BROUILLON, non postee — etat avant rafraichissement ci-dessus)
 
 Accord explicite Nicolas (leve la regle "pas d'ecriture sans accord" pour ce cas precis).
 Stock en mode manual_periodic + cout standard -> aucune ecriture stock automatique, ajustement manuel necessaire pour cloture 30/06/2026.
