@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01T17:02:17",
+  "updated": "2026-07-01T17:15:15",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3395,10 +3395,11 @@
     {
       "id": "t070",
       "agent": "compta",
-      "task": "Facturation PRO delivered + envoi Peppol strict (valid only)",
-      "status": "in_progress",
+      "task": "11 factures PRO postees+envoyees Peppol (4611,54 EUR) ; 1 bloque Ma Pharmacie Baillonville ; 6 SO exclues rien de livre ; draft 0 EUR Maison Depouhon en attente",
+      "status": "done",
       "started": "2026-07-01T17:02",
-      "request": "Facturer tout delivered+facturable PRO uniquement, envoi strictement Peppol clients valid, TRANSPORT force qty, lister bloques"
+      "request": "Facturer tout delivered+facturable PRO uniquement, envoi strictement Peppol clients valid, TRANSPORT force qty, lister bloques",
+      "finished": "2026-07-01T17:15"
     }
   ]
 }
