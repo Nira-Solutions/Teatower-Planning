@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salons Teatower — H2 2026</title>
+<style>
+  :root { --primary:#2d6a4f; --accent:#40916c; --warn:#e76f51; --bg:#f8f9fa; --card:#fff; --text:#212529; --muted:#666; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); padding:1rem; max-width:960px; margin:0 auto; line-height:1.45; }
+  header { border-bottom:3px solid var(--accent); padding-bottom:.8rem; margin-bottom:1.2rem; }
+  h1 { color:var(--primary); font-size:1.6rem; }
+  .subtitle { color:var(--muted); font-size:.9rem; margin-top:.2rem; }
+  h2 { color:var(--primary); font-size:1.25rem; margin:1.8rem 0 .7rem; border-bottom:2px solid var(--accent); padding-bottom:.3rem; }
+  .banner { background:#fff4e6; border-left:5px solid var(--warn); padding:.7rem 1rem; border-radius:0 6px 6px 0; font-size:.9rem; margin-bottom:1.4rem; }
+  .banner strong { color:#d9480f; }
+
+  /* Timeline */
+  .timeline { display:flex; flex-direction:column; gap:.6rem; margin-bottom:1rem; }
+  .tl-row { display:flex; align-items:center; gap:.8rem; background:var(--card); border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.1); padding:.7rem 1rem; }
+  .tl-date { min-width:96px; font-weight:700; color:var(--primary); font-size:.9rem; text-align:center; line-height:1.2; }
+  .tl-date small { display:block; font-weight:400; color:var(--muted); font-size:.72rem; }
+  .tl-body { flex:1; }
+  .tl-body .name { font-weight:700; }
+  .tl-body .meta { font-size:.82rem; color:var(--muted); }
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:.68rem; font-weight:700; text-transform:uppercase; color:#fff; }
+  .tag-b2c { background:#2a9d8f; } .tag-b2b { background:#6741d9; } .tag-mix { background:#1971c2; }
+
+  /* Cards */
+  .card { background:var(--card); border-radius:12px; box-shadow:0 1px 4px rgba(0,0,0,.1); margin-bottom:1.1rem; overflow:hidden; }
+  .card-head { background:var(--primary); color:#fff; padding:.7rem 1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.4rem; }
+  .card-head .t { font-weight:700; font-size:1.05rem; }
+  .card-head .d { font-size:.85rem; opacity:.9; }
+  .card-body { padding:.8rem 1rem; }
+  .grid { display:grid; grid-template-columns:110px 1fr; gap:.35rem .8rem; font-size:.9rem; }
+  .grid .k { color:var(--muted); font-weight:600; }
+  .staff { display:inline-block; background:#eef6f1; border:1px solid var(--accent); color:var(--primary); font-weight:700; padding:2px 8px; border-radius:5px; font-size:.82rem; }
+  .note { margin-top:.6rem; font-size:.85rem; background:#eef6f1; border-left:4px solid var(--accent); padding:.4rem .7rem; border-radius:0 4px 4px 0; }
+  .note.warn { background:#fff4e6; border-color:var(--warn); color:#d9480f; }
+
+  /* Table */
+  table { width:100%; border-collapse:collapse; font-size:.88rem; background:var(--card); border-radius:8px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.1); }
+  th,td { padding:.5rem .7rem; text-align:left; border-bottom:1px solid #eee; }
+  th { background:var(--primary); color:#fff; font-size:.8rem; text-transform:uppercase; letter-spacing:.02em; }
+  tr:last-child td { border-bottom:none; }
+  tfoot td { font-weight:700; background:#eef6f1; color:var(--primary); }
+  .center { text-align:center; }
+
+  /* Actions */
+  ol.actions { list-style:none; counter-reset:a; }
+  ol.actions li { counter-increment:a; background:var(--card); border-radius:8px; box-shadow:0 1px 2px rgba(0,0,0,.08); padding:.6rem .8rem .6rem 2.6rem; margin-bottom:.5rem; position:relative; font-size:.9rem; }
+  ol.actions li::before { content:counter(a); position:absolute; left:.7rem; top:.6rem; width:1.4rem; height:1.4rem; background:var(--primary); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; }
+  ol.actions li.urgent::before { background:var(--warn); }
+  .who { color:var(--muted); font-size:.8rem; }
+  footer { margin-top:2rem; padding-top:.8rem; border-top:1px solid #ddd; font-size:.78rem; color:var(--muted); }
+  a { color:var(--primary); }
+  @media(max-width:600px){ .grid{grid-template-columns:90px 1fr;} .tl-row{flex-wrap:wrap;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>🫖 Salons Teatower — Organisation H2 2026</h1>
+  <p class="subtitle">4 salons · juillet → décembre 2026 · mis à jour le 01/07/2026</p>
+</header>
+
+<div class="banner">
+  <strong>⚠️ À faire cette semaine :</strong> appeler l'<strong>AWEX</strong> pour réserver une place sur le pavillon Wallonia à SIAL Paris — à 3,5 mois du salon, les pavillons collectifs sont souvent déjà complets (téléphone, pas mail). Si complet → SIAL reporté à 2028.
+</div>
+
+<h2>📅 Calendrier</h2>
+<div class="timeline">
+  <div class="tl-row">
+    <div class="tl-date">3-4 oct<small>sam-dim</small></div>
+    <div class="tl-body"><span class="name">C'est Bon C'est Wallon</span> <span class="tag tag-b2c">B2C</span><div class="meta">WEX, Marche-en-Famenne · terroir wallon</div></div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-date">17-18 oct<small>sam-dim</small></div>
+    <div class="tl-body"><span class="name">Made in Asia</span> <span class="tag tag-b2c">B2C</span><div class="meta">Brussels Expo (Heysel) · pop-culture · angle matcha</div></div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-date">17-21 oct<small>sam-mer</small></div>
+    <div class="tl-body"><span class="name">SIAL Paris</span> <span class="tag tag-b2b">B2B</span><div class="meta">Paris Nord Villepinte · export · via pavillon AWEX</div></div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-date">6-8 nov<small>ven-dim</small></div>
+    <div class="tl-body"><span class="name">Brussels Coffee Show</span> <span class="tag tag-mix">B2B/B2C</span><div class="meta">Gare Maritime, Tour & Taxis · spécialité café/matcha</div></div>
+  </div>
+</div>
+<div class="banner"><strong>Week-end du 17-18 oct = 2 salons en parallèle.</strong> Made in Asia (Bruxelles) et SIAL (Paris) tournent avec des équipes distinctes : Jérôme à Paris, 2 autres personnes à Bruxelles → 3 personnes mobilisées ces 2 jours.</div>
+
+<h2>👥 Plan de staffing — 2 pers/jour, sauf SIAL (Jérôme seul)</h2>
+<table>
+  <thead><tr><th>Salon</th><th>Dates</th><th class="center">Pers/jour</th><th class="center">Personne-jours</th></tr></thead>
+  <tbody>
+    <tr><td>C'est Bon C'est Wallon</td><td>3-4 oct (2 j)</td><td class="center">2</td><td class="center">4</td></tr>
+    <tr><td>Made in Asia</td><td>17-18 oct (2 j)</td><td class="center">2</td><td class="center">4</td></tr>
+    <tr><td>SIAL Paris</td><td>17-21 oct (5 j)</td><td class="center"><strong>1 · Jérôme</strong></td><td class="center">5</td></tr>
+    <tr><td>Brussels Coffee Show</td><td>6-8 nov (3 j)</td><td class="center">2</td><td class="center">6</td></tr>
+  </tbody>
+  <tfoot><tr><td colspan="3">TOTAL</td><td class="center">19 pers-jours</td></tr></tfoot>
+</table>
+<p class="note">Renfort montage/démontage à prévoir en plus (Gilles peut aider transport/montage — pas la tenue de stand).</p>
+
+<h2>🗂️ Détail par salon</h2>
+
+<div class="card">
+  <div class="card-head"><span class="t">C'est Bon C'est Wallon</span><span class="d">3-4 oct · WEX Marche-en-Famenne</span></div>
+  <div class="card-body">
+    <div class="grid">
+      <span class="k">Type</span><span>B2C terroir — notre terrain (déjà fait en mai)</span>
+      <span class="k">Staffing</span><span class="staff">2 pers/jour</span>
+      <span class="k">Objectif</span><span>CA comptoir — le plus rentable des 4</span>
+      <span class="k">Assortiment</span><span>Gamme signature + coffrets + amorce Noël</span>
+      <span class="k">Promo</span><span>Buy X Get Y (jamais de %)</span>
+      <span class="k">Budget</span><span>~800-1 500 € stand <em>(à confirmer)</em></span>
+    </div>
+    <div class="note">Réactiver la caisse POP-UP (<code>pos.config #2</code>) avec l'assortiment automne.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="t">Made in Asia</span><span class="d">17-18 oct · Brussels Expo</span></div>
+  <div class="card-body">
+    <div class="grid">
+      <span class="k">Type</span><span>B2C pop-culture — 60 000+ visiteurs, cible jeune</span>
+      <span class="k">Staffing</span><span class="staff">2 pers/jour</span>
+      <span class="k">Objectif</span><span>CA comptoir, prix d'impulsion</span>
+      <span class="k">Assortiment</span><span><strong>Matcha</strong> (doypacks + C0200) + verts + matcha latte à emporter</span>
+      <span class="k">Promo</span><span>Buy X Get Y, entrées de gamme</span>
+      <span class="k">Budget</span><span>~1 500-3 000 € stand <em>(à confirmer)</em></span>
+    </div>
+    <div class="note warn">Tourne en parallèle de SIAL → équipe distincte de celle de Paris.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="t">SIAL Paris</span><span class="d">17-21 oct · Villepinte</span></div>
+  <div class="card-body">
+    <div class="grid">
+      <span class="k">Type</span><span>B2B export international (biennal, 8 000 exposants)</span>
+      <span class="k">Staffing</span><span class="staff">Jérôme seul · 5 j</span>
+      <span class="k">Objectif</span><span>Leads distributeurs / importateurs — <strong>pas de CA jour J</strong></span>
+      <span class="k">Assortiment</span><span>Échantillons + catalogue export FR/EN + coffrets premium</span>
+      <span class="k">Com</span><span>Offre 1ʳᵉ commande export, relance leads sous 5-10 j</span>
+      <span class="k">Budget</span><span>Solo ~12-25 k€ → <strong>via AWEX = fraction</strong></span>
+    </div>
+    <div class="note warn">Y aller uniquement via le pavillon AWEX/Wallonia. Contact chaud : Sherilyn Baltus (dossier mai). Appeler cette semaine — deadline serrée.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="t">Brussels Coffee Show</span><span class="d">6-8 nov · Tour & Taxis</span></div>
+  <div class="card-body">
+    <div class="grid">
+      <span class="k">Type</span><span>Spécialité café + matcha + bean-to-bar — pros & amateurs</span>
+      <span class="k">Staffing</span><span class="staff">2 pers/jour</span>
+      <span class="k">Objectif</span><span>CA comptoir + contacts horeca/specialty</span>
+      <span class="k">Assortiment</span><span><strong>Matcha</strong> + verts japonais + <strong>coffrets Noël</strong> + calendrier de l'avent</span>
+      <span class="k">Promo</span><span>Buy X Get Y + précommande avent</span>
+      <span class="k">Budget</span><span>~1 500-3 500 € stand <em>(à confirmer)</em></span>
+    </div>
+    <div class="note">Timing pré-Noël idéal. Posture premium/expert — quelqu'un qui sait parler matcha. Démo préparation au stand.</div>
+  </div>
+</div>
+
+<h2>✅ Actions & deadlines</h2>
+<ol class="actions">
+  <li class="urgent"><strong>Appeler l'AWEX</strong> — place pavillon Wallonia SIAL 2026 ? tarif ? deadline ? <span class="who">→ Nicolas · cette semaine</span></li>
+  <li>Réserver stand <strong>C'est Bon C'est Wallon</strong> (20e éd., se remplit) <span class="who">→ Nicolas · ASAP</span></li>
+  <li>Réserver stand <strong>Made in Asia</strong> (secteur food/retail) <span class="who">→ Nicolas · ASAP</span></li>
+  <li>Devis stand <strong>Brussels Coffee Show</strong> <span class="who">→ Nicolas · juillet</span></li>
+  <li>Confirmer <strong>Jérôme dispo SIAL 17-21 oct</strong> + hôtel Paris 5 nuits <span class="who">→ Nicolas · juillet</span></li>
+  <li>Désigner les <strong>binômes</strong> + vérifier le pic 3 pers du 17-18 oct <span class="who">→ Nicolas · sept</span></li>
+  <li>Me redonner le <strong>CA POS de l'édition mai</strong> → objectifs chiffrés <span class="who">→ Nicolas</span></li>
+  <li>Reconfigurer <code>pos.config #2</code> par salon <span class="who">→ Nira · J-15</span></li>
+  <li>Préparer <strong>catalogue export FR/EN</strong> + grille tarifaire pro (SIAL) <span class="who">→ Nira + Jérôme · sept</span></li>
+</ol>
+
+<footer>
+  Dates vérifiées le 01/07/2026 :
+  <a href="https://www.wex.be/fr/agenda/" target="_blank">C'est Bon C'est Wallon</a> ·
+  <a href="https://www.madeinasia.be/en/practical-info/" target="_blank">Made in Asia</a> ·
+  <a href="https://www.sialparis.com/en/pratical-info/dates-venue-opening-times" target="_blank">SIAL Paris</a> ·
+  <a href="https://brusselscoffee.show/en/" target="_blank">Brussels Coffee Show</a>.
+  <br>Dossier détaillé : <a href="./Dossier_Salons_H2_2026.md">Dossier_Salons_H2_2026.md</a> · Recap : <a href="./RECAP_Salons_H2_2026.md">RECAP_Salons_H2_2026.md</a>.
+  <br>Préparé par Nira · budgets = ordres de grandeur à confirmer par devis.
+</footer>
+</body>
+</html>
