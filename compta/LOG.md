@@ -1,5 +1,49 @@
 # LOG Compta Teatower
 
+## 2026-07-02 — Lettrage banque ING — paiements clients (8 lignes reconciliees, 7 hors-scope)
+
+### Perimetre
+15 lignes ING non rapprochees (journal BNK1, id=14) au 02/07/26 : 8 credits (encaissements a analyser) + 7 debits (cartes/frais, hors-scope client d'office).
+
+### Methode technique
+Pour chaque credit identifie comme paiement client : creation d'un OD (journal MISC id=11) qui (1) debite 499000 Suspense pour le montant recu avec le bon partenaire, reconcilie avec la ligne suspense d'origine de la BSL ; (2) credite 400000 Customers pour le meme montant, reconcilie avec la/les ligne(s) facture(s) ouvertes (+ credit note le cas echeant) ; (3) si ecart <= 2 EUR, ajoute une paire 657100 Negative Payment Differences (charge) / 400000 pour absorber l'ecart et ramener le residu a 0. Reconciliation via `account.move.line.reconcile()` (methode BSL native non exposee en XML-RPC Odoo 18, technique deja utilisee le 14/04 et 15-18/06).
+
+### Lignes lettrees (8) — total 4 277,86 EUR
+
+| BSL id | Date | Montant recu | Client | Facture(s) | Montant facture net | Ecart | Write-off | OD move | Resultat |
+|---|---|---|---|---|---|---|---|---|---|
+| 19411 | 29/06 | 319,18 | Spar Clavier (124572) | INV/2026/03217 | 319,20 | -0,02 | 657100 | 41790 | paid |
+| 19412 | 29/06 | 767,22 | KAIO Retail invest - Delhaize Ottignies (3016) | INV/2026/02724 | 767,23 | -0,01 | 657100 | 41791 | paid |
+| 19413 | 29/06 | 512,40 | SA Villersem - Intermarche Villers-le-Bouillet (115879) | INV/2026/02642 (582,42) - RINV/25-26/0306 (70,01) | 512,41 | -0,01 | 657100 | 41792 | paid / paid |
+| 19436 | 30/06 | 67,60 | Creative Ceramic - Verschelden Elora (124375) | INV/2026/03015 | 67,60 | 0,00 | - | 41793 | paid |
+| 19438 | 30/06 | 627,96 | AD Delhaize Roodebeek (123997) — virement au nom "DELWOL", meme adresse Chaussee de Roodebeek 199 Bruxelles | INV/2026/02867 | 627,98 | -0,02 | 657100 | 41794 | paid |
+| 19440 | 30/06 | 101,51 | 2u S.A. - Carrefour Market Ciney (2773) | INV/2026/02534 (332,50) - RINV/25-26/0302 (230,99) | 101,51 | 0,00 | - | 41795 | paid / paid |
+| 19441 | 30/06 | 522,55 | SRL Spydis - Intermarche Spy (116686) | INV/2026/02789 (529,55) - RINV/25-26/0315 (7,00) | 522,55 | 0,00 | - | 41796 | paid / paid |
+| 19451 | 30/06 | 1 359,44 | Le Comptoir Local Linkebeek (3062) — communication "02734" = suffixe facture | INV/2026/02734 | 1 359,44 | 0,00 | - | 41797 | paid |
+
+**Total write-offs : 0,06 EUR (657100 Negative Payment Differences)** — toutes les factures/avoirs listes ont amount_residual=0,00 EUR et payment_state=paid (ou reversed pour les factures soldees via avoir) apres coup, verifie post-lettrage.
+
+### Lignes NON lettrees (7) — hors scope client, total 1 493,25 EUR
+
+| BSL id | Date | Montant | Libelle | Motif |
+|---|---|---|---|---|
+| 19426 | 30/06 | -211,68 | Mastercard Business — Matcha CO Faire, Den Haag NLD | Achat marketplace Faire.com (fournisseur), pas un encaissement client |
+| 19427 | 30/06 | -232,46 | Mastercard Business — Livoo Faire, Den Haag NLD | idem — Faire.com |
+| 19428 | 30/06 | -223,99 | Mastercard Business — cool people club Faire, Den Haag NLD | idem — Faire.com |
+| 19429 | 30/06 | -597,00 | Mastercard Business — YOKO DESIGN Faire, Den Haag NLD | idem — Faire.com |
+| 19430 | 30/06 | -194,87 | Mastercard Business — Ogo living Faire, Den Haag NLD | idem — Faire.com |
+| 19459 | 01/07 | -31,00 | Facture ING Belgique SA (frais/abonnement bancaire) | Frais bancaire fournisseur, pas client |
+| 19460 | 01/07 | -2,25 | Decompte frais ING MasterCard Business (cotisation mensuelle) | Frais bancaire fournisseur, pas client |
+
+Ces 7 lignes sont des debits (paiements sortants/frais), aucune n'est un paiement client entrant — hors perimetre de la demande, non touchees. A router vers l'agent achats/comptabilite fournisseurs si Nicolas souhaite les traiter.
+
+### Resultat
+- ING non rapprochees avant : 15
+- ING non rapprochees apres : 7 (toutes hors-scope client, cf. tableau ci-dessus)
+- Lettrees : 8/8 candidats client identifies (100%), total 4 277,86 EUR
+- Ecart total absorbe en 657100 : 0,06 EUR (4 lignes, chacune <= 0,02 EUR)
+- Aucun cas ambigu / en review : tous les 8 paiements matchent une facture (ou facture nette d'avoir) via montant exact ou adresse/communication explicite
+
 ## 2026-07-01 — Facturation B2B Peppol (livre + facturable, PRO uniquement)
 
 Script : `scripts/facturation_b2b_peppol.py` (existant, adapte pour exclusion team B2C/web + verif Peppol sur le partenaire de facturation reel).
