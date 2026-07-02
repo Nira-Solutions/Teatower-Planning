@@ -14,9 +14,7 @@
 1. Ouvrir la plateforme partenaires Bongo :
    **https://partners.smartbox-group.com/s/**
 
-2. Se connecter avec les accès Teatower :
-   - **Identifiant :** `jerome.carlier@noenature.com`
-   - **Mot de passe :** `Teatower5377$`
+2. Se connecter avec les accès Teatower (identifiant + mot de passe dans le fichier **`Matériel TT.xlsx`**, onglet accès — ne pas mettre les identifiants dans ce document).
 
 3. Encoder les **9 chiffres** du coffret Bongo (le code imprimé sur le bon / le coffret).
 
