@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Synthèse Sondage « Teatower, c'est quoi ? » — CA</title>
 <style>
-  :root{ --green:#2d6a4f; --green2:#40916c; --light:#d8f3dc; --bg:#f4f7f4; --ink:#1b2a25; --muted:#5c6b64; --line:#e2eae4; }
+  :root{ --green:#2d6a4f; --green2:#40916c; --light:#d8f3dc; --bg:#f4f7f4; --ink:#1b2a25; --muted:#5c6b64; --line:#e2eae4; --gold:#b45309; --goldbg:#fffbeb; --goldln:#fcd34d; }
   *{box-sizing:border-box}
   body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);margin:0;line-height:1.5}
   .wrap{max-width:920px;margin:0 auto;padding:1.2rem 1.2rem 4rem}
@@ -40,9 +40,14 @@
   .debate{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid #ea580c;border-radius:0 12px 12px 0;padding:.8rem 1.05rem;margin-bottom:.8rem}
   .debate b{color:#c2410c}
   .muted{color:var(--muted);font-size:.85rem}
+  .ca{background:var(--goldbg);border:1px solid var(--goldln);border-left:6px solid var(--gold);border-radius:0 14px 14px 0;padding:1.15rem 1.3rem;margin-bottom:1.2rem;box-shadow:0 2px 10px rgba(180,83,9,.08)}
+  .ca h3{margin:.1rem 0 .5rem;color:var(--gold);font-size:1.12rem}
+  .ca .role{display:inline-block;background:var(--gold);color:#fff;border-radius:20px;padding:.15rem .7rem;font-size:.74rem;font-weight:700;letter-spacing:.03em;margin-bottom:.5rem;text-transform:uppercase}
+  .ca .qv{border-left:3px solid var(--goldln);background:rgba(255,255,255,.6);padding:.45rem .8rem;margin:.5rem 0;border-radius:0 8px 8px 0;font-size:.94rem}
+  .ca .qv b{color:var(--gold)}
   footer{margin-top:2rem;text-align:center;color:var(--muted);font-size:.82rem}
   .print{position:fixed;top:14px;right:14px;background:var(--green);color:#fff;border:none;border-radius:10px;padding:.55rem 1rem;cursor:pointer;font-weight:700;box-shadow:0 3px 10px rgba(0,0,0,.15)}
-  @media print{.print{display:none} body{background:#fff} .card,.lead,header.top{box-shadow:none}}
+  @media print{.print{display:none} body{background:#fff} .card,.lead,header.top,.ca{box-shadow:none}}
   @media(max-width:680px){.grid2,.grid3{grid-template-columns:1fr}}
 </style>
 </head>
@@ -55,34 +60,47 @@
     <h1>🍵 « Teatower, c'est quoi ? » — Synthèse du sondage interne</h1>
     <div class="meta">Dégager les 3 à 5 points qui définissent Teatower — vu par l'équipe et la direction.</div>
     <div class="pills">
-      <span class="pill">8 réponses</span>
-      <span class="pill">Direction · Commercial · Merch · Logistique · Boutique · CA</span>
-      <span class="pill">Juin 2026</span>
+      <span class="pill">10 réponses</span>
+      <span class="pill">2 membres du CA (dont Alexandre Gilis)</span>
+      <span class="pill">Direction · Commercial · Merch · Logistique · Production · Boutique</span>
+      <span class="pill">Mise à jour juillet 2026</span>
     </div>
   </header>
 
   <div class="lead">
-    <strong>En une phrase :</strong> Teatower est perçue, de façon très cohérente, comme une
+    <strong>En une phrase :</strong> Teatower est perçue, de façon très cohérente en interne, comme une
     <strong>marque belge accessible</strong> qui démocratise le thé à travers une
-    <strong>gamme large, originale et de qualité</strong> — son ancrage local et l'audace de ses
-    mélanges sont les deux piliers identitaires. Les points de tension portent moins sur le produit
-    (jugé solide) que sur la <strong>marque elle-même</strong> : un nom peu exploité, une identité visuelle à
-    moderniser et un déficit de visibilité / notoriété.
+    <strong>gamme large, originale et de qualité</strong>. Mais le sondage fait remonter une
+    tension de fond, portée surtout par le CA : cette identité, bien que largement partagée,
+    reste <strong>insuffisamment définie et différenciante</strong> — au point qu'un membre du CA
+    n'arrive pas à formuler un « pourquoi nous » convaincant face aux grandes maisons. Le débat se
+    déplace donc du produit (jugé solide) vers <strong>la marque : sa personnalité, son récit et son nom</strong>.
+  </div>
+
+  <div class="ca">
+    <span class="role">⭐ Le regard du CA — Alexandre Gilis</span>
+    <h3>Un avis clé : « L'identité de marque n'est pas encore vraiment définie »</h3>
+    <p style="margin:.2rem 0 .4rem">Nouvelle réponse d'un membre du Conseil, elle recadre l'exercice : au-delà des mots qui reviennent, c'est la <b>clarté et la force distinctive</b> de la marque qui manquent.</p>
+    <div class="qv"><b>Ce qui manque le plus :</b> « Une vraie personnalité qui claque à travers ses points de supériorité. »</div>
+    <div class="qv"><b>Le mot de la fin :</b> « La culture d'entreprise et la mentalité des équipes devraient se confondre avec l'identité de Teatower. Aujourd'hui trop peu de personnes sont vraiment en adéquation avec la marque — parce qu'elle n'est pas bien définie, reste vague : on a du mal à s'y attacher et à en partager les valeurs (non définies). »</div>
+    <div class="qv"><b>Pourquoi Teatower plutôt que la concurrence ?</b> « Je me le demande sincèrement… je n'ai pas trouvé de réponse convaincante. Parce qu'on est belge… mais on fait du thé en Belgique ??? » <span class="muted">— une remise en cause directe du « belge » comme seul argument différenciant.</span></div>
+    <div class="qv"><b>Une piste qu'il est le seul à ouvrir — le nom :</b> les 3-5 points qu'il propose relient explicitement <b>l'expérience des sens (émotions / contexte) au nom « TOWER »</b>, et sa mission parle d'« un moment de plaisir et de détente, comme suspendu dans le ciel ». Un début de récit de marque, là où le nom est jugé sous-exploité par tous.</div>
   </div>
 
   <h2>1 · Les points qui définissent Teatower <span class="n">— question centrale du CA</span></h2>
   <div class="card">
-    <p class="muted" style="margin-top:0">Thèmes qui reviennent le plus, par ordre de récurrence dans les réponses :</p>
-    <div class="theme"><div class="rank">1</div><div class="body"><b>Ancrage belge</b> — « Belge » cité par 7 répondants sur 8 dans les 3 mots, et atout n°1 vs la concurrence. <span>L'ADN le plus partagé : maison belge, familiale, locale.</span></div></div>
-    <div class="theme"><div class="rank">2</div><div class="body"><b>Une gamme large &amp; diversifiée</b> — « 120 références », « énorme gamme », « large gamme pour tout le monde », « choix varié pour tous les goûts ». <span>Le choix comme promesse.</span></div></div>
-    <div class="theme"><div class="rank">3</div><div class="body"><b>Originalité &amp; audace des mélanges</b> — aromatisés, floraux-gourmands, « osés », assemblages maison. <span>Ce qui différencie le produit en rayon.</span></div></div>
-    <div class="theme"><div class="rank">4</div><div class="body"><b>Qualité produit</b> — vrais morceaux de fruits, « simplement meilleur », qualité = la valeur n°1 citée (6/8). <span>Socle de crédibilité.</span></div></div>
-    <div class="theme"><div class="rank">5</div><div class="body"><b>Accessibilité &amp; convivialité</b> — « du thé pour tous », « sans prétention », thé pour le non-puriste, expérience chaleureuse en boutique. <span>Le ton de la marque.</span></div></div>
+    <p class="muted" style="margin-top:0">Thèmes qui reviennent le plus, par ordre de récurrence dans les 10 réponses :</p>
+    <div class="theme"><div class="rank">1</div><div class="body"><b>Ancrage belge</b> — « Belge » cité par 8 répondants sur 10 dans les 3 mots, et atout n°1 vs la concurrence (5/10). <span>L'ADN le plus partagé : maison belge, familiale, locale.</span></div></div>
+    <div class="theme"><div class="rank">2</div><div class="body"><b>Qualité produit</b> — vrais morceaux de fruits, « simplement meilleur », matière première &amp; goût. Valeur n°1 citée (8/10). <span>Socle de crédibilité.</span></div></div>
+    <div class="theme"><div class="rank">3</div><div class="body"><b>Une gamme large &amp; diversifiée</b> — « 120 références », « énorme gamme », « large gamme pour tout le monde ». <span>Le choix comme promesse.</span></div></div>
+    <div class="theme"><div class="rank">4</div><div class="body"><b>Originalité &amp; audace des mélanges</b> — aromatisés, floraux-gourmands, « osés », assemblages maison. <span>Ce qui différencie le produit en rayon.</span></div></div>
+    <div class="theme"><div class="rank">5</div><div class="body"><b>Expérience &amp; accessibilité</b> — « du thé pour tous », « sans prétention », expérience chaleureuse en boutique, moment de détente. <span>Le ton de la marque — et, pour le CA, la piste liée au nom « Tower ».</span></div></div>
     <div style="margin-top:.6rem">
-      <div class="verb"><div class="who">Anonyme · Boutique</div>Maison belge · 120 références de thés · Zéro déchet · Entreprise familiale</div>
-      <div class="verb"><div class="who">Steeeeve · Direction</div>Du thé pour tous · Une alternative saine aux boissons sucrées · Un choix varié pour tous les goûts · Des éditions limitées fréquentes</div>
-      <div class="verb"><div class="who">Jérôme · Commercial</div>Thé de qualité · Assemblage floral-gourmand · Identité belge</div>
+      <div class="verb"><div class="who">Alexandre Gilis · CA</div>Belge (=local) · Qualité matière première · Qualité / goût · Expérience des sens (émotions, contexte — TOWER) · Variété &amp; packaging <span class="muted">— « chacun à définir plus précisément ».</span></div>
       <div class="verb"><div class="who">Nicolas · CA</div>Marque belge · Large gamme pour tout le monde · Aromatisés</div>
+      <div class="verb"><div class="who">Anonyme · Boutique</div>Maison belge · 120 références de thés · Zéro déchet · Entreprise familiale</div>
+      <div class="verb"><div class="who">Steeeeve · Direction</div>Du thé pour tous · Une alternative saine aux boissons sucrées · Un choix varié · Des éditions limitées fréquentes</div>
+      <div class="verb"><div class="who">Jérôme · Commercial</div>Thé de qualité · Assemblage floral-gourmand · Identité belge</div>
     </div>
   </div>
 
@@ -95,49 +113,50 @@
     <span style="font-size:1.1rem">Accessible</span>
     <span style="font-size:1rem">Convivial</span>
     <span style="font-size:1rem">Gourmand</span>
-    <span style="font-size:1rem">Découverte</span>
-    <span style="font-size:.95rem">Éco-responsable</span>
-    <span style="font-size:.95rem">Accueillant</span>
+    <span style="font-size:1rem">Saveurs</span>
+    <span style="font-size:.95rem">Découverte</span>
+    <span style="font-size:.95rem">Authentique</span>
     <span style="font-size:.95rem">Aromatisé</span>
-    <p class="muted" style="font-weight:400;color:var(--muted)">« Belge » domine très nettement (7/8). Une voix discordante &amp; lucide : « bordélique ».</p>
+    <p class="muted" style="font-weight:400;color:var(--muted)">« Belge » domine très nettement (8/10), « Qualité » juste derrière. Une voix discordante &amp; lucide : « bordélique ».</p>
   </div>
 
-  <h2>3 · Comment l'équipe note la marque <span class="n">— moyennes /5</span></h2>
+  <h2>3 · Comment l'équipe note la marque <span class="n">— moyennes /5 sur 10 réponses</span></h2>
   <div class="card grid2">
     <div>
-      <div class="scale"><div class="row"><span>Qualité produit</span><b>4,3</b></div><div class="bar"><span style="width:86%"></span></div></div>
-      <div class="scale"><div class="row"><span>Importance des boutiques</span><b>4,3</b></div><div class="bar"><span style="width:86%"></span></div></div>
-      <div class="scale"><div class="row"><span>Packaging donne envie</span><b>4,1</b></div><div class="bar"><span style="width:82%"></span></div></div>
+      <div class="scale"><div class="row"><span>Qualité produit</span><b>4,2</b></div><div class="bar"><span style="width:84%"></span></div></div>
+      <div class="scale"><div class="row"><span>Packaging donne envie</span><b>4,2</b></div><div class="bar"><span style="width:84%"></span></div></div>
+      <div class="scale"><div class="row"><span>Importance des boutiques</span><b>4,2</b></div><div class="bar"><span style="width:84%"></span></div></div>
       <div class="scale"><div class="row"><span>Cohérence de la gamme</span><b>3,9</b></div><div class="bar"><span style="width:78%"></span></div></div>
     </div>
     <div>
       <div class="scale"><div class="row"><span>Identité visuelle</span><b>3,8</b></div><div class="bar"><span style="width:76%"></span></div></div>
-      <div class="scale"><div class="row"><span>Positionnement <span class="muted">(1 accessible → 5 premium)</span></span><b>3,6</b></div><div class="bar"><span style="width:72%"></span></div></div>
-      <div class="scale"><div class="row"><span>Le nom « Teatower »</span><b>3,6</b></div><div class="bar"><span style="width:72%"></span></div></div>
-      <div class="scale"><div class="row"><span>Priorité à l'export</span><b>3,6</b></div><div class="bar"><span style="width:72%"></span></div></div>
+      <div class="scale"><div class="row"><span>Le nom « Teatower »</span><b>3,8</b></div><div class="bar"><span style="width:76%"></span></div></div>
+      <div class="scale"><div class="row"><span>Positionnement <span class="muted">(1 accessible → 5 premium)</span></span><b>3,7</b></div><div class="bar"><span style="width:74%"></span></div></div>
+      <div class="scale"><div class="row"><span>Priorité à l'export</span><b>3,7</b></div><div class="bar"><span style="width:74%"></span></div></div>
     </div>
-    <p class="muted" style="grid-column:1/-1;margin:.2rem 0 0">Lecture : le <b>produit</b> (qualité, packaging) est le point fort ; la <b>marque</b> (nom, identité visuelle) est le maillon le plus discuté. Positionnement perçu « milieu de gamme tirant vers le premium ».</p>
+    <p class="muted" style="grid-column:1/-1;margin:.2rem 0 0">Lecture : le <b>produit</b> (qualité, packaging) reste le point fort ; l'<b>identité de marque</b> (visuel, nom) est le maillon le plus discuté. Positionnement perçu « milieu de gamme tirant vers le premium ». Note la plus basse toutes réponses confondues : Nicolas, <b>2/5 sur le nom</b>.</p>
   </div>
 
-  <h2>4 · Les valeurs à incarner <span class="n">— nb de citations / 8</span></h2>
+  <h2>4 · Les valeurs à incarner <span class="n">— nb de citations / 10</span></h2>
   <div class="card">
-    <span class="tag big">Qualité <span class="c">6</span></span>
-    <span class="tag big">Belgitude / local <span class="c">6</span></span>
+    <span class="tag big">Qualité <span class="c">8</span></span>
+    <span class="tag big">Belgitude / local <span class="c">7</span></span>
     <span class="tag big">Accessibilité <span class="c">5</span></span>
+    <span class="tag">Convivialité <span class="c">4</span></span>
     <span class="tag">Durabilité / éco <span class="c">4</span></span>
     <span class="tag">Créativité <span class="c">4</span></span>
-    <span class="tag">Convivialité <span class="c">3</span></span>
-    <span class="tag">Bien-être <span class="c">3</span></span>
-    <span class="tag">Authenticité <span class="c">1</span></span>
+    <span class="tag">Bien-être <span class="c">4</span></span>
+    <span class="tag">Authenticité <span class="c">2</span></span>
     <span class="tag">Premium <span class="c">1</span></span>
   </div>
 
   <h2>5 · Atout principal vs concurrence (Palais des Thés, Kusmi, Dammann)</h2>
   <div class="card">
-    <div class="scale"><div class="row"><span>Ancrage local belge</span><b>4</b></div><div class="bar"><span style="width:50%"></span></div></div>
-    <div class="scale"><div class="row"><span>Originalité des mélanges</span><b>3</b></div><div class="bar"><span style="width:37%"></span></div></div>
-    <div class="scale"><div class="row"><span>Qualité produit</span><b>1</b></div><div class="bar"><span style="width:13%"></span></div></div>
-    <p class="muted" style="margin-bottom:0">Le « pourquoi nous » se joue sur <b>le belge + l'audace des mélanges</b>, jamais sur le prestige / l'héritage — assumé comme une marque non guindée, « plus accessible, plus savoureuse et osée ».</p>
+    <div class="scale"><div class="row"><span>Ancrage local belge</span><b>5</b></div><div class="bar"><span style="width:50%"></span></div></div>
+    <div class="scale"><div class="row"><span>Originalité des mélanges</span><b>3</b></div><div class="bar"><span style="width:30%"></span></div></div>
+    <div class="scale"><div class="row"><span>Qualité produit</span><b>2</b></div><div class="bar"><span style="width:20%"></span></div></div>
+    <p class="muted" style="margin-bottom:.5rem">Le « pourquoi nous » se joue, pour la majorité, sur <b>le belge + l'audace des mélanges</b>, jamais sur le prestige ou l'héritage — assumé comme une marque non guindée, « plus accessible, plus savoureuse et osée ».</p>
+    <div class="debate" style="margin-bottom:0"><b>Alerte du CA :</b> Alexandre Gilis conteste frontalement cet argument — « on est belge… mais on fait du thé en Belgique ??? ». Autrement dit : l'ancrage belge <b>rassure en interne mais ne suffit pas</b> à construire une supériorité crédible face aux grandes maisons. À transformer en <b>vraie proposition de valeur</b>.</div>
   </div>
 
   <h2>6 · Forces &amp; ce qui manque</h2>
@@ -146,34 +165,37 @@
       <div class="qlabel" style="font-weight:700;color:var(--green);margin-bottom:.4rem">💪 Plus grandes forces</div>
       <div class="verb"><div class="who">Récurrent</div>Les mélanges / l'originalité de la gamme</div>
       <div class="verb"><div class="who">Récurrent</div>La qualité du thé (vrais morceaux de fruits)</div>
-      <div class="verb"><div class="who">Commercial</div>La proximité client &amp; les conseils personnalisés</div>
+      <div class="verb"><div class="who">Alexandre · CA</div>L'agilité d'une petite structure dynamique</div>
       <div class="verb"><div class="who">Boutique</div>La présence omnicanale (boutiques · web · Horeca · GMS · magasins locaux)</div>
     </div>
     <div class="card">
       <div class="qlabel" style="font-weight:700;color:#c2410c;margin-bottom:.4rem">⚠️ Ce qui manque le plus</div>
+      <div class="verb"><div class="who">Alexandre · CA</div>Une vraie personnalité de marque « qui claque » ; une identité clairement définie et partagée</div>
       <div class="verb"><div class="who">Nicolas · CA</div>Du retard sur les tendances &amp; les réseaux sociaux — « peut-être quelqu'un qui représente la marque ? »</div>
       <div class="verb"><div class="who">Jérôme · Commercial</div>Communication / Marketing</div>
-      <div class="verb"><div class="who">Commercial · Boutique</div>Visibilité &amp; notoriété ; du personnel</div>
-      <div class="verb"><div class="who">Steeeeve / Logan</div>Une mission commune ; une meilleure organisation</div>
+      <div class="verb"><div class="who">Boutique · Logistique</div>Visibilité &amp; notoriété ; du personnel ; une meilleure organisation</div>
     </div>
   </div>
 
   <h2>7 · Sujets à trancher par le CA</h2>
-  <div class="debate"><b>Le nom « Teatower » est sous-exploité.</b> Note moyenne 3,6/5, la plus basse parmi les fondamentaux de marque. Nicolas (2/5) : « Teatower veut dire la tour du thé. On ne fait rien en rapport avec notre nom, on ne sait même pas l'expliquer. » → Storytelling de marque à construire.</div>
-  <div class="debate"><b>Identité visuelle &amp; couleurs à moderniser.</b> Couleurs jugées « mitigées » par 4 répondants sur 8. Demandes concrètes : standardiser le logo / accent sur la tour, agrandir le drapeau belge, « moderniser pour refléter la qualité des produits ».</div>
-  <div class="debate"><b>Stratégie retail : jusqu'où densifier ?</b> Les boutiques sont jugées essentielles (4,3/5) et l'omnicanal est une force — mais une alerte interne sur la rentabilité : « Liège et Namur suffisaient, peur que Rocourt devienne un Waterloo bis » → étudier la rentabilité réelle des magasins par secteur.</div>
-  <div class="debate"><b>Export : oui, mais cadencé.</b> Priorité modérée (3,6/5). <b>La France fait consensus</b> (packaging déjà adapté, langue, historique clients FR), suivie des Pays-Bas et de l'Allemagne. Une voix : « explorer d'abord la Flandre, sans doute plus rentable. »</div>
+  <div class="debate"><b>Définir l'identité de marque — la priorité qui ressort du sondage lui-même.</b> Deux membres du CA convergent : Alexandre Gilis (« la marque n'est pas bien définie, reste vague ; trop peu de gens y sont en adéquation ») et Nicolas (« on ne fait rien en rapport avec notre nom, on ne sait même pas l'expliquer »). Tant que la marque n'est pas cadrée, le « pourquoi nous » et l'attachement des équipes restent flous. → <b>Chantier plateforme de marque à lancer.</b></div>
+  <div class="debate"><b>Le nom « Teatower » &amp; le récit « Tower ».</b> Note moyenne 3,8/5, mais Nicolas à 2/5. Piste concrète ouverte par Alexandre : relier le nom à une <b>« expérience des sens »</b> — « un moment de détente, comme suspendu dans le ciel ». → Storytelling à construire autour de la Tour du thé.</div>
+  <div class="debate"><b>Identité visuelle &amp; couleurs à moderniser.</b> Couleurs jugées « mitigées » par 4 répondants sur 10. Demandes concrètes : standardiser le logo / accent sur la tour, agrandir le drapeau belge, « moderniser pour refléter la qualité des produits ».</div>
+  <div class="debate"><b>Produit : ajouter du « peps ».</b> Alexandre demande « un coup de folie gustative, le côté gourmand / gourmet qui ferait mouche » ; Jérôme et d'autres poussent des mélanges audacieux et une gamme GMS différenciée par le packaging. → Cap créatif à assumer.</div>
+  <div class="debate"><b>Stratégie retail : des boutiques ou des « salons d'expérience » ?</b> Les boutiques sont jugées essentielles (4,2/5) mais Alexandre et la boutique convergent : les transformer en <b>salons de rencontre / dégustation / découverte</b>, « où l'on s'arrête pour une pause détente ». En contrepoint, une alerte rentabilité (Logan, 2/5) : « Liège et Namur suffisaient, peur que Rocourt devienne un Waterloo bis. » → Étudier la rentabilité réelle par secteur avant de densifier.</div>
+  <div class="debate"><b>Export : oui, mais cadencé — et par où commencer ?</b> Priorité modérée (3,7/5). Deux écoles : la <b>France</b> fait consensus (packaging déjà adapté, langue, historique clients FR) ; mais Alexandre et Logan plaident pour <b>commencer par la Flandre / le Benelux</b>, jugés plus proches et plus rentables.</div>
 
   <h2>8 · Mission &amp; vision à 3 ans <span class="n">— dans leurs mots</span></h2>
   <div class="card">
     <div class="verb"><div class="who">Mission — vision partagée</div>« Faire découvrir des thés &amp; infusions de qualité au plus grand nombre — même à ceux qui n'aiment pas le thé traditionnel — avec conseil et expérience chaleureuse. »</div>
+    <div class="verb"><div class="who">Alexandre · CA — la piste « Tower »</div>« Offrir à tous, amateurs occasionnels ou assidus, un moment de plaisir et de détente, comme suspendu dans le ciel, seul ou à partager. » · Dans 3 ans : « un cocktail de thé froid qui fait fureur · un thé d'hiver à partager sur tous les marchés de Noël. »</div>
     <div class="verb"><div class="who">Dans 3 ans, connue pour…</div>« La référence belge des thés premium accessible » · « ses mélanges audacieux » · « son énorme gamme » · « son expertise &amp; son service ».</div>
     <div class="verb"><div class="who">Nicolas · CA — fierté</div>« Une entreprise partie de rien : 4 magasins, un e-commerce, 500+ clients B2B, 10 salariés. C'est le noyau de personnes qui me rend fier. »</div>
   </div>
 
   <footer>
-    Synthèse générée à partir des 8 réponses du sondage interne (hors tests). · Détail brut &amp; verbatims complets : dashboard sécurisé Teatower.<br>
-    Teatower SA — document interne CA · juin 2026
+    Synthèse générée à partir des 10 réponses du sondage interne (hors tests), dont 2 membres du CA — Nicolas Raes et Alexandre Gilis (réponse du 22/06). · Détail brut &amp; verbatims complets : dashboard sécurisé Teatower.<br>
+    Teatower SA — document interne CA · mise à jour juillet 2026
   </footer>
 
 </div>
