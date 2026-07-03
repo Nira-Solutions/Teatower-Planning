@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T13:59:52",
+  "updated": "2026-07-03T14:00:32",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3405,9 +3405,10 @@
       "id": "t071",
       "agent": "planning",
       "task": "MAJ fiche res.partner Intermarché Villers-le-Bouillet (#115879) — contact Jérémy + 3 tags terrain",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-07-03T13:59",
-      "request": "Intermarché Villers-le-Bouillet: contact Jérémy, Contrôle oui, Stock non, Appareil non — enregistrer dans res.partner pour le planning"
+      "request": "Intermarché Villers-le-Bouillet: contact Jérémy, Contrôle oui, Stock non, Appareil non — enregistrer dans res.partner pour le planning",
+      "finished": "2026-07-03T14:00"
     }
   ]
 }
