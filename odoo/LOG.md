@@ -453,3 +453,27 @@
 - 9 templates CRÉÉS (10535-10543), 4 RÉUTILISÉS (10523/10524/10525/10526) + supplierinfo product_code TB0 renseigné/MAJ (prix forcés 0.10).
 - PO P00568 (id 572) DRAFT, 13 lignes, 262.000 u, 26.200 € HT. NON confirmé.
 - AMBIGU: les 13 MP_1V0xxx existent en parallèle (matière première liée au V0 fini) — doublons à statuer avec Nicolas.
+
+## 2026-07-01 — Fix scan emplacement source Barcode (transferts magasins)
+- Demande: bug "ce produit n'existe pas" dès le 2e emplacement source scanné en Barcode sur transferts magasins.
+- Cause racine: picking types magasins à restrict_scan_source_location='no' (l'app ne reconnaît pas les scans d'emplacement). Flux référence TT/Pick #3 = 'mandatory' (marche).
+- Action: write restrict_scan_source_location='mandatory' sur stock.picking.type [44 WAT, 30 LIEGE, 56 NAM, 104 ROC, 23 GMS]. dest laissé à 'no'. #3 et flux SO/e-commerce non touchés.
+- Résultat: 5 picking types modifiés, 0 erreur. Vérif après = source mandatory / dest no partout, identique #3.
+
+## 2026-07-06 — Stop réappro auto vrac 05V0 (400-500g) sur 4 boutiques
+- Demande: Teatower arrête la vente des sachets vrac gros format (400-500g) en magasins → stopper les réappros auto pour Liège Bis, Rocourt, Namur, Waterloo.
+- Identification: préfixe `05V0%` = ligne gros format vrac (50 produits actifs, 400g/500g). V0 std = 50-100g, 1V0 = 1kg fabriqué (hors scope). TF = café (exclu).
+- Mapping magasins: LIEGE/Stock=4524 (Liège Bis, seul WH Liège), NAM/Stock=4540, WAT/Stock=4532, ROC/Stock=4712. TT/Stock=8 central NON touché.
+- État orderpoints 05V0: LIEGE 33, NAM 22, TT 44, WAT 0, ROC 0. WAT/ROC = aucun réappro auto à stopper.
+- Action: stock.warehouse.orderpoint.write trigger='auto'→'manual' sur 55 OP (33 LIEGE + 22 NAM). Aucun unlink, aucun autre champ touché.
+- Exception: 05V0852 Verveine Odorante (250g, OP 16219 LIEGE) hors définition 400-500g → REMIS en auto, à trancher par Nicolas.
+- Résultat: 54 orderpoints en manuel, 0 erreur. TT central + autres boutiques inchangés.
+
+## 2026-07-06 (suite) — Décisions Nicolas: buffer TT central + 05V0852 inclus
+- A) TT/Stock 05V0 (44 OP) : trigger gardé AUTO, seuils baissés à min 2 / max 6 par SKU (petit buffer online/B2B), sans jamais remonter un seuil existant.
+  - 24 OP modifiés (min/max abaissés). Ex: 05V0735 min51.2/max101.8→2/6 ; 05V0634 20.3/40.5→2/6 ; 05V0847 min2.6→2 / max4.9 laissé (déjà <6).
+  - 20 OP inchangés (déjà ≤2/6, dont 05V0852 TT op5108 = 1/3 laissé).
+- B) 05V0852 Verveine Odorante BIO (250g) inclus dans l'arrêt (confirmé Nicolas):
+  - Boutiques: OP 16219 LIEGE reverté auto→manual (aucun OP 05V0852 en NAM/WAT/ROC).
+  - TT: couvert par le buffer A (déjà 1/3, inchangé).
+- Bilan global: 55 OP boutiques en manual (54 + 05V0852 LIEGE), 24 OP TT min/max abaissés. Aucun unlink, seuls trigger + min/max modifiés. Autres magasins/produits/TT triggers intacts.
