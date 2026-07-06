@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T14:00:32",
+  "updated": "2026-07-06T15:59:24",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3409,6 +3409,14 @@
       "started": "2026-07-03T13:59",
       "request": "Intermarché Villers-le-Bouillet: contact Jérémy, Contrôle oui, Stock non, Appareil non — enregistrer dans res.partner pour le planning",
       "finished": "2026-07-03T14:00"
+    },
+    {
+      "id": "t072",
+      "agent": "data-bi",
+      "task": "Historique ventes Nov-Dec 2025 SKU Noel + forecast 2026",
+      "status": "in_progress",
+      "started": "2026-07-06T15:59",
+      "request": "Plan couverture stock Noel 2026: ventes N-1 par SKU Noel tous canaux + ruptures + forecast"
     }
   ]
 }
