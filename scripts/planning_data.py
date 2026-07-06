@@ -520,10 +520,14 @@ S28 = {
     "id": "s28", "nav": "S28 · 06/07-10/07 (à venir)", "active": True,
     "title": "Semaine du 6 au 10 juillet 2026 (S28)",
     "note": ("MARDI MATIN BLOQUÉ : livraison spéciale « prison — conditionnement Horeca » (toute la matinée, adresse à confirmer). "
+             "⚠️ MARDI PM RÉAMÉNAGÉ (imprévu Nicolas 06/07) : livraison des 3 boutiques TT (Rocourt → Liège rue Saint-Paul → Namur rue du Pont). "
+             "Seul stop merch conservé = Beau Rivage Dinant (104j, sur l'axe Namur). "
+             "Carrefour Market Marche + Carrefour Market Hotton RETIRÉS du mardi → reportés S29. "
+             "Tenue de l'après-midi conditionnée à la fin de la prison à 12:30 et à son adresse ; si ça déborde, Dinant saute aussi. "
              "Livraison merch : S05906 = Carrefour Hyper de Jambes (lun, hyper matin). "
              "Pharmacie Tilman Bomal RETIRÉE (visitée le 03/07). Mercredi = journée Liège pure, + Carrefour Hyper de Ans (hyper matin). "
              "CH Marche (mardi uniquement) NON planifiable (mardi matin pris par la prison) → reporté S29. "
-             "Hamoir placé jeudi (interdit mardi PM + mercredi). Beau Rivage Dinant placé mardi PM (préfère jeudi, mais jeudi = Liège). "
+             "Hamoir placé jeudi (interdit mardi PM + mercredi). "
              "Wépion écarté (accès merch non confirmé). Magasins S27 exclus (pas de revisite). Aucun jour férié BE cette semaine. "
              "Complété : jeudi + Intermarché Tilff (Tier A) ; vendredi + Intermarché Gerpinnes + Delhaize Genval. "
              "Nivelles écarté (déjà visité S26). Woluwé + Hannut déjà visités S27 → non replanifiés ; leurs tags terrain sont enregistrés pour la prochaine visite."),
@@ -555,26 +559,32 @@ S28 = {
              "n": "Intermarché Floriffoux (Floridis SA, #2958)", "ls": "20/04 (72j)", "lsc": "stale",
              "a": "Rue Emerée 4, 5150 Floriffoux", "c": "Loredana / Manon (ou Candy / Charlotte) — 081 44 05 39"},
          ]},
-        {"h": "Mardi 07/07", "sub": "MATIN bloqué (livraison prison) + 3 visites PM",
-         "zone": "Matin : livraison prison Horeca · PM : Dinant → Marche → Hotton", "km": "150", "ret": "16:30",
-         "addrs": ["Quai de Meuse 1, 5500 Dinant", "Avenue du Monument 1, 6900 Marche-en-Famenne",
-                   "Rue de la Jonction 16, 6990 Hotton"],
+        {"h": "Mardi 07/07", "sub": "MATIN livraison prison + PM : 3 boutiques TT + 1 visite",
+         "zone": "Matin : livraison prison Horeca · PM : Rocourt → Liège → Namur → Dinant", "km": "200", "ret": "16:40",
+         "addrs": ["Chaussée de Tongres 269, 4000 Rocourt", "Rue Saint-Paul 7, 4000 Liège",
+                   "Rue du Pont 3, 5000 Namur", "Quai de Meuse 1, 5500 Dinant"],
          "stops": [
             {"t": "08:30 - 12:30", "k": "livr", "b": ["Envoi spécial"],
              "n": "LIVRAISON PRISON — conditionnement Horeca", "ls": "envoi spécial", "lsc": "fresh",
              "a": "Établissement pénitentiaire — adresse à confirmer",
              "note": "ENVOI SPÉCIAL — bloque TOUTE la matinée. Livraison du conditionnement Horeca. Adresse + heure à confirmer avec Nicolas."},
-            {"t": "13:30 - 13:55", "k": "visite", "b": ["104j OVERDUE"],
+            {"t": "13:15 - 13:45", "k": "livr", "b": ["Boutique TT", "Demande Nicolas"],
+             "n": "Boutique Teatower Rocourt", "ls": "livraison boutique", "lsc": "fresh",
+             "a": "Chaussée de Tongres 269, 4000 Rocourt", "c": "équipe boutique",
+             "note": "LIVRAISON boutique TT — réassort stock (imprévu 07/07). 1ᵉ arrêt PM (axe Liège)."},
+            {"t": "13:55 - 14:25", "k": "livr", "b": ["Boutique TT", "Demande Nicolas"],
+             "n": "Boutique Teatower Liège", "ls": "livraison boutique", "lsc": "fresh",
+             "a": "Rue Saint-Paul 7, 4000 Liège", "c": "équipe boutique",
+             "note": "LIVRAISON boutique TT — réassort stock. Liège centre (~10 min depuis Rocourt)."},
+            {"t": "15:15 - 15:45", "k": "livr", "b": ["Boutique TT", "Demande Nicolas"],
+             "n": "Boutique Teatower Namur", "ls": "livraison boutique", "lsc": "fresh",
+             "a": "Rue du Pont 3, 5000 Namur", "c": "équipe boutique",
+             "note": "LIVRAISON boutique TT — réassort stock. ~50 min depuis Liège (E42)."},
+            {"t": "16:15 - 16:40", "k": "visite", "b": ["104j OVERDUE"],
              "n": "Proxy Delhaize Le Beau Rivage (Affilié 044780, #8779)", "ls": "17/02 (134j)", "lsc": "stale",
              "a": "Quai de Meuse 1, 5500 Dinant", "c": "Xavier Despeghel — +32 82 22 37 62",
-             "rg": "passage 30j min (Nicolas 24/06) — OK, dernier 17/02 · préfère jeudi, placé mardi PM (jeudi = Liège)"},
-            {"t": "14:40 - 15:05", "k": "visite", "b": ["49j OVERDUE"],
-             "n": "Carrefour Market Marche (Mardis, #3120)", "ls": "01/04 (91j)", "lsc": "stale",
-             "a": "Avenue du Monument 1, 6900 Marche-en-Famenne", "c": "Dimitri Jamotte — 084 31 30 76"},
-            {"t": "15:25 - 15:50", "k": "visite", "b": ["3j OVERDUE"],
-             "n": "Carrefour Market Hotton (HODICA SA, #2979)", "ls": "05/06 (32j)", "lsc": "mid",
-             "a": "Rue de la Jonction 16, 6990 Hotton", "c": "Gauthier Lempereur — 084 46 73 44",
-             "note": "Jamais planifié depuis S24 — rattrapage Famenne (cluster Marche)."},
+             "note": "SEUL stop merch conservé cet AM (imprévu boutiques). ~30 min depuis Namur, dans l'axe.",
+             "rg": "passage 30j min (Nicolas 24/06) — OK, dernier 17/02 · préfère jeudi, placé mardi PM"},
          ]},
         {"h": "Mercredi 08/07", "sub": "6 stops (3 hypers + 3 visites)",
          "zone": "Liège (Boncelles → Ans → Fleron → Bois-de-breux → St Lambert → Fragnée)", "km": "150", "ret": "14:35",
