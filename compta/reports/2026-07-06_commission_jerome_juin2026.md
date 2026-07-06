@@ -15,6 +15,8 @@ Méthode **Option C** (figée Nicolas 04/05/2026) : SO confirmées (`state ∈ s
 
 **Arbitrage Nicolas (06/07/2026) — exclusion Tea Touch.** La baseline juin 2025 brute était gonflée par une seule SO — `S01458 Tea Touch, 73.263,98 € HT` (53 % du mois) — client **en faillite novembre 2025**, vente jamais réglée, passée en perte sur créance. Comptée telle quelle, la croissance ressort à −32,6 % (palier <10 % → 0 €), ce qui pénaliserait Jérôme pour un CA fantôme. Décision : **retirer Tea Touch de la baseline** → croissance réelle **+44,88 %**.
 
+**Vérification symétrique (06/07/2026).** Contrôle des pics des deux mois pour s'assurer que la croissance n'est pas gonflée par un outlier côté 2026 : juin 2026 est parfaitement plat — la plus grosse SO (Torrefactory S05866, 2.450 €) ne pèse que **2,65 %** du mois, aucune commande one-shot / grossiste / institution exceptionnelle. Côté 2025, seul Tea Touch était atypique (53,4 %). La croissance +44,88 % est donc **organique** : 63.845 € / 154 SO → 92.390 € / 207 SO (+34 % de commandes). Chiffre confirmé par Nicolas.
+
 → Tranche **40 – 49,9 %** de la table officielle → **commission croissance = 2.200 €**
 
 ## Volet 2 — Displays GMS (100 €/installation) — liste Adri
