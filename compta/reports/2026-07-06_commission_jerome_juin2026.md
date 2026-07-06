@@ -44,8 +44,10 @@ Méthode **Option C** (figée Nicolas 04/05/2026) : SO confirmées (`state ∈ s
 |---|---|---:|
 | Cuisines DOVY – Marche-en-Famenne | Horeca | 65 € |
 | La Fleur et le Soleil | Horeca | 65 € |
-| Centrale Intermarché | Grossiste | **En attente** (à définir Adri — 130 € si 1ère cmde ≥ 240 € HT confirmée) |
-| **Sous-total certain — 2 Horeca** | | **130 €** |
+| Centrale Intermarché | Grossiste | **130 €** (1ère SO S05778 du 10/06/2026 = 673,58 € HT ≥ 240 €) |
+| **Sous-total — 2 Horeca + 1 grossiste** | | **260 €** |
+
+> Note tag Odoo : le partner #124363 « Centrale Intermarché » est tagué **GMS** dans Odoo, pas « Grossiste » (id 32). Classé grossiste par Adri (130 € = 2 × Horeca) → on adopte Adri (accès terrain). Mistag Odoo à corriger éventuellement.
 
 ## Récapitulatif total — Juin 2026
 
@@ -53,10 +55,9 @@ Méthode **Option C** (figée Nicolas 04/05/2026) : SO confirmées (`state ∈ s
 |---|---:|
 | 1. Croissance CA B2B (+44,88 %, Tea Touch exclu) | **2.200 €** |
 | 2. Displays GMS (15 × 100 €) | **1.500 €** |
-| 3. Nouveaux clients hors GMS (2 × 65 €) | **130 €** |
-| **TOTAL COMMISSION BRUTE — JUIN 2026** | **3.830 €** |
-| *+ Centrale Intermarché (grossiste, à définir)* | *+ 130 € potentiels* |
+| 3. Nouveaux clients hors GMS (2 × 65 € + 1 grossiste × 130 €) | **260 €** |
+| **TOTAL COMMISSION BRUTE — JUIN 2026** | **3.960 €** |
 
 ---
 
-*Volets 2 et 3 = liste Adri (règle : en cas de divergence Adri/Odoo, on adopte le chiffre Adri, accès terrain). Volet 1 calculé via Odoo XML-RPC méthode Option C, avec exclusion de la créance Tea Touch en faillite (arbitrage Nicolas 06/07/2026). Centrale Intermarché à trancher avec Adri avant envoi.*
+*Volets 2 et 3 = liste Adri (règle : en cas de divergence Adri/Odoo, on adopte le chiffre Adri, accès terrain). Volet 1 calculé via Odoo XML-RPC méthode Option C, avec exclusion de la créance Tea Touch en faillite (arbitrage Nicolas 06/07/2026). Centrale Intermarché confirmée éligible (1ère SO 673,58 € HT).*
