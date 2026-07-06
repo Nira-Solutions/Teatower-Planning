@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06T15:59:29",
+  "updated": "2026-07-06T16:11:04",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3414,9 +3414,10 @@
       "id": "t072",
       "agent": "data-bi",
       "task": "Historique ventes Nov-Dec 2025 SKU Noel + forecast 2026",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-07-06T15:59",
-      "request": "Plan couverture stock Noel 2026: ventes N-1 par SKU Noel tous canaux + ruptures + forecast"
+      "request": "Plan couverture stock Noel 2026: ventes N-1 par SKU Noel tous canaux + ruptures + forecast",
+      "finished": "2026-07-06T16:11"
     },
     {
       "id": "t073",
