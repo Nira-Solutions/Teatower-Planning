@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06T15:59:24",
+  "updated": "2026-07-06T15:59:27",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3417,6 +3417,14 @@
       "status": "in_progress",
       "started": "2026-07-06T15:59",
       "request": "Plan couverture stock Noel 2026: ventes N-1 par SKU Noel tous canaux + ruptures + forecast"
+    },
+    {
+      "id": "t073",
+      "agent": "stock-manager",
+      "task": "Stock actuel + PO en cours SKU Noel 2026",
+      "status": "in_progress",
+      "started": "2026-07-06T15:59",
+      "request": "Plan couverture stock Noel 2026: stock dispo + entrees prevues par SKU Noel, couvert vs manquant"
     }
   ]
 }
