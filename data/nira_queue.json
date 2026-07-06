@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06T15:59:27",
+  "updated": "2026-07-06T15:59:29",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3425,6 +3425,14 @@
       "status": "in_progress",
       "started": "2026-07-06T15:59",
       "request": "Plan couverture stock Noel 2026: stock dispo + entrees prevues par SKU Noel, couvert vs manquant"
+    },
+    {
+      "id": "t074",
+      "agent": "purchase",
+      "task": "Lead times Kirchner + statut PO Noel",
+      "status": "in_progress",
+      "started": "2026-07-06T15:59",
+      "request": "Plan couverture stock Noel 2026: delais fournisseurs reels + PO deja passes articles Noel"
     }
   ]
 }
