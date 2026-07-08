@@ -2072,3 +2072,19 @@ Les 7 envois Peppol confirmés `peppol_move_state=processing` avec UUID (pas d'�
 
 ### Scripts
 `compta/scripts/` (temp, non committé) — logique reprise de `scripts/facturation_b2b_peppol.py` mais SANS la correction auto EAS 9925→0208 (le Groupe B est listé, pas corrigé, sur demande explicite de cette tâche).
+
+## 2026-07-08 — Correction Peppol Sunpark (2 fiches, autorisation explicite Nicolas)
+
+### Périmètre
+Reconfiguration `peppol_eas` 9925 → 0208 (schéma KBO/BCE, numéro d'entreprise sans préfixe pays) sur les 2 entités de facturation Sunpark, à la demande explicite de Nicolas ("corrige"). Méthode reprise de `scripts/peppol_activate_recent.py` (write `peppol_eas`/`peppol_endpoint` puis `res.partner.button_account_peppol_check_partner_endpoint`).
+
+| Partner | Avant (eas / endpoint / state) | Après (eas / endpoint / state) | Résultat |
+|---|---|---|---|
+| #2851 CPSP Belgie NV (Sunparks Kempense Meren, Mol) — VAT BE0434692830 | 9925 / BE0434692830 / valid | 0208 / 0434692830 / **valid** | Facturable Peppol OK |
+| #3253 Sunparks Leisure N.V. (De Haan) — VAT BE0431404530 | 9925 / 0431404530 / **not_valid** | 0208 / 0431404530 / **valid** | Facturable Peppol OK — la fiche était `not_valid` avant car endpoint sans préfixe "BE" était incompatible avec le schéma 9925 (qui exige le préfixe pays) ; la bascule vers 0208 (numéro nu, sans préfixe) corrige le format et lève le blocage |
+
+`invoice_sending_method` déjà à `peppol` sur les deux, inchangé.
+
+Contrôle : contact enfant #5871 "Sunparks Kempense Meren" (parent #2851) vérifié **non modifié** : eas=9925, endpoint=BE0434692830, state=not_verified, invoice_sending_method=False — conforme, la facturation passe par le parent #2851.
+
+Aucune fiche restée `not_valid` après correction (les deux sont `valid`).
