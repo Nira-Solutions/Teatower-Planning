@@ -2028,3 +2028,47 @@ Critères : même montant exact (écart ≤ 0,01 EUR), même partenaire (direct 
 ### Fichiers générés
 - `compta/review/lettrages_review_2026-04-14.md` — détail des 27 cas en attente
 | 2026-04-14 | 367 | - |
+
+## 2026-07-08 — Facturation PRO delivered-only + envoi Peppol (7 factures postées + envoyées)
+
+### Périmètre
+Scan des SO en `invoice_status='to invoice'`, `state in (sale,done)`, hors team "Odoo x Shopify" (B2C, id=4). 29 SO total, 27 PRO retenues, 2 B2C exclues.
+
+### Classification
+- Groupe A (Peppol `valid` + EAS `0208`) : 11 SO éligibles.
+- Groupe B (bloquées, non touchées) : 7 SO — 4 avec `peppol_verification_state=valid` mais `eas=9925` (bloqué par règle dure), 2 `not_verified`/EAS 9925, 1 `not_verified` sans VAT.
+- 9 SO sans quantité réellement livrée (ni A ni B, exclues de tout traitement).
+
+### Actions Groupe A (11 SO)
+- 3 lignes TRANSPORT forcées `qty_delivered = qty_ordered` (S05956, S05944, S05938 — qty_delivered=0 car non scannées en prépa).
+- Wizard `sale.advance.payment.inv` mode `delivered` (jamais `all`) lancé sur chaque SO.
+- 1 SO (S04347) avait déjà une facture postée+envoyée Peppol préexistante (INV/2026/02795, peppol_move_state=done) — non retouchée.
+- 10 nouvelles factures créées en draft, dont 3 à 0,00 EUR (Terracotta Beauty SRL, Too Good To Go Belgium, Cellmade/Prison De Marche) laissées en DRAFT sans post ni envoi (arbitrage manuel, pas d'intérêt à envoyer un Peppol à 0€).
+- 7 factures postées, montant total **4 659,42 EUR** :
+
+| Facture | SO | Client | Montant | Peppol |
+|---|---|---|---|---|
+| INV/2026/03419 | S05960 | Carrefour Belgium, Hypermarché Carr… | 2 100,02 | envoyée (done processing) |
+| INV/2026/03420 | S05956 | Centrale Intermarché | 123,10 | envoyée |
+| INV/2026/03421 | S05953 | Carrefour Belgium, Hypermarché carr… | 873,68 | envoyée |
+| INV/2026/03422 | S05944 | Spar Clavier | 90,40 | envoyée |
+| INV/2026/03423 | S05938 | D-trois SRL - Proxy Delhaize Saint-… | 256,31 | envoyée |
+| INV/2026/03424 | S05936 | BARCHONEW SRL - Delhaize Barchon | 399,00 | envoyée |
+| INV/2026/03425 | S05934 | Spar Erezée | 816,91 | envoyée |
+
+Les 7 envois Peppol confirmés `peppol_move_state=processing` avec UUID (pas d'échec).
+
+### Groupe B — en attente (non facturées, non touchées)
+
+| SO | Client | Raison |
+|---|---|---|
+| S05954 | (ID=5623) | not_verified, eas=9925 |
+| S05951 | Srl D'Ici Wépion | valid MAIS eas=9925 (bloqué) |
+| S05950 | Anaïs Michoel - les p'tits pots | valid MAIS eas=9925 (bloqué) |
+| S05942 | Jonathan BEHIN | not_verified, pas de VAT |
+| S05877 | Comptabilité (ID=5459) | valid MAIS eas=9925 (bloqué) |
+| S05930 | Paulette Srl | not_verified, eas=0208 |
+| S05917 | Pharmacie Badot | valid MAIS eas=9925 (bloqué) |
+
+### Scripts
+`compta/scripts/` (temp, non committé) — logique reprise de `scripts/facturation_b2b_peppol.py` mais SANS la correction auto EAS 9925→0208 (le Groupe B est listé, pas corrigé, sur demande explicite de cette tâche).
