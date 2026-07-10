@@ -7,8 +7,8 @@ st/re/rg=CONTROLE STOCK/METHODE REASSORT/REGLE MAGASIN (tags Odoo, vides => masq
 S29 = {
     "id": "s29", "nav": "S29 · 13-17/07 (à venir)", "active": True,
     "title": "Semaine du 13 au 17 juillet 2026 (S29)",
-    "note": ("Implantations (1ᵉˢ stops, matériel chargé) : Spar Vaux-sur-Sûre (lun — nouveau client, SO 720€) · "
-             "Hyper Carrefour Herstal (jeu — nouveau client, hyper matin). "
+    "note": ("Implantation (1ᵉ stop, matériel chargé) : Spar Vaux-sur-Sûre (lun — nouveau client, SO 720€). "
+             "Herstal implanté par le commercial (Jérôme) → retiré du planning merch. "
              "Hyper Marche placé mardi (passage uniquement le mardi, matin). Fosses-la-Ville mercredi (Leslie présente) ; "
              "Ferrières jeudi (pas le mercredi) ; LLN vendredi (Mr Snaps absent le jeudi). "
              "Magasins S27+S28 exclus (pas de revisite). Aucun jour férié BE cette semaine (21/07 = semaine suivante). "
@@ -97,28 +97,27 @@ S29 = {
              "n": "Delhaize Beauraing (SA Beausov New, #116008)", "ls": "08/06 (32j)", "lsc": "mid",
              "a": "150 rue de Rochefort, 5570 Beauraing", "c": "Mme Sovet / demander Gregory — +32 82 71 36 97"},
          ]},
-        {"h": "Jeudi 16/07", "sub": "5 stops (1 implantation + 4 visites)",
-         "zone": "Liège (Herstal → Grâce-Hollogne → Embourg → Aywaille → Ferrières)", "km": "200", "ret": "13:45",
-         "addrs": ["Rue Basse Campagne 1, 4040 Herstal", "Rue de Wallonie 2A, 4460 Grâce-Hollogne",
+        {"h": "Jeudi 16/07", "sub": "5 stops (5 visites)",
+         "zone": "Liège (Grâce-Hollogne → Angleur → Embourg → Aywaille → Ferrières)", "km": "190", "ret": "13:30",
+         "addrs": ["Rue de Wallonie 2A, 4460 Grâce-Hollogne", "Quai des Vennes 1, 4020 Liège",
                    "Voie de l'Ardenne 57, 4053 Embourg", "Avenue de la Porallée 36A, 4920 Aywaille",
                    "Rue du Pré du Fa 6A, 4190 Ferrières"],
          "stops": [
-            {"t": "09:20 - 09:45", "k": "impl", "b": ["Nouveau client", "Hyper"],
-             "so": "S05946", "n": "Hyper Carrefour Herstal (#125096)", "ls": "implantation", "lsc": "fresh",
-             "a": "Rue Basse Campagne 1, 4040 Herstal", "c": "Luc Lemoine ou Catherine Dussart — +32 4 240 56 11",
-             "note": "IMPLANTATION — 1ᵉ stop + HYPER matin. Nouveau client (SO 08/07). Rayon local : toutes les réfs infusettes ×12 + 6 glacés ×12. Montage + facings + photos avant/après."},
-            {"t": "10:05 - 10:30", "k": "visite", "b": ["Tier B"],
+            {"t": "09:20 - 09:45", "k": "visite", "b": ["Tier B"],
              "n": "Carrefour Market Grâce-Hollogne (#113627)", "ls": "18/06 (22j)", "lsc": "mid",
              "a": "Rue de Wallonie 2A, 4460 Grâce-Hollogne", "c": "accueil — +32 4 384 34 41",
              "st": "Pas de réserve — rien à contrôler avant remplissage", "re": "Manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "Pas de contrôle marchandise à l'entrée"},
-            {"t": "10:55 - 11:20", "k": "visite", "b": ["Tier A"],
+            {"t": "10:00 - 10:25", "k": "visite", "b": ["1j OVERDUE"],
+             "n": "Carrefour Market Angleur Belle-Île (#121196)", "ls": "27/05 (44j)", "lsc": "stale",
+             "a": "Quai des Vennes 1, 4020 Liège", "c": "Jérôme Marchand ou Mme Julie — +32 4 344 82 11"},
+            {"t": "10:45 - 11:10", "k": "visite", "b": ["Tier A"],
              "n": "Delhaize Embourg (DelEmbourg SRL, #2909)", "ls": "24/06 (16j)", "lsc": "fresh",
              "a": "Voie de l'Ardenne 57, 4053 Embourg", "c": "Kevin Demarteau — 0468 37 62 65"},
-            {"t": "11:45 - 12:10", "k": "visite", "b": ["Tier A"],
+            {"t": "11:30 - 11:55", "k": "visite", "b": ["Tier A"],
              "n": "Carrefour Market Remouchamps (#5878)", "ls": "24/06 (16j)", "lsc": "fresh",
              "a": "Avenue de la Porallée 36A, 4920 Aywaille", "c": "accueil — +32 43 84 05 50 (mob 0495 57 27 96)"},
-            {"t": "12:40 - 13:05", "k": "visite", "b": ["4j OVERDUE"],
+            {"t": "12:25 - 12:50", "k": "visite", "b": ["4j OVERDUE"],
              "n": "Proxy Delhaize Ferrières (Affilié 043151, #119818)", "ls": "08/06 (32j)", "lsc": "mid",
              "a": "Rue du Pré du Fa 6A, 4190 Ferrières", "c": "Bernard Counasse / gérante Martine Georis — +32 86 40 02 27",
              "rg": "pas le mercredi (responsable absent) → jeudi ✓"},
