@@ -1,5 +1,50 @@
 # LOG Compta Teatower
 
+## 2026-07-10 — Lettrage banque ING — paiements clients (9 lignes reconciliees / 3.189,26 EUR, 2 a revoir, 9 hors-scope)
+
+### Perimetre
+20 lignes ING non rapprochees (journal BNK1, id=14) au 10/07/26 : 11 credits (encaissements a analyser) + 9 debits (cartes/frais fournisseurs, hors-scope client d'office).
+
+### Bug corrige (important pour scripts futurs)
+Le narratif des scripts precedents ("Odoo 18 verrouille l'ecriture sur les BSL via XML-RPC") etait **faux**. La vraie cause : `account.move.line.write()` etait appele avec le dict de valeurs en kwargs XML-RPC (`call(model, 'write', [[id]], {vals})`) au lieu d'un argument positionnel dans `args` (`call(model, 'write', [[id], {vals}])`). Odoo interprete kwargs comme des arguments nommes de la methode Python `write(self, vals)`, qui n'accepte pas `account_id=...` en kwarg -> `TypeError: write() got an unexpected keyword argument`. Corrige et confirme fonctionnel sur les 9 lignes ci-dessous. A reporter dans tout script de lettrage futur.
+
+### Methode technique (inchangee sur le fond)
+Pour chaque credit identifie comme paiement client : (1) repointage de la ligne suspense 499000 du move BSL -> compte 400000 Customers + partenaire ; (2) reconciliation groupee (`account.move.line.reconcile()`) avec la ou les ligne(s) facture/avoir ouvertes ; (3) si ecart residuel <= 1,00 EUR (tolerance fixee par Nicolas), creation d'un OD (journal MISC id=11) 657100 Negative Payment Differences (charge, si le client a sous-paye) ou 757100 Positive Payment Differences (produit, si sur-paye), reconcilie avec le residu pour ramener la facture a `paid`.
+
+### Lignes lettrees (9) — total encaisse 3.189,26 EUR
+
+| BSL id | Date | Montant recu | Client (payeur) | Facture(s)/Avoir(s) | Net du/attendu | Ecart | Write-off | OD move | Resultat |
+|---|---|---|---|---|---|---|---|---|---|
+| 19620 | 08/07 | 20,00 | Maison de Repos Libert (paye par CPAS Marche-Famenne pour un resident) | INV/2026/02978 | 20,00 | 0,00 | — | — | paid |
+| 19622 | 08/07 | 1.058,33 | Ramaut / Ramhoreca SA (communication = n° facture explicite) | INV/2026/03309 | 1.058,33 | 0,00 | — | — | paid |
+| 19635 | 08/07 | 266,00 | Cafermi | INV/2026/03405 | 266,00 | 0,00 | — | — | paid |
+| 19478 | 01/07 | 455,71 | N.B.S. RETAIL - Delhaize de Marche (+ Nicolas Bergé, meme commercial_partner_id 8159) | INV/2026/02907 (540,42) − RINV/25-26/0358 (84,71) | 455,71 | 0,00 | — | — | paid / paid |
+| 19487 | 02/07 | 351,42 | Cotes Aromes - Francois CHLEIDE | INV/2026/02740 | 351,40 | +0,02 | 757100 | MISC/26-27/07/0117 | paid |
+| 19549 | 06/07 | 239,39 | Helene BERTRAND | INV/2026/02868 | 239,40 | -0,01 | 657100 | MISC/26-27/07/0118 | paid |
+| 19609 | 07/07 | 279,29 | Louis Delhaize - Haversin (paye au nom "CYANAR", meme commercial_partner_id 123844) | INV/2026/03231 | 279,30 | -0,01 | 657100 | MISC/26-27/07/0119 | paid |
+| 19476 | 01/07 | 381,32 | Carrefour Belgium SARUB (centrale, communication = 4 refs explicites) | INV/2026/02753 (231,05) + INV/2026/02865 (276,17) − RINV/25-26/0254 (62,77) − RINV/25-26/0257 (62,76) | 381,69 | -0,37 | 657100 | MISC/26-27/07/0120 | paid (4 documents) |
+| 19550 | 06/07 | 137,80 | La guinguette du Merry | INV/2026/02882 | 137,80 | 0,00 | — | — | paid |
+
+**Total write-off : 0,41 EUR bruts (3× 657100 charge = 0,39 EUR / 1× 757100 produit = 0,02 EUR) — impact net P&L = -0,37 EUR**, negligeable, ecart maximal individuel 0,37 EUR (< tolerance 1,00 EUR fixee par Nicolas pour ce lot).
+
+### Lignes NON lettrees — a revoir (2)
+
+| BSL id | Date | Montant | Libelle | Motif |
+|---|---|---|---|---|
+| 19466 | 01/07 | 675,58 | NANRETAIL SA - Intermarche Naninne — communication ***000/0038/68983*** | La communication structuree pointe vers INV/2026/02700 (716,11 EUR) **deja soldee** (payment_state=paid, residual=0,00) depuis le 26/05. Aucune facture ouverte NANRETAIL ne correspond a 675,58 EUR. Possible doublon de paiement ou communication erronee cote client — a clarifier manuellement avant tout lettrage (aucun match automatique fiable). |
+| 19630 | 08/07 | 79,51 | Baloise Belgium S.A — communication "ADAPTATION SALAIRE A/26.00112 DATE ACCID 070126 070726" | **Pas une facture client** — remboursement d'assurance lie a un ajustement de salaire pour accident de travail (meme famille que la regle deja validee "remboursements paie = 455000 NEUTRE, jamais 620"). Hors perimetre "paiement client / facture ouverte" de cette tache — non traite, a router en OD 455000 si Nicolas valide explicitement (Baloise est fournisseur d'assurance dans Odoo, pas client, factures ouvertes RESA159 443,60 EUR et RESA439 1.339,85 EUR sans lien direct avec ce montant). |
+
+### Lignes NON lettrees — hors-scope (9 debits, non touchees)
+Frais bancaires (ING carte -2,25 / abonnement), domiciliations fournisseurs (SD Worx x2 -110,63/-59,90, Google Cloud -384,12, Kirchner Fischer -12.837,54), cartes (Google Ads -437,07, Adobe -36,29, Intuit -722,47), avance dirigeant (Vansimpsen Audrey -500,00). Aucune n'est un encaissement client — hors perimetre de la demande, non touchees.
+
+### Resultat
+- BSL ING non rapprochees avant : 20 (11 credits + 9 debits)
+- BSL ING non rapprochees apres : 11 (9 debits hors-scope + 2 a revoir : NANRETAIL 675,58 EUR + Baloise 79,51 EUR)
+- Lettrees : 9/11 credits identifies (82%), total **3.189,26 EUR**, 11 documents clients soldes (7 factures + 3 avoirs nettes dans 2 cas multi-documents + 1 facture nette d'avoir)
+- Ecart total absorbe en 657100/757100 : 0,41 EUR bruts / -0,37 EUR net P&L (4 lignes, chacune <= 0,37 EUR, sous tolerance 1,00 EUR)
+
+---
+
 ## 2026-07-02 — Lettrage banque ING — paiements clients (8 lignes reconciliees, 7 hors-scope)
 
 ### Perimetre
