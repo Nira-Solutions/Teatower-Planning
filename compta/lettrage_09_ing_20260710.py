@@ -27,10 +27,14 @@ par +1/-1 selon move_type, sous peine de double-inverser le signe des avoirs).
 import xmlrpc.client
 import sys
 
+import os
+
 URL  = "https://tea-tree.odoo.com"
 DB   = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD  = "Teatower123"
+PWD  = os.environ.get("ODOO_PWD")  # repo public -- jamais de mot de passe en clair, cf reference_credentials_materiel_tt
+if not PWD:
+    raise SystemExit("Definir la variable d'environnement ODOO_PWD avant d'executer ce script (creds dans Materiel TT.xlsx).")
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid    = common.authenticate(DB, USER, PWD, {})
