@@ -5,7 +5,7 @@ lsc=classe(fresh/mid/stale/never), a=adresse, c=contact, note=note opérationnel
 st/re/rg=CONTROLE STOCK/METHODE REASSORT/REGLE MAGASIN (tags Odoo, vides => masqués)."""
 
 S29 = {
-    "id": "s29", "nav": "S29 · 13-17/07 (à venir)", "active": True,
+    "id": "s29", "nav": "S29 · 13-17/07 (en cours)", "active": False,
     "title": "Semaine du 13 au 17 juillet 2026 (S29)",
     "note": ("Implantation (1ᵉ stop, matériel chargé) : Spar Vaux-sur-Sûre (lun — nouveau client, SO 720€). "
              "Hyper Carrefour Herstal REMIS jeudi (1ᵉ stop, Hyper = matin) — livraison commande S05976 (239€, 3 réfs thés glacés) à apporter sur place. "
@@ -822,4 +822,120 @@ S28 = {
     ],
 }
 
-WEEKS = [S29, S28]
+S30 = {
+    "id": "s30", "nav": "S30 · 20-24/07 (à venir)", "active": True,
+    "title": "Semaine du 20 au 24 juillet 2026 (S30)",
+    "note": ("🚫 MARDI 21/07 = Fête nationale BE (férié) — aucune visite. "
+             "Demandes Nicolas intégrées : implantation Carrefour Market Vielsalm (lun, 1ᵉ stop) · "
+             "retrait produits Horeca à la prison de Marche (lun après-midi, ½ journée — pas le mercredi) · "
+             "livraison des commandes à Hyper Carrefour Marche (lun matin) · Intermarché Mons + livraison du display (mer) · "
+             "AD Delhaize Jodoigne (ven — Mr David, veut le suivi merch). "
+             "Est/Liège quasi indisponible : Fleron/Lontzen/Fragnée/Ans/Gerpinnes/Ottignies/Genval/Spy/Le Beau Rivage déjà faits en S28 (<21j) — exclus. "
+             "Magasins S29 (13-17/07) exclus. "
+             "⚠️ Hyper Marche : la fiche dit « passage uniquement le mardi » mais mardi = férié → livraison calée lundi matin, appeler avant. "
+             "Reporté (contrainte insoluble cette semaine) : AD Bouffioulx (lun PM/mar matin only → PM pris par prison, mardi férié) + Delhaize Welkenraedt (pas le mercredi, sans jour Liège-est dispo)."),
+    "days": [
+        {"h": "Lundi 20/07", "sub": "5 stops (1 implantation + 1 livraison + 2 visites + retrait Horeca ½ journée)",
+         "zone": "Ardenne / Famenne (Vielsalm → Marche → Hotton → retrait prison Marche)", "km": "230", "ret": "16:20",
+         "addrs": ["Les Grands Champs 38, 6690 Vielsalm", "Chaussée de Liège 41, 6900 Marche-en-Famenne",
+                   "Avenue du Monument 1, 6900 Marche-en-Famenne", "Rue de la Jonction 16, 6990 Hotton",
+                   "Chaussée de Liège 178, 6900 Marche-en-Famenne"],
+         "stops": [
+            {"t": "09:35 - 10:15", "k": "impl", "b": ["Nouveau client", "Demande Nicolas"],
+             "so": "S05982", "n": "Carrefour Market Vielsalm (#125275)", "ls": "S05982 13/07 (357€)", "lsc": "fresh",
+             "a": "Les Grands Champs 38, 6690 Vielsalm", "c": "Contact merchandising : Audrey Bodson — +32 80 21 57 71",
+             "note": "IMPLANTATION — 1ᵉ stop (matériel chargé). Nouveau client (SO S05982 13/07, 357€). Montage display + facings + étiquetage SKU + photos avant/après."},
+            {"t": "11:05 - 11:35", "k": "livr", "b": ["Hyper", "Demande Nicolas"],
+             "so": "S06007", "n": "Carrefour Hyper Marche-en-Famenne (#6999)", "ls": "S06007 14/07 (827€)", "lsc": "fresh",
+             "a": "Chaussée de Liège 41, 6900 Marche-en-Famenne", "c": "accueil épicerie — +32 84 32 07 11",
+             "note": "LIVRAISON des commandes (SO S06007, 827€). ⚠️ Fiche = « passage uniquement le mardi », mais mardi 21/07 férié → APPELER avant de passer lundi matin. Hyper = matin.",
+             "rg": "passage normalement le mardi — dérogation lundi (férié), appel préalable"},
+            {"t": "11:45 - 12:10", "k": "visite", "b": ["62j OVERDUE"],
+             "n": "Carrefour Market Marche (Mardis, #3120)", "ls": "01/04 (110j)", "lsc": "stale",
+             "a": "Avenue du Monument 1, 6900 Marche-en-Famenne", "c": "Dimitri Jamotte — 084 31 30 76"},
+            {"t": "12:25 - 12:50", "k": "visite", "b": ["11j OVERDUE"],
+             "n": "Carrefour Market Hotton (HODICA SA, #2979)", "ls": "05/06 (45j)", "lsc": "mid",
+             "a": "Rue de la Jonction 16, 6990 Hotton", "c": "Gauthier Lempereur — 084 46 73 44"},
+            {"t": "13:35 - 16:05", "k": "livr", "b": ["Retrait Horeca", "½ journée", "Demande Nicolas"],
+             "n": "Retrait Horeca — Cellmade / Prison de Marche (#6395)", "ls": "retrait conditionnement Horeca", "lsc": "fresh",
+             "a": "Chaussée de Liège 178, 6900 Marche-en-Famenne", "c": "accueil Cellmade (contact à confirmer avec Nicolas)",
+             "note": "RETRAIT des produits Horeca — bloc ½ journée (après-midi). PAS le mercredi ✓ (lundi). Charger la camionnette. Confirmer heure/quai avec Nicolas."},
+         ]},
+        {"h": "Mardi 21/07", "sub": "🚫 JOUR FÉRIÉ — Fête nationale (aucune visite)", "zone": "Férié",
+         "km": "0", "ret": "—", "addrs": [], "stops": []},
+        {"h": "Mercredi 22/07", "sub": "4 stops (1 implantation + 1 livraison display + 2 visites)",
+         "zone": "Charleroi → Mons → Brabant wallon (Warmonceau → Mons → Nivelles)", "km": "250", "ret": "14:45",
+         "addrs": ["Grand’Rue 294, 6000 Charleroi", "Place des Grands Prés 1, 7000 Mons",
+                   "Chemin de la Procession 399, 7000 Mons", "Rue Tienne-à-Deux-Vallées 6/8, 1400 Nivelles"],
+         "stops": [
+            {"t": "09:40 - 10:20", "k": "impl", "b": ["Demande Nicolas"],
+             "so": "S05955", "n": "Delhaize Warmonceau (#125070)", "ls": "S05955 07/07 (319€)", "lsc": "fresh",
+             "a": "Grand’Rue 294, 6000 Charleroi", "c": "accueil / responsable — +32 71 71 12 62",
+             "note": "IMPLANTATION (reportée de S29) — 1ᵉ stop (matériel chargé). Montage display + facings + étiquetage SKU + photos avant/après."},
+            {"t": "10:50 - 11:20", "k": "visite", "b": ["Hyper", "13j OVERDUE"],
+             "n": "Hyper Carrefour Mons Grands Prés (#113613)", "ls": "03/06 (49j)", "lsc": "mid",
+             "a": "Place des Grands Prés 1, 7000 Mons", "c": "Demander M. Christophe Solheid — +32 65 32 36 11",
+             "note": "HYPER → matin. Plus en display : produits en TG dans le fond du magasin."},
+            {"t": "11:35 - 12:15", "k": "impl", "b": ["Livraison display", "Demande Nicolas"],
+             "so": "S05980", "n": "Intermarché Mons (#123966)", "ls": "S05980 13/07 (60€)", "lsc": "fresh",
+             "a": "Chemin de la Procession 399, 7000 Mons", "c": "accueil — +32 65 39 48 11 (mob +32 476 94 08 72)",
+             "note": "LIVRAISON + MONTAGE du display — apporter et installer sur place. Facings + étiquetage SKU + photos avant/après. (Suivi Vanessa en télévente sinon.)"},
+            {"t": "13:10 - 13:35", "k": "visite", "b": ["12j OVERDUE"],
+             "n": "Intermarché Nivelles (NIVALIM, #3153)", "ls": "04/06 (50j)", "lsc": "mid",
+             "a": "Rue Tienne-à-Deux-Vallées 6/8, 1400 Nivelles", "c": "Mr Gauthier / Mme Carmen — 067 21 74 94",
+             "rg": "toujours faire contrôler par un responsable AVANT de remplir"},
+         ]},
+        {"h": "Jeudi 23/07", "sub": "5 stops (1 hyper + 4 visites)",
+         "zone": "Namur / Condroz (Wépion → Jambes → Ciney → Beauraing)", "km": "160", "ret": "13:35",
+         "addrs": ["Chaussée de Dinant 1147, 5100 Wepion", "Rue de la Poudrière 14, 5100 Jambes",
+                   "Avenue Jean Materne 109, 5100 Jambes", "Chemin de Crahiat 18 A, 5590 Ciney",
+                   "Rue de Rochefort 37, 5570 Beauraing"],
+         "stops": [
+            {"t": "09:05 - 09:30", "k": "visite", "b": ["Hyper", "14j OVERDUE"],
+             "n": "Carrefour Hyper Wépion (#6597)", "ls": "02/06 (51j)", "lsc": "mid",
+             "a": "Chaussée de Dinant 1147, 5100 Wepion", "c": "accueil épicerie — +32 81 46 xx (à confirmer)",
+             "note": "HYPER → matin. ⚠️ Acceptation merch à confirmer (note interne) — vérifier à l'accueil avant remplissage."},
+            {"t": "09:55 - 10:20", "k": "visite", "b": ["34j OVERDUE"],
+             "n": "Intermarché Jambes (JAMBIS SA, #3000)", "ls": "13/05 (71j)", "lsc": "stale",
+             "a": "Rue de la Poudrière 14, 5100 Jambes", "c": "Faustine — 081 30 68 78"},
+            {"t": "10:30 - 10:55", "k": "visite", "b": ["92j OVERDUE"],
+             "n": "AD Jambes Materne (Affilié 044470, #5916)", "ls": "02/03 (143j)", "lsc": "stale",
+             "a": "Avenue Jean Materne 109, 5100 Jambes", "c": "accueil / responsable — 081 30 16 88"},
+            {"t": "11:40 - 12:05", "k": "visite", "b": ["64j OVERDUE"],
+             "n": "AD Ciney (Éts Schnongs, #7679)", "ls": "13/04 (101j)", "lsc": "stale",
+             "a": "Chemin de Crahiat 18 A, 5590 Ciney", "c": "accueil / responsable"},
+            {"t": "12:30 - 12:55", "k": "visite", "b": ["Tier A", "39j OVERDUE"],
+             "n": "Carrefour Market Beauraing (DEMARS SA, #2905)", "ls": "13/05 (71j)", "lsc": "stale",
+             "a": "Rue de Rochefort 37, 5570 Beauraing", "c": "Christelle ou Alison (resp. rayon) — 082 71 02 30"},
+         ]},
+        {"h": "Vendredi 24/07", "sub": "6 stops (6 visites)",
+         "zone": "Brabant wallon → Bruxelles → Hesbaye (Waterloo → Lasne → Bxl → Jodoigne → Incourt)", "km": "300", "ret": "15:00",
+         "addrs": ["Drève de Richelle 10, 1410 Waterloo", "Route de l'Etat 217, 1380 Lasne",
+                   "Rue des Champs 39, 1040 Bruxelles", "Chaussée de la Hulpe 255, 1170 Watermael-Boitsfort",
+                   "Chaussée de Wavre 90 c, 1370 Jodoigne", "Chaussée de Namur 89, 1315 Incourt"],
+         "stops": [
+            {"t": "09:35 - 10:00", "k": "visite", "b": ["7j OVERDUE"],
+             "n": "Carrefour Market Waterloo (#6821)", "ls": "09/06 (45j)", "lsc": "mid",
+             "a": "Drève de Richelle 10, 1410 Waterloo", "c": "Eric Darte — +32 2 352 02 11",
+             "rg": "visite de 6h à 12h uniquement (matin obligatoire) — 1ᵉ stop"},
+            {"t": "10:15 - 10:40", "k": "visite", "b": ["25j OVERDUE"],
+             "n": "Proxy Delhaize Maransart (Affilié 045190, #113217)", "ls": "22/05 (63j)", "lsc": "stale",
+             "a": "Route de l'Etat 217, 1380 Lasne", "c": "Marion Delannoy — +32 2 633 13 25"},
+            {"t": "11:10 - 11:35", "k": "visite", "b": ["25j OVERDUE"],
+             "n": "Carrefour Market La Chasse (Rosy Dis, #59558)", "ls": "22/05 (63j)", "lsc": "stale",
+             "a": "Rue des Champs 39, 1040 Bruxelles", "c": "Christopher / Xavier — +32 2 647 44 73"},
+            {"t": "11:50 - 12:15", "k": "visite", "b": ["21j OVERDUE"],
+             "n": "Proxy Delhaize Bosvoorde (BROOMCORNER, #5830)", "ls": "12/05 (73j)", "lsc": "stale",
+             "a": "Chaussée de la Hulpe 255, 1170 Watermael-Boitsfort", "c": "accueil / responsable — 02 672 33 99 (mob 0472 50 05 21)"},
+            {"t": "13:00 - 13:25", "k": "visite", "b": ["Demande Nicolas"],
+             "so": "S05991", "n": "AD Delhaize Jodoigne (Sadel Trade, #121054)", "ls": "S05991 14/07 (463€)", "lsc": "fresh",
+             "a": "Chaussée de Wavre 90 c, 1370 Jodoigne", "c": "Mr David — +32 10 84 03 19",
+             "note": "Passage demandé (Mr David veut le suivi merch). Vu récemment (10/07) mais maintenu à la demande de Nicolas."},
+            {"t": "13:40 - 14:05", "k": "visite", "b": ["Tier B"],
+             "n": "Delhaize Incourt (Distri-Incourt, #2924)", "ls": "29/06 (25j)", "lsc": "fresh",
+             "a": "Chaussée de Namur 89, 1315 Incourt", "c": "Jérôme Debus — 010 88 72 90"},
+         ]},
+    ],
+}
+
+WEEKS = [S30, S29]
