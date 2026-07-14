@@ -13,11 +13,14 @@ Facturation B2B Peppol - Teatower
   seul (sans passer par le wizard) NE DECLENCHE PAS l'envoi reel — l'invoice reste en
   peppol_move_state='ready' au lieu de passer a 'processing'. Toujours utiliser le wizard.
 """
-import re, sys, xmlrpc.client
+import os, re, sys, xmlrpc.client
 from datetime import date
 
 URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'
-USER='nicolas.raes@teatower.com'; PWD='Teatower123'
+USER='nicolas.raes@teatower.com'
+PWD=os.environ.get('ODOO_PWD')  # repo public -- jamais de mot de passe en clair, cf reference_credentials_materiel_tt
+if not PWD:
+    raise SystemExit("Definir la variable d'environnement ODOO_PWD avant d'executer ce script (creds dans Materiel TT.xlsx).")
 common=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common')
 uid=common.authenticate(DB,USER,PWD,{})
 m=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/object')
@@ -62,31 +65,39 @@ for s in sos_excluded_b2c:
 # =========================================================
 # ETAPE 2 : Lire état Peppol des partenaires (principal + facturation reel)
 # =========================================================
-PFIELDS = ['id','name','vat','peppol_eas','peppol_endpoint','peppol_verification_state','invoice_sending_method','is_company','company_type']
+PFIELDS = ['id','name','vat','country_id','peppol_eas','peppol_endpoint','peppol_verification_state','invoice_sending_method','is_company','company_type']
 inv_pids = set(s['partner_invoice_id'][0] for s in sos if s.get('partner_invoice_id'))
 all_pids = sorted(set(pid_to_sos.keys()) | inv_pids)
 partners = call('res.partner','read',[all_pids],{'fields':PFIELDS})
 p_map = {p['id']:p for p in partners}
 
 # =========================================================
-# ETAPE 3 : Corriger EAS 9925 -> 0208
+# ETAPE 3 : Corriger EAS != 0208 (ex 9925) ET re-verifier les BE
+#           deja en 0208 mais pas encore valides (endpoint manquant
+#           ou verification jamais (re)declenchee)
 # =========================================================
-print("\n=== ETAPE 3 : CORRECTION EAS 9925 -> 0208 ===")
+print("\n=== ETAPE 3 : CORRECTION/VERIFICATION PEPPOL BE (cible eas=0208 + state=valid) ===")
 corrections = []  # {id, name, old_state, new_state}
 
 for p in partners:
     eas = p.get('peppol_eas')
     vat = p.get('vat')
     st  = p.get('peppol_verification_state')
-    if eas != '9925':
+    country = p.get('country_id')
+    pname = p.get('name') or f"(sans nom, ID={p['id']})"
+    is_be = (country and country[1] == 'Belgium') or (vat and str(vat).upper().replace(' ','').startswith('BE'))
+    if not is_be:
+        continue
+    # Rien a faire si deja conforme (eas=0208 + valid)
+    if eas == '0208' and st == 'valid':
         continue
     num = be_number(vat)
     if not num:
-        print(f"  SKIP  ID={p['id']} {p['name'][:40]} - VAT illisible ({vat})")
-        corrections.append({'id':p['id'],'name':p['name'],'old_state':st,'new_state':'SKIP_NO_VAT'})
+        print(f"  SKIP  ID={p['id']} {pname[:40]} - VAT illisible ({vat})")
+        corrections.append({'id':p['id'],'name':pname,'old_state':st,'new_state':'SKIP_NO_VAT'})
         continue
     if DRY:
-        print(f"  DRY   ID={p['id']} {p['name'][:40]:40} eas:9925->0208 ep:{p.get('peppol_endpoint')}->{num}")
+        print(f"  DRY   ID={p['id']} {pname[:40]:40} eas:{eas}->0208 ep:{p.get('peppol_endpoint')}->{num} (state actuel={st})")
         continue
     m.execute_kw(DB,uid,PWD,'res.partner','write',[[p['id']],{'peppol_eas':'0208','peppol_endpoint':num}],{})
     try:
@@ -96,11 +107,11 @@ for p in partners:
     new = m.execute_kw(DB,uid,PWD,'res.partner','read',[[p['id']]],{'fields':['peppol_verification_state','peppol_eas','peppol_endpoint']})[0]
     new_st = new['peppol_verification_state']
     tag = 'VALID  ' if new_st == 'valid' else new_st.upper()
-    print(f"  {tag:20} ID={p['id']} {p['name'][:38]:38} eas={new['peppol_eas']} ep={new['peppol_endpoint']}")
+    print(f"  {tag:20} ID={p['id']} {pname[:38]:38} eas={new['peppol_eas']} ep={new['peppol_endpoint']}")
     if new_st == 'valid':
         m.execute_kw(DB,uid,PWD,'res.partner','write',[[p['id']],{'invoice_sending_method':'peppol'}],{})
         print(f"    -> invoice_sending_method=peppol activé")
-    corrections.append({'id':p['id'],'name':p['name'],'old_state':st,'new_state':new_st})
+    corrections.append({'id':p['id'],'name':pname,'old_state':st,'new_state':new_st})
     p_map[p['id']]['peppol_verification_state'] = new_st
     p_map[p['id']]['peppol_eas'] = new['peppol_eas']
     p_map[p['id']]['invoice_sending_method'] = 'peppol' if new_st == 'valid' else p.get('invoice_sending_method')

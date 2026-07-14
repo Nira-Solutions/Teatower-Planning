@@ -1,5 +1,58 @@
 # LOG Compta Teatower
 
+## 2026-07-14 — Facturation B2B PRO livrees + envoi Peppol (25 factures / 10.357,81 EUR TTC)
+
+### Perimetre
+Toutes les sale.order PRO (hors B2C/Shopify, team_id=4 exclu) en state sale/done avec invoice_status='to invoice' et qty_delivered>0 au 14/07/26. Script : `scripts/facturation_b2b_peppol.py` (corrige aujourd'hui, cf bugs ci-dessous).
+
+### Bugs corriges dans le script
+1. `p['name']` pouvait etre `False` (contacts enfants sans nom propre, type adresse) -> `TypeError: 'bool' object is not subscriptable`. Fix : `pname = p.get('name') or f"(sans nom, ID={p['id']})"`.
+2. La correction EAS ne visait que les partenaires `peppol_eas=='9925'`. Or plusieurs partenaires BE etaient deja en `eas=0208` mais `peppol_verification_state` restait `not_verified` (jamais (re)verifie) ou avec `peppol_endpoint` vide. Elargi le critere : tout partenaire BE (country_id=Belgium ou VAT commencant par BE) avec `eas!=0208 OU state!=valid` est corrige (endpoint recalcule depuis le n° BCE) puis reverfie via `button_account_peppol_check_partner_endpoint`.
+3. Credentials Odoo en clair dans le script (repo public Teatower-Planning) -> remplace par `os.environ.get('ODOO_PWD')`, variable persistee via `setx ODOO_PWD` sur ce poste (creds dans Materiel TT.xlsx).
+
+### Regle durcie appliquee
+Facturation strictement `delivered` (wizard `sale.advance.payment.inv`), transport force a `qty_delivered=qty_ordered` si non scanne, et **envoi strictement Peppol** — aucun fallback email (contrairement au lot du 27/04/26). Un client bloque Peppol = fiche corrigee (EAS 0208 BE + endpoint + reverif) mais facture **non creee** tant que l'etat n'est pas `valid`.
+
+### Resultat
+- **25 SO facturees et postees**, HT 9.764,23 EUR / **TTC 10.357,81 EUR**.
+- **25/25 envoyees via Peppol** (`peppol_move_state` = `done` pour 23, `processing`/en cours de flush pour 2 — INV/2026/03514 et INV/2026/03530, confirmees soumises avec UUID).
+- **18 partenaires corriges Peppol** (EAS 9925->0208 ou reverification 0208 bloque) pendant l'execution, tous passes `valid` sauf 1 (`charlier chantal`, ID=125330, VAT manquant — non bloquant aujourd'hui car sa SO S06002/S06003 n'a rien de livre).
+- **1 cas particulier** : INV/2026/03514 (Chez Remy SASPJ, partner enfant ID=124431 "Marine Toffoli") a d'abord echoue a l'envoi Peppol (`"Le partenaire n'a pas de configuration Peppol valide"`) alors que le contact enfant etait `valid`. Cause : le **partenaire commercial parent** (ID=124430 "Mayrine Toffoli") n'avait pas d'endpoint Peppol renseigne (le wizard d'envoi verifie la configuration au niveau societe/commercial, pas seulement le contact enfant). Corrige manuellement (EAS 0208 + endpoint BCE + reverif -> valid), facture renvoyee avec succes. **A reporter dans le script** : toujours verifier/corriger le `commercial_partner_id` en plus du partner de facturation direct.
+- **11 SO non facturees** (rien de livre — hors perimetre delivered-only) : Hello Bio sprl, Carrefour Belgium x3, Made in Louise, Cocon Life store, charlier chantal, Spar Clavier, Delhaize Le Lion Affilie 048880, Les Ateliers Saupont, BTL SRL - Break Time. A refacturer quand livraison confirmee.
+- **0 SO bloquee Peppol non facturee** au final (tous les blocages initiaux ont ete resolus par correction+reverification en cours d'execution).
+
+### Detail des 25 factures
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/03506 | S05993 | Brasserie Demain | 118,60 | done |
+| INV/2026/03507 | S05992 | Centrale Intermarche | 48,10 | done |
+| INV/2026/03508 | S05991 | Sadel Trade - AD Delhaize Jodoigne | 463,41 | done |
+| INV/2026/03509 | S05990 | Delhaize Le Lion S.A (Affilie 046780 - Recogne) | 361,23 | done |
+| INV/2026/03510 | S05989 | Delhaize Le Lion S.A (Affilie 41092 - Bertrix) | 1.078,36 | done |
+| INV/2026/03511 | S05988 | Carrefour Market Bastogne - Pascalino | 270,22 | done |
+| INV/2026/03512 | S05986 | Spar Vaux-sur-Sûre | 39,90 | done |
+| INV/2026/03513 | S05985 | SA Marer - AD Delhaize Bastogne | 465,50 | done |
+| INV/2026/03514 | S05984 | Chez Remy SASPJ | 153,10 | processing (fix manuel parent) |
+| INV/2026/03515 | S05981 | Alcodis SA - Veronique Goffaux | 74,20 | done |
+| INV/2026/03516 | S05979 | SASPJ Ferme du Moligna Borlon Ramelot | 256,65 | done |
+| INV/2026/03517 | S05978 | Boulangerie Les Co'Pains SPRL | 250,00 | done |
+| INV/2026/03518 | S05976 | Carrefour Belgium (Hyper Herstal) | 239,40 | done |
+| INV/2026/03519 | S05975 | Les Tables Imaginaires - Restaurant Rosalie | 493,03 | done |
+| INV/2026/03520 | S05974 | Carrefour Belgium | 239,40 | done |
+| INV/2026/03521 | S05973 | D'ici Champion srl | 539,00 | done |
+| INV/2026/03522 | S05972 | Cafermi | 532,03 | done |
+| INV/2026/03523 | S05971 | AD Delhaize Roodebeek | 539,30 | done |
+| INV/2026/03524 | S05970 | Teroir de Magerotte | 777,07 | done |
+| INV/2026/03525 | S05969 | Newpharma | 587,64 | done |
+| INV/2026/03526 | S05967 | SRL LEJER | 296,11 | done |
+| INV/2026/03527 | S05961 | Comptoir des Boissons | 936,26 | done |
+| INV/2026/03528 | S05959 | Spar Vaux-sur-Sûre | 720,44 | done |
+| INV/2026/03529 | S05917 | Pharmacie Badot | 332,50 | done |
+| INV/2026/03530 | S06003 | N.B.S. RETAIL - Delhaize de Marche | 546,36 | processing |
+
+**Total HT 9.764,23 EUR / TTC 10.357,81 EUR — 25/25 factures postees et envoyees Peppol.**
+
 ## 2026-07-10 — Lettrage banque ING — paiements clients (9 lignes reconciliees / 3.189,26 EUR, 2 a revoir, 9 hors-scope)
 
 ### Perimetre
