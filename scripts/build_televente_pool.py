@@ -60,6 +60,16 @@ FORCE_TELEVENTE_PIDS = {
     2905,  # DEMARS S.A. - Carrefour Market Beauraing (Nicolas 15/07/2026)
 }
 
+# IMPLANTATION EN ATTENTE (REGLES §12) : magasins dont l'implantation PHYSIQUE est
+# planifiee en merch mais pas encore executee. La commande d'ouverture existe deja,
+# donc IMPL_AUTO_DAYS la prend a tort pour une implantation faite et declenche un
+# suivi televente J+15 AVANT que le display soit pose -> double contact avec Gilles.
+# Exclus du pool tant que l'implantation n'est pas faite ; des que le merch pose
+# [IMPL date], retirer le pid d'ici : le magasin revient avec son suivi J+15 reel.
+IMPL_PENDING_PIDS = {
+    125070,  # Delhaize Warmonceau : implantation Gilles S30 (SO S05955 du 07/07)
+}
+
 # Override cadence d'appel (jours) par magasin -> prime sur la cadence calculee.
 CADENCE_OVERRIDE_PID = {
     122944: 25,  # Lambertdis SRL - Spar Manhay : espacer les reassorts (Nicolas 10/06/2026)
@@ -294,6 +304,9 @@ def main():
         # Force merch : gros clients gardes pour Gilles (jamais en televente)
         pname = p.get("name") or ""
         if sp in FORCE_MERCH_PIDS or any(t in pname for t in FORCE_MERCH_TOKENS):
+            continue
+        # Implantation physique pas encore faite -> reste merch, pas d'appel
+        if sp in IMPL_PENDING_PIDS and not parse_impl(comment):
             continue
 
         n_refs = len(store_refs.get(sp, set()))
