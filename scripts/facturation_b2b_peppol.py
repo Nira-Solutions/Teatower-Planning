@@ -38,7 +38,22 @@ def be_number(vat):
     return None
 
 DRY = '--apply' not in sys.argv
+
+# SO a NE PAS facturer ce tour-ci. Cas typique : le TT/OUT est valide (la
+# marchandise est sortie du stock vers la camionnette de Gilles) mais le client
+# ne l'a pas encore recue — la livraison merch est planifiee plus tard. Facturer
+# avant reception cree des litiges (surtout Carrefour, cf. rejets EDI 049/004/010).
+# Usage : --exclude S05982,S06007,S05980
+EXCLUDE_SO_NAMES = set()
+for i, a in enumerate(sys.argv):
+    if a == '--exclude' and i + 1 < len(sys.argv):
+        EXCLUDE_SO_NAMES = {x.strip().upper() for x in sys.argv[i + 1].split(',') if x.strip()}
+    elif a.startswith('--exclude='):
+        EXCLUDE_SO_NAMES = {x.strip().upper() for x in a.split('=', 1)[1].split(',') if x.strip()}
+
 print(f"MODE: {'DRY-RUN (rien ecrit)' if DRY else 'APPLY (ecriture reelle)'}")
+if EXCLUDE_SO_NAMES:
+    print(f"EXCLUSIONS manuelles: {', '.join(sorted(EXCLUDE_SO_NAMES))}")
 print()
 
 # =========================================================
@@ -49,8 +64,10 @@ EXCLUDE_TEAM_IDS = {4}  # 4 = "Odoo x Shopify" (B2C/web) — a adapter si d'autr
 sos_all = call('sale.order','search_read',
     [[['invoice_status','=','to invoice'],['state','in',('sale','done')]]],
     {'fields':['id','name','partner_id','partner_invoice_id','amount_total','team_id'],'limit':200})
-sos = [s for s in sos_all if not s.get('team_id') or s['team_id'][0] not in EXCLUDE_TEAM_IDS]
+sos_pro = [s for s in sos_all if not s.get('team_id') or s['team_id'][0] not in EXCLUDE_TEAM_IDS]
 sos_excluded_b2c = [s for s in sos_all if s.get('team_id') and s['team_id'][0] in EXCLUDE_TEAM_IDS]
+sos = [s for s in sos_pro if s['name'].upper() not in EXCLUDE_SO_NAMES]
+sos_excluded_manual = [s for s in sos_pro if s['name'].upper() in EXCLUDE_SO_NAMES]
 
 so_ids = [s['id'] for s in sos]
 pid_to_sos = {}
@@ -58,9 +75,11 @@ for s in sos:
     pid = s['partner_id'][0]
     pid_to_sos.setdefault(pid,[]).append(s)
 
-print(f"SO to invoice: {len(sos_all)} total | PRO retenues: {len(sos)} | exclues B2C/web: {len(sos_excluded_b2c)}")
+print(f"SO to invoice: {len(sos_all)} total | PRO retenues: {len(sos)} | exclues B2C/web: {len(sos_excluded_b2c)} | exclues manuellement: {len(sos_excluded_manual)}")
 for s in sos_excluded_b2c:
     print(f"  EXCLU B2C  {s['name']:10} {s['partner_id'][1][:35]:35} team={s['team_id'][1]}")
+for s in sos_excluded_manual:
+    print(f"  EXCLU MANU {s['name']:10} {s['partner_id'][1][:35]:35} {s['amount_total']:.2f} EUR (--exclude)")
 
 # =========================================================
 # ETAPE 2 : Lire état Peppol des partenaires (principal + facturation reel)
