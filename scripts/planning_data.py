@@ -829,7 +829,10 @@ S30 = {
              "Demandes Nicolas intégrées : implantation Carrefour Market Vielsalm (lun, 1ᵉ stop) · "
              "livraison des commandes à Hyper Carrefour Marche (lun matin) · "
              "retrait produits Horeca à la prison de Marche (jeu MATIN, ½ journée — pas le mercredi) · "
-             "Intermarché Mons + livraison du display (mer) · AD Delhaize Jodoigne (ven — Mr David, veut le suivi merch). "
+             "Intermarché Mons + livraison du display (mer). "
+             "🔄 Retraits Nicolas (15/07) : AD Delhaize Jodoigne #121054 retiré du merch (remplacé vendredi par Delhaize Boondael, 37j) · "
+             "Carrefour Market Beauraing (DEMARS #2905) retiré du merch → bascule en planning TÉLÉVENTE (Vanessa) ; "
+             "créneau jeudi repris par Intermarché Floriffoux (57j de retard). "
              "Est/Liège quasi indisponible : Fleron/Lontzen/Fragnée/Ans/Gerpinnes/Ottignies/Genval/Spy/Le Beau Rivage déjà faits en S28 (<21j) — exclus. "
              "Magasins S29 (13-17/07) exclus. "
              "⚠️ Hyper Marche : la fiche dit « passage uniquement le mardi » mais mardi = férié → livraison calée lundi matin, appeler avant. "
@@ -881,10 +884,10 @@ S30 = {
              "rg": "toujours faire contrôler par un responsable AVANT de remplir"},
          ]},
         {"h": "Jeudi 23/07", "sub": "5 stops (retrait Horeca ½ journée matin + 4 visites)",
-         "zone": "Famenne → Condroz → Namur (retrait prison Marche → Ciney → Beauraing → Jambes)", "km": "200", "ret": "15:40",
+         "zone": "Famenne → Condroz → Namur (retrait prison Marche → Ciney → Jambes → Floriffoux)", "km": "180", "ret": "15:40",
          "addrs": ["Chaussée de Liège 178, 6900 Marche-en-Famenne", "Chemin de Crahiat 18 A, 5590 Ciney",
-                   "Rue de Rochefort 37, 5570 Beauraing", "Rue de la Poudrière 14, 5100 Jambes",
-                   "Avenue Jean Materne 109, 5100 Jambes"],
+                   "Rue de la Poudrière 14, 5100 Jambes", "Avenue Jean Materne 109, 5100 Jambes",
+                   "Rue Émerée 4, 5150 Floriffoux"],
          "stops": [
             {"t": "08:45 - 11:15", "k": "livr", "b": ["Retrait Horeca", "½ journée", "Demande Nicolas"],
              "n": "Retrait Horeca — Cellmade / Prison de Marche (#6395)", "ls": "retrait conditionnement Horeca", "lsc": "fresh",
@@ -893,21 +896,21 @@ S30 = {
             {"t": "12:00 - 12:25", "k": "visite", "b": ["64j OVERDUE"],
              "n": "AD Ciney (Éts Schnongs, #7679)", "ls": "13/04 (101j)", "lsc": "stale",
              "a": "Chemin de Crahiat 18 A, 5590 Ciney", "c": "accueil / responsable"},
-            {"t": "12:50 - 13:15", "k": "visite", "b": ["Tier A", "39j OVERDUE"],
-             "n": "Carrefour Market Beauraing (DEMARS SA, #2905)", "ls": "13/05 (71j)", "lsc": "stale",
-             "a": "Rue de Rochefort 37, 5570 Beauraing", "c": "Christelle ou Alison (resp. rayon) — 082 71 02 30"},
-            {"t": "14:00 - 14:25", "k": "visite", "b": ["34j OVERDUE"],
+            {"t": "13:00 - 13:25", "k": "visite", "b": ["34j OVERDUE"],
              "n": "Intermarché Jambes (JAMBIS SA, #3000)", "ls": "13/05 (71j)", "lsc": "stale",
              "a": "Rue de la Poudrière 14, 5100 Jambes", "c": "Faustine — 081 30 68 78"},
-            {"t": "14:35 - 15:00", "k": "visite", "b": ["92j OVERDUE"],
+            {"t": "13:35 - 14:00", "k": "visite", "b": ["92j OVERDUE"],
              "n": "AD Jambes Materne (Affilié 044470, #5916)", "ls": "02/03 (143j)", "lsc": "stale",
              "a": "Avenue Jean Materne 109, 5100 Jambes", "c": "accueil / responsable — 081 30 16 88"},
+            {"t": "14:25 - 14:50", "k": "visite", "b": ["57j OVERDUE"],
+             "n": "Intermarché Floriffoux (Floridis SA, #2958)", "ls": "20/04 (94j)", "lsc": "stale",
+             "a": "Rue Émerée 4, 5150 Floriffoux", "c": "Loredana / Manon — 081 44 05 39"},
          ]},
         {"h": "Vendredi 24/07", "sub": "6 stops (6 visites)",
-         "zone": "Brabant wallon → Bruxelles → Hesbaye (Waterloo → Lasne → Bxl → Jodoigne → Incourt)", "km": "300", "ret": "15:00",
+         "zone": "Brabant wallon → Bruxelles → Hesbaye (Waterloo → Lasne → Bxl → Incourt)", "km": "285", "ret": "15:00",
          "addrs": ["Drève de Richelle 10, 1410 Waterloo", "Route de l'Etat 217, 1380 Lasne",
-                   "Rue des Champs 39, 1040 Bruxelles", "Chaussée de la Hulpe 255, 1170 Watermael-Boitsfort",
-                   "Chaussée de Wavre 90 c, 1370 Jodoigne", "Chaussée de Namur 89, 1315 Incourt"],
+                   "Rue des Champs 39, 1040 Bruxelles", "Avenue du Bois de la Cambre 120, 1050 Ixelles",
+                   "Chaussée de la Hulpe 255, 1170 Watermael-Boitsfort", "Chaussée de Namur 89, 1315 Incourt"],
          "stops": [
             {"t": "09:35 - 10:00", "k": "visite", "b": ["7j OVERDUE"],
              "n": "Carrefour Market Waterloo (#6821)", "ls": "09/06 (45j)", "lsc": "mid",
@@ -919,13 +922,12 @@ S30 = {
             {"t": "11:10 - 11:35", "k": "visite", "b": ["25j OVERDUE"],
              "n": "Carrefour Market La Chasse (Rosy Dis, #59558)", "ls": "22/05 (63j)", "lsc": "stale",
              "a": "Rue des Champs 39, 1040 Bruxelles", "c": "Christopher / Xavier — +32 2 647 44 73"},
-            {"t": "11:50 - 12:15", "k": "visite", "b": ["21j OVERDUE"],
+            {"t": "11:50 - 12:15", "k": "visite", "b": ["Tier B", "37j depuis dernière visite"],
+             "n": "Delhaize Boondael (AL Retail, #5426)", "ls": "17/06 (37j)", "lsc": "mid",
+             "a": "Avenue du Bois de la Cambre 120, 1050 Ixelles", "c": "accueil / resp. épicerie — 02 672 89 48"},
+            {"t": "12:30 - 12:55", "k": "visite", "b": ["21j OVERDUE"],
              "n": "Proxy Delhaize Bosvoorde (BROOMCORNER, #5830)", "ls": "12/05 (73j)", "lsc": "stale",
              "a": "Chaussée de la Hulpe 255, 1170 Watermael-Boitsfort", "c": "accueil / responsable — 02 672 33 99 (mob 0472 50 05 21)"},
-            {"t": "13:00 - 13:25", "k": "visite", "b": ["Demande Nicolas"],
-             "so": "S05991", "n": "AD Delhaize Jodoigne (Sadel Trade, #121054)", "ls": "S05991 14/07 (463€)", "lsc": "fresh",
-             "a": "Chaussée de Wavre 90 c, 1370 Jodoigne", "c": "Mr David — +32 10 84 03 19",
-             "note": "Passage demandé (Mr David veut le suivi merch). Vu récemment (10/07) mais maintenu à la demande de Nicolas."},
             {"t": "13:40 - 14:05", "k": "visite", "b": ["Tier B"],
              "n": "Delhaize Incourt (Distri-Incourt, #2924)", "ls": "29/06 (25j)", "lsc": "fresh",
              "a": "Chaussée de Namur 89, 1315 Incourt", "c": "Jérôme Debus — 010 88 72 90"},
