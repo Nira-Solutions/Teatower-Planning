@@ -829,7 +829,9 @@ S30 = {
              "Demandes Nicolas intégrées : implantation Carrefour Market Vielsalm (lun, 1ᵉ stop) · "
              "livraison des commandes à Hyper Carrefour Marche (lun matin) · "
              "retrait produits Horeca à la prison de Marche (jeu MATIN, ½ journée — pas le mercredi) · "
-             "Intermarché Mons + livraison du display (mer). "
+             "Intermarché Mons + livraison du display (mer) · "
+             "implantation Proxy Delhaize Quadrilatère Huy (mer, 1ᵉ stop — jamais le mardi, mercredi demandé par le magasin ; "
+             "nouveau client lead #1095 Jérôme, devis S06012 EN DRAFT à valider avant le passage). "
              "🔄 Retraits Nicolas (15/07) : AD Delhaize Jodoigne #121054 retiré du merch (remplacé vendredi par Delhaize Boondael, 37j) · "
              "Carrefour Market Beauraing (DEMARS #2905) retiré du merch → bascule en planning TÉLÉVENTE (Vanessa) ; "
              "créneau jeudi repris par Intermarché Floriffoux (57j de retard). "
@@ -861,24 +863,30 @@ S30 = {
          ]},
         {"h": "Mardi 21/07", "sub": "🚫 JOUR FÉRIÉ — Fête nationale (aucune visite)", "zone": "Férié",
          "km": "0", "ret": "—", "addrs": [], "stops": []},
-        {"h": "Mercredi 22/07", "sub": "4 stops (1 implantation + 1 livraison display + 2 visites)",
-         "zone": "Charleroi → Mons → Brabant wallon (Warmonceau → Mons → Nivelles)", "km": "250", "ret": "14:45",
-         "addrs": ["Grand’Rue 294, 6000 Charleroi", "Place des Grands Prés 1, 7000 Mons",
+        {"h": "Mercredi 22/07", "sub": "5 stops (2 implantations + 1 livraison display + 2 visites)",
+         "zone": "Hesbaye → Charleroi → Mons → Brabant wallon (Huy → Warmonceau → Mons → Nivelles)", "km": "295", "ret": "15:40",
+         "addrs": ["Rue Delloye-Matthieu 9, 4500 Huy", "Grand’Rue 294, 6000 Charleroi",
+                   "Place des Grands Prés 1, 7000 Mons",
                    "Chemin de la Procession 399, 7000 Mons", "Rue Tienne-à-Deux-Vallées 6/8, 1400 Nivelles"],
          "stops": [
-            {"t": "09:40 - 10:20", "k": "impl", "b": ["Demande Nicolas"],
+            {"t": "09:05 - 09:45", "k": "impl", "b": ["Nouveau client", "DEVIS à valider", "Demande Nicolas"],
+             "so": "S06012", "n": "Proxy Delhaize Quadrilatère Huy (FQMS, #125351)", "ls": "S06012 devis (250€)", "lsc": "fresh",
+             "a": "Rue Delloye-Matthieu 9, 4500 Huy", "c": "Loïc (resp. magasin) / Alexandre Gilles (gérant) — +32 471 72 79 39",
+             "note": "IMPLANTATION nouveau client — 1ᵉ stop (matériel chargé). Display EM0107 + 2 glacés (Vergers d’Été, Passion Exotique) + 4 infusettes (Oasis du désert, Blue Earl Grey, Panier de grand maman, Namasté). Montage + facings + étiquetage SKU + photos avant/après. ⚠️ DEVIS S06012 encore en draft — à valider par Nicolas avant le passage.",
+             "rg": "jamais le mardi — de préférence le mercredi (contrainte magasin)"},
+            {"t": "10:35 - 11:15", "k": "impl", "b": ["Demande Nicolas"],
              "so": "S05955", "n": "Delhaize Warmonceau (#125070)", "ls": "S05955 07/07 (319€)", "lsc": "fresh",
              "a": "Grand’Rue 294, 6000 Charleroi", "c": "accueil / responsable — +32 71 71 12 62",
-             "note": "IMPLANTATION (reportée de S29) — 1ᵉ stop (matériel chargé). Montage display + facings + étiquetage SKU + photos avant/après."},
-            {"t": "10:50 - 11:20", "k": "visite", "b": ["Hyper", "13j OVERDUE"],
+             "note": "IMPLANTATION (reportée de S29) — 2ᵉ stop (matériel chargé). Montage display + facings + étiquetage SKU + photos avant/après."},
+            {"t": "11:50 - 12:20", "k": "visite", "b": ["Hyper", "13j OVERDUE"],
              "n": "Hyper Carrefour Mons Grands Prés (#113613)", "ls": "03/06 (49j)", "lsc": "mid",
              "a": "Place des Grands Prés 1, 7000 Mons", "c": "Demander M. Christophe Solheid — +32 65 32 36 11",
              "note": "HYPER → matin. Plus en display : produits en TG dans le fond du magasin."},
-            {"t": "11:35 - 12:15", "k": "impl", "b": ["Livraison display", "Demande Nicolas"],
+            {"t": "12:35 - 13:15", "k": "impl", "b": ["Livraison display", "Demande Nicolas"],
              "so": "S05980", "n": "Intermarché Mons (#123966)", "ls": "S05980 13/07 (60€)", "lsc": "fresh",
              "a": "Chemin de la Procession 399, 7000 Mons", "c": "accueil — +32 65 39 48 11 (mob +32 476 94 08 72)",
              "note": "LIVRAISON + MONTAGE du display — apporter et installer sur place. Facings + étiquetage SKU + photos avant/après. (Suivi Vanessa en télévente sinon.)"},
-            {"t": "13:10 - 13:35", "k": "visite", "b": ["12j OVERDUE"],
+            {"t": "14:00 - 14:25", "k": "visite", "b": ["12j OVERDUE"],
              "n": "Intermarché Nivelles (NIVALIM, #3153)", "ls": "04/06 (50j)", "lsc": "mid",
              "a": "Rue Tienne-à-Deux-Vallées 6/8, 1400 Nivelles", "c": "Mr Gauthier / Mme Carmen — 067 21 74 94",
              "rg": "toujours faire contrôler par un responsable AVANT de remplir"},
