@@ -1,5 +1,63 @@
 # LOG Compta Teatower
 
+## 2026-07-15 — Facturation B2B PRO livrees + envoi Peppol (14 factures / 6.062,60 EUR TTC)
+
+### Perimetre
+Toutes les sale.order PRO (hors B2C/Shopify team_id=4) en state sale/done, invoice_status='to invoice', qty_delivered>0 au 15/07/26.
+Commande : `py facturation_b2b_peppol.py --apply --exclude S05982,S06007,S05980`.
+
+### Nouveaute script : `--exclude`
+Ajout d'un mecanisme d'exclusion manuelle de SO (`EXCLUDE_SO_NAMES` + option CLI `--exclude S0xxx,S0yyy`).
+**Motif** : le TT/OUT valide ne prouve pas la reception client. Quand Gilles emporte la marchandise
+en camionnette, le stock sort le jour de la preparation mais le client n'est servi que lors du passage
+merch. Facturer entre les deux = facturer avant livraison (risque de litige, et rejets EDI cote Carrefour
+qui controle les references de bon de livraison).
+
+### Exclusions de ce lot (a facturer APRES le passage de Gilles)
+| SO | Client | TTC | Passage merch |
+|---|---|---:|---|
+| S06007 | Carrefour Hyper Marche-en-Famenne | 827,39 | livraison lun 20/07 |
+| S05982 | Carrefour Market Vielsalm | 357,07 | implantation lun 20/07 |
+| S05980 | Intermarche Mons | 60,50 | livraison display mer 22/07 |
+
+Decision Nicolas 15/07/2026 (arbitrage explicite : ne pas facturer les 3 avant reception).
+
+### Resultat
+- **14 SO facturees, postees et envoyees Peppol** — TTC **6.062,60 EUR**. 0 echec, 0 facture a 0 EUR.
+- **6 partenaires corriges Peppol** pendant l'execution ; 2 passes `not_verified -> valid` :
+  ID=7150 (adresse de facturation enfant, AD Delhaize Fernelmont) et ID=122589 (Carrefour Market Wellin).
+  La correction de 7150 a debloque **S06013** (357,70 EUR), qui etait `BLOCK` au dry-run -> 14 factures au lieu de 13.
+- **2 SKIP_NO_VAT** : Delphine Samain (ID=124325) et charlier chantal (ID=125330) — VAT manquante, fiches a completer.
+
+### Restant a traiter
+- **1 SO bloquee Peppol** : S05765 Delphine Samain (inv_partner 124325, pas de VAT) -> completer la fiche puis refacturer.
+- **4 SO sans rien de livre** (hors perimetre delivered-only) : S06014 BTL SRL - Break Time, S05998 O'Brunch Coffee,
+  S06002 charlier chantal, S05958 Les Ateliers Saupont. A refacturer quand livraison confirmee.
+- **3 SO exclues** ci-dessus, a facturer apres passage Gilles (semaine du 20/07).
+
+### Detail des 14 factures
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/03543 | S06013 | AD Delhaize Fernelmont (Fernel-Dis) | 357,70 | processing |
+| INV/2026/03544 | S06011 | Delhaize Le Lion S.A (Affilie 0490...) | 319,20 | processing |
+| INV/2026/03545 | S06010 | Delhaize Le Lion S.A (Affilie 0492...) | 319,51 | processing |
+| INV/2026/03546 | S06009 | Spar Barvaux | 250,00 | processing |
+| INV/2026/03547 | S06008 | Carrefour Belgium - Carrefour Market | 241,65 | processing |
+| INV/2026/03548 | S06005 | Carrefour Belgium - Carrefour Hyper | 665,00 | processing |
+| INV/2026/03549 | S06004 | Delhaize Le Lion S.A (Affilie 0444...) | 427,70 | processing |
+| INV/2026/03550 | S05997 | Hello Bio sprl (Pure) | 346,39 | processing |
+| INV/2026/03551 | S05996 | Carrefour Belgium | 198,00 | processing |
+| INV/2026/03552 | S05995 | Carrefour Belgium | 638,40 | processing |
+| INV/2026/03553 | S05994 | Made in Louise | 258,70 | processing |
+| INV/2026/03554 | S05977 | Cocon Life store | 403,67 | processing |
+| INV/2026/03555 | S05987 | Spar Clavier | 332,50 | processing |
+| INV/2026/03556 | S05983 | Delhaize Le Lion S.A (Affilie 0488...) | 1.304,18 | processing |
+
+> `processing` = soumise au reseau Peppol avec UUID (passe a `done` apres flush du cron Odoo).
+
+---
+
 ## 2026-07-14 — Facturation B2B PRO livrees + envoi Peppol (25 factures / 10.357,81 EUR TTC)
 
 ### Perimetre
@@ -52,6 +110,48 @@ Facturation strictement `delivered` (wizard `sale.advance.payment.inv`), transpo
 | INV/2026/03530 | S06003 | N.B.S. RETAIL - Delhaize de Marche | 546,36 | processing |
 
 **Total HT 9.764,23 EUR / TTC 10.357,81 EUR — 25/25 factures postees et envoyees Peppol.**
+
+## 2026-07-14 — Lettrage banque ING — paiements clients (4 lignes reconciliees / 1.733,68 EUR, 5 clients a statuer, 11 hors-scope)
+
+### Perimetre
+20 lignes ING non rapprochees (journal BNK1, id=14) au 14/07/26 : 9 credits (encaissements a analyser) + 11 debits (frais/fournisseurs, hors-scope explicite de cette passe — l'autorisation write-off de Nicolas ne porte que sur les clients).
+
+### Methode
+Reprise exacte de la methode validee le 10/07 (`compta/lettrage_09_ing_20260710.py`, cf LOG 10/07 + 02/07) :
+1. Repointer la ligne suspense 499000 du move BSL -> 400000 (Customers, id=162) + partner_id.
+2. `account.move.line.reconcile([bsl_line_id, doc_line_id])`.
+3. Si ecart residuel <= 1,00 EUR : write-off MISC (journal id=11) sur 657100 (Negative Payment Differences, id=293 — client a sous-paye) ou 757100 (Positive Payment Differences, id=347 — client a surpaye), reconcilie avec le residu.
+Script one-shot : `C:\Users\FlowUP\AppData\Local\Temp\claude\...\scratchpad\lettrage_ing_20260714.py` (non committe, contient creds via `os.environ['ODOO_PWD']`).
+
+### Lettres — 4/4 OK
+
+| BSL id | Date | Montant BSL | Facture | Client | Ecart | Write-off |
+|---|---|---|---|---|---|---|
+| 19689 | 10/07 | +266,00 | INV/2026/03306 | Joffrey Helson Menuiserie SRL | 0,00 | aucun |
+| 19677 | 10/07 | +285,59 | INV/2026/03336 (285,60) | Spar Gembloux | -0,01 | MISC/26-27/07/0121 — 657100 debit 0,01 |
+| 19661 | 09/07 | +688,87 | INV/2026/03057 (688,89) | Carrefour market Courcelles | -0,02 | MISC/26-27/07/0122 — 657100 debit 0,02 |
+| 19662 | 09/07 | +493,22 | INV/2026/03110 (493,53) | Carrefour Belgium (SARUB, partner 6596) | -0,31 | MISC/26-27/07/0123 — 657100 debit 0,31 |
+
+Verif finale : les 4 factures sont `payment_state=paid`, `amount_residual=0.00`, les 4 BSL `is_reconciled=True`.
+
+### A statuer (5 credits clients, non lettres) — `compta/review/lettrage_ing_20260714_review.md`
+
+| BSL id | Date | Montant | Libelle | Raison |
+|---|---|---|---|---|
+| 19466 | 01/07 | +675,58 | NANRETAIL SA (Intermarche Naninne, partner 2812) | Aucune facture ouverte pour ce partner ; sa seule facture Odoo (INV/2026/02700) est deja `paid` a 716,11 EUR — ecart 40,53 EUR trop grand, communication structuree reutilisee mais montant incoherent. Possible double paiement ou erreur de communication cote client. |
+| 19660 | 09/07 | +637,24 | ITM ALIMENTAIRE BELGIUM SA (probable Centrale Intermarche #124363, meme adresse Rue du Bosquet 4 LLN) | Aucune facture ouverte de Centrale Intermarche (48,10 / 123,10 / 48,10 / 675,00 / 235,60 / 714,00) ne colle, seule ou en combinaison. |
+| 19630 | 08/07 | +79,51 | BALOISE BELGIUM — "ADAPTATION SALAIRE A/26.00112 DATE ACCID" | Remboursement assurance salaire/accident du travail, pas un client — categorie proche du 455000 neutre (cf memoire remboursements paie). |
+| 19652 | 09/07 | +124,95 | PLUXEE BELGIUM (cheques-repas) | Flux RH/avantages, pas un client. |
+| 19682 | 10/07 | +500,00 | Virement instantane depuis BE86068958071350 (compte Teatower BNK2) | Virement interne entre comptes propres Teatower, pas un encaissement client. |
+
+### Hors-scope (11 debits, non touches)
+Frais carte ING (-2,25), SD Worx x2 (-110,63 / -59,90 — a surveiller, cf memoire anomalie ONSS/PP SD Worx), Google Ads (-437,07), Google Cloud (-384,12), **virement "Avance" Vansimpsen Audrey -500,00** (a verifier : avance salarie/actionnaire potentielle, categorie proche 489000 — a trancher par Nicolas), Kirchner Fischer + Co GmbH x2 (-12.837,54 / -8.129,06, fournisseur), Adobe (-36,29), Intuit (-722,47), Mastercard invoice 2026070568 (-47,19).
+
+### Resultat
+- ING non rapprochees avant : 20 (9 credits / 11 debits)
+- ING non rapprochees apres : 16 (5 credits a statuer / 11 debits hors-scope)
+- Lettrees automatiquement (A+B) : 4 / 4 candidats identifies, 1.733,68 EUR
+- Write-offs 657100 : 3 (0,01 + 0,02 + 0,31 = 0,34 EUR total)
 
 ## 2026-07-10 — Lettrage banque ING — paiements clients (9 lignes reconciliees / 3.189,26 EUR, 2 a revoir, 9 hors-scope)
 
