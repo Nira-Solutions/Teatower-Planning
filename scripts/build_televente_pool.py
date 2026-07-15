@@ -52,6 +52,14 @@ FORCE_MERCH_PIDS = {
 }
 FORCE_MERCH_TOKENS = ["Delhaize Ottignies", "Delhaize Kraainem"]
 
+# FORCE TELEVENTE (Nicolas 15/07/2026) : magasins que la regle refs/distance
+# laisserait en merch mais que Nicolas bascule en suivi telephonique Vanessa.
+# Ils entrent dans le pool Vanessa quelle que soit la segmentation -> et sortent
+# donc automatiquement des visites Gilles (exclusivite, cf. build_planning_pool.py).
+FORCE_TELEVENTE_PIDS = {
+    2905,  # DEMARS S.A. - Carrefour Market Beauraing (Nicolas 15/07/2026)
+}
+
 # Override cadence d'appel (jours) par magasin -> prime sur la cadence calculee.
 CADENCE_OVERRIDE_PID = {
     122944: 25,  # Lambertdis SRL - Spar Manhay : espacer les reassorts (Nicolas 10/06/2026)
@@ -294,10 +302,13 @@ def main():
         # --- segmentation Vanessa ---
         far = dist is not None and dist > DIST_MIN
         small = n_refs <= REFS_MAX
-        is_vanessa = small or (far and n_refs < REFS_CARVEOUT)
+        forced = sp in FORCE_TELEVENTE_PIDS
+        is_vanessa = forced or small or (far and n_refs < REFS_CARVEOUT)
         if not is_vanessa:
             continue
-        if small and far:
+        if forced:
+            reason = "bascule televente (decision Nicolas)"
+        elif small and far:
             reason = "petit assortiment + eloigne"
         elif small:
             reason = "petit assortiment"
