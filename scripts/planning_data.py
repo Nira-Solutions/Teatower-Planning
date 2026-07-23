@@ -823,7 +823,7 @@ S28 = {
 }
 
 S30 = {
-    "id": "s30", "nav": "S30 · 20-24/07 (à venir)", "active": True,
+    "id": "s30", "nav": "S30 · 20-24/07", "active": False,
     "title": "Semaine du 20 au 24 juillet 2026 (S30)",
     "note": ("🚫 MARDI 21/07 = Fête nationale BE (férié) — RIEN ce jour-là. "
              "Demandes Nicolas intégrées : implantation Carrefour Market Vielsalm (lun, 1ᵉ stop) · "
@@ -943,4 +943,94 @@ S30 = {
     ],
 }
 
-WEEKS = [S30, S29]
+S31 = {
+    "id": "s31", "nav": "S31 · 27-31/07 (à venir)", "active": True,
+    "title": "Semaine du 27 au 31 juillet 2026 (S31)",
+    "note": ("🌴 3 JOURS de tournée seulement : MARDI 28/07 et VENDREDI 31/07 = merchandisers en congés (aucune visite). "
+             "Semaine légère : le gros du retard a été résorbé lors des tournées S29 (13-17/07, très chargée) et S30. "
+             "Contraintes jour : AD Sombreffe ouvre à 13h le lundi → passage l'après-midi (dernier stop) · "
+             "Villers-le-Bouillet = mercredi/vendredi matin uniquement ✓ · Proxy St Michel = avant 14h. "
+             "Écartés cette semaine pour contrainte : Delhaize Welkenraedt (pas le mercredi) · Delhaize LLN (Mr Snaps absent le jeudi) · "
+             "Grace-Hollogne / Chaumont-Gistoux / Spar LLN / Kraainem (visités les 16-17/07, espacement <14j) · "
+             "Delhaize Materne (règle 30j min : 27j seulement)."),
+    "days": [
+        {"h": "Lundi 27/07", "sub": "6 stops (6 visites)",
+         "zone": "Namur (Wépion → Namur ville → Gembloux → Sombreffe)", "km": "170", "ret": "14:15",
+         "addrs": ["Chaussée de Dinant 1147, 5100 Wépion", "Allée des Ormes 15, 5001 Belgrade",
+                   "Chaussée de Louvain 257, 5000 Bouge", "Chaussée de Louvain 336, 5004 Namur",
+                   "Chaussée de Wavre 42A, 5030 Gembloux", "Chaussée de Gembloux 25, 5140 Sombreffe"],
+         "stops": [
+            {"t": "09:10 - 09:35", "k": "visite", "b": ["Hyper", "27j OVERDUE"],
+             "n": "Carrefour Hyper Wépion (#6597)", "ls": "02/06 (55j)", "lsc": "stale",
+             "a": "Chaussée de Dinant 1147, 5100 Wépion", "c": "accueil — +32 2 446 15 13",
+             "note": "HYPER → matin, 1ᵉ stop."},
+            {"t": "09:50 - 10:15", "k": "visite", "b": ["Tier B"],
+             "n": "Intermarché Belgrade (Belgradis, #2821)", "ls": "30/06 (27j)", "lsc": "fresh",
+             "a": "Allée des Ormes 15, 5001 Belgrade", "c": "Stéphanie — 081 26 01 87"},
+            {"t": "10:25 - 10:50", "k": "visite", "b": ["Tier B"],
+             "n": "Intermarché Bouge (Windmill SA, #3297)", "ls": "30/06 (27j)", "lsc": "fresh",
+             "a": "Chaussée de Louvain 257, 5000 Bouge", "c": "Dany Decoster / Laurence — 081 56 93 46",
+             "re": "manuel — pas d'appareil magasin pour encoder", "rg": "pas de contrôle marchandise ; contact Laurence"},
+            {"t": "11:00 - 11:25", "k": "visite", "b": ["Tier A"],
+             "n": "Delhaize de Bouge (Affilié 041345, #114681)", "ls": "06/07 (21j)", "lsc": "fresh",
+             "a": "Chaussée de Louvain 336, 5004 Namur", "c": "Mme Destrée / Grandjean / Augustaine — +32 81 21 48 88"},
+            {"t": "11:50 - 12:15", "k": "visite", "b": ["Tier B"],
+             "n": "AD Gembloux (Affilié 043561, #2913)", "ls": "29/06 (28j)", "lsc": "fresh",
+             "a": "Chaussée de Wavre 42A, 5030 Gembloux", "c": "accueil / responsable — 081 61 38 44"},
+            {"t": "13:00 - 13:25", "k": "visite", "b": ["Tier A"],
+             "n": "AD Sombreffe (Affilié 048875, #5449)", "ls": "06/07 (21j)", "lsc": "fresh",
+             "a": "Chaussée de Gembloux 25, 5140 Sombreffe", "c": "Angélique ou Louise / Sylvie Salteur — 071 88 60 08",
+             "rg": "le lundi le magasin ouvre à 13h — passage l'après-midi (dernier stop)"},
+         ]},
+        {"h": "Mardi 28/07", "sub": "🌴 CONGÉ — pas de tournée", "zone": "Congé",
+         "km": "0", "ret": "—", "addrs": [], "stops": []},
+        {"h": "Mercredi 29/07", "sub": "6 stops (6 visites)",
+         "zone": "Hesbaye → Liège → Verviers (Hannut → Villers → Liège ville → Heusy)", "km": "185", "ret": "14:20",
+         "addrs": ["Rue de Hesbaye 1, 4280 Hannut", "Rue du Château d'eau 1, 4530 Villers-le-Bouillet",
+                   "Rue de Fragnée 41, 4000 Liège", "Bd Gustave Kleyer 3, 4000 Liège",
+                   "Avenue de Spa 66, 4802 Heusy", "Chaussée de Theux 55, 4802 Heusy"],
+         "stops": [
+            {"t": "09:05 - 09:30", "k": "visite", "b": ["Tier B"],
+             "n": "Intermarché Hannut (INTERMADIS SA, #121874)", "ls": "03/07 (24j)", "lsc": "fresh",
+             "a": "Rue de Hesbaye 1, 4280 Hannut", "c": "Mr Christophe Wereau — +32 472 27 36 32",
+             "st": "réserve magasin (voir Wereau / Benjamin / Valentin)", "re": "GUN — appareil de commande disponible sur place"},
+            {"t": "09:50 - 10:15", "k": "visite", "b": ["Tier B"],
+             "n": "Intermarché Villers-le-Bouillet (SA VILLERSEM, #115879)", "ls": "03/07 (24j)", "lsc": "fresh",
+             "a": "Rue du Château d'eau 1, 4530 Villers-le-Bouillet", "c": "Mr Johan / Christophe — +32 85 31 69 11",
+             "st": "pas de réserve magasin — rien à contrôler avant remplissage", "re": "manuel — pas d'appareil pour rentrer la marchandise",
+             "rg": "visite le mercredi ou vendredi matin — contrôle marchandise à l'entrée OBLIGATOIRE"},
+            {"t": "10:45 - 11:10", "k": "visite", "b": ["31j OVERDUE"],
+             "n": "Delhaize Fragnée (GIMALEX SA, #5580)", "ls": "29/05 (59j)", "lsc": "stale",
+             "a": "Rue de Fragnée 41, 4000 Liège", "c": "accueil / responsable"},
+            {"t": "11:20 - 11:45", "k": "visite", "b": ["Tier B"],
+             "n": "Intermarché Liège Cointe (DFH Market, #121194)", "ls": "29/06 (28j)", "lsc": "fresh",
+             "a": "Bd Gustave Kleyer 3, 4000 Liège", "c": "Mossay Shannen — +32 474 16 31 04"},
+            {"t": "12:15 - 12:40", "k": "visite", "b": ["Tier B"],
+             "n": "Delhaize Heusy (Affilié 044305, #120499)", "ls": "29/06 (28j)", "lsc": "fresh",
+             "a": "Avenue de Spa 66, 4802 Heusy", "c": "accueil / responsable — +32 87 22 14 75"},
+            {"t": "12:48 - 13:13", "k": "visite", "b": ["Tier B"],
+             "n": "Intermarché Heusy (Wonka S.A., #7003)", "ls": "24/06 (33j)", "lsc": "mid",
+             "a": "Chaussée de Theux 55, 4802 Heusy", "c": "Caroline Leidgens — +32 472 09 23 90"},
+         ]},
+        {"h": "Jeudi 30/07", "sub": "3 stops (3 visites)",
+         "zone": "Brabant wallon → Bruxelles (Genval → Etterbeek → Uccle)", "km": "215", "ret": "13:15",
+         "addrs": ["13 Avenue Albert 1er, 1332 Genval", "Rue de l'Escadron 45, 1040 Etterbeek",
+                   "Chaussée de Waterloo 719, 1180 Uccle"],
+         "stops": [
+            {"t": "09:35 - 10:00", "k": "visite", "b": ["25j OVERDUE"],
+             "n": "Delhaize Genval (Affilié 043540, #5582)", "ls": "04/06 (53j)", "lsc": "stale",
+             "a": "13 Avenue Albert 1er, 1332 Genval", "c": "accueil / responsable — 02 654 17 02"},
+            {"t": "10:35 - 11:00", "k": "visite", "b": ["Tier B"],
+             "n": "Proxy Delhaize St Michel (Affilié 048665, #9461)", "ls": "01/07 (26j)", "lsc": "fresh",
+             "a": "Rue de l'Escadron 45, 1040 Etterbeek", "c": "Roxanne Poirier — +32 2 733 51 66",
+             "rg": "passage mardi→vendredi jusqu'à 14h — demander Roxanne"},
+            {"t": "11:30 - 11:55", "k": "visite", "b": ["Tier B"],
+             "n": "Carrefour Market Uccle Bascule (#5484)", "ls": "01/07 (26j)", "lsc": "fresh",
+             "a": "Chaussée de Waterloo 719, 1180 Uccle", "c": "accueil / responsable — 02 343 55 75"},
+         ]},
+        {"h": "Vendredi 31/07", "sub": "🌴 CONGÉ — pas de tournée", "zone": "Congé",
+         "km": "0", "ret": "—", "addrs": [], "stops": []},
+    ],
+}
+
+WEEKS = [S31, S30]
