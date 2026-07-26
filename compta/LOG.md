@@ -1,5 +1,71 @@
 # LOG Compta Teatower
 
+## 2026-07-26 — Lettrage banque ING — paiements clients (38 cas / 39 lignes bancaires reconciliees, 16.241,92 EUR, 7 a statuer, 8 hors-scope)
+
+### Perimetre
+54 credits ING non rapproches au 26/07/26 (journal BNK1, id=14). Demande explicite Nicolas :
+lettrer tout le lot avec tolerance d'ecart relevee a **5,00 EUR** (au lieu de 1,00 EUR habituel),
+en identifiant le client par communication structuree / IBAN emetteur / reference facture quand le
+`partner_id` n'etait pas deja renseigne sur la ligne bancaire (aucune ligne credit n'avait de partner_id
+pre-rempli sur ce lot).
+
+### Methode
+1. Extraction automatique par ligne : IBAN emetteur (`res.partner.bank.acc_number` normalise),
+   communication structuree belge format `+++XXX/XXXX/XXXXX+++` matchee contre `account.move.payment_reference`,
+   et references facture explicites (`INV/2026/xxxxx`, `RINV/xx-xx/xxxx`) citees dans le libelle.
+2. Pour chaque candidat : recuperation des lignes 400000 ouvertes du partner, verification que la
+   somme signee (facture(s) + eventuelle note de credit/vieille ligne de credit du meme partner) tombe
+   au plus a 5,00 EUR du montant recu.
+3. Reconciliation technique identique aux lots precedents (repointage 499000->400000+partner, puis
+   `account.move.line.reconcile()`), ecart absorbe en 657100 (charge, sous-paiement) / 757100 (produit,
+   sur-paiement) si <=5,00 EUR. 1 cas de paiement partiel volontaire (ecart >5 EUR, pas de write-off,
+   facture reste `partial`).
+4. Script complet et commite : `compta/lettrage_11_ing_20260726.py` (38 cas nommes en dur, chacun
+   verifie manuellement avant execution).
+
+### Cas particuliers a noter
+- **Anais Michoel** (BSL 19798+19799) : 2 paiements distincts du meme jour totalisant 324,80 EUR
+  reconcilies ensemble contre 2 factures (INV/2026/03444 + INV/2026/03363) — match exact, 0 ecart.
+- **Netting facture + note de credit / vieille ligne de credit** (6 cas) : BARVO (INV/2026/03072 -
+  RINV/25-26/0344), NIVALIM (INV/2026/02864 - vieux solde BNK1/25-26/5151), Lillodis (INV/2026/02970 -
+  vieux solde BNK1/25-26/4151), Delhaize Le Lion Affilie 048900 (INV/2026/03277 - RINV/25-26/0363),
+  AD Delhaize Fernelmont (INV/2026/03543 - RINV/26-27/0010), SA Marer Bastogne (INV/2026/03152 -
+  RINV/25-26/0353), LSL Retail Chaumont-Gistoux (INV/2026/03065 - RINV/25-26/0341).
+- **Megan Houtvast** (BSL 19911, 123,47 EUR) : paiement PARTIEL volontaire contre INV/2026/02294
+  (323,47 EUR) — ecart 200,00 EUR > tolerance 5 EUR, donc **pas de write-off** : facture laissee
+  `payment_state=partial`, residuel 200,00 EUR toujours ouvert (a suivre normalement, pas une erreur).
+
+### Resultat — 38/38 cas OK, 0 erreur
+
+38 cas traites (couvrant 39 lignes bancaires ING), total encaisse **16.241,92 EUR**.
+17 write-offs crees (MISC/26-27/07/0125 a 0141) : 16x 657100 (charge, total 0,58 EUR) + 1x 757100
+(produit, 0,01 EUR) — **impact net P&L -0,57 EUR**, negligeable, ecart individuel maximal 0,28 EUR
+(Carrefour Belgium SARUB, INV/2026/03141).
+
+### Non lettrees (15 credits restants) — `compta/review/lettrage_ing_20260726_review.md`
+
+**7 ambigus (3.336,69 EUR)** — a statuer par Nicolas :
+| BSL id | Montant | Client | Motif |
+|---|---:|---|---|
+| 19466 | 675,58 | NANRETAIL SA (Intermarche Naninne) | Communication pointe vers facture deja `paid` — recidive du cas signale le 14/07/26, toujours non resolu. |
+| 19660 | 637,24 | ITM Alimentaire / Centrale Intermarche | 6 factures ouvertes, aucune ni combinaison ne vaut 637,24 — recidive du 14/07/26. |
+| 19784 | 67,00 | Smartbox Group | 80+ factures ouvertes (petits montants), communication non-belge, trop de candidats. |
+| 19815 | 111,55 | Faire.Com (Faire Wholesale B.V.) | 2 lignes ouvertes (127,20 / 232,46), aucune ne colle a 5 EUR pres. |
+| 19876 | 688,89 | Courses L SRL (Carrefour Market Courcelles) | Meme communication qu'un paiement deja lettre le 14/07/26 (INV/2026/03057, deja `paid`) — **probable double paiement client**. |
+| 19914 | 720,44 | Spar Vaux-sur-Sure (Louis Besseling Distribution) | Facture deja partiellement payee (residuel 680,54/720,44) — client semble avoir repaye le montant total, **surpaiement potentiel 39,90 EUR**. |
+| 19952 | 436,84 | Dynamic Food SRL (Spar LLN) | Communication pointe vers facture deja `paid`, seule ligne ouverte (avoir -84,70) ne colle pas. |
+
+**8 hors-scope (4.055,33 EUR)**, non-clients — non touchees : Baloise Belgium (79,51, remboursement
+assurance salaire), Pluxee Belgium x2 (124,95 + 33,28, cheques-repas), Edenred Belgium (17,59,
+cheques-repas), virements internes Teatower BNK2->BNK1 x4 (500 + 300 + 2.000 + 1.000 EUR).
+
+**38 lignes debitrices** (frais bancaires, fournisseurs, ONSS, salaires, cartes) : non traitees,
+hors perimetre explicite de cette tache (write-off autorise uniquement sur paiements clients).
+
+### Resultat global
+- ING credits non rapproches avant : 54 — apres : 15 (7 a statuer + 8 hors-scope)
+- ING debits non rapproches : 38 (inchange, hors-scope)
+
 ## 2026-07-26 — Facturation B2B PRO livrees + envoi Peppol (28 factures / 11.105,82 EUR TTC)
 
 ### Perimetre
