@@ -1,5 +1,62 @@
 # LOG Compta Teatower
 
+## 2026-07-26 — Facturation B2B PRO livrees + envoi Peppol (28 factures / 11.105,82 EUR TTC)
+
+### Perimetre
+Toutes les sale.order PRO (hors B2C/Shopify team_id=4) en state sale/done, invoice_status='to invoice', qty_delivered>0 au 26/07/26.
+Commande : `py scripts/facturation_b2b_peppol.py --apply` (aucune exclusion manuelle cette fois).
+
+### Corrections Peppol EAS 9925 -> 0208 pendant l'execution
+16 partenaires BE corriges (eas force a 0208 + re-verification declenchee), 13 sont passes a `valid` et ont debloque leur SO :
+MaxMara scrl (3129), O'Brunch Coffee (3165, `not_valid`->`valid`), Ramaut (3195), AD Fosses-la-Ville (5441),
+Intermarche Naninne (5506), Di Michele Sabrina (5634), Delhaize DEBROUX (5729), partner 5733 (Delhaize Embourg),
+partner 7680 (AD Ciney), partner 8119 (Intermarche Jambes), Proxy Delhaize Rixensart (50967),
+Hyper Carrefour Mons Grands Pres (113613), Carrefour Market Bievre (123069), FQMS Proxy Delhaize Quadrilatere Huy (125351).
+2 SKIP_NO_VAT inchanges (VAT manquante) : Delphine Samain (124325), charlier chantal (125330).
+
+### Resultat
+- **28 SO facturees, postees et envoyees Peppol** — TTC **11.105,82 EUR**. 0 echec, 0 facture a 0 EUR.
+- 2 lignes TRANSPORT forcees qty_delivered 0->1 (S06032, S06021).
+
+### Restant a traiter
+- **1 SO bloquee Peppol** : S05765 Delphine Samain (inv_partner 124325, VAT manquante) -> completer la fiche puis refacturer.
+- **4 SO sans rien de livre** (hors perimetre delivered-only) : S06033 Joffrey Helson Menuiserie SRL,
+  S06014 BTL SRL - Break Time, S06002 charlier chantal, S05958 Les Ateliers Saupont - Bertrand Noel.
+  A refacturer quand livraison confirmee.
+
+### Detail des 28 factures
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/03606 | S06039 | Carrefour Market Waterloo | 164,85 | processing |
+| INV/2026/03607 | S06038 | Hyper Carrefour Mons Grands Pres | 201,60 | processing |
+| INV/2026/03608 | S06037 | Intermarche Jambes | 229,60 | processing |
+| INV/2026/03609 | S06036 | AD Ciney (Etablissements Schnongs) | 210,00 | processing |
+| INV/2026/03610 | S06032 | Carrefour Market Bievre | 103,02 | processing |
+| INV/2026/03611 | S06031 | Smart fridges srl - Frigo Loco | 254,40 | processing |
+| INV/2026/03612 | S06030 | The Torrefactory Project Sa | 1.378,00 | processing |
+| INV/2026/03613 | S06029 | Distri-Incourt - Delhaize Incourt | 277,25 | processing |
+| INV/2026/03614 | S06028 | Delhaize Le Lion (Affilie 04401) | 159,60 | processing |
+| INV/2026/03615 | S06027 | Delhaize Le Lion (Affilie 04690 - Rixensart) | 293,65 | processing |
+| INV/2026/03616 | S06026 | Sorescol S.A. | 477,00 | processing |
+| INV/2026/03617 | S06025 | Graines De Quartier | 252,68 | processing |
+| INV/2026/03618 | S06024 | Delhaize Le Lion (Affilie 04315) | 510,68 | processing |
+| INV/2026/03619 | S06023 | Carrefour Market Remouchamps | 229,60 | processing |
+| INV/2026/03620 | S06022 | Carrefour Market Remouchamps | 1.434,02 | processing |
+| INV/2026/03621 | S06020 | DelEmbourg SRL - Delhaize Embourg | 606,91 | processing |
+| INV/2026/03622 | S06021 | MaxMara scrl (Max et moi) | 204,60 | processing |
+| INV/2026/03623 | S06019 | Ramaut | 793,97 | processing |
+| INV/2026/03624 | S06018 | SA Beausov New - Delhaize Beauraing | 351,05 | processing |
+| INV/2026/03625 | S06012 | FQMS - Proxy Delhaize Quadrilatere (Huy) | 344,45 | processing |
+| INV/2026/03626 | S06017 | SA Barthe - Intermarche Assesse | 291,20 | processing |
+| INV/2026/03627 | S06016 | NANRETAIL SA - Intermarche Naninne | 175,70 | processing |
+| INV/2026/03628 | S06015 | Delhaize Le Lion (Affilie 04336) | 470,43 | processing |
+| INV/2026/03629 | S05998 | O'Brunch Coffee | 284,90 | processing |
+| INV/2026/03630 | S06007 | Carrefour Hyper Marche-en-Famenne | 827,39 | processing |
+| INV/2026/03631 | S05982 | Carrefour Market Vielsalm | 357,07 | processing |
+| INV/2026/03632 | S05980 | Intermarche Mons | 60,50 | processing |
+| INV/2026/03633 | S05640 | Chez Simone - Elodie Gianello | 161,70 | processing |
+
 ## 2026-07-15 — Facturation B2B PRO livrees + envoi Peppol (14 factures / 6.062,60 EUR TTC)
 
 ### Perimetre
