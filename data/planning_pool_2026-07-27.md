@@ -1,11 +1,11 @@
 # Planning pool — GMS (source Odoo, généré 2026-07-27)
 
 - **Magasins GMS uniques** : 179
-  - Actifs : 101 (Tier A=12, B=75, C=14, X=0)
+  - Actifs : 100 (Tier A=12, B=74, C=14, X=0)
   - Arret  : 21
-  - NoMerch (commande seul, hors planning) : 2
+  - NoMerch (commande seul, hors planning) : 3
   - Televente (suivi Vanessa, hors visites Gilles) : 55
-- **OVERDUE Actifs** (next_visit < 2026-07-27) : 40
+- **OVERDUE Actifs** (next_visit < 2026-07-27) : 39
 
 ## OVERDUE — par retard décroissant
 
@@ -33,7 +33,6 @@
 | B | **24j** | HODICA SA - Carrefour Market Hotton (#2979) | Rue de la Jonction 16, 6990 HOTTON | 28j | 05/06/2026 (52j) | 2026-06-05 | picking | 2026-07-03 | 181€ |
 | B | **24j** | Delhaize Ciney - Rochefort - Neuchateau - Bastogne (#7070) |  | 28j | 05/06/2026 (52j) | 2026-06-05 | picking | 2026-07-03 | 51€ |
 | C | **24j** | Carrefour Hyper de Ans - 5400102606394 (#121818) | Rue Jean Jaures, 33, 4430 Ans | 42j | 22/05/2026 (66j) | 2026-05-22 | picking | 2026-07-03 | 77€ |
-| B | **20j** | Carrefour Market Waterloo (#6821) | Drève de Richelle 10, 1410 Waterloo | 28j | 09/06/2026 (48j) | 2026-06-09 | picking | 2026-07-07 | 101€ |
 | C | **18j** | Carrefour market Angleur (Belle-Ile) - 5400102102544 (#121196) | Quai des Vennes, 1, 4020 Liège | 42j | 27/05/2026 (61j) | 2026-05-28 | picking | 2026-07-09 | 66€ |
 | B | **14j** | LSL RETAIL SPRL - Intermarché Chaumont-Gistoux (#10134) | Chaussée de Huy 47, 1325 Chaumont-Gistoux | 28j | 15/06/2026 (42j) | 2026-06-15 | picking | 2026-07-13 | 246€ |
 | B | **14j** | SRL AD LLN - Delhaize de Louvain La Neuve (#3223) | Place de l'accueil 10, 1348 Louvain La Neuve | 28j | 15/06/2026 (42j) | 2026-06-15 | picking | 2026-07-13 | 236€ |
@@ -78,7 +77,6 @@
 | Actif | B | HODICA SA - Carrefour Market Hotton (#2979) | 05/06/2026 (52j) | 2026-06-05 | 2026-07-03 | 24j | 181€ | 7 |
 | Actif | B | Delhaize Ciney - Rochefort - Neuchateau - Bastogne (#7070) | 05/06/2026 (52j) | 2026-06-05 | 2026-07-03 | 24j | 51€ | 1 |
 | Actif | C | Carrefour Hyper de Ans - 5400102606394 (#121818) | 22/05/2026 (66j) | 2026-05-22 | 2026-07-03 | 24j | 77€ | 2 |
-| Actif | B | Carrefour Market Waterloo (#6821) | 09/06/2026 (48j) | 2026-06-09 | 2026-07-07 | 20j | 101€ | 5 |
 | Actif | C | Carrefour market Angleur (Belle-Ile) - 5400102102544 (#121196) | 27/05/2026 (61j) | 2026-05-28 | 2026-07-09 | 18j | 66€ | 2 |
 | Actif | B | LSL RETAIL SPRL - Intermarché Chaumont-Gistoux (#10134) | 15/06/2026 (42j) | 2026-06-15 | 2026-07-13 | 14j | 246€ | 9 |
 | Actif | B | SRL AD LLN - Delhaize de Louvain La Neuve (#3223) | 15/06/2026 (42j) | 2026-06-15 | 2026-07-13 | 14j | 236€ | 7 |
@@ -106,6 +104,7 @@
 | Actif | A | Carrefour Hyper Marche-en-Famenne - 5400102606868 (#6999) | 14/07/2026 (13j) | 2026-07-15 | 2026-08-05 | 0j | 495€ | 7 |
 | Actif | A | Affilié 041345 - Delhaize de Bouge (#114681) | 06/07/2026 (21j) | 2026-07-06 | 2026-07-27 | 0j | 434€ | 11 |
 | Actif | A | N.B.S. RETAIL - Delhaize de Marche (#8159) | 14/07/2026 (13j) | 2026-07-14 | 2026-08-04 | 0j | 427€ | 11 |
+| Actif | B | AD Delhaize Fernelmont (Fernel-Dis SRL n°43132) (#2952) | 15/07/2026 (12j) | 2026-07-15 | 2026-08-12 | 0j | 377€ | 11 |
 
 ## NoMerch — EXCLUS du planning (commande en autonomie)
 
@@ -114,6 +113,7 @@
 | Magasin | Adresse | Dernière SO | avg/mois |
 |---|---|---|---|
 | Affilié 048880 - AD Soumagne Marvan s.a. (#2915) | Avenue de la Résistance 322, 4630 Soumagne | 13/07/2026 (14j) | 1053€ |
+| Affilié 043561 - AD Gembloux (#2913) | Chaussée de Wavre 42A, 5030 Gembloux | 29/06/2026 (28j) | 230€ |
 | Carrefour Market Naninne - 5400102117050 (#9079) | Chaussée de Marche 741, 5100 Naninne | 10/07/2026 (17j) | 99€ |
 
 ## Televente — EXCLUS des visites Gilles (suivi Vanessa par appels)
@@ -142,7 +142,6 @@
 | Lambertdis SRL - Spar Manhay (#122944) | Rue d'erezée,, 6960 Manhay | 21/04/2026 (97j) | 47€ |
 | BLONFOOD SA - Intermarché Liège Blonden (#123345) | Avenue Blonden 26, 4000 Liège | 30/04/2026 (88j) | 37€ |
 | Digretail - Intermarché Braine-le-Comte Digues (#123466) | Rue des Digues 60, 7090 Braine-le-Comte | 05/05/2026 (83j) | 44€ |
-| DEMARS S.A.  - Carrefour Market Beauraing (#2905) | Rue de Rochefort, 37, 5570 BEAURAING | 13/05/2026 (75j) | 589€ |
 | Gmp La Louvière - Delhaize La Louvière (#123035) | Rue de la Franco-Belge 228, 7100 La Louvière | 20/04/2026 (98j) | 40€ |
 | Intermarché Braine Le Château (#124037) | Rue de Nivelles 186A, 1440 Braine-le-Château | 29/05/2026 (59j) | 49€ |
 | Intermarché Rumes - Hainaut (#123964) | Chaussée de Douai 1bis, 7610 Rumes | 29/05/2026 (59j) | 25€ |
@@ -163,6 +162,7 @@
 | Affilié 045070 - Proxy Delhaize Ma Campagne (#124701) | Chaussée de Waterloo 412G, 1050 Ixelles | 24/06/2026 (33j) | 54€ |
 | Louis Delhaize - Haversin (#123844) | Rue de Barvaux 141, 5590 Haversin | 24/06/2026 (33j) | 47€ |
 | Affilié 041895 - Proxy Delhaize Braives (#117130) | Chaussée de Tirlemont 6A, 4260 Braives | 10/06/2026 (47j) | 43€ |
+| DEMARS S.A.  - Carrefour Market Beauraing (#2905) | Rue de Rochefort, 37, 5570 BEAURAING | 27/07/2026 (0j) | 626€ |
 | Carrefour Market Boondael - 5400102101172 (#6598) | Chaussée de Boondael 444, 1050 Ixelles | 18/06/2026 (39j) | 145€ |
 | Hyper Carrefour Waterloo Mt-St-Jean - 5400102604598 (#8683) | Chaussée de Charleroi 579, 1410 Waterloo | 14/07/2026 (13j) | 131€ |
 | Affilié 049205 - Delhaize Tubize (#124182) | Rue de la Déportation, 61, 1480 Tubize | 14/07/2026 (13j) | 83€ |
@@ -170,7 +170,7 @@
 | Spar Barvaux (#123842) | Route de Marche 41, 6940 Durbuy | 14/07/2026 (13j) | 55€ |
 | Affilié 049015 - Proxy Delhaize Tihange (#124180) | Avenue de l'industrie 26, 4500 Huy | 14/07/2026 (13j) | 52€ |
 | Delhaize Visé (#124638) | Route de Dalhem 15, 4600 Visé | 06/07/2026 (21j) | 50€ |
-| Intermarché Mons (#123966) | Chemin de la Procession 399, 7000 Mons | 13/07/2026 (14j) | 43€ |
+| Intermarché Mons (#123966) | Chemin de la Procession 399, 7000 Mons | 13/07/2026 (14j) | 42€ |
 | Carrefour Market Vielsalm (#125275) | Les Grands Champs 38, 6690 Vielsalm | 13/07/2026 (14j) | 28€ |
 | FQMS - Proxy Delhaize Quadrilatere (Huy) (#125351) | Rue Delloye-Matthieu 9, 4500 Huy | 15/07/2026 (12j) | 27€ |
 | Delhaize Montigny (#124727) | Rue de Gozée 400, 6110 Montigny-le-Tilleul | 26/06/2026 (31j) | 25€ |

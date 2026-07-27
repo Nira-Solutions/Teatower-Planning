@@ -952,13 +952,15 @@ S31 = {
              "Villers-le-Bouillet = mercredi/vendredi matin uniquement ✓ · Proxy St Michel = avant 14h. "
              "Écartés cette semaine pour contrainte : Delhaize Welkenraedt (pas le mercredi) · Delhaize LLN (Mr Snaps absent le jeudi) · "
              "Grace-Hollogne / Chaumont-Gistoux / Spar LLN / Kraainem (visités les 16-17/07, espacement <14j) · "
-             "Delhaize Materne (règle 30j min : 27j seulement)."),
+             "Delhaize Materne (règle 30j min : 27j seulement). "
+             "⛔ AD Gembloux #2913 RETIRÉ du lundi 27/07 : le magasin fait son suivi lui-même → NO-MERCH, "
+             "plus jamais de passage merchandiser."),
     "days": [
-        {"h": "Lundi 27/07", "sub": "6 stops (6 visites)",
-         "zone": "Namur (Wépion → Namur ville → Gembloux → Sombreffe)", "km": "170", "ret": "14:15",
+        {"h": "Lundi 27/07", "sub": "5 stops (5 visites)",
+         "zone": "Namur (Wépion → Namur ville → Sombreffe)", "km": "161", "ret": "14:20",
          "addrs": ["Chaussée de Dinant 1147, 5100 Wépion", "Allée des Ormes 15, 5001 Belgrade",
                    "Chaussée de Louvain 257, 5000 Bouge", "Chaussée de Louvain 336, 5004 Namur",
-                   "Chaussée de Wavre 42A, 5030 Gembloux", "Chaussée de Gembloux 25, 5140 Sombreffe"],
+                   "Chaussée de Gembloux 25, 5140 Sombreffe"],
          "stops": [
             {"t": "09:10 - 09:35", "k": "visite", "b": ["Hyper", "27j OVERDUE"],
              "n": "Carrefour Hyper Wépion (#6597)", "ls": "02/06 (55j)", "lsc": "stale",
@@ -974,9 +976,6 @@ S31 = {
             {"t": "11:00 - 11:25", "k": "visite", "b": ["Tier A"],
              "n": "Delhaize de Bouge (Affilié 041345, #114681)", "ls": "06/07 (21j)", "lsc": "fresh",
              "a": "Chaussée de Louvain 336, 5004 Namur", "c": "Mme Destrée / Grandjean / Augustaine — +32 81 21 48 88"},
-            {"t": "11:50 - 12:15", "k": "visite", "b": ["Tier B"],
-             "n": "AD Gembloux (Affilié 043561, #2913)", "ls": "29/06 (28j)", "lsc": "fresh",
-             "a": "Chaussée de Wavre 42A, 5030 Gembloux", "c": "accueil / responsable — 081 61 38 44"},
             {"t": "13:00 - 13:25", "k": "visite", "b": ["Tier A"],
              "n": "AD Sombreffe (Affilié 048875, #5449)", "ls": "06/07 (21j)", "lsc": "fresh",
              "a": "Chaussée de Gembloux 25, 5140 Sombreffe", "c": "Angélique ou Louise / Sylvie Salteur — 071 88 60 08",
