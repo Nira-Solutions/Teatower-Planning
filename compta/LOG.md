@@ -1,5 +1,48 @@
 # LOG Compta Teatower
 
+## 2026-07-27 — Facturation B2B Peppol (6 factures, 2.639,95 EUR TTC)
+
+`scripts/facturation_b2b_peppol.py --apply` — dry-run controle avant application.
+
+### Perimetre
+18 SO `to invoice` — 4 exclues B2C/web (team "Odoo x Shopify"), 14 PRO retenues.
+Les 6 SO facturees ont toutes ete creees le 27/07 entre 06:23 et 07:04 (encodage Vanessa)
+et livrees entre 08:58 et 10:00, entrepot Teatower, sans transporteur : **aucune livraison
+merch en camionnette**, donc aucune exclusion `--exclude` necessaire (cf. garde-fou rejets EDI Carrefour).
+
+### Factures creees, postees et envoyees Peppol
+| Facture | SO | Client | TTC |
+|---|---|---|---|
+| INV/2026/03642 | S06046 | Cafe Ventuno | 993,75 |
+| INV/2026/03643 | S06044 | Begijnhof Hotel | 763,20 |
+| INV/2026/03644 | S06043 | La couronne | 212,00 |
+| INV/2026/03645 | S06042 | Smart fridges srl - Frigo Loco | 254,40 |
+| INV/2026/03646 | S06041 | L'Etable 67 | 218,50 |
+| INV/2026/03647 | S06040 | Centrale Intermarche | 198,10 |
+| | | **Total** | **2.639,95** |
+
+6/6 envoyees via Peppol (`account.move.send.wizard`, `sending_methods=['peppol']`),
+toutes en `peppol_move_state=processing`. **Zero envoi par email** (regle en vigueur).
+
+### Corrections Peppol au passage
+EAS 9925 -> 0208 + re-verification sur 4 partenaires BE : Begijnhof Hotel (#2820),
+Cafe Ventuno (#2855), Ventuno SA (#5620), et #6907 qui passe **not_verified -> valid**.
+Ces corrections ont debloque 2 SO qui etaient BLOCK au dry-run (Cafe Ventuno + Begijnhof,
+1.756,95 EUR) : sans elles, la facturation se serait arretee a 4 factures / 883,00 EUR.
+
+### Lignes TRANSPORT forcees
+S06041 (ligne 66503) et S06040 (ligne 66498) : `qty_delivered` 0 -> 1 (regle transport toujours facture).
+
+### Non facture
+- **2 SO bloquees Peppol** : S06002 charlier chantal (#125330) et S05765 Delphine Samain (#124325).
+  Les deux sont `not_verified` **sans numero de TVA** — ce sont vraisemblablement des particuliers
+  encodes dans le flux pro. A arbitrer : soit TVA manquante a renseigner, soit basculer en B2C.
+- **6 SO sans livraison** (`qty_delivered=0`) : S06050 Maison Muscari, S06049 DEMARS/CM Beauraing,
+  S06033 Joffrey Helson Menuiserie, S06047 Pougin, S06014 BTL/Break Time, S05958 Ateliers Saupont.
+- **Maison Muscari (#125683)** : Peppol `not_valid` malgre eas=0208 et endpoint 1007195540 — a verifier.
+
+Erreurs : 0.
+
 ## 2026-07-26 — Lettrage banque ING — paiements clients (38 cas / 39 lignes bancaires reconciliees, 16.241,92 EUR, 7 a statuer, 8 hors-scope)
 
 ### Perimetre
