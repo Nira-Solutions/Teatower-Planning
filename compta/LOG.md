@@ -1,5 +1,63 @@
 # LOG Compta Teatower
 
+## 2026-07-29 — Facturation B2B Peppol (4 factures, 1.840,58 EUR TTC) + lettrage ING (15 lignes)
+
+### 1. Facturation PRO delivered-only + envoi Peppol
+`scripts/facturation_b2b_peppol.py --apply` (dry-run controle avant application).
+17 SO `to invoice` : 4 facturables Peppol, 4 bloquees Peppol, 8 sans livraison, 1 a 0,00 EUR.
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---|---|
+| INV/2026/03677 | S06067 | Delhaize Le Lion S.A, Affilie 044305 - Heusy | 267,42 | done |
+| INV/2026/03678 | S06066 | Wonka S.A. - Intermarche Heusy | 340,91 | done |
+| INV/2026/03679 | S06057 | Cafes Antillia | 715,50 | done |
+| INV/2026/03680 | S06056 | Cafes Delahaut | 516,75 | done |
+
+Les 4 envois Peppol sont confirmes `peppol_move_state=done`.
+S06066 (Wonka) n'etait pas facturable au dry-run : la re-verification Peppol de l'etape 3 a fait
+passer le partenaire de facturation #8131 de `not_verified` a `valid`.
+
+**Garde-fou ajoute au script** — la ligne TRANSPORT n'est plus forcee a `qty_delivered` quand
+**aucune marchandise** n'est livree sur la commande. Cas S06061 (Bulle d'hair) : les 3 lignes
+produit etaient a `qty_delivered=0`, forcer le port aurait genere une facture de 10 EUR de frais
+de port seuls, sans marchandise. La regle "transport toujours facture" ne vaut que quand la
+marchandise est reellement partie et que seul le port n'a pas ete scanne en prepa.
+
+SO bloquees Peppol (non facturees, inchangees) : S06055 Marie-Chantal Sauvage, S06050 Maison
+Muscari (`not_valid`), S06002 charlier chantal, S05765 Delphine Samain — 3 sans numero de TVA.
+S06069 (Paulette Srl) : facture creee a 0,00 EUR, laissee en **draft** (11 kg de vrac Guarana a
+prix zero — arbitrage manuel).
+
+### 2. Lettrage ING — 15 lignes sur 49
+`compta/lettrage_12_ing_20260729.py --apply`. Detail complet :
+`compta/review/lettrage_ing_20260729_review.md`.
+
+**BNK1 : 49 -> 34 lignes a rapprocher. BNK2 : 40 -> 35.**
+
+- **4 encaissements clients** : Barthe 472,49 (ecart -0,02 -> write-off 657100 `MISC/26-27/07/0200`),
+  Wonka 305,91 (ecart +0,01 -> write-off 757100 `MISC/26-27/07/0201`), Spar Vaux-sur-Sure 720,44
+  (2 factures, ecart nul), Faire 111,55 (ecart -15,65 = commission Faire, **lettrage partiel**,
+  pas de write-off au-dela de la tolerance de 5 EUR).
+- **6 paiements fournisseurs** : SD Worx 59,90, EZCharge 82,64, Shyfter 47,19, Kirchner+Mount
+  Everest 8.129,06 (4 factures, pile), Kirchner 2.545,24 (2 factures, pile), SD Worx 110,63
+  (acompte, partiel).
+- **5 virements internes BNK1/BNK2** (500 + 300 + 2.000 + 1.000 + 5.800) lettres via
+  `580000 Internal Transfers of Funds`, impact resultat nul.
+
+**Delettrage assume sur RESA747** (Kirchner RGK26-02511) : la note de credit
+`RBILL/26-27/07/0001` (199,41) y etait imputee alors que Kirchner a preleve la facture pleine
+(le libelle du releve le prouve). L'imputation a ete retiree ; la note de credit redevient
+ouverte a 199,41 et sera deduite d'un prelevement futur.
+
+**Regle d'ecart appliquee** : <= 5,00 EUR -> write-off 657100/757100 ; > 5,00 EUR -> lettrage
+partiel sans write-off. Aucun lettrage a l'aveugle.
+
+**Restent a statuer (extrait)** : Kirchner 12.837,54 (libelle "Siehe Avis", avis du 07/07
+necessaire), Centrale Intermarche 637,24 (aucune combinaison parmi 7 factures ouvertes),
+NANRETAIL 675,58 (vieille communication reutilisee), Dynamic Food 436,84 (INV/2026/03067 deja
+soldee le 15/07 par la meme communication — double paiement ou imputation erronee), Smartbox
+67,00, ONSS 8.945,00, fichier SEPA groupe 1.574,53.
+
 ## 2026-07-27 — Facturation B2B Peppol (6 factures, 2.639,95 EUR TTC)
 
 `scripts/facturation_b2b_peppol.py --apply` — dry-run controle avant application.
