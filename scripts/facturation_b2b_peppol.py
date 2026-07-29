@@ -148,14 +148,26 @@ so_lines = defaultdict(list)
 for l in lines:
     so_lines[l['order_id'][0]].append(l)
 
+def _is_transport(l):
+    name_upper = (l.get('name') or '').upper()
+    prod_name = str(l['product_id'][1] if l['product_id'] else '').upper()
+    return 'TRANSPORT' in name_upper or 'TRANSPORT' in prod_name
+
 transport_fixed = []
 for s in sos:
     sid = s['id']
     ll = so_lines.get(sid, [])
+    # Garde-fou : ne forcer le TRANSPORT que si de la marchandise est REELLEMENT
+    # partie (au moins une ligne produit avec qty_delivered > 0). Sinon la commande
+    # n'est pas expediee du tout et forcer le port creerait une facture de frais de
+    # port seuls, sans marchandise (cas S06061 Bulle d'hair, 29/07/26).
+    goods_delivered = any((not _is_transport(l)) and l['qty_delivered'] > 0 for l in ll)
+    if not goods_delivered:
+        if any(_is_transport(l) and l['qty_delivered'] == 0 and l['product_uom_qty'] > 0 for l in ll):
+            print(f"  SKIP  SO {s['name']} - ligne TRANSPORT non forcee : aucune marchandise livree sur la commande")
+        continue
     for l in ll:
-        name_upper = (l.get('name') or '').upper()
-        prod_name = str(l['product_id'][1] if l['product_id'] else '').upper()
-        is_transport = 'TRANSPORT' in name_upper or 'TRANSPORT' in prod_name
+        is_transport = _is_transport(l)
         if is_transport and l['qty_delivered'] == 0 and l['product_uom_qty'] > 0:
             line_id = l['id']
             qty = l['product_uom_qty']
