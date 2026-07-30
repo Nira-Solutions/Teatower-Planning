@@ -1,3 +1,8 @@
+---
+title: Hausse tarifaire Teatower 2026
+description: Plan de deploiement et forecast 12 mois
+---
+
 # Hausse tarifaire Teatower 2026 — plan de déploiement et forecast 12 mois
 
 *Document de direction, confidentiel. Établi le 30/07/2026 à partir des ventes réelles Odoo.*
