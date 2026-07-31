@@ -1,5 +1,24 @@
 # LOG Compta Teatower
 
+## 2026-07-31 (ter) — Lettrage ING encaissements clients (2 lignes, 1.778,90 EUR)
+
+`compta/lettrage_13_ing_20260731.py --apply` (dry-run controle avant application), perimetre
+demande = encaissements clients uniquement sur BNK1 (ING). 44 lignes non reconciliees scannees,
+2 nouvelles lignes clients identifiees avec certitude et lettrees, ecart nul sur les 2 (pas de
+write-off necessaire).
+
+| BSL | Date | Montant | Client | Document(s) | Ecart | Traitement |
+|---|---|---|---|---|---|---|
+| 20051 | 29/07 | 229,60 | Carrefour Market Remouchamps | INV/2026/03619 | 0,00 | exact |
+| 20028 | 28/07 | 1.549,30 | Cafes Preko s.a. | INV/2026/03215+03132+03086 | 0,00 | groupe exact |
+
+Detail complet des cas non lettres (a arbitrer + hors flux clients + inchanges depuis le 29/07) :
+`compta/review/lettrage_ing_20260731_review.md`. A noter : BSL 20026 MOMIDISTRI (+688,87) reutilise
+la communication structuree d'une facture Spar Momignies DEJA SOLDEE le 20/07 -- probable double
+paiement, PAS lettre contre une facture fermee, arbitrage necessaire. Debits fournisseurs/frais
+volontairement hors perimetre de ce tour (candidat repere pour la prochaine fois : BSL 20044
+Kirchner -12.087,45, references explicites dans le libelle SEPA, somme pile).
+
 ## 2026-07-31 (bis) — Diagnostic Peppol des 4 SO bloquees (S06055, S06050, S06002, S05765)
 
 Demande Nicolas : corriger le Peppol des 4 SO bloquees du run precedent pour les facturer si
