@@ -1,5 +1,49 @@
 # LOG Compta Teatower
 
+## 2026-07-31 (bis) — Diagnostic Peppol des 4 SO bloquees (S06055, S06050, S06002, S05765)
+
+Demande Nicolas : corriger le Peppol des 4 SO bloquees du run precedent pour les facturer si
+possible. Diagnostic ligne par ligne (aucune ecriture ne modifie une piece comptable postee) :
+
+**Maison Muscari (ID 125683, S06050)** — cas le plus prometteur, verifie en detail.
+VAT `BE1007195540` deja bien formatee : `peppol_eas=0208`, `peppol_endpoint=1007195540` (10
+chiffres, sans prefixe BE, coherent avec le VAT). `fiscal_position_id`="Belgium B2B" -> vraie
+entreprise. Relance de `button_account_peppol_check_partner_endpoint` (meme methode que le script)
+: resultat inchange, `peppol_verification_state` reste `not_valid`. Diagnostic : le format est
+correct, ce n'est donc PAS une erreur de saisie — l'entreprise n'est simplement **pas enregistree
+sur le reseau Peppol**. Irreparable de notre cote (pas de correction possible sans info externe).
+Pendant ce diagnostic, Nicolas a deja poste manuellement la facture **INV/2026/03710 (445,20 EUR
+TTC, posted, not_paid)** sur cette SO en dehors du script — piece existante non modifiee ni
+renvoyee (peppol_move_state=False, elle ne peut pas partir par Peppol tant que le client n'est pas
+enregistre ; envoi par un autre canal a arbitrer par Nicolas, pas d'email envoye ici — hors
+perimetre "jamais par email").
+
+**Marie-Chantal Sauvage (ID 117050, S06055)** — pas de n° d'entreprise dans Odoo (vat=False,
+`company_type`=person). `fiscal_position_id`="EU B2C" sur S06055 et les 2 autres SO de ce partner
+(S06054 annulee, #46736 via team "Odoo x Shopify") : c'est un particulier, aucune source Odoo ne
+permet de deduire un numero d'entreprise -> pas de correction inventee. Point mort de toute facon
+: Nicolas a deja facture cette SO manuellement (INV/2026/03709, 0,00 EUR, posted, payee) pendant le
+diagnostic.
+
+**charlier chantal (ID 125330, S06002)** et **Delphine Samain (ID 124325, S05765)** — memes
+constats : `company_type`=person, vat=False, aucun indice pro dans le comment/chatter/enfants de
+contact (les `child_ids` sont des adresses de livraison, pas des entites facturables). Les 2 SO
+proviennent du canal **Amazon** (`team_id`="Amazon", `origin`="Amazon Order ..."),
+`fiscal_position_id`="EU B2C" — ce sont des commandes marketplace B2C, pas des clients pro. Aucune
+source fiable pour un numero d'entreprise -> pas de correction. **Non facturables via Peppol**,
+a traiter via le flux B2C normal (hors perimetre de ce script), pas de reclassement applique sans
+validation de Nicolas.
+
+**Correction de script** — `scripts/facturation_b2b_peppol.py` excluait deja team_id=4
+("Odoo x Shopify") du perimetre PRO mais pas les 4 teams "Amazon" (5,6,7,8), qui sont aussi 100%
+B2C (fiscal_position="EU B2C" systematique). Sans cette exclusion, S06002 et S05765 continueraient
+a apparaitre a tort comme "bloquees Peppol" a chaque run alors que ce sont des particuliers.
+`EXCLUDE_TEAM_IDS` etendu a `{4, 5, 6, 7, 8}`.
+
+**Resultat** : 0 nouvelle facture (aucun des 4 partenaires n'est passe a `valid` — 1 irreparable
+de notre cote, 3 sont des particuliers sans VAT). 2 des 4 SO ont ete facturees entretemps
+directement par Nicolas hors de ce workflow (S06055, S06050).
+
 ## 2026-07-31 — Facturation B2B Peppol (5 factures, 1.740,70 EUR TTC)
 
 `scripts/facturation_b2b_peppol.py --apply` (dry-run controle avant application).
