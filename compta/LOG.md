@@ -1,5 +1,39 @@
 # LOG Compta Teatower
 
+## 2026-07-31 (quater) — Lettrage ING elargi fournisseurs+autres (3 lignes, 13.051,71 EUR)
+
+Demande elargie par Nicolas : lettrer TOUT ce qui est lettrable dans ING (pas seulement clients),
+avec regle durcie -- aucune ecriture creee pour une ligne SANS contrepartie ouverte (pas de
+charge P&L sans validation). `compta/lettrage_14_ing_20260731_fournisseurs.py --apply`.
+
+| BSL | Fournisseur | Montant | Document(s) | Ecart |
+|---|---|---|---|---|
+| 20044 | Kirchner, Fischer + Co GmbH | -12.087,45 | RESA792+RESA912 (refs citees dans le libelle) | 0,00 |
+| 20042 | Sinas Gmbh & Co | -957,00 | RESA1117 | 0,00 |
+| 20027 | ING Belgique SA | -7,26 | RESA1218 (facture citee dans le libelle) | 0,00 |
+
+Total 5 lignes lettrees aujourd'hui (2 clients + 3 fournisseurs) = 14.830,61 EUR. ING BNK1 non
+reconciliees : 44 -> 39.
+
+Detail complet des cas NON lettres (ambigus + sans contrepartie/imputation a valider avec comptes
+suggeres, rien cree) : `compta/review/lettrage_ing_20260731_fournisseurs_review.md`. Points cles :
+- **Radius (19871 -308,80 / 19985 -459,81)** : factures reference deja soldees via de VIEUX
+  prelevements mars 2026 repartis en pool -- plus de contrepartie ouverte, systeme Radius a
+  auditer separement.
+- **Worldline (19809 -529,78)** : ref matche RESA1059 (626,31) mais ecart 96,53 EUR > tolerance,
+  pas de lettrage force.
+- **Kirchner 19625 (-12.837,54)** : aucune ref dans le libelle, subset-sum sur 47 factures
+  ouvertes donne des dizaines de faux positifs a la centime -- aucune preuve fiable, besoin de
+  l'avis Kirchner du 07/07.
+- **ONSS 19811 (-8.945,00)** : compte 454000 existe mais toutes ses lignes ont un residuel de
+  0,00 -- rien a matcher, audit ONSS/SD Worx dedie necessaire.
+- **MIAMIO/NCA Europe (achats Faire carte)** : historique montre un mauvais compte (440000 au
+  lieu de 600000) deja utilise par le passe -- signale pour ne pas reproduire l'erreur, rien
+  impute ici de toute facon (pas de facture ouverte en face).
+- Avances salariales (Vansimpsen/Cabosart/van Ooteghem) et frais carte (Google/Adobe/Shopify/
+  Intuit/Sendcloud/Proximus/Douanes) : aucune facture ouverte en face, comptes suggeres a titre
+  indicatif (615200/611129/616600/616200/455000...), **rien cree**, validation Nicolas requise.
+
 ## 2026-07-31 (ter) — Lettrage ING encaissements clients (2 lignes, 1.778,90 EUR)
 
 `compta/lettrage_13_ing_20260731.py --apply` (dry-run controle avant application), perimetre
