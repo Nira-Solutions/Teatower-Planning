@@ -1,5 +1,26 @@
 # LOG Compta Teatower
 
+## 2026-07-31 (quinquies) — Audit nettoyage Bilan FY25-26 (lecture seule + 1 correction neutre)
+
+Demande Nicolas : audit complet du bilan a la cloture (30/06/2026) pour identifier les comptes
+d'attente/suspens/faux soldes avant presentation CA (banquier). Methode en 2 temps : Phase 1
+audit lecture seule sur toute la balance generale (269 comptes mouvementes), Phase 2 execution
+UNIQUEMENT des corrections a impact resultat nul et justification incontestable.
+
+**Seule correction executee** : rattachement du partenaire (Tea Touch, id 6973) sur 2 lignes du
+compte 489030 "C/C TEA TOUCH" qui etaient sans partenaire (`partner_id=False`) malgre le nom du
+compte -- pure metadonnee, aucun montant/compte/date modifie, solde du compte inchange
+(-41.000,00 EUR).
+
+**Rien d'autre execute** -- tous les autres postes identifies (comptes d'attente/carte non
+apures, factures POS dupliquees, comptes courants parties liees, TVA, stock en brouillon,
+soldes clients crediteurs) sont **listes pour arbitrage**, notamment un point majeur qui touche
+un compte de produit et changerait le signe du resultat FY25-26 si valide -- **pas de detail
+chiffre ici** (confidentiel, bilan/creances/fonds propres).
+
+Dossier complet (confidentiel, format CA) : repo prive `Nira-Solutions/Teatower-Direction`,
+`direction/bilan-nettoyage-2026-07-31.md`.
+
 ## 2026-07-31 (quater) — Lettrage ING elargi fournisseurs+autres (3 lignes, 13.051,71 EUR)
 
 Demande elargie par Nicolas : lettrer TOUT ce qui est lettrable dans ING (pas seulement clients),
