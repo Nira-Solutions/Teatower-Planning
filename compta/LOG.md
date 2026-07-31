@@ -1,5 +1,38 @@
 # LOG Compta Teatower
 
+## 2026-07-31 — Facturation B2B Peppol (5 factures, 1.740,70 EUR TTC)
+
+`scripts/facturation_b2b_peppol.py --apply` (dry-run controle avant application).
+29 SO `to invoice` : 24 PRO (5 B2C/Shopify exclues par team_id), 6 facturables Peppol, 4 bloquees
+Peppol, 14 sans livraison reelle (invoice_status='to invoice' mais qty_delivered=0), 1 a 0,00 EUR.
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---|---|
+| INV/2026/03704 | S06071 | Emilie Gigot - Green Coffee | 171,60 | processing |
+| INV/2026/03705 | S06072 | Newpharma | 434,90 | processing |
+| INV/2026/03706 | S06065 | Sorescol S.A. | 954,00 | processing |
+| INV/2026/03707 | S06061 | Jennifer BRASSEUR - Bulle d'hair | 169,60 | processing |
+| INV/2026/03708 | S06008 | Carrefour Belgium, Carrefour Market Wellin | 10,60 | processing |
+
+Ligne TRANSPORT forcee (qty_delivered 0->1) sur S06071 et S06061, marchandise reellement livree
+sur ces 2 SO (garde-fou respecte, pas de facture "port seul").
+
+Corrections Peppol EAS 9925->0208 declenchees en etape 3 : Bureau DIFRACH SA (deja valid),
+TRL 13 SPRL - Amar AMARA (not_verified->valid), Carrefour Hyper Auderghem (not_verified->valid) —
+aucune de ces 3 n'avait de SO facturable ce tour-ci.
+
+Facture 0,00 EUR laissee en **draft** (arbitrage manuel, pas d'interet a poster/envoyer un Peppol
+a 0 EUR) : DRAFT_43700 / S06074 Banque Degroof Petercam sa.
+
+SO bloquees Peppol (non facturees, inchangees) : S06055 Marie-Chantal Sauvage (not_verified, pas
+de TVA), S06050 Maison Muscari (not_valid, TVA BE1007195540 invalide Peppol), S06002 charlier
+chantal (not_verified, pas de TVA), S05765 Delphine Samain (not_verified, pas de TVA).
+
+14 SO sans livraison reelle (rien facture) : S06081, S06080, S06079, S06070, S06048, S06073,
+S06078, S06060, S06059, S06049, S06033, S06047, S06014, S05958 — dont 4 Carrefour
+(S06079/S06060/S06059/S06049) et 2 GMS (Wellin exclu de ce lot). Aucun tag ARRET/faillite ni
+sale_warn detecte sur les 6 partenaires factures (verifie manuellement avant apply).
+
 ## 2026-07-29 — Facturation B2B Peppol (4 factures, 1.840,58 EUR TTC) + lettrage ING (15 lignes)
 
 ### 1. Facturation PRO delivered-only + envoi Peppol
