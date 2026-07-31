@@ -59,7 +59,11 @@ print()
 # =========================================================
 # ETAPE 1 : Récupérer les SO to invoice (PRO uniquement, exclut B2C/web)
 # =========================================================
-EXCLUDE_TEAM_IDS = {4}  # 4 = "Odoo x Shopify" (B2C/web) — a adapter si d'autres teams B2C existent
+EXCLUDE_TEAM_IDS = {4, 5, 6, 7, 8}  # 4 = "Odoo x Shopify", 5/6/7/8 = "Amazon" (toutes B2C/web,
+# fiscal_position="EU B2C" systematique) — a adapter si d'autres teams B2C existent.
+# Ajout 31/07/26 : team 8 "Amazon" avait laisse passer S06002 (charlier chantal) et S05765
+# (Delphine Samain), 2 particuliers sans n° d'entreprise bloques a tort dans le flux Peppol PRO
+# (cf diagnostic 31/07/26, ces commandes doivent suivre le flux B2C, pas Peppol).
 
 sos_all = call('sale.order','search_read',
     [[['invoice_status','=','to invoice'],['state','in',('sale','done')]]],
