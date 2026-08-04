@@ -6,7 +6,7 @@ description: Plan de deploiement et forecast 12 mois
 # Hausse tarifaire Teatower 2026
 
 *Établi le 30/07/2026 sur les ventes réelles Odoo, 12 mois glissants du 30/07/2025 au 30/07/2026. Exercice social : 1er juillet → 30 juin.*
-*Révisé le 04/08/2026 — marches ramenées à +0,50 € sur les doypacks et les infusettes, et à 10,50 € sur les thés glacés (arbitrage Nicolas). Le scénario du 30/07 reste affiché en regard pour la comparaison.*
+*Révisé le 04/08/2026 — marches ramenées à +0,50 € sur les doypacks et les infusions, et à 10,50 € sur les thés glacés ; calendrier découplé B2C 17/08 et revendeurs 01/11. Le scénario du 30/07 reste affiché en regard pour la comparaison.*
 
 ## Synthèse
 
@@ -17,12 +17,12 @@ description: Plan de deploiement et forecast 12 mois
 | dont revendeurs (GMS, B2B, Horeca) | +54 596 € |
 | dont direct (boutiques, Shopify) | +28 227 € |
 | Effet sur la marge brute | +8,8 % |
-| Gain sur FY26-27 selon calendrier recommandé | +54 782 € |
+| Gain sur FY26-27 selon calendrier décidé | +63 473 € |
 | Perte de volume tolérable avant destruction de marge | −8,1 % |
 
-La hausse ne coûte rien à produire : les 82 823 € tombent intégralement en marge brute. Le point de décision n'est pas *si*, mais *quand* — le calendrier vaut à lui seul une quinzaine de milliers d'euros (point 6).
+La hausse ne coûte rien à produire : les 82 823 € tombent intégralement en marge brute.
 
-**Recommandation :** annonce le **25/08/2026**, entrée en vigueur au **01/12/2026** pour les trois gammes d'hiver et au **01/03/2027** pour les thés glacés, dont la saison ne démarre qu'en avril.
+**Calendrier décidé :** le B2C — magasins et Shopify — bascule le **17/08/2026** ; les revendeurs conservent l'ancien tarif jusqu'au **31/10/2026** et basculent au **01/11/2026**. Décision associée : passage à **deux révisions tarifaires par an** au lieu d'un rattrapage pluriannuel.
 
 ## 1. Périmètre
 
@@ -116,16 +116,28 @@ En contrepartie, la réserve du 30 juillet sur les thés glacés tombe : à 10,5
 
 Les saisonnalités sont **opposées**. Les trois gammes d'hiver font 60 % de leur CA d'octobre à mars, avec un pic en janvier ; les thés glacés font 87 % du leur d'avril à août, avec un pic en juin.
 
-| Entrée en vigueur | Gain FY26-27 |
-|---|---:|
-| 3 gammes au 01/11/2026 + `GI0` au 01/03/2027 *(annonce 01/08, intenable)* | +60 939 |
-| **3 gammes au 01/12/2026 + `GI0` au 01/03/2027** *(annonce 25/08, recommandé)* | **+54 782** |
-| 3 gammes au 01/12/2026, `GI0` au 01/12/2026 également | +55 309 |
-| 3 gammes au 01/01/2027 + `GI0` au 01/03/2027 *(annonce 01/10)* | +48 143 |
+| Entrée en vigueur | Gain FY26-27 | Part du régime plein |
+|---|---:|---:|
+| **Décidé — B2C au 17/08/2026, revendeurs au 01/11/2026** | **+63 473** | 77 % |
+| Tout au 01/11/2026 | +61 624 | 74 % |
+| Tout au 01/12/2026 | +55 309 | 67 % |
+| 3 gammes au 01/12/2026 + `GI0` au 01/03/2027 | +54 782 | 66 % |
 
-Deux conséquences. Sur les gammes d'hiver, un préavis annoncé fin août se consomme entièrement dans le creux estival et le tarif mord au démarrage de la saison forte ; chaque mois de report coûte ensuite **6 400 € environ**, prélevés sur un gros mois.
+**Découpler le B2C du B2B rapporte 8 691 € de plus sur l'exercice** qu'un calendrier unique. Les magasins et Shopify n'ont pas besoin de préavis : trois mois et demi de vente au nouveau tarif sont pris avant même que le B2B ne bascule, et ils tombent dans le creux estival où le renoncement coûte le moins cher.
 
-Sur les thés glacés c'est l'inverse : la saison 2026 est passée et la suivante ne démarre qu'en avril, donc **accorder six mois de préavis au lieu de trois ne coûte que 527 €**. C'est le levier de négociation du dossier — on donne le double du préavis légal sur la gamme la plus visible, à un coût quasi nul.
+Sur les thés glacés, la bascule au 17 août est également la meilleure des trois dates testées : la saison courant d'avril à août, l'exercice FY26-27 contient toute la saison 2027 quelle que soit la date, mais le 17 août capte en plus la fin de la saison 2026. Soit **+11 607 €** contre +9 601 € au 01/03/2027.
+
+| Canal | Date d'effet | Gain FY26-27 | Régime plein |
+|---|---|---:|---:|
+| Boutiques Teatower | 17/08/2026 | +19 389 | +21 902 |
+| B2B revendeurs | 01/11/2026 | +19 211 | +28 132 |
+| GMS | 01/11/2026 | +13 746 | +19 174 |
+| Shopify | 17/08/2026 | +5 777 | +6 317 |
+| Horeca | 01/11/2026 | +5 343 | +7 289 |
+
+Le B2C capte 89 % de son potentiel annuel dès le premier exercice, les revendeurs 70 %. C'est le prix d'une transition négociée.
+
+**Le préavis a un coût chiffrable.** Les revendeurs peuvent commander à l'ancien tarif jusqu'au 31 octobre tout en revendant au nouveau prix : un mois de volume avancé représente **4 550 €** d'uplift perdu, et **6 851 €** si novembre et décembre sont achetés en octobre. Plafonner les commandes d'octobre au volume moyen des trois mois précédents est le seul garde-fou — et il doit figurer dans le courrier B2B, pas après.
 
 ## 7. Option : indexer toute la gamme
 
@@ -135,31 +147,36 @@ Le chiffrage ci-dessus ne porte que sur les SKU au prix de référence. Indexer 
 
 ```mermaid
 gantt
-    title Annonce 25/08/2026 — effet 01/12/2026 (01/03/2027 pour les GI0)
+    title B2C au 17/08/2026 — revendeurs au 01/11/2026
     dateFormat YYYY-MM-DD
     axisFormat %d/%m
-    section Décision
-    Validation conseil                        :crit, 2026-08-03, 5d
-    section Préparation
-    Audit contrats et CGV                     :2026-08-10, 5d
-    Grilles tarifaires PDF                    :2026-08-10, 8d
-    E-mail annonce FR et NL + FAQ             :2026-08-12, 6d
-    Liste de diffusion et brief équipe        :2026-08-17, 5d
-    section Annonce
-    Jour J - envoi et accusés                 :crit, 2026-08-25, 2d
-    Appels des 20 premiers comptes            :2026-08-26, 8d
-    section Préavis
-    Suivi objections et anticipations         :2026-08-31, 90d
-    Rappel J-30                               :crit, 2026-10-30, 1d
-    section Bascule
-    Fiches tarifaires GMS et EDI              :2026-11-20, 8d
-    Odoo, Shopify, POS, étiquettes            :crit, 2026-11-27, 4d
-    Effet 3 gammes d'hiver                    :milestone, 2026-12-01, 0d
-    Contrôle factures et commandes            :2026-12-01, 12d
-    Bascule thés glacés                       :crit, 2027-02-24, 5d
-    Effet thés glacés                         :milestone, 2027-03-01, 0d
+    section Préparation B2C
+    Liste de prix B2C dans Odoo               :crit, 2026-08-05, 8d
+    Étiquettes prix boutiques - impression    :2026-08-06, 8d
+    Mise à jour liste Shopify                 :2026-08-12, 5d
+    Remplacement étiquettes en magasin        :crit, 2026-08-17, 1d
+    section Bascule B2C
+    Effet magasins et Shopify                 :milestone, 2026-08-17, 0d
+    Contrôle prix caisse et web               :2026-08-18, 7d
+    section Annonce B2B
+    Courrier revendeurs FR et NL + FAQ        :crit, 2026-08-10, 5d
+    Appels des 20 premiers comptes            :2026-08-17, 10d
+    section Préavis revendeurs
+    Suivi objections et anticipations         :2026-08-24, 68d
+    Rappel J-30                               :crit, 2026-10-01, 1d
+    Surveillance commandes d octobre          :crit, 2026-10-01, 31d
+    section Bascule B2B
+    Fiches tarifaires GMS et EDI              :crit, 2026-10-19, 8d
+    Mise à jour list_price Odoo               :crit, 2026-10-30, 2d
+    Effet revendeurs                          :milestone, 2026-11-01, 0d
+    Contrôle factures et commandes            :2026-11-01, 12d
 ```
 
-Responsables : **Nicolas** pour les grilles, l'audit contractuel et la bascule système ; **Stephan** pour l'e-mail d'annonce et le rappel J-30 ; **Jérôme** pour la FAQ et les appels grands comptes ; **Vanessa** pour le contrôle des prix sur les commandes et factures ; **Gilles** pour les étiquettes en boutique.
+Responsables : **Nicolas** pour les grilles, l'audit contractuel et la bascule système ; **Stephan** pour la liste Shopify et le courrier d'annonce ; **Jérôme** pour la FAQ et les appels grands comptes ; **Vanessa** pour le contrôle des prix sur les commandes et factures ; **Stéphanie, Aurélie, Emeline et Sybille** pour l'impression et le remplacement des étiquettes en boutique le 17 août en fin de journée.
 
-Trois pièges de bascule : Shopify est en `taxes_included`, il faut y pousser **10,50 et 11,50 TTC** et jamais le HT ; les fiches tarifaires GMS partent **avant** la bascule Odoo sous peine de rejet EDI ; les promos B2C restent en Buy-X-Get-Y, jamais en pourcentage.
+Quatre pièges de bascule :
+
+1. **Les magasins et le B2B partagent la même liste de prix dans Odoo.** La liste « Par défaut » ne contient aucune règle : elle renvoie le `list_price` de la fiche produit, et c'est celle des six caisses *comme* de tous les clients B2B, GMS et Horeca. Modifier le `list_price` le 17 août ferait donc monter les prix revendeurs le 17 août aussi. Il faut créer une **liste B2C temporaire** pour les caisses et ne toucher au `list_price` qu'au 1<sup>er</sup> novembre.
+2. **Shopify est en `taxes_included`** : pousser **10,50 et 11,50 TTC**, jamais le HT. La liste « Odoo x Shopify » contient 542 prix fixes — c'est bien elle qu'il faut mettre à jour en place, pas une nouvelle.
+3. Les **fiches tarifaires GMS** partent avant la bascule Odoo sous peine de rejet EDI — date pivot désormais le 1<sup>er</sup> novembre.
+4. Les **promos B2C** restent en Buy-X-Get-Y, jamais en pourcentage.
