@@ -1,5 +1,43 @@
 # LOG Compta Teatower
 
+## 2026-08-04 (bis) — Facturation B2B Peppol (12 factures postees + envoyees, 4.590,37 EUR HT)
+
+Demande Nicolas : facturer les SO pro livrees, envoi strictement Peppol. Script existant
+`scripts/facturation_b2b_peppol.py` (deja durci le 31/07 : exclusion teams B2C/Amazon, transport
+force uniquement si marchandise reellement livree, verif Peppol sur le partner_invoice_id reel).
+Dry-run puis `--apply`, rien change au script.
+
+32 SO 'to invoice' -> 24 PRO (8 exclues B2C/Shopify+Amazon) -> 13 facturables (1 correction Peppol
+EAS 9925->0208 sur Pascal Cherain necessaire, + 3 partners deja en 0208 juste reverifies -> valid) ->
+12 postees + envoyees Peppol (etat `processing`, uuid confirme sur chacune), 1 laissee en DRAFT
+non postee (S06081 TRL 13 SPRL, 0,00 EUR — remise 100% deja presente sur la SO, lots cadeaux,
+pas d'interet a poster/envoyer un Peppol a 0 EUR, arbitrage manuel si besoin).
+
+| Facture | SO | Client | HT | TTC | Peppol |
+|---|---|---|---|---|---|
+| INV/2026/03733 | S06094 | Delhaize Le Lion (Affilie 04865 Salzinnes) | 489,34 | 518,71 | processing |
+| INV/2026/03734 | S06091 | CATHOP SRL | 477,49 | 506,20 | processing |
+| INV/2026/03735 | S06089 | Cafermi | 33,01 | 35,00 | processing |
+| INV/2026/03736 | S06086 | La Table de Manon | 70,00 | 74,20 | processing |
+| INV/2026/03737 | S06085 | Pascal Cherain | 224,53 | 238,00 | processing |
+| INV/2026/03738 | S06083 | Carrefour Belgium (Hyper Carrefour Arlon) | 410,77 | 435,43 | processing |
+| INV/2026/03739 | S06082 | Carrefour Belgium (Carrefour Market Bastogne Porte de Treves) | 325,59 | 345,13 | processing |
+| INV/2026/03740 | S06045 | Virelles Nature | 480,00 | 508,80 | processing |
+| INV/2026/03741 | S06080 | Bureau Difrach SA | 60,00 | 63,60 | processing |
+| INV/2026/03742 | S06048 | Hotel Le Cor de Chasse | 130,00 | 137,80 | processing |
+| INV/2026/03743 | S06073 | Esprit de campagne | 191,52 | 203,03 | processing |
+| INV/2026/03744 | S06014 | BTL SRL - Break Time | 1.698,12 | 1.800,00 | processing |
+| **TOTAL** | | | **4.590,37** | **4.865,90** | |
+
+4 lignes TRANSPORT forcees a qty_delivered=qty_ordered (S06086/S06085/S06080/S06048), garde-fou
+respecte (S06090 SKIP car aucune marchandise reellement livree sur la SO).
+
+11 SO NON facturees car rien a facturer (delivered=0 ou deja tout facture, pas un probleme
+Peppol) : S06090 Intermarche Rumes, S06088 Gemblouxim, S06084 Pharmacie Tilman, S06079/S06060/
+S06059/S06049 Carrefour Belgium (plusieurs enseignes), S06070 Nouvel Air Coiffure, S06078 Esprit
+de campagne, S06033 Joffrey Helson Menuiserie, S05958 Les Ateliers Saupont (co-packer, cf piege
+marge connu). Rien a debloquer cote Peppol pour ces 11, juste en attente de livraison/reassort.
+
 ## 2026-08-04 — Lettrage ING complet (9 lignes, 3.404,90 EUR)
 
 Demande Nicolas : lettrer TOUT ce qui est lettrable dans ING (BNK1), pas seulement clients.
