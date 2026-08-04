@@ -1,5 +1,43 @@
 # LOG Compta Teatower
 
+## 2026-08-04 — Lettrage ING complet (9 lignes, 3.404,90 EUR)
+
+Demande Nicolas : lettrer TOUT ce qui est lettrable dans ING (BNK1), pas seulement clients.
+58 lignes non reconciliees scannees, 9 lettrees avec certitude (montant exact ou ecart <=0,02 EUR),
+`compta/lettrage_15_ing_20260804.py --apply` (dry-run controle avant application).
+
+| BSL | Date | Montant | Partenaire | Document(s) | Ecart |
+|---|---|---|---|---|---|
+| 20062 | 30/07 | +199,00 | Virelles Nature | INV/2026/02150 | 0,00 |
+| 20077 | 30/07 | +256,41 | Virelles Nature | INV/2025/02201 | 0,00 |
+| 20066 | 30/07 | +366,11 | Hello Bio sprl (Pure Bastogne) | INV/2026/03314 | 0,00 |
+| 20078 | 30/07 | +684,26 | Chili Peppers - Intermarche Tilff | INV/2026/03435 | -0,01 (wo 657100) |
+| 20090 | 30/07 | +697,20 | SA LD Management - Intermarche Hamoir | INV/2026/02836 | -0,01 (wo 657100) |
+| 20102 | 31/07 | +344,45 | FQMS - Proxy Delhaize Quadrilatere Huy | INV/2026/03625 | 0,00 |
+| 20070 | 30/07 | +675,02 | Centrale Intermarche | INV/2026/03297 | +0,02 (wo 757100) |
+| 20080 | 31/07 | -7,26 | ING Belgique SA | RESA1222 (facture draft postee) | 0,00 |
+| 20103 | 01/08 | -35,45 | ING Belgique SA | RESA1223 (facture draft postee) | 0,00 |
+
+A noter : RESA1222/RESA1223 etaient 2 factures fournisseur ING **en brouillon** (digitalisation
+auto des releves cartes, structure coherente 650100+411000+440000, ref facture citee en clair
+dans le libelle) -- postees puis lettrees, pas de creation ex nihilo.
+
+ING BNK1 non reconciliees : 58 -> 49. Detail complet des 49 lignes NON lettrees (raison +
+ce qu'il faudrait pour debloquer) : `compta/review/lettrage_ing_20260804_review.md`. Points cles :
+- **Smartbox (BSL 20089 +40,40 / 19784 +67,00)** : ambigu, 4 factures a exactement 40,40 EUR
+  chez Smartbox Group, aucune combinaison pour 67,00 -- pas de lettrage a l'aveugle.
+- **Tournesols Namur (+144,84) et Momidistri (+688,87)** : libelle du virement lui-meme evoque
+  un double paiement / reutilise la reference d'une facture deja soldee -- probable trop-percu
+  client, aucune facture ouverte en face, a arbitrer avec le client (rembourser ou affecter).
+- **Nanretail (+675,58), ITM Alimentaire/Centrale Intermarche (+637,24), Vente Privee.com
+  (+2.426,43)** : gros comptes centralises identifies mais aucune combinaison de factures
+  ouvertes ne matche exactement -- besoin du detail de virement cote client.
+- Frais carte recurrents (Google Ads/Cloud/Play, Adobe, Intuit, Shopify, Sendcloud, Meta,
+  Mastercard ING), avances salariales, titres-repas Pluxee/Edenred, micro-depots de verification :
+  situation inchangee depuis les tours precedents, rien impute sans facture ouverte (regle dure).
+- Kirchner (-12.837,54), Radius (2x), ONSS (-8.945,00) : dossiers connus necessitant un avis
+  externe, toujours en attente.
+
 ## 2026-07-31 (quinquies) — Audit nettoyage Bilan FY25-26 (lecture seule + 1 correction neutre)
 
 Demande Nicolas : audit complet du bilan a la cloture (30/06/2026) pour identifier les comptes
