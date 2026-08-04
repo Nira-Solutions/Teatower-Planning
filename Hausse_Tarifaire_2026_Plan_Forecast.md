@@ -6,20 +6,21 @@ description: Plan de deploiement et forecast 12 mois
 # Hausse tarifaire Teatower 2026
 
 *Établi le 30/07/2026 sur les ventes réelles Odoo, 12 mois glissants du 30/07/2025 au 30/07/2026. Exercice social : 1er juillet → 30 juin.*
+*Révisé le 04/08/2026 — marches ramenées à +0,50 € sur les doypacks et les infusettes, et à 10,50 € sur les thés glacés (arbitrage Nicolas). Le scénario du 30/07 reste affiché en regard pour la comparaison.*
 
 ## Synthèse
 
 | | Montant |
 |---|---:|
 | Base concernée, 12 mois réels | 164 394 u — 1 302 274 € HT |
-| **Gain annuel en régime de croisière** | **+150 138 €** |
-| dont revendeurs (GMS, B2B, Horeca) | +91 308 € |
-| dont direct (boutiques, Shopify) | +58 830 € |
-| Effet sur la marge brute | +15,9 % |
-| Gain sur FY26-27 selon calendrier recommandé | +98 930 € |
-| Perte de volume tolérable avant destruction de marge | −13,7 % |
+| **Gain annuel en régime de croisière** | **+82 823 €** |
+| dont revendeurs (GMS, B2B, Horeca) | +54 596 € |
+| dont direct (boutiques, Shopify) | +28 227 € |
+| Effet sur la marge brute | +8,8 % |
+| Gain sur FY26-27 selon calendrier recommandé | +54 782 € |
+| Perte de volume tolérable avant destruction de marge | −8,1 % |
 
-La hausse ne coûte rien à produire : les 150 138 € tombent intégralement en marge brute. Le point de décision n'est pas *si*, mais *quand* — le calendrier vaut à lui seul une vingtaine de milliers d'euros (point 6).
+La hausse ne coûte rien à produire : les 82 823 € tombent intégralement en marge brute. Le point de décision n'est pas *si*, mais *quand* — le calendrier vaut à lui seul une quinzaine de milliers d'euros (point 6).
 
 **Recommandation :** annonce le **25/08/2026**, entrée en vigueur au **01/12/2026** pour les trois gammes d'hiver et au **01/03/2027** pour les thés glacés, dont la saison ne démarre qu'en avril.
 
@@ -27,12 +28,14 @@ La hausse ne coûte rien à produire : les 150 138 € tombent intégralement en
 
 | Gamme | Ancien | Nouveau | Hausse | SKU concernés |
 |---|---|---|---:|---:|
-| Doypacks vrac `V0` | 10,00 € TTC | 11,00 € TTC | +10,0 % | 99 |
-| Sinfus / infusettes `I0` | 11,00 € TTC | 12,00 € TTC | +9,1 % | 90 |
+| Doypacks vrac `V0` | 10,00 € TTC | 10,50 € TTC | +5,0 % | 99 |
+| Sinfus / infusettes `I0` | 11,00 € TTC | 11,50 € TTC | +4,5 % | 90 |
 | Horeca 25 env. `HC250` | 10,00 € HT | 11,00 € HT | +10,0 % | 28 |
-| Thés glacés `GI0` | 9,50 € TTC | 12,00 € TTC | +26,3 % | 7 |
+| Thés glacés `GI0` | 9,50 € TTC | 10,50 € TTC | +10,5 % | 7 |
 
-Les prix Odoo sont stockés **hors TVA** : à 6 %, l'échelle 9,43 / 10,38 / 11,32 € HT correspond à 10 / 11 / 12 € TTC. Seul l'Horeca est annoncé en HT. Le chiffrage ne retient que les SKU réellement au prix de référence.
+Les prix Odoo sont stockés **hors TVA** : à 6 %, l'échelle 9,43 / 9,91 / 10,38 / 10,85 € HT correspond à 10,00 / 10,50 / 11,00 / 11,50 € TTC. Seul l'Horeca est annoncé en HT. Le chiffrage ne retient que les SKU réellement au prix de référence.
+
+Le dossier est désormais homogène : trois marches sur quatre sont comprises entre 4,5 et 10,5 %, là où la version du 30 juillet demandait +26 % sur les thés glacés. C'est une **indexation**, plus un repositionnement — et cela change l'argumentaire face aux acheteurs.
 
 À nettoyer avant toute manipulation de prix : les 9 références `GI0` à 8,50 € sont mortes (130 unités en 2025, zéro en 2026) et doivent être archivées, et `GI0917` est un doublon corrompu de `GI0916`. Les `standard_price` sont par ailleurs absents ou factices sur environ 40 % des volumes de thés glacés — les marges de cette gamme utilisent ici un coût de référence de 2,15 €.
 
@@ -46,52 +49,63 @@ Les prix Odoo sont stockés **hors TVA** : à 6 %, l'échelle 9,43 / 10,38 / 11,
 | Thés glacés `GI0` | 22 375 | 150 263 | 6,72 | 102 157 | 68 % |
 | **Total** | **164 394** | **1 302 274** | **7,92** | **944 391** | **73 %** |
 
-| Canal | CA HT | Gain annuel | Part du gain |
-|---|---:|---:|---:|
-| Boutiques TT | 409 982 | +45 325 | 30 % |
-| GMS | 314 414 | +42 367 | 28 % |
-| B2B revendeurs | 381 151 | +41 427 | 28 % |
-| Shopify | 119 982 | +13 161 | 9 % |
-| Horeca | 75 154 | +7 513 | 5 % |
-| Salon / pop-up | 1 488 | +325 | 0 % |
-| Amazon | 102 | +18 | 0 % |
+| Canal | CA HT | Gain annuel | Part du gain | *Pour mémoire, version 30/07* |
+|---|---:|---:|---:|---:|
+| B2B revendeurs | 381 151 | +28 132 | 34 % | *+41 427* |
+| Boutiques TT | 409 982 | +21 768 | 26 % | *+45 325* |
+| GMS | 314 414 | +19 174 | 23 % | *+42 367* |
+| Horeca | 75 154 | +7 289 | 9 % | *+7 513* |
+| Shopify | 119 982 | +6 317 | 8 % | *+13 161* |
+| Salon / pop-up | 1 488 | +134 | 0 % | *+325* |
+| Amazon | 102 | +8 | 0 % | *+18* |
 
-Le prix net réalisé en GMS et en B2B tourne autour de 65 à 70 % du tarif : ce sont les conditions revendeurs, et c'est sur ce prix net que l'uplift est calculé — les remises et les promos Buy-X-Get-Y sont donc déjà intégrées.
+Le B2B passe premier contributeur du gain, devant les boutiques : c'est mécanique, l'Horeca `HC250` est la seule gamme qui garde sa marche pleine à +1 € et elle est vendue par les revendeurs. Le prix net réalisé en GMS et en B2B tourne autour de 65 à 70 % du tarif : ce sont les conditions revendeurs, et c'est sur ce prix net que l'uplift est calculé — les remises et les promos Buy-X-Get-Y sont donc déjà intégrées.
 
 ## 3. Ce que rapporte la hausse
 
-| Gamme | CA HT actuel | CA HT après | Gain annuel |
-|---|---:|---:|---:|
-| Doypacks vrac `V0` | 411 150 | 452 265 | **+41 115** |
-| Sinfus / infusettes `I0` | 506 689 | 552 752 | **+46 063** |
-| Horeca 25 env. `HC250` | 234 171 | 257 588 | **+23 417** |
-| Thés glacés `GI0` | 150 263 | 189 806 | **+39 543** |
-| **Total** | **1 302 274** | **1 452 411** | **+150 138** |
+| Gamme | CA HT actuel | CA HT après | Gain annuel | *Version 30/07* |
+|---|---:|---:|---:|---:|
+| Doypacks vrac `V0` | 411 150 | 431 708 | **+20 558** | *+41 115* |
+| Sinfus / infusettes `I0` | 506 689 | 529 720 | **+23 031** | *+46 063* |
+| Horeca 25 env. `HC250` | 234 171 | 257 588 | **+23 417** | *+23 417* |
+| Thés glacés `GI0` | 150 263 | 166 080 | **+15 817** | *+39 543* |
+| **Total** | **1 302 274** | **1 385 097** | **+82 823** | *+150 138* |
 
-Hypothèse : grille indexée du même pourcentage sur tous les canaux, volumes constants. Aucun coût supplémentaire, donc **+150 138 € de marge brute**, soit +15,9 % sur la marge actuelle de ces gammes.
+Hypothèse : grille indexée du même pourcentage sur tous les canaux, volumes constants. Aucun coût supplémentaire, donc **+82 823 € de marge brute**, soit +8,8 % sur la marge actuelle de ces gammes.
+
+**Ce que coûte la modération : 67 315 € par an.** C'est le prix explicite d'un dossier moins risqué — et il se lit surtout sur les thés glacés (−23 726 €) et les doypacks (−20 558 €).
 
 ## 4. Si les revendeurs refusent
 
 | Scénario | Gain annuel |
 |---|---:|
-| Répercussion intégrale, tous canaux | **+150 138** |
-| Direct seul — boutiques et Shopify | +58 830 |
-| Revendeurs seuls — prix consommateur gelé | +91 308 |
+| Répercussion intégrale, tous canaux | **+82 823** |
+| Revendeurs seuls — prix consommateur gelé | +54 596 |
+| Direct seul — boutiques et Shopify | +28 227 |
 
-Les revendeurs pèsent 61 % du gain. Même s'ils refusent tous, le direct rapporte encore 58 830 € sans dépendre de personne.
+Les revendeurs pèsent 66 % du gain — davantage qu'en version 30/07, où ils n'en faisaient que 61 %. Le dossier dépend donc **plus** de la négociation revendeurs qu'avant, alors même que la marche qu'on leur demande est plus faible. C'est cohérent : la seule marche restée à +1 € est celle de l'Horeca.
 
 ## 5. Et si on perd du volume
 
 | Perte de volume | Variation de marge brute |
 |---:|---:|
-| 0 % | +150 138 |
-| −5 % | +95 411 |
-| −10 % | +40 685 |
-| −15 % | −14 042 |
+| 0 % | +82 823 |
+| −5 % | +31 462 |
+| −10 % | −19 898 |
+| −15 % | −71 259 |
 
-Point mort global à **−13,7 %** de volume — de −10,4 % sur les Sinfus à −27,9 % sur les thés glacés. Avec 57 à 84 % de marge brute selon le canal, chaque unité perdue coûte peu au regard de ce que rapporte chaque unité vendue plus cher.
+Point mort global à **−8,1 %** de volume, contre −13,7 % en version 30/07 : la marge de sécurité se réduit à mesure que la marche se réduit, c'est arithmétique.
 
-Réserve sur les thés glacés : +26 % n'est pas une indexation mais un repositionnement. Un acheteur GMS ne réduit pas ses volumes de 26 %, il accepte ou il déréférence — et la GMS pèse 56 % de cette gamme. À 12 € le thé glacé passe aussi devant le doypack à 11 € alors que le seul grammage renseigné est de 50 g contre 80 à 100 g : **le grammage réel doit être vérifié sur l'emballage** avant de trancher entre 12 € et 11 € (+23 726 € au lieu de +39 543 €).
+| Gamme | Point mort volume | *Version 30/07* |
+|---|---:|---:|
+| Doypacks vrac `V0` | −6,2 % | *−11,7 %* |
+| Sinfus / infusettes `I0` | −5,5 % | *−10,4 %* |
+| Horeca 25 env. `HC250` | −14,8 % | *−14,8 %* |
+| Thés glacés `GI0` | −13,4 % | *−27,9 %* |
+
+Le point mort des Sinfus, à −5,5 %, est le plus tendu du dossier : perdre une unité sur vingt suffit à annuler le gain. À ce niveau de marche, la hausse doit se faire **sans concession commerciale compensatoire** — une remise de rattrapage de 2 % sur un gros compte consomme près de la moitié du gain qu'il rapporte.
+
+En contrepartie, la réserve du 30 juillet sur les thés glacés tombe : à 10,50 €, le thé glacé se retrouve **exactement au même prix** que le doypack vrac, et non plus 1 € au-dessus. La question du grammage (50 g renseigné contre 80 à 100 g pour un doypack) reste ouverte, mais elle n'est plus bloquante : on ne demande plus à un acheteur d'accepter un thé glacé plus cher qu'un doypack qui contient deux fois plus de thé.
 
 ## 6. Le calendrier vaut de l'argent
 
@@ -104,19 +118,18 @@ Les saisonnalités sont **opposées**. Les trois gammes d'hiver font 60 % de leu
 
 | Entrée en vigueur | Gain FY26-27 |
 |---|---:|
-| 3 gammes au 01/11/2026 *(annonce 01/08, intenable)* | +85 048 |
-| **3 gammes au 01/12/2026** *(annonce 25/08, recommandé)* | **+74 927** |
-| 3 gammes au 01/01/2027 *(annonce 01/10)* | +63 475 |
-| **Thés glacés au 01/03/2027** *(6 mois de préavis)* | **+24 003** |
-| Thés glacés au 01/12/2026 *(3 mois de préavis)* | +25 320 |
+| 3 gammes au 01/11/2026 + `GI0` au 01/03/2027 *(annonce 01/08, intenable)* | +60 939 |
+| **3 gammes au 01/12/2026 + `GI0` au 01/03/2027** *(annonce 25/08, recommandé)* | **+54 782** |
+| 3 gammes au 01/12/2026, `GI0` au 01/12/2026 également | +55 309 |
+| 3 gammes au 01/01/2027 + `GI0` au 01/03/2027 *(annonce 01/10)* | +48 143 |
 
-Deux conséquences. Sur les gammes d'hiver, un préavis annoncé fin août se consomme entièrement dans le creux estival et le tarif mord au démarrage de la saison forte ; chaque mois de report coûte ensuite 11 452 € environ, prélevés sur un gros mois.
+Deux conséquences. Sur les gammes d'hiver, un préavis annoncé fin août se consomme entièrement dans le creux estival et le tarif mord au démarrage de la saison forte ; chaque mois de report coûte ensuite **6 400 € environ**, prélevés sur un gros mois.
 
-Sur les thés glacés c'est l'inverse : la saison 2026 est passée et la suivante ne démarre qu'en avril, donc **accorder six mois de préavis au lieu de trois ne coûte que 1 317 €**. C'est le levier de négociation du dossier — on donne le double du préavis légal sur la hausse la plus rude, presque gratuitement.
+Sur les thés glacés c'est l'inverse : la saison 2026 est passée et la suivante ne démarre qu'en avril, donc **accorder six mois de préavis au lieu de trois ne coûte que 527 €**. C'est le levier de négociation du dossier — on donne le double du préavis légal sur la gamme la plus visible, à un coût quasi nul.
 
 ## 7. Option : indexer toute la gamme
 
-Le chiffrage ci-dessus ne porte que sur les SKU au prix de référence. Indexer aussi les autres formats et séries limitées des gammes `V0`, `I0` et `HC250` rapporterait **+18 892 € de plus par an**. À trancher : ces références ont déjà des prix non ronds, une indexation les rendrait encore moins lisibles en rayon.
+Le chiffrage ci-dessus ne porte que sur les SKU au prix de référence. Indexer aussi les autres formats et séries limitées des gammes `V0`, `I0` et `HC250` rapporterait **+9 446 € de plus par an** (contre +18 892 € en version 30/07). À trancher : ces références ont déjà des prix non ronds, une indexation les rendrait encore moins lisibles en rayon.
 
 ## 8. Plan de déploiement
 
@@ -149,4 +162,4 @@ gantt
 
 Responsables : **Nicolas** pour les grilles, l'audit contractuel et la bascule système ; **Stephan** pour l'e-mail d'annonce et le rappel J-30 ; **Jérôme** pour la FAQ et les appels grands comptes ; **Vanessa** pour le contrôle des prix sur les commandes et factures ; **Gilles** pour les étiquettes en boutique.
 
-Trois pièges de bascule : Shopify est en `taxes_included`, il faut y pousser **11,00 et 12,00 TTC** et jamais le HT ; les fiches tarifaires GMS partent **avant** la bascule Odoo sous peine de rejet EDI ; les promos B2C restent en Buy-X-Get-Y, jamais en pourcentage.
+Trois pièges de bascule : Shopify est en `taxes_included`, il faut y pousser **10,50 et 11,50 TTC** et jamais le HT ; les fiches tarifaires GMS partent **avant** la bascule Odoo sous peine de rejet EDI ; les promos B2C restent en Buy-X-Get-Y, jamais en pourcentage.
