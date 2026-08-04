@@ -1054,7 +1054,7 @@ S31 = {
 S32 = {
     "id": "s32", "nav": "S32 · 03-07/08 (à venir)", "active": True,
     "title": "Semaine du 3 au 7 août 2026 (S32)",
-    "note": ("Semaine COMPLÈTE : 5 jours de tournée, 30 visites + 3 dépôts boutiques Teatower le mercredi. Aucun jour férié (le 15/08 tombe un samedi). Aucune implantation cette semaine : pas de nouveau client GMS non implanté, et le tag [À IMPLANTER] d'Intermarché Anthée est périmé (implantation passée en S25, magasin désormais en pool télévente). Contraintes jour respectées : Hyper Arlon et Hyper Ans en 1ᵉʳ stop du matin · Delhaize Etalle après 12h30 (fermé le lundi matin) · AD Bouffioulx mardi matin uniquement · AD Fernelmont pas avant 13h20 (Marie) · Delhaize Welkenraedt hors mercredi · Delhaize Longdoz hors lundi · Delhaize Barchon hors lundi · Hyper Ans hors vendredi. ⛔ Delhaize Wavre #3226 (122j de retard) NON planifié : le client refuse explicitement le merchandiser et gère son display lui-même → tag NO-MERCH posé dans Odoo, il sortira du pool. ⏳ Écartés pour espacement : Beau Rivage et Hyper Fleron (règle 30j min, seulement 27j depuis S28) · les magasins visités en S31 (Wépion, Belgrade, Bouge, Sombreffe, Fragnée, Genval, St Michel, Uccle Bascule). 📦 MERCREDI 05/08 — 3 DÉPÔTS BOUTIQUES TEATOWER ajoutés (demande Nicolas) : TT Namur en 1ᵉʳ stop, TT Rocourt juste après Hyper Ans, TT Liège après Longdoz — 5 min chacun, décharger et repartir. ☎️ À confirmer : congés annuels d'août des affiliés indépendants — Vanessa peut valider par téléphone lundi lors de ses appels."),
+    "note": ("Semaine COMPLÈTE : 5 jours de tournée, 30 visites + 3 dépôts boutiques Teatower le mercredi. Aucun jour férié (le 15/08 tombe un samedi). Aucune implantation cette semaine : pas de nouveau client GMS non implanté, et le tag [À IMPLANTER] d'Intermarché Anthée est périmé (implantation passée en S25, magasin désormais en pool télévente). Contraintes jour respectées : Hyper Arlon et Hyper Ans en 1ᵉʳ stop du matin · Delhaize Etalle après 12h30 (fermé le lundi matin) · AD Bouffioulx mardi matin uniquement · AD Fernelmont pas avant 13h20 (Marie) · Delhaize Welkenraedt hors mercredi · Delhaize Longdoz hors lundi · Delhaize Barchon hors lundi · Hyper Ans hors vendredi. ⛔ Delhaize Wavre #3226 (122j de retard) NON planifié : le client refuse explicitement le merchandiser et gère son display lui-même → tag NO-MERCH posé dans Odoo, il sortira du pool. ⏳ Écartés pour espacement : Beau Rivage et Hyper Fleron (règle 30j min, seulement 27j depuis S28) · les magasins visités en S31 (Wépion, Belgrade, Bouge, Sombreffe, Fragnée, Genval, St Michel, Uccle Bascule). 📦 MERCREDI 05/08 — 3 DÉPÔTS BOUTIQUES TEATOWER ajoutés (demande Nicolas) : TT Namur en 1ᵉʳ stop, TT Rocourt juste après Hyper Ans, TT Liège après Longdoz — 5 min chacun, décharger et repartir. 📦 VENDREDI 07/08 — CAFERMI (Bièvre) ajouté en dernier stop (demande Nicolas 04/08) : dépôt d'un colis + reprise de marchandise. Client Horeca/revendeur, hors pool merch GMS. Placé vendredi et non jeudi car la boucle Verviers/Est se terminerait à 17:42 via Bièvre (interdit §3) ; par Kraainem le retour tient à 16:42. ☎️ À confirmer : congés annuels d'août des affiliés indépendants — Vanessa peut valider par téléphone lundi lors de ses appels."),
     "days": [
         {"h": "Lundi 03/08", "sub": "5 stops (5 visites)",
          "zone": "Luxembourg (Bastogne → Arlon → Etalle → Bertrix → Recogne)", "km": "253", "ret": "16:22",
@@ -1173,9 +1173,9 @@ S32 = {
              "n": "D-trois SRL - Proxy Delhaize Saint-Séverin (#113445)", "ls": "06/07 (24j)", "lsc": "fresh",
              "a": "Route du Condroz, 243, 4550 Nandrin", "c": "Mme Dessart — +32 4 372 09 85"},
          ]},
-        {"h": "Vendredi 07/08", "sub": "6 stops (6 visites)",
-         "zone": "Brabant wallon → Bruxelles (Chaumont-Gistoux → LLN → Wavre → Roodebeek → Kraainem)", "km": "222", "ret": "15:36",
-         "addrs": ["Chaussée de Huy 47, 1325 Chaumont-Gistoux", "Place de l'accueil 10, 1348 Louvain La Neuve", "rue Charlemagne 7, 1348 Louvain-la-Neuve", "Avenue des Princes 9, 1300 Wavre", "Chaussée De Roodebeek, 199, 1200 Bruxelles", "Wezembeeklaan, 112, 1950 Kraainem"],
+        {"h": "Vendredi 07/08", "sub": "7 stops (6 visites + 1 dépôt colis / reprise)",
+         "zone": "Brabant wallon → Bruxelles → Bièvre (Chaumont-Gistoux → LLN → Wavre → Roodebeek → Kraainem → Bièvre)", "km": "317", "ret": "16:42",
+         "addrs": ["Chaussée de Huy 47, 1325 Chaumont-Gistoux", "Place de l'accueil 10, 1348 Louvain La Neuve", "rue Charlemagne 7, 1348 Louvain-la-Neuve", "Avenue des Princes 9, 1300 Wavre", "Chaussée De Roodebeek, 199, 1200 Bruxelles", "Wezembeeklaan, 112, 1950 Kraainem", "Rue de Bouillon 54, 5555 Bièvre"],
          "stops": [
             {"t": "09:42 - 10:07", "k": "visite", "b": ["17j OVERDUE"],
              "n": "LSL RETAIL SPRL - Intermarché Chaumont-Gistoux (#10134)", "ls": "15/06 (45j)", "lsc": "stale",
@@ -1198,6 +1198,10 @@ S32 = {
             {"t": "13:29 - 13:54", "k": "visite", "b": ["29j OVERDUE"],
              "n": "Affilié 044725 - Delhaize Kraainem (#2914)", "ls": "09/06 (51j)", "lsc": "stale",
              "a": "Wezembeeklaan, 112, 1950 Kraainem", "c": "Antoine / Charlotte — 027 84 36 48"},
+            {"t": "15:27 - 15:42", "k": "livr", "b": ["Dépôt colis + reprise", "Demande Nicolas"],
+             "n": "Cafermi (#7440)", "ls": "10/07 (25j)", "lsc": "fresh",
+             "a": "Rue de Bouillon 54, 5555 Bièvre", "c": "accueil — +32 61 51 25 44 · mob +32 476 25 64 64 · info@cafermi.be",
+             "note": "DÉPÔT COLIS + REPRISE MARCHANDISE — pas de merchandising, 15 min sur place. Déposer le colis, charger la marchandise reprise et NOTER les références + quantités reprises (indispensable pour créer le retour dans Odoo)."},
          ]},
     ],
 }
