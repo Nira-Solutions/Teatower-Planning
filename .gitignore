@@ -6,3 +6,13 @@ __pycache__/
 *.pyc
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
+
+# UBL/EDI factures (PDF + données clients embarqués) — NE JAMAIS pousser (repo public)
+compta/edi_carrefour_corrige/
+*_ubl_bis3*.xml
+*_CORRIGE.xml
+
+# B2B dashboard : clone du repo public Nira-Solutions/b2b-dashboard + artefacts generes
+reports/b2b-dashboard-deploy/
+reports/b2b_dashboard_data.json
+reports/b2b_morning_dashboard_*.html
