@@ -1,5 +1,63 @@
 # LOG Compta Teatower
 
+## 2026-08-10 (bis) - Facturation B2B Peppol (20 factures postees + envoyees, 7.113,86 EUR HT)
+
+Demande Nicolas : "facture les commandes pro delivrees, uniquement via PEPPOL".
+Script `scripts/facturation_b2b_peppol.py` inchange (dry-run puis `--apply`).
+
+33 SO 'to invoice' -> 23 PRO (10 exclues B2C/web : 5 Shopify dont 3 Smartbox, 3 Amazon,
+2 commandes web) -> 20 facturables -> **20 postees + envoyees Peppol** (toutes en
+`peppol_move_state=processing`, uuid confirme). **0 bloquee Peppol, 0 echec, 0 erreur.**
+
+Total : **7.113,86 EUR HT / 7.540,84 EUR TTC**, INV/2026/03801 -> INV/2026/03820.
+
+| Facture | SO | Client | HT | TTC |
+|---|---|---|---|---|
+| 03801 | S06125 | Brasserie Miroir | 300,00 | 318,00 |
+| 03802 | S06124 | Ibis Namur Centre | 300,00 | 318,00 |
+| 03803 | S06123 | Brasserie Maziers | 487,50 | 516,75 |
+| 03804 | S06118 | SCTA srl - Sabrina Cacciatore | 80,00 | 84,80 |
+| 03805 | S06109 | Antheco SA - Intermarche Anthee | 263,48 | 279,30 |
+| 03806 | S06103 | Carrefour Hyper de Ans | 217,94 | 231,02 |
+| 03807 | S06102 | Carrefour Hyper Boncelles | 746,92 | 791,72 |
+| 03808 | S06101 | Proxy Delhaize Ma Campagne (affilie 045070) | 649,85 | 688,89 |
+| 03809 | S06100 | Delhaize Vise | 414,04 | 438,90 |
+| 03810 | S06099 | Sunparks Leisure (De Haan) | 270,00 | 286,20 |
+| 03811 | S06096 | Delhaize Montigny | 225,84 | 239,40 |
+| 03812 | S06095 | Hyper Carrefour Bomeree | 174,35 | 184,82 |
+| 03813 | S06090 | Intermarche Rumes | 160,56 | 170,20 |
+| 03814 | S06088 | Gemblouxim - Intermarche Gembloux | 451,68 | 478,80 |
+| 03815 | S06084 | Pharmacie Tilman | 228,13 | 241,81 |
+| 03816 | S06079 | Carrefour Hyper Auderghem | 400,20 | 424,23 |
+| 03817 | S06078 | Esprit de campagne | 451,68 | 478,80 |
+| 03818 | S06060 | Carrefour Market Bievre | 275,38 | 291,90 |
+| 03819 | S06059 | Carrefour Hyper de Jambes | 564,63 | 598,50 |
+| 03820 | S06049 | DEMARS SA - Carrefour Market Beauraing | 451,68 | 478,80 |
+
+### Corrections Peppol au passage (EAS 9925 -> 0208, schema KBO/BCE)
+| Partner | Avant | Apres |
+|---|---|---|
+| #2839 Brasserie Maziers | 9925 valid | 0208 **valid** |
+| #5561 Facturation (Chateau Thermes & Golf) | 9925 not_verified | 0208 **valid** |
+| #115217 Terres Du Val - Pollen | 9925 not_verified | 0208 **valid** |
+| #122467 Hyper Carrefour Bomeree | 0208 not_verified | 0208 **valid** |
+
+### Transport force (regle : le transport est toujours facture)
+S06118 ligne 67621 et S06090 ligne 67155, qty_delivered 0 -> 1. S06126 volontairement NON
+force (aucune marchandise livree sur la commande).
+
+### 3 SO non facturees - rien de livre
+S06126 Intermarche Braine-le-Chateau, S06117 Chateau Thermes & Golf (Terres Du Val),
+S05958 Les Ateliers Saupont. Le partenaire Peppol de S06117 a ete corrige au passage : la
+commande partira des qu'elle sera livree.
+
+### Point de vigilance
+16 des 20 SO ont eu leur TT/OUT valide le jour meme (10/08), y compris des commandes du
+27/07 au 05/08 : validation de rattrapage du backlog de livraisons. Facturation conforme
+(qty_delivered), mais si une de ces marchandises est encore en camionnette, utiliser
+`--exclude S0xxxx` au prochain passage (surtout Carrefour, cf. rejets EDI 049/004/010).
+
+
 ## 2026-08-10 - Lettrage ING (30 lignes traitees, 9.005,71 EUR sorties du 499000)
 
 Demande Nicolas : "mettre tout ce que tu peux dans ING, les clients tu sais quoi faire si les
