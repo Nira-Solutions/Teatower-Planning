@@ -96,6 +96,18 @@ class ShopifyClient:
     def delete(self, endpoint):
         return self.request("DELETE", endpoint)
 
+    def graphql(self, query, variables=None):
+        """Admin GraphQL. Leve une RuntimeError si la reponse contient des erreurs —
+        l'API GraphQL repond 200 meme quand la requete echoue (droits manquants,
+        champ inconnu), un appelant qui ne lit que le code HTTP croirait avoir reussi."""
+        body = {"query": query}
+        if variables:
+            body["variables"] = variables
+        r = self.request("POST", "graphql.json", json_body=body)
+        if r.get("errors"):
+            raise RuntimeError(f"Shopify GraphQL errors: {json.dumps(r['errors'])[:800]}")
+        return r.get("data", {})
+
 
 shopify = ShopifyClient()
 
