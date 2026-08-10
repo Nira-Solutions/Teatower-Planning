@@ -34,6 +34,24 @@ systematiquement, elle est plus fiable que le rapprochement par montant.
 facture **deja soldee** : le client a paye deux fois. La ligne bancaire est sortie du 499000,
 l'argent reste visible en credit sur le compte client. Remboursement / imputation a arbitrer.
 
+### D bis. Lettrage croise Courcelles <-> Spar Momignies : CORRIGE
+Script `compta/lettrage_19_croise_momignies_20260810.py`. Anomalie diagnostiquee le 04/08 et
+restee en l'etat. Chaine complete remontee avant tout de-lettrage :
+- 09/07 BNK1/26-27/0146 : COURSES L SRL (Carrefour Market Courcelles) verse 688,87, comm
+  000/0040/27823 -> INV/2026/03057 + write-off 0,02. CORRECT.
+- 20/07 BNK1/26-27/0301 : COURSES L SRL verse UNE 2e FOIS 688,89, MEME comm 000/0040/27823
+  -> lettre A TORT sur INV/2026/03056 (Spar Momignies). ERREUR.
+- 28/07 BSL 20026 : MOMIDISTRI verse 688,87, comm 000/0040/27924 = sa propre facture, deja
+  "payee" par le versement de Courcelles.
+
+Le double payeur est **Courcelles**, pas Momignies. Correction : de-lettrage, versement en
+double repointe en credit ouvert sur Carrefour Market Courcelles (#124365), BSL 20026 lettre
+sur INV/2026/03056 (ecart -0,02 -> write-off **MISC/26-27/08/0007**). Verifie : INV/2026/03056
+`paid` residuel 0,00, BSL 20026 reconciled, credit 688,89 ouvert chez Courcelles.
+
+Piege XML-RPC confirme : `remove_move_reconcile` renvoie None -> Fault "cannot marshal None"
+alors que le de-lettrage a bien eu lieu. Meme wrapper `call_safe` que pour `reconcile`.
+
 ### E. Non traites
 - **20156 Carrefour 4.862,06** : 55 factures ouvertes (25.790,81 EUR), aucune combinaison unique
   -> avis de paiement Carrefour indispensable.
