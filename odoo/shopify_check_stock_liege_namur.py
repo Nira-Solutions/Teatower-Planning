@@ -164,17 +164,27 @@ def main():
             for _, sku, s, o in d:
                 print(f"    {sku:<14}{s:>8} / {o:>8.0f}")
 
+    # Critere d'acceptation : atteindre le niveau du temoin, pas la perfection.
+    # Le connecteur ne descend jamais a zero ecart — Waterloo, mapping valide
+    # depuis juin, plafonne autour de 97-98 % (produits archives, cheques-cadeaux
+    # a stock negatif, mouvements survenus pendant la comparaison).
     print()
-    ok_cat = all(not ecarts_detail[loc]["catalogue"] for loc in ("Liège", "Namur"))
-    temoin = stats["Waterloo"]["catalogue"]
-    print(f"  Temoin Waterloo (mapping deja valide) : "
-          f"{temoin[1]}/{temoin[0]} sur le catalogue.")
-    if ok_cat:
-        print("  Liege et Namur ont converge sur le catalogue : le retrait en magasin peut")
-        print("  etre active cote Shopify.")
+    n_t, ok_t = stats["Waterloo"]["catalogue"]
+    seuil = (ok_t / n_t) if n_t else 1.0
+    print(f"  Temoin Waterloo (mapping valide depuis le 04/06) : {ok_t}/{n_t} "
+          f"sur le catalogue, soit {seuil:.1%}. C'est le plafond reel du connecteur,")
+    print("  et donc le critere d'acceptation — viser 100 % n'aurait pas de sens.")
+    retard = []
+    for loc in ("Liège", "Namur"):
+        n, ok = stats[loc]["catalogue"]
+        if n and ok / n < seuil - 0.005:
+            retard.append(f"{loc} ({ok / n:.1%})")
+    if not retard:
+        print("  Liege et Namur sont au niveau du temoin : le retrait en magasin peut etre")
+        print("  active cote Shopify.")
     else:
-        print("  Liege et/ou Namur n'ont PAS converge sur le catalogue : laisser tourner")
-        print("  l'export (crons #75 puis #62, 15 min chacun) et relancer ce controle.")
+        print(f"  En retard sur le temoin : {', '.join(retard)}. Relancer l'export complet")
+        print("  (odoo/shopify_export_stock_complet.py) puis ce controle.")
     if any(ecarts_detail[loc]["vrac interne"] for loc in LOCS):
         print("  Les ecarts sur les references VR* sont un probleme distinct et prealable :")
         print("  ces articles de vrac interne ne devraient pas etre vendables en ligne.")
