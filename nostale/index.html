@@ -181,9 +181,11 @@ svg{max-width:100%;height:auto;display:block}
   border-radius:2px;padding:7px 10px;font-family:var(--mono);font-size:11.5px;color:var(--ink);box-shadow:0 8px 24px -10px #000}
 
 /* upgrade table inputs */
-table.rates{min-width:520px}
-table.rates input{width:100%;text-align:right}
-table.rates td,table.rates th{padding:5px 8px}
+table.rates{min-width:0;font-size:11.8px}
+table.rates input{width:100%;text-align:right;padding:4px 5px;font-size:11.5px}
+table.rates td,table.rates th{padding:4px 5px}
+table.rates th{letter-spacing:.06em}
+.field.stack{grid-template-columns:1fr;gap:4px}
 
 /* prompts */
 .prompt{background:#0c0a14;border:1px solid var(--line-soft);border-left:2px solid var(--s3);border-radius:2px;
@@ -435,8 +437,8 @@ footer{margin-top:64px;border-top:1px solid var(--line-soft);padding-top:20px;fo
       <div>
         <div class="field"><label>Niveau de départ</label><input type="number" id="u_from" value="0" min="0" max="9"></div>
         <div class="field"><label>Niveau visé</label><input type="number" id="u_to" value="8" min="1" max="10"></div>
-        <div class="field"><label>Comportement à l'échec</label>
-          <select id="u_fail" style="grid-column:span 1">
+        <div class="field stack"><label>Comportement à l'échec</label>
+          <select id="u_fail">
             <option value="stay">Reste au niveau</option>
             <option value="minus1" selected>Perd 1 niveau</option>
             <option value="reset">Retombe à +0</option>
@@ -455,7 +457,7 @@ footer{margin-top:64px;border-top:1px solid var(--line-soft);padding-top:20px;fo
         (ou ceux du simulateur NosApki)&nbsp;: c'est la <em>mécanique</em> du calcul qui a de la valeur, pas mes chiffres.</small></p>
         <div class="tablewrap">
           <table class="rates" id="rates">
-            <thead><tr><th>Palier</th><th>Réussite&nbsp;%</th><th>Échec&nbsp;%</th><th>Coût / essai</th></tr></thead>
+            <thead><tr><th>Palier</th><th>Réus.&nbsp;%</th><th>Échec&nbsp;%</th><th>Coût/essai</th></tr></thead>
             <tbody></tbody>
           </table>
         </div>
@@ -745,7 +747,7 @@ function buildRates(){
   tb.innerHTML="";
   DEF_RATES.forEach(function(r,i){
     var tr=document.createElement("tr");
-    tr.innerHTML='<td style="font-family:var(--mono);color:var(--gold-hi)">+'+(r.lvl-1)+'→+'+r.lvl+'</td>'+
+    tr.innerHTML='<td style="font-family:var(--mono);color:var(--gold-hi);white-space:nowrap">+'+(r.lvl-1)+'→'+r.lvl+'</td>'+
       '<td><input type="number" data-i="'+i+'" data-k="s" value="'+r.s+'" min="0" max="100"></td>'+
       '<td><input type="number" data-i="'+i+'" data-k="f" value="'+r.f+'" min="0" max="100"></td>'+
       '<td><input type="number" data-i="'+i+'" data-k="c" value="'+r.c+'" step="1000"></td>';
