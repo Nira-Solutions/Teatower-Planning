@@ -162,14 +162,16 @@ footer{margin-top:60px;border-top:1px solid var(--line-soft);padding-top:20px;fo
     <p>Tu portes un <strong>Costume de gardien des âmes</strong> (+20 % XP héroïque à lui seul).
     Son <strong>effet de lot</strong> — qui ne se déclenche qu'avec le <strong>Chapeau de gardien des âmes</strong> —
     donne <strong>+50 % d'XP héroïque en plus</strong>.</p>
-    <p>Si tu as un autre chapeau sur la tête (pastèque&nbsp;: +3 %&nbsp;; tropical&nbsp;: lot +20 %),
-    le lot ne se déclenche pas et tu perds <strong>47 points d'XP héroïque</strong>.
-    Sur une base d'empilement à ~70 %, ça fait <strong>≈ +28 % d'XP/h</strong> — plus que le set H90 à 2,5 milliards, pour zéro or.</p>
+    <p>Si tu as un autre chapeau sur la tête (pastèque&nbsp;: +3 % héroïque et +5 % d'EXP normale&nbsp;; tropical&nbsp;: lot +20 %),
+    le lot ne se déclenche pas et tu perds <strong>une quarantaine de points d'XP héroïque</strong>.
+    Le gain net est chiffré juste en dessous (« gain net d'XP/h ») — il dépasse celui du set H90 à 2,5 milliards, pour zéro or.</p>
     <p class="note">Je ne peux pas lire depuis tes captures quel chapeau est équipé. Coche la réalité ci-dessous&nbsp;: le classement des leviers se recalcule tout seul.</p>
   </div>
 
-  <p class="lead" style="margin-top:20px">Tu es <strong>niveau combat 99</strong>. Toute ligne « les points d'EXP augmentent de X&nbsp;% »
-  ne te rapporte plus rien pour les niveaux héros — seule compte « <em>l'expérience héroïque</em> ». Tu as des bonus dans les deux catégories.</p>
+  <p class="lead" style="margin-top:20px">Deux familles de bonus, deux poids différents. Les lignes « <em>expérience héroïque +X&nbsp;%</em> » comptent plein pot.
+  Les lignes « <em>les points d'EXP augmentent de X&nbsp;%</em> » comptent aussi pour l'héroïque, mais <strong>à poids réduit</strong> —
+  le calculateur de NosApki fait bien entrer les champs <code>Bonuses EXP</code> dans le calcul du niveau champion, en plus du champ <code>Bonuses AXP</code>.
+  Le coefficient exact n'est documenté nulle part&nbsp;: il est réglable ci-dessous, à <strong>50&nbsp;%</strong> par défaut.</p>
 
   <div class="panel" style="margin-top:14px">
     <div class="tool">
@@ -181,6 +183,8 @@ footer{margin-top:60px;border-top:1px solid var(--line-soft);padding-top:20px;fo
           <button class="ghost" id="xp_reset">Réinitialiser</button>
         </div>
         <div class="field" style="margin-top:12px"><label>Booster d'EXP de famille (%)</label><input type="number" id="xp_fam" value="0" step="5"></div>
+        <div class="field"><label>Poids des bonus « points d'EXP » sur l'héroïque (%)</label><input type="number" id="xp_coef" value="50" step="5" min="0" max="100"></div>
+        <p><small>À 100 %, ils comptent comme des bonus héroïques&nbsp;; à 0 %, ils ne comptent pas du tout. Mets ta valeur si tu la mesures.</small></p>
       </div>
       <div>
         <div class="grid g3">
@@ -189,11 +193,11 @@ footer{margin-top:60px;border-top:1px solid var(--line-soft);padding-top:20px;fo
           <div class="tile k4"><div class="l">Gain net d'XP/h</div><div class="v" id="xp_gain">—</div><div class="d">(1+optimum) ÷ (1+actuel) − 1</div></div>
         </div>
         <div class="tablewrap"><table id="xptable">
-          <thead><tr><th>Source</th><th class="num">Valeur</th><th>Type</th><th>Statut</th></tr></thead><tbody></tbody>
+          <thead><tr><th>Source</th><th class="num">Valeur</th><th class="num">Retenu</th><th>Type</th><th>Statut</th></tr></thead><tbody></tbody>
         </table></div>
-        <div class="formula" style="margin-top:12px">XP/h × (1 + Σ bonus_héroïque) — les bonus « points d'EXP » n'entrent pas dans la somme</div>
+        <div class="formula" style="margin-top:12px">XP_héro/h × (1 + Σ bonus_héroïque + poids × Σ bonus_EXP_normale)</div>
         <div class="note">Le chapeau est un slot unique&nbsp;: gardien, pastèque et tropical s'excluent. Cocher l'un décoche les autres.
-        Les lignes barrées sont des bonus que tu portes mais qui ne font <strong>rien</strong> pour tes niveaux héros — ils comptent encore pour l'XP de métier si ça t'intéresse.</div>
+        La colonne « retenu » montre ce que chaque bonus pèse réellement une fois le coefficient appliqué.</div>
       </div>
     </div>
   </div>
@@ -423,31 +427,39 @@ var XPSRC=[
  {id:"cupcake",  lbl:"Cupcake arc-en-ciel 16ᵉ anniversaire", pct:10, hero:true, def:true, st:["Buff actif sur capture","p-ok"]},
  {id:"lunettes", lbl:"Lunettes de soleil bzzz", pct:5, hero:true, def:false, st:["Possédé","p-info"]},
  {id:"mielanie", lbl:"Minifamilier Mielanie", pct:3, hero:true, def:true, st:["13 j restants","p-warn"]},
- {id:"sapin",    lbl:"Ailes de sapin — points d'EXP +10 %", pct:10, hero:false, def:true, st:["Mort au niveau 99","p-dead"]},
- {id:"laser",    lbl:"Sabre laser — gain d'EXP +5 %", pct:5, hero:false, def:true, st:["Mort au niveau 99","p-dead"]},
- {id:"drone",    lbl:"Drone à vapeur — gain d'EXP +2 %", pct:2, hero:false, def:true, st:["Mort au niveau 99","p-dead"]},
- {id:"past_exp", lbl:"Chapeau pastèque — points d'EXP +5 %", pct:5, hero:false, def:true, st:["Mort au niveau 99","p-dead"]}
+ {id:"sapin",    lbl:"Ailes de sapin (points d'EXP)", pct:10, hero:false, def:true, st:["Poids réduit","p-warn"]},
+ {id:"laser",    lbl:"Sabre laser (gain d'EXP)", pct:5, hero:false, def:true, st:["Poids réduit","p-warn"]},
+ {id:"drone",    lbl:"Drone à vapeur (gain d'EXP)", pct:2, hero:false, def:true, st:["Poids réduit","p-warn"]},
+ {id:"past_exp", lbl:"Chapeau pastèque (points d'EXP)", pct:5, hero:false, def:false, st:["Lié au chapeau pastèque","p-info"]}
 ];
 var xpState={};
 XPSRC.forEach(function(s){xpState[s.id]=s.def;});
 
+function coef(){return Math.max(0,Math.min(100,n("xp_coef")))/100;}
+function weight(s){return s.hero?s.pct:s.pct*coef();}
 function xpSum(state){
   var t=0;
-  XPSRC.forEach(function(s){if(s.hero&&state[s.id])t+=s.pct;});
+  XPSRC.forEach(function(s){if(state[s.id])t+=weight(s);});
   return t+n("xp_fam");
 }
 function xpOptimum(){
   var st={};
-  XPSRC.forEach(function(s){st[s.id]=s.hero&&s.grp!=="chapeau";});
-  st.gard_lot=true; st.costume=true;
+  XPSRC.forEach(function(s){st[s.id]=(s.grp!=="chapeau"&&s.id!=="past_exp");});
+  /* meilleur chapeau : on compare la contribution réelle des trois options */
+  var hats=[{id:"gard_lot",v:50},{id:"trop_lot",v:20},{id:"pasteque",v:3+5*coef()}];
+  hats.sort(function(a,b){return b.v-a.v;});
+  hats.forEach(function(h,i){st[h.id]=(i===0);});
+  st.past_exp=(hats[0].id==="pasteque");
+  st.costume=true;
   return st;
 }
 function buildXpList(){
   var box=document.getElementById("xplist"),html="";
-  XPSRC.filter(function(s){return s.hero;}).forEach(function(s){
+  XPSRC.forEach(function(s){
     html+='<label style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;font-size:12.9px;color:var(--ink-2);cursor:pointer">'+
       '<input type="checkbox" data-xp="'+s.id+'"'+(xpState[s.id]?" checked":"")+'>'+
-      '<span>'+s.lbl+' <b style="color:var(--gold-hi);font-family:var(--mono)">+'+s.pct+' %</b>'+
+      '<span>'+s.lbl+' <b style="color:'+(s.hero?"var(--gold-hi)":"var(--ink-3)")+';font-family:var(--mono)">+'+s.pct+' %</b>'+
+      (s.hero?'':' <small>→ +'+(s.pct*coef()).toFixed(1)+' % retenu</small>')+
       (s.grp?' <small>(slot '+s.grp+')</small>':'')+'</span></label>';
   });
   box.innerHTML=html;
@@ -474,8 +486,10 @@ function xpRender(){
   var html="";
   XPSRC.forEach(function(s){
     var on=xpState[s.id];
-    html+='<tr'+(on?"":' style="opacity:.5"')+'><td class="'+(s.hero?"":"dead")+'">'+s.lbl+'</td>'+
-      '<td class="num">+'+s.pct+' %</td><td>'+(s.hero?"XP héroïque":"points d'EXP")+'</td>'+
+    html+='<tr'+(on?"":' style="opacity:.5"')+'><td>'+s.lbl+'</td>'+
+      '<td class="num">+'+s.pct+' %</td>'+
+      '<td class="num" style="color:'+(s.hero?"var(--gold-hi)":"var(--ink-2)")+'">+'+weight(s).toFixed(1)+' %</td>'+
+      '<td>'+(s.hero?"XP héroïque":"points d'EXP")+'</td>'+
       '<td><span class="pill '+s.st[1]+'">'+s.st[0]+'</span></td></tr>';
   });
   document.querySelector("#xptable tbody").innerHTML=html;
@@ -484,6 +498,7 @@ function xpRender(){
 document.getElementById("xp_max").onclick=function(){xpState=xpOptimum();buildXpList();render();};
 document.getElementById("xp_reset").onclick=function(){XPSRC.forEach(function(s){xpState[s.id]=s.def;});buildXpList();render();};
 document.getElementById("xp_fam").addEventListener("input",render);
+document.getElementById("xp_coef").addEventListener("input",function(){buildXpList();render();});
 
 /* ═════ moteur ═════ */
 var MAXLVL=99;
