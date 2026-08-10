@@ -16,3 +16,5 @@ compta/edi_carrefour_corrige/
 reports/b2b-dashboard-deploy/
 reports/b2b_dashboard_data.json
 reports/b2b_morning_dashboard_*.html
+reports/b2b_weekly_data.json
+reports/b2b_weekly_review_*.html
