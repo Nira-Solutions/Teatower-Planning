@@ -1,5 +1,52 @@
 # LOG Compta Teatower
 
+## 2026-08-10 - Lettrage ING (30 lignes traitees, 9.005,71 EUR sorties du 499000)
+
+Demande Nicolas : "mettre tout ce que tu peux dans ING, les clients tu sais quoi faire si les
+montants sont legerement differents". Script `compta/lettrage_18_ing_20260810.py` (dry-run puis
+`--apply`, 30/30 OK, 0 erreur).
+
+Journal ING (BNK1) : **75 -> 45** lignes non lettrees ; encaissements clients **32 -> 3**.
+Toutes banques : 118 -> 88.
+
+### A. Lettrages clients sur facture (2.327,58 EUR)
+20197/INV/2026/03623 793,97 - 20207/INV/2026/00441 254,85 - 20212/INV/2026/03350 346,87 -
+20229/INV/2026/03441 73,15 - 20231/INV/2026/03736 74,20 - 20254/INV/2026/03447 381,60 -
+20228/INV/2026/03420 123,10 - 20253/INV/2026/03632 47,20 (tous ecart 0,00) -
+20203/INV/2026/03400 232,74 (ecart -0,01 -> write-off **MISC/26-27/08/0006** en 657100) -
+20008/INV/2026/03115 0,02 (partiel assume).
+
+Cle de rapprochement dominante : la **communication structuree BE** (`***000/0043/90157***`)
+lue dans `payment_ref` et rapprochee de `account.move.payment_reference`. Methode a reprendre
+systematiquement, elle est plus fiable que le rapprochement par montant.
+
+### B. Fournisseur
+20247 domiciliation SEPA sinas GmbH -1.141,33 -> RESA1175 (montant exact, mandat 1501275).
+
+### C. Comptes de transit (583,55 EUR, precedent historique verifie ligne par ligne)
+- **580003 Paiement Sodexo-Edenred** : 12 lignes titres-repas (Pluxee/Edenred/Monizze) 396,54
+- **580004 Bons cadeaux Smartbox** : 2 lignes 107,40
+- **440000 Baloise #7382** : 79,51 (adaptation salaire accident du travail)
+
+### D. Doubles paiements clients -> credit ouvert sur 400000, SANS lettrage (1.946,13 EUR)
+19466 Nanretail 675,58 - 19952 Dynamic Food 436,84 - 20026 Spar Momignies 688,87 -
+20065 Bistro Tournesols 144,84. Dans les 3 premiers cas la communication structuree pointe une
+facture **deja soldee** : le client a paye deux fois. La ligne bancaire est sortie du 499000,
+l'argent reste visible en credit sur le compte client. Remboursement / imputation a arbitrer.
+
+### E. Non traites
+- **20156 Carrefour 4.862,06** : 55 factures ouvertes (25.790,81 EUR), aucune combinaison unique
+  -> avis de paiement Carrefour indispensable.
+- 19660 Centrale Intermarche 637,24 ; 19992 micro-depot iPiD 0,01.
+- 19625 Kirchner -12.837,54 : subset-sum exact trouve mais non unique sur 46 factures.
+- Domiciliations/cartes sans facture d'achat (Google, Adobe, Shopify, Intuit, Worldline,
+  Sendcloud, Proximus, Radius, Meta, Faire) ; ONSS, Accises, salaires, virements internes.
+- Journal Belfius (BNK2) : 43 lignes, hors demande.
+
+Detail confidentiel (encours clients, arbitrages, anomalie de fond sur les doubles paiements) :
+repo PRIVE `Teatower-Direction` -> `direction/lettrage_ing_2026-08-10_review.md`.
+
+
 ## 2026-08-04 (bis) — Facturation B2B Peppol (12 factures postees + envoyees, 4.590,37 EUR HT)
 
 Demande Nicolas : facturer les SO pro livrees, envoi strictement Peppol. Script existant
