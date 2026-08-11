@@ -1,5 +1,50 @@
 # LOG Compta Teatower
 
+## 2026-08-11 - Facturation B2B Peppol (4 factures postees + envoyees, 680,00 EUR HT)
+
+Demande Nicolas : "facturer toutes les commandes Pro delivrees, via Peppol uniquement".
+Script `scripts/facturation_b2b_peppol.py` inchange (dry-run puis `--apply`).
+
+11 SO 'to invoice' -> 11 PRO (0 exclue B2C/web) -> 5 facturables -> **4 postees + envoyees
+Peppol** (toutes en `peppol_move_state=processing`, uuid confirme). **0 echec, 0 erreur.**
+
+Total : **680,00 EUR HT / 720,80 EUR TTC**, INV/2026/03832 -> INV/2026/03835.
+
+| Facture | SO | Client | HT | TTC |
+|---|---|---|---|---|
+| 03832 | S06134 | Neo Gusto | 30,00 | 31,80 |
+| 03833 | S06133 | Alcodis SA - Veronique Goffaux | 40,00 | 42,40 |
+| 03834 | S06132 | CPSP Belgie NV (Sunparks Kempense Meren) | 235,00 | 249,10 |
+| 03835 | S06131 | Center Parcs Ardennen NV | 375,00 | 397,50 |
+
+### Corrections Peppol au passage (EAS 9925 -> 0208, schema KBO/BCE)
+| Partner | Avant | Apres |
+|---|---|---|
+| #5622 Invoice Address (Center Parcs Ardennen) | 9925 not_verified | 0208 **valid** |
+| #7982 Invoice Address (CPSP Belgie) | 9925 not_verified | 0208 **valid** |
+| #2873 Center Parcs Ardennen NV | 9925 valid | 0208 **valid** |
+
+Ces 2 corrections ont debloque S06131 et S06132, bloquees au dry-run. Confirme le piege
+connu : l'etat Peppol se lit sur `partner_invoice_id` (adresse enfant), pas sur le
+partenaire principal.
+
+### Transport force (regle : le transport est toujours facture)
+S06136, S06133, S06132 : qty_delivered 0 -> 1. S06130 et S06126 volontairement NON forces
+(aucune marchandise livree sur la commande).
+
+### 1 SO bloquee Peppol - non facturee
+S06136 **Dragon Phenix** (partner #103490) : fiche **sans numero de TVA**, donc endpoint
+Peppol impossible a construire. A facturer des que le n° d'entreprise sera renseigne.
+La ligne TRANSPORT a deja ete forcee, la SO reste en `to invoice`.
+
+### 5 SO non facturees - rien de livre
+S06137 Comdis, S06092 Boulangerie Valentine, S06130 Centrale Intermarche,
+S06126 Intermarche Braine-le-Chateau, S06117 Chateau Thermes & Golf (Terres Du Val).
+
+### 1 facture laissee en draft
+DRAFT_44309 / S05958 Les Ateliers Saupont : 0,00 EUR (co-packer facture a 0). Non postee,
+arbitrage manuel - aucun interet a emettre un Peppol a 0 EUR.
+
 ## 2026-08-10 (bis) - Facturation B2B Peppol (20 factures postees + envoyees, 7.113,86 EUR HT)
 
 Demande Nicolas : "facture les commandes pro delivrees, uniquement via PEPPOL".
