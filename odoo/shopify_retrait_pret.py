@@ -52,7 +52,17 @@ USER = "nicolas.raes@teatower.com"
 STORE = "263f0b-3.myshopify.com"
 API = "2025-01"
 
-PICKING_TYPES = {25: "Liege", 39: "Waterloo", 51: "Namur"}
+# Un bon de livraison n'est traite que s'il satisfait les TROIS conditions a la
+# fois : le bon sort d'un des trois magasins, la commande Shopify porte bien un
+# retrait (PICK_UP), et ce retrait est assigne a la location du magasin qui a
+# valide. Un envoi normal expedie depuis un magasin, ou un retrait a
+# Somme-Leuze, ne remplit pas ces conditions et n'est jamais touche.
+MAGASINS = {
+    # picking type Odoo : (nom, location Shopify)
+    25: ("Liege", "84371767635"),
+    39: ("Waterloo", "108808798547"),
+    51: ("Namur", "84371865939"),
+}
 CHAMP = "x_shopify_pret"
 FENETRE_JOURS = 5
 
@@ -74,7 +84,7 @@ query($id: ID!) {
         id
         status
         deliveryMethod { methodType }
-        assignedLocation { name }
+        assignedLocation { name location { id } }
       }
     }
   }
@@ -119,7 +129,7 @@ def assurer_champ(call, ecrire):
 def candidats(call, fenetre, champ_present):
     # Odoo stocke date_done en UTC naif : on compare donc en UTC.
     depuis = (datetime.now(timezone.utc) - timedelta(days=fenetre)).strftime("%Y-%m-%d %H:%M:%S")
-    domaine = [("picking_type_id", "in", list(PICKING_TYPES)),
+    domaine = [("picking_type_id", "in", list(MAGASINS)),
                ("state", "=", "done"),
                ("date_done", ">=", depuis)]
     if champ_present:
@@ -168,15 +178,23 @@ def gql_factory(token):
     return gql
 
 
-def fo_retrait(gql, shopify_order_id):
-    """Le fulfillment order de retrait de la commande, ou None."""
+def fo_retrait(gql, shopify_order_id, location):
+    """Le fulfillment order de RETRAIT DANS CE MAGASIN, ou None.
+
+    Deux filtres, pas un : le mode de livraison doit etre PICK_UP (un envoi
+    normal n'a rien a faire ici, meme s'il part d'un magasin) et la location
+    assignee doit etre celle du magasin qui vient de valider (un retrait a
+    Somme-Leuze ne se declenche pas parce qu'un magasin a valide un bon).
+    """
     d = gql(REQUETE_COMMANDE, {"id": f"gid://shopify/Order/{shopify_order_id}"})
     cmd = d.get("order")
     if not cmd:
         return None, None
     for fo in cmd["fulfillmentOrders"]["nodes"]:
         methode = (fo.get("deliveryMethod") or {}).get("methodType")
-        if methode == "PICK_UP":
+        loc = (fo.get("assignedLocation") or {}).get("location") or {}
+        loc_id = (loc.get("id") or "").split("/")[-1]
+        if methode == "PICK_UP" and loc_id == location:
             return cmd, fo
     return cmd, None
 
@@ -209,16 +227,19 @@ def main():
     faits = ignores = echecs = 0
 
     for p in liste:
-        etiquette = (f"{p['name']} — {PICKING_TYPES.get(p['picking_type_id'][0], '?')} — "
+        magasin, location = MAGASINS[p["picking_type_id"][0]]
+        etiquette = (f"{p['name']} — {magasin} — "
                      f"{p['so']['name']} — {p['so']['partner_id'][1]}")
-        cmd, fo = fo_retrait(gql, p["so"]["shopify_order_id"])
+        cmd, fo = fo_retrait(gql, p["so"]["shopify_order_id"], location)
         if cmd is None:
             print(f"  ! {etiquette} : commande introuvable cote Shopify")
             echecs += 1
             continue
         if fo is None:
-            print(f"  - {etiquette} : aucun retrait cote Shopify, ignore")
+            print(f"  - {etiquette} : pas un retrait dans ce magasin cote Shopify, ignore")
             ignores += 1
+            if args.apply:
+                call("stock.picking", "write", [[p["id"]], {CHAMP: True}])
             continue
 
         if fo["status"] != "OPEN":
