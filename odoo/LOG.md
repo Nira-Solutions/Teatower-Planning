@@ -1,4 +1,16 @@
 
+## 2026-08-11 (suite) — Retrait « prêt » poussé automatiquement dans Shopify
+Question Nicolas : peut-on faire passer la commande en « prête pour le retrait » dans Shopify sans intervention ? Oui.
+- **Ce qui se passait vraiment** : l'e-mail « ready for pickup » PART déjà, mais à la main depuis l'app mobile Shopify. Sur la commande #49524 : bon WAT/OUT/00012 validé à 13:40:01, e-mail Shopify à 13:40:21. Vingt secondes d'écart = double saisie. (Ma formulation d'hier « le client n'est jamais prévenu » était incomplète : il l'est, mais manuellement.)
+- **Lecture Shopify** : sur un fulfillment order PICK_UP, `status=OPEN` = pas encore signalé prêt, `IN_PROGRESS` = e-mail parti. Détecteur fiable, aucune ambiguïté sur les 20 commandes de retrait lues.
+- **Droits** : le jeton du connecteur shopify_ept porte `write_merchant_managed_fulfillment_orders` + `write_fulfillments`. claude9 ne les a pas (comme pour les locations).
+- **Mutation** : `fulfillmentOrderLineItemsPreparedForPickup(input:{lineItemsByFulfillmentOrder:[{fulfillmentOrderId}]})` — introspectée, l'input ne prend que l'ID du FO. Forme validée en tirant sur un FO inexistant (`.../FulfillmentOrder/1`) → userError « Invalid fulfillment_order_id », donc requête et droits corrects, sans toucher une vraie commande.
+- **Script** : `odoo/shopify_retrait_pret.py` (audit par défaut, `--apply`, `--fenetre N` jours). Trois garde-fous : fenêtre 5 j, statut du FO côté Shopify (seul un OPEN est marqué), drapeau `x_shopify_pret` sur stock.picking. Vérifié : sur 40 jours d'historique, 8 bons, 0 e-mail — tous déjà IN_PROGRESS/CLOSED. Deuxième passage = « rien à traiter ».
+- **Planification** : tâche Windows « Teatower - Retrait pret Shopify », toutes les 15 min, via `odoo/shopify_retrait_pret.bat`. Journal en `%LOCALAPPDATA%\Teatower\retrait_pret.log` — HORS du dépôt, il contient des noms de clients et le dépôt est public.
+- **Limite assumée** : la tâche est « interactive uniquement », elle ne tourne que quand la session Windows de Nicolas est ouverte. PC éteint = e-mail décalé, jamais perdu (le bon reste non traité jusqu'au prochain passage). Pour du 24/7 il faudrait porter le script sur Deno Deploy (déjà utilisé pour `deno_proxy`) — seul le mot de passe Odoo serait à y stocker, le jeton Shopify continuant d'être lu dans Odoo.
+- **Hors périmètre** : les retraits sur Somme-Leuze (bureau) — 3 fulfillment orders y traînent en OPEN depuis juillet, jamais signalés prêts. Ils ne passent pas par un bon de livraison magasin, donc le script ne les touche pas.
+- La procédure magasins est mise à jour : plus d'étape « appelez le client ».
+
 ## 2026-08-11 — Retrait en magasin : adresses des 3 magasins + bons de livraison visibles à Liège et Namur
 Contexte : le dispositif de notification posé le 10/08 n'avait que l'adresse de Waterloo ; Liège et Namur étaient volontairement vides. Et les magasins ne voyaient pas leurs commandes dans Odoo.
 - **Adresses** : `teatower.retrait.email.LIEGE` = magasinliege@teatower.com, `.NAM` = magasinnamur@teatower.com (`.WAT` inchangé). Les 3 correspondent aux logins Odoo des magasins (res.users 12109 / 12108 / 12110, tous Inventory Administrator).
