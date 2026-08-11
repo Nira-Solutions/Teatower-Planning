@@ -1,4 +1,20 @@
 
+## 2026-08-11 — Retrait en magasin : adresses des 3 magasins + bons de livraison visibles à Liège et Namur
+Contexte : le dispositif de notification posé le 10/08 n'avait que l'adresse de Waterloo ; Liège et Namur étaient volontairement vides. Et les magasins ne voyaient pas leurs commandes dans Odoo.
+- **Adresses** : `teatower.retrait.email.LIEGE` = magasinliege@teatower.com, `.NAM` = magasinnamur@teatower.com (`.WAT` inchangé). Les 3 correspondent aux logins Odoo des magasins (res.users 12109 / 12108 / 12110, tous Inventory Administrator).
+- **Test réel** : write sur la SO #49524 → l'automatisation #1 a bien créé le mail.mail 16456 (email_to=magasinwaterloo@…, flag `x_retrait_notifie` repassé à True). Mail déclencheur ANNULÉ (commande déjà remise) et flag remis à True. Puis 3 envois d'essai `force_send=True` sujet `[TEST]` → state=sent, aucun failure_reason, sur les 3 adresses. La chaîne fonctionne de bout en bout.
+- **Bons de livraison** : `stock.picking.type` 25 (Liège) et 51 (Namur) étaient `active=False` → les transferts existaient mais aucune carte dans l'aperçu Inventaire. Désarchivés (même correctif que Waterloo PT#39 le 15/06). Routes et règles pull déjà actives et identiques à Waterloo (rules 26/48 vers PT 25/51), séquences OUT et code-barres LIEGEOUT / NAMOUT intacts. Aucun arriéré : 0 commande de retrait sur LIEGE et NAM à ce jour, les 12 passées sont toutes WAT.
+- **Latence** : l'envoi est mis en file (`force_send=False`, choix du 10/08 pour ne pas bloquer une commande sur une panne SMTP). Le cron #3 `Mail: Email Queue Manager` tournait toutes les 60 min → passé à **15 min**. Réversible d'un write.
+- **Point ouvert** : le cron shopify_ept #68 `Auto Update Order Shipping Status` est inactif — valider le bon de livraison dans Odoo ne marque donc PAS la commande fulfilled côté Shopify (`shopify_fulfillment_id=False` sur les 12 WAT/OUT). Le client n'est pas prévenu automatiquement que son retrait est prêt : la procédure demande au magasin de l'appeler.
+- Script : `odoo/retrait_bon_livraison_activer.py` (audit par défaut, `--apply`). Procédure magasins : `retrait/index.html`.
+
+## 2026-07-07 — Ré-injection stock Rocourt oublié au comptage inventaire 30/06 (ajustement pur ROC/Stock) — WRITE, validé Nicolas
+Contexte: 2 transferts TT/Stock→ROC/Stock validés (done) le 30/06 08:24, puis recomptage physique le 30/06 20:00-20:03 qui a RETIRÉ (magasin→inventory) les qtés transférées (marchandises oubliées au comptage). Nicolas confirme qu'elles sont physiquement à Rocourt aujourd'hui.
+Périmètre STRICT: uniquement ROC/INT/00005 (id 48438) + ROC/INT/00007 (id 48575). TT/Stock intact. Aucun picking revalidé.
+Méthode: ajustement d'inventaire PUR sur stock.quant à ROC/Stock (loc 4712), contrepartie = Virtual Locations/Inventory adjustment (loc 14). Pour chaque produit: cible = q_now_frais + SOMME(product_uom_qty des moves done). inventory_quantity=cible puis action_apply_inventory.
+Résultat: 51 produits ajustés (A1106 quant créé), 303 unités ré-injectées. 51 contreparties move.lines toutes 14→4712 (ml242057-242107), ZÉRO touche TT/Stock. Contrôle: NAM(4540) delta +0.00, WAT(4532) delta +0.00. TT delta -1476 = activité concurrente indépendante (ordres de fab TT/MO/05317, TT/MO/04959, loc 8→15), PAS mon opération.
+Note technique: action_apply_inventory renvoie None → fault XML-RPC "cannot marshal None" sur la réponse (exécution OK côté serveur); script relancé en mode idempotent (skip si quant déjà=cible).
+
 ## 2026-06-03 — Fix double-TVA Shopify à la cause racine (backfill pays parents + cron) — WRITE, validé Nicolas
 
 - **Type** : Correction donnée partenaire + automation. AUCUNE écriture sur factures/écritures/FP existantes (passif 260 factures hors scope). Tout réversible.
