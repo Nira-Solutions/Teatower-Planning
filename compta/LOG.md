@@ -1,5 +1,47 @@
 # LOG Compta Teatower
 
+## 2026-08-12 - Facturation B2B Peppol (5 factures postees + envoyees, 2.680,52 EUR HT)
+
+Demande Nicolas : "facture les commandes pro delivrees du jour, UNIQUEMENT via Peppol".
+Script `scripts/facturation_b2b_peppol.py` inchange (dry-run puis `--apply`).
+
+20 SO 'to invoice' -> 10 PRO (10 exclues B2C/web : 7 Shopify dont 3 Smartbox, 3 Amazon)
+-> 5 facturables -> **5 postees + envoyees Peppol** (toutes en `peppol_move_state=processing`,
+uuid confirme). **0 echec, 0 erreur.**
+
+Total : **2.680,52 EUR HT / 2.841,38 EUR TTC**, INV/2026/03840 -> INV/2026/03844.
+
+| Facture | SO | Client | HT | TTC |
+|---|---|---|---|---|
+| 03840 | S06143 | Alexande Stuckens - Bistro Tournesols | 422,65 | 448,03 |
+| 03841 | S06142 | Cafes Delahaut | 862,50 | 914,25 |
+| 03842 | S06092 | Boulangerie Valentine | 939,62 | 996,00 |
+| 03843 | S06130 | Centrale Intermarche | 116,13 | 123,10 |
+| 03844 | S06117 | Chateau Thermes & Golf (Terres Du Val - Pollen) | 339,62 | 360,00 |
+
+### Corrections Peppol au passage (EAS 9925 -> 0208, schema KBO/BCE)
+| Partner | Avant | Apres |
+|---|---|---|
+| #2785 Alexande Stuckens - Bistro Tournesols | 9925 valid | 0208 **valid** |
+| #2899 Cotes Aromes - Francois Chleide | 9925 valid | 0208 **valid** |
+| #5679 Alexande Stuckens | 9925 not_verified | 0208 **valid** |
+
+La correction #2785 a debloque S06143, bloquee au dry-run (state=valid mais eas=9925 :
+un client "valid" sur le mauvais schema reste non facturable).
+
+### Transport force (regle : le transport est toujours facture)
+S06130 : qty_delivered 0 -> 1. S06126 volontairement NON force (aucune marchandise livree
+sur la commande).
+
+### 1 SO bloquee Peppol - non facturee
+S06136 **Dragon Phenix** (partner #103490) : fiche toujours **sans numero de TVA**, endpoint
+Peppol impossible a construire. Deja bloquee hier pour la meme raison. A facturer des que
+le n° d'entreprise sera renseigne sur la fiche.
+
+### 4 SO non facturees - rien de livre
+S06146 Delhaize Le Lion, S06144 Cotes Aromes, S06137 Comdis,
+S06126 Intermarche Braine-le-Chateau.
+
 ## 2026-08-11 - Facturation B2B Peppol (4 factures postees + envoyees, 680,00 EUR HT)
 
 Demande Nicolas : "facturer toutes les commandes Pro delivrees, via Peppol uniquement".
