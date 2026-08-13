@@ -68,6 +68,9 @@ FORCE_TELEVENTE_PIDS = {
 # [IMPL date], retirer le pid d'ici : le magasin revient avec son suivi J+15 reel.
 IMPL_PENDING_PIDS = {
     125070,  # Delhaize Warmonceau : implantation Gilles S30 (SO S05955 du 07/07)
+    126113,  # Affilie 42900 - Delhaize Esneux : nouveau client (cree 12/08/2026, SO du 12/08),
+             # implantation Gilles S34 lundi 17/08 (demande Nicolas). Sans cette ligne le
+             # magasin tombe en televente faute d'historique -> double contact avec Gilles.
 }
 
 # Override cadence d'appel (jours) par magasin -> prime sur la cadence calculee.
