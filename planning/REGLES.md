@@ -324,7 +324,7 @@ Le colis doit etre prepare **la veille du depot**. La veille d'un lundi est un d
 
 ### Contexte
 
-Instauree le 14/08/2026 (Nicolas). S34 avait Liege + Rocourt en depot le lundi 17/08 : les journees **lundi (Bruxelles sud → Ath)** et **jeudi (Esneux → Liege → Rocourt)** ont ete permutees. Aucun des 4 magasins deplaces vers le lundi n'avait de contrainte de jour.
+Instauree le 14/08/2026 (Nicolas). S34 avait Liege + Rocourt en depot le lundi 17/08. La semaine ayant ensuite ete ramenee a 3 jours (lundi-mardi-mercredi, jeudi/vendredi off), la regle s'applique en choisissant la **seule tournee sans depot pour le lundi** (Hesbaye/BW est) : depots Liege + Rocourt le mardi, Namur le mercredi.
 
 ---
 
