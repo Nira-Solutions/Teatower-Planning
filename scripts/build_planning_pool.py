@@ -100,6 +100,7 @@ CADENCE_OVERRIDE_PID = {
     113498: 30,  # Affilié 044471 - Delhaize Materne : pas de passage avant 30j (Nicolas 24/06/2026)
     8779: 30,    # Affilié 044780 - Proxy Delhaize Le Beau Rivage : cadence 30j (Nicolas 24/06/2026)
     123144: 15,  # Affilié 040490 - Delhaize Ath : merch permanent, cadence 15j (Nicolas 28/06/2026)
+    123297: 30,  # Spar Gembloux (fiche livraison Pascal Gilson) : passage mensuel demandé par le magasin (Nicolas 14/08/2026)
 }
 
 

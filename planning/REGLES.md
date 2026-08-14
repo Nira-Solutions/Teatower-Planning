@@ -307,6 +307,27 @@ Instauree le 10/06/2026 (Nicolas) apres oubli : City 2 #113997, CM Eupen Rotenbe
 
 ---
 
+## 13. Depots boutiques Teatower — JAMAIS le lundi (REGLE DURE, 2026-08-14)
+
+**Aucun depot / reassort d'une boutique Teatower (Namur, Liege, Rocourt, Waterloo...) ne peut etre planifie un LUNDI.**
+
+### Motif
+
+Le colis doit etre prepare **la veille du depot**. La veille d'un lundi est un dimanche : l'entrepot est ferme, la commande ne peut pas etre preparee. Un depot lundi est donc structurellement impossible, pas juste inconfortable.
+
+### Application
+
+1. Un stop `k="livr"` (boutique Teatower) ne se place que du **mardi au vendredi**.
+2. Le colis est prepare le **jour ouvre precedent** — a ecrire dans la `note` du stop (« Colis prepare le mardi 18/08 »).
+3. Si la tournee geographique qui dessert la boutique tombe un lundi, **permuter la journee entiere** avec un autre jour de la semaine plutot que de detacher le depot : verifier d'abord que les magasins deplaces n'ont pas de contrainte de jour (`regle_magasin`, fiche Odoo).
+4. Rappel §9 : une implantation deplacee avec la journee reste **1er stop** du nouveau jour, et le materiel se charge la veille de ce nouveau jour.
+
+### Contexte
+
+Instauree le 14/08/2026 (Nicolas). S34 avait Liege + Rocourt en depot le lundi 17/08 : les journees **lundi (Bruxelles sud → Ath)** et **jeudi (Esneux → Liege → Rocourt)** ont ete permutees. Aucun des 4 magasins deplaces vers le lundi n'avait de contrainte de jour.
+
+---
+
 ## Liste complète des clients "Arret" au 2026-04-15
 
 | Magasin | Société | Odoo ID | Motif |
