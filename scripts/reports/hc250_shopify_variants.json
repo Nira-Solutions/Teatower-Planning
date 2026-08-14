@@ -1,0 +1,384 @@
+{
+ "generated": "2026-08-14T13:42:32.500838",
+ "resultats": [
+  {
+   "code": "HC250205",
+   "shopify_product_id": 9205408629075,
+   "variant_id": 54587563082067,
+   "inventory_item_id": 56671378309459,
+   "prix": "15.00",
+   "ept_map_id": 594,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250279",
+   "shopify_product_id": 9205409546579,
+   "variant_id": 54587563114835,
+   "inventory_item_id": 56671378342227,
+   "prix": "15.00",
+   "ept_map_id": 595,
+   "stock": [
+    "515",
+    "0",
+    "10",
+    "26"
+   ]
+  },
+  {
+   "code": "HC250301",
+   "shopify_product_id": 9205410365779,
+   "variant_id": 54587563180371,
+   "inventory_item_id": 56671378407763,
+   "prix": "15.00",
+   "ept_map_id": 596,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250315",
+   "shopify_product_id": 9205411053907,
+   "variant_id": 54587563213139,
+   "inventory_item_id": 56671378440531,
+   "prix": "15.00",
+   "ept_map_id": 597,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250483",
+   "shopify_product_id": 9205412495699,
+   "variant_id": 54587563245907,
+   "inventory_item_id": 56671378473299,
+   "prix": "15.00",
+   "ept_map_id": 598,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250600",
+   "shopify_product_id": 9205412659539,
+   "variant_id": 54587563311443,
+   "inventory_item_id": 56671378538835,
+   "prix": "15.00",
+   "ept_map_id": 599,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250610",
+   "shopify_product_id": 9205413282131,
+   "variant_id": 54587563344211,
+   "inventory_item_id": 56671378571603,
+   "prix": "15.00",
+   "ept_map_id": 600,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250617",
+   "shopify_product_id": 9205413708115,
+   "variant_id": 54587563409747,
+   "inventory_item_id": 56671378637139,
+   "prix": "15.00",
+   "ept_map_id": 601,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250626",
+   "shopify_product_id": 9205414003027,
+   "variant_id": 54587563475283,
+   "inventory_item_id": 56671378702675,
+   "prix": "15.00",
+   "ept_map_id": 602,
+   "stock": [
+    "880",
+    "0",
+    "10",
+    "19"
+   ]
+  },
+  {
+   "code": "HC250628",
+   "shopify_product_id": 9205414199635,
+   "variant_id": 54587568816467,
+   "inventory_item_id": 56671384043859,
+   "prix": "15.00",
+   "ept_map_id": 603,
+   "stock": [
+    "2658",
+    "0",
+    "10",
+    "7"
+   ]
+  },
+  {
+   "code": "HC250631",
+   "shopify_product_id": 9205414297939,
+   "variant_id": 54587568849235,
+   "inventory_item_id": 56671384076627,
+   "prix": "15.00",
+   "ept_map_id": 604,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250635",
+   "shopify_product_id": 9205415018835,
+   "variant_id": 54587568882003,
+   "inventory_item_id": 56671384109395,
+   "prix": "15.00",
+   "ept_map_id": 605,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250666",
+   "shopify_product_id": 9205415772499,
+   "variant_id": 54587568914771,
+   "inventory_item_id": 56671384142163,
+   "prix": "15.00",
+   "ept_map_id": 606,
+   "stock": [
+    "1445",
+    "0",
+    "10",
+    "18"
+   ]
+  },
+  {
+   "code": "HC250669",
+   "shopify_product_id": 9205416067411,
+   "variant_id": 54587569045843,
+   "inventory_item_id": 56671384273235,
+   "prix": "15.00",
+   "ept_map_id": 607,
+   "stock": [
+    "662",
+    "0",
+    "10",
+    "19"
+   ]
+  },
+  {
+   "code": "HC250685",
+   "shopify_product_id": 9205416493395,
+   "variant_id": 54587569242451,
+   "inventory_item_id": 56671384469843,
+   "prix": "15.00",
+   "ept_map_id": 608,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250723",
+   "shopify_product_id": 9205418164563,
+   "variant_id": 54587569307987,
+   "inventory_item_id": 56671384535379,
+   "prix": "15.00",
+   "ept_map_id": 609,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250735",
+   "shopify_product_id": 9205419147603,
+   "variant_id": 54587569340755,
+   "inventory_item_id": 56671384568147,
+   "prix": "15.00",
+   "ept_map_id": 610,
+   "stock": [
+    "25",
+    "0",
+    "10",
+    "-3"
+   ]
+  },
+  {
+   "code": "HC250821",
+   "shopify_product_id": 9205423440211,
+   "variant_id": 54587569373523,
+   "inventory_item_id": 56671384600915,
+   "prix": "15.00",
+   "ept_map_id": 611,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250826",
+   "shopify_product_id": 9205423898963,
+   "variant_id": 54587569406291,
+   "inventory_item_id": 56671384633683,
+   "prix": "15.00",
+   "ept_map_id": 612,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250837",
+   "shopify_product_id": 9205424554323,
+   "variant_id": 54587569471827,
+   "inventory_item_id": 56671384699219,
+   "prix": "15.00",
+   "ept_map_id": 613,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250839",
+   "shopify_product_id": 9205424750931,
+   "variant_id": 54587569537363,
+   "inventory_item_id": 56671384764755,
+   "prix": "15.00",
+   "ept_map_id": 614,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250843",
+   "shopify_product_id": 9205425111379,
+   "variant_id": 54587569570131,
+   "inventory_item_id": 56671384797523,
+   "prix": "15.00",
+   "ept_map_id": 615,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250845",
+   "shopify_product_id": 9205425373523,
+   "variant_id": 54587569766739,
+   "inventory_item_id": 56671384994131,
+   "prix": "15.00",
+   "ept_map_id": 616,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250863",
+   "shopify_product_id": 9205426389331,
+   "variant_id": 54587569832275,
+   "inventory_item_id": 56671385059667,
+   "prix": "15.00",
+   "ept_map_id": 617,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250874",
+   "shopify_product_id": 9205427372371,
+   "variant_id": 54587569865043,
+   "inventory_item_id": 56671385092435,
+   "prix": "15.00",
+   "ept_map_id": 618,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "code": "HC250880",
+   "shopify_product_id": 9205427831123,
+   "variant_id": 54587569930579,
+   "inventory_item_id": 56671385157971,
+   "prix": "15.00",
+   "ept_map_id": 619,
+   "stock": [
+    "740",
+    "0",
+    "10",
+    "19"
+   ]
+  },
+  {
+   "code": "HC250883",
+   "shopify_product_id": 9205427994963,
+   "variant_id": 54587569963347,
+   "inventory_item_id": 56671385190739,
+   "prix": "15.00",
+   "ept_map_id": 620,
+   "stock": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  }
+ ],
+ "echecs": []
+}
