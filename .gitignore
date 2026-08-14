@@ -21,3 +21,6 @@ reports/b2b_weekly_review_*.html
 
 # Captures perso NosTale (JOCK3R) : local uniquement, repo public
 /JOCK3R/
+
+# Rapports HC250 : le rollback contient la liste nominative des clients Horeca
+scripts/reports/hc250_b2c_15eur_rollback.json
