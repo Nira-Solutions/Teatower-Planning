@@ -1,5 +1,65 @@
 # LOG Compta Teatower
 
+## 2026-08-14 - Lettrage ING (8 cas) + facturation B2B Peppol (2 factures)
+
+Demande Nicolas : "fais le lettrage de ING, tu sais quoi faire pour les factures clients.
+Ensuite facture les commandes PRO delivrees UNIQUEMENT VIA PEPPOL".
+
+### 1. Lettrage -- `compta/lettrage_20_ing_20260814.py` (dry-run puis `--apply`)
+
+99 lignes bancaires non lettrees au scan ; 15 encaissements. **8 cas traites, 8 OK, 0 erreur.**
+
+**Encaissements clients lettres (comm. structuree BE = cle maitre)** -- 1.350,29 EUR :
+
+| BSL | Client | Montant | Facture | Ecart | Write-off |
+|---|---|---|---|---|---|
+| 20282 | CATHOP SRL | 506,19 | INV/2026/03734 (506,20) | -0,01 | MISC/26-27/08/0008 (657100) |
+| 20284 | Chez Remy | 153,10 | INV/2026/03514 | 0,00 | - |
+| 20331 | SA Villersem - Intermarche Villers-le-Bouillet | 424,89 | INV/2026/03370 (424,90) | -0,01 | MISC/26-27/08/0009 (657100) |
+| 20332 | SA Marer - AD Rochefort | 266,01 | INV/2026/03403 (266,00) | +0,01 | MISC/26-27/08/0010 (757100) |
+
+Les 4 factures sont passees `payment_state=paid`, residual 0,00.
+
+**Repointages sans lettrage :**
+- BSL 20278 MONIZZE 19,64 -> `580003` titres-repas (precedent etabli).
+- BSL 20277 TOO GOOD TO GO 130,07 -> `400000` + partner #123837, **sans lettrage** :
+  aucune facture ouverte en face, l'argent reste en credit sur le compte client.
+
+**Virements internes ING <-> Belfius -> `580000` puis lettres entre eux :**
+- 03/08 : BSL 20149 (-5.000,00 ING) <-> BSL 20112 (+5.000,00 Belfius).
+- 04/08 : BSL 20184 (-14.000,00 ING) <-> BSL 20127 (+14.000,00 Belfius).
+
+**Non traites -- piece manquante (a statuer) :**
+
+| BSL | Ligne | Montant | Raison |
+|---|---|---|---|
+| 20156 | Carrefour Belgium 03/08 | 4.862,06 | 75 factures ouvertes, communication `/ADV/` sans detail, aucun sous-ensemble unique -> **exiger l'avis de paiement Carrefour** |
+| 19660 | ITM Alimentaire Belgium 09/07 | 637,24 | aucune combinaison a +/-5 EUR sur les factures ouvertes Centrale Intermarche -> **exiger l'avis de paiement** |
+| 19992 | iPiD Europe 27/07 | 0,01 | micro-depot de verification de compte, pas un reglement (le match "montant exact" sur INV/2026/02482 est fortuit) |
+
+### 2. Facturation B2B Peppol -- `scripts/facturation_b2b_peppol.py`
+
+25 SO 'to invoice' -> 15 PRO (10 exclues B2C/web : 7 Shopify dont 3 Smartbox, 3 Amazon)
+-> 2 facturables -> **2 postees + envoyees Peppol** (`peppol_move_state=processing`, uuid
+confirme). **0 echec, 0 erreur.** Total **410,17 EUR HT / 443,80 EUR TTC**.
+
+| Facture | SO | Client | HT | TTC | Peppol |
+|---|---|---|---|---|---|
+| INV/2026/03865 | S06149 | Chez Remy | 180,28 | 191,10 | processing |
+| INV/2026/03866 | S06137 | Comdis | 229,89 | 252,70 | processing |
+
+1 ligne TRANSPORT forcee (`S06149` ligne 67930, qty_delivered 0->1).
+1 fiche corrigee EAS 9925->0208 : Kelleter sprl #3020 (restee `valid`).
+
+**Bloquees Peppol (non facturees, cf regle "pas de Peppol = pas de facture") :**
+S06150 Jean-marie Houyon et S06136 Dragon Phenix -- `not_verified`, **sans n de TVA**
+(donc endpoint impossible a construire) : il faut le n d'entreprise pour debloquer.
+
+**11 SO sans quantite livree** (non facturables) : S06157 Kelleter, S06156 Next Cap,
+S06155 Spar Barvaux, S06154 Good 4 Food/Proxy Delhaize Linthout, S06153 Sevfit,
+S06152 Hello Bio, S06151 Chateau Thermes & Golf, S06148 Brasserie chez les garcons,
+S06146 Delhaize Le Lion, S06144 Cotes Aromes, S06126 Intermarche Braine-le-Chateau.
+
 ## 2026-08-12 - Facturation B2B Peppol (5 factures postees + envoyees, 2.680,52 EUR HT)
 
 Demande Nicolas : "facture les commandes pro delivrees du jour, UNIQUEMENT via Peppol".
