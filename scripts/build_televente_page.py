@@ -19,7 +19,10 @@ from datetime import date, timedelta
 from pathlib import Path
 
 DATA = Path(r"C:\Users\FlowUP\OneDrive\Teatower\data")
-OUT = Path(r"C:\Users\FlowUP\OneDrive\Teatower-Planning\televente\index.html")
+# Repo-relatif (comme build_planning_page.py) : le clone courant est celui qu'on
+# commit/push. Un chemin absolu vers l'autre clone ecrivait dans un dossier peri
+# me -> page jamais publiee.
+OUT = Path(__file__).resolve().parent.parent / "televente" / "index.html"
 DORMANT_THRESHOLD = 90
 DAILY = 6  # capacite Vanessa : 1h/jour @ 10 min/appel (regle Nicolas 09/06/2026)
 JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
@@ -218,12 +221,18 @@ def main():
     work_days = [(JOURS[i], mon + timedelta(days=i)) for i in range(5)]
     open_days = [(n, d) for n, d in work_days if d not in FERIES_BE]
     queue = list(anti)
+    # Repartition : DAILY est un PLAFOND, pas une cible. Semaine creuse (file <
+    # capacite) -> on lisse sur tous les jours ouvres au lieu de saturer le lundi
+    # et de laisser jeudi/vendredi vides. L'ordre de priorite est conserve : les
+    # plus en retard restent en tete de semaine.
+    nd = len(open_days)
+    per_day = min(DAILY, -(-len(queue) // nd)) if nd and queue else DAILY
     day_slots = []
     for n, d in work_days:
         if d in FERIES_BE:
             day_slots.append((n, d, [], True))
         else:
-            chunk, queue = queue[:DAILY], queue[DAILY:]
+            chunk, queue = queue[:per_day], queue[per_day:]
             day_slots.append((n, d, chunk, False))
     overflow = queue
 

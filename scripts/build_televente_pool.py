@@ -67,7 +67,9 @@ FORCE_TELEVENTE_PIDS = {
 # Exclus du pool tant que l'implantation n'est pas faite ; des que le merch pose
 # [IMPL date], retirer le pid d'ici : le magasin revient avec son suivi J+15 reel.
 IMPL_PENDING_PIDS = {
-    125070,  # Delhaize Warmonceau : implantation Gilles S30 (SO S05955 du 07/07)
+    # 125070 Delhaize Warmonceau : implantation FAITE (visite merch du 09/07/2026),
+    #        tag [IMPL 2026-07-09] pose le 17/08 -> retire d'ici, revient en pool
+    #        televente (8 refs) avec son suivi J+15.
     126113,  # Affilie 42900 - Delhaize Esneux : nouveau client (cree 12/08/2026, SO du 12/08),
              # implantation Gilles S34 lundi 17/08 (demande Nicolas). Sans cette ligne le
              # magasin tombe en televente faute d'historique -> double contact avec Gilles.
