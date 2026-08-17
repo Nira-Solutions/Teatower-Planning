@@ -24,8 +24,11 @@ URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
 PASSWORD = "Teatower123"
-DATA = Path(r"C:\Users\FlowUP\OneDrive\Teatower\data")
-OUT = Path(r"C:\Users\FlowUP\OneDrive\Teatower-Planning\planning\contacts.html")
+# Chemins relatifs au depot : le nom d'utilisateur Windows differe d'un poste a
+# l'autre (FlowUP sur le fixe, Nraes sur le portable) -> aucun chemin en dur.
+REPO = Path(__file__).resolve().parent.parent
+DATA = REPO / "data"
+OUT = REPO / "planning" / "contacts.html"
 
 # mots qui marquent la FIN du nom de contact dans le comment (texte issu d'un
 # import Sheet ou tout est colle par des espaces simples)

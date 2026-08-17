@@ -233,7 +233,8 @@ def main():
                         help="Date de référence (today par défaut). Format YYYY-MM-DD.")
     parser.add_argument("--lookback-months", type=int, default=12,
                         help="Fenêtre de calcul avg_mois (mois). Défaut 12.")
-    parser.add_argument("--out-dir", default=r"C:\Users\FlowUP\OneDrive\Teatower\data",
+    parser.add_argument("--out-dir",
+                        default=str(Path(__file__).resolve().parent.parent / "data"),
                         help="Répertoire de sortie.")
     args = parser.parse_args()
 

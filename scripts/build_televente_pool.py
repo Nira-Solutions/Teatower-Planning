@@ -36,6 +36,9 @@ DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
 PASSWORD = "Teatower123"
 BAILLON = (50.2904, 5.3387)  # Baillonville 5377
+# Racine du depot : le nom d'utilisateur Windows differe d'un poste a l'autre
+# (FlowUP sur le fixe, Nraes sur le portable) -> aucun chemin en dur.
+REPO = Path(__file__).resolve().parent.parent
 
 # --- Seuils de segmentation (Nicolas 09/06/2026) ---
 REFS_MAX = 10        # <= 10 refs -> Vanessa (porte "petit assortiment")
@@ -167,7 +170,7 @@ def haversine(a, b):
 def load_geo():
     """Retourne (zip->coord, city_lower->coord) depuis GeoNames BE.txt."""
     zacc, cacc = defaultdict(list), defaultdict(list)
-    path = Path(r"C:\Users\FlowUP\OneDrive\Teatower\data\geo\BE.txt")
+    path = REPO / "data" / "geo" / "BE.txt"
     for line in path.open(encoding="utf-8"):
         c = line.split("\t")
         if len(c) < 11:
@@ -203,7 +206,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--target-date", default=date.today().isoformat())
     ap.add_argument("--lookback-months", type=int, default=12)
-    ap.add_argument("--out-dir", default=r"C:\Users\FlowUP\OneDrive\Teatower\data")
+    ap.add_argument("--out-dir", default=str(REPO / "data"))
     args = ap.parse_args()
     today = date.fromisoformat(args.target_date)
     lookback = today - timedelta(days=30 * args.lookback_months)
