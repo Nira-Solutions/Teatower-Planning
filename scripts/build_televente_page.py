@@ -18,7 +18,7 @@ import html
 from datetime import date, timedelta
 from pathlib import Path
 
-DATA = Path(r"C:\Users\FlowUP\OneDrive\Teatower\data")
+DATA = Path(__file__).resolve().parent.parent / "data"
 # Repo-relatif (comme build_planning_page.py) : le clone courant est celui qu'on
 # commit/push. Un chemin absolu vers l'autre clone ecrivait dans un dossier peri
 # me -> page jamais publiee.
