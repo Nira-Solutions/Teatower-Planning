@@ -24,3 +24,7 @@ reports/b2b_weekly_review_*.html
 
 # Rapports HC250 : le rollback contient la liste nominative des clients Horeca
 scripts/reports/hc250_b2c_15eur_rollback.json
+
+# Documents de direction : P&L, tresorerie, dettes, dossiers bancaires.
+# CONFIDENTIEL — ce depot est PUBLIC. Destination : repo prive Teatower-Direction.
+direction/
