@@ -24,7 +24,11 @@ CE QU'IL FAIT
   5. signale les ateliers qui ne sont pas a 21% (la taxe de vente par defaut de
      la societe est le 6% du the : tout nouvel atelier naitra a 6% si personne
      ne corrige -- c'est exactement comme ca que l'ecart s'est installe)
-  6. envoie un mail via Odoo si quoi que ce soit reste non resolu
+  6. signale les ateliers marques "necessite une expedition" dans Shopify : un
+     atelier ne s'expedie pas, sinon il part dans Sendcloud comme un colis a
+     etiqueter et pollue la file (risque d'expedier un colis vide)
+  7. signale les commandes bloquees dans Sendcloud sans etiquette depuis > 3 j
+  8. envoie un mail via Odoo si quoi que ce soit reste non resolu
 
 Variables d'environnement requises :
     ODOO_PWD, SHOPIFY_CLIENT_ID, SHOPIFY_CLIENT_SECRET, SHOPIFY_STORE
@@ -158,6 +162,67 @@ def ateliers_hors_21(odoo):
     return hors
 
 
+def ateliers_expedies():
+    """Variantes d'atelier ACTIVES marquees requires_shipping -> pollueront Sendcloud."""
+    prods = shopify.get("products.json",
+                        params={"limit": 250, "fields": "id,title,status,variants"})["products"]
+    items = []
+    for p in prods:
+        if "telier" not in p["title"] or p.get("status") != "active":
+            continue
+        for v in p["variants"]:
+            items.append((v["inventory_item_id"], v.get("sku") or p["title"], v.get("title")))
+    if not items:
+        return []
+    ids = ",".join(str(i[0]) for i in items)
+    etat = {x["id"]: x.get("requires_shipping")
+            for x in shopify.get("inventory_items.json",
+                                 params={"ids": ids}).get("inventory_items", [])}
+    return [(sku, vtitle) for iid, sku, vtitle in items if etat.get(iid) is not False]
+
+
+def sendcloud_bloquees(jours=3):
+    """Commandes importees dans Sendcloud, toujours sans etiquette apres N jours."""
+    try:
+        from sendcloud_client import sendcloud
+    except Exception:
+        return None  # credentials absents : controle ignore, pas une anomalie
+    import unicodedata
+
+    def norm(s):
+        s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode()
+        return " ".join(s.lower().split())
+
+    parcels, cursor = [], None
+    for _ in range(4):
+        prm = {"limit": 100}
+        if cursor:
+            prm["cursor"] = cursor
+        r = sendcloud.get("parcels", params=prm)
+        parcels += r.get("parcels", [])
+        nxt = r.get("next")
+        if not nxt:
+            break
+        import urllib.parse
+        cursor = urllib.parse.parse_qs(urllib.parse.urlparse(nxt).query).get("cursor", [None])[0]
+    faits_num = {p.get("order_number") for p in parcels if p.get("order_number")}
+    faits_nom = {norm(p.get("name")) for p in parcels}
+
+    limite = (datetime.datetime.now() - datetime.timedelta(days=jours)).isoformat()
+    bloquees = []
+    for integ in sendcloud.get("integrations"):
+        if integ.get("system") != "shopify_v2":
+            continue
+        for s in sendcloud.get("integrations/%s/shipments" % integ["id"],
+                               params={"limit": 50}).get("results", []):
+            num = s.get("order_number") or ""
+            if num in faits_num or norm(s.get("name")) in faits_nom:
+                continue
+            if s.get("created_at", "")[:19] < limite[:19]:
+                bloquees.append((num, s.get("created_at", "")[:16], s.get("name")))
+    return bloquees
+
+
 def send_alert(odoo, subject, body):
     mail = odoo.x("mail.mail", "create", {
         "subject": subject,
@@ -234,7 +299,24 @@ def main():
     for pid, code, rates in tva:
         say("  TVA  {} ({}) -> {}".format(code, pid, rates or "aucune taxe"))
 
-    problems = len(missing) + len(nosku) + len(failed) + len(tva)
+    exp = ateliers_expedies()
+    say()
+    say("Ateliers marques 'a expedier' : " + str(len(exp))
+        + ("   (un atelier ne s'expedie pas)" if exp else ""))
+    for sku, vtitle in exp:
+        say("  EXPED  {}  /  {}".format(sku, vtitle))
+
+    bloq = sendcloud_bloquees()
+    say()
+    if bloq is None:
+        say("Sendcloud : controle ignore (credentials absents)")
+        bloq = []
+    else:
+        say("Commandes sans etiquette Sendcloud depuis > 3 j : " + str(len(bloq)))
+        for num, date, nom in bloq:
+            say("  BLOQUE  {:<9} {}  {}".format(num, date, nom))
+
+    problems = len(missing) + len(nosku) + len(failed) + len(tva) + len(exp) + len(bloq)
     say()
     say("=" * 72)
     say("RAS - tout est aligne." if not problems
