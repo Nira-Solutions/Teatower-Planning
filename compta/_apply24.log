@@ -1,0 +1,50 @@
+MODE: APPLY (ecriture reelle)
+  BSL 20156 (BNK1/26-27/0491)   4,862.06  suspense aml=199354 residual=-4862.06
+  BSL 20425 (BNK1/26-27/0679)   1,396.75  suspense aml=203483 residual=-1396.75
+  TOTAL a imputer : 6,258.81
+
+  71 lignes debitrices ouvertes, total 28,786.58
+  + 1 credit(s) ouvert(s) a imputer :
+      RINV/26-27/0021      2026-08-06    -100.10
+  TOTAL a imputer (virements + avoirs) : 6,358.91
+
+  --- FIFO : 28 pieces retenues, cumul 6,537.34 ---
+    INV/2025/04472       2025-11-20     373.85  cumul     373.85  SOLDEE
+    INV/2025/05662       2025-12-30      28.69  cumul     402.54  SOLDEE
+    INV/2026/00332       2026-01-15       9.42  cumul     411.96  SOLDEE
+    INV/2026/00458       2026-01-22       8.69  cumul     420.65  SOLDEE
+    INV/2026/00585       2026-01-27     447.38  cumul     868.03  SOLDEE
+    INV/2026/00819       2026-02-06       8.23  cumul     876.26  SOLDEE
+    INV/2026/00968       2026-02-13      18.21  cumul     894.47  SOLDEE
+    INV/2026/01013       2026-02-16     142.66  cumul   1,037.13  SOLDEE
+    INV/2026/01245       2026-03-02      43.58  cumul   1,080.71  SOLDEE
+    INV/2026/01419       2026-03-10       9.76  cumul   1,090.47  SOLDEE
+    INV/2026/01581       2026-03-18      53.41  cumul   1,143.88  SOLDEE
+    INV/2026/01612       2026-03-19      22.63  cumul   1,166.51  SOLDEE
+    INV/2026/01726       2026-03-26       9.61  cumul   1,176.12  SOLDEE
+    INV/2026/01816       2026-03-31     105.50  cumul   1,281.62  SOLDEE
+    INV/2026/01962       2026-04-07     323.23  cumul   1,604.85  SOLDEE
+    INV/2026/02016       2026-04-10     577.50  cumul   2,182.35  SOLDEE
+    INV/2026/02072       2026-04-15     842.13  cumul   3,024.48  SOLDEE
+    INV/2026/02083       2026-04-15     462.02  cumul   3,486.50  SOLDEE
+    INV/2026/02086       2026-04-15     441.02  cumul   3,927.52  SOLDEE
+    INV/2026/02148       2026-04-21     529.30  cumul   4,456.82  SOLDEE
+    INV/2026/02278       2026-04-27      23.10  cumul   4,479.92  SOLDEE
+    INV/2026/02282       2026-04-27      71.39  cumul   4,551.31  SOLDEE
+    INV/2026/02289       2026-04-27     424.25  cumul   4,975.56  SOLDEE
+    INV/2026/02292       2026-04-27     348.61  cumul   5,324.17  SOLDEE
+    INV/2026/02484       2026-05-13     110.60  cumul   5,434.77  SOLDEE
+    INV/2026/02764       2026-05-28     390.66  cumul   5,825.43  SOLDEE
+    INV/2026/02848       2026-06-03     190.40  cumul   6,015.83  SOLDEE
+    INV/2026/02953       2026-06-09     521.51  cumul   6,537.34  PARTIELLE (reste 178.43)
+
+  Apres imputation : 22,427.67 EUR resteront ouverts sur Carrefour (impaye REEL, pas un artefact de lettrage)
+
+  lignes suspense [199354, 203483] repointees -> 400000 / partner 6596
+  reconcile(31 lignes) -> OK (marshalling_false_fault_ignored)
+
+  --- VERIF ---
+   BSL 20156 (BNK1/26-27/0491) is_reconciled=True
+   BSL 20425 (BNK1/26-27/0679) is_reconciled=True
+   Lignes debitrices encore ouvertes : 44 | total 22,427.67
+   Plus ancienne restante : INV/2026/02953 du 2026-06-09 (178.43)
