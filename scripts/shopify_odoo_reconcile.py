@@ -21,7 +21,10 @@ CE QU'IL FAIT
   3. signale les variantes Shopify ACTIVES sans SKU (prevention : detecte le
      probleme avant la premiere vente, pas apres)
   4. signale les lignes de file en echec cote Odoo
-  5. envoie un mail via Odoo si quoi que ce soit reste non resolu
+  5. signale les ateliers qui ne sont pas a 21% (la taxe de vente par defaut de
+     la societe est le 6% du the : tout nouvel atelier naitra a 6% si personne
+     ne corrige -- c'est exactement comme ca que l'ecart s'est installe)
+  6. envoie un mail via Odoo si quoi que ce soit reste non resolu
 
 Variables d'environnement requises :
     ODOO_PWD, SHOPIFY_CLIENT_ID, SHOPIFY_CLIENT_SECRET, SHOPIFY_STORE
@@ -48,6 +51,10 @@ ODOO_DB = "tsc-be-tea-tree-main-18515272"
 ODOO_USER = "nicolas.raes@teatower.com"
 INSTANCE_ID = 1
 ALERT_TO = "nicolas.raes@teatower.com"
+
+# Un atelier est une prestation de service -> taux normal 21%, jamais le 6% du the.
+CATEG_ATELIER = 103
+TAUX_ATELIER = 21.0
 
 
 class Odoo:
@@ -134,6 +141,23 @@ def reimport(odoo, shopify_ids):
                   fields=["state", "shopify_order_id", "sale_order_id"])
 
 
+def ateliers_hors_21(odoo):
+    """Produits de la categorie Atelier dont la TVA n'est pas a 21%."""
+    prods = odoo.x("product.template", "search_read",
+                   [["categ_id", "=", CATEG_ATELIER]],
+                   fields=["name", "default_code", "taxes_id"],
+                   context={"active_test": False})
+    taux = {t["id"]: t["amount"] for t in
+            odoo.x("account.tax", "search_read", [["type_tax_use", "=", "sale"]],
+                   fields=["amount"], context={"active_test": False})}
+    hors = []
+    for p in prods:
+        rates = [taux.get(t) for t in p["taxes_id"]]
+        if not rates or any(r != TAUX_ATELIER for r in rates):
+            hors.append((p["id"], p["default_code"] or p["name"], rates))
+    return hors
+
+
 def send_alert(odoo, subject, body):
     mail = odoo.x("mail.mail", "create", {
         "subject": subject,
@@ -203,7 +227,14 @@ def main():
     for f in failed:
         say("  ECHEC  order {}  ({})".format(f["shopify_order_id"], f["create_date"][:16]))
 
-    problems = len(missing) + len(nosku) + len(failed)
+    tva = ateliers_hors_21(odoo)
+    say()
+    say("Ateliers hors 21% : " + str(len(tva))
+        + ("   (un atelier est une prestation de service)" if tva else ""))
+    for pid, code, rates in tva:
+        say("  TVA  {} ({}) -> {}".format(code, pid, rates or "aucune taxe"))
+
+    problems = len(missing) + len(nosku) + len(failed) + len(tva)
     say()
     say("=" * 72)
     say("RAS - tout est aligne." if not problems
