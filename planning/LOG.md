@@ -68,3 +68,19 @@
 - Hyper Marche #6999 ÉCARTÉ (passage uniquement le mardi). S25 exclus. Floriffoux/Wavre = revisite S24 à 14j (espacement OK).
 - Garde-fou pools exclusifs : OK (0 merch en télévente). Retours tous ≤17:00.
 - S24 sort de l'affichage (historique git). WEEKS = [S26, S25].
+
+## 2026-08-21 — Génération S35 (24-28/08) — semaine prochaine, 4 boutiques Teatower incluses
+- Pool Odoo régénéré (`planning_pool_2026-08-21`) : 180 GMS, **100 actifs**, 45 OVERDUE, 53 télévente, 23 Arret, 4 NoMerch.
+- Demande Nicolas : inclure les boutiques Teatower, **dont Waterloo** (dépôt volumineux), **jamais le lundi**.
+  → Volumineux identifié : transfert `WAT/INT/00256` = **display EM0106 (16 produits)** + 12 réfs × 6.
+  → Waterloo placé en **1ᵉʳ stop du vendredi 28/08** (libère la camionnette, logique REGLES §9).
+  → Liège + Rocourt mardi 25/08, Namur mercredi 26/08. Colis préparés J-1 ouvré (REGLES §13).
+- **31 stops / 5 jours** : 27 visites + 4 dépôts. Aucune implantation (aucun nouveau client GMS depuis le 12/08 ; leads gagnés du 19/08 = Horeca).
+  Lun Hainaut (4, seule journée sans dépôt) · Mar Ourthe→Liège (8) · Mer Hesbaye/Huy→Namur (6) · Jeu Brabant wallon (6) · Ven Waterloo→Bruxelles sud (7).
+- Retours : 14:30 / 15:08 / 14:15 / 15:16 / 15:33 — tous ≤17:00. Aucun jour férié BE.
+- 58 magasins vus en S33+S34 exclus (pas de revisite). S34 s'est arrêtée mercredi 19/08 → §10 sans objet.
+- Garde-fou §12 pools exclusifs : **0 alerte**.
+- Écartés : #5916 AD Jambes (doublon adresse #113498), #113445 St-Séverin (APPEL ONLY), #125070 Warmonceau + #115220 Wavre (télévente/refus merch), #124364 Gosselies (commandé le 19/08), #3223 AD LLN (Mr Snaps absent le jeudi).
+- Reportés S36 justifiés §0.5 : **Delhaize Etalle #5442 (32j)** — poche Luxembourg = 290 km pour 1 seul retard, arbitrage au profit du Hainaut (Gerpinnes 49j + Ath 35j) ; **Delhaize Ciney #7070 (49j)** — fiche Odoo **sans adresse**, non planifiable.
+- Odoo : tag `[A IMPLANTER]` périmé **clôturé** sur Proxy Delhaize Quadrilatère Huy #125351 (implanté en S30, désormais télévente) — évitait un faux positif à chaque scan.
+- S33 sort de l'affichage (historique git). WEEKS = [S35, S34]. Détail : `planning/queue_S35_2026-08-24.md`.
