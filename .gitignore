@@ -28,3 +28,6 @@ scripts/reports/hc250_b2c_15eur_rollback.json
 # Documents de direction : P&L, tresorerie, dettes, dossiers bancaires.
 # CONFIDENTIEL — ce depot est PUBLIC. Destination : repo prive Teatower-Direction.
 direction/
+
+# Log du garde-fou Shopify->Odoo (execution locale)
+scripts/reports/shopify_reconcile.log
