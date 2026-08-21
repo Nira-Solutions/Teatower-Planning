@@ -1,0 +1,200 @@
+MODE: APPLY (ecriture reelle)
+Tolerance write-off = 5.00 EUR (657100 / 757100)
+
+========================================================================================================
+[MATCH] BSL [20444] -- ALIVIM / Spar Gembloux 531,01 - comm 000/0044/47347 (exact)
+  partner de repointage = 123294
+  BSL 20444 : ligne suspense 203955 repointee -> 162 / partner 123294
+    INV/2026/03857 : residual=531.01 lignes=[202412]
+  BSL total=531.01 | docs total (signe)=531.01 | ECART(abs)=+0.00
+  reconcile([203955, 202412]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK1/26-27/0691 is_reconciled=True
+   INV/2026/03857 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20468] -- PURE BASTOGNE / Hello Bio 346,39 - comm 000/0042/74363 (exact)
+  partner de repointage = 2981
+  BSL 20468 : ligne suspense 204212 repointee -> 162 / partner 2981
+    INV/2026/03550 : residual=346.39 lignes=[194007]
+  BSL total=346.39 | docs total (signe)=346.39 | ECART(abs)=+0.00
+  reconcile([204212, 194007]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK1/26-27/0709 is_reconciled=True
+   INV/2026/03550 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20443] -- GEMBLOUXIM / Intermarche Gembloux 478,78 vs 478,80 - comm 000/0044/25018 (ecart -0,02)
+  partner de repointage = 123346
+  BSL 20443 : ligne suspense 203953 repointee -> 162 / partner 123346
+    INV/2026/03814 : residual=478.80 lignes=[201103]
+  BSL total=478.78 | docs total (signe)=478.80 | ECART(abs)=-0.02
+  reconcile([203953, 201103]) -> OK (marshalling_false_fault_ignored)
+  Ecart negatif -- write-off CHARGE 657100 0.02
+  Write-off cree : MISC/26-27/08/0014 (move_id=44836)
+  reconcile write-off ([204405, 201103]) -> OK
+  --- VERIF ---
+   BSL BNK1/26-27/0690 is_reconciled=True
+   INV/2026/03814 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20480] -- MARER / AD Delhaize Bastogne 465,51 vs 465,50 - comm 000/0042/64461 (ecart +0,01)
+  partner de repointage = 8558
+  BSL 20480 : ligne suspense 204236 repointee -> 162 / partner 8558
+    INV/2026/03513 : residual=465.50 lignes=[193427]
+  BSL total=465.51 | docs total (signe)=465.50 | ECART(abs)=+0.01
+  reconcile([204236, 193427]) -> OK (marshalling_false_fault_ignored)
+  Ecart positif -- write-off PRODUIT 757100 0.01
+  Write-off cree : MISC/26-27/08/0015 (move_id=44837)
+  reconcile write-off ([204406, 204236]) -> OK
+  --- VERIF ---
+   BSL BNK1/26-27/0721 is_reconciled=True
+   INV/2026/03513 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20417] -- EZCharge/EasyPlug 210,56 - comm 200/0003/95041 = payment_reference RESA1251 (exact)
+  partner de repointage = 6401
+  BSL 20417 : ligne suspense 203467 repointee -> 192 / partner 6401
+    RESA1251 : residual=210.56 lignes=[198550]
+  BSL total=-210.56 | docs total (signe)=-210.56 | ECART(abs)=+0.00
+  reconcile([203467, 198550]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK1/26-27/0671 is_reconciled=True
+   RESA1251 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20418] -- EZCharge/EasyPlug 145,20 - comm 000/0274/37761 = payment_reference RESA1229 (exact)
+  partner de repointage = 6401
+  BSL 20418 : ligne suspense 203469 repointee -> 192 / partner 6401
+    RESA1229 : residual=145.20 lignes=[198470]
+  BSL total=-145.20 | docs total (signe)=-145.20 | ECART(abs)=+0.00
+  reconcile([203469, 198470]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK1/26-27/0672 is_reconciled=True
+   RESA1229 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20271] -- Shyfter 47,19 - libelle carte 'INVOICE 2026080556' = ref RESA1236 (exact)
+  partner de repointage = 121991
+  BSL 20271 : ligne suspense 201669 repointee -> 192 / partner 121991
+    RESA1236 : residual=47.19 lignes=[200984]
+  BSL total=-47.19 | docs total (signe)=-47.19 | ECART(abs)=+0.00
+  reconcile([201669, 200984]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK1/26-27/0565 is_reconciled=True
+   RESA1236 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [19185] -- Belfius frais expedition avis 04/06 6,16 -> RESA1046 (01/06, montant unique)
+  partner de repointage = 119773
+  BSL 19185 : ligne suspense 184301 repointee -> 192 / partner 119773
+    RESA1046 : residual=6.16 lignes=[178691]
+  BSL total=-6.16 | docs total (signe)=-6.16 | ECART(abs)=+0.00
+  reconcile([184301, 178691]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK2/25-26/0044 is_reconciled=True
+   RESA1046 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [19535] -- Belfius frais expedition avis 06/07 12,32 -> RESA1177 (01/07)
+  partner de repointage = 119773
+  BSL 19535 : ligne suspense 190477 repointee -> 192 / partner 119773
+    RESA1177 : residual=12.32 lignes=[191780]
+  BSL total=-12.32 | docs total (signe)=-12.32 | ECART(abs)=+0.00
+  reconcile([190477, 191780]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK2/26-27/0001 is_reconciled=True
+   RESA1177 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [19536] -- Belfius Business Pack Plus 06/07 7,67 -> RESA1178 (01/07)
+  partner de repointage = 119773
+  BSL 19536 : ligne suspense 190479 repointee -> 192 / partner 119773
+    RESA1178 : residual=7.67 lignes=[191778]
+  BSL total=-7.67 | docs total (signe)=-7.67 | ECART(abs)=+0.00
+  reconcile([190479, 191778]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK2/26-27/0002 is_reconciled=True
+   RESA1178 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20186] -- Belfius frais expedition avis 06/08 12,32 -> RESA1250 (01/08)
+  partner de repointage = 119773
+  BSL 20186 : ligne suspense 200084 repointee -> 192 / partner 119773
+    RESA1250 : residual=12.32 lignes=[201795]
+  BSL total=-12.32 | docs total (signe)=-12.32 | ECART(abs)=+0.00
+  reconcile([200084, 201795]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK2/26-27/0028 is_reconciled=True
+   RESA1250 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[MATCH] BSL [20187] -- Belfius Business Pack Plus 06/08 7,67 -> RESA1260 (01/08)
+  partner de repointage = 119773
+  BSL 20187 : ligne suspense 200086 repointee -> 192 / partner 119773
+    RESA1260 : residual=7.67 lignes=[201799]
+  BSL total=-7.67 | docs total (signe)=-7.67 | ECART(abs)=+0.00
+  reconcile([200086, 201799]) -> OK (marshalling_false_fault_ignored)
+  --- VERIF ---
+   BSL BNK2/26-27/0029 is_reconciled=True
+   RESA1260 payment_state=paid residual=0.00
+  RESULTAT: OK
+========================================================================================================
+[TRANSIT] BSL 20428 -> compte 162 -- S.I.P.S. ASBL 20,00 - double paiement (facture deja soldee en especes caisse Liege)
+  ligne 203489 repointee -> {'account_id': 162, 'partner_id': 110685} | is_reconciled=True
+========================================================================================================
+[AML] BSL 20474 -> compte 811 <-> aml 203858 -- Nira Solutions -8.742,25 - solde le 551102 laisse par MOL/26-27/0345 (RESA1230)
+  cible aml 203858 D=0.00 C=8742.25 residual=-8742.25
+  suspense residual=8742.25 | aml residual=-8742.25 | somme=+0.00
+  reconcile OK | BSL is_reconciled=True | aml residual=0.00
+
+========================================================================================================
+RECAPITULATIF
+========================================================================================================
+ BSL        [20444] | ALIVIM / Spar Gembloux 531,01 - comm 000/0044/47347 (exact)            | OK                     | wo=None | 
+ BSL        [20468] | PURE BASTOGNE / Hello Bio 346,39 - comm 000/0042/74363 (exact)         | OK                     | wo=None | 
+ BSL        [20443] | GEMBLOUXIM / Intermarche Gembloux 478,78 vs 478,80 - comm 000/0044/250 | OK                     | wo=MISC/26-27/08/0014 | 
+ BSL        [20480] | MARER / AD Delhaize Bastogne 465,51 vs 465,50 - comm 000/0042/64461 (e | OK                     | wo=MISC/26-27/08/0015 | 
+ BSL        [20417] | EZCharge/EasyPlug 210,56 - comm 200/0003/95041 = payment_reference RES | OK                     | wo=None | 
+ BSL        [20418] | EZCharge/EasyPlug 145,20 - comm 000/0274/37761 = payment_reference RES | OK                     | wo=None | 
+ BSL        [20271] | Shyfter 47,19 - libelle carte 'INVOICE 2026080556' = ref RESA1236 (exa | OK                     | wo=None | 
+ BSL        [19185] | Belfius frais expedition avis 04/06 6,16 -> RESA1046 (01/06, montant u | OK                     | wo=None | 
+ BSL        [19535] | Belfius frais expedition avis 06/07 12,32 -> RESA1177 (01/07)          | OK                     | wo=None | 
+ BSL        [19536] | Belfius Business Pack Plus 06/07 7,67 -> RESA1178 (01/07)              | OK                     | wo=None | 
+ BSL        [20186] | Belfius frais expedition avis 06/08 12,32 -> RESA1250 (01/08)          | OK                     | wo=None | 
+ BSL        [20187] | Belfius Business Pack Plus 06/08 7,67 -> RESA1260 (01/08)              | OK                     | wo=None | 
+ BSL        [20428] | S.I.P.S. ASBL 20,00 - double paiement (facture deja soldee en especes  | OK                     | wo=None | 
+ BSL        [20474] | Nira Solutions -8.742,25 - solde le 551102 laisse par MOL/26-27/0345 ( | OK                     | wo=None | 
+
+  {'OK': 14}
+
+ NON TRAITES (piece / arbitrage manquant) :
+  ING  20156 / 20425                     CARREFOUR   +4.862,06 / +1.396,75      71 factures ouvertes (28.744,02) : 0 solution pour 4.862,06, 8+ solutions non uniques pour 1.396,75 -> exiger l'avis de paiement
+  ING  20381                             DELHAIZE LE LION       +2.652,97       90 factures ouvertes (52.175,73), 7+ combinaisons possibles -> exiger l'avis
+  ING  19660 / 20373                     ITM ALIMENTAIRE  +637,24 / +160,61     24 factures Intermarche ouvertes, aucune combinaison exacte <=4 factures -> exiger l'avis
+  ING  19625                             KIRCHNER domiciliation -12.837,54      aucune combinaison exacte sur les factures Mount Everest / Kirchner -> exiger l'Avis
+  BELF 20352                             KIRCHNER clearing     -49.551,11       idem, exiger le detail du clearing
+  BELF 19188                             PAIEMENT DU PRET      +30.000,00       tirage credit Belfius 071-9574936-30 -> imputation 174xxx a arbitrer
+  BELF 20350                             NIRA SOLUTIONS        +10.000,00       pret actionnaire -> 416100 / 424xxx a arbitrer
+  BELF 20353                             TILMAN JEAN NOEL      +30.000,00       pret actionnaire -> 424002 Emprunt Jean-Noel Tilman a confirmer
+  BELF x14                               CHARGES ECHUES CREDIT PRO              706,91 / 273,64 / 410,46 / 2.559,85 : tableau d'amortissement necessaire (split capital/interets)
+  BELF 18034/18036/18038/18360/19184     TENUE DE COMPTE -4,42 x5               les 3 factures Belfius ouvertes a 5,14 (RESA832/894/1047) ne correspondent pas au montant preleve
+  BELF 18037/18039                       EXPEDITION AVIS -3,08 x2               pas de facture Belfius ouverte a ce montant
+  BELF 18046/19839                       BUSINESS CASH PLUS -15,00 x2           pas de facture enregistree
+  BELF 18047/19190                       FRAIS DE DOSSIER CREDIT -250,00 x2     a immobiliser ou charger -> arbitrage
+  BELF 19570/19571                       COMMISSION 39,83 / INTERETS 0,64       pas de facture enregistree
+  BELF 19640/19641                       MOLLIE verification -0,01 x2           micro-debits de verification de compte, pas un reglement
+  BELF 19959                             NOTAIRE PIRET-GERARD    -492,59        aucune facture enregistree (dossier 4586/002)
+  BELF 19999/20125/20126/20213           PETITS ACHATS CARTE Stephan            Meta Ads, Familia, CRF Express, Get your mug : notes de frais a saisir
+  BELF 20157 + ING 20288/19735/20087     SALAIRES ET AVANCES                    OD de paie a controler avant tout lettrage (cf project_salaires_non_comptabilises_juin_juillet_2026)
+  ING  19610/19737/19738/19739/20390/20391/20392 AVANCES SALAIRES / MARKETING           Vansimpsen, van Ooteghem, Cabosart, Claeys : rattacher aux OD de paie / notes de frais
+  ING  19746 / 20276                     DOUANES ET ACCISES -1.040,40 / -699,00 970AI8902/F : aucune piece enregistree
+  ING  20208                             OSS TVA Q2.2026          -296,14       declaration OSS -> compte TVA a arbitrer
+  ING  20049                             CHEQUE GUICHET           -396,00       aucun libelle exploitable, piece a retrouver
+  ING  19871 / 19985 / 19944             RADIUS -308,80 / -459,81 - PROXIMUS -200,00 lettrages croises a defaire (factures deja lettrees contre des lignes bancaires d'autres mois) - hors perimetre
+  ING  19780 / 20178                     SENDCLOUD  -24,45 / -121,00            aucune facture d'achat enregistree (1-26-BE0060716 / BE0064771)
+  ING  divers                            GOOGLE / ADOBE / INTUIT / SHOPIFY / META / FAIRE domiciliations et achats carte sans facture d'achat enregistree en compta
+  ING  19992                             iPiD Europe                +0,01       micro-depot de verification de compte
+  ING  20420                             CILE eau                  -59,00       pas de facture enregistree
+  ING  19804 / 20414                     MASTERCARD ING -755,90 / -999,74       releve de carte : contrepartie des achats carte, a solder quand les notes de frais seront saisies
+  ALERTE                                 SHYFTER doublon                        RESA1020 et RESA1089 portent la MEME ref 2026060567 (47,19) : facture d'achat encodee 2x, a extourner
