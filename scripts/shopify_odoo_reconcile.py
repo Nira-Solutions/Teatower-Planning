@@ -28,7 +28,10 @@ CE QU'IL FAIT
      atelier ne s'expedie pas, sinon il part dans Sendcloud comme un colis a
      etiqueter et pollue la file (risque d'expedier un colis vide)
   7. signale les commandes bloquees dans Sendcloud sans etiquette depuis > 3 j
-  8. envoie un mail via Odoo si quoi que ce soit reste non resolu
+  8. signale les blocages Peppol : partenaires sans pays (la generation UBL
+     BIS 3 echoue -- "Le pays est requis pour customer" -- et la facture ne
+     part jamais) et factures restees en erreur d'envoi
+  9. envoie un mail via Odoo si quoi que ce soit reste non resolu
 
 Variables d'environnement requises :
     ODOO_PWD, SHOPIFY_CLIENT_ID, SHOPIFY_CLIENT_SECRET, SHOPIFY_STORE
@@ -223,6 +226,18 @@ def sendcloud_bloquees(jours=3):
     return bloquees
 
 
+def peppol_bloques(odoo):
+    """(partenaires Peppol sans pays, factures posted en erreur d'envoi Peppol)."""
+    sans_pays = odoo.x("res.partner", "search_read",
+                       [["peppol_endpoint", "!=", False], ["country_id", "=", False]],
+                       fields=["display_name", "vat", "peppol_eas"])
+    en_erreur = odoo.x("account.move", "search_read",
+                       [["peppol_move_state", "=", "error"], ["state", "=", "posted"]],
+                       fields=["name", "partner_id", "invoice_date", "amount_total"],
+                       order="invoice_date desc")
+    return sans_pays, en_erreur
+
+
 def send_alert(odoo, subject, body):
     mail = odoo.x("mail.mail", "create", {
         "subject": subject,
@@ -316,7 +331,19 @@ def main():
         for num, date, nom in bloq:
             say("  BLOQUE  {:<9} {}  {}".format(num, date, nom))
 
-    problems = len(missing) + len(nosku) + len(failed) + len(tva) + len(exp) + len(bloq)
+    sans_pays, pep_err = peppol_bloques(odoo)
+    say()
+    say("Peppol - partenaires sans pays : " + str(len(sans_pays))
+        + ("   (leurs factures ne partiront pas)" if sans_pays else ""))
+    for p in sans_pays:
+        say("  PAYS  {} ({})  vat={}".format(p["display_name"], p["id"], p["vat"]))
+    say("Peppol - factures en erreur d'envoi : " + str(len(pep_err)))
+    for m in pep_err[:15]:
+        say("  ERR   {:<18} {} {:>9.2f}  {}".format(
+            m["name"], m["invoice_date"], m["amount_total"], m["partner_id"][1][:30]))
+
+    problems = (len(missing) + len(nosku) + len(failed) + len(tva) + len(exp)
+                + len(bloq) + len(sans_pays) + len(pep_err))
     say()
     say("=" * 72)
     say("RAS - tout est aligne." if not problems
