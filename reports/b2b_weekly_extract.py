@@ -74,17 +74,53 @@ def channel_of(cats):
     return None
 
 
+#: notes d'exclusion accumulees par fetch_invoices (moves non commerciaux)
+EXCLUSIONS = []
+
+
 def fetch_invoices(call, date_from, date_to):
+    """Factures/avoirs postes de la periode, hors ecritures NON commerciales.
+
+    Un avoir qui ne touche aucun compte de produit (70x) n'est pas du chiffre
+    d'affaires : c'est une ecriture comptable (perte sur creance irrecouvrable
+    en 642000, extourne de bruit de caisse...). L'inclure ecrase la lecture
+    hebdo -- p.ex. le write-off Tea Touch de -73.264 EUR le 20/08/2026 faisait
+    afficher -62.060 EUR de CA B2B sur une semaine commercialement normale.
+    """
     domain = [
         ("move_type", "in", ["out_invoice", "out_refund"]),
         ("state", "=", "posted"),
         ("invoice_date", ">=", date_from.isoformat()),
         ("invoice_date", "<=", date_to.isoformat()),
     ]
-    return call("account.move", "search_read", [domain], {
+    moves = call("account.move", "search_read", [domain], {
         "fields": ["id", "name", "move_type", "invoice_date", "partner_id",
-                   "amount_untaxed", "amount_total", "invoice_origin"],
+                   "amount_untaxed", "amount_total", "invoice_origin", "ref"],
     })
+    refunds = [m for m in moves if m["move_type"] == "out_refund"]
+    if not refunds:
+        return moves
+
+    with_revenue = set()
+    for line in call("account.move.line", "search_read", [[
+        ("move_id", "in", [m["id"] for m in refunds]),
+        ("account_id.code", "=like", "70%"),
+    ]], {"fields": ["move_id"]}):
+        with_revenue.add(line["move_id"][0])
+
+    kept = []
+    for m in moves:
+        if m["move_type"] == "out_refund" and m["id"] not in with_revenue:
+            EXCLUSIONS.append({
+                "name": m["name"],
+                "date": m["invoice_date"],
+                "partner": m["partner_id"][1] if m.get("partner_id") else "",
+                "untaxed": round(-m["amount_untaxed"], 2),
+                "ref": m.get("ref") or "",
+            })
+            continue
+        kept.append(m)
+    return kept
 
 
 def partner_channels(call, partner_ids):
@@ -460,6 +496,14 @@ def main():
                          "user": (q.get("user_id") or [None, ""])[1]})
     pipeline.sort(key=lambda r: -r["untaxed"])
 
+    seen_excl = set()
+    excl_semaine = []
+    for e in EXCLUSIONS:
+        if monday.isoformat() <= e["date"] <= sunday.isoformat()                 and e["name"] not in seen_excl:
+            seen_excl.add(e["name"])
+            excl_semaine.append(e)
+    excl_semaine.sort(key=lambda e: e["untaxed"])
+
     data = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "week": {
@@ -522,6 +566,7 @@ def main():
         "pipeline": {"nb": len(pipeline),
                      "total_ht": round(sum(p["untaxed"] for p in pipeline), 2),
                      "items": pipeline[:15]},
+        "exclusions": excl_semaine,
     }
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -557,6 +602,9 @@ def main():
         print(f"    YTD vs N-1 : {data['ytd']['delta_pct']} %")
     print(f"    Drafts {data['drafts']['nb']} ({eur(data['drafts']['total_ht'])}) / "
           f"Pipeline {data['pipeline']['nb']} ({eur(data['pipeline']['total_ht'])})")
+    for e in excl_semaine:
+        print(f"    [hors CA] {e['name']} {e['partner'][:30]} "
+              f"{eur(e['untaxed'])} EUR - {e['ref'][:50]}")
 
 
 if __name__ == "__main__":
