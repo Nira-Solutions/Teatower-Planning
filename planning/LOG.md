@@ -104,3 +104,20 @@
 - Écarté : **Fragnée #5580** — le pool l'affiche à 59j mais Gilles y est passé le **18/08 sans commande** (pas de revisite S-1).
 - 🔴 **Signal remonté à Nicolas** : la journée Liège/Hesbaye du **12/08 n'a généré aucune commande** (Faimes, Herstal, Fleron, St Lambert, **Tilff 610 €/mois**, **Remouchamps 961 €/mois**), idem Fragnée le 18/08 — ~2.100 €/mois de potentiel à comprendre avant de replanifier la poche.
 - WEEKS = [S35, S34]. Détail : `planning/queue_S35_2026-08-24.md`.
+
+## 2026-08-24 (bis) — S35 v4 : dépôt boutique **Rocourt** ajouté au mercredi, 2 visites retirées
+- Demande Nicolas : « ajoute un stop à Teatower Rocourt mercredi, **pas avant 10h00**, regarde s'il faut bouger un autre ».
+- Rocourt est à **Liège**, la journée était en Brabant wallon / Bruxelles → **+130 km** de détour et **+1h30**.
+- Matrice OSRM recalculée sur les 10 points + recherche exhaustive des ordres valides (5.566 combinaisons testées)
+  sous 3 contraintes : Rocourt ≥ 10:00 · St Michel < 14h · retour ≤ 17:00.
+  → **Aucune combinaison à 7 visites ne tient** (meilleure : retour **17:18**, dépassement §3).
+- **Journée retenue, parcourue à l'envers** (Bruxelles d'abord, Ottignies en dernier : retour 79 km au lieu de 99) :
+  Rocourt **10:00** (dépôt) · Forest 11:30 (12j) · pause 11:55-12:25 · Uccle 12:33 · Bosvoorde 13:09 (**62j**) ·
+  Genval 13:50 · Rixensart 14:26 (10j) · Ottignies 15:06 (Tier A) · **retour 16:43** · **262 km**.
+- **Retirés → S36** : Proxy St Michel #9461 (246 €/mois, -3j, fenêtre < 14h intenable après Rocourt) et
+  Delhaize Debroux #5729 (143 €/mois, -11j). Les deux n'étaient pas dus.
+- **Les 3 magasins réellement en retard sont tous conservés** : Bosvoorde 62j, Forest 12j, Rixensart 10j.
+- Départ maintenu à 08:30 → arrivée Rocourt 09:30, **30 min de battement** avant le créneau : tampon de la journée.
+- §13 respecté : dépôt un mercredi, **colis préparé le mardi 25/08**. Namur, Liège et Waterloo restent en BPost
+  → ⚠️ sortir Rocourt de l'envoi BPost pour ne pas livrer deux fois.
+- Garde-fou §12 pools exclusifs : **0 alerte**. WEEKS = [S35, S34].
