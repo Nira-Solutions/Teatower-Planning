@@ -84,3 +84,23 @@
 - Reportés S36 justifiés §0.5 : **Delhaize Etalle #5442 (32j)** — poche Luxembourg = 290 km pour 1 seul retard, arbitrage au profit du Hainaut (Gerpinnes 49j + Ath 35j) ; **Delhaize Ciney #7070 (49j)** — fiche Odoo **sans adresse**, non planifiable.
 - Odoo : tag `[A IMPLANTER]` périmé **clôturé** sur Proxy Delhaize Quadrilatère Huy #125351 (implanté en S30, désormais télévente) — évitait un faux positif à chaque scan.
 - S33 sort de l'affichage (historique git). WEEKS = [S35, S34]. Détail : `planning/queue_S35_2026-08-24.md`.
+
+## 2026-08-24 — S35 refaite en v3 : **UN SEUL JOUR (mercredi 26/08)**, sans boutiques Teatower
+- Deux changements de périmètre de Nicolas dans la journée du 24/08 :
+  1. « le merchandiser n'est là que 2 jours, mardi et mercredi » (les 4 boutiques restaient à livrer) → v2 ;
+  2. « **finalement il n'y aura que mercredi** et on ne va pas dans nos magasins Teatower, **on les livre via BPost** » → **v3 retenue**.
+- Pool Odoo régénéré (`planning_pool_2026-08-24`) : 180 GMS, 100 actifs, 46 OVERDUE bruts, 53 télévente, 23 Arret, 4 NoMerch.
+- **Retard recalculé en fusionnant les journées réellement exécutées** (S32 03→07/08, S33 10→14/08, S34 17→19/08) avec le `last_visit` du pool.
+  Sans ça le pool propose des magasins visités il y a 12 jours dont la visite n'a produit aucune commande.
+  → Le réseau est bien plus frais que le pool brut : seuls 8 magasins Tier A/B sont réellement dus au 26/08.
+- **Journée retenue : Brabant wallon → Bruxelles sud**, 8 stops / 8 visites / **221 km** / départ 08:30 / **retour 16:27** ≤17:00.
+  Ottignies #6838 (A, 495 €) · Rixensart #50967 (10j) · Genval #5582 · Uccle Bascule #5484 · Forest #5752 (12j) · St Michel #9461 · Debroux #5729 · Bosvoorde #5830 (**62j**).
+- Trajets **simulés leg par leg** (OSRM + marge +15 %) — 9 trajets comptés, retour base inclus.
+- **St Michel #9461** : fenêtre magasin *jusqu'à 14h* → placé à 13:00 et **pause repas décalée après** (13:25-13:55) pour sécuriser la fenêtre.
+- **Aucun stop `livr`** : Namur, Liège, Rocourt et Waterloo passent par BPost. §13 sans objet.
+  ⚠️ à vérifier côté logistique : le transfert `WAT/INT/00256` (display EM0106) ne part plus par la camionnette.
+- Garde-fou §12 pools exclusifs : **0 alerte**.
+- Reportés S36 justifiés §0.5 : **Ath #123144 (38j)** Hainaut à 140 km ; **Villers-le-Bouillet #115879 (24j)** — fenêtre mer/ven matin mais poche Hesbaye faite le 12/08 ; **Bierges #8689 (19j)** — fenêtre mardi/jeudi, impossible un mercredi ; **Ciney #7070 (52j)** — fiche sans adresse.
+- Écarté : **Fragnée #5580** — le pool l'affiche à 59j mais Gilles y est passé le **18/08 sans commande** (pas de revisite S-1).
+- 🔴 **Signal remonté à Nicolas** : la journée Liège/Hesbaye du **12/08 n'a généré aucune commande** (Faimes, Herstal, Fleron, St Lambert, **Tilff 610 €/mois**, **Remouchamps 961 €/mois**), idem Fragnée le 18/08 — ~2.100 €/mois de potentiel à comprendre avant de replanifier la poche.
+- WEEKS = [S35, S34]. Détail : `planning/queue_S35_2026-08-24.md`.
