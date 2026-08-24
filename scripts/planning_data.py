@@ -1560,10 +1560,14 @@ S35 = {
     "id": "s35", "nav": "S35 · 26/08 (à venir)", "active": True,
     "title": "Semaine du 24 au 28 août 2026 (S35)",
     "note": ("⚠️ SEMAINE D'UN SEUL JOUR (Nicolas 24/08) : **MERCREDI 26/08 uniquement**. Lundi, mardi, jeudi et vendredi OFF. "
-             "8 stops : 8 visites. Aucune implantation. Aucun jour férié BE cette semaine. "
-             "📦 AUCUN dépôt boutique Teatower : Namur, Liège, Rocourt et Waterloo sont réassortis par BPOST cette semaine (décision Nicolas 24/08) — la journée est 100 % GMS. "
-             "🗺️ Journée Brabant wallon → Bruxelles sud : c'est la seule poche encore dense au 24/08. Les poches Liège/Hesbaye (12/08) et Namur/Meuse (19/08) ont été faites il y a moins de 15 jours. "
-             "⏰ Contrainte tenue : Proxy St Michel — passage du mardi au vendredi jusqu'à 14h → placé à 13:00, la pause repas est décalée APRÈS ce stop (13:25-13:55) pour sécuriser la fenêtre. "
+             "7 stops : 6 visites + 1 dépôt boutique. Aucune implantation. Aucun jour férié BE cette semaine. "
+             "📦 DÉPÔT BOUTIQUE ROCOURT (demande Nicolas 24/08) : **jamais avant 10:00** → placé en 1ᵉʳ stop à 10:00-10:05. "
+             "Colis préparé le mardi 25/08 (REGLES §13). Namur, Liège et Waterloo restent livrées par BPOST — Rocourt est la seule boutique de la tournée. "
+             "🔁 CE QUE ROCOURT A COÛTÉ : Rocourt est à Liège, la tournée est en Brabant wallon / Bruxelles → +130 km de détour et +1h30. "
+             "La journée est donc parcourue à l'envers (Bruxelles d'abord, Ottignies en dernier) pour raccourcir le retour, et **2 visites ont été retirées** : "
+             "Proxy St Michel #9461 (246 €/mois, pas dû à -3j, fenêtre magasin < 14h intenable après Rocourt) et Delhaize Debroux #5729 (143 €/mois, pas dû à -11j). Les deux passent en S36. "
+             "Les 3 magasins réellement en retard sont tous conservés : Bosvoorde 62j, Forest 12j, Rixensart 10j. "
+             "⏰ Départ 08:30 → arrivée Rocourt 09:30, soit 30 min de battement avant l'ouverture du créneau 10:00 : c'est le tampon de sécurité de la journée (262 km). Retour 16:43. "
              "Delhaize Ottignies : Mme Galletas absente le jeudi — mercredi OK, contact Jolan Cailleau (REGLES §4 + §11 force merch). "
              "📅 REPORTÉ EN S36, avec motif (REGLES §0.5) : Delhaize Ath #123144 (38j, 157 €/mois — Hainaut, 140 km à l'opposé, à faire en journée dédiée avec Gerpinnes/Mons/Bouffioulx) ; "
              "Intermarché Villers-le-Bouillet #115879 (24j, 328 €/mois — fenêtre mercredi/vendredi matin, mais le reste de la poche Hesbaye/Liège a été visité le 12/08 : un seul magasin dû pour 120 km) ; "
@@ -1571,56 +1575,52 @@ S35 = {
              "Delhaize Ciney-Rochefort-Neufchâteau-Bastogne #7070 (52j — fiche Odoo sans adresse, non planifiable en l'état). "
              "Écartés : Delhaize Fragnée #5580 (le pool l'affiche à 59j mais Gilles y est passé le 18/08 sans commande — pas de revisite S-1) ; "
              "AD Jambes Materne #5916 (133j, Tier C — doublon d'adresse avec Delhaize Materne #113498, visité le 04/08) ; "
-             "Carrefour Market Waterloo #6821 (-9j, pas dû — sa fenêtre 6h-12h obligeait à décaler Ottignies, Tier A 495 €/mois)."),
+             "Carrefour Market Waterloo #6821 (-9j, pas dû, fenêtre 6h-12h incompatible avec le dépôt Rocourt à 10:00)."),
     "days": [
-        {"h": "Mercredi 26/08", "sub": "8 stops (8 visites)",
-         "zone": "Brabant wallon → Bruxelles sud (Ottignies → Rixensart → Genval → Uccle → Forest → Etterbeek → Auderghem → Boitsfort)",
-         "km": "221", "ret": "16:27",
-         "addrs": ["Centre commercial du Douaire 1, 1340 Ottignies-Louvain-la-Neuve",
-                   "Place du Beau Site 4, 1330 Rixensart",
-                   "Avenue Albert 1er 13, 1332 Genval",
-                   "Chaussée de Waterloo 719, 1180 Uccle",
+        {"h": "Mercredi 26/08", "sub": "7 stops (6 visites + 1 dépôt boutique)",
+         "zone": "Rocourt → Bruxelles sud → Brabant wallon (Forest → Uccle → Boitsfort → Genval → Rixensart → Ottignies)",
+         "km": "262", "ret": "16:43",
+         "addrs": ["Chaussée de Tongres 269-271, 4000 Rocourt",
                    "Chaussée d'Alsemberg 303, 1190 Forest",
-                   "Rue de l'Escadron 45, 1040 Etterbeek",
-                   "Avenue Hermann-Debroux 26, 1160 Auderghem",
-                   "Chaussée de La Hulpe 255, 1170 Watermael-Boitsfort"],
+                   "Chaussée de Waterloo 719, 1180 Uccle",
+                   "Chaussée de La Hulpe 255, 1170 Watermael-Boitsfort",
+                   "Avenue Albert 1er 13, 1332 Genval",
+                   "Place du Beau Site 4, 1330 Rixensart",
+                   "Centre commercial du Douaire 1, 1340 Ottignies-Louvain-la-Neuve"],
          "stops": [
-            {"t": "09:39 - 10:04", "k": "visite", "b": ["Tier A", "Force merch"],
-             "n": "KAIO Retail invest - Delhaize Ottignies (#6838)", "ls": "10/08 (14j)", "lsc": "fresh",
-             "a": "Centre commercial du Douaire 1, 1340 Ottignies-Louvain-la-Neuve",
-             "c": "Jolan Cailleau (jolan.cailleau@gmail.com) — demander Jolan ou Mme Galletas",
-             "note": "Plus gros client de la journée (495 €/mois). Mme Galletas absente le jeudi — c'est Jolan Cailleau le contact présent."},
-            {"t": "10:19 - 10:44", "k": "visite", "b": ["Tier B", "10j OVERDUE", "Reporté de S35"],
-             "n": "Affilié 046900 - Proxy Delhaize Rixensart (#50967)", "ls": "17/07 (38j)", "lsc": "mid",
-             "a": "Place du Beau Site 4, 1330 Rixensart",
-             "c": "Lara ou Fabienne — +32 2 653 71 18"},
-            {"t": "10:55 - 11:20", "k": "visite", "b": ["Tier B"],
-             "n": "Affilié 043540 - Delhaize Genval (#5582)", "ls": "30/07 (25j)", "lsc": "mid",
-             "a": "Avenue Albert 1er 13, 1332 Genval",
-             "c": "Mr Zanoni ou Mr Torres — 02 654 17 02",
-             "rg": "Gilles Verleyen n'est plus la personne de contact (maj 04/06/2026)"},
-            {"t": "11:47 - 12:12", "k": "visite", "b": ["Tier B"],
-             "n": "Carrefour Market Uccle Bascule (#5484)", "ls": "30/07 (25j)", "lsc": "mid",
-             "a": "Chaussée de Waterloo 719, 1180 Uccle",
-             "c": "accueil épicerie / Carmen — 02 343 55 75"},
-            {"t": "12:20 - 12:45", "k": "visite", "b": ["Tier C", "12j OVERDUE", "Reporté de S35"],
+            {"t": "10:00 - 10:05", "k": "livr", "b": ["Dépôt marchandise", "5 min", "Pas avant 10:00", "Demande Nicolas"],
+             "n": "Boutique Teatower Rocourt", "ls": "dépôt marchandise", "lsc": "fresh",
+             "a": "Chaussée de Tongres 269-271, 4000 Rocourt (Shopping Cora Rocourt)",
+             "c": "équipe boutique Rocourt",
+             "note": "DÉPÔT RÉASSORT — PAS AVANT 10:00. 5 min sur place, décharger et repartir. Colis préparé le mardi 25/08. Seule boutique de la tournée : Namur, Liège et Waterloo partent par BPost."},
+            {"t": "11:30 - 11:55", "k": "visite", "b": ["Tier C", "12j OVERDUE", "Reporté de S35"],
              "n": "Intermarché Forest - FREYARVOR (#5752)", "ls": "01/07 (54j)", "lsc": "stale",
              "a": "Chaussée d'Alsemberg 303, 1190 Forest",
              "c": "accueil / responsable épicerie — 02 346 46 14"},
-            {"t": "13:00 - 13:25", "k": "visite", "b": ["Tier B", "Fenêtre < 14h"],
-             "n": "Affilié 048665 - Proxy Delhaize St Michel (#9461)", "ls": "30/07 (25j)", "lsc": "mid",
-             "a": "Rue de l'Escadron 45, 1040 Etterbeek", "c": "Roxanne Poirier — +32 2 733 51 66",
-             "note": "Pause repas 13:25 - 13:55 APRÈS ce stop (fenêtre magasin jusqu'à 14h). Petites commandes de réassort : augmenter la tournante en rayon.",
-             "rg": "passage du mardi au vendredi jusqu'à 14h (jusqu'à 18h le jeudi)"},
-            {"t": "14:05 - 14:30", "k": "visite", "b": ["Tier B"],
-             "n": "Affilié 044010 - Delhaize Debroux (#5729)", "ls": "17/07 (38j)", "lsc": "mid",
-             "a": "Avenue Hermann-Debroux 26, 1160 Auderghem",
-             "c": "accueil / responsable rayon — 02 672 87 25"},
-            {"t": "14:36 - 15:01", "k": "visite", "b": ["Tier C", "62j OVERDUE", "Reporté de S35"],
+            {"t": "12:33 - 12:58", "k": "visite", "b": ["Tier B"],
+             "n": "Carrefour Market Uccle Bascule (#5484)", "ls": "30/07 (25j)", "lsc": "mid",
+             "a": "Chaussée de Waterloo 719, 1180 Uccle",
+             "c": "accueil épicerie / Carmen — 02 343 55 75",
+             "note": "Pause repas 11:55 - 12:25 prise après Forest."},
+            {"t": "13:09 - 13:34", "k": "visite", "b": ["Tier C", "62j OVERDUE", "Reporté de S35"],
              "n": "Proxy Delhaize Bosvoorde - SPRL BROOMCORNER (#5830)", "ls": "12/05 (104j)", "lsc": "never",
              "a": "Chaussée de La Hulpe 255, 1170 Watermael-Boitsfort",
              "c": "accueil / gérant — 02 672 33 99 — mobile 0472 50 05 21",
              "note": "Plus gros retard du pool encore planifiable (62j, 104j sans commande). Aucun contact nommé en fiche — relever le nom du responsable et le remonter. Si le magasin a décroché, c'est un candidat Arret."},
+            {"t": "13:50 - 14:15", "k": "visite", "b": ["Tier B"],
+             "n": "Affilié 043540 - Delhaize Genval (#5582)", "ls": "30/07 (25j)", "lsc": "mid",
+             "a": "Avenue Albert 1er 13, 1332 Genval",
+             "c": "Mr Zanoni ou Mr Torres — 02 654 17 02",
+             "rg": "Gilles Verleyen n'est plus la personne de contact (maj 04/06/2026)"},
+            {"t": "14:26 - 14:51", "k": "visite", "b": ["Tier B", "10j OVERDUE", "Reporté de S35"],
+             "n": "Affilié 046900 - Proxy Delhaize Rixensart (#50967)", "ls": "17/07 (38j)", "lsc": "mid",
+             "a": "Place du Beau Site 4, 1330 Rixensart",
+             "c": "Lara ou Fabienne — +32 2 653 71 18"},
+            {"t": "15:06 - 15:31", "k": "visite", "b": ["Tier A", "Force merch"],
+             "n": "KAIO Retail invest - Delhaize Ottignies (#6838)", "ls": "10/08 (14j)", "lsc": "fresh",
+             "a": "Centre commercial du Douaire 1, 1340 Ottignies-Louvain-la-Neuve",
+             "c": "Jolan Cailleau (jolan.cailleau@gmail.com) — demander Jolan ou Mme Galletas",
+             "note": "Plus gros client de la journée (495 €/mois). Mme Galletas absente le jeudi — c'est Jolan Cailleau le contact présent. Dernier stop : départ 15:31 pour un retour base à 16:43."},
          ]},
     ],
 }
