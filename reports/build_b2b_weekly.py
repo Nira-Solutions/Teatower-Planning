@@ -331,6 +331,7 @@ def render(d):
 
     # ---- Detail factures ----
     facts = sem["factures"]
+    excl = d.get("exclusions") or []
     shown = [f for f in facts if f["untaxed"] != 0]
     zeros = [f for f in facts if f["untaxed"] == 0]
     detail_body = (table(
@@ -346,7 +347,11 @@ def render(d):
                 else f'<strong>{eur(r["untaxed"])} €</strong>')},
         ]) if shown else empty("Aucune facture B2B sur la semaine.")) \
         + note(f'{len(zeros)} facture(s) a 0,00 € masquee(s) : {name_list(zeros)}.'
-               if zeros else None)
+               if zeros else None)         + note("Hors CA (ecritures comptables sans compte de produit 70x) : "
+               + " ; ".join(
+                   f'{esc(e["name"])} {esc(trunc(e["partner"], 28))} '
+                   f'{eur(e["untaxed"])} €' for e in excl)
+               if excl else None)
 
     return f"""<!DOCTYPE html>
 <html lang="fr">
