@@ -52,6 +52,14 @@ FORCE_MERCH_PIDS = {
     3016, 5649,   # KAIO Retail invest - Delhaize Ottignies (gros client, +1km au seuil)
     2914,         # Affilie 044725 - Delhaize Kraainem
     123144,       # Affilie 040490 - Delhaize Ath : bascule merch permanent, cadence 15j (Nicolas 28/06/2026)
+    # Reseau pharmacies Condroz/Famenne bascule en suivi merchandiser (Nicolas 25/08/2026)
+    3183,         # Pharmacie Tilman S.A. (6941 Bomal-sur-Ourthe)
+    3181,         # Pharmacie Haulot-Bauche SRL (5330 Assesse)
+    3182,         # Pharmacie TILMAN HAN SRL (5580 Han-sur-Lesse)
+    3184,         # Ma Pharmacie de Baillonville (5377 Baillonville)
+    114763,       # Lillodis SRL - Proxy Delhaize Lillois : le magasin ne veut PAS de suivi
+                  # telephonique -> retour en visite merch (Nicolas 25/08/2026). Annule la
+                  # decision 'APPEL ONLY' du 20/05/2026.
 }
 FORCE_MERCH_TOKENS = ["Delhaize Ottignies", "Delhaize Kraainem"]
 

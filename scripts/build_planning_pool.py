@@ -73,6 +73,17 @@ GMS_NAME_TOKENS = [
     "Delhaize ",
 ]
 
+# INCLUSIONS EXPLICITES (hors pattern GMS) - magasins/officines suivis par le
+# merchandiser sur decision de Nicolas. Ils n'ont aucun token d'enseigne GMS dans
+# leur nom, donc `is_gms_partner` ne peut pas les detecter : on les force ici.
+# Nicolas 25/08/2026 - reseau pharmacies Condroz/Famenne :
+EXTRA_MERCH_PIDS = {
+    3183,  # Pharmacie Tilman S.A. - Mikael Tilman (6941 Bomal-sur-Ourthe)
+    3181,  # Pharmacie Haulot-Bauche SRL - Mickael Tilman (5330 Assesse)
+    3182,  # Pharmacie TILMAN HAN SRL (5580 Han-sur-Lesse)
+    3184,  # Ma Pharmacie de Baillonville - Bayet Sarah (5377 Baillonville)
+}
+
 TIER_RULES = [
     (400.0, "A", 21),
     (100.0, "B", 28),
@@ -156,6 +167,9 @@ def connect():
 
 def is_gms_partner(partner, parent_name):
     name = (partner.get("name") or "")
+    # Inclusions explicites (pharmacies, independants hors enseigne) - cf. EXTRA_MERCH_PIDS
+    if partner.get("id") in EXTRA_MERCH_PIDS:
+        return True
     if parent_name:
         for chain in GMS_PARENT_NAMES:
             if chain in parent_name:
