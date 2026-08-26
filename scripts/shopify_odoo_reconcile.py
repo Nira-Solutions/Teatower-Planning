@@ -245,7 +245,14 @@ def send_alert(odoo, subject, body):
         "email_to": ALERT_TO,
         "auto_delete": False,
     })
-    odoo.x("mail.mail", "send", [mail])
+    # mail.mail.send() renvoie None -> Fault "cannot marshal None" alors que le
+    # mail est bien parti cote serveur. On avale ce Fault precis, sinon la tache
+    # planifiee sort en erreur a chaque alerte (cf. reference_lettrage_ing_methode).
+    try:
+        odoo.x("mail.mail", "send", [mail])
+    except xmlrpc.client.Fault as f:
+        if "cannot marshal none" not in str(f.faultString).lower():
+            raise
 
 
 def main():
