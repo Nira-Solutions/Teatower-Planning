@@ -1628,10 +1628,13 @@ S35 = {
 S36 = {
     "id": "s36", "nav": "S36 · 31/08-04/09 (à venir)", "active": True,
     "title": "Semaine du 31 août au 4 septembre 2026 (S36)",
-    "note": ("26 stops sur 4 jours : 1 implantation, 22 visites, 3 dépôts boutiques. "
+    "note": ("30 stops sur 4 jours : 1 implantation, 26 visites, 3 dépôts boutiques. "
              "⛔ VENDREDI 04/09 : AUCUNE TOURNÉE — fête du personnel (demande Nicolas). "
              "🆕 Implantation Carrefour Market Lierneux lundi en 1ᵉ stop (lead #274 gagné le 27/08, fiche Odoo en cours de création) : "
              "DEUX displays à monter — 8 réfs infusettes + 8 réfs Noël — d'où 35 min sur place au lieu de 25. Magasin vérifié ouvert lun-sam dès 08:30. "
+             "💊 RÉSEAU PHARMACIES Condroz/Famenne (EXTRA_MERCH_PIDS, Nicolas 25/08) — les 4 sont dans la semaine : "
+             "Bomal mardi (Tier A, 532 €/mois, échéance pile le 31/08), Han-sur-Lesse mardi (92j), "
+             "Assesse jeudi (146j — plus gros retard de la semaine), Baillonville lundi en fin de tournée (29j, au dépôt). "
              "🏪 Boutiques Teatower : Rocourt + Liège mercredi, Namur jeudi. Waterloo NON servi cette semaine (demande Nicolas). "
              "Colis préparés la veille — Rocourt/Liège le mardi 01/09, Namur le mercredi 02/09 : aucun dépôt le lundi (REGLES §13). "
              "⏱ Fenêtres imposées respectées : Etalle (fermé le lundi matin → 13:10), Bastogne Pascalino (se présenter le matin), "
@@ -1641,18 +1644,19 @@ S36 = {
              "⏭ REPORTÉ EN S37 : la journée Bruxelles / Brabant wallon qui devait tomber le vendredi (La Chasse 69j, Nivelles 56j, LLN 45j, "
              "Boondael 43j, Bierges 22j, Debroux 13j) et le pocket Hainaut (Gerpinnes 55j, Ath 41j, Hyper Mons 6j). "
              "Hyper Fléron (92j) recalé aussi : Hyper = matin obligatoire, et les deux matinées Liège de la semaine sont déjà prises. "
+             "Proxy Delhaize Lillois #114763 (41j) part avec la journée Brabant wallon. "
              "⏸ Implantations en attente : Intermarché Hamme Mille (lead #267) et Intermarché Anderlues (lead #227), gagnés le 21/08 — "
              "commande passée par la centrale Mousquetaires, pas de fiche Odoo ni de marchandise sur place : implanter dès réception centrale. "
              "❌ Écartés : AD Jambes Materne #5916 (136j) — doublon d'adresse avec Delhaize Materne #113498 ; "
              "Delhaize Materne lui-même (28j) — la règle magasin impose 30j minimum entre deux passages ; "
              "Delhaize Ciney-Rochefort-Neufchâteau-Bastogne #7070 — compte groupé sans adresse, pas un point de vente."),
     "days": [
-        {"h": "Lundi 31/08", "sub": "5 stops (1 implantation + 4 visites)",
-         "zone": "Ardennes / Luxembourg (Lierneux → Bastogne → Neufchâteau → Bertrix → Etalle)",
-         "km": "295", "ret": "14:50",
+        {"h": "Lundi 31/08", "sub": "6 stops (1 implantation + 5 visites)",
+         "zone": "Ardennes / Luxembourg (Lierneux → Bastogne → Neufchâteau → Bertrix → Etalle → Baillonville)",
+         "km": "295", "ret": "15:15",
          "addrs": ["Rue du Centre 49, 4990 Lierneux", "Route de Marche 149, 6600 Bastogne",
                    "Chaussée de Recogne 88, 6840 Neufchâteau", "Route des Gohineaux 2, 6880 Bertrix",
-                   "Rue Belle-Vue 56, 6740 Etalle"],
+                   "Rue Belle-Vue 56, 6740 Etalle", "Chemin de Huy 1A, 5377 Baillonville"],
          "stops": [
             {"t": "09:25 - 10:00", "k": "impl", "b": ["Nouveau client", "Demande Nicolas", "2 displays"],
              "n": "Carrefour Market Lierneux (fiche Odoo en création)", "ls": "implantation", "lsc": "fresh",
@@ -1690,14 +1694,21 @@ S36 = {
              "st": "pas de réserve magasin",
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "MAGASIN FERMÉ LE LUNDI MATIN — passage l'après-midi | pas de contrôle marchandise à l'entrée | reprise de marchandises notée"},
+            {"t": "14:50 - 15:15", "k": "visite", "b": ["Pharmacie", "Tier B", "29j OVERDUE"],
+             "n": "Ma Pharmacie de Baillonville - Bayet Sarah (#3184)", "ls": "29/06 (63j)", "lsc": "stale",
+             "a": "Chemin de Huy 1A, 5377 Baillonville",
+             "c": "Sarah Bayet — 081 39 50 33",
+             "note": "Réseau pharmacies Condroz/Famenne (Nicolas 25/08). Au dépôt — zéro détour, "
+                     "à faire au retour de tournée. 301 €/mois."},
          ]},
-        {"h": "Mardi 01/09", "sub": "7 stops (7 visites)",
-         "zone": "Famenne / Ourthe (Marche → Hotton → Erezée → Rochefort → Beauraing)",
-         "km": "175", "ret": "14:15",
+        {"h": "Mardi 01/09", "sub": "9 stops (9 visites)",
+         "zone": "Famenne / Ourthe (Marche → Hotton → Bomal → Erezée → Rochefort → Han → Beauraing)",
+         "km": "220", "ret": "15:27",
          "addrs": ["Chaussée de Liège 41, 6900 Marche-en-Famenne", "Avenue de France 39, 6900 Marche-en-Famenne",
                    "Avenue du Monument 1, 6900 Marche-en-Famenne", "Rue de la Scierie 9, 6990 Hotton",
+                   "Rue de Fleurie 1, 6941 Bomal-sur-Ourthe",
                    "Rue des Chasseurs Ardennais 6, 6997 Erezée", "Rue de Marche 59, 5580 Rochefort",
-                   "Rue de Rochefort 150, 5570 Beauraing"],
+                   "Rue des Grottes 11, 5580 Han-sur-Lesse", "Rue de Rochefort 150, 5570 Beauraing"],
          "stops": [
             {"t": "08:50 - 09:15", "k": "visite", "b": ["Hyper", "Tier A", "22j OVERDUE"],
              "n": "Carrefour Hyper Marche-en-Famenne (#6999)", "ls": "14/07 (48j)", "lsc": "stale",
@@ -1727,16 +1738,28 @@ S36 = {
              "st": "pas de réserve magasin",
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "pas de contrôle marchandise à l'entrée"},
-            {"t": "11:15 - 11:40", "k": "visite", "b": ["Tier B", "22j OVERDUE"],
+            {"t": "11:15 - 11:40", "k": "visite", "b": ["Pharmacie", "Tier A", "Échéance 31/08"],
+             "n": "Pharmacie Tilman S.A. - Mikaël Tilman (#3183)", "ls": "03/08 (28j)", "lsc": "mid",
+             "a": "Rue de Fleurie 1, 6941 Bomal-sur-Ourthe",
+             "c": "Mikaël Tilman — 086 21 11 71",
+             "note": "Réseau pharmacies Condroz/Famenne (Nicolas 25/08). 532 €/mois, Tier A cycle 21j — "
+                     "3ᵉ plus gros du pool merch. Échéance pile cette semaine."},
+            {"t": "11:52 - 12:17", "k": "visite", "b": ["Tier B", "22j OVERDUE"],
              "n": "Nathalie Piron - Le Gribouillon (#123302)", "ls": "03/07 (59j)", "lsc": "stale",
              "a": "Rue des Chasseurs Ardennais 6, 6997 Erezée",
              "c": "Nathalie Piron — +32 86 47 72 82"},
-            {"t": "12:20 - 12:45", "k": "visite", "b": ["Tier B", "27j OVERDUE"],
+            {"t": "12:57 - 13:22", "k": "visite", "b": ["Tier B", "27j OVERDUE"],
              "n": "SA Marer - AD Rochefort (#7693)", "ls": "02/07 (60j)", "lsc": "stale",
              "a": "Rue de Marche 59, 5580 Rochefort",
              "c": "accueil magasin",
-             "note": "Pause repas 11:40 - 12:20 prise sur la route Erezée → Rochefort."},
-            {"t": "13:10 - 13:35", "k": "visite", "b": ["Tier B", "15j OVERDUE"],
+             "note": "Pause repas 12:17 - 12:47 prise sur la route Erezée → Rochefort."},
+            {"t": "13:32 - 13:57", "k": "visite", "b": ["Pharmacie", "Tier X", "92j OVERDUE"],
+             "n": "Pharmacie TILMAN HAN SRL (#3182)", "ls": "25/02 (187j)", "lsc": "stale",
+             "a": "Rue des Grottes 11, 5580 Han-sur-Lesse",
+             "c": "Mikaël Tilman — 0472 50 04 32",
+             "note": "Réseau pharmacies Condroz/Famenne (Nicolas 25/08). À 8 km de Rochefort. "
+                     "Petit volume (18 €/mois) mais rien depuis le 25/02 : vérifier ce qui reste en rayon."},
+            {"t": "14:22 - 14:47", "k": "visite", "b": ["Tier B", "15j OVERDUE"],
              "n": "SA Beausov New - Delhaize Beauraing (#116008)", "ls": "15/07 (47j)", "lsc": "stale",
              "a": "Rue de Rochefort 150, 5570 Beauraing",
              "c": "accueil magasin"},
@@ -1789,13 +1812,13 @@ S36 = {
              "c": "Gregory — 019 67 83 78",
              "note": "Pause repas 12:30 - 13:05 prise sur la route Liège → Faimes."},
          ]},
-        {"h": "Jeudi 03/09", "sub": "7 stops (6 visites + 1 dépôt boutique)",
-         "zone": "Ourthe → Hesbaye → Namur (Ferrières → Aywaille → Tilff → Fernelmont → Namur → Jambes)",
-         "km": "190", "ret": "15:00",
+        {"h": "Jeudi 03/09", "sub": "8 stops (7 visites + 1 dépôt boutique)",
+         "zone": "Ourthe → Hesbaye → Namur (Ferrières → Aywaille → Tilff → Fernelmont → Namur → Jambes → Assesse)",
+         "km": "215", "ret": "15:30",
          "addrs": ["Rue du Pré du Fa 6A, 4190 Ferrières", "Avenue de la Poralée 36A, 4920 Aywaille",
                    "Avenue des Ardennes 8, 4130 Esneux", "Rue d'Eghezée 16, 5380 Fernelmont",
                    "Rue des Echasseurs 1, 5000 Namur", "Rue du Pont 3, 5000 Namur",
-                   "Rue de la Poudrière 14, 5100 Jambes"],
+                   "Rue de la Poudrière 14, 5100 Jambes", "Chaussée de Marche 30/A, 5330 Assesse"],
          "stops": [
             {"t": "09:05 - 09:30", "k": "visite", "b": ["Tier B", "14j OVERDUE"],
              "n": "Affilié 043151 - Proxy Delhaize Ferrières (#119818)", "ls": "16/07 (46j)", "lsc": "stale",
@@ -1838,6 +1861,13 @@ S36 = {
              "n": "JAMBIS SA - Intermarché Jambes (#3000)", "ls": "23/07 (39j)", "lsc": "mid",
              "a": "Rue de la Poudrière 14, 5100 Jambes",
              "c": "Faustine — 081 30 68 78"},
+            {"t": "14:40 - 15:05", "k": "visite", "b": ["Pharmacie", "Tier C", "146j OVERDUE"],
+             "n": "Pharmacie Haulot-Bauche SRL - Mikaël Tilman (#3181)", "ls": "19/02 (189j)", "lsc": "stale",
+             "a": "Chaussée de Marche 30/A, 5330 Assesse",
+             "c": "Mikaël Tilman — +32 83 65 70 65",
+             "note": "Réseau pharmacies Condroz/Famenne (Nicolas 25/08). PLUS GROS RETARD DE LA SEMAINE : "
+                     "146 jours, dernière commande le 19/02. Sur la N4 au retour de Jambes — zéro détour. "
+                     "Requalifier le potentiel sur place."},
          ]},
         {"h": "Vendredi 04/09", "sub": "AUCUNE TOURNÉE — fête du personnel",
          "zone": "Pas de visite", "km": "0", "ret": "—",
