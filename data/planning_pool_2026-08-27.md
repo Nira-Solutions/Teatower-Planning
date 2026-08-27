@@ -1,20 +1,22 @@
 # Planning pool — GMS (source Odoo, généré 2026-08-27)
 
-- **Magasins GMS uniques** : 180
-  - Actifs : 100 (Tier A=15, B=72, C=13, X=0)
+- **Magasins GMS uniques** : 184
+  - Actifs : 105 (Tier A=16, B=73, C=15, X=1)
   - Arret  : 23
   - NoMerch (commande seul, hors planning) : 4
-  - Televente (suivi Vanessa, hors visites Gilles) : 53
-- **OVERDUE Actifs** (next_visit < 2026-08-27) : 44
+  - Televente (suivi Vanessa, hors visites Gilles) : 52
+- **OVERDUE Actifs** (next_visit < 2026-08-27) : 48
 
 ## OVERDUE — par retard décroissant
 
 | Tier | Retard | Magasin | Adresse | Cycle | Dernière SO | Last visit | Source | Next visit | avg/mois |
 |---|---|---|---|---|---|---|---|---|---|
 | C | **161j** | Affilié 044780 - Proxy Delhaize Le Beau Rivage (#8779) | Quai de Meuse 1/1, 5500 Dinant | 30j | 17/02/2026 (191j) | 2026-02-17 | last_so | 2026-03-19 | 67€ |
+| C | **146j** | Pharmacie Haulot-Bauche SRL - Mickaël Tilman (#3181) | Chaussée de Marche 30/A, 5330 Assesse | 42j | 19/02/2026 (189j) | 2026-02-20 | picking | 2026-04-03 | 54€ |
 | C | **136j** | Affilié 044470 - AD Jambes (Materne) (#5916) | Avenue Jean Materne 109,  Jambes | 42j | 02/03/2026 (178j) | 2026-03-02 | last_so | 2026-04-13 | 58€ |
 | C | **106j** | Mardis - Carrefour Market Marche (#3120) | Avenue du Monument 1, 6900 Marche-en-Famenne | 42j | 01/04/2026 (148j) | 2026-04-01 | last_so | 2026-05-13 | 59€ |
 | C | **92j** | Hyper Carrefour Fleron - 5400102606202 (#7760) | Rue de la Clef 30, 4620 Fleron | 30j | 22/04/2026 (127j) | 2026-04-27 | picking | 2026-05-27 | 60€ |
+| X | **92j** | Pharmacie TILMAN HAN SRL (#3182) | Rue des Grottes 11, 5580 HAN-SUR-LESSE | 90j | 25/02/2026 (183j) | 2026-02-26 | picking | 2026-05-27 | 18€ |
 | B | **69j** | Rosy Dis sprl - Carrefour Market La Chasse (#59558) | Rue des champs, 39, 1040 Bruxelles | 28j | 22/05/2026 (97j) | 2026-05-22 | last_so | 2026-06-19 | 116€ |
 | C | **65j** | Proxy Delhaize Bosvoorde - SPRL BROOMCORNER (#5830) | Chaussée de la Hulpe 255, 1170 Watermael-Boitsfort | 42j | 12/05/2026 (107j) | 2026-05-12 | last_so | 2026-06-23 | 78€ |
 | B | **62j** | GIMALEX SA - Delhaize Fragnée (#5580) | Rue de Fragnée, 41, 4000 Liège | 28j | 29/05/2026 (90j) | 2026-05-29 | last_so | 2026-06-26 | 322€ |
@@ -25,8 +27,10 @@
 | B | **43j** | DELHAIZE BOONDAEL (#5426) | 120 AVENUE DU BOIS DE LA CAMBRE, 1050 IXELLES | 28j | 17/06/2026 (71j) | 2026-06-17 | picking | 2026-07-15 | 117€ |
 | B | **42j** | Affilié 045015 - Delhaize Longdoz Médiacité (#5439) | Rue de Grétry 60,  Liège | 28j | 18/06/2026 (70j) | 2026-06-18 | picking | 2026-07-16 | 55€ |
 | B | **41j** | Affilié 040490 - Delhaize Ath (#123144) | Rue de l'Abbaye 6, 7800 Ath | 15j | 02/07/2026 (56j) | 2026-07-02 | picking | 2026-07-17 | 157€ |
+| C | **41j** | Lillodis SRL - Proxy Delhaize Lillois (#114763) | Grand’Route 350, 1428 Lillois | 42j | 05/06/2026 (83j) | 2026-06-05 | picking | 2026-07-17 | 74€ |
 | B | **38j** | Affilié 042955 - Delhaize Etalle (#5442) | Rue Belle-Vue 56,  Etalle | 28j | 22/06/2026 (66j) | 2026-06-22 | picking | 2026-07-20 | 201€ |
 | B | **30j** | Affilié 043131 - AD Fernelmont (#5591) | Rue d'Eghezée 16,  Fernelmont | 28j | 30/06/2026 (58j) | 2026-06-30 | picking | 2026-07-28 | 238€ |
+| B | **29j** | Ma Pharmacie de Baillonville - Bayet Sarah (#3184) | Chemin de Huy 1A, 5377 BAILLONVILLE | 28j | 29/06/2026 (59j) | 2026-07-01 | picking | 2026-07-29 | 301€ |
 | A | **28j** | Chili Peppers - Intermarché Tilf (#116869) | Avenue des Ardennes 8, 4130 Esneux | 21j | 09/07/2026 (49j) | 2026-07-09 | picking | 2026-07-30 | 610€ |
 | B | **28j** | Affilié 044471 - Delhaize Materne (#113498) | Av. du Bourgmestre Jean Materne 109, 5100 Namur | 30j | 30/06/2026 (58j) | 2026-06-30 | picking | 2026-07-30 | 220€ |
 | B | **28j** | 2u S.A. - Carrefour Market Ciney (#2773) | Rue du commerce 44, Ciney 5590 | 28j | 02/07/2026 (56j) | 2026-07-02 | picking | 2026-07-30 | 195€ |
@@ -61,9 +65,11 @@
 | Statut | Tier | Magasin | Dernière SO | Last visit | Next visit | Retard | avg/mois | SO 12m |
 |---|---|---|---|---|---|---|---|---|
 | Actif | C | Affilié 044780 - Proxy Delhaize Le Beau Rivage (#8779) | 17/02/2026 (191j) | 2026-02-17 | 2026-03-19 | 161j | 67€ | 3 |
+| Actif | C | Pharmacie Haulot-Bauche SRL - Mickaël Tilman (#3181) | 19/02/2026 (189j) | 2026-02-20 | 2026-04-03 | 146j | 54€ | 2 |
 | Actif | C | Affilié 044470 - AD Jambes (Materne) (#5916) | 02/03/2026 (178j) | 2026-03-02 | 2026-04-13 | 136j | 58€ | 2 |
 | Actif | C | Mardis - Carrefour Market Marche (#3120) | 01/04/2026 (148j) | 2026-04-01 | 2026-05-13 | 106j | 59€ | 2 |
 | Actif | C | Hyper Carrefour Fleron - 5400102606202 (#7760) | 22/04/2026 (127j) | 2026-04-27 | 2026-05-27 | 92j | 60€ | 1 |
+| Actif | X | Pharmacie TILMAN HAN SRL (#3182) | 25/02/2026 (183j) | 2026-02-26 | 2026-05-27 | 92j | 18€ | 1 |
 | Actif | B | Rosy Dis sprl - Carrefour Market La Chasse (#59558) | 22/05/2026 (97j) | 2026-05-22 | 2026-06-19 | 69j | 116€ | 3 |
 | Actif | C | Proxy Delhaize Bosvoorde - SPRL BROOMCORNER (#5830) | 12/05/2026 (107j) | 2026-05-12 | 2026-06-23 | 65j | 78€ | 3 |
 | Actif | B | GIMALEX SA - Delhaize Fragnée (#5580) | 29/05/2026 (90j) | 2026-05-29 | 2026-06-26 | 62j | 322€ | 10 |
@@ -74,8 +80,10 @@
 | Actif | B | DELHAIZE BOONDAEL (#5426) | 17/06/2026 (71j) | 2026-06-17 | 2026-07-15 | 43j | 117€ | 4 |
 | Actif | B | Affilié 045015 - Delhaize Longdoz Médiacité (#5439) | 18/06/2026 (70j) | 2026-06-18 | 2026-07-16 | 42j | 55€ | 1 |
 | Actif | B | Affilié 040490 - Delhaize Ath (#123144) | 02/07/2026 (56j) | 2026-07-02 | 2026-07-17 | 41j | 157€ | 3 |
+| Actif | C | Lillodis SRL - Proxy Delhaize Lillois (#114763) | 05/06/2026 (83j) | 2026-06-05 | 2026-07-17 | 41j | 74€ | 5 |
 | Actif | B | Affilié 042955 - Delhaize Etalle (#5442) | 22/06/2026 (66j) | 2026-06-22 | 2026-07-20 | 38j | 201€ | 5 |
 | Actif | B | Affilié 043131 - AD Fernelmont (#5591) | 30/06/2026 (58j) | 2026-06-30 | 2026-07-28 | 30j | 238€ | 4 |
+| Actif | B | Ma Pharmacie de Baillonville - Bayet Sarah (#3184) | 29/06/2026 (59j) | 2026-07-01 | 2026-07-29 | 29j | 301€ | 14 |
 | Actif | A | Chili Peppers - Intermarché Tilf (#116869) | 09/07/2026 (49j) | 2026-07-09 | 2026-07-30 | 28j | 610€ | 12 |
 | Actif | B | Affilié 044471 - Delhaize Materne (#113498) | 30/06/2026 (58j) | 2026-06-30 | 2026-07-30 | 28j | 220€ | 6 |
 | Actif | B | 2u S.A. - Carrefour Market Ciney (#2773) | 02/07/2026 (56j) | 2026-07-02 | 2026-07-30 | 28j | 195€ | 7 |
@@ -106,10 +114,6 @@
 | Actif | A | Affilié 048652 - Delhaize Salzinnes (#114704) | 04/08/2026 (23j) | 2026-08-04 | 2026-08-25 | 2j | 414€ | 9 |
 | Actif | A | DelEmbourg SRL - Delhaize Embourg (#2909) | 06/08/2026 (21j) | 2026-08-06 | 2026-08-27 | 0j | 781€ | 17 |
 | Actif | A | Affilié 043366 - AD Fosses-la-Ville (#5441) | 14/08/2026 (13j) | 2026-08-14 | 2026-09-04 | 0j | 752€ | 16 |
-| Actif | A | Intermarché Naninne (#5755) | 14/08/2026 (13j) | 2026-08-14 | 2026-09-04 | 0j | 743€ | 14 |
-| Actif | A | Affilié 048875 - AD Sombreffe (#5449) | 19/08/2026 (8j) | 2026-08-19 | 2026-09-09 | 0j | 639€ | 15 |
-| Actif | A | Carrefour Hyper de Jambes - 5400102606400 (#9046) | 28/07/2026 (30j) | 2026-08-10 | 2026-08-31 | 0j | 633€ | 12 |
-| Actif | A | SA Barthe - Intermarché Assesse (#5750) | 14/08/2026 (13j) | 2026-08-14 | 2026-09-04 | 0j | 518€ | 13 |
 
 ## NoMerch — EXCLUS du planning (commande en autonomie)
 
@@ -152,7 +156,6 @@
 | Carrefour Market Tomberg - 5400102101219 (#124423) | Tomberg 96, 1200 Woluwe-Saint-Lambert | 12/06/2026 (76j) | 52€ |
 | VGS Company - Carrefour Express Rhode-Saint-Genèse (#120933) | Chaussée de Waterloo 230, 1640 Rhode-Saint-Genèse | 16/04/2026 (133j) | 18€ |
 | Affilié 047550 - Proxy Delhaize Roi Chevalier (#124554) | Avenue du Roi Chevalier 53, 1200 Woluwe-Saint-Lambert | 18/06/2026 (70j) | 25€ |
-| Lillodis SRL - Proxy Delhaize Lillois (#114763) | Grand’Route 350, 1428 Lillois | 05/06/2026 (83j) | 74€ |
 | Affilié 043102 - Delhaize Flémalle (#124642) | Grand Route 299, 4400 Flémalle | 22/06/2026 (66j) | 25€ |
 | Hyper Carrefour Gosselies - 5400102606455 (#122466) | Da Vincilaan 3, 6041 Gosselies | 08/06/2026 (80j) | 70€ |
 | Micamik SRL - Spar Godinne (#122995) | Rue de Mont 13, 5530 Godinne | 08/06/2026 (80j) | 69€ |
