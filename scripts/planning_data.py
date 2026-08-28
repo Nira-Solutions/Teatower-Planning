@@ -1628,13 +1628,14 @@ S35 = {
 S36 = {
     "id": "s36", "nav": "S36 · 31/08-04/09 (à venir)", "active": True,
     "title": "Semaine du 31 août au 4 septembre 2026 (S36)",
-    "note": ("30 stops sur 4 jours : 1 implantation, 26 visites, 3 dépôts boutiques. "
+    "note": ("29 stops sur 4 jours : 1 implantation, 25 visites, 3 dépôts boutiques. "
              "⛔ VENDREDI 04/09 : AUCUNE TOURNÉE — fête du personnel (demande Nicolas). "
              "🆕 Implantation Carrefour Market Lierneux lundi en 1ᵉ stop (lead #274 gagné le 27/08, fiche Odoo en cours de création) : "
              "DEUX displays à monter — 8 réfs infusettes + 8 réfs Noël — d'où 35 min sur place au lieu de 25. Magasin vérifié ouvert lun-sam dès 08:30. "
              "💊 RÉSEAU PHARMACIES Condroz/Famenne (EXTRA_MERCH_PIDS, Nicolas 25/08) — les 4 sont dans la semaine : "
-             "Bomal mardi (Tier A, 532 €/mois, échéance pile le 31/08), Han-sur-Lesse mardi (92j), "
+             "Bomal mardi (Tier A, 532 €/mois, échéance pile le 31/08), "
              "Assesse jeudi (146j — plus gros retard de la semaine), Baillonville lundi en fin de tournée (29j, au dépôt). "
+             "❌ Han-sur-Lesse RETIRÉE du mardi (demande Nicolas 28/08) — le mardi passe de 9 à 8 stops, retour à 14:52 au lieu de 15:27. "
              "🏪 Boutiques Teatower : Rocourt + Liège mercredi, Namur jeudi. Waterloo NON servi cette semaine (demande Nicolas). "
              "Colis préparés la veille — Rocourt/Liège le mardi 01/09, Namur le mercredi 02/09 : aucun dépôt le lundi (REGLES §13). "
              "⏱ Fenêtres imposées respectées : Etalle (fermé le lundi matin → 13:10), Bastogne Pascalino (se présenter le matin), "
@@ -1701,14 +1702,14 @@ S36 = {
              "note": "Réseau pharmacies Condroz/Famenne (Nicolas 25/08). Au dépôt — zéro détour, "
                      "à faire au retour de tournée. 301 €/mois."},
          ]},
-        {"h": "Mardi 01/09", "sub": "9 stops (9 visites)",
-         "zone": "Famenne / Ourthe (Marche → Hotton → Bomal → Erezée → Rochefort → Han → Beauraing)",
-         "km": "220", "ret": "15:27",
+        {"h": "Mardi 01/09", "sub": "8 stops (8 visites)",
+         "zone": "Famenne / Ourthe (Marche → Hotton → Bomal → Erezée → Rochefort → Beauraing)",
+         "km": "210", "ret": "14:52",
          "addrs": ["Chaussée de Liège 41, 6900 Marche-en-Famenne", "Avenue de France 39, 6900 Marche-en-Famenne",
                    "Avenue du Monument 1, 6900 Marche-en-Famenne", "Rue de la Scierie 9, 6990 Hotton",
                    "Rue de Fleurie 1, 6941 Bomal-sur-Ourthe",
                    "Rue des Chasseurs Ardennais 6, 6997 Erezée", "Rue de Marche 59, 5580 Rochefort",
-                   "Rue des Grottes 11, 5580 Han-sur-Lesse", "Rue de Rochefort 150, 5570 Beauraing"],
+                   "Rue de Rochefort 150, 5570 Beauraing"],
          "stops": [
             {"t": "08:50 - 09:15", "k": "visite", "b": ["Hyper", "Tier A", "22j OVERDUE"],
              "n": "Carrefour Hyper Marche-en-Famenne (#6999)", "ls": "14/07 (48j)", "lsc": "stale",
@@ -1753,13 +1754,7 @@ S36 = {
              "a": "Rue de Marche 59, 5580 Rochefort",
              "c": "accueil magasin",
              "note": "Pause repas 12:17 - 12:47 prise sur la route Erezée → Rochefort."},
-            {"t": "13:32 - 13:57", "k": "visite", "b": ["Pharmacie", "Tier X", "92j OVERDUE"],
-             "n": "Pharmacie TILMAN HAN SRL (#3182)", "ls": "25/02 (187j)", "lsc": "stale",
-             "a": "Rue des Grottes 11, 5580 Han-sur-Lesse",
-             "c": "Mikaël Tilman — 0472 50 04 32",
-             "note": "Réseau pharmacies Condroz/Famenne (Nicolas 25/08). À 8 km de Rochefort. "
-                     "Petit volume (18 €/mois) mais rien depuis le 25/02 : vérifier ce qui reste en rayon."},
-            {"t": "14:22 - 14:47", "k": "visite", "b": ["Tier B", "15j OVERDUE"],
+            {"t": "13:47 - 14:12", "k": "visite", "b": ["Tier B", "15j OVERDUE"],
              "n": "SA Beausov New - Delhaize Beauraing (#116008)", "ls": "15/07 (47j)", "lsc": "stale",
              "a": "Rue de Rochefort 150, 5570 Beauraing",
              "c": "accueil magasin"},
