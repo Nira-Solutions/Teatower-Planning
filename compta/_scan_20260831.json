@@ -1,0 +1,866 @@
+[
+ {
+  "id": 18034,
+  "j": "BELFIUS",
+  "date": "2026-02-05",
+  "amount": -4.42,
+  "partner": "",
+  "ref": "PARTICIPATION AUX FRAIS DE TENUE DE VOTRE COMPTE REF. : 0816124041435 VAL. 01-02"
+ },
+ {
+  "id": 18036,
+  "j": "BELFIUS",
+  "date": "2026-03-05",
+  "amount": -4.42,
+  "partner": "",
+  "ref": "PARTICIPATION AUX FRAIS DE TENUE DE VOTRE COMPTE REF. : 0816134040891 VAL. 01-03"
+ },
+ {
+  "id": 18037,
+  "j": "BELFIUS",
+  "date": "2026-03-05",
+  "amount": -3.08,
+  "partner": "",
+  "ref": "FRAIS D'EXPEDITION DE VOS AVIS BANCAIRES REF. : 0816134008254 VAL. 01-03"
+ },
+ {
+  "id": 18038,
+  "j": "BELFIUS",
+  "date": "2026-04-08",
+  "amount": -4.42,
+  "partner": "",
+  "ref": "PARTICIPATION AUX FRAIS DE TENUE DE VOTRE COMPTE REF. : 0816147045774 VAL. 01-04"
+ },
+ {
+  "id": 18039,
+  "j": "BELFIUS",
+  "date": "2026-04-08",
+  "amount": -3.08,
+  "partner": "",
+  "ref": "FRAIS D'EXPEDITION DE VOS AVIS BANCAIRES REF. : 0816147013001 VAL. 01-04"
+ },
+ {
+  "id": 18046,
+  "j": "BELFIUS",
+  "date": "2026-04-20",
+  "amount": -15.0,
+  "partner": "",
+  "ref": "FRAIS DE GESTION DE VOTRE BUSINESS CASH PLUS N 071-1257402-52 REF. : 080G64H090904 VAL. 17-04 BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /071-1257402-52"
+ },
+ {
+  "id": 18047,
+  "j": "BELFIUS",
+  "date": "2026-04-20",
+  "amount": -250.0,
+  "partner": "",
+  "ref": "FRAIS DE DOSSIER LIES A L'OCTROI ET/OU A LA MODIFICATION DE VOTRE BUSINESS CREDIT N 071-9570627-86 REF. : 080G64H090903 VAL. 17-04 BUSINESS CREDIT           /BUSINESS CREDIT           /BUSINESS CREDIT           /BUSINESS CREDIT           /071-9570627-86"
+ },
+ {
+  "id": 18360,
+  "j": "BELFIUS",
+  "date": "2026-05-07",
+  "amount": -4.42,
+  "partner": "",
+  "ref": "PARTICIPATION AUX FRAIS DE TENUE DE VOTRE COMPTE REF. : 0816156041017 VAL. 01-05"
+ },
+ {
+  "id": 18527,
+  "j": "BELFIUS",
+  "date": "2026-05-18",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804961011145 VAL. 17-05"
+ },
+ {
+  "id": 18528,
+  "j": "BELFIUS",
+  "date": "2026-05-18",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804961011144 VAL. 17-05"
+ },
+ {
+  "id": 18529,
+  "j": "BELFIUS",
+  "date": "2026-05-18",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804961011143 VAL. 17-05"
+ },
+ {
+  "id": 19184,
+  "j": "BELFIUS",
+  "date": "2026-06-04",
+  "amount": -4.42,
+  "partner": "",
+  "ref": "PARTICIPATION AUX FRAIS DE TENUE DE VOTRE COMPTE REF. : 0816163040824 VAL. 01-06"
+ },
+ {
+  "id": 19188,
+  "j": "BELFIUS",
+  "date": "2026-06-10",
+  "amount": 30000.0,
+  "partner": "",
+  "ref": "PAIEMENT DU PRET N 071-9574936-30 REF. : 05032HB6A1008 VAL. 10-06"
+ },
+ {
+  "id": 19190,
+  "j": "BELFIUS",
+  "date": "2026-06-11",
+  "amount": -250.0,
+  "partner": "",
+  "ref": "FRAIS DE DOSSIER LIES A L'OCTROI ET/OU A LA MODIFICATION DE VOTRE BUSINESS CREDIT N 071-9574936-30 REF. : 080G66A000091 VAL. 10-06 BUSINESS CREDIT           /BUSINESS CREDIT           /BUSINESS CREDIT           /BUSINESS CREDIT           /071-9574936-30"
+ },
+ {
+  "id": 19199,
+  "j": "BELFIUS",
+  "date": "2026-06-18",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804971003106 VAL. 17-06"
+ },
+ {
+  "id": 19200,
+  "j": "BELFIUS",
+  "date": "2026-06-18",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804971003105 VAL. 17-06"
+ },
+ {
+  "id": 19201,
+  "j": "BELFIUS",
+  "date": "2026-06-18",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804971003104 VAL. 17-06"
+ },
+ {
+  "id": 19460,
+  "j": "ING",
+  "date": "2026-07-01",
+  "amount": -2.25,
+  "partner": "",
+  "ref": "Décompte de frais au 30/06/2026 n° 331900946 ING MasterCard Business 5476-85XX-XXXX-7809 Période du 01/06/2026 au 30/06/2026 Cotisation mensuelle carte de crédit ING - 2,2500 EUR (0) -------------------------------------------------- Non soumis à la TVA : - 2,2500 (0) Total au débit du compte BE30 3631 6408 2311 : - 2,25 EUR A joindre éventuellement à votre déclaration fiscale."
+ },
+ {
+  "id": 19480,
+  "j": "ING",
+  "date": "2026-07-02",
+  "amount": -437.07,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 01/07/26 - 0h00 - GOOGLE *ADS6553294698 UNKNOWN - DUBLIN 4 - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000349182266"
+ },
+ {
+  "id": 19607,
+  "j": "ING",
+  "date": "2026-07-07",
+  "amount": -384.12,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Google Cloud EMEA Limited Identification: IE34 ZZZ 362297 Compte: IE35CITI99005132549640 BIC: CITIIE2X Mandat: 21715916 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: GG104FQV2W Communication: APPS COMMERCE:teatower.com:GG104FQV"
+ },
+ {
+  "id": 19610,
+  "j": "ING",
+  "date": "2026-07-07",
+  "amount": -500.0,
+  "partner": "",
+  "ref": "Virement instantané en euros: ING app Vers: Vansimpsen Audrey - BE80377124610277 Instantané le 07/07 - 13:52:22 Communication: Avance Info personnelle: 91112705514d4295bce23cfa664910dc"
+ },
+ {
+  "id": 19570,
+  "j": "BELFIUS",
+  "date": "2026-07-08",
+  "amount": -39.83,
+  "partner": "",
+  "ref": "COMMISSION POUR VOTRE BUSINESS CASH PLUS N. 071-1257402-52 REF. : 080G677017408 VAL. 01-07 BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /071-1257402-52"
+ },
+ {
+  "id": 19571,
+  "j": "BELFIUS",
+  "date": "2026-07-08",
+  "amount": -0.64,
+  "partner": "",
+  "ref": "INTERETS : 01.04.2026 - 30.06.2026 REF. : 361090087IB VAL. 01-07 01.04.202630.06.2026INTERETS                  INTERESTEN                ZINSEN                    INTEREST"
+ },
+ {
+  "id": 19625,
+  "j": "ING",
+  "date": "2026-07-08",
+  "amount": -12837.54,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Kirchner, Fischer + Co GmbH Identification: DE86 ZZZ 00000377691 Compte: DE92210900070090568001 BIC: GENODEF1KIL Mandat: K40115725 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 0000280000ZV001392Z Communication: DE86ZZZ00000377691, K40115725 Siehe Avis vom 07.07.26"
+ },
+ {
+  "id": 19638,
+  "j": "ING",
+  "date": "2026-07-09",
+  "amount": -36.29,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 08/07/26 - 0h00 - ADOBE *ADOBE D24 - DUBLIN - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000354163876"
+ },
+ {
+  "id": 19639,
+  "j": "ING",
+  "date": "2026-07-09",
+  "amount": -722.47,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 08/07/26 - 9h21 - Intuit Ireland Softwar D02X576 - Dublin 2 - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000353974011"
+ },
+ {
+  "id": 19660,
+  "j": "ING",
+  "date": "2026-07-09",
+  "amount": 637.24,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000287398"
+ },
+ {
+  "id": 19640,
+  "j": "BELFIUS",
+  "date": "2026-07-10",
+  "amount": -0.01,
+  "partner": "",
+  "ref": "VIREMENT E-COMMERCE VERS BE42 0689 0209 3054 StichtingMollie Payments M01842781MRPN1KC Vrifiez identifiant du compte 19564809 (BE86068958071350) REF. : 090541617A236 VAL. 10-07"
+ },
+ {
+  "id": 19641,
+  "j": "BELFIUS",
+  "date": "2026-07-10",
+  "amount": -0.01,
+  "partner": "",
+  "ref": "VIREMENT E-COMMERCE VERS BE42 0689 0209 3054 StichtingMollie Payments M01842781MRPMTBT Vrifiez identifiant du compte 19564809 (BE86068958071350) REF. : 090540137A167 VAL. 10-07"
+ },
+ {
+  "id": 19692,
+  "j": "BELFIUS",
+  "date": "2026-07-13",
+  "amount": -2559.85,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9574936-30 REF. : 0804981020119 VAL. 10-07"
+ },
+ {
+  "id": 19703,
+  "j": "ING",
+  "date": "2026-07-13",
+  "amount": -500.0,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 13/07/26 - 0h00 - GOOGLE *ADS6553294698 UNKNOWN - DUBLIN 4 - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000357705020"
+ },
+ {
+  "id": 19728,
+  "j": "ING",
+  "date": "2026-07-14",
+  "amount": -60.49,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 13/07/26 - 0h00 - ADOBE *ADOBE D24 - DUBLIN - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000357893968"
+ },
+ {
+  "id": 19735,
+  "j": "ING",
+  "date": "2026-07-14",
+  "amount": -1574.53,
+  "partner": "",
+  "ref": "Votre fichier de virements en euros (SEPA) Référence client: 1783930619.0952094140 Référence banque: 3991461910172"
+ },
+ {
+  "id": 19737,
+  "j": "ING",
+  "date": "2026-07-14",
+  "amount": -750.0,
+  "partner": "",
+  "ref": "Virement en euros (SEPA): ING app Vers: CAMILLE van Ooteghem - BE85001754691806 Communication: Avance aout Info personnelle: 96a815fa2f274fbbb3fc3cf38e5a987b"
+ },
+ {
+  "id": 19738,
+  "j": "ING",
+  "date": "2026-07-14",
+  "amount": -1000.0,
+  "partner": "",
+  "ref": "Virement en euros (SEPA): ING app Vers: Cabosart Gilles - BE02063471527240 Communication: Avance aout Info personnelle: 89a64d47e9b24857ac0b7523eff68c2d"
+ },
+ {
+  "id": 19739,
+  "j": "ING",
+  "date": "2026-07-14",
+  "amount": -500.0,
+  "partner": "",
+  "ref": "Virement instantané en euros: ING app Vers: Vansimpsen Audrey - BE80377124610277 Instantané le 14/07 - 10:32:01 Communication: Avance aout Info personnelle: ca4fe6dc20224377966241e1d3751713"
+ },
+ {
+  "id": 19746,
+  "j": "ING",
+  "date": "2026-07-14",
+  "amount": -1040.4,
+  "partner": "",
+  "ref": "Virement en euros (SEPA): ING app Vers: Administration Generale des Douanes et Accises - BE66679200270543 Communication: 970AI8902/F Info personnelle: 6b7a96deb9194f268e231eb50435840d"
+ },
+ {
+  "id": 19780,
+  "j": "ING",
+  "date": "2026-07-15",
+  "amount": -24.45,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Sendcloud Identification: NL48 ZZZ 342764500000 Compte: NL65ADYB2006011162 BIC: ADYBNL2A Mandat: KDDV55WJGGMW5KG3 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: D54KBNGWPJN7T9F3 Communication: Sendcloud 1-26-BE0060716"
+ },
+ {
+  "id": 19788,
+  "j": "ING",
+  "date": "2026-07-16",
+  "amount": -526.99,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 15/07/26 - 10h17 - SHOPIFY* 558825894 D04 XN32 - DUBLIN - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000359329098"
+ },
+ {
+  "id": 19804,
+  "j": "ING",
+  "date": "2026-07-16",
+  "amount": -755.9,
+  "partner": "",
+  "ref": "Paiement ING : MASTERCARD 188 84105935-01/073 R.784105935039"
+ },
+ {
+  "id": 19839,
+  "j": "BELFIUS",
+  "date": "2026-07-20",
+  "amount": -15.0,
+  "partner": "",
+  "ref": "FRAIS DE GESTION DE VOTRE BUSINESS CASH PLUS N 071-1257402-52 REF. : 080G67H087800 VAL. 17-07 BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /BUSINESS CASH PLUS        /071-1257402-52"
+ },
+ {
+  "id": 19843,
+  "j": "BELFIUS",
+  "date": "2026-07-20",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804981006141 VAL. 17-07"
+ },
+ {
+  "id": 19844,
+  "j": "BELFIUS",
+  "date": "2026-07-20",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804981006140 VAL. 17-07"
+ },
+ {
+  "id": 19845,
+  "j": "BELFIUS",
+  "date": "2026-07-20",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804981006139 VAL. 17-07"
+ },
+ {
+  "id": 19853,
+  "j": "ING",
+  "date": "2026-07-20",
+  "amount": -342.77,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 19/07/26 - 17h34 - MIAMIO Faire 2595AN - Den Haag - NLD Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000361955736"
+ },
+ {
+  "id": 19857,
+  "j": "ING",
+  "date": "2026-07-20",
+  "amount": -180.51,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 19/07/26 - 17h06 - NCA Europe Desig Faire 2595AN - Den Haag - NLD Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000361955882"
+ },
+ {
+  "id": 19871,
+  "j": "ING",
+  "date": "2026-07-20",
+  "amount": -308.8,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Radius Business Solutions (Belgium) NV Identification: BE80 ZZZ 0865944140 Compte: BE26390010347329 BIC: BBRUBEBB Mandat: 2964241 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: SDCOR2607301BE155238 Communication: BE261701699965"
+ },
+ {
+  "id": 19944,
+  "j": "ING",
+  "date": "2026-07-24",
+  "amount": -200.0,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: PROXIMUS Identification: BE92 FLS 0202239951 Compte: BE85913410481906 BIC: EPBFBEBBXXX Mandat: P000005173 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 4015265616 Communication: 007604430233007600510011 But du paiement: General-Other"
+ },
+ {
+  "id": 19959,
+  "j": "BELFIUS",
+  "date": "2026-07-27",
+  "amount": -492.59,
+  "partner": "",
+  "ref": "VIREMENT INSTANTANE BELFIUS MOBILE VERS BE89 0682 4304 9085 Christophe PIRET-GERARD Societe notariale SRL 4586/002 REF. : 090548427Q303 VAL. 26-07"
+ },
+ {
+  "id": 19985,
+  "j": "ING",
+  "date": "2026-07-27",
+  "amount": -459.81,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Radius Business Solutions (Belgium) NV Identification: BE80 ZZZ 0865944140 Compte: BE26390010347329 BIC: BBRUBEBB Mandat: 2964241 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: SDCOR2607301BE210514 Communication: BE261701759658"
+ },
+ {
+  "id": 19992,
+  "j": "ING",
+  "date": "2026-07-27",
+  "amount": 0.01,
+  "partner": "",
+  "ref": "Virement instantané en euros Instantané le 27/07 - 11:48:36 De: iPiD Europe B V Mesiniu g. 5, Vilnius LITHUANIA Lituanie IBAN: LT593590010000000000 Donneur d'ordre final : Communication : A payer authorized this micro_deposit to verify your account details b efore making a payment"
+ },
+ {
+  "id": 19972,
+  "j": "ING",
+  "date": "2026-07-28",
+  "amount": -500.0,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 26/07/26 - 0h00 - GOOGLE *ADS6553294698 UNKNOWN - DUBLIN 4 - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000366583762"
+ },
+ {
+  "id": 19999,
+  "j": "BELFIUS",
+  "date": "2026-07-29",
+  "amount": -50.0,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - FACEBOOK PAYMENTS INTE - 02X525D IE - 29/07/26 08:40 - Meta Ads - VIA INTERNET - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0320000000000 VAL. 29-07 IE   29/07/26 08:40                                        MCC7311 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20049,
+  "j": "ING",
+  "date": "2026-07-29",
+  "amount": -396.0,
+  "partner": "",
+  "ref": "CHEQUE GUICHET"
+ },
+ {
+  "id": 20079,
+  "j": "ING",
+  "date": "2026-07-31",
+  "amount": -21.98,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 30/07/26 - 0h00 - GOOGLE *Play 94043 - MOUNTAIN VIEW - USA 25,00 USD à 1,137397 Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000369419910"
+ },
+ {
+  "id": 20087,
+  "j": "ING",
+  "date": "2026-07-31",
+  "amount": -117.6,
+  "partner": "",
+  "ref": "Votre fichier de virements en euros (SEPA) Référence client: 1785142599.3378952140 Référence banque: 3993161004005"
+ },
+ {
+  "id": 20104,
+  "j": "ING",
+  "date": "2026-08-01",
+  "amount": -2.25,
+  "partner": "",
+  "ref": "Décompte de frais au 31/07/2026 n° 336006010 ING MasterCard Business 5476-85XX-XXXX-7809 Période du 01/07/2026 au 31/07/2026 Cotisation mensuelle carte de crédit ING - 2,2500 EUR (0) -------------------------------------------------- Non soumis à la TVA : - 2,2500 (0) Total au débit du compte BE30 3631 6408 2311 : - 2,25 EUR A joindre éventuellement à votre déclaration fiscale."
+ },
+ {
+  "id": 20110,
+  "j": "ING",
+  "date": "2026-08-02",
+  "amount": -194.46,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 01/08/26 - 0h00 - GOOGLE *ADS6553294698 UNKNOWN - DUBLIN 4 - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000371000159"
+ },
+ {
+  "id": 20111,
+  "j": "ING",
+  "date": "2026-08-02",
+  "amount": -50.0,
+  "partner": "",
+  "ref": "Paiement Bancontact 01/08/26 - 20h14 - BRADERIE 1410 - Waterloo - BEL 7KQ8EIO BRADERIE-WATERLOO.BE Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20123,
+  "j": "ING",
+  "date": "2026-08-02",
+  "amount": -50.0,
+  "partner": "",
+  "ref": "Paiement Bancontact 02/08/26 - 13h40 - FACEBOOK PAYMENTS INTE D02X525 - DUBLIN - IRL Meta Ads Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20125,
+  "j": "BELFIUS",
+  "date": "2026-08-04",
+  "amount": -11.47,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - FAMILIA 35 HANNUT - 4280 HANNUT BE - 04/08/26 08:39 - SANS CONTACT VIA WALLET APPLE PAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0541897120811 VAL. 04-08 BE   04/08/26 08:39                            APPLE PAY   MCC5912 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20126,
+  "j": "BELFIUS",
+  "date": "2026-08-04",
+  "amount": -11.72,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - CRF EXP CATHEDR - 4000 LIEGE BE -04/08/26 09:31 - SANS CONTACT VIA WALLET APPLE PAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0480000016950 VAL. 04-08 BE   04/08/26 09:31                            APPLE PAY   MCC5411 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20178,
+  "j": "ING",
+  "date": "2026-08-04",
+  "amount": -121.0,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Sendcloud Identification: NL48 ZZZ 342764500000 Compte: NL65ADYB2006011162 BIC: ADYBNL2A Mandat: KDDV55WJGGMW5KG3 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: BVCQRGSGBHK6NCF6 Communication: Sendcloud 1-26-BE0064771"
+ },
+ {
+  "id": 20157,
+  "j": "BELFIUS",
+  "date": "2026-08-05",
+  "amount": -16714.08,
+  "partner": "",
+  "ref": "VOTRE ORDRE COLLECTIF BELFIUS DIRECT NET BUS. FICHIER : TEATOWER-SAL-20260801-MAIN GROUPE : TEATOWER-S/0000 REF. : 0801C85007649 VAL. 05-08"
+ },
+ {
+  "id": 20204,
+  "j": "ING",
+  "date": "2026-08-05",
+  "amount": -384.12,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Google Cloud EMEA Limited Identification: IE34 ZZZ 362297 Compte: IE35CITI99005132549640 BIC: CITIIE2X Mandat: 21715916 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: GG104H23NF Communication: APPS COMMERCE:teatower.com:GG104H23"
+ },
+ {
+  "id": 20208,
+  "j": "ING",
+  "date": "2026-08-05",
+  "amount": -296.14,
+  "partner": "",
+  "ref": "Virement en euros (SEPA): ING app Vers: OSS - BE32679200363402 Communication: BE/BE0656763145/Q2.2026 Info personnelle: e2581ff87c5f4348b59c6a0d9283bdd0"
+ },
+ {
+  "id": 20213,
+  "j": "BELFIUS",
+  "date": "2026-08-07",
+  "amount": -43.1,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - sr-Get your mug-Liege- - 4000 LI?GE BE - 07/08/26 13:48 - SANS CONTACT VIA WALLET APPLEPAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0323903550000 VAL. 07-08 BE   07/08/26 13:48                            APPLE PAY   MCC5814 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20256,
+  "j": "ING",
+  "date": "2026-08-08",
+  "amount": -715.63,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 08/08/26 - 9h13 - Intuit Ireland Softwar D02X576 - Dublin 2 - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000375755569"
+ },
+ {
+  "id": 20257,
+  "j": "ING",
+  "date": "2026-08-09",
+  "amount": -36.29,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 08/08/26 - 0h00 - ADOBE *ADOBE D24 - DUBLIN - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000375936338"
+ },
+ {
+  "id": 20276,
+  "j": "ING",
+  "date": "2026-08-10",
+  "amount": -699.0,
+  "partner": "",
+  "ref": "Virement instantané en euros: ING app Vers: Administration Generale des Douanes et Accises - BE66679200270543 Instantané le 10/08 - 09:05:42 Communication: 970AI8902/F Info personnelle: 8470cf09a6054e29babc1fb372c1aef3"
+ },
+ {
+  "id": 20288,
+  "j": "ING",
+  "date": "2026-08-10",
+  "amount": -4909.57,
+  "partner": "",
+  "ref": "Votre fichier de virements en euros (SEPA) Référence client: SAL-20260801-TV Référence banque: 3990761052065"
+ },
+ {
+  "id": 20265,
+  "j": "BELFIUS",
+  "date": "2026-08-11",
+  "amount": -2559.85,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9574936-30 REF. : 0804991016496 VAL. 10-08"
+ },
+ {
+  "id": 20345,
+  "j": "ING",
+  "date": "2026-08-12",
+  "amount": -9.6,
+  "partner": "",
+  "ref": "Paiement Bancontact 12/08/26 - 9h25 - sr-Get your mug-Liege- 4000 - LI?GE - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20373,
+  "j": "ING",
+  "date": "2026-08-13",
+  "amount": 160.61,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000290027"
+ },
+ {
+  "id": 20374,
+  "j": "ING",
+  "date": "2026-08-13",
+  "amount": -22.1,
+  "partner": "",
+  "ref": "Paiement Bancontact 13/08/26 - 12h43 - LE FLEURON 7500 - TOURNAI - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20350,
+  "j": "BELFIUS",
+  "date": "2026-08-14",
+  "amount": 10000.0,
+  "partner": "",
+  "ref": "VERSEMENT INSTANTANE DE BE11 1030 9759 9448 NIRA SOLUTIONS Pret actionnaire VERS BE86 0689 5807 1350 TEATOWER SA REF. : 080G78E042880 VAL. 14-08"
+ },
+ {
+  "id": 20352,
+  "j": "BELFIUS",
+  "date": "2026-08-14",
+  "amount": -49551.11,
+  "partner": "",
+  "ref": "VIREMENT INSTANTANE BELFIUS DIRECT NET VERS DE92 2109 0007 0090 5680 01 Kirchner, Fischer Co GmbH clearing REF. : 090183278E055 VAL. 14-08"
+ },
+ {
+  "id": 20353,
+  "j": "BELFIUS",
+  "date": "2026-08-14",
+  "amount": 30000.0,
+  "partner": "",
+  "ref": "VERSEMENT INSTANTANE DE BE34 7326 6139 8490 TILMAN JEAN NOEL PrEt actionnaires 14-08-26 VERS BE86 0689 5807 1350 TEATOWER SA REF. : 080G78E093505 VAL. 14-08"
+ },
+ {
+  "id": 20377,
+  "j": "ING",
+  "date": "2026-08-14",
+  "amount": -60.49,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 13/08/26 - 0h00 - ADOBE *ADOBE D24 - DUBLIN - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000379232581"
+ },
+ {
+  "id": 20380,
+  "j": "ING",
+  "date": "2026-08-14",
+  "amount": -500.0,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 14/08/26 - 0h00 - GOOGLE *ADS6553294698 UNKNOWN - DUBLIN 4 - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000379890119"
+ },
+ {
+  "id": 20381,
+  "j": "ING",
+  "date": "2026-08-14",
+  "amount": 2652.97,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: DELHAIZE LE LION/DE LEEUW BRUSSELSESTEENWEG 347 BRUSSELSESTEENWEG 347 ASSE 1730 1730 KOBBEGEM ASSE Belgique IBAN: BE16310016508274 Communication : /ADV/2000058526 14.8.2026 Info personnelle: 2000058526"
+ },
+ {
+  "id": 20391,
+  "j": "ING",
+  "date": "2026-08-14",
+  "amount": -750.0,
+  "partner": "",
+  "ref": "Virement instantané en euros: Business'Bank On-line Vers: CAMILLE van Ooteghem - BE85001754691806 Instantané le 14/08 - 13:51:34 Communication: avance Info personnelle: f256c1514f0c47dab4aa6910ff03989a"
+ },
+ {
+  "id": 20392,
+  "j": "ING",
+  "date": "2026-08-14",
+  "amount": -1000.0,
+  "partner": "",
+  "ref": "Virement instantané en euros: Business'Bank On-line Vers: Cabosart Gilles - BE02063471527240 Instantané le 14/08 - 13:50:26 Info personnelle: a567ff3556a641de8fe37aa15316ae14"
+ },
+ {
+  "id": 20394,
+  "j": "ING",
+  "date": "2026-08-15",
+  "amount": -491.71,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 14/08/26 - 10h32 - SHOPIFY* 573472120 D04 XN32 - DUBLIN - IRL Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000380120693"
+ },
+ {
+  "id": 20401,
+  "j": "ING",
+  "date": "2026-08-17",
+  "amount": -272.04,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 16/08/26 - 17h57 - Ogo living Faire 2595AN - Den Haag - NLD Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000381243665"
+ },
+ {
+  "id": 20414,
+  "j": "ING",
+  "date": "2026-08-17",
+  "amount": -999.74,
+  "partner": "",
+  "ref": "Paiement ING : MASTERCARD 219 84105935-01/073 R.784105935039"
+ },
+ {
+  "id": 20420,
+  "j": "ING",
+  "date": "2026-08-17",
+  "amount": -59.0,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: CILE COMPAGNIE INTERCOMMUNALE LIEGEOISE DES EAUX Identification: BE49 ZZZ 0202395052 Compte: BE06091000775322 BIC: GKCCBEBB Mandat: 20190154890002 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 838186144 Communication: Ref. : 2019015489-FACT. No 70003928 63 But du paiement: General-Other"
+ },
+ {
+  "id": 20402,
+  "j": "BELFIUS",
+  "date": "2026-08-18",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804991002646 VAL. 17-08"
+ },
+ {
+  "id": 20403,
+  "j": "BELFIUS",
+  "date": "2026-08-18",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804991002645 VAL. 17-08"
+ },
+ {
+  "id": 20404,
+  "j": "BELFIUS",
+  "date": "2026-08-18",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804991002644 VAL. 17-08"
+ },
+ {
+  "id": 20489,
+  "j": "ING",
+  "date": "2026-08-20",
+  "amount": -258.25,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Skeepers Identification: BE39 ZZZ CITD000000037 Compte: IE30CITI99005132956548 BIC: STTOIE22 Mandat: FRQIKPS7R9UYJNED Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: STR16NAV66QHCY9LH6GA5RANAHQ0OJRNAO Communication: Skeepers"
+ },
+ {
+  "id": 20522,
+  "j": "ING",
+  "date": "2026-08-21",
+  "amount": 41.21,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: AMAZON PAYMENTS EUROPE S.C.A. 38 AVENUE J.F. KENNEDY LUXEMBOURG L1855 Luxembourg IBAN: IE13BOFA99006157524162 Communication : SLR4RLYM9OWD9M53 Info personnelle: SLR4RLYM9OWD9M53"
+ },
+ {
+  "id": 20546,
+  "j": "ING",
+  "date": "2026-08-24",
+  "amount": -541.17,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Worldline SA/NV Identification: BE62 ZZZ 0418547872 Compte: BE87210087760194 BIC: GEBABEBB Mandat: 000540888020 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 2000342326 Communication: /INV/2260379939 9.7.2026 But du paiement: General-Other"
+ },
+ {
+  "id": 20548,
+  "j": "ING",
+  "date": "2026-08-24",
+  "amount": -937.17,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: PROXIMUS Identification: BE92 FLS 0202239951 Compte: BE85913410481906 BIC: EPBFBEBBXXX Mandat: P000005173 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 4015439992 Communication: 007604959089007690346873 But du paiement: General-Other"
+ },
+ {
+  "id": 20549,
+  "j": "ING",
+  "date": "2026-08-24",
+  "amount": -100.0,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: PROXIMUS Identification: BE92 FLS 0202239951 Compte: BE85913410481906 BIC: EPBFBEBBXXX Mandat: P000005173 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 0015124621 Communication: 007604959092007600511574 But du paiement: General-Other"
+ },
+ {
+  "id": 20568,
+  "j": "ING",
+  "date": "2026-08-25",
+  "amount": -15000.0,
+  "partner": "",
+  "ref": "Virement en euros (SEPA): ING app Vers: TEATOWER - BE86068958071350 Info personnelle: 3265995d88554e3faf318565fedb98d5"
+ },
+ {
+  "id": 20602,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": 378.0,
+  "partner": "",
+  "ref": "Virement instantané en euros Instantané le 26/08 - 07:59:50 De: LE PRESSOIR ARDENNAIS SRL RUE DU BOSQUET 3 HOTTON 6990 Belgique IBAN: BE34732086915990 Communication: ***000/0044/70787*** 000004470787"
+ },
+ {
+  "id": 20609,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": -1591.81,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: sinas GmbH + Co. KG Identification: DE82 TEE 00000616771 Compte: DE44290400900106520000 BIC: COBADEFF Mandat: 1501275 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 0000260000ZV000692Z Communication: 2024891501275DE82TEE00000616771"
+ },
+ {
+  "id": 20615,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": -195.0,
+  "partner": "",
+  "ref": "Paiement Bancontact 26/08/26 - 10h14 - BRICO 3325 WATERLOO CE 1410 - WATERLOO - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20616,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": -247.5,
+  "partner": "",
+  "ref": "Paiement Bancontact 26/08/26 - 10h09 - COMPTE CITOYEN 1040 - BRUXELLES - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20617,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": 9.81,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: EDENRED BELGIUM Bd du Souverain 165 9 AUDERGHEM 1160 Belgique IBAN: BE47001657146380 Communication : EDENRED BELGIUM SA/NV 33327183 629914ETR200826 0 033327183 P00301988 00000997 0000016 Info personnelle: EDENRED--TRFNEMO20260824006424"
+ },
+ {
+  "id": 20591,
+  "j": "BELFIUS",
+  "date": "2026-08-27",
+  "amount": -22.4,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - RJ Pasta Bar - 6700 Arlon BE - 27/08/26 12:21 - SANS CONTACT VIA WALLET APPLE PAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0499048993239 VAL. 27-08 BE   27/08/26 12:21                            APPLE PAY   MCC5814 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20623,
+  "j": "ING",
+  "date": "2026-08-27",
+  "amount": 198.11,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000291117"
+ },
+ {
+  "id": 20635,
+  "j": "ING",
+  "date": "2026-08-27",
+  "amount": -9912.97,
+  "partner": "",
+  "ref": "DEBIT POUR DOMICILIATION EN EUROS (SEPA) Ce jour, nous débitons votre compte en faveur de: Kirchner, Fischer + Co GmbH Identification: DE86 ZZZ 00000377691 Compte: DE92210900070090568001 BIC: GENODEF1KIL Mandat: K40115725 Réglementation: SEPA SDD Core Type: Encaissement récurrent Référence unique: 0000160000ZV001457Z Communication: DE86ZZZ00000377691, K40115725 Z 008 -004, 7.812,20 Z 008-004, 5,50 R RG K26-04484, 723,75"
+ },
+ {
+  "id": 20647,
+  "j": "ING",
+  "date": "2026-08-28",
+  "amount": -180.0,
+  "partner": "",
+  "ref": "Paiement et/ou frais Garantie Bancaire Bénéficiaire : Trade Finance Services Communication : BEBTFSBGI0086497 BG20250728003227 H1060828U650768"
+ },
+ {
+  "id": 20651,
+  "j": "ING",
+  "date": "2026-08-28",
+  "amount": 1809.56,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: DELHAIZE LE LION/DE LEEUW BRUSSELSESTEENWEG 347 BRUSSELSESTEENWEG 347 ASSE 1730 1730 KOBBEGEM ASSE Belgique IBAN: BE16310016508274 Communication : /ADV/2000062072 28.8.2026 Info personnelle: 2000062072"
+ },
+ {
+  "id": 20653,
+  "j": "ING",
+  "date": "2026-08-28",
+  "amount": 31.95,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: EDENRED BELGIUM Bd du Souverain 165 9 AUDERGHEM 1160 Belgique IBAN: BE47001657146380 Communication : EDENRED BELGIUM SA/NV 33363720 629914ETR250826 0 033363720 P00434211 00003250 0000055 Info personnelle: EDENRED--TRFNEMO20260827007243"
+ },
+ {
+  "id": 20658,
+  "j": "ING",
+  "date": "2026-08-29",
+  "amount": 222.72,
+  "partner": "",
+  "ref": "Virement instantané en euros Instantané le 29/08 - 09:50:49 De: SAVEDIS ROUTE DE MARCHE 41 6940 BARVAUX-SUR-OURTHE Belgique IBAN: BE41068930131310 Communication: ***000/0044/60582*** 000004460582"
+ }
+]
