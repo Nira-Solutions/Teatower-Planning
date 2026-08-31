@@ -1,0 +1,128 @@
+[
+ {
+  "id": 19188,
+  "j": "BELFIUS",
+  "date": "2026-06-10",
+  "amount": 30000.0,
+  "ref": "PAIEMENT DU PRET N 071-9574936-30 REF. : 05032HB6A1008 VAL. 10-06",
+  "tag": "---",
+  "detail": ""
+ },
+ {
+  "id": 19660,
+  "j": "ING",
+  "date": "2026-07-09",
+  "amount": 637.24,
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000287398",
+  "tag": "---",
+  "detail": ""
+ },
+ {
+  "id": 19992,
+  "j": "ING",
+  "date": "2026-07-27",
+  "amount": 0.01,
+  "ref": "Virement instantané en euros Instantané le 27/07 - 11:48:36 De: iPiD Europe B V Mesiniu g. 5, Vilnius LITHUANIA Lituanie IBAN: LT593590010000000000 Donneur d'ordre final : Communication : A payer authorized this micro_deposit to verify your account details b efore making a payment",
+  "tag": "---",
+  "detail": ""
+ },
+ {
+  "id": 20373,
+  "j": "ING",
+  "date": "2026-08-13",
+  "amount": 160.61,
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000290027",
+  "tag": "---",
+  "detail": ""
+ },
+ {
+  "id": 20350,
+  "j": "BELFIUS",
+  "date": "2026-08-14",
+  "amount": 10000.0,
+  "ref": "VERSEMENT INSTANTANE DE BE11 1030 9759 9448 NIRA SOLUTIONS Pret actionnaire VERS BE86 0689 5807 1350 TEATOWER SA REF. : 080G78E042880 VAL. 14-08",
+  "tag": "---",
+  "detail": ""
+ },
+ {
+  "id": 20353,
+  "j": "BELFIUS",
+  "date": "2026-08-14",
+  "amount": 30000.0,
+  "ref": "VERSEMENT INSTANTANE DE BE34 7326 6139 8490 TILMAN JEAN NOEL PrEt actionnaires 14-08-26 VERS BE86 0689 5807 1350 TEATOWER SA REF. : 080G78E093505 VAL. 14-08",
+  "tag": "---",
+  "detail": ""
+ },
+ {
+  "id": 20381,
+  "j": "ING",
+  "date": "2026-08-14",
+  "amount": 2652.97,
+  "ref": "Virement en euros (SEPA) De: DELHAIZE LE LION/DE LEEUW BRUSSELSESTEENWEG 347 BRUSSELSESTEENWEG 347 ASSE 1730 1730 KOBBEGEM ASSE Belgique IBAN: BE16310016508274 Communication : /ADV/2000058526 14.8.2026 Info personnelle: 2000058526",
+  "tag": "IBAN BE16310016508274 -> Delhaize Le Lion S.A",
+  "detail": "INV/2026/03997 res=210.10 tot=210.10 not_paid [Delhaize Le Lion S.A] ; INV/2026/03993 res=461.30 tot=461.30 not_paid [Delhaize Le Lion S.A] ; INV/2026/03967 res=190.75 tot=190.75 not_paid [Delhaize Le Lion S.A] ; INV/2026/03946 res=915.79 tot=915.79 not_paid [Delhaize Le Lion S.A]"
+ },
+ {
+  "id": 20522,
+  "j": "ING",
+  "date": "2026-08-21",
+  "amount": 41.21,
+  "ref": "Virement en euros (SEPA) De: AMAZON PAYMENTS EUROPE S.C.A. 38 AVENUE J.F. KENNEDY LUXEMBOURG L1855 Luxembourg IBAN: IE13BOFA99006157524162 Communication : SLR4RLYM9OWD9M53 Info personnelle: SLR4RLYM9OWD9M53",
+  "tag": "IBAN IE13BOFA99006157524162 -> Amazon Advertising",
+  "detail": ""
+ },
+ {
+  "id": 20602,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": 378.0,
+  "ref": "Virement instantané en euros Instantané le 26/08 - 07:59:50 De: LE PRESSOIR ARDENNAIS SRL RUE DU BOSQUET 3 HOTTON 6990 Belgique IBAN: BE34732086915990 Communication: ***000/0044/70787*** 000004470787",
+  "tag": "STRUCT +++000/0044/70787+++ |EXACT|",
+  "detail": "INV/2026/03921 res=378.00 tot=378.00 not_paid [Le Pressoir Ardennais]"
+ },
+ {
+  "id": 20617,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": 9.81,
+  "ref": "Virement en euros (SEPA) De: EDENRED BELGIUM Bd du Souverain 165 9 AUDERGHEM 1160 Belgique IBAN: BE47001657146380 Communication : EDENRED BELGIUM SA/NV 33327183 629914ETR200826 0 033327183 P00301988 00000997 0000016 Info personnelle: EDENRED--TRFNEMO20260824006424",
+  "tag": "IBAN BE47001657146380 -> EDENRED",
+  "detail": ""
+ },
+ {
+  "id": 20623,
+  "j": "ING",
+  "date": "2026-08-27",
+  "amount": 198.11,
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000291117",
+  "tag": "---",
+  "detail": ""
+ },
+ {
+  "id": 20651,
+  "j": "ING",
+  "date": "2026-08-28",
+  "amount": 1809.56,
+  "ref": "Virement en euros (SEPA) De: DELHAIZE LE LION/DE LEEUW BRUSSELSESTEENWEG 347 BRUSSELSESTEENWEG 347 ASSE 1730 1730 KOBBEGEM ASSE Belgique IBAN: BE16310016508274 Communication : /ADV/2000062072 28.8.2026 Info personnelle: 2000062072",
+  "tag": "IBAN BE16310016508274 -> Delhaize Le Lion S.A",
+  "detail": "INV/2026/03997 res=210.10 tot=210.10 not_paid [Delhaize Le Lion S.A] ; INV/2026/03993 res=461.30 tot=461.30 not_paid [Delhaize Le Lion S.A] ; INV/2026/03967 res=190.75 tot=190.75 not_paid [Delhaize Le Lion S.A] ; INV/2026/03946 res=915.79 tot=915.79 not_paid [Delhaize Le Lion S.A]"
+ },
+ {
+  "id": 20653,
+  "j": "ING",
+  "date": "2026-08-28",
+  "amount": 31.95,
+  "ref": "Virement en euros (SEPA) De: EDENRED BELGIUM Bd du Souverain 165 9 AUDERGHEM 1160 Belgique IBAN: BE47001657146380 Communication : EDENRED BELGIUM SA/NV 33363720 629914ETR250826 0 033363720 P00434211 00003250 0000055 Info personnelle: EDENRED--TRFNEMO20260827007243",
+  "tag": "IBAN BE47001657146380 -> EDENRED",
+  "detail": ""
+ },
+ {
+  "id": 20658,
+  "j": "ING",
+  "date": "2026-08-29",
+  "amount": 222.72,
+  "ref": "Virement instantané en euros Instantané le 29/08 - 09:50:49 De: SAVEDIS ROUTE DE MARCHE 41 6940 BARVAUX-SUR-OURTHE Belgique IBAN: BE41068930131310 Communication: ***000/0044/60582*** 000004460582",
+  "tag": "STRUCT +++000/0044/60582+++ |EXACT|",
+  "detail": "INV/2026/03896 res=222.72 tot=222.72 not_paid [Spar Barvaux, Invoice ]"
+ }
+]
