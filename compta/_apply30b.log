@@ -1,0 +1,92 @@
+MODE : APPLY
+================================================================================================
+
+### A. RADIUS -- cascade de lettrages croises ###
+  partials mal apparies encore en place : 0 / 30
+
+  re-appariement par communication SEPA :
+   [orphelin  ] cle 251701144607   solde=   519.70 | BNK1/25-26/2033(+519.70)
+   [orphelin  ] cle 251701494979   solde=   182.11 | BNK1/25-26/2795(+104.97) BNK1/25-26/2795(+77.14)
+   [orphelin  ] cle 251701560629   solde=   410.63 | BNK1/25-26/2876(+410.63)
+   [orphelin  ] cle 261700070932   solde=   515.34 | BNK1/25-26/3149(+515.34)
+   [orphelin  ] cle 261700117313   solde=    -0.01 | RESA500(-0.01)
+   [orphelin  ] cle 261701143099   solde=  -508.98 | RESA926(-508.98)
+   [orphelin  ] cle 261702049423   solde=  -279.21 | RESA1283(-279.21)
+
+  domiciliations ING de juillet :
+   BSL 19871 [SKIP] deja traitee
+   BSL 19985 [SKIP] deja traitee
+
+
+### B. LETTRAGES FACTURE <-> BANQUE ###
+
+  P20143 : deja defait
+
+  BSL 20548 [SKIP] deja traitee
+
+  BSL 20549 [SKIP] deja traitee
+
+  BSL 19944 [SKIP] deja traitee
+
+  BSL 20546 [SKIP] deja traitee
+
+  RESA1199 (3,40 credit) <-> RBILL/26-27/07/0005 residuel (3,40 debit)
+     RESA1199 res=0.00 | RBILL/26-27/07/0005 res=0.00
+
+
+### C. REPOINTAGES ###
+   BSL 19480 [SKIP] deja traitee
+   BSL 19607 [SKIP] deja traitee
+   BSL 19703 [SKIP] deja traitee
+   BSL 19972 [SKIP] deja traitee
+   BSL 20110 [SKIP] deja traitee
+   BSL 20204 [SKIP] deja traitee
+   BSL 20380 [SKIP] deja traitee
+   BSL 20662 [SKIP] deja traitee
+   BSL 19638 [SKIP] deja traitee
+   BSL 19728 [SKIP] deja traitee
+   BSL 20257 [SKIP] deja traitee
+   BSL 20377 [SKIP] deja traitee
+   BSL 19639 [SKIP] deja traitee
+   BSL 20256 [SKIP] deja traitee
+   BSL 19788 [SKIP] deja traitee
+   BSL 20394 [SKIP] deja traitee
+   BSL 19780 [SKIP] deja traitee
+   BSL 20178 [SKIP] deja traitee
+   BSL 20489 [SKIP] deja traitee
+   BSL 19625 [SKIP] deja traitee
+   BSL 20352 [SKIP] deja traitee
+   BSL 20635 [SKIP] deja traitee
+   BSL 19746 [SKIP] deja traitee
+   BSL 20276 [SKIP] deja traitee
+   BSL 20420 [SKIP] deja traitee
+   BSL 18034 [SKIP] deja traitee
+   BSL 18036 [SKIP] deja traitee
+   BSL 18037 [SKIP] deja traitee
+   BSL 18038 [SKIP] deja traitee
+   BSL 18039 [SKIP] deja traitee
+   BSL 18360 [SKIP] deja traitee
+   BSL 19184 [SKIP] deja traitee
+   BSL 18046 [SKIP] deja traitee
+   BSL 19839 [SKIP] deja traitee
+   BSL 19570 [SKIP] deja traitee
+   BSL 18047 [SKIP] deja traitee
+   BSL 19190 [SKIP] deja traitee
+   BSL 19571 [SKIP] deja traitee
+   BSL 19460 [SKIP] deja traitee
+   BSL 20104 [SKIP] deja traitee
+   BSL 20647 [SKIP] deja traitee
+   BSL 19735 [SKIP] deja traitee
+   BSL 20087 [SKIP] deja traitee
+   BSL 20288 [SKIP] deja traitee
+   BSL 20157 [SKIP] deja traitee
+   BSL 19610 [SKIP] deja traitee
+   BSL 19737 [SKIP] deja traitee
+   BSL 19738 [SKIP] deja traitee
+   BSL 19739 [SKIP] deja traitee
+   BSL 20391 [SKIP] deja traitee
+   BSL 20392 [SKIP] deja traitee
+   BSL 20208 [SKIP] deja traitee
+
+================================================================================================
+Lignes ING+Belfius encore non lettrees : 44
