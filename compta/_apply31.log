@@ -1,0 +1,39 @@
+MODE : APPLY
+============================================================================================
+  BSL 19853  2026-07-20   -342.77 -> 234   p6404    | Achat Faire (MIAMIO) -- precedent BSL 19854/19855/19426/19428
+        [OK] repointee
+  BSL 19857  2026-07-20   -180.51 -> 234   p6404    | Achat Faire (NCA Europe Design) -- meme precedent
+        [OK] repointee
+  BSL 20401  2026-08-17   -272.04 -> 234   p6404    | Achat Faire (Ogo Living) -- meme precedent
+        [OK] repointee
+  BSL 19999  2026-07-29    -50.00 -> 879            | Meta Ads (Facebook Payments) -- publicite
+        [OK] repointee
+  BSL 20123  2026-08-02    -50.00 -> 879            | Meta Ads (Facebook Payments) -- publicite
+        [OK] repointee
+  BSL 20111  2026-08-02    -50.00 -> 879            | Braderie de Waterloo -- emplacement/evenement boutique
+        [OK] repointee
+  BSL 20591  2026-08-27    -22.40 -> 879            | RJ Pasta Bar Arlon -- precedent BSL 19213 (52,90 -> 616600)
+        [OK] repointee
+  BSL 20079  2026-07-31    -21.98 -> 827            | Google Play (abonnement) -- licences informatiques
+        [OK] repointee
+  BSL 20126  2026-08-04    -11.72 -> 872            | Carrefour Express Liege -- precedent BSL 11627/11629 (615230)
+        [OK] repointee
+  BSL 20374  2026-08-13    -22.10 -> 872            | Le Fleuron Tournai (fleuriste) -- decoration boutique
+        [OK] repointee
+  BSL 20125  2026-08-04    -11.47 -> 854            | Familia Hannut -- petit achat divers
+        [OK] repointee
+  BSL 20616  2026-08-26   -247.50 -> 854            | Compte Citoyen -- precedent BSL 16971/15497 (613099)
+        [OK] repointee
+  BSL 20213  2026-08-07    -43.10 -> 838            | sr-Get your mug Liege -- fournitures boutique
+        [OK] repointee
+  BSL 20345  2026-08-12     -9.60 -> 838            | sr-Get your mug Liege -- fournitures boutique
+        [OK] repointee
+  BSL 20615  2026-08-26   -195.00 -> 192   p7416    | Brico Waterloo -- precedent BSL 17182/15916 (440000 + Brico)
+        [OK] repointee
+  BSL 19640  2026-07-10     -0.01 -> 281            | Mollie -- virement de verification de compte
+        [OK] repointee
+  BSL 19641  2026-07-10     -0.01 -> 281            | Mollie -- virement de verification de compte
+        [OK] repointee
+
+Total impute : -1530.21 EUR
+Lignes ING+Belfius encore non lettrees : 27

@@ -1,0 +1,354 @@
+[
+ {
+  "id": 18527,
+  "j": "BELFIUS",
+  "date": "2026-05-18",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804961011145 VAL. 17-05"
+ },
+ {
+  "id": 18528,
+  "j": "BELFIUS",
+  "date": "2026-05-18",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804961011144 VAL. 17-05"
+ },
+ {
+  "id": 18529,
+  "j": "BELFIUS",
+  "date": "2026-05-18",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804961011143 VAL. 17-05"
+ },
+ {
+  "id": 19188,
+  "j": "BELFIUS",
+  "date": "2026-06-10",
+  "amount": 30000.0,
+  "partner": "",
+  "ref": "PAIEMENT DU PRET N 071-9574936-30 REF. : 05032HB6A1008 VAL. 10-06"
+ },
+ {
+  "id": 19199,
+  "j": "BELFIUS",
+  "date": "2026-06-18",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804971003106 VAL. 17-06"
+ },
+ {
+  "id": 19200,
+  "j": "BELFIUS",
+  "date": "2026-06-18",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804971003105 VAL. 17-06"
+ },
+ {
+  "id": 19201,
+  "j": "BELFIUS",
+  "date": "2026-06-18",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804971003104 VAL. 17-06"
+ },
+ {
+  "id": 19660,
+  "j": "ING",
+  "date": "2026-07-09",
+  "amount": 637.24,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000287398"
+ },
+ {
+  "id": 19640,
+  "j": "BELFIUS",
+  "date": "2026-07-10",
+  "amount": -0.01,
+  "partner": "",
+  "ref": "VIREMENT E-COMMERCE VERS BE42 0689 0209 3054 StichtingMollie Payments M01842781MRPN1KC Vrifiez identifiant du compte 19564809 (BE86068958071350) REF. : 090541617A236 VAL. 10-07"
+ },
+ {
+  "id": 19641,
+  "j": "BELFIUS",
+  "date": "2026-07-10",
+  "amount": -0.01,
+  "partner": "",
+  "ref": "VIREMENT E-COMMERCE VERS BE42 0689 0209 3054 StichtingMollie Payments M01842781MRPMTBT Vrifiez identifiant du compte 19564809 (BE86068958071350) REF. : 090540137A167 VAL. 10-07"
+ },
+ {
+  "id": 19692,
+  "j": "BELFIUS",
+  "date": "2026-07-13",
+  "amount": -2559.85,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9574936-30 REF. : 0804981020119 VAL. 10-07"
+ },
+ {
+  "id": 19804,
+  "j": "ING",
+  "date": "2026-07-16",
+  "amount": -755.9,
+  "partner": "",
+  "ref": "Paiement ING : MASTERCARD 188 84105935-01/073 R.784105935039"
+ },
+ {
+  "id": 19843,
+  "j": "BELFIUS",
+  "date": "2026-07-20",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804981006141 VAL. 17-07"
+ },
+ {
+  "id": 19844,
+  "j": "BELFIUS",
+  "date": "2026-07-20",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804981006140 VAL. 17-07"
+ },
+ {
+  "id": 19845,
+  "j": "BELFIUS",
+  "date": "2026-07-20",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804981006139 VAL. 17-07"
+ },
+ {
+  "id": 19853,
+  "j": "ING",
+  "date": "2026-07-20",
+  "amount": -342.77,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 19/07/26 - 17h34 - MIAMIO Faire 2595AN - Den Haag - NLD Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000361955736"
+ },
+ {
+  "id": 19857,
+  "j": "ING",
+  "date": "2026-07-20",
+  "amount": -180.51,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 19/07/26 - 17h06 - NCA Europe Desig Faire 2595AN - Den Haag - NLD Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000361955882"
+ },
+ {
+  "id": 19959,
+  "j": "BELFIUS",
+  "date": "2026-07-27",
+  "amount": -492.59,
+  "partner": "",
+  "ref": "VIREMENT INSTANTANE BELFIUS MOBILE VERS BE89 0682 4304 9085 Christophe PIRET-GERARD Societe notariale SRL 4586/002 REF. : 090548427Q303 VAL. 26-07"
+ },
+ {
+  "id": 19992,
+  "j": "ING",
+  "date": "2026-07-27",
+  "amount": 0.01,
+  "partner": "",
+  "ref": "Virement instantané en euros Instantané le 27/07 - 11:48:36 De: iPiD Europe B V Mesiniu g. 5, Vilnius LITHUANIA Lituanie IBAN: LT593590010000000000 Donneur d'ordre final : Communication : A payer authorized this micro_deposit to verify your account details b efore making a payment"
+ },
+ {
+  "id": 19999,
+  "j": "BELFIUS",
+  "date": "2026-07-29",
+  "amount": -50.0,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - FACEBOOK PAYMENTS INTE - 02X525D IE - 29/07/26 08:40 - Meta Ads - VIA INTERNET - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0320000000000 VAL. 29-07 IE   29/07/26 08:40                                        MCC7311 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20049,
+  "j": "ING",
+  "date": "2026-07-29",
+  "amount": -396.0,
+  "partner": "",
+  "ref": "CHEQUE GUICHET"
+ },
+ {
+  "id": 20079,
+  "j": "ING",
+  "date": "2026-07-31",
+  "amount": -21.98,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 30/07/26 - 0h00 - GOOGLE *Play 94043 - MOUNTAIN VIEW - USA 25,00 USD à 1,137397 Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000369419910"
+ },
+ {
+  "id": 20111,
+  "j": "ING",
+  "date": "2026-08-02",
+  "amount": -50.0,
+  "partner": "",
+  "ref": "Paiement Bancontact 01/08/26 - 20h14 - BRADERIE 1410 - Waterloo - BEL 7KQ8EIO BRADERIE-WATERLOO.BE Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20123,
+  "j": "ING",
+  "date": "2026-08-02",
+  "amount": -50.0,
+  "partner": "",
+  "ref": "Paiement Bancontact 02/08/26 - 13h40 - FACEBOOK PAYMENTS INTE D02X525 - DUBLIN - IRL Meta Ads Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20125,
+  "j": "BELFIUS",
+  "date": "2026-08-04",
+  "amount": -11.47,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - FAMILIA 35 HANNUT - 4280 HANNUT BE - 04/08/26 08:39 - SANS CONTACT VIA WALLET APPLE PAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0541897120811 VAL. 04-08 BE   04/08/26 08:39                            APPLE PAY   MCC5912 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20126,
+  "j": "BELFIUS",
+  "date": "2026-08-04",
+  "amount": -11.72,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - CRF EXP CATHEDR - 4000 LIEGE BE -04/08/26 09:31 - SANS CONTACT VIA WALLET APPLE PAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0480000016950 VAL. 04-08 BE   04/08/26 09:31                            APPLE PAY   MCC5411 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20213,
+  "j": "BELFIUS",
+  "date": "2026-08-07",
+  "amount": -43.1,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - sr-Get your mug-Liege- - 4000 LI?GE BE - 07/08/26 13:48 - SANS CONTACT VIA WALLET APPLEPAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0323903550000 VAL. 07-08 BE   07/08/26 13:48                            APPLE PAY   MCC5814 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20265,
+  "j": "BELFIUS",
+  "date": "2026-08-11",
+  "amount": -2559.85,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9574936-30 REF. : 0804991016496 VAL. 10-08"
+ },
+ {
+  "id": 20345,
+  "j": "ING",
+  "date": "2026-08-12",
+  "amount": -9.6,
+  "partner": "",
+  "ref": "Paiement Bancontact 12/08/26 - 9h25 - sr-Get your mug-Liege- 4000 - LI?GE - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20373,
+  "j": "ING",
+  "date": "2026-08-13",
+  "amount": 160.61,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: ITM ALIMENTAIRE BELGIUM SA RUE DU BOSQUET 4 RUE DU BOSQUET 4 LOUVAIN-LA-NEUVE 1348 1348 LOUVAIN-LA-NEUVE Belgique IBAN: BE75370106230851 Info personnelle: 0000290027"
+ },
+ {
+  "id": 20374,
+  "j": "ING",
+  "date": "2026-08-13",
+  "amount": -22.1,
+  "partner": "",
+  "ref": "Paiement Bancontact 13/08/26 - 12h43 - LE FLEURON 7500 - TOURNAI - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20350,
+  "j": "BELFIUS",
+  "date": "2026-08-14",
+  "amount": 10000.0,
+  "partner": "",
+  "ref": "VERSEMENT INSTANTANE DE BE11 1030 9759 9448 NIRA SOLUTIONS Pret actionnaire VERS BE86 0689 5807 1350 TEATOWER SA REF. : 080G78E042880 VAL. 14-08"
+ },
+ {
+  "id": 20353,
+  "j": "BELFIUS",
+  "date": "2026-08-14",
+  "amount": 30000.0,
+  "partner": "",
+  "ref": "VERSEMENT INSTANTANE DE BE34 7326 6139 8490 TILMAN JEAN NOEL PrEt actionnaires 14-08-26 VERS BE86 0689 5807 1350 TEATOWER SA REF. : 080G78E093505 VAL. 14-08"
+ },
+ {
+  "id": 20381,
+  "j": "ING",
+  "date": "2026-08-14",
+  "amount": 2652.97,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: DELHAIZE LE LION/DE LEEUW BRUSSELSESTEENWEG 347 BRUSSELSESTEENWEG 347 ASSE 1730 1730 KOBBEGEM ASSE Belgique IBAN: BE16310016508274 Communication : /ADV/2000058526 14.8.2026 Info personnelle: 2000058526"
+ },
+ {
+  "id": 20401,
+  "j": "ING",
+  "date": "2026-08-17",
+  "amount": -272.04,
+  "partner": "",
+  "ref": "Paiement Debit Mastercard 16/08/26 - 17h57 - Ogo living Faire 2595AN - Den Haag - NLD Numéro de carte 5244 35XX XXXX 6306 Référence ING: COP000381243665"
+ },
+ {
+  "id": 20414,
+  "j": "ING",
+  "date": "2026-08-17",
+  "amount": -999.74,
+  "partner": "",
+  "ref": "Paiement ING : MASTERCARD 219 84105935-01/073 R.784105935039"
+ },
+ {
+  "id": 20402,
+  "j": "BELFIUS",
+  "date": "2026-08-18",
+  "amount": -706.91,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570629-88 REF. : 0804991002646 VAL. 17-08"
+ },
+ {
+  "id": 20403,
+  "j": "BELFIUS",
+  "date": "2026-08-18",
+  "amount": -273.64,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570628-87 REF. : 0804991002645 VAL. 17-08"
+ },
+ {
+  "id": 20404,
+  "j": "BELFIUS",
+  "date": "2026-08-18",
+  "amount": -410.46,
+  "partner": "",
+  "ref": "CHARGES ECHUES AFFERENTES A VOTRE CREDIT PROFESSIONNELNUMERO 071-9570627-86 REF. : 0804991002644 VAL. 17-08"
+ },
+ {
+  "id": 20522,
+  "j": "ING",
+  "date": "2026-08-21",
+  "amount": 41.21,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: AMAZON PAYMENTS EUROPE S.C.A. 38 AVENUE J.F. KENNEDY LUXEMBOURG L1855 Luxembourg IBAN: IE13BOFA99006157524162 Communication : SLR4RLYM9OWD9M53 Info personnelle: SLR4RLYM9OWD9M53"
+ },
+ {
+  "id": 20615,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": -195.0,
+  "partner": "",
+  "ref": "Paiement Bancontact 26/08/26 - 10h14 - BRICO 3325 WATERLOO CE 1410 - WATERLOO - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20616,
+  "j": "ING",
+  "date": "2026-08-26",
+  "amount": -247.5,
+  "partner": "",
+  "ref": "Paiement Bancontact 26/08/26 - 10h09 - COMPTE CITOYEN 1040 - BRUXELLES - BEL Numéro de carte 5244 35XX XXXX 6306"
+ },
+ {
+  "id": 20591,
+  "j": "BELFIUS",
+  "date": "2026-08-27",
+  "amount": -22.4,
+  "partner": "",
+  "ref": "BANCONTACT - ACHAT - RJ Pasta Bar - 6700 Arlon BE - 27/08/26 12:21 - SANS CONTACT VIA WALLET APPLE PAY - CARTE 5255 06XX XXXX 6783 - Pire Stephan REF. : 0499048993239 VAL. 27-08 BE   27/08/26 12:21                            APPLE PAY   MCC5814 525506XXXXXX6783Pire Stephan"
+ },
+ {
+  "id": 20651,
+  "j": "ING",
+  "date": "2026-08-28",
+  "amount": 1809.56,
+  "partner": "",
+  "ref": "Virement en euros (SEPA) De: DELHAIZE LE LION/DE LEEUW BRUSSELSESTEENWEG 347 BRUSSELSESTEENWEG 347 ASSE 1730 1730 KOBBEGEM ASSE Belgique IBAN: BE16310016508274 Communication : /ADV/2000062072 28.8.2026 Info personnelle: 2000062072"
+ }
+]
