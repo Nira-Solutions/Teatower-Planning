@@ -92,6 +92,11 @@ TIER_RULES = [
 ]
 
 VISITE_TAG_RE = re.compile(r"\[VISITE (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
+# [TERRAIN AAAA-MM-JJ ...] = passage merchandiser constate sur place. C'est une
+# VISITE au meme titre que [VISITE ...] : une visite sans reassort ne laisse ni
+# commande ni picking, donc sans ce tag le magasin passe pour jamais visite
+# (REGLES §14, Nicolas 02/09/2026).
+TERRAIN_TAG_RE = re.compile(r"\[TERRAIN (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 
 # Tags merchandiser terrain (Nicolas 10/06/2026) — parsés depuis res.partner.comment
 # et exposés dans le planning sous chaque magasin (remplacent les "notes" verbeuses).
@@ -211,11 +216,12 @@ def parse_visit_dates_from_comment(comment):
     # strip HTML tags
     text = re.sub(r"<[^>]+>", " ", comment)
     dates = []
-    for m in VISITE_TAG_RE.finditer(text):
-        try:
-            dates.append(date.fromisoformat(m.group(1)))
-        except ValueError:
-            pass
+    for regex in (VISITE_TAG_RE, TERRAIN_TAG_RE):
+        for m in regex.finditer(text):
+            try:
+                dates.append(date.fromisoformat(m.group(1)))
+            except ValueError:
+                pass
     return dates
 
 
