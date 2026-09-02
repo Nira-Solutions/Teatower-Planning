@@ -1,0 +1,74 @@
+{
+  "8779": {
+    "motif": "sans visite depuis 197j — non casé au planning",
+    "depuis": "2026-02-17",
+    "jours": 197,
+    "date_bascule": "2026-09-02",
+    "magasin": "Affilié 044780 - Proxy Delhaize Le Beau Rivage",
+    "isole": false
+  },
+  "7760": {
+    "motif": "sans visite depuis 128j — magasin isolé — non casé au planning",
+    "depuis": "2026-04-27",
+    "jours": 128,
+    "date_bascule": "2026-09-02",
+    "magasin": "Hyper Carrefour Fleron - 5400102606202",
+    "isole": true
+  },
+  "59558": {
+    "motif": "sans visite depuis 103j — non casé au planning",
+    "depuis": "2026-05-22",
+    "jours": 103,
+    "date_bascule": "2026-09-02",
+    "magasin": "Rosy Dis sprl - Carrefour Market La Chasse",
+    "isole": false
+  },
+  "3153": {
+    "motif": "sans visite depuis 90j — non casé au planning",
+    "depuis": "2026-06-04",
+    "jours": 90,
+    "date_bascule": "2026-09-02",
+    "magasin": "NIVALIM - Intermarché Nivelles",
+    "isole": false
+  },
+  "2971": {
+    "motif": "sans visite depuis 89j — magasin isolé — non casé au planning",
+    "depuis": "2026-06-05",
+    "jours": 89,
+    "date_bascule": "2026-09-02",
+    "magasin": "Gerpidis SA - Intermarché Gerpinnes",
+    "isole": true
+  },
+  "113216": {
+    "motif": "sans visite depuis 79j — non casé au planning",
+    "depuis": "2026-06-15",
+    "jours": 79,
+    "date_bascule": "2026-09-02",
+    "magasin": "Dynamic Food SRL - Spar Louvain-La-Neuve",
+    "isole": false
+  },
+  "5426": {
+    "motif": "sans visite depuis 77j — non casé au planning",
+    "depuis": "2026-06-17",
+    "jours": 77,
+    "date_bascule": "2026-09-02",
+    "magasin": "DELHAIZE BOONDAEL",
+    "isole": false
+  },
+  "2773": {
+    "motif": "sans visite depuis 62j — magasin isolé — non casé au planning",
+    "depuis": "2026-07-02",
+    "jours": 62,
+    "date_bascule": "2026-09-02",
+    "magasin": "2u S.A. - Carrefour Market Ciney",
+    "isole": true
+  },
+  "115578": {
+    "motif": "sans visite depuis 58j — non casé au planning",
+    "depuis": "2026-07-06",
+    "jours": 58,
+    "date_bascule": "2026-09-02",
+    "magasin": "Affilié 040299 - Delhaize Andenne",
+    "isole": false
+  }
+}

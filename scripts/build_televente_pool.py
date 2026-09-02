@@ -25,6 +25,7 @@ import xmlrpc.client
 import argparse
 import csv
 import re
+import json
 import math
 import statistics
 from datetime import date, timedelta
@@ -83,6 +84,27 @@ FORCE_TELEVENTE_PIDS = {
 PRIORITE_PIDS = {
     123144: "bon client jamais visite depuis le 02/07 — ne pas louper",
 }
+
+# BASCULES AUTOMATIQUES (REGLES §14) : ecrites par check_couverture_gms.py.
+# Un magasin CRITIQUE (> 45j sans contact) qui n'a PAS pu etre case dans le
+# planning merch de la semaine bascule d'office ici -> il est appele. Pas de
+# troisieme issue. FORCE_MERCH_PIDS prime : une decision explicite de Nicolas
+# n'est jamais ecrasee par l'automatisme.
+AUTO_TELEVENTE_FILE = REPO / "data" / "force_televente_auto.json"
+
+
+def load_auto_televente():
+    if not AUTO_TELEVENTE_FILE.exists():
+        return {}
+    try:
+        raw = json.loads(AUTO_TELEVENTE_FILE.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"[!] {AUTO_TELEVENTE_FILE.name} illisible ({e}) -> ignore")
+        return {}
+    return {int(k): v for k, v in raw.items()}
+
+
+AUTO_TELEVENTE = load_auto_televente()
 
 # IMPLANTATION EN ATTENTE (REGLES §12) : magasins dont l'implantation PHYSIQUE est
 # planifiee en merch mais pas encore executee. La commande d'ouverture existe deja,
@@ -163,9 +185,16 @@ def parse_appels(comment):
 
 
 def is_gms(name, parent_name):
-    if parent_name and any(c in parent_name for c in GMS_PARENT_NAMES):
+    # Comparaison INSENSIBLE A LA CASSE : les fiches Odoo sont saisies au petit
+    # bonheur (« DELHAIZE BOONDAEL » en capitales ne matchait pas le token
+    # « Delhaize  »). Le magasin basculait alors sur le pid de FACTURATION au
+    # lieu du pid magasin -> pools merch et televente desalignes, exclusivite
+    # cassee et bascule automatique sans effet (cf. REGLES §14, 02/09/2026).
+    pn = (parent_name or "").casefold()
+    nm = (name or "").casefold()
+    if pn and any(c.casefold() in pn for c in GMS_PARENT_NAMES):
         return True
-    return any(tok in (name or "") for tok in GMS_NAME_TOKENS)
+    return any(tok.casefold() in nm for tok in GMS_NAME_TOKENS)
 
 
 def clean_name(raw):
@@ -344,11 +373,14 @@ def main():
         # --- segmentation Vanessa ---
         far = dist is not None and dist > DIST_MIN
         small = n_refs <= REFS_MAX
-        forced = sp in FORCE_TELEVENTE_PIDS
+        auto = AUTO_TELEVENTE.get(sp)
+        forced = sp in FORCE_TELEVENTE_PIDS or auto is not None
         is_vanessa = forced or small or (far and n_refs < REFS_CARVEOUT)
         if not is_vanessa:
             continue
-        if forced:
+        if auto:
+            reason = f"bascule auto — {auto.get('motif', 'sans visite')}"
+        elif forced:
             reason = "bascule televente (decision Nicolas)"
         elif small and far:
             reason = "petit assortiment + eloigne"
@@ -446,7 +478,10 @@ def main():
             "impl_date": impl_date.isoformat() if impl_date else "",
             "suivi_impl": "1" if suivi_impl else "",
             "reason": reason,
-            "priorite": PRIORITE_PIDS.get(sp, ""),
+            # une bascule auto est prioritaire d'office : le magasin a deja
+            # ete oublie une fois, il ne doit pas l'etre deux.
+            "priorite": PRIORITE_PIDS.get(sp, "") or (
+                auto.get("motif", "") if auto else ""),
             "top_products": top_products,
             "notes": strip_html(comment)[:300],
         })

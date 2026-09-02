@@ -342,15 +342,32 @@ Cas Delhaize Ath (#123144), 02/09/2026. Bon client (431 EUR/mois de CA reel, 690
 
 Le pool l'a en plus sous-classe : `avg_mois` divise le CA par 12 mois alors que le magasin n'a que 4 mois d'anciennete → il apparaissait 74e/105 au lieu de 24e/105.
 
-### Application — controle obligatoire a chaque generation
+### Application — DEUX issues, pas trois
 
-1. Apres `build_planning_pool.py` **et** `build_televente_pool.py`, lancer **`scripts/check_couverture_gms.py`**.
-2. Il sort tout magasin actif sans contact depuis **> 30 j** (ALERTE) ou **> 45 j** (CRITIQUE), et ecrit `data/alertes_couverture_<date>.csv`.
-3. **Chaque CRITIQUE doit etre arbitre avant de finaliser le planning** — trois issues possibles, jamais « on verra la semaine prochaine » :
-   - **visite** calee dans la tournee de la semaine ;
-   - **bascule televente** (`FORCE_TELEVENTE_PIDS`) si le magasin est isole ;
-   - **arret** assume (tag `[ARRET`), si le client ne vaut plus le contact.
-4. Un magasin signale **ISOLE** par le script (≤ 2 magasins merch dans sa zone postale) bascule en televente **par defaut** : le merch n'ira pas.
+Nicolas, 02/09/2026 : « **Soit tu arrives a le caser dans le prochain planning, si pas, d'office il doit etre dans televente.** »
+
+Il n'y a donc que deux sorties possibles, jamais « on verra la semaine prochaine » :
+1. le magasin est **dans le planning merch** de la semaine → rien a faire ;
+2. il n'y est pas → **bascule d'office en televente**.
+
+### Procedure
+
+1. Generer le planning merch de la semaine (`planning_data.py` a jour).
+2. Lancer `build_planning_pool.py` **et** `build_televente_pool.py`.
+3. Lancer **`scripts/check_couverture_gms.py --apply`**. Il :
+   - lit les pids **reellement planifies** dans `planning_data.py` (2 dernieres semaines, ou `--semaines=s37`) ;
+   - sort tout magasin actif sans contact depuis > 30 j (ALERTE) / > 45 j (CRITIQUE) dans `data/alertes_couverture_<date>.csv` ;
+   - ecrit les CRITIQUES **non planifies** dans `data/force_televente_auto.json`.
+4. Relancer `build_televente_pool.py` puis `build_televente_page.py` : les bascules entrent dans le pool Vanessa, **prioritaires d'office** (elles ont deja ete oubliees une fois).
+
+### Deux cas ou l'automatisme ne peut PAS trancher — arbitrage manuel
+
+- **Magasin en `FORCE_MERCH_PIDS`** : le script le signale `BLOQUE` au lieu d'ecrire une bascule sans effet. Soit on le case au planning, soit on le retire de `FORCE_MERCH_PIDS`.
+- **Client a arreter** : si le client ne vaut plus le contact, poser le tag `[ARRET` — decision de Nicolas, jamais automatique.
+
+### Piege corrige le 02/09/2026 — casse des noms Odoo
+
+`is_gms()` comparait les noms **en respectant la casse** : « DELHAIZE BOONDAEL » en capitales ne matchait pas le token « Delhaize  ». Le magasin basculait alors sur le pid de **facturation** au lieu du pid **magasin** → les deux pools travaillaient sur des pids differents, l'exclusivite sautait et la bascule automatique tombait a cote. Comparaison passee en `casefold()` : +10 magasins correctement rattaches, 0 sortant.
 
 ### Priorite televente
 
