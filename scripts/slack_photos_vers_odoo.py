@@ -161,6 +161,55 @@ def resoudre(libelle, magasins, seuil=10):
     return (pid, nom, sc)
 
 
+# -------------------------------------------------- securite anti-email client
+# Regle Nicolas (02/09/2026) : « je ne veux qu'AUCUN mail ne soit envoye aux
+# externes ». On ne se contente pas de la bonne pratique (mail.mt_note), on
+# VERIFIE apres chaque ecriture, et on s'arrete au premier doute.
+class EmailSortantDetecte(Exception):
+    pass
+
+
+def verifier_subtype_interne(call):
+    """mail.mt_note doit etre internal=True, sinon il notifie les externes."""
+    ref = call('ir.model.data', 'search_read',
+               [[('module', '=', 'mail'), ('name', '=', 'mt_note')]],
+               {'fields': ['res_id'], 'limit': 1})
+    if not ref:
+        raise SystemExit("[X] SECURITE : subtype mail.mt_note introuvable — abandon.")
+    st = call('mail.message.subtype', 'read', [[ref[0]['res_id']]],
+              {'fields': ['name', 'internal', 'default']})[0]
+    if not st.get('internal'):
+        raise SystemExit(f"[X] SECURITE : le subtype '{st['name']}' n'est PAS interne "
+                         "— une note serait envoyee aux abonnes. Abandon.")
+    print(f"[OK] securite : subtype '{st['name']}' interne — notes non diffusees")
+    return ref[0]['res_id']
+
+
+def controler_aucun_email(call, message_id, pid):
+    """Apres un post : aucune notification de type email ne doit exister.
+
+    Si une en existe, on la neutralise (annulation de l'envoi), on supprime le
+    message, et on leve : mieux vaut interrompre l'import que laisser partir un
+    seul mail chez un gerant de magasin.
+    """
+    notifs = call('mail.notification', 'search_read',
+                  [[('mail_message_id', '=', message_id),
+                    ('notification_type', '=', 'email')]],
+                  {'fields': ['res_partner_id', 'notification_status']})
+    if not notifs:
+        return
+    dest = ", ".join(f"{n['res_partner_id'][1]} (#{n['res_partner_id'][0]})" for n in notifs)
+    # neutraliser avant que le cron mail ne parte
+    mails = call('mail.mail', 'search',
+                 [[('mail_message_id', '=', message_id)]])
+    if mails:
+        call('mail.mail', 'write', [mails, {'state': 'cancel'}])
+    call('mail.message', 'unlink', [[message_id]])
+    raise EmailSortantDetecte(
+        f"notification email creee sur la fiche #{pid} vers : {dest}. "
+        f"Message supprime et envoi annule. IMPORT INTERROMPU.")
+
+
 # ------------------------------------------------------------------ recap
 # Nicolas veut un recap TRES court sur la fiche : la ligne doit dire l'essentiel
 # sans qu'on ait a deplier le message. On garde l'issue du passage, pas le roman.
@@ -226,6 +275,7 @@ def main():
     import glob as _glob
     pools = sorted(_glob.glob('data/planning_pool_*.csv'))[-1:] + \
             sorted(_glob.glob('data/televente_pool_*.csv'))[-1:]
+    verifier_subtype_interne(call)
     magasins = charger_magasins(pools)
     if not magasins:
         sys.exit("[X] aucun pool trouve — lance build_planning_pool.py d'abord")
@@ -278,9 +328,14 @@ def main():
         # Regle Nicolas 02/09/2026 : aucune info de visite ne part au client.
         body = (f"<p><b>Visite du {d:%d/%m/%Y}</b> — {auteur(m)} · {issue(texte)}</p>"
                 f"<p style='color:#888;font-size:11px'>Note interne — source Slack #merchandiser</p>")
-        call('res.partner', 'message_post', [pid], {
+        mid = call('res.partner', 'message_post', [pid], {
             'body': body, 'attachment_ids': atts,
             'message_type': 'comment', 'subtype_xmlid': 'mail.mt_note'})
+        controler_aucun_email(call, mid, pid)      # arrete tout si un mail part
+        # Odoo echappe le HTML d'un body passe par XML-RPC (il n'est pas Markup) :
+        # la note s'afficherait « <p><b>Visite... » en clair. On reecrit le body
+        # apres coup, ce qui ne redeclenche aucune notification.
+        call('mail.message', 'write', [[mid], {'body': body}])
 
         # Bon de commande : la meme photo est rattachee a la SO du jour si elle
         # existe (piece justificative en cas de litige / rejet EDI). Simple
