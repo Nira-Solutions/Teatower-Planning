@@ -1,4 +1,5 @@
-"""Pose les codes EAN-13 sur les 17 SRP 6x VRAC (liste Nicolas 02/09/2026).
+"""Pose les codes barres sur les 17 SRP 6x VRAC (liste Nicolas 02/09/2026).
+CONVENTION SRP : 14 chiffres = "1" colle devant l'EAN-13 (unite logistique 6x).
 Usage: --apply pour ecrire (sinon dry-run).
 """
 import sys, xmlrpc.client
@@ -23,7 +24,9 @@ def ean13_ok(c):
 bad=[e for e,_ in PAIRS if not ean13_ok(e)]
 assert not bad, f'EAN invalides: {bad}'
 assert len(set(e for e,_ in PAIRS))==17 and len(set(r for _,r in PAIRS))==17, 'doublons'
-print('17 EAN-13 valides (cle de controle OK), aucun doublon.\n')
+print('17 EAN-13 valides (cle de controle OK), aucun doublon.')
+PAIRS=[('1'+e, r) for e, r in PAIRS]   # convention SRP : prefixe "1"
+print('Prefixe "1" applique -> codes a 14 chiffres.\n')
 
 for ean, ref in PAIRS:
     p=call('product.product','search_read',[[('default_code','=',ref)]],{'fields':['id','name','barcode']})
