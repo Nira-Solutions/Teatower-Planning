@@ -71,6 +71,9 @@ CSS = """
   .badge-ok { background:#2b8a3e; color:#fff; }
   .badge-refus { background:#a61e4d; color:#fff; }
   .badge-impl { background:#fd7e14; color:#fff; }
+  .badge-prio { background:#c1121f; color:#fff; }
+  .call.prio { border-left:5px solid #c1121f; background:#fff5f5; }
+  .prio-why { font-size:.82rem; color:#c1121f; font-weight:600; margin:.2rem 0 .1rem; }
   .meta { font-size:.82rem; color:#555; margin-top:.35rem; line-height:1.5; }
   .meta strong { color:var(--text); }
   .contact-badge { background:#fde7f5; border-left:4px solid var(--accent); padding:.35rem .7rem; margin:.35rem 0; font-size:.9rem; border-radius:0 4px 4px 0; color:#7b2d6a; font-weight:600; }
@@ -129,6 +132,8 @@ def render_call(r, rank):
     if "eloigne" in r["reason"]:
         motif += f'<span class="badge badge-loin">{r["dist_km"]} km</span>'
     nrp_flag = '<span class="badge badge-nrp">déjà NRP</span>' if r.get("_nrp_prev") else ""
+    prio = r.get("priorite") or ""
+    prio_badge = '<span class="badge badge-prio">⚠️ prioritaire</span>' if prio else ""
 
     cname = r.get("contact_name") or ""
     tel = r.get("contact_phone") or r["phone"] or r["mobile"] or ""
@@ -142,13 +147,15 @@ def render_call(r, rank):
     adr = ", ".join(x for x in [r.get("street"), r.get("zip"), r.get("city")] if x)
     impl_line = (f'🆕 Implanté le <strong>{esc(r["impl_date"])}</strong> — appel de suivi (besoin de réassort ?)<br>'
                  if r.get("suivi_impl") else '')
-    cls = "call impl" if r.get("suivi_impl") else "call"
+    prio_line = f'<div class="prio-why">⚠️ PRIORITAIRE — {esc(prio)}</div>' if prio else ""
+    cls = "call prio" if prio else ("call impl" if r.get("suivi_impl") else "call")
     return f"""
   <div class="{cls}">
     <div class="call-header">
       <span><span class="rank">{rank}.</span> <span class="client">{esc(r['magasin'])}</span> <span style="color:#999;font-size:.78rem">#{r['pid']}</span></span>
-      <span>{badge}{motif}{nrp_flag}</span>
+      <span>{prio_badge}{badge}{motif}{nrp_flag}</span>
     </div>
+    {prio_line}
     {contact}
     <div class="meta">
       {impl_line}📍 <a href="{maps_link(r)}" target="_blank">{esc(adr)}</a> &nbsp;·&nbsp; {esc(r['dist_km'])} km<br>
@@ -210,10 +217,14 @@ def main():
 
     due = [r for r in rows if r["_next"] and r["_next"] <= fri
            and id(r) not in handled and id(r) not in nrp_ids]
+    # Les magasins PRIORITAIRES (cf. PRIORITE_PIDS) passent devant tout le reste.
     anti = sorted([r for r in due if r["overdue_days"] <= DORMANT_THRESHOLD],
-                  key=lambda r: (0 if r.get("suivi_impl") else 1, -r["overdue_days"], -int(r["avg_mois"])))
+                  key=lambda r: (0 if r.get("priorite") else 1,
+                                 0 if r.get("suivi_impl") else 1,
+                                 -r["overdue_days"], -int(r["avg_mois"])))
     winback = sorted([r for r in due if r["overdue_days"] > DORMANT_THRESHOLD],
-                     key=lambda r: (-r["overdue_days"], -int(r["avg_mois"])))
+                     key=lambda r: (0 if r.get("priorite") else 1,
+                                    -r["overdue_days"], -int(r["avg_mois"])))
     for r in anti:
         r["_nrp_prev"] = r["_nrp"] is not None
     nb_impl = sum(1 for r in anti if r.get("suivi_impl"))
