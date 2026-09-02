@@ -327,7 +327,7 @@ def main():
         msgs = msgs[:args.max]
     print(f"[*] {len(msgs)} message(s) avec photo\n")
 
-    ok = amb = vide = 0
+    ok = amb = vide = deja = 0
     octets_avant = octets_apres = 0
     for m in msgs:
         d = datetime.fromtimestamp(float(m["ts"]), tz=timezone(timedelta(hours=2)))
@@ -346,6 +346,14 @@ def main():
         print(f"  {'+' if score>=2 else '~'}  {d:%d/%m} {libelle[:36]:36} -> #{pid:<7} {nom[:32]:32} ({len(imgs)} ph.){flag}")
         if score < 2:
             amb += 1
+        # IDEMPOTENCE : le tag [VISITE date] pose lors d'un import precedent fait
+        # office de verrou. Sans lui, une relance re-poste notes et photos en
+        # double (constate le 02/09 : 7 visites importees deux fois).
+        cm0 = call('res.partner', 'read', [[pid]], {'fields': ['comment']})[0]['comment'] or ''
+        if f"[VISITE {d:%Y-%m-%d}" in re.sub(r'<[^>]+>', ' ', cm0):
+            print(f"{'':7}    deja importee — ignore")
+            deja += 1
+            continue
         if not args.apply:
             continue
 
@@ -375,6 +383,14 @@ def main():
         # apres coup, ce qui ne redeclenche aucune notification.
         call('mail.message', 'write', [[mid], {'body': body}])
 
+        # Tag [VISITE] : c'est lui que build_planning_pool.py lit pour calculer
+        # last_visit. Sans lui, une visite sans reassort reste invisible et le
+        # garde-fou §14 bascule le magasin en televente a tort.
+        cm = call('res.partner', 'read', [[pid]], {'fields': ['comment']})[0]['comment'] or ''
+        if f"[VISITE {d:%Y-%m-%d}" not in re.sub(r'<[^>]+>', ' ', cm):
+            call('res.partner', 'write', [[pid], {'comment': cm +
+                 f"<p>[VISITE {d:%Y-%m-%d} {auteur(m, token)}] {issue(texte)}</p>"}])
+
         # Bon de commande : la meme photo est rattachee a la SO du jour si elle
         # existe (piece justificative en cas de litige / rejet EDI). Simple
         # ir.attachment : aucun message, donc aucune notification possible.
@@ -392,7 +408,8 @@ def main():
             print(f"{'':7}    -> bon de commande rattache a {so[0]['name']}")
         ok += 1
 
-    print(f"\n{ok} visite(s) importee(s) | {amb} correspondance(s) faible(s) | {vide} non resolue(s)")
+    print(f"\n{ok} importee(s) | {deja} deja presente(s) | {amb} a verifier "
+          f"| {vide} non resolue(s)")
     if octets_avant:
         print(f"poids : {octets_avant/1e6:.1f} Mo bruts -> {octets_apres/1e6:.1f} Mo dans Odoo "
               f"({100*octets_apres/octets_avant:.0f} %)")
