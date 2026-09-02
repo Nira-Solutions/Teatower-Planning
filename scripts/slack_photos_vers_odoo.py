@@ -34,6 +34,26 @@ ODOO_PWD = os.environ.get('ODOO_PWD', 'Teatower123')
 
 
 # ---------------------------------------------------------------- Slack
+def token_depuis_claude():
+    """Reutilise le token du plugin MCP Slack deja autorise sur ce poste.
+
+    Evite de faire creer une app Slack dediee : l'autorisation OAuth faite
+    depuis Claude Code porte deja channels:history, groups:history et
+    files:read. Token jamais affiche ni logue.
+    """
+    p = os.path.expanduser("~/.claude/.credentials.json")
+    if not os.path.exists(p):
+        return None
+    try:
+        d = json.load(open(p, encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    for k, v in (d.get("mcpOAuth") or {}).items():
+        if "slack" in k.lower() and v.get("accessToken"):
+            return v["accessToken"]
+    return None
+
+
 def slack(method, token, **params):
     url = f"https://slack.com/api/{method}?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
@@ -234,8 +254,26 @@ def issue(texte):
         lignes[0] if lignes else "passage")
 
 
-def auteur(m):
-    return (m.get("user_profile") or {}).get("real_name") or "terrain"
+_NOMS = {}
+
+
+def auteur(m, token=None):
+    """Nom reel du posteur. conversations.history ne renvoie pas user_profile :
+    il faut interroger users.info (mis en cache, ~5 personnes sur le canal)."""
+    prof = (m.get("user_profile") or {}).get("real_name")
+    if prof:
+        return prof
+    uid_ = m.get("user")
+    if not uid_ or not token:
+        return "terrain"
+    if uid_ not in _NOMS:
+        try:
+            u = slack("users.info", token, user=uid_)["user"]
+            _NOMS[uid_] = (u.get("profile", {}).get("real_name")
+                           or u.get("real_name") or u.get("name") or "terrain")
+        except SystemExit:
+            _NOMS[uid_] = "terrain"
+    return _NOMS[uid_]
 
 
 # ------------------------------------------------------------------ image
@@ -260,10 +298,10 @@ def main():
     ap.add_argument("--max", type=int, default=0, help="limiter le nb de messages (test)")
     args = ap.parse_args()
 
-    token = os.environ.get("SLACK_TOKEN")
+    token = os.environ.get("SLACK_TOKEN") or token_depuis_claude()
     if not token:
-        sys.exit("[X] SLACK_TOKEN absent. Creer un token utilisateur Slack avec les\n"
-                 "    scopes channels:history, groups:history, files:read, puis :\n"
+        sys.exit("[X] Aucun token Slack. Soit le plugin MCP Slack est connecte "
+                 "(le token est repris automatiquement), soit :\n"
                  "        set SLACK_TOKEN=xoxp-...")
 
     common = xmlrpc.client.ServerProxy(f'{ODOO_URL}/xmlrpc/2/common')
@@ -326,7 +364,7 @@ def main():
         # Un message_post sans ce subtype prend mail.mt_comment par defaut et
         # NOTIFIE PAR EMAIL tous les abonnes de la fiche, client compris.
         # Regle Nicolas 02/09/2026 : aucune info de visite ne part au client.
-        body = (f"<p><b>Visite du {d:%d/%m/%Y}</b> — {auteur(m)} · {issue(texte)}</p>"
+        body = (f"<p><b>Visite du {d:%d/%m/%Y}</b> — {auteur(m, token)} · {issue(texte)}</p>"
                 f"<p style='color:#888;font-size:11px'>Note interne — source Slack #merchandiser</p>")
         mid = call('res.partner', 'message_post', [pid], {
             'body': body, 'attachment_ids': atts,
