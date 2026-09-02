@@ -328,6 +328,40 @@ Instauree le 14/08/2026 (Nicolas). S34 avait Liege + Rocourt en depot le lundi 1
 
 ---
 
+## 14. Aucun client GMS sans contact — l'eloignement n'est PAS une excuse (REGLE DURE, 2026-09-02)
+
+**Un client pro GMS ne peut jamais rester sans visite NI appel au motif qu'il est trop loin des tournees.**
+
+Chaque magasin GMS actif doit etre couvert par **un** des deux pools, et couvert **dans les faits**, pas seulement sur le papier :
+- soit **merch** (visite Gilles), soit **televente** (appel Vanessa) — jamais aucun des deux ;
+- s'il reste dans le pool merch sans jamais etre retenu dans une tournee, il **doit** basculer en televente.
+
+### Motif
+
+Cas Delhaize Ath (#123144), 02/09/2026. Bon client (431 EUR/mois de CA reel, 690 EUR par commande), passe en « merch permanent cadence 15j » le 28/06. Il est ressorti du pool **chaque semaine** avec un retard croissant... mais n'a jamais ete retenu : c'est le **seul magasin du pool merch de tout le Hainaut occidental** (116 km, aucun voisin). Une journee pour un stop de 25 min perd systematiquement l'arbitrage face a une journee Liege ou Namur a 6-8 stops. Resultat : **2 mois sans aucun contact**, personne ne l'a vu.
+
+Le pool l'a en plus sous-classe : `avg_mois` divise le CA par 12 mois alors que le magasin n'a que 4 mois d'anciennete → il apparaissait 74e/105 au lieu de 24e/105.
+
+### Application — controle obligatoire a chaque generation
+
+1. Apres `build_planning_pool.py` **et** `build_televente_pool.py`, lancer **`scripts/check_couverture_gms.py`**.
+2. Il sort tout magasin actif sans contact depuis **> 30 j** (ALERTE) ou **> 45 j** (CRITIQUE), et ecrit `data/alertes_couverture_<date>.csv`.
+3. **Chaque CRITIQUE doit etre arbitre avant de finaliser le planning** — trois issues possibles, jamais « on verra la semaine prochaine » :
+   - **visite** calee dans la tournee de la semaine ;
+   - **bascule televente** (`FORCE_TELEVENTE_PIDS`) si le magasin est isole ;
+   - **arret** assume (tag `[ARRET`), si le client ne vaut plus le contact.
+4. Un magasin signale **ISOLE** par le script (≤ 2 magasins merch dans sa zone postale) bascule en televente **par defaut** : le merch n'ira pas.
+
+### Priorite televente
+
+`PRIORITE_PIDS` dans `build_televente_pool.py` = magasins a ne pas louper. Ils remontent **en tete de la file d'appels** quel que soit leur retard et portent un badge rouge « ⚠️ PRIORITAIRE » avec le motif sur la page Vanessa.
+
+### Etat au 02/09/2026
+
+51 magasins sans contact depuis > 30 j, dont **43 critiques**, soit **10.252 EUR/mois de CA expose**. 8 sont isoles et relevent de la bascule televente.
+
+---
+
 ## Liste complète des clients "Arret" au 2026-04-15
 
 | Magasin | Société | Odoo ID | Motif |

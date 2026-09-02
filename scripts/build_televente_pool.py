@@ -51,7 +51,10 @@ REFS_CARVEOUT = 20   # >= 20 refs : reste a Gilles meme si loin
 FORCE_MERCH_PIDS = {
     3016, 5649,   # KAIO Retail invest - Delhaize Ottignies (gros client, +1km au seuil)
     2914,         # Affilie 044725 - Delhaize Kraainem
-    123144,       # Affilie 040490 - Delhaize Ath : bascule merch permanent, cadence 15j (Nicolas 28/06/2026)
+    # 123144 Delhaize Ath : RETIRE le 02/09/2026. Le merch permanent decide le
+    #        28/06 n'a jamais pu s'executer (seul magasin du pool en Hainaut
+    #        occidental -> aucune tournee ne passe). 45j de retard, dernier
+    #        passage 02/07 -> bascule en televente, cf. FORCE_TELEVENTE_PIDS.
     # Reseau pharmacies Condroz/Famenne bascule en suivi merchandiser (Nicolas 25/08/2026)
     3183,         # Pharmacie Tilman S.A. (6941 Bomal-sur-Ourthe)
     3181,         # Pharmacie Haulot-Bauche SRL (5330 Assesse)
@@ -69,6 +72,16 @@ FORCE_MERCH_TOKENS = ["Delhaize Ottignies", "Delhaize Kraainem"]
 # donc automatiquement des visites Gilles (exclusivite, cf. build_planning_pool.py).
 FORCE_TELEVENTE_PIDS = {
     2905,  # DEMARS S.A. - Carrefour Market Beauraing (Nicolas 15/07/2026)
+    123144,  # Affilie 040490 - Delhaize Ath (Nicolas 02/09/2026) : bon client
+             # (431 EUR/mois reel) mais isole en Hainaut occidental, jamais
+             # visite depuis le 02/07 -> suivi telephonique Vanessa.
+}
+
+# PRIORITE (REGLES §13) : magasins a ne PAS louper. Ils remontent en tete de la
+# file d'appels quel que soit leur retard, et portent un badge rouge sur la page.
+# Cle = pid Odoo, valeur = motif affiche a Vanessa.
+PRIORITE_PIDS = {
+    123144: "bon client jamais visite depuis le 02/07 — ne pas louper",
 }
 
 # IMPLANTATION EN ATTENTE (REGLES §12) : magasins dont l'implantation PHYSIQUE est
@@ -433,12 +446,13 @@ def main():
             "impl_date": impl_date.isoformat() if impl_date else "",
             "suivi_impl": "1" if suivi_impl else "",
             "reason": reason,
+            "priorite": PRIORITE_PIDS.get(sp, ""),
             "top_products": top_products,
             "notes": strip_html(comment)[:300],
         })
 
-    # tri : retard decroissant, puis avg_mois decroissant
-    rows.sort(key=lambda r: (-r["overdue_days"], -r["avg_mois"]))
+    # tri : prioritaires d'abord, puis retard decroissant, puis avg_mois decroissant
+    rows.sort(key=lambda r: (0 if r["priorite"] else 1, -r["overdue_days"], -r["avg_mois"]))
 
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)

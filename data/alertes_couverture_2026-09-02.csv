@@ -1,0 +1,52 @@
+niveau,pid,magasin,zip,city,tier,cycle_days,last_visit,jours_sans_contact,retard_j,avg_mois,isole,recommandation
+CRITIQUE,8779,Affilié 044780 - Proxy Delhaize Le Beau Rivage,5500,Dinant,C,30,2026-02-17,197,165,67.31,non,zone 55xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,3181,Pharmacie Haulot-Bauche SRL - Mickaël Tilman,5330,Assesse,C,42,2026-02-20,194,150,54.06,non,zone 53xxx couverte (4 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,3182,Pharmacie TILMAN HAN SRL,5580,HAN-SUR-LESSE,X,90,2026-02-26,188,96,17.99,non,zone 55xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5916,Affilié 044470 - AD Jambes (Materne),,Jambes,C,42,2026-03-02,184,140,58.28,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,3120,Mardis - Carrefour Market Marche,6900,Marche-en-Famenne,C,42,2026-04-01,154,110,59.32,non,zone 69xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,7760,Hyper Carrefour Fleron - 5400102606202,4620,Fleron,C,30,2026-04-27,128,96,60.04,oui,ISOLE (2 magasin(s) merch en zone 46xxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+CRITIQUE,5830,Proxy Delhaize Bosvoorde - SPRL BROOMCORNER,1170,Watermael-Boitsfort,C,42,2026-05-12,113,69,77.82,oui,ISOLE (1 magasin(s) merch en zone 11xxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+CRITIQUE,59558,Rosy Dis sprl - Carrefour Market La Chasse,1040,Bruxelles,B,28,2026-05-22,103,73,115.56,non,zone 10xxx couverte (3 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5580,GIMALEX SA - Delhaize Fragnée,4000,Liège,B,28,2026-05-29,96,66,273.41,non,zone 40xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,3153,NIVALIM - Intermarché Nivelles,1400,Nivelles,B,28,2026-06-04,90,60,309.72,non,zone 14xxx couverte (3 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,2971,Gerpidis SA - Intermarché Gerpinnes,6280,Gerpinnes,B,28,2026-06-05,89,59,173.44,oui,ISOLE (2 magasin(s) merch en zone 62xxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+CRITIQUE,7070,Delhaize Ciney - Rochefort - Neuchateau - Bastogne,,,B,28,2026-06-05,89,59,50.8,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,114763,Lillodis SRL - Proxy Delhaize Lillois,1428,Lillois,C,42,2026-06-05,89,45,73.93,non,zone 14xxx couverte (3 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,113216,Dynamic Food SRL - Spar Louvain-La-Neuve,1348,Louvain-la-Neuve,B,28,2026-06-15,79,49,183.36,non,zone 13xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5426,DELHAIZE BOONDAEL,1050,IXELLES,B,28,2026-06-17,77,47,116.67,non,zone 10xxx couverte (3 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5439,Affilié 045015 - Delhaize Longdoz Médiacité,,Liège,B,28,2026-06-18,76,46,55.36,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,117407,Affilié 045730 - Delhaize Neufchateau,6840,Neufchâteau,C,42,2026-06-19,75,31,97.21,non,zone 68xxx couverte (3 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5442,Affilié 042955 - Delhaize Etalle,,Etalle,B,28,2026-06-22,72,42,201.48,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5591,Affilié 043131 - AD Fernelmont,,Fernelmont,B,28,2026-06-30,64,34,237.79,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,113498,Affilié 044471 - Delhaize Materne,5100,Namur,B,30,2026-06-30,64,32,220.16,non,zone 51xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,3184,Ma Pharmacie de Baillonville - Bayet Sarah,5377,BAILLONVILLE,B,28,2026-07-01,63,33,301.29,non,zone 53xxx couverte (4 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5752,Intermarché Forest - FREYARVOR,,Forest,C,42,2026-07-01,63,19,67.02,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,2773,2u S.A. - Carrefour Market Ciney,Ciney,5590,B,28,2026-07-02,62,32,194.61,oui,ISOLE (1 magasin(s) merch en zone Cixxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+CRITIQUE,115879,SA VILLERSEM - Intermarché Villers Le Bouillet,4530,VILLERS-LE-BOUILLET,B,28,2026-07-03,61,31,327.97,oui,ISOLE (2 magasin(s) merch en zone 45xxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+CRITIQUE,7693,SA Marer - AD Rochefort,5580,Rochefort,B,28,2026-07-03,61,31,213.48,non,zone 55xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,115578,Affilié 040299 - Delhaize Andenne,5300,Andenne,C,42,2026-07-06,58,14,92.96,non,zone 53xxx couverte (4 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,122958,NDB Diffusion -Spar Namur,5000,Namur,C,42,2026-07-06,58,14,48.75,non,zone 50xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5653,Affilié 048755 - Delhaize St Lambert,,Liège,B,28,2026-07-08,56,26,230.81,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,8689,Hypermarché carrefour Bierges (wavre ),1301,Bierges,B,28,2026-07-08,56,26,157.23,non,zone 13xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,123302,Nathalie Piron,6997,Erezée,B,28,2026-07-08,56,26,130.57,non,zone 69xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,116869,Chili Peppers - Intermarché Tilf,4130,Esneux,A,21,2026-07-09,55,32,610.45,non,zone 41xxx couverte (5 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,3210,SA Faimine - Intermarché Faimes,4317,Faimes,B,28,2026-07-09,55,25,210.47,oui,ISOLE (1 magasin(s) merch en zone 43xxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+CRITIQUE,123303,Affilié 41092 - Delhaize Bertrix,6880,Bertrix,B,28,2026-07-13,51,21,257.14,non,zone 68xxx couverte (3 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,2864,Carrefour Market Bastogne - Pascalino,Bastogne,6600,B,28,2026-07-13,51,21,104.83,oui,ISOLE (1 magasin(s) merch en zone Baxxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+CRITIQUE,8159,N.B.S. RETAIL - Delhaize de Marche,6900,Marche-en-Famenne,A,21,2026-07-14,50,27,412.83,non,zone 69xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,119819,Affilié 044463 - Delhaize Hotton,6990,Hotton,B,28,2026-07-14,50,20,222.26,non,zone 69xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,125096,Hypermarché Carrefour Herstal - 5400102606615,4040,Herstal,B,28,2026-07-14,50,20,183.92,non,zone 40xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,6999,Carrefour Hyper Marche-en-Famenne - 5400102606868,6900,Marche-en-Famenne,B,28,2026-07-15,49,19,341.17,non,zone 69xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,116008,SA Beausov New - Delhaize Beauraing,5570,Beauraing,B,28,2026-07-15,49,19,208.34,non,zone 55xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,119818,Affilié 043151 - Proxy Delhaize Ferrières,4190,Ferrières,B,28,2026-07-16,48,18,180.82,non,zone 41xxx couverte (5 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5878,Carrefour Market Remouchamps,,Aywaille,A,21,2026-07-17,47,24,908.18,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,50967,Affilié 046900 - Proxy Delhaize Rixensart,1330,Rixensart,B,28,2026-07-17,47,17,262.26,non,zone 13xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+CRITIQUE,5729,Affilié 044010 - Delhaize DEBROUX,,Auderghem,B,28,2026-07-17,47,17,142.7,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+ALERTE,2924,Distri-Incourt - Delhaize Incourt,1315,INCOURT,B,28,2026-07-20,44,14,354.12,non,zone 13xxx couverte (10 magasins) -> a caler dans la prochaine tournee
+ALERTE,3000,JAMBIS SA - Intermarché Jambes,5100,JAMBES,B,28,2026-07-23,41,11,165.44,non,zone 51xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+ALERTE,7679,Etablissements Schnongs - AD Ciney,5590,Ciney,B,28,2026-07-23,41,11,158.42,non,zone 55xxx couverte (6 magasins) -> a caler dans la prochaine tournee
+ALERTE,113613,Hyper Carrefour Mons Grands Prés - 5400102606004,7000,Mons,B,28,2026-07-24,40,10,130.87,oui,ISOLE (1 magasin(s) merch en zone 70xxx) -> basculer en TELEVENTE (FORCE_TELEVENTE_PIDS)
+ALERTE,5582,Affilié 043540 - Delhaize Genval,,Genval,B,28,2026-07-30,34,4,334.27,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+ALERTE,5484,Carrefour Market Uccle Bascule,,1180,B,28,2026-07-30,34,4,268.67,non,zone xxx couverte (16 magasins) -> a caler dans la prochaine tournee
+ALERTE,9461,Affilié 048665 - Proxy Delhaize St Michel,1040,Etterbeek,B,28,2026-07-30,34,4,246.38,non,zone 10xxx couverte (3 magasins) -> a caler dans la prochaine tournee
+ALERTE,122091,Affilié 046780 - Delhaize Recogne,6800,Libramont-Chevigny,B,28,2026-08-03,30,0,280.09,non,zone 68xxx couverte (3 magasins) -> a caler dans la prochaine tournee
