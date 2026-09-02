@@ -350,15 +350,26 @@ Il n'y a donc que deux sorties possibles, jamais « on verra la semaine prochain
 1. le magasin est **dans le planning merch** de la semaine → rien a faire ;
 2. il n'y est pas → **bascule d'office en televente**.
 
+### PREALABLE OBLIGATOIRE — lire Slack #merchandiser
+
+**Une visite sans reassort ne laisse AUCUNE trace dans Odoo** (ni commande, ni picking). Le terrain la poste dans le canal Slack prive **`#merchandiser` (C08LK3W76S1)** : Gilles et Renato y ecrivent le nom du magasin suivi de « Pas besoin de remplir ».
+
+Sans cette lecture, le garde-fou prend une visite reelle pour un oubli. Verifie le 02/09/2026 : sur les **9 magasins que l'automatisme voulait basculer, les 9 avaient ete visites** (Le Beau Rivage le 19/08, Fleron le 12/08, La Chasse / Nivelles / Boondael le 10/08, Ciney / Andenne le 14/08, LLN le 07/08, Gerpinnes le 04/08) — **100 % de faux positifs**.
+
+Procedure : lire le canal sur la periode, puis poser les tags via
+`scripts/slack_visites_vers_odoo.py` (tag `[VISITE AAAA-MM-JJ — sans réassort]`,
+lu par `build_planning_pool.py`). **Aucune bascule ne se decide avant cette etape.**
+
 ### Procedure
 
-1. Generer le planning merch de la semaine (`planning_data.py` a jour).
-2. Lancer `build_planning_pool.py` **et** `build_televente_pool.py`.
-3. Lancer **`scripts/check_couverture_gms.py --apply`**. Il :
+1. **Lire `#merchandiser` et poser les tags `[VISITE …]`** (ci-dessus).
+2. Generer le planning merch de la semaine (`planning_data.py` a jour).
+3. Lancer `build_planning_pool.py` **et** `build_televente_pool.py`.
+4. Lancer **`scripts/check_couverture_gms.py --apply`**. Il :
    - lit les pids **reellement planifies** dans `planning_data.py` (2 dernieres semaines, ou `--semaines=s37`) ;
    - sort tout magasin actif sans contact depuis > 30 j (ALERTE) / > 45 j (CRITIQUE) dans `data/alertes_couverture_<date>.csv` ;
    - ecrit les CRITIQUES **non planifies** dans `data/force_televente_auto.json`.
-4. Relancer `build_televente_pool.py` puis `build_televente_page.py` : les bascules entrent dans le pool Vanessa, **prioritaires d'office** (elles ont deja ete oubliees une fois).
+5. Relancer `build_televente_pool.py` puis `build_televente_page.py` : les bascules entrent dans le pool Vanessa, **prioritaires d'office** (elles ont deja ete oubliees une fois).
 
 ### Deux cas ou l'automatisme ne peut PAS trancher — arbitrage manuel
 
