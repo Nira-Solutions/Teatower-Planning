@@ -176,10 +176,15 @@ Sans le responsable, la visite perd 50 a 80 % de sa valeur. Le merchandiser fait
 | ITM Villers-le-Bouillet | Mercredi ou vendredi matin | Odoo comment |
 | CM Etterbeek Cinquantenaire | Ne souhaite PAS de suivi merchandiser | Odoo comment — EXCLU |
 | Delhaize LLN | Mr Snaps absent le jeudi | Odoo comment |
+| Spar Namur (NDB Diffusion, #122958) | Pas de visite le jeudi apres-midi — la zone devient pietonne, acces camionnette impossible. Jeudi matin OK | Odoo comment |
 
 ### Historique
 
 - **2026-04-16** : regle creee suite au bug planning S20 v3 (Proxy Ferrieres planifie mercredi malgre responsable absent). Corrige en v4 (deplace au jeudi).
+- **2026-09-03** : Spar Namur ajoute (Nicolas). Contrainte d'ACCES et non de contact : la
+  rue passe en zone pietonne le jeudi apres-midi, la camionnette ne peut plus approcher.
+  Une demi-journee suffit a bloquer un stop — les contraintes de ce type se notent avec
+  le creneau, pas seulement le jour (cf. ITM Hamoir, Hyper Boncelles).
 
 ---
 
