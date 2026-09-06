@@ -1,0 +1,39 @@
+niveau,pid,magasin,zip,city,tier,last_visit,jours_sans_contact,retard_j,avg_mois,isole,au_planning,issue
+CRITIQUE,3182,Pharmacie TILMAN HAN SRL,5580,HAN-SUR-LESSE,X,2026-02-26,192,102,17.99,non,oui,planifié cette semaine — OK
+CRITIQUE,5916,Affilié 044470 - AD Jambes (Materne),,Jambes,C,2026-03-02,188,146,58.28,non,oui,planifié cette semaine — OK
+CRITIQUE,5580,GIMALEX SA - Delhaize Fragnée,4000,Liège,B,2026-05-29,100,72,273.41,non,oui,planifié cette semaine — OK
+CRITIQUE,114763,Lillodis SRL - Proxy Delhaize Lillois,1428,Lillois,C,2026-06-05,93,51,73.93,non,oui,planifié cette semaine — OK
+CRITIQUE,5439,Affilié 045015 - Delhaize Longdoz Médiacité,,Liège,B,2026-06-18,80,52,55.36,non,oui,planifié cette semaine — OK
+CRITIQUE,5591,Affilié 043131 - AD Fernelmont,,Fernelmont,B,2026-06-30,68,40,237.79,non,oui,planifié cette semaine — OK
+CRITIQUE,113498,Affilié 044471 - Delhaize Materne,5100,Namur,B,2026-06-30,68,38,220.16,non,oui,planifié cette semaine — OK
+CRITIQUE,3184,Ma Pharmacie de Baillonville - Bayet Sarah,5377,BAILLONVILLE,B,2026-07-01,67,39,301.29,non,oui,planifié cette semaine — OK
+CRITIQUE,115879,SA VILLERSEM - Intermarché Villers Le Bouillet,4530,VILLERS-LE-BOUILLET,B,2026-07-03,65,37,327.97,non,oui,planifié cette semaine — OK
+CRITIQUE,122958,NDB Diffusion -Spar Namur,5000,Namur,C,2026-07-06,62,20,48.75,non,oui,planifié cette semaine — OK
+CRITIQUE,5653,Affilié 048755 - Delhaize St Lambert,,Liège,B,2026-07-08,60,32,213.28,non,oui,planifié cette semaine — OK
+CRITIQUE,8689,Hypermarché carrefour Bierges (wavre ),1301,Bierges,B,2026-07-08,60,32,157.23,non,oui,planifié cette semaine — OK
+CRITIQUE,123302,Spar Erezée,6997,Erezée,B,2026-07-08,60,32,130.57,non,oui,planifié cette semaine — OK
+CRITIQUE,3210,SA Faimine - Intermarché Faimes,4317,Faimes,B,2026-07-09,59,31,201.23,oui,oui,planifié cette semaine — OK
+CRITIQUE,125096,Hypermarché Carrefour Herstal - 5400102606615,4040,Herstal,B,2026-07-14,54,26,183.92,non,oui,planifié cette semaine — OK
+CRITIQUE,50967,Affilié 046900 - Proxy Delhaize Rixensart,1330,Rixensart,B,2026-07-17,51,23,262.26,non,oui,planifié cette semaine — OK
+CRITIQUE,5729,Affilié 044010 - Delhaize DEBROUX,,Auderghem,B,2026-07-17,51,23,130.07,non,oui,planifié cette semaine — OK
+CRITIQUE,7679,Etablissements Schnongs - AD Ciney,5590,Ciney,B,2026-07-23,45,17,147.66,non,oui,planifié cette semaine — OK
+ALERTE,113613,Hyper Carrefour Mons Grands Prés - 5400102606004,7000,Mons,B,2026-07-24,44,16,130.87,oui,non,à surveiller
+ALERTE,9461,Affilié 048665 - Proxy Delhaize St Michel,1040,Etterbeek,B,2026-07-30,38,10,246.38,oui,oui,à surveiller
+ALERTE,114704,Affilié 048652 - Delhaize Salzinnes,5000,Namur,A,2026-08-04,33,12,414.32,non,oui,à surveiller
+ALERTE,113746,Hyper Carrefour Arlon - 5400102606943,6700,Arlon,B,2026-08-04,33,5,344.31,oui,non,à surveiller
+ALERTE,7283,Affilié 041335 - Ad Bouffioulx,6200,Chatelet,B,2026-08-04,33,5,253.34,oui,non,à surveiller
+ALERTE,2971,Gerpidis SA - Intermarché Gerpinnes,6280,Gerpinnes,B,2026-08-04,33,5,173.44,oui,non,à surveiller
+ALERTE,123997,AD Delhaize Roodebeek,1200,Bruxelles,B,2026-08-04,33,5,107.69,oui,oui,à surveiller
+ALERTE,123189,Carrefour Market - BASTOGNE PORTE DE TREVES - 5400102105231,6600,Bastogne,C,2026-08-04,33,0,82.19,non,non,à surveiller
+ALERTE,8169,Delhaize Bois-de-breux,4030,Liège,B,2026-08-05,32,4,319.48,non,oui,à surveiller
+ALERTE,113627,Carrefour market Grace Hollogne - 5400102117609,4460,Grâce-Hollogne,B,2026-08-05,32,4,235.4,oui,oui,à surveiller
+ALERTE,6821,Carrefour Market Waterloo,1410,Waterloo,B,2026-08-05,32,4,113.62,non,oui,à surveiller
+ALERTE,121196,Carrefour market Angleur (Belle-Ile) - 5400102102544,4020,Liège,C,2026-08-05,32,0,92.38,non,non,à surveiller
+ALERTE,2909,DelEmbourg SRL - Delhaize Embourg,4053,Embourg,A,2026-08-06,31,10,656.65,non,oui,à surveiller
+ALERTE,119815,BARCHONEW SRL - Delhaize Barchon,4671,Barchon,B,2026-08-06,31,3,299.08,oui,oui,à surveiller
+ALERTE,113445,D-trois SRL - Proxy Delhaize Saint-Séverin,4550,Nandrin,B,2026-08-06,31,3,221.18,non,oui,à surveiller
+ALERTE,59514,Affilié 049480 - Delhaize Welkenraedt,4840,Welkenraedt,B,2026-08-06,31,3,218.44,non,non,à surveiller
+ALERTE,113675,Carrefour market LONTZEN,4710,Lontzen,B,2026-08-06,31,3,194.46,oui,non,à surveiller
+ALERTE,7649,"Delhaize Le Lion S.A, Affilié 048900 - Ad Spa",4900,spa,B,2026-08-06,31,3,150.46,oui,non,à surveiller
+ALERTE,60001,Carrefour Hyper Boncelles - 5400102606127,4100,Boncelles,B,2026-08-07,30,2,267.78,non,oui,à surveiller
+ALERTE,113216,Dynamic Food SRL - Spar Louvain-La-Neuve,1348,Louvain-la-Neuve,B,2026-08-07,30,2,183.36,non,non,à surveiller

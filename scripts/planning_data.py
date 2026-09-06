@@ -1626,7 +1626,7 @@ S35 = {
 }
 
 S36 = {
-    "id": "s36", "nav": "S36 · 31/08-04/09 (à venir)", "active": True,
+    "id": "s36", "nav": "S36 · 31/08-04/09 (passée)", "active": False,
     "title": "Semaine du 31 août au 4 septembre 2026 (S36)",
     "note": ("29 stops sur 4 jours : 1 implantation, 25 visites, 3 dépôts boutiques. "
              "⛔ VENDREDI 04/09 : AUCUNE TOURNÉE — fête du personnel (demande Nicolas). "
@@ -1876,4 +1876,288 @@ S36 = {
     ],
 }
 
-WEEKS = [S36, S35]
+S37 = {
+    "id": "s37", "nav": "S37 · 07/09-11/09 (à venir)", "active": True,
+    "title": "Semaine du 7 au 11 septembre 2026 (S37)",
+    "note": ("33 stops sur 4 jours : 31 visites + 2 dépôts boutiques. "
+             "⛔ JEUDI 10/09 : AUCUNE TOURNÉE — la camionnette doit être chez S Motor à 11h30 pour l'entretien "
+             "(demande Nicolas). La journée Hainaut (Hyper Mons 16j, Bouffioulx, Gerpinnes) et le pocket Luxembourg "
+             "(Hyper Arlon) sautent avec elle → bascule télévente (REGLES §14). "
+             "🔁 RATTRAPAGE S36 : la tournée Liège/Hesbaye du mercredi 02/09 n'a pas eu lieu (aucune trace Slack ni "
+             "Odoo) — Villers-le-Bouillet, Faimes, Herstal, Longdoz, St Lambert et les dépôts Rocourt/Liège sont "
+             "reportés ici. La journée Bruxelles/BW reportée du vendredi 04/09 (fête du personnel) revient le mardi. "
+             "🅿️ Spar Namur (#122958) : passage du 03/09 RATÉ — Gilles n'a pas pu se garer, zone piétonne après "
+             "13h30. Replanifié LUNDI MATIN. "
+             "⏱ Fenêtres imposées respectées : Bierges (mardi ou jeudi UNIQUEMENT, 6h-11h45 → mardi 1ᵉ stop), "
+             "CM Waterloo (6h-12h), Proxy St Michel (mardi-vendredi jusqu'à 14h), Hyper Boncelles (jamais le mardi, "
+             "7h-11h30), Villers-le-Bouillet (mercredi ou vendredi matin), Hannut (livraison 6h-13h), "
+             "Longdoz + Fragnée (jamais le lundi), Barchon (fermé le lundi matin), Materne (jamais le mardi), "
+             "Hyper Jambes / Herstal / Boncelles (Hyper = matin obligatoire). "
+             "💊 Pharmacie de Baillonville en 1ᵉ stop lundi : Sarah Bayet n'avait pas le temps le 31/08 et a demandé "
+             "un repassage AVANT 14h — 39j de retard, 301 €/mois. "
+             "🏪 Dépôts boutiques : Rocourt + Liège le vendredi (colis préparés le jeudi 10/09). Aucun dépôt le lundi "
+             "(REGLES §13). Namur servie le 03/09, pas de dépôt cette semaine. "
+             "🏷 Tags rattrapés dans Odoo avant génération : lot Slack Renato 17→26/08 jamais importé "
+             "(Spar Gembloux, Incourt, Hyper Jambes, Bosvoorde = visités sans réassort). Rixensart reste en retard : "
+             "Renato a explicitement noté « pas fait » le 26/08. "
+             "❌ Écartés : AD Jambes Materne #5916 (146j) et AD Fernelmont #5591 (40j) — doublons d'adresse avec "
+             "#113498 et #2952, tous deux visités ; Proxy Saint-Séverin #113445 — tag [APPEL ONLY — NE PAS VISITER] ; "
+             "Pharmacie Han-sur-Lesse #3182 (102j, 18 €/mois) — retirée par Nicolas ; "
+             "Bosvoorde #5830 — visité le 26/08 + pool télévente. "
+             "Aucun jour férié BE cette semaine."),
+    "days": [
+        {"h": "Lundi 07/09", "sub": "9 stops (9 visites)",
+         "zone": "Namur / Condroz / Ourthe (Baillonville → Jambes → Namur → Naninne → Assesse → Ciney → Erezée)",
+         "km": "185", "ret": "16:00",
+         "addrs": ["Chemin de Huy 1A, 5377 Baillonville", "Avenue Prince de Liège 57-59, 5100 Jambes",
+                   "Av. du Bourgmestre Jean Materne 109, 5100 Namur", "Rue des Echasseurs 1, 5000 Namur",
+                   "Chaussée de Charleroi 22, 5000 Namur", "Chaussée de Marche 860, 5100 Naninne",
+                   "Rue Melville Wilson 3, 5330 Assesse", "Chemin de Crahiat 18A, 5590 Ciney",
+                   "Rue des Chasseurs Ardennais 6, 6997 Erezée"],
+         "stops": [
+            {"t": "08:35 - 09:00", "k": "visite", "b": ["Pharmacie", "Tier B", "39j OVERDUE"],
+             "n": "Ma Pharmacie de Baillonville - Bayet Sarah (#3184)", "ls": "29/06 (70j)", "lsc": "stale",
+             "a": "Chemin de Huy 1A, 5377 Baillonville",
+             "c": "Sarah Bayet — 081 39 50 33",
+             "note": "1ᵉ stop, au dépôt. Sarah Bayet n'a pas eu le temps le 31/08 et a demandé un repassage "
+                     "AVANT 14h pour choisir les références. Charger les doypacks manquants signalés par Gilles."},
+            {"t": "09:40 - 10:05", "k": "visite", "b": ["Hyper", "Tier A", "Échéance 09/09"],
+             "n": "Carrefour Hyper de Jambes (#9046)", "ls": "19/08 (19j)", "lsc": "mid",
+             "a": "Avenue Prince de Liège 57-59, 5100 Jambes",
+             "c": "accueil épicerie — +32 81 33 20 11",
+             "note": "HYPER → matin obligatoire. Passage du 19/08 sans commande (stock restant). 633 €/mois : "
+                     "contrôler la rotation réelle. Le magasin demande des balisages à coller sur les languettes "
+                     "et des arrêts de rayon."},
+            {"t": "10:15 - 10:40", "k": "visite", "b": ["Tier B", "38j OVERDUE"],
+             "n": "Affilié 044471 - Delhaize Materne (#113498)", "ls": "30/06 (69j)", "lsc": "stale",
+             "a": "Av. du Bourgmestre Jean Materne 109, 5100 Namur",
+             "c": "Elise Stroobants (gérante) — demander Angélique ou Mme Stroobants — +32 81 30 16 88",
+             "note": "Reprendre les Guarana Boost : ne tournent pas dans ce magasin.",
+             "rg": "PAS DE VISITE LE MARDI | passage tous les 30j minimum (Nicolas 24/06/2026)"},
+            {"t": "10:55 - 11:20", "k": "visite", "b": ["Tier C", "20j OVERDUE", "Passage raté 03/09"],
+             "n": "NDB Diffusion - Spar Namur (#122958)", "ls": "06/07 (63j)", "lsc": "stale",
+             "a": "Rue des Echasseurs 1, 5000 Namur",
+             "c": "Nicolas De Brouwer — +32 81 81 31 87",
+             "note": "Passage du 03/09 RATÉ : stationnement impossible. Replanifié le matin.",
+             "rg": "MATIN OBLIGATOIRE — zone piétonne après 13h30, camionnette impossible à garer"},
+            {"t": "11:30 - 11:55", "k": "visite", "b": ["Tier A", "12j OVERDUE"],
+             "n": "Affilié 048652 - Delhaize Salzinnes (#114704)", "ls": "04/08 (34j)", "lsc": "mid",
+             "a": "Chaussée de Charleroi 22, 5000 Namur",
+             "c": "Mme Wivine ou Manu — +32 81 40 80 40"},
+            {"t": "12:40 - 13:05", "k": "visite", "b": ["Tier A", "3j OVERDUE"],
+             "n": "Intermarché Naninne (#5755)", "ls": "14/08 (24j)", "lsc": "mid",
+             "a": "Chaussée de Marche 860, 5100 Naninne",
+             "c": "accueil magasin — 081 63 36 96",
+             "note": "Pause repas 11:55 - 12:25 prise sur la route Salzinnes → Naninne. 702 €/mois."},
+            {"t": "13:20 - 13:45", "k": "visite", "b": ["Tier A", "3j OVERDUE"],
+             "n": "SA Barthe - Intermarché Assesse (#5750)", "ls": "14/08 (24j)", "lsc": "mid",
+             "a": "Rue Melville Wilson 3, 5330 Assesse",
+             "c": "Océane + Philippe — 083 66 05 70",
+             "note": "Charger du thé glacé : le 13/08 Gilles n'avait plus rien pour réapprovisionner ce magasin.",
+             "st": "pas de réserve magasin — rien à contrôler avant remplissage",
+             "re": "appareil/scan disponible pour rentrer la marchandise",
+             "rg": "pas de contrôle marchandise à l'entrée"},
+            {"t": "14:05 - 14:30", "k": "visite", "b": ["Tier B", "17j OVERDUE"],
+             "n": "Etablissements Schnongs - AD Ciney (#7679)", "ls": "23/07 (46j)", "lsc": "stale",
+             "a": "Chemin de Crahiat 18A, 5590 Ciney",
+             "c": "accueil magasin"},
+            {"t": "15:05 - 15:30", "k": "visite", "b": ["Tier B", "32j OVERDUE"],
+             "n": "Spar Erezée (#123302)", "ls": "03/07 (66j)", "lsc": "stale",
+             "a": "Rue des Chasseurs Ardennais 6, 6997 Erezée",
+             "c": "Nathalie Piron (gérante) — +32 86 47 72 82 — legribouillon@hotmail.com",
+             "note": "Non faite le 01/09 (journée Famenne écourtée). Dernier stop : départ 15:30 pour un retour "
+                     "base à 16:00."},
+         ]},
+        {"h": "Mardi 08/09", "sub": "7 stops (7 visites)",
+         "zone": "Brabant wallon / Bruxelles (Bierges → Waterloo → Lillois → Etterbeek → Auderghem → Roodebeek → Rixensart)",
+         "km": "265", "ret": "16:25",
+         "addrs": ["Boulevard de l'Europe 3, 1301 Bierges", "Drève de Richelle 10, 1410 Waterloo",
+                   "Grand'Route 350, 1428 Lillois", "Rue de l'Escadron 45, 1040 Etterbeek",
+                   "Avenue Hermann Debroux 26, 1160 Auderghem", "Chaussée de Roodebeek 199, 1200 Bruxelles",
+                   "Place du Beau Site 4, 1330 Rixensart"],
+         "stops": [
+            {"t": "09:35 - 10:00", "k": "visite", "b": ["Hyper", "Tier B", "32j OVERDUE"],
+             "n": "Hypermarché Carrefour Bierges (Wavre) (#8689)", "ls": "07/07 (62j)", "lsc": "stale",
+             "a": "Boulevard de l'Europe 3, 1301 Bierges",
+             "c": "Alizée Urbain — +32 10 23 18 50",
+             "note": "1ᵉ stop imposé par la fenêtre magasin. Jeudi étant supprimé cette semaine, le mardi est la "
+                     "SEULE date possible pour ce magasin.",
+             "rg": "VISITE LE MARDI OU LE JEUDI UNIQUEMENT — horaire 6h-11h45"},
+            {"t": "10:40 - 11:05", "k": "visite", "b": ["Tier B", "4j OVERDUE"],
+             "n": "Carrefour Market Waterloo (#6821)", "ls": "24/07 (45j)", "lsc": "stale",
+             "a": "Drève de Richelle 10, 1410 Waterloo",
+             "c": "Eric Darte — +32 2 352 02 11",
+             "rg": "VISITE DE 6h À 12h — au-delà, plus de possibilité"},
+            {"t": "11:20 - 11:45", "k": "visite", "b": ["Tier C", "51j OVERDUE"],
+             "n": "Lillodis SRL - Proxy Delhaize Lillois (#114763)", "ls": "05/06 (94j)", "lsc": "stale",
+             "a": "Grand'Route 350, 1428 Lillois",
+             "c": "Mme Céline Vandamme — +32 2 384 48 83",
+             "note": "Le magasin refuse le suivi téléphonique — retour en visite merchandiser (décision Nicolas "
+                     "25/08). 51j de retard, plus gros retard de la journée."},
+            {"t": "12:45 - 13:10", "k": "visite", "b": ["Tier B", "10j OVERDUE"],
+             "n": "Affilié 048665 - Proxy Delhaize St Michel (#9461)", "ls": "30/07 (39j)", "lsc": "mid",
+             "a": "Rue de l'Escadron 45, 1040 Etterbeek",
+             "c": "Roxanne Poirier — +32 2 733 51 66",
+             "note": "Pause repas 11:45 - 12:15 prise sur la route Lillois → Bruxelles. Passage en rayon annoncé "
+                     "lors de la dernière visite : vérifier l'emplacement définitif.",
+             "rg": "PASSAGE MERCHANDISER DU MARDI AU VENDREDI JUSQU'À 14h"},
+            {"t": "13:20 - 13:45", "k": "visite", "b": ["Tier B", "23j OVERDUE"],
+             "n": "Affilié 044010 - Delhaize DEBROUX (#5729)", "ls": "17/07 (52j)", "lsc": "stale",
+             "a": "Avenue Hermann Debroux 26, 1160 Auderghem",
+             "c": "accueil magasin — 02 672 87 25"},
+            {"t": "14:00 - 14:25", "k": "visite", "b": ["Tier B", "5j OVERDUE"],
+             "n": "AD Delhaize Roodebeek (#123997)", "ls": "09/07 (60j)", "lsc": "stale",
+             "a": "Chaussée de Roodebeek 199, 1200 Bruxelles",
+             "c": "accueil magasin — +32 2 779 56 03",
+             "note": "Injoignable par téléphone le 03/07 (Vanessa) — la visite physique est le seul contact possible."},
+            {"t": "14:55 - 15:20", "k": "visite", "b": ["Tier B", "23j OVERDUE", "Non faite le 26/08"],
+             "n": "Affilié 046900 - Proxy Delhaize Rixensart (#50967)", "ls": "17/07 (52j)", "lsc": "stale",
+             "a": "Place du Beau Site 4, 1330 Rixensart",
+             "c": "Lara ou Fabienne — +32 2 653 71 18",
+             "note": "Renato a noté « pas fait » le 26/08 : le magasin n'a pas été vu. Dernier stop : départ 15:20 "
+                     "pour un retour base à 16:25."},
+         ]},
+        {"h": "Mercredi 09/09", "sub": "8 stops (8 visites)",
+         "zone": "Liège ouest / Hesbaye / BW est (Boncelles → Grâce-Hollogne → Villers-le-Bouillet → Faimes → Hannut → Jodoigne → Incourt → Chaumont-Gistoux)",
+         "km": "225", "ret": "16:15",
+         "addrs": ["Rue du Condroz 16, 4100 Boncelles", "Rue de Wallonie 2A, 4460 Grâce-Hollogne",
+                   "Rue du Château d'eau 1, 4530 Villers-le-Bouillet", "Rue de Huy 27, 4317 Faimes",
+                   "Rue de Hesbaye 1, 4280 Hannut", "Chaussée de Wavre 90c, 1370 Jodoigne",
+                   "Chaussée de Namur 89, 1315 Incourt", "Chaussée de Huy 47, 1325 Chaumont-Gistoux"],
+         "stops": [
+            {"t": "09:20 - 09:45", "k": "visite", "b": ["Hyper", "Tier B", "2j OVERDUE"],
+             "n": "Carrefour Hyper Boncelles (#60001)", "ls": "05/08 (33j)", "lsc": "mid",
+             "a": "Rue du Condroz 16, 4100 Boncelles",
+             "c": "accueil magasin",
+             "note": "HYPER → matin obligatoire.",
+             "rg": "PAS LE MARDI — horaire 7h-11h30"},
+            {"t": "10:05 - 10:30", "k": "visite", "b": ["Tier B", "4j OVERDUE"],
+             "n": "Carrefour Market Grâce-Hollogne (#113627)", "ls": "05/08 (33j)", "lsc": "mid",
+             "a": "Rue de Wallonie 2A, 4460 Grâce-Hollogne",
+             "c": "Greg ou Joachim — +32 4 384 34 41",
+             "st": "pas de réserve magasin — rien à contrôler avant remplissage",
+             "re": "manuel — pas d'appareil pour rentrer la marchandise",
+             "rg": "pas de contrôle marchandise à l'entrée"},
+            {"t": "10:45 - 11:10", "k": "visite", "b": ["Tier B", "37j OVERDUE", "Display neuf"],
+             "n": "SA VILLERSEM - Intermarché Villers-le-Bouillet (#115879)", "ls": "03/07 (66j)", "lsc": "stale",
+             "a": "Rue du Château d'eau 1, 4530 Villers-le-Bouillet",
+             "c": "Christophe ou Johan — +32 85 31 69 11",
+             "note": "Reporté du mercredi 02/09 (tournée non effectuée). CHARGER UN DISPLAY NEUF (demande client). "
+                     "BRIEF : reprendre toute la gamme VRAC (V0xxx) en rayon et la remplacer 1 pour 1 par les "
+                     "INFUSETTES correspondantes (I0xxx, même blend) — V0301, V0600, V0631, V0723, V0735, V0751, "
+                     "V0832. V0914 (Infusion du Printemps) retirée sans remplacement. Les boîtes VRAC repartent "
+                     "vers Baillonville.",
+             "st": "pas de réserve magasin — rien à contrôler avant remplissage",
+             "re": "manuel — pas d'appareil pour rentrer la marchandise",
+             "rg": "VISITE LE MERCREDI OU LE VENDREDI MATIN | contrôle marchandise à l'entrée OBLIGATOIRE"},
+            {"t": "11:25 - 11:50", "k": "visite", "b": ["Tier B", "31j OVERDUE"],
+             "n": "SA Faimine - Intermarché Faimes (#3210)", "ls": "09/07 (60j)", "lsc": "stale",
+             "a": "Rue de Huy 27, 4317 Faimes",
+             "c": "Gregory — 019 67 83 78",
+             "note": "Reporté du mercredi 02/09 (tournée non effectuée)."},
+            {"t": "12:10 - 12:35", "k": "visite", "b": ["Tier B", "Échéance 14/09"],
+             "n": "INTERMADIS SA - Intermarché Hannut (#121874)", "ls": "17/08 (21j)", "lsc": "mid",
+             "a": "Rue de Hesbaye 1, 4280 Hannut",
+             "c": "Christophe Wereau · Benjamin ou Valentin (responsables rayon) — +32 19 51 20 06",
+             "st": "réserve magasin OUI — contrôler le stock en réserve AVANT de remplir le display "
+                   "(demander Wereau / Benjamin / Valentin)",
+             "re": "GUN — appareil de commande disponible sur place",
+             "rg": "livraison / passage de 6h à 13h"},
+            {"t": "13:25 - 13:50", "k": "visite", "b": ["Tier B", "Échéance 14/09"],
+             "n": "Sadel Trade - AD Delhaize Jodoigne (#121054)", "ls": "17/08 (21j)", "lsc": "mid",
+             "a": "Chaussée de Wavre 90c, 1370 Jodoigne",
+             "c": "Mr David — +32 10 84 03 19",
+             "note": "Pause repas 12:35 - 13:05 prise sur la route Hannut → Jodoigne."},
+            {"t": "14:10 - 14:35", "k": "visite", "b": ["Tier B", "Échéance 14/09"],
+             "n": "Distri-Incourt - Delhaize Incourt (#2924)", "ls": "20/07 (49j)", "lsc": "stale",
+             "a": "Chaussée de Namur 89, 1315 Incourt",
+             "c": "Jérôme Debus — 010 88 72 90",
+             "note": "Passage du 17/08 sans réassort (Renato). 354 €/mois : contrôler la rotation réelle, "
+                     "la dernière commande date du 20/07."},
+            {"t": "14:50 - 15:15", "k": "visite", "b": ["Tier B", "Échéance 07/09"],
+             "n": "LSL RETAIL SPRL - Intermarché Chaumont-Gistoux (#10134)", "ls": "10/08 (28j)", "lsc": "mid",
+             "a": "Chaussée de Huy 47, 1325 Chaumont-Gistoux",
+             "c": "Mme Céline — +32 10 23 92 60",
+             "st": "pas de réserve",
+             "re": "manuel — pas d'appareil pour rentrer la marchandise",
+             "rg": "contrôle marchandise OUI — demander Céline"},
+         ]},
+        {"h": "Jeudi 10/09", "sub": "AUCUNE TOURNÉE — camionnette immobilisée",
+         "zone": "Pas de visite", "km": "0", "ret": "—",
+         "stops": [
+            {"t": "11:30", "k": "visite", "b": ["Jour sans tournée"],
+             "n": "Entretien camionnette — S Motor",
+             "a": "Camionnette à déposer chez S Motor pour 11h30",
+             "note": "Journée bloquée à la demande de Nicolas : aucune tournée merchandiser. "
+                     "Préparer les colis boutiques Rocourt + Liège pour le dépôt du vendredi 11/09."},
+         ]},
+        {"h": "Vendredi 11/09", "sub": "9 stops (7 visites + 2 dépôts boutiques)",
+         "zone": "Liège centre / est (Herstal → Rocourt → Liège → Longdoz → Fragnée → Embourg → Bois-de-Breux → Barchon)",
+         "km": "195", "ret": "16:00",
+         "addrs": ["Rue Basse Campagne 1, 4040 Herstal", "Chaussée de Tongres 269-271, 4000 Rocourt",
+                   "Rue Saint-Paul 7, 4000 Liège", "Rue d'Official 2, 4000 Liège",
+                   "Rue de Grétry 60, 4020 Liège", "Rue de Fragnée 41, 4000 Liège",
+                   "Voie de l'Ardenne 57, 4053 Embourg", "Rue de Herve 280, 4030 Liège",
+                   "Rue Champs de Tignée 32, 4671 Barchon"],
+         "stops": [
+            {"t": "09:30 - 09:55", "k": "visite", "b": ["Hyper", "Tier B", "26j OVERDUE"],
+             "n": "Hypermarché Carrefour Herstal (#125096)", "ls": "10/07 (59j)", "lsc": "stale",
+             "a": "Rue Basse Campagne 1, 4040 Herstal",
+             "c": "Luc Lemoine ou Catherine Dussart — +32 4 240 56 11",
+             "note": "HYPER → matin obligatoire. Reporté du mercredi 02/09 (tournée non effectuée). "
+                     "Référencement du 08/07 : contrôler la rotation du premier facing."},
+            {"t": "10:10 - 10:20", "k": "livr", "b": ["Dépôt boutique"],
+             "n": "Boutique Teatower Rocourt", "ls": "réassort", "lsc": "fresh",
+             "a": "Chaussée de Tongres 269-271, 4000 Rocourt (Shopping Cora Rocourt)",
+             "c": "équipe boutique Rocourt",
+             "note": "DÉPÔT RÉASSORT — 10 min sur place, décharger et repartir. Colis préparé le jeudi 10/09. "
+                     "Jamais avant 10:00. Dépôt reporté du mercredi 02/09."},
+            {"t": "10:35 - 10:45", "k": "livr", "b": ["Dépôt boutique"],
+             "n": "Boutique Teatower Liège", "ls": "réassort", "lsc": "fresh",
+             "a": "Rue Saint-Paul 7, 4000 Liège",
+             "c": "équipe boutique Liège — 04 343 54 72",
+             "note": "DÉPÔT RÉASSORT — 10 min sur place, décharger et repartir. Colis préparé le jeudi 10/09. "
+                     "Dépôt reporté du mercredi 02/09."},
+            {"t": "10:50 - 11:15", "k": "visite", "b": ["Tier B", "32j OVERDUE"],
+             "n": "Affilié 048755 - Delhaize St Lambert (#5653)", "ls": "08/07 (61j)", "lsc": "stale",
+             "a": "Rue d'Official 2, 4000 Liège",
+             "c": "Julien Dosin — 04 222 09 90 (mob 0495 73 33 62)",
+             "note": "Reporté du mercredi 02/09 (tournée non effectuée)."},
+            {"t": "11:25 - 11:50", "k": "visite", "b": ["Tier B", "52j OVERDUE"],
+             "n": "Affilié 045015 - Delhaize Longdoz Médiacité (#5439)", "ls": "18/06 (81j)", "lsc": "stale",
+             "a": "Rue de Grétry 60, 4020 Liège",
+             "c": "Henriette Reisch · demander Jordano — 04 342 49 02",
+             "note": "Reporté du mercredi 02/09 (tournée non effectuée).",
+             "st": "pas de réserve magasin — rien à contrôler avant remplissage",
+             "re": "manuel — pas d'appareil pour rentrer la marchandise",
+             "rg": "PAS DE VISITE LE LUNDI | pas de contrôle marchandise à l'entrée"},
+            {"t": "12:00 - 12:25", "k": "visite", "b": ["Tier B", "72j OVERDUE", "Plus gros retard de la semaine"],
+             "n": "GIMALEX SA - Delhaize Fragnée (#5580)", "ls": "29/05 (101j)", "lsc": "stale",
+             "a": "Rue de Fragnée 41, 4000 Liège",
+             "c": "accueil magasin",
+             "note": "72 jours de retard, dernière commande le 29/05 — 273 €/mois. Requalifier le potentiel "
+                     "sur place et relancer une commande.",
+             "rg": "PAS DE VISITE LE LUNDI"},
+            {"t": "13:10 - 13:35", "k": "visite", "b": ["Tier A", "10j OVERDUE"],
+             "n": "DelEmbourg SRL - Delhaize Embourg (#2909)", "ls": "06/08 (32j)", "lsc": "mid",
+             "a": "Voie de l'Ardenne 57, 4053 Embourg",
+             "c": "Kevin Demarteau — 04 361 25 69 (mob 0468 37 62 65)",
+             "note": "Pause repas 12:25 - 12:55 prise sur la route Fragnée → Embourg. 657 €/mois : plus gros "
+                     "client de la journée."},
+            {"t": "13:50 - 14:15", "k": "visite", "b": ["Tier B", "4j OVERDUE"],
+             "n": "Delhaize Bois-de-Breux (#8169)", "ls": "05/08 (33j)", "lsc": "mid",
+             "a": "Rue de Herve 280, 4030 Liège",
+             "c": "Landauer Olivier — demander Demany, Poppov ou Ghislaine — +32 4 365 74 07"},
+            {"t": "14:30 - 14:55", "k": "visite", "b": ["Tier B", "3j OVERDUE"],
+             "n": "BARCHONEW SRL - Delhaize Barchon (#119815)", "ls": "06/08 (32j)", "lsc": "mid",
+             "a": "Rue Champs de Tignée 32, 4671 Barchon",
+             "c": "Jérôme ou Jovani — +32 4 362 27 33",
+             "note": "Dernier stop : départ 14:55 pour un retour base à 16:00.",
+             "st": "pas de réserve — tout en rayon",
+             "re": "manuel — pas d'appareil de commande sur place",
+             "rg": "fermé le lundi matin (ouvre à midi) | contrôle marchandise obligatoire à la réception"},
+         ]},
+    ],
+}
+
+WEEKS = [S37, S36]
