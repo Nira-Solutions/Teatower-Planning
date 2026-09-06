@@ -122,3 +122,32 @@
 - §13 respecté : dépôt un mercredi, **colis préparé le mardi 25/08**. Namur, Liège et Waterloo restent en BPost
   → ⚠️ sortir Rocourt de l'envoi BPost pour ne pas livrer deux fois.
 - Garde-fou §12 pools exclusifs : **0 alerte**. WEEKS = [S35, S34].
+
+## 2026-09-06 — S37 (07/09-11/09) : semaine à 4 jours, jeudi supprimé (entretien camionnette)
+- **Contrainte Nicolas** : jeudi 10/09 **aucune tournée**, la camionnette doit être chez **S Motor à 11h30** pour l'entretien.
+- Préalable §14 : lecture Slack `#merchandiser`. Le **lot Renato 17/08 → 26/08 n'avait jamais été importé** →
+  4 tags `[VISITE … — sans réassort]` posés (`scripts/slack_visites_vers_odoo_20260906.py --apply`) :
+  Spar Gembloux #123297 (17/08), Incourt #2924 (17/08), Hyper Jambes #9046 (19/08), Bosvoorde #5830 (26/08).
+  Contrôle négatif respecté : **Rixensart #50967 « pas fait » le 26/08 → aucun tag**, reste à 23j et est planifié.
+  **OVERDUE actifs 42 → 39.**
+- **Spar Namur #122958** : passage du 03/09 **raté** (stationnement impossible, zone piétonne après 13h30).
+  Note `[PASSAGE MANQUE 2026-09-03]` posée — pas un `[VISITE]`. Replanifié **lundi matin**.
+- 🔴 **La tournée du mercredi 02/09 n'a pas eu lieu** : aucun message Slack, aucune SO GMS, aucun picking.
+  Les 7 stops (Villers-le-Bouillet, Hyper Herstal, boutiques Rocourt + Liège, Longdoz, St Lambert, Faimes)
+  sont reportés en S37. **À élucider avec Gilles.**
+- Pool régénéré après correction des tags : 104 actifs, 39 OVERDUE. Queue : `planning/queue_S37_2026-09-07.md`.
+- **33 stops / 4 jours** : lundi Namur/Condroz (9, retour 16:00) · mardi BW/Bruxelles (7, 16:25) ·
+  mercredi Liège ouest/Hesbaye/BW est (8, 16:15) · vendredi Liège centre/est (7 visites + 2 dépôts, 16:00).
+  Tous ≤ 17:00 (§3). Aucune implantation. Aucun dépôt boutique le lundi (§13) — Rocourt + Liège le vendredi,
+  colis préparés le **jeudi 10/09** (entrepôt ouvert, seule la camionnette est immobilisée).
+- **Bierges #8689** (32j) placé en 1ᵉ stop du mardi : fenêtre « mardi OU jeudi, 6h-11h45 » — le jeudi étant
+  supprimé, **le mardi est la seule date possible de la semaine**.
+- Écartés avec motif : AD Jambes Materne #5916 (146j) et AD Fernelmont #5591 (40j) = **doublons d'adresse**
+  avec #113498 et #2952 ; Han-sur-Lesse #3182 (retiré par Nicolas) ; Saint-Séverin #113445 (« appel only »,
+  **mais absent du pool télévente → trou de couverture signalé**) ; Bosvoorde #5830 (visité 26/08 + télévente).
+- `check_couverture_gms.py --apply` : **aucune bascule** — tous les CRITIQUES (>45j) sont au planning.
+  Restent en ALERTE 30-44j, non casables faute du jeudi : **Hainaut** (Mons 44j, Bouffioulx, Gerpinnes, Gosselies),
+  **Luxembourg** (Arlon, Bastogne Porte de Trèves), **Liège est** (Welkenraedt, Lontzen, Spa, Angleur).
+  → premiers candidats S38, sinon bascule d'office en télévente.
+- Garde-fou §12 pools exclusifs : **0 alerte**. WEEKS = [S37, S36].
+- Télévente S37 régénérée (pool 06/09) : 36 appels, 58 magasins, 26 en retard.
