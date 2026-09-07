@@ -95,7 +95,7 @@ def age_badge(days, warn=30, alert=90):
 # --------------------------------------------------------------------------
 
 def lecture(d):
-    """Le paragraphe de synthese en tete de page — genere depuis les chiffres."""
+    """Le recap CA en tete de page — deux phrases, generees depuis les chiffres."""
     sem, cmp_ = d["semaine"], d["comparaisons"]
     total = sem["total_ht"]
     ch = sem["by_channel"]
@@ -103,63 +103,20 @@ def lecture(d):
     cmds = d["commandes"]
     carnet = cmds["total_ht"] - total
 
-    bits = [
-        f'<b>{eur(total)} € HT</b> factures sur {sem["nb_factures"]} pieces et '
-        f'{sem["nb_clients"]} clients (panier {eur(sem["panier_moyen"])} €).',
-        f'{esc(lead_ch)} porte la semaine avec {eur(ch[lead_ch]["ca"])} € '
-        f'({eur(ch[lead_ch]["ca"] / total * 100, 0) if total else "0"} %).',
-    ]
+    p1 = (f'<b>{eur(total)} € HT</b> factures sur {sem["nb_factures"]} pieces et '
+          f'{sem["nb_clients"]} clients (panier {eur(sem["panier_moyen"])} €)')
     if cmp_["delta_s1_pct"] is not None:
-        sens = "au-dessus" if cmp_["delta_s1_pct"] >= 0 else "sous"
-        bits.append(f'{eur(abs(cmp_["delta_s1_pct"]), 1)} % {sens} de S-1, '
-                    f'mais {eur(abs(cmp_["delta_moy4_pct"] or 0), 1)} % '
-                    f'{"au-dessus" if (cmp_["delta_moy4_pct"] or 0) >= 0 else "sous"} '
-                    f'la moyenne des 4 dernieres semaines.')
-    bits.append(f'Prise de commandes {eur(cmds["total_ht"])} € : le carnet se '
-                f'{"remplit" if carnet >= 0 else "vide"} de {eur(abs(carnet))} €.')
-    if d["nouveaux_clients"] or d["reactives"]:
-        bits.append(f'{len(d["nouveaux_clients"])} nouveau(x) client(s) et '
-                    f'{len(d["reactives"])} reactivation(s).')
-    return f'<div class="lead">{" ".join(bits)}</div>'
+        p1 += (f', soit {eur(cmp_["delta_s1_pct"], 1)} % vs S-1 et '
+               f'{eur(cmp_["delta_moy4_pct"] or 0, 1)} % vs la moyenne '
+               f'des 4 dernieres semaines')
+    p1 += "."
 
+    p2 = (f'{esc(lead_ch)} porte la semaine avec {eur(ch[lead_ch]["ca"])} € '
+          f'({eur(ch[lead_ch]["ca"] / total * 100, 0) if total else "0"} %) ; '
+          f'prise de commandes {eur(cmds["total_ht"])} €, le carnet se '
+          f'{"remplit" if carnet >= 0 else "vide"} de {eur(abs(carnet))} €.')
 
-def alertes(d):
-    """Le bloc « a traiter » — uniquement ce qui demande une action."""
-    items = []
-    ytd = d["ytd"]
-    if ytd.get("note"):
-        c = ytd["comparable"]
-        items.append(
-            f'<b>Comparaison annuelle</b> — {esc(ytd["note"])} Sur base recalee : '
-            f'{eur(c["ca"])} € vs {eur(c["ca_n_1"])} € en N-1, soit '
-            f'{eur(c["delta_pct"], 1)} %.')
-    dorm = d["dormants_total"]
-    if dorm["nb"]:
-        items.append(
-            f'<b>{dorm["nb"]} clients dormants</b> (aucune facture depuis 60 jours '
-            f'ou plus) representant {eur(dorm["ca_12m"])} € de CA sur 12 mois — '
-            f'matiere premiere de la televente.')
-    old_pipe = [p for p in d["pipeline"]["items"]
-                if p["untaxed"] > 0 and (p.get("age_days") or 0) >= 30]
-    if old_pipe:
-        items.append(
-            f'<b>{len(old_pipe)} devis de plus de 30 jours</b> encore ouverts '
-            f'({eur(sum(p["untaxed"] for p in old_pipe))} €) : '
-            f'{esc(name_list(old_pipe, 3))}.')
-    old_dr = [x for x in d["drafts"]["items"] if x["untaxed"] > 0]
-    if old_dr:
-        items.append(
-            f'<b>{len(old_dr)} facture(s) en brouillon chiffree(s)</b> pour '
-            f'{eur(sum(x["untaxed"] for x in old_dr))} € — a poster ou a annuler : '
-            f'{esc(name_list(old_dr, 3))}.')
-    zero_dr = [x for x in d["drafts"]["items"] if x["untaxed"] == 0]
-    if zero_dr:
-        items.append(f'{len(zero_dr)} brouillon(s) vide(s) a nettoyer : '
-                     f'{esc(name_list(zero_dr, 4))}.')
-    if not items:
-        return ""
-    return ('<div class="alert"><strong>A traiter</strong><ul>'
-            + "".join(f"<li>{i}</li>" for i in items) + "</ul></div>")
+    return f'<div class="lead">{p1} {p2}</div>'
 
 
 def render(d):
@@ -378,7 +335,6 @@ def render(d):
 </header>
 
 {lecture(d)}
-{alertes(d)}
 
 {section(f'Semaine {esc(w["iso"])}')}
 <div class="kpi-row">{kpis}</div>
