@@ -1879,7 +1879,7 @@ S36 = {
 S37 = {
     "id": "s37", "nav": "S37 · 07/09-11/09 (à venir)", "active": True,
     "title": "Semaine du 7 au 11 septembre 2026 (S37)",
-    "note": ("33 stops sur 4 jours : 31 visites + 2 dépôts boutiques. "
+    "note": ("34 stops sur 4 jours : 31 visites + 3 dépôts boutiques. "
              "⛔ JEUDI 10/09 : AUCUNE TOURNÉE — la camionnette doit être chez S Motor à 11h30 pour l'entretien "
              "(demande Nicolas). La journée Hainaut (Hyper Mons 16j, Bouffioulx, Gerpinnes) et le pocket Luxembourg "
              "(Hyper Arlon) sautent avec elle → bascule télévente (REGLES §14). "
@@ -1895,8 +1895,11 @@ S37 = {
              "Hyper Jambes / Herstal / Boncelles (Hyper = matin obligatoire). "
              "💊 Pharmacie de Baillonville en 1ᵉ stop lundi : Sarah Bayet n'avait pas le temps le 31/08 et a demandé "
              "un repassage AVANT 14h — 39j de retard, 301 €/mois. "
-             "🏪 Dépôts boutiques : Rocourt + Liège le vendredi (colis préparés le jeudi 10/09). Aucun dépôt le lundi "
-             "(REGLES §13). Namur servie le 03/09, pas de dépôt cette semaine. "
+             "🏪 Dépôts boutiques : Namur le mercredi en fin de tournée (colis préparé le mardi 08/09), Rocourt + "
+             "Liège le vendredi (colis préparés le jeudi 10/09). Aucun dépôt le lundi (REGLES §13). "
+             "Namur ajoutée à la demande de Nicolas (07/09) malgré le passage du 03/09 : ni lundi ni mardi, donc "
+             "greffée sur le retour Chaumont-Gistoux → Baillonville, qui passe par Namur (+9 min, +2 km seulement). "
+             "Le vendredi aurait coûté 44 min de détour depuis Barchon. "
              "🏷 Tags rattrapés dans Odoo avant génération : lot Slack Renato 17→26/08 jamais importé "
              "(Spar Gembloux, Incourt, Hyper Jambes, Bosvoorde = visités sans réassort). Rixensart reste en retard : "
              "Renato a explicitement noté « pas fait » le 26/08. "
@@ -2017,13 +2020,14 @@ S37 = {
              "note": "Renato a noté « pas fait » le 26/08 : le magasin n'a pas été vu. Dernier stop : départ 15:20 "
                      "pour un retour base à 16:25."},
          ]},
-        {"h": "Mercredi 09/09", "sub": "8 stops (8 visites)",
-         "zone": "Liège ouest / Hesbaye / BW est (Boncelles → Grâce-Hollogne → Villers-le-Bouillet → Faimes → Hannut → Jodoigne → Incourt → Chaumont-Gistoux)",
-         "km": "225", "ret": "16:15",
+        {"h": "Mercredi 09/09", "sub": "9 stops (8 visites + 1 dépôt boutique)",
+         "zone": "Liège ouest / Hesbaye / BW est (Boncelles → Grâce-Hollogne → Villers-le-Bouillet → Faimes → Hannut → Jodoigne → Incourt → Chaumont-Gistoux → Namur)",
+         "km": "230", "ret": "16:45",
          "addrs": ["Rue du Condroz 16, 4100 Boncelles", "Rue de Wallonie 2A, 4460 Grâce-Hollogne",
                    "Rue du Château d'eau 1, 4530 Villers-le-Bouillet", "Rue de Huy 27, 4317 Faimes",
                    "Rue de Hesbaye 1, 4280 Hannut", "Chaussée de Wavre 90c, 1370 Jodoigne",
-                   "Chaussée de Namur 89, 1315 Incourt", "Chaussée de Huy 47, 1325 Chaumont-Gistoux"],
+                   "Chaussée de Namur 89, 1315 Incourt", "Chaussée de Huy 47, 1325 Chaumont-Gistoux",
+                   "Rue du Pont 3, 5000 Namur"],
          "stops": [
             {"t": "09:20 - 09:45", "k": "visite", "b": ["Hyper", "Tier B", "2j OVERDUE"],
              "n": "Carrefour Hyper Boncelles (#60001)", "ls": "05/08 (33j)", "lsc": "mid",
@@ -2081,6 +2085,15 @@ S37 = {
              "st": "pas de réserve",
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "contrôle marchandise OUI — demander Céline"},
+            {"t": "15:50 - 16:00", "k": "livr", "b": ["Dépôt boutique", "Demande Nicolas"],
+             "n": "Boutique Teatower Namur (#97042)", "ls": "réassort", "lsc": "fresh",
+             "a": "Rue du Pont 3, 5000 Namur",
+             "c": "équipe boutique Namur",
+             "note": "DÉPÔT RÉASSORT — 10 min sur place, décharger et repartir. Colis préparé le mardi 08/09. "
+                     "Sur la route du retour Chaumont-Gistoux → Baillonville (+9 min de détour). "
+                     "Départ 16:00 pour un retour base à 16:45.",
+             "rg": "ZONE PIÉTONNE — hors créneaux libres (5h-7h30 / 9h-11h30 / 17h30-20h) seul le "
+                   "déchargement est autorisé : se mettre en déchargement, décharger, repartir. Ne pas stationner."},
          ]},
         {"h": "Jeudi 10/09", "sub": "AUCUNE TOURNÉE — camionnette immobilisée",
          "zone": "Pas de visite", "km": "0", "ret": "—",
