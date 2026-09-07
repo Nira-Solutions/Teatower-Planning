@@ -151,3 +151,25 @@
   → premiers candidats S38, sinon bascule d'office en télévente.
 - Garde-fou §12 pools exclusifs : **0 alerte**. WEEKS = [S37, S36].
 - Télévente S37 régénérée (pool 06/09) : 36 appels, 58 magasins, 26 en retard.
+
+## 2026-09-07 — Ajustements S37 en cours de semaine (demandes Nicolas)
+
+- **Boutique Namur ajoutée** puis déplacée : d'abord greffée en fin de tournée du mercredi, puis passée au
+  **jeudi 10/09 09:15-09:25** (le merchandiser a prévenu qu'il n'y arriverait pas le mercredi). Elle passe
+  avant la dépose de la camionnette chez S Motor (11h30). Colis préparé le mercredi après-midi.
+- **Piétonnier de Namur** : créneaux d'accès libre **5h-7h30 / 9h-11h30 / 17h30-20h**, hors créneau seul le
+  déchargement est autorisé. C'est ce qui explique l'échec du 03/09 sur Spar Namur (Rue des Echasseurs) et
+  pourquoi tous les dépôts boutique réussis tombaient entre 09h06 et 10h24. Tout stop Namur centre se place
+  désormais dans la fenêtre 9h-11h30.
+- **Mercredi 09/09 : Renato absent** → aucune tournée. La journée se réduit aux dépôts **Liège (10:15) +
+  Rocourt (10:40)**, départ base 09:30, retour 11:35. Rocourt jamais avant 10:00 (§13).
+  Les 7 magasins de la journée Liège ouest / Hesbaye / BW est basculent en **S38** : Hyper Boncelles (2j),
+  CM Grâce-Hollogne (4j), Faimes (31j), Hannut, Jodoigne, Incourt (échéance 14/09), Chaumont-Gistoux
+  (échéance 07/09). **Villers-le-Bouillet** est le seul sauvé — fenêtre « mercredi ou vendredi matin »,
+  37j de retard, display neuf à livrer → 1ᵉʳ stop du vendredi 09:10.
+- **Spar Namur #122958 — ARRÊT** (décision Nicolas 07/09). Retiré de la tournée du lundi (créneau 10:55-11:20
+  libéré, horaires suivants inchangés). Fiche Odoo mise en conformité §2 : `comment` préfixé
+  `[ARRET 2026-09-07]`, `sale_warn = block`, `sale_warn_msg` renseigné. Absent du pool télévente : pas de
+  fuite de couverture. **Solde ouvert à l'arrêt : 295,40 € (INV/2026/02136, échue le 21/05/2026)** — à
+  recouvrer, l'arrêt commercial ne solde pas la créance.
+- S37 passe de 33 à **26 stops** : 23 visites + 3 dépôts boutiques.

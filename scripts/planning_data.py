@@ -1879,7 +1879,11 @@ S36 = {
 S37 = {
     "id": "s37", "nav": "S37 · 07/09-11/09 (à venir)", "active": True,
     "title": "Semaine du 7 au 11 septembre 2026 (S37)",
-    "note": ("27 stops : 24 visites + 3 dépôts boutiques. "
+    "note": ("26 stops : 23 visites + 3 dépôts boutiques. "
+             "🛑 SPAR NAMUR (#122958) ARRÊTÉ — décision Nicolas du 07/09. Retiré de la tournée du lundi (créneau "
+             "10:55-11:20), la fiche Odoo est passée en [ARRET 2026-09-07] + sale_warn=block : plus de livraison, "
+             "plus de visite, plus d'appel télévente (REGLES §2). Solde ouvert à l'arrêt : 295,40 € "
+             "(INV/2026/02136, échue le 21/05). "
              "⛔ MERCREDI 09/09 : AUCUNE TOURNÉE — Renato est absent (demande Nicolas 07/09). La journée se réduit "
              "aux dépôts boutiques Liège + Rocourt, en demi-journée, départ base 09:30, retour 11:35. "
              "🚚 NAMUR DÉPLACÉ AU JEUDI 10/09 : le merchandiser a prévenu qu'il n'arriverait pas à livrer Namur le "
@@ -1896,8 +1900,6 @@ S37 = {
              "🔁 RATTRAPAGE S36 : la tournée Liège/Hesbaye du mercredi 02/09 n'a pas eu lieu (aucune trace Slack ni "
              "Odoo) — Villers-le-Bouillet, Faimes, Herstal, Longdoz, St Lambert et les dépôts Rocourt/Liège sont "
              "reportés ici. La journée Bruxelles/BW reportée du vendredi 04/09 (fête du personnel) revient le mardi. "
-             "🅿️ Spar Namur (#122958) : passage du 03/09 RATÉ — Gilles n'a pas pu se garer, zone piétonne après "
-             "13h30. Replanifié LUNDI MATIN. "
              "⏱ Fenêtres imposées respectées : Bierges (mardi ou jeudi UNIQUEMENT, 6h-11h45 → mardi 1ᵉ stop), "
              "CM Waterloo (6h-12h), Proxy St Michel (mardi-vendredi jusqu'à 14h), Hyper Boncelles (jamais le mardi, "
              "7h-11h30), Villers-le-Bouillet (mercredi ou vendredi matin), Hannut (livraison 6h-13h), "
@@ -1919,11 +1921,11 @@ S37 = {
              "Bosvoorde #5830 — visité le 26/08 + pool télévente. "
              "Aucun jour férié BE cette semaine."),
     "days": [
-        {"h": "Lundi 07/09", "sub": "9 stops (9 visites)",
+        {"h": "Lundi 07/09", "sub": "8 stops (8 visites)",
          "zone": "Namur / Condroz / Ourthe (Baillonville → Jambes → Namur → Naninne → Assesse → Ciney → Erezée)",
-         "km": "185", "ret": "16:00",
+         "km": "180", "ret": "16:00",
          "addrs": ["Chemin de Huy 1A, 5377 Baillonville", "Avenue Prince de Liège 57-59, 5100 Jambes",
-                   "Av. du Bourgmestre Jean Materne 109, 5100 Namur", "Rue des Echasseurs 1, 5000 Namur",
+                   "Av. du Bourgmestre Jean Materne 109, 5100 Namur",
                    "Chaussée de Charleroi 22, 5000 Namur", "Chaussée de Marche 860, 5100 Naninne",
                    "Rue Melville Wilson 3, 5330 Assesse", "Chemin de Crahiat 18A, 5590 Ciney",
                    "Rue des Chasseurs Ardennais 6, 6997 Erezée"],
@@ -1947,16 +1949,12 @@ S37 = {
              "c": "Elise Stroobants (gérante) — demander Angélique ou Mme Stroobants — +32 81 30 16 88",
              "note": "Reprendre les Guarana Boost : ne tournent pas dans ce magasin.",
              "rg": "PAS DE VISITE LE MARDI | passage tous les 30j minimum (Nicolas 24/06/2026)"},
-            {"t": "10:55 - 11:20", "k": "visite", "b": ["Tier C", "20j OVERDUE", "Passage raté 03/09"],
-             "n": "NDB Diffusion - Spar Namur (#122958)", "ls": "06/07 (63j)", "lsc": "stale",
-             "a": "Rue des Echasseurs 1, 5000 Namur",
-             "c": "Nicolas De Brouwer — +32 81 81 31 87",
-             "note": "Passage du 03/09 RATÉ : stationnement impossible. Replanifié le matin.",
-             "rg": "MATIN OBLIGATOIRE — zone piétonne après 13h30, camionnette impossible à garer"},
             {"t": "11:30 - 11:55", "k": "visite", "b": ["Tier A", "12j OVERDUE"],
              "n": "Affilié 048652 - Delhaize Salzinnes (#114704)", "ls": "04/08 (34j)", "lsc": "mid",
              "a": "Chaussée de Charleroi 22, 5000 Namur",
-             "c": "Mme Wivine ou Manu — +32 81 40 80 40"},
+             "c": "Mme Wivine ou Manu — +32 81 40 80 40",
+             "note": "Spar Namur (#122958) retiré de la journée : client ARRET. Le créneau 10:55-11:20 est libre, "
+                     "les horaires suivants sont inchangés."},
             {"t": "12:40 - 13:05", "k": "visite", "b": ["Tier A", "3j OVERDUE"],
              "n": "Intermarché Naninne (#5755)", "ls": "14/08 (24j)", "lsc": "mid",
              "a": "Chaussée de Marche 860, 5100 Naninne",
