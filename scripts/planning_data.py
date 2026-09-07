@@ -1879,9 +1879,12 @@ S36 = {
 S37 = {
     "id": "s37", "nav": "S37 · 07/09-11/09 (à venir)", "active": True,
     "title": "Semaine du 7 au 11 septembre 2026 (S37)",
-    "note": ("27 stops sur 4 jours : 24 visites + 3 dépôts boutiques. "
+    "note": ("27 stops : 24 visites + 3 dépôts boutiques. "
              "⛔ MERCREDI 09/09 : AUCUNE TOURNÉE — Renato est absent (demande Nicolas 07/09). La journée se réduit "
-             "aux 3 dépôts boutiques Namur / Liège / Rocourt, en demi-journée, retour base 11:35. "
+             "aux dépôts boutiques Liège + Rocourt, en demi-journée, départ base 09:30, retour 11:35. "
+             "🚚 NAMUR DÉPLACÉ AU JEUDI 10/09 : le merchandiser a prévenu qu'il n'arriverait pas à livrer Namur le "
+             "mercredi. Le dépôt part donc en 1ᵉʳ stop du jeudi (09:15-09:25), AVANT la dépose de la camionnette "
+             "chez S Motor à 11h30 — plus de 2h de marge. Colis Namur préparé le mercredi après-midi. "
              "Les 7 magasins de la journée Liège ouest / Hesbaye / BW est basculent en S38 : Hyper Boncelles (2j), "
              "CM Grâce-Hollogne (4j), Intermarché Faimes (31j), Intermarché Hannut, AD Jodoigne, Delhaize Incourt "
              "(échéance 14/09) et Intermarché Chaumont-Gistoux (échéance 07/09). "
@@ -1902,10 +1905,11 @@ S37 = {
              "Hyper Jambes / Herstal / Boncelles (Hyper = matin obligatoire). "
              "💊 Pharmacie de Baillonville en 1ᵉ stop lundi : Sarah Bayet n'avait pas le temps le 31/08 et a demandé "
              "un repassage AVANT 14h — 39j de retard, 301 €/mois. "
-             "🏪 Dépôts boutiques : les 3 (Namur, Liège, Rocourt) regroupés le mercredi 09/09 — colis préparés le "
-             "MARDI 08/09, jour ouvré précédent (REGLES §13). Aucun dépôt le lundi. Rocourt jamais avant 10:00 : "
-             "placé à 10:40. Namur à 09:15, dans le créneau d'accès libre 9h-11h30 du piétonnier — la contrainte "
-             "qui avait fait rater Spar Namur le 03/09 est donc levée. "
+             "🏪 Dépôts boutiques : Liège + Rocourt le mercredi 09/09 (colis préparés le mardi 08/09), Namur le "
+             "jeudi 10/09 (colis préparé le mercredi 09/09). Jour ouvré précédent respecté dans les deux cas, "
+             "aucun dépôt le lundi (REGLES §13). Rocourt jamais avant 10:00 : placé à 10:40. Namur à 09:15, dans "
+             "le créneau d'accès libre 9h-11h30 du piétonnier — la contrainte qui avait fait rater Spar Namur le "
+             "03/09 est donc levée. "
              "🏷 Tags rattrapés dans Odoo avant génération : lot Slack Renato 17→26/08 jamais importé "
              "(Spar Gembloux, Incourt, Hyper Jambes, Bosvoorde = visités sans réassort). Rixensart reste en retard : "
              "Renato a explicitement noté « pas fait » le 26/08. "
@@ -2026,25 +2030,18 @@ S37 = {
              "note": "Renato a noté « pas fait » le 26/08 : le magasin n'a pas été vu. Dernier stop : départ 15:20 "
                      "pour un retour base à 16:25."},
          ]},
-        {"h": "Mercredi 09/09", "sub": "3 stops (3 dépôts boutiques) — demi-journée",
-         "zone": "Dépôts boutiques uniquement (Namur → Liège → Rocourt) — aucune visite merchandiser",
-         "km": "175", "ret": "11:35",
-         "addrs": ["Rue du Pont 3, 5000 Namur", "Rue Saint-Paul 7, 4000 Liège",
+        {"h": "Mercredi 09/09", "sub": "2 stops (2 dépôts boutiques) — demi-journée",
+         "zone": "Dépôts boutiques uniquement (Liège → Rocourt) — aucune visite merchandiser",
+         "km": "105", "ret": "11:35",
+         "addrs": ["Rue Saint-Paul 7, 4000 Liège",
                    "Chaussée de Tongres 269-271, 4000 Rocourt (Shopping Cora Rocourt)"],
          "stops": [
-            {"t": "09:15 - 09:25", "k": "livr", "b": ["Dépôt boutique"],
-             "n": "Boutique Teatower Namur (#97042)", "ls": "réassort", "lsc": "fresh",
-             "a": "Rue du Pont 3, 5000 Namur",
-             "c": "équipe boutique Namur",
-             "note": "DÉPÔT RÉASSORT — 10 min sur place, décharger et repartir. Colis préparé le mardi 08/09. "
-                     "1ᵉʳ stop, camionnette chargée.",
-             "rg": "ZONE PIÉTONNE — créneau d'accès libre 9h-11h30 : le passage à 09:15 est dans la fenêtre"},
             {"t": "10:15 - 10:25", "k": "livr", "b": ["Dépôt boutique"],
              "n": "Boutique Teatower Liège", "ls": "réassort", "lsc": "fresh",
              "a": "Rue Saint-Paul 7, 4000 Liège",
              "c": "équipe boutique Liège — 04 343 54 72",
              "note": "DÉPÔT RÉASSORT — 10 min sur place, décharger et repartir. Colis préparé le mardi 08/09. "
-                     "Avancé du vendredi 11/09."},
+                     "Avancé du vendredi 11/09. 1ᵉʳ stop : départ base 09:30."},
             {"t": "10:40 - 10:50", "k": "livr", "b": ["Dépôt boutique"],
              "n": "Boutique Teatower Rocourt", "ls": "réassort", "lsc": "fresh",
              "a": "Chaussée de Tongres 269-271, 4000 Rocourt (Shopping Cora Rocourt)",
@@ -2053,15 +2050,25 @@ S37 = {
                      "Avancé du vendredi 11/09. Dernier stop : départ 10:50 pour un retour base à 11:35.",
              "rg": "JAMAIS AVANT 10:00"},
          ]},
-        {"h": "Jeudi 10/09", "sub": "AUCUNE TOURNÉE — camionnette immobilisée",
-         "zone": "Pas de visite", "km": "0", "ret": "—",
+        {"h": "Jeudi 10/09", "sub": "1 dépôt boutique + entretien camionnette — aucune visite",
+         "zone": "Dépôt Namur puis dépose de la camionnette chez S Motor", "km": "—", "ret": "—",
+         "addrs": ["Rue du Pont 3, 5000 Namur"],
          "stops": [
+            {"t": "09:15 - 09:25", "k": "livr", "b": ["Dépôt boutique"],
+             "n": "Boutique Teatower Namur (#97042)", "ls": "réassort", "lsc": "fresh",
+             "a": "Rue du Pont 3, 5000 Namur",
+             "c": "équipe boutique Namur",
+             "note": "DÉPÔT RÉASSORT — 10 min sur place, décharger et repartir. Colis préparé le MERCREDI 09/09 "
+                     "(après-midi libre, la tournée se termine à 11:35). Déplacé du mercredi : le merchandiser "
+                     "a prévenu qu'il n'y arriverait pas. 1ᵉʳ stop, départ base 08:30 — à faire AVANT de déposer "
+                     "la camionnette au garage.",
+             "rg": "ZONE PIÉTONNE — créneau d'accès libre 9h-11h30 : le passage à 09:15 est dans la fenêtre"},
             {"t": "11:30", "k": "visite", "b": ["Jour sans tournée"],
              "n": "Entretien camionnette — S Motor",
              "a": "Camionnette à déposer chez S Motor pour 11h30",
-             "note": "Journée bloquée à la demande de Nicolas : aucune tournée merchandiser. "
-                     "Les 3 colis boutiques ont été préparés le mardi 08/09 et déposés le mercredi 09/09 : "
-                     "rien à préparer aujourd'hui. Charger le display neuf de Villers-le-Bouillet pour le vendredi."},
+             "note": "Journée bloquée à la demande de Nicolas : aucune visite merchandiser. Le dépôt Namur du "
+                     "matin est compatible — il se termine à 09:25, il reste plus de 2h avant la dépose. "
+                     "Charger le display neuf de Villers-le-Bouillet pour le vendredi."},
          ]},
         {"h": "Vendredi 11/09", "sub": "8 stops (8 visites)",
          "zone": "Hesbaye / Liège centre et est (Villers-le-Bouillet → Herstal → St Lambert → Longdoz → Fragnée → Embourg → Bois-de-Breux → Barchon)",
