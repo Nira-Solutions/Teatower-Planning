@@ -1,5 +1,6 @@
 """Tagging automatique des canaux commerciaux sur res.partner — Teatower.
 Priorité Horeca > GMS > Amazon > Shopify > B2B Direct."""
+import os
 import xmlrpc.client, re, datetime, sys, io, os
 
 # Ensure UTF-8 stdout on Windows
@@ -8,7 +9,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='repla
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 TAG = {"GMS": 88, "Horeca": 84, "B2B": 85, "Shopify": 86, "Amazon": 87}
 

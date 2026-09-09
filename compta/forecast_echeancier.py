@@ -11,6 +11,7 @@ Sortie :
   * Comparaison avec l'Échéancier manuel de Nicolas → écart semaine par semaine
   * Détail ligne-à-ligne en bas (date, bénéficiaire, montant, source, référence)
 """
+import os
 
 import argparse
 import sys
@@ -45,7 +46,7 @@ BUDGET_TABS = ["Budget Q1 2026", "Budget Q2 2026", "Budget Q3 2026", "Budget Q4 
 ODOO_URL = "https://tea-tree.odoo.com"
 ODOO_DB = "tsc-be-tea-tree-main-18515272"
 ODOO_USER = "nicolas.raes@teatower.com"
-ODOO_PWD = "***MOT-DE-PASSE-RETIRE***"
+ODOO_PWD = os.environ["ODOO_PWD"]
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",

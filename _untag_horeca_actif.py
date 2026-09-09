@@ -1,11 +1,12 @@
 """Supprime le tag MC-202606-HORECA-ACTIF (campagne juin = dormants uniquement)."""
+import os
 import xmlrpc.client, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})

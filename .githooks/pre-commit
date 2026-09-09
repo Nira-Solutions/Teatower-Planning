@@ -1,0 +1,34 @@
+#!/bin/sh
+# Garde-fou secrets — ce depot est PUBLIC (GitHub Pages).
+# Bloque tout commit contenant un secret en clair.
+# Active avec : git config core.hooksPath .githooks
+
+fail=0
+
+# Motifs de secrets connus
+if git diff --cached -U0 | grep -nE '^\+.*(shpat_[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,})' >/dev/null; then
+  echo "PRE-COMMIT: jeton API (Shopify/GitHub) detecte dans le diff." >&2
+  fail=1
+fi
+
+# Mot de passe / cle en dur (hors lecture d'environnement)
+if git diff --cached -U0 \
+   | grep -nEi '^\+.*(PWD|PASSWORD|SECRET|API_KEY|TOKEN)[A-Z_]*\s*[:=]\s*["'"'"'][^"'"'"']{6,}["'"'"']' \
+   | grep -viE 'os\.environ|os\.getenv|getenv|process\.env|localStorage|\$\{?[A-Z_]+\}?|secrets\.|<[^>]*>|xxx|placeholder|changeme|example' >/dev/null; then
+  echo "PRE-COMMIT: mot de passe / cle en dur detecte dans le diff." >&2
+  fail=1
+fi
+
+if [ "$fail" = "1" ]; then
+  cat >&2 <<'EOF'
+
+  Commit REFUSE — depot public.
+  Les identifiants se lisent dans l'environnement :
+      PWD = os.environ["ODOO_PWD"]
+  Les valeurs restent dans "Materiel TT.xlsx" (non versionne).
+  Pour forcer malgre tout (a eviter) : git commit --no-verify
+EOF
+  exit 1
+fi
+
+exit 0

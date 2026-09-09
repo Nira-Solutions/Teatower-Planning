@@ -38,6 +38,7 @@ Convention pour Tier :
 
 Usage : python build_planning_pool.py [--target-date YYYY-MM-DD]
 """
+import os
 
 import xmlrpc.client
 import argparse
@@ -50,7 +51,7 @@ from pathlib import Path
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 
 # Patterns identifiant un magasin GMS
 GMS_PARENT_NAMES = [

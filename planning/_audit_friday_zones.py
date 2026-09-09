@@ -1,5 +1,6 @@
 """Audit large des clients GMS sur la route vendredi 15/05.
 Scan Famenne (69xx) + Lux Nord (6800-6900) + Hainaut Est sur trajet BLC (E411+R3+E42 = 5xxx sud, 6xxx ouest, 7xxx)."""
+import os
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 import xmlrpc.client
@@ -8,7 +9,7 @@ from datetime import datetime, timedelta
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})

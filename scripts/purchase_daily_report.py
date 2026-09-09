@@ -13,6 +13,7 @@ Usage :
   python scripts/purchase_daily_report.py              # exécution réelle
   python scripts/purchase_daily_report.py --dry-run    # pas d'écriture Odoo ni mail
 """
+import os
 import argparse
 import base64
 import io
@@ -30,7 +31,7 @@ LOG_PATH = ROOT / "purchase" / "LOG.md"
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 EMAIL_TO = "nicolas.raes@teatower.com"
 
 PRICE_VARIATION_REVIEW = 0.20   # > 20% = flag REVIEW, pas d'écriture auto

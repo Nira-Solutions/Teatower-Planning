@@ -1,5 +1,6 @@
 """Build OFFICIAL GMS catalog from Tarifs VRAC + INFU 2026 (Google Drive).
 Looks up real EAN13 from Odoo by default_code."""
+import os
 import xmlrpc.client, sys, io, json, datetime as dt
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
@@ -57,7 +58,7 @@ print(f"source rows: {len(ROWS)}")
 
 # --- Lookup EAN13 from Odoo ---
 URL="https://tea-tree.odoo.com"; DB="tsc-be-tea-tree-main-18515272"
-USER="nicolas.raes@teatower.com"; PWD="***MOT-DE-PASSE-RETIRE***"
+USER="nicolas.raes@teatower.com"; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid=common.authenticate(DB,USER,PWD,{})
 models=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

@@ -20,6 +20,7 @@ FLAGS :
   DRY_RUN    = False  → mode apply (True = lecture seule)
   LIMIT_TEST = None   → traitement complet (mettre un entier pour tester N lignes)
 """
+import os
 
 import xmlrpc.client
 import re
@@ -41,7 +42,7 @@ WRITE_OFF_SEUIL = 0.05  # EUR — seuil max écart absorbable
 URL  = "https://tea-tree.odoo.com"
 DB   = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD  = "***MOT-DE-PASSE-RETIRE***"
+PWD  = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid    = common.authenticate(DB, USER, PWD, {})

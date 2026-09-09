@@ -3,6 +3,7 @@
 Source : tags MC-202606-HORECA-DORMANT et MC-202606-REVENDEUR-DORMANT
 dans Odoo (deja appliques).
 """
+import os
 import xmlrpc.client, sys, io, csv
 from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -10,7 +11,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 TAGS = {
     "MC-202606-HORECA-DORMANT":    "HORECA-DORMANT",

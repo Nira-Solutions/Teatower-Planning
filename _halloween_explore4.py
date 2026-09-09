@@ -2,13 +2,14 @@
 Get BoM lines for recent saisonnier V0915, V0913 to understand the structure.
 Also check supplier tax on MP_1V0914.
 """
+import os
 import xmlrpc.client
 import json
 
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PASSWORD, {})

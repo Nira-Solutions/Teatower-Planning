@@ -10,8 +10,9 @@ Source : lecture du canal (MCP Slack), passages du 16/07 au 01/09/2026.
 
 Usage: python scripts/slack_visites_vers_odoo.py [--apply]
 """
+import os
 import re, sys, xmlrpc.client
-URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD='***MOT-DE-PASSE-RETIRE***'
+URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common'); uid=common.authenticate(DB,USER,PWD,{})
 models=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/object')
 def call(m,meth,a,k=None): return models.execute_kw(DB,uid,PWD,m,meth,a,k or {})

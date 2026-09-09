@@ -33,7 +33,7 @@ from pydantic import BaseModel
 ODOO_URL = os.getenv("ODOO_URL", "https://tea-tree.odoo.com")
 ODOO_DB = os.getenv("ODOO_DB", "tsc-be-tea-tree-main-18515272")
 ODOO_USER = os.getenv("ODOO_USER", "nicolas.raes@teatower.com")
-ODOO_PASSWORD = os.getenv("ODOO_PASSWORD", "***MOT-DE-PASSE-RETIRE***")
+ODOO_PASSWORD = os.environ["ODOO_PWD"]
 
 SHOPIFY_SHOP = os.getenv("SHOPIFY_SHOP", "")
 SHOPIFY_TOKEN = os.getenv("SHOPIFY_TOKEN", "")

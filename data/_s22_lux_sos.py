@@ -1,4 +1,5 @@
 """Check SO récentes + delivery_status pour magasins Lux/Bastogne axe S22 mercredi 27/05."""
+import os
 import sys
 import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -7,7 +8,7 @@ import xmlrpc.client
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PASSWORD, {})

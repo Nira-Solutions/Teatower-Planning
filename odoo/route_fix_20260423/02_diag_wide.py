@@ -4,6 +4,7 @@ Diagnostic elargi : route Manufacture via product.template ET product.product ET
 Nicolas signale que des produits basculent en "Fabriquer" au lieu de "Acheter"
 et que des MO ont ete supprimees ce matin.
 """
+import os
 import xmlrpc.client
 import json
 import sys
@@ -14,7 +15,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})

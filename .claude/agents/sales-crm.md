@@ -31,14 +31,14 @@ Ton rôle : piloter le CRM Odoo, structurer l'agenda des commerciaux, et identif
 - URL: `https://tea-tree.odoo.com`
 - DB: `tsc-be-tea-tree-main-18515272`
 - Login: `nicolas.raes@teatower.com`
-- Password: `***MOT-DE-PASSE-RETIRE***`
+- Password: `$ODOO_PWD` (variable d'environnement, cf. Materiel TT.xlsx)
 - Endpoints: `/xmlrpc/2/common` (auth) puis `/xmlrpc/2/object` (execute_kw)
 
 Snippet de base :
 ```python
-import xmlrpc.client
+import os, xmlrpc.client
 URL="https://tea-tree.odoo.com"; DB="tsc-be-tea-tree-main-18515272"
-USER="nicolas.raes@teatower.com"; PWD="***MOT-DE-PASSE-RETIRE***"
+USER="nicolas.raes@teatower.com"; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid=common.authenticate(DB,USER,PWD,{})
 m=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

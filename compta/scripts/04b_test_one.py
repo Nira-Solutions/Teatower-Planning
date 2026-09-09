@@ -1,4 +1,5 @@
 """Test sur 1 SO seulement (S05476 puis S05473 Delhaize) avant rollout."""
+import os
 import sys, importlib.util, os, json
 sys.path.insert(0, os.path.abspath("compta/scripts"))
 spec = importlib.util.spec_from_file_location("invoice_mod", "compta/scripts/04_invoice_and_peppol.py")
@@ -7,7 +8,7 @@ import xmlrpc.client, sys, io, json, datetime as dt
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 URL = "https://tea-tree.odoo.com"; DB = "tsc-be-tea-tree-main-18515272"
-USER = "nicolas.raes@teatower.com"; PWD = "***MOT-DE-PASSE-RETIRE***"
+USER = "nicolas.raes@teatower.com"; PWD = os.environ["ODOO_PWD"]
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common", allow_none=True)
 uid = common.authenticate(DB, USER, PWD, {})
 m = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object", allow_none=True)

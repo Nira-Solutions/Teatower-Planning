@@ -1,8 +1,9 @@
 """Renomme la fiche de livraison #123302 en 'Spar Erezee' (elle portait le nom
 de la gerante, Nathalie Piron -> le magasin n'etait pas identifiable dans le
 planning). Le contact est conserve dans le comment."""
+import os
 import sys, xmlrpc.client
-URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD='***MOT-DE-PASSE-RETIRE***'
+URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common'); uid=common.authenticate(DB,USER,PWD,{})
 models=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/object')
 def call(m,meth,a,k=None): return models.execute_kw(DB,uid,PWD,m,meth,a,k or {})

@@ -2,9 +2,10 @@
 """TEST VALIDATION : creer un devis DRAFT temporaire sur un parent backfille (BE/FR/DE),
 lire la FP auto-calculee (fiscal_position_id), puis SUPPRIMER le draft. Un draft non
 confirme n'a aucun impact compta/stock. 100% reversible."""
+import os
 import xmlrpc.client, json
 URL="https://tea-tree.odoo.com"; DB="tsc-be-tea-tree-main-18515272"
-USER="nicolas.raes@teatower.com"; PWD="***MOT-DE-PASSE-RETIRE***"
+USER="nicolas.raes@teatower.com"; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid=common.authenticate(DB,USER,PWD,{})
 m=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

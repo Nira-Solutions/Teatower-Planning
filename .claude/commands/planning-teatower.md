@@ -31,7 +31,7 @@ Ce script produit (dans `C:\Users\FlowUP\OneDrive\Teatower\data\`) :
 - URL : https://tea-tree.odoo.com
 - DB : tsc-be-tea-tree-main-18515272
 - Login : nicolas.raes@teatower.com
-- Password : ***MOT-DE-PASSE-RETIRE***
+- Password : `$ODOO_PWD` (variable d'environnement, cf. Materiel TT.xlsx)
 - Protocole : XML-RPC (/xmlrpc/2/common et /xmlrpc/2/object)
 - Tag GMS : ID 27
 - Comptes à exclure : "Delhaize Le Lion" et "Carrefour Belgium" (comptes centraux)

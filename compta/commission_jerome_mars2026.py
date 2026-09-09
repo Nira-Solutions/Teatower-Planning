@@ -8,6 +8,7 @@ Règles (avenant 17/03/2026) :
 - Nouveaux clients hors GMS : 65€/client, première commande ≥ 240€ HTVA.
 - Grossiste = 2 clients si 1ère commande > 500€ HTVA.
 """
+import os
 import xmlrpc.client
 from datetime import datetime
 from collections import defaultdict
@@ -15,7 +16,7 @@ from collections import defaultdict
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})

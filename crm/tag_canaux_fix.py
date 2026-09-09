@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Complément tagging canaux Teatower — rattrape les cas manqués par v1."""
+import os
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 import xmlrpc.client, re
@@ -7,7 +8,7 @@ import xmlrpc.client, re
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 TAG = {"GMS": 88, "Horeca": 84, "B2B": 85, "Shopify": 86, "Amazon": 87}
 ALL_TAGS = list(TAG.values())
 

@@ -4,11 +4,12 @@ Perimetre : 01/05/2026 -> 31/05/2026 (mois clos)
 Source : Odoo XML-RPC lecture seule
 KPI#ca-canal-2026-06-01
 """
+import os
 import xmlrpc.client
 from collections import defaultdict
 
 URL = 'https://tea-tree.odoo.com'; DB = 'tsc-be-tea-tree-main-18515272'
-USER = 'nicolas.raes@teatower.com'; PWD = '***MOT-DE-PASSE-RETIRE***'
+USER = 'nicolas.raes@teatower.com'; PWD = os.environ["ODOO_PWD"]
 common = xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common')
 uid = common.authenticate(DB, USER, PWD, {})
 models = xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/object')

@@ -1,13 +1,14 @@
 """
 Replenish v2 : retry, range elargi, et check des MO.
 """
+import os
 import xmlrpc.client, json
 from datetime import datetime, timedelta
 
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PW = "***MOT-DE-PASSE-RETIRE***"
+PW = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common')
 uid = common.authenticate(DB, USER, PW, {})

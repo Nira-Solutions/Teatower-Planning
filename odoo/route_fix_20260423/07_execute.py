@@ -11,12 +11,13 @@ Safety :
 - Vérif raw_moves done = 0 avant unlink
 - Vérif mo_risky (done/progress) : laisses tranquilles
 """
+import os
 import xmlrpc.client, json, sys, io
 from datetime import datetime
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 URL = "https://tea-tree.odoo.com"; DB = "tsc-be-tea-tree-main-18515272"
-USER = "nicolas.raes@teatower.com"; PWD = "***MOT-DE-PASSE-RETIRE***"
+USER = "nicolas.raes@teatower.com"; PWD = os.environ["ODOO_PWD"]
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})
 m = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

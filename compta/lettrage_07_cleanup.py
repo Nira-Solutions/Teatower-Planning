@@ -29,6 +29,7 @@ Paires (bsl_id, pay_id, inv_name) :
   17574 / 7278 / INV/2026/02801
   14600 / 7279 / INV/2026/01962
 """
+import os
 
 import xmlrpc.client
 
@@ -38,7 +39,7 @@ import xmlrpc.client
 URL  = "https://tea-tree.odoo.com"
 DB   = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD  = "***MOT-DE-PASSE-RETIRE***"
+PWD  = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid    = common.authenticate(DB, USER, PWD, {})

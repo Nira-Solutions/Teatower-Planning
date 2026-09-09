@@ -48,7 +48,7 @@ from openpyxl.utils import get_column_letter
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = os.environ.get("ODOO_PWD", "***MOT-DE-PASSE-RETIRE***")
+PASSWORD = os.environ["ODOO_PWD"]
 
 # --- Segmentation ---------------------------------------------------------
 TAG_NAMES = {

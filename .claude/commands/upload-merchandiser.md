@@ -13,7 +13,7 @@ Tu es l'agent d'upload merchandiser de Teatower. Ton rôle est de prendre les PD
 - URL : https://tea-tree.odoo.com
 - DB : tsc-be-tea-tree-main-18515272
 - Login : nicolas.raes@teatower.com
-- Password : ***MOT-DE-PASSE-RETIRE***
+- Password : `$ODOO_PWD` (variable d'environnement, cf. Materiel TT.xlsx)
 - Protocole : XML-RPC (/xmlrpc/2/common et /xmlrpc/2/object)
 
 ## Convention de nommage
@@ -58,13 +58,13 @@ Les PDFs/images sont nommés par le nom du magasin :
 Pour chaque magasin identifié, chercher le client dans Odoo via XML-RPC :
 
 ```python
-import xmlrpc.client
+import os, xmlrpc.client
 import base64, os, re
 
 url = 'https://tea-tree.odoo.com'
 db = 'tsc-be-tea-tree-main-18515272'
 username = 'nicolas.raes@teatower.com'
-password = '***MOT-DE-PASSE-RETIRE***'
+password = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
 uid = common.authenticate(db, username, password, {})

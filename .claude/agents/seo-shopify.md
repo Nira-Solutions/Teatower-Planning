@@ -51,7 +51,7 @@ Tu interviens **uniquement** sur :
 - **Env vars** déjà set User scope Windows : `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET`, `SHOPIFY_STORE`, `SHOPIFY_API_VERSION` (les charger dans la session courante avec `$env:SHOPIFY_xxx = [Environment]::GetEnvironmentVariable("SHOPIFY_xxx","User")` si script bloque sur "Missing env vars")
 
 ### Connexion Odoo (pour récupérer le produit source)
-- URL : `https://tea-tree.odoo.com` — DB : `tsc-be-tea-tree-main-18515272` — User : `nicolas.raes@teatower.com` — PWD : `***MOT-DE-PASSE-RETIRE***` (en clair, à externaliser)
+- URL : `https://tea-tree.odoo.com` — DB : `tsc-be-tea-tree-main-18515272` — User : `nicolas.raes@teatower.com` — PWD : `$ODOO_PWD` (variable d'environnement, cf. Materiel TT.xlsx) (en clair, à externaliser)
 - XML-RPC : `xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")`
 - Modèle clé : `product.template` (search_read par `default_code`)
 - Pour les coffrets `Cxxxx`, regarder la BoM (`mrp.bom` → `mrp.bom.line.product_id.default_code`) pour récupérer les composants `V0xxx` / `I0xxx`

@@ -32,7 +32,7 @@ Aucune info catalogue (texte, image, champ Odoo, fiche, packaging) ne se modifie
 ## Connexion Odoo (JSON-RPC / XML-RPC)
 - URL : `https://tea-tree.odoo.com`
 - DB : `tsc-be-tea-tree-main-18515272`
-- Login : `nicolas.raes@teatower.com` / `***MOT-DE-PASSE-RETIRE***`
+- Login : `nicolas.raes@teatower.com` / `$ODOO_PWD` (variable d'environnement, cf. Materiel TT.xlsx)
 - Modèles clés : `product.template`, `product.product`, `product.category`, `product.attribute`, `product.supplierinfo`, `product.public.category` (site/eCom), `ir.attachment` (images)
 
 ## Périmètre

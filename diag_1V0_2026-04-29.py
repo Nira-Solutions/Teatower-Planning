@@ -1,13 +1,14 @@
 """
 Diagnostic urgence 2026-04-29 : MO ne se generent plus pour 1V0 (vrac intermediaire) sur TT/Stock.
 """
+import os
 import xmlrpc.client, json, os
 from collections import Counter
 
 URL = "https://tea-tree.odoo.com"
 DB  = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PW  = "***MOT-DE-PASSE-RETIRE***"
+PW  = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common')
 uid = common.authenticate(DB, USER, PW, {})

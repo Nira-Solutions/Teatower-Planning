@@ -21,6 +21,7 @@ Usage:
     python scripts/slack_photos_vers_odoo.py --depuis 2026-07-01          # dry-run
     python scripts/slack_photos_vers_odoo.py --depuis 2026-07-01 --apply
 """
+import os
 import argparse, base64, io, json, os, re, sys, time, unicodedata
 import urllib.request, urllib.parse, xmlrpc.client
 from datetime import datetime, timezone, timedelta
@@ -30,7 +31,7 @@ MAX_PX, JPEG_Q = 1600, 80
 ODOO_URL = 'https://tea-tree.odoo.com'
 ODOO_DB  = 'tsc-be-tea-tree-main-18515272'
 ODOO_USER= 'nicolas.raes@teatower.com'
-ODOO_PWD = os.environ.get('ODOO_PWD', '***MOT-DE-PASSE-RETIRE***')
+ODOO_PWD = os.environ["ODOO_PWD"]
 
 
 # ---------------------------------------------------------------- Slack

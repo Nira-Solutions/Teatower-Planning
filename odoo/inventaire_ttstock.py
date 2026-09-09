@@ -7,6 +7,7 @@ Usage :
   python odoo/inventaire_ttstock.py            # exécution réelle
   python odoo/inventaire_ttstock.py --dry-run  # préview sans écriture
 """
+import os
 import sys, json, datetime as dt, pathlib, argparse
 sys.stdout.reconfigure(encoding="utf-8")
 import xmlrpc.client
@@ -19,7 +20,7 @@ SNAPSHOT_DIR.mkdir(exist_ok=True)
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 
 def connect():

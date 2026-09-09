@@ -1,9 +1,10 @@
 """Build the unified GMS catalog: union of (orderpoint GMS) + (SO lines GMS partners 12m)."""
+import os
 import xmlrpc.client, sys, io, json, datetime as dt
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 URL="https://tea-tree.odoo.com"; DB="tsc-be-tea-tree-main-18515272"
-USER="nicolas.raes@teatower.com"; PWD="***MOT-DE-PASSE-RETIRE***"
+USER="nicolas.raes@teatower.com"; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid=common.authenticate(DB,USER,PWD,{})
 models=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

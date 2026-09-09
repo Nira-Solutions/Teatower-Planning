@@ -4,6 +4,7 @@ Diagnostic profond :
 2. Produits qui devraient etre Buy mais qui n'ont plus de route operationnelle
 3. MO recents : comment ont-ils ete crees alors que 1 seul template a la route Manufacture ?
 """
+import os
 import xmlrpc.client
 import json
 import sys
@@ -14,7 +15,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})

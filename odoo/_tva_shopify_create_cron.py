@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """VOLET 3 - AUTOMATION : ir.cron horaire qui backfill country_id des parents Shopify
 B2C sans pays (logique non-ambigue identique au backfill manuel). Reversible (active=False)."""
+import os
 import xmlrpc.client, json
 from datetime import datetime, timedelta
 URL="https://tea-tree.odoo.com"; DB="tsc-be-tea-tree-main-18515272"
-USER="nicolas.raes@teatower.com"; PWD="***MOT-DE-PASSE-RETIRE***"
+USER="nicolas.raes@teatower.com"; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid=common.authenticate(DB,USER,PWD,{})
 m=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

@@ -6,13 +6,14 @@ Replique la structure de MISC/25-26/09/0002 (comptable) :
 - exclut les transferts 453x/454x cote DEBIT (zeroes vers 4400 chez SD)
 Usage: python _sdworx_import.py [--apply]
 """
+import os
 import openpyxl, sys, xmlrpc.client
 from collections import defaultdict
 sys.stdout.reconfigure(encoding="utf-8")
 import warnings; warnings.filterwarnings("ignore")
 
 APPLY = "--apply" in sys.argv
-URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD='***MOT-DE-PASSE-RETIRE***'
+URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common'); uid=common.authenticate(DB,USER,PWD,{})
 models=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/object')
 def call(m,meth,a,k=None): return models.execute_kw(DB,uid,PWD,m,meth,a,k or {})

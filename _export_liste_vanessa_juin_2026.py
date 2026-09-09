@@ -9,6 +9,7 @@ Génère un xlsx avec :
 
 Source : tags MC-202606-* déjà appliqués dans Odoo.
 """
+import os
 import xmlrpc.client, sys, io, hashlib, datetime as dt
 from pathlib import Path
 
@@ -25,7 +26,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 TAGS = {
     "MC-202606-HORECA-DORMANT":    ("HORECA DORMANT",    "Sans commande > 6 mois — 3+1 + relance Jérôme"),

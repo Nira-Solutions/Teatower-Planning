@@ -2,10 +2,11 @@
 """VOLET 1 - DRY-RUN : identifier les parents Shopify sans country_id ayant un enfant (delivery/invoice) AVEC pays.
 Priorite enfant 'delivery' sinon 'invoice'. Pays enfants divergents => AMBIGU, non traite.
 Produit la liste complete dans _tva_shopify_dryrun.json. AUCUNE ECRITURE."""
+import os
 import xmlrpc.client, json
 from collections import defaultdict
 URL="https://tea-tree.odoo.com"; DB="tsc-be-tea-tree-main-18515272"
-USER="nicolas.raes@teatower.com"; PWD="***MOT-DE-PASSE-RETIRE***"
+USER="nicolas.raes@teatower.com"; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid=common.authenticate(DB,USER,PWD,{})
 m=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

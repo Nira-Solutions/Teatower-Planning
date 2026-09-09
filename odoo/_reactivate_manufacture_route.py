@@ -2,6 +2,7 @@
 Reactivation route Manufacture/Fabriquer sur tea-tree.odoo.com
 Demande Nicolas 2026-04-21 - contexte BoM C0200 id 7681 OK mais pas de route active.
 """
+import os
 import xmlrpc.client
 import json
 import sys
@@ -9,7 +10,7 @@ import sys
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})

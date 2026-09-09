@@ -717,7 +717,7 @@
     url: 'https://tea-tree.odoo.com',
     db: 'tsc-be-tea-tree-main-18515272',
     login: 'nicolas.raes@teatower.com',
-    password: '***MOT-DE-PASSE-RETIRE***',
+    password: (localStorage.getItem('ODOO_PWD') || '')  /* jamais de secret en dur : page publique */,
     session: null
   };
 

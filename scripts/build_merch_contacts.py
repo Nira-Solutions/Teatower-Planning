@@ -12,6 +12,7 @@ et compose, pour chaque GMS merch, la personne de contact depuis DEUX sources :
 Exclut les magasins televente (perimetre Vanessa). Se comporte comme un 2e onglet
 du planning merch (bouton en haut de index.html). Aucune ecriture Odoo.
 """
+import os
 
 import csv
 import html
@@ -23,7 +24,7 @@ from pathlib import Path
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 # Chemins relatifs au depot : le nom d'utilisateur Windows differe d'un poste a
 # l'autre (FlowUP sur le fixe, Nraes sur le portable) -> aucun chemin en dur.
 REPO = Path(__file__).resolve().parent.parent

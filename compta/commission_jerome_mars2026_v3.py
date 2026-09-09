@@ -3,9 +3,10 @@ v3 — Verification finale par partenaire pour la commission mars 2026.
 Pour chaque candidat, sortir TOUTES les SO + factures et leur statut.
 Aussi : recherche large pour clients introuvables (Haine St Pierre, Ans, Gout-The Moulin).
 """
+import os
 import xmlrpc.client
 URL = "https://tea-tree.odoo.com"; DB = "tsc-be-tea-tree-main-18515272"
-USER = "nicolas.raes@teatower.com"; PWD = "***MOT-DE-PASSE-RETIRE***"
+USER = "nicolas.raes@teatower.com"; PWD = os.environ["ODOO_PWD"]
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})
 models = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

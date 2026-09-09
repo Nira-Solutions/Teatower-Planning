@@ -1,9 +1,10 @@
 """
 Retire la route Manufacture (id=6) de tous les product.template SAUF C0200 (id=10485).
 """
+import os
 import xmlrpc.client, sys, json, random
 URL="https://tea-tree.odoo.com"; DB="tsc-be-tea-tree-main-18515272"
-USER="nicolas.raes@teatower.com"; PWD="***MOT-DE-PASSE-RETIRE***"
+USER="nicolas.raes@teatower.com"; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid=common.authenticate(DB,USER,PWD,{})
 m=xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

@@ -2,13 +2,14 @@
 Check BoMs for Halloween V0901, V0914 and supplier for MP_1V0914 (Halloween 2025).
 Also check taxes on V0918.
 """
+import os
 import xmlrpc.client
 import json
 
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PASSWORD, {})

@@ -20,6 +20,7 @@ Lecture seule cote Odoo. Sortie : data/televente_pool_YYYY-MM-DD.{csv,md}.
 
 Usage : python build_televente_pool.py [--target-date YYYY-MM-DD]
 """
+import os
 
 import xmlrpc.client
 import argparse
@@ -35,7 +36,7 @@ from pathlib import Path
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 BAILLON = (50.2904, 5.3387)  # Baillonville 5377
 # Racine du depot : le nom d'utilisateur Windows differe d'un poste a l'autre
 # (FlowUP sur le fixe, Nraes sur le portable) -> aucun chemin en dur.

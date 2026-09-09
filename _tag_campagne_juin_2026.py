@@ -12,6 +12,7 @@ Sortie :
 - CSV: data/mailchimp_juin_2026.csv (email, name, segment, promo_code)
 - Tags appliqués dans Odoo (si DRY_RUN=False)
 """
+import os
 import xmlrpc.client, sys, io, csv, hashlib, datetime as dt
 from pathlib import Path
 
@@ -22,7 +23,7 @@ DRY_RUN = False  # True = aucune écriture Odoo, juste compter
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 CUTOFF_DATE = "2025-11-12"  # J-180 depuis 2026-05-11
 

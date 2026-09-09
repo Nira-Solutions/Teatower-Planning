@@ -10,6 +10,7 @@ product-data : refresh image_1920 de tous les product.template actifs selon règ
 Backup de l'ancienne image dans ir.attachment(name='backup_image_old') avant écrasement.
 Batch par 50. Log complet dans output/product_photos_refresh_log.json.
 """
+import os
 import base64, json, os, re, sys, unicodedata, xmlrpc.client
 from pathlib import Path
 
@@ -21,7 +22,7 @@ OUT_DIR  = ROOT / "output"; OUT_DIR.mkdir(exist_ok=True)
 URL   = "https://tea-tree.odoo.com"
 DB    = "tsc-be-tea-tree-main-18515272"
 LOGIN = "nicolas.raes@teatower.com"
-PWD   = "***MOT-DE-PASSE-RETIRE***"
+PWD   = os.environ["ODOO_PWD"]
 
 def norm(s):
     s = unicodedata.normalize("NFD", s or "").encode("ascii","ignore").decode().lower()

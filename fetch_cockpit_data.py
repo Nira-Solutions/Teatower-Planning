@@ -2,12 +2,13 @@
 Produit cockpit_data.json consommé par teatower_cockpit.html.
 Read-only. Lance manuellement ou via cron (toutes les 15 min par ex).
 """
+import os
 import xmlrpc.client, json, datetime, sys, traceback
 
 URL  = "https://tea-tree.odoo.com"
 DB   = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD  = "***MOT-DE-PASSE-RETIRE***"
+PWD  = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common", allow_none=True)
 uid = common.authenticate(DB, USER, PWD, {})

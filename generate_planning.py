@@ -7,6 +7,7 @@ planning as Markdown.
 
 Reusable: run each week for a fresh planning based on live Odoo data.
 """
+import os
 
 import xmlrpc.client
 from datetime import datetime, timedelta
@@ -19,7 +20,7 @@ from urllib.parse import quote
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 LOGIN = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 GMS_TAG_ID = 27
 
 TODAY = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)

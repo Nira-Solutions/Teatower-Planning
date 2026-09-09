@@ -1,12 +1,13 @@
 """Audit config Odoo Teatower - read-only, XML-RPC.
 Produit un JSON riche par domaine, consommé ensuite pour rédiger le rapport MD.
 """
+import os
 import xmlrpc.client, json, sys, traceback, datetime, collections
 
 URL  = "https://tea-tree.odoo.com"
 DB   = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD  = "***MOT-DE-PASSE-RETIRE***"
+PWD  = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common", allow_none=True)
 uid = common.authenticate(DB, USER, PWD, {})

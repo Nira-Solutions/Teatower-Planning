@@ -11,12 +11,13 @@ Alerte si :
   4. Orderpoints avec route_id=Manufacture sur un produit != C0200
   5. MO cree au nom d'un produit sans BoM active dans les 24 dernieres heures
 """
+import os
 import xmlrpc.client, json, sys, io
 from datetime import datetime, timedelta
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 URL = "https://tea-tree.odoo.com"; DB = "tsc-be-tea-tree-main-18515272"
-USER = "nicolas.raes@teatower.com"; PWD = "***MOT-DE-PASSE-RETIRE***"
+USER = "nicolas.raes@teatower.com"; PWD = os.environ["ODOO_PWD"]
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})
 m = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

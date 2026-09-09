@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Transferts internes TT/Stock -> Rocourt / Liege / Namur, 8 u par reference."""
+import os
 import xmlrpc.client, os
 url="https://tea-tree.odoo.com"; db="tsc-be-tea-tree-main-18515272"
-user="nicolas.raes@teatower.com"; pw=os.environ.get("ODOO_PWD","***MOT-DE-PASSE-RETIRE***")
+user="nicolas.raes@teatower.com"; pw=os.environ["ODOO_PWD"]
 uid = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common').authenticate(db,user,pw,{})
 m = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
 def X(model, method, *a, **kw):

@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """Envoi des 4 factures HoneyHoney (CDM de Poyoux Sarts) vers vendor-bills@tea-tree.odoo.com
 via mail.mail Odoo — 1 mail par PDF pour garantir 1 brouillon de facture fournisseur par document."""
+import os
 import xmlrpc.client, base64, os, time
 
 URL = "https://tea-tree.odoo.com"; DB = "tsc-be-tea-tree-main-18515272"
-USER = "nicolas.raes@teatower.com"; PWD = "***MOT-DE-PASSE-RETIRE***"
+USER = "nicolas.raes@teatower.com"; PWD = os.environ["ODOO_PWD"]
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})
 m = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")

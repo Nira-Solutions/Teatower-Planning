@@ -8,12 +8,13 @@ Sections :
 2. Displays GMS nouveaux en avril + rattrapages des 6 GMS de mars
 3. Nouveaux clients hors GMS en avril + rattrapages clients mars
 """
+import os
 import xmlrpc.client
 
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = "***MOT-DE-PASSE-RETIRE***"
+PWD = os.environ["ODOO_PWD"]
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
 uid = common.authenticate(DB, USER, PWD, {})

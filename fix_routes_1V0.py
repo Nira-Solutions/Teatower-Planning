@@ -7,6 +7,7 @@ Lancer en dry-run :
 Pour appliquer :
     python fix_routes_1V0.py --apply
 """
+import os
 import sys
 import xmlrpc.client
 import json
@@ -15,7 +16,7 @@ from datetime import datetime
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PW = "***MOT-DE-PASSE-RETIRE***"
+PW = os.environ["ODOO_PWD"]
 
 MANUFACTURE_ROUTE_ID = 6
 APPLY = '--apply' in sys.argv

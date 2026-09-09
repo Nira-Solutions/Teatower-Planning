@@ -3,8 +3,9 @@ Perimetre : les 17 refs de la liste EAN du 02/09/2026 (SRPV0914 exclu, hors list
 Regle : entrepot Teatower (TT) / TT/Stock, min 10, max 20, route Fabriquer, auto.
 Usage: --apply pour ecrire (sinon dry-run).
 """
+import os
 import sys, xmlrpc.client
-URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD='***MOT-DE-PASSE-RETIRE***'
+URL='https://tea-tree.odoo.com'; DB='tsc-be-tea-tree-main-18515272'; USER='nicolas.raes@teatower.com'; PWD=os.environ["ODOO_PWD"]
 common=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/common'); uid=common.authenticate(DB,USER,PWD,{})
 models=xmlrpc.client.ServerProxy(f'{URL}/xmlrpc/2/object')
 def call(m,meth,a,k=None): return models.execute_kw(DB,uid,PWD,m,meth,a,k or {})

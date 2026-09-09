@@ -27,7 +27,7 @@ import xmlrpc.client
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PWD = os.environ.get("ODOO_PWD", "***MOT-DE-PASSE-RETIRE***")
+PWD = os.environ["ODOO_PWD"]
 VANESSA_PARTNER = 6491  # "Teatower team" = compte aurelie.thibaut@teatower.com
 
 # Le compte 6491 sert aussi aux relances de factures et aux reponses clients :

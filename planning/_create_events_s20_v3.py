@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Create calendar events for S20 (20-24 april 2026) planning v3."""
+import os
 import xmlrpc.client
 
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 LOGIN = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 JEROME_ID = 6494
 
 common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common", allow_none=True)

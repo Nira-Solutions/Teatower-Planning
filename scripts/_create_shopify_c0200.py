@@ -25,7 +25,7 @@ MAPPING_FILE.parent.mkdir(parents=True, exist_ok=True)
 ODOO_URL = "https://tea-tree.odoo.com"
 ODOO_DB = "tsc-be-tea-tree-main-18515272"
 ODOO_USER = "nicolas.raes@teatower.com"
-ODOO_PWD = os.environ.get("ODOO_API_KEY") or os.environ.get("ODOO_PASSWORD") or "***MOT-DE-PASSE-RETIRE***"
+ODOO_PWD = os.environ.get("ODOO_API_KEY") or os.environ.get("ODOO_PASSWORD") or os.environ["ODOO_PWD"]
 
 SKU = "C0200"
 

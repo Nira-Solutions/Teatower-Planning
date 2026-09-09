@@ -9,6 +9,7 @@ Récupère pour chaque magasin déjà planifié S22 (mardi 26/05 + mercredi 27/0
 
 Source maître : sale.order Odoo. PAS les fichiers planning .md/.html.
 """
+import os
 
 import xmlrpc.client
 from datetime import date
@@ -16,7 +17,7 @@ from datetime import date
 URL = "https://tea-tree.odoo.com"
 DB = "tsc-be-tea-tree-main-18515272"
 USER = "nicolas.raes@teatower.com"
-PASSWORD = "***MOT-DE-PASSE-RETIRE***"
+PASSWORD = os.environ["ODOO_PWD"]
 
 TODAY = date(2026, 5, 21)
 
