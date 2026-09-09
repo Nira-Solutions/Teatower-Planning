@@ -663,9 +663,7 @@
           <tr><th>SO</th><th>Client</th><th>Note</th><th>Jour</th></tr>
         </thead>
         <tbody>
-          <tr><td>S05413</td><td>Delhaize Enghien</td><td>Implantation semaine du 20/04</td><td>Lundi</td></tr>
-          <tr><td>S05382</td><td>Spar Namur</td><td>OK pour implantation semaine prochaine</td><td>Mardi</td></tr>
-          <tr><td>S05380</td><td>Spar Manhay</td><td>New cli GMS &agrave; implanter</td><td>Non planifi&eacute; (event Nicolas)</td></tr>
+          <tr><td colspan="4" style="color:var(--text-muted);text-align:center;padding:24px">Aucune donn&eacute;e &mdash; connecte-toi &agrave; Odoo pour charger les notes.</td></tr>
         </tbody>
       </table>
     </div>
@@ -693,7 +691,7 @@
             <div class="msg-content">
               <div class="msg-name">Agent Teatower</div>
               <div class="msg-text">
-                Bonjour Nicolas ! Je suis l'agent IA Teatower. Je connais ton catalogue de <strong>~500 produits</strong>, tes <strong>clients B2B</strong> (Delhaize, Carrefour, Smartbox...), ton <strong>CA</strong> et tes <strong>marges</strong>.<br><br>
+                Bonjour Nicolas ! Je suis l'agent IA Teatower. Une fois connect&eacute; &agrave; Odoo, j'ai acc&egrave;s au <strong>catalogue</strong>, aux <strong>clients B2B</strong>, au <strong>CA</strong> et aux <strong>marges</strong>.<br><br>
                 Pose-moi n'importe quelle question sur ton business : stock, pricing, clients, strat&eacute;gie...
               </div>
             </div>
@@ -724,13 +722,12 @@
   // ═══════════════════════════════════════════
   // TEATOWER KNOWLEDGE BASE (static fallback)
   // ═══════════════════════════════════════════
+  // ATTENTION — cette page est servie publiquement par GitHub Pages.
+  // Ne JAMAIS y remettre en dur : chiffre d'affaires, noms de clients,
+  // commandes, marges, fournisseurs, ni aucun identifiant.
+  // Ces donnees n'arrivent qu'apres authentification Odoo (loadFromOdoo).
   const KNOWLEDGE = {
-    revenue: {
-      '2025-04': 154732, '2025-05': 138051, '2025-06': 234497,
-      '2025-07': 172261, '2025-08': 172313, '2025-09': 172901,
-      '2025-10': 136395, '2025-11': 112403, '2025-12': 109884,
-      '2026-01': 117349, '2026-02': 86786, '2026-03': 123108
-    },
+    revenue: {},
     categories: {
       'Accessoires': 108, 'Coffret': 79, 'Echantillons': 65,
       'The Noir': 43, 'The Vert': 38, 'Fruits': 32,
@@ -738,44 +735,12 @@
       'Epices': 8, 'Oolong': 7, 'Plantes': 6, 'Mate': 5,
       'Pu Erh': 4, 'The Blanc': 4
     },
-    topClients: [
-      { name: 'Delhaize Le Lion S.A', city: 'Asse', rank: 271 },
-      { name: 'Smartbox Group', city: 'Dublin', rank: 134 },
-      { name: 'Carrefour Belgium', city: 'Zaventem', rank: 119 },
-      { name: 'Grain srl', city: 'Liege', rank: 60 },
-      { name: 'Cafes Delahaut', city: 'Namur', rank: 39 },
-      { name: 'Newpharma', city: 'Liege', rank: 37 },
-      { name: 'Get your mug Srl', city: 'Liege', rank: 25 },
-      { name: 'Wonka SA - Intermarche Heusy', city: 'Heusy', rank: 25 },
-      { name: 'Alcodis SA', city: 'Watermael-Boitsfort', rank: 23 },
-      { name: 'Sorescol S.A.', city: 'Gosselies', rank: 23 },
-      { name: 'Carrefour Market Remouchamps', city: 'Aywaille', rank: 22 },
-      { name: 'Cafes Antillia', city: 'Saint-Servais', rank: 21 },
-      { name: 'Cafe Ventuno', city: 'Chaineux', rank: 20 },
-      { name: 'Nira Solutions', city: 'Havelange', rank: 19 },
-      { name: 'Brasserie Maziers', city: 'Sensenruth', rank: 19 }
-    ],
-    recentOrders: [
-      { id: 'S05330', client: 'Intermarche Assesse', date: '2026-04-01', amount: 528.50, state: 'sale' },
-      { id: 'S05329', client: 'Carrefour Belgium', date: '2026-04-01', amount: 892.59, state: 'draft' },
-      { id: 'S05328', client: 'Delhaize Le Lion', date: '2026-04-01', amount: 319.92, state: 'sale' },
-      { id: 'S05327', client: 'Intermarche Jambes', date: '2026-04-01', amount: 166.62, state: 'sale' },
-      { id: 'S05326', client: 'Newpharma', date: '2026-04-01', amount: 39.00, state: 'sale' },
-      { id: 'S05325', client: 'Delhaize Beauraing', date: '2026-04-01', amount: 354.21, state: 'sale' },
-      { id: 'S05324', client: 'Frigo Loco', date: '2026-04-01', amount: 508.80, state: 'sale' },
-      { id: 'S05323', client: 'Carrefour Marche', date: '2026-04-01', amount: 462.03, state: 'sale' },
-      { id: 'S05322', client: "D'ICI sprl", date: '2026-04-01', amount: 423.50, state: 'sale' },
-      { id: '#48397', client: 'Michel Wuyts', date: '2026-04-01', amount: 15.00, state: 'sale' },
-      { id: '#48396', client: 'Ann Bogaerts', date: '2026-04-01', amount: 71.25, state: 'sale' },
-      { id: '#48395', client: 'Angello De bonis', date: '2026-04-01', amount: 66.50, state: 'sale' },
-      { id: '#48394', client: 'MARTINE GOWIE', date: '2026-04-01', amount: 61.60, state: 'sale' },
-      { id: '#48393', client: 'Celine Scheffer', date: '2026-04-01', amount: 58.22, state: 'sale' },
-      { id: '#48392', client: 'Nicolas Bartholomeus', date: '2026-04-01', amount: 69.96, state: 'sale' }
-    ],
-    margins: { vrac100: '70-82%', infusettes: '81-88%', vrac500: '70-83%', coffretsNoel: '47%', horeca: '64%' },
-    suppliers: ['Kirchner Fischer (the)', 'Dethlefsen & Balk (the)', 'Mount Everest Tea (the)', 'Tasco (packaging)', 'Pouch Direct (sachets)'],
+    topClients: [],
+    recentOrders: [],
+    margins: {},
+    suppliers: [],
     totalProducts: 500,
-    totalCA15months: 1738332
+    totalCA15months: null
   };
 
   // ═══════════════════════════════════════════
@@ -831,12 +796,14 @@
     document.getElementById('current-date').textContent = now.toLocaleDateString('fr-BE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
     // KPIs
-    document.getElementById('kpi-ca').textContent = '123K EUR';
-    document.getElementById('kpi-ca-sub').innerHTML = '<span class="kpi-up">+41.8% vs fev</span>';
-    document.getElementById('kpi-orders').textContent = KNOWLEDGE.recentOrders.length;
-    document.getElementById('kpi-orders-sub').innerHTML = '<span class="kpi-up">B2B + B2C actifs</span>';
-    document.getElementById('kpi-clients').textContent = '50+';
-    document.getElementById('kpi-clients-sub').innerHTML = '<span style="color:var(--text-muted)">entreprises rank 5+</span>';
+    const muted = 'color:var(--text-muted)';
+    const attente = `<span style="${muted}">connexion Odoo requise</span>`;
+    document.getElementById('kpi-ca').textContent = KNOWLEDGE.totalCA15months ? formatEUR(KNOWLEDGE.totalCA15months) : '—';
+    document.getElementById('kpi-ca-sub').innerHTML = attente;
+    document.getElementById('kpi-orders').textContent = KNOWLEDGE.recentOrders.length || '—';
+    document.getElementById('kpi-orders-sub').innerHTML = attente;
+    document.getElementById('kpi-clients').textContent = KNOWLEDGE.topClients.length || '—';
+    document.getElementById('kpi-clients-sub').innerHTML = attente;
     document.getElementById('kpi-products').textContent = '500';
     document.getElementById('kpi-products-sub').innerHTML = '<span style="color:var(--text-muted)">17 categories</span>';
 
@@ -925,8 +892,10 @@
         <td><span class="status status-${o.state}">${o.state === 'sale' ? 'Confirme' : 'Brouillon'}</span></td>
       </tr>
     `).join('');
-    document.getElementById('orders-table').innerHTML = ordersHtml;
-    document.getElementById('orders-count').textContent = KNOWLEDGE.recentOrders.length + ' du jour';
+    document.getElementById('orders-table').innerHTML = ordersHtml
+      || '<tr><td colspan="5" style="color:var(--text-muted);text-align:center;padding:24px">Aucune donnée — connecte-toi à Odoo pour charger les commandes.</td></tr>';
+    document.getElementById('orders-count').textContent = KNOWLEDGE.recentOrders.length
+      ? KNOWLEDGE.recentOrders.length + ' du jour' : '—';
 
     // Clients table
     const clientsHtml = KNOWLEDGE.topClients.map(c => `
@@ -936,7 +905,8 @@
         <td style="color:var(--text-muted)">${c.city}</td>
       </tr>
     `).join('');
-    document.getElementById('clients-table').innerHTML = clientsHtml;
+    document.getElementById('clients-table').innerHTML = clientsHtml
+      || '<tr><td colspan="3" style="color:var(--text-muted);text-align:center;padding:24px">Aucune donnée — connecte-toi à Odoo pour charger les clients.</td></tr>';
   }
 
   // ═══════════════════════════════════════════
