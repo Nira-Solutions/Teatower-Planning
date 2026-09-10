@@ -200,6 +200,25 @@ body { margin: 0; background: #ececec; font-family: "Helvetica Neue", Arial, san
 """
 
 
+def page(title, css, body, script=''):
+    """Document complet.
+
+    lang="fr" + translate="no" + <meta name="google" content="notranslate"> :
+    sans ca, Chrome detecte la page comme anglaise et la traduit tout seul chez
+    le destinataire -- "Lady Dodo" devient "Dame Dodo" et "Lot" devient
+    "Parcelle". Sur une etiquette logistique, le nom produit et le numero de lot
+    ne doivent jamais bouger.
+    """
+    return (f'<!doctype html>\n<html lang="fr" translate="no">\n<head>\n'
+            f'<meta charset="utf-8">\n'
+            f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+            f'<meta name="google" content="notranslate">\n'
+            f'<title>{title}</title>\n<style>{css}</style>\n</head>\n'
+            f'<body class="notranslate">\n{body}\n'
+            + (f'<script>{script}</script>\n' if script else '')
+            + '</body>\n</html>\n')
+
+
 JS = r"""
 // Lot et DDM editables : on tape dans une case, les 8 etiquettes de la meme
 // reference suivent. Les valeurs sont gardees dans le navigateur (localStorage)
@@ -253,13 +272,15 @@ def render(prods, out, gs1=False, lot='', lots=None, ddm='', ddms=None, mixte=Fa
         colis = f'COLIS DE 6 &times; {g} g' if g else 'COLIS DE 6'
         cards.append(f"""<div class="lbl">
   <div>
-    <div class="top"><span class="ref">{ref}</span><span class="colis">{colis}</span></div>
-    <div class="prod">{prod}</div>
-    <div class="unit">unite : {unit}</div>
+    <div class="top"><span class="ref" translate="no">{ref}</span><span class="colis">{colis}</span></div>
+    <div class="prod" translate="no">{prod}</div>
+    <div class="unit">unite : <span translate="no">{unit}</span></div>
     <div class="trace">
-      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+      <div><span class="k" translate="no">Lot</span><span class="v" contenteditable="true"
+           spellcheck="false" translate="no"
            data-f="lot" data-ref="{ref}" data-ph="a completer">{lots.get(ref, lot)}</span></div>
-      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+      <div><span class="k" translate="no">DDM</span><span class="v" contenteditable="true"
+           spellcheck="false" translate="no"
            data-f="ddm" data-ref="{ref}" data-ph="MM/AAAA">{ddms.get(ref, ddm)}</span></div>
     </div>
   </div>
@@ -273,12 +294,11 @@ def render(prods, out, gs1=False, lot='', lots=None, ddm='', ddms=None, mixte=Fa
         # une reference par planche : 8 etiquettes identiques, prete a coller sur un lot
         pages = [[c] * per_page for c in cards] or [[]]
     sheets = []
-    for page in pages:
-        blanks = ['<div class="lbl"></div>'] * (per_page - len(page))
-        sheets.append('<div class="sheet">' + ''.join(page + blanks) + '</div>')
+    for pg in pages:
+        blanks = ['<div class="lbl"></div>'] * (per_page - len(pg))
+        sheets.append('<div class="sheet">' + ''.join(pg + blanks) + '</div>')
 
-    html = (f'<title>Etiquettes SRP 6x VRAC</title>\n<style>{CSS}</style>\n'
-            + '\n'.join(sheets) + f'\n<script>{JS}</script>\n')
+    html = page('Etiquettes SRP 6x VRAC', CSS, '\n'.join(sheets), JS)
     with open(out, 'w', encoding='utf-8') as f:
         f.write(html)
     return len(cards), skipped, bad_key
@@ -324,13 +344,13 @@ def write_index(made, path):
             f'<div class="n">{prod}</div>'
             f'<div class="g">unite {unit} &middot; colis de 6'
             + (f' &times; {g} g' if g else '') + '</div></a></li>')
-    html = (f'<title>Etiquettes SRP 6x VRAC</title>\n<style>{INDEX_CSS}</style>\n'
-            f'<div class="wrap"><h1>Etiquettes SRP 6&times; VRAC</h1>'
+    body = (f'<div class="wrap"><h1>Etiquettes SRP 6&times; VRAC</h1>'
             f'<p class="sub">{len(made)} planches &middot; une reference par planche, '
             f'8 etiquettes identiques (Avery L7165, 99,1 &times; 67,7 mm)</p>'
             f'<ul>{"".join(items)}</ul>'
             f'<p class="note">Ouvrir une planche, cliquer sur <b>Lot</b> et sur <b>DDM</b> '
-            f'pour les saisir &mdash; les 8 etiquettes suivent &mdash; puis imprimer.</p></div>\n')
+            f'pour les saisir &mdash; les 8 etiquettes suivent &mdash; puis imprimer.</p></div>')
+    html = page('Etiquettes SRP 6x VRAC', INDEX_CSS, body)
     with open(path, 'w', encoding='utf-8') as f:
         f.write(html)
 
