@@ -20,8 +20,9 @@ Usage:
     ... --gs1                           (cle GTIN-14 recalculee)
     ... --out chemin/etiquettes.html
 """
-import argparse, os, sys, xmlrpc.client
+import argparse, json, os, sys, xmlrpc.client
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = 'https://tea-tree.odoo.com'
 DB = 'tsc-be-tea-tree-main-18515272'
 USER = 'nicolas.raes@teatower.com'
@@ -119,6 +120,44 @@ def libelle(name):
     return name.replace(' VRAC', '').strip(), unit
 
 
+def grammages():
+    """{'V0631': 80, ...} depuis le catalogue GMS ; {} si le fichier manque."""
+    path = os.path.join(ROOT, 'gms-catalog', 'catalog.json')
+    if not os.path.exists(path):
+        return {}
+
+    def walk(o):
+        if isinstance(o, dict):
+            if 'code' in o and 'grammage_g' in o:
+                yield o
+            for v in o.values():
+                yield from walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                yield from walk(v)
+
+    with open(path, encoding='utf-8') as f:
+        return {x['code']: x['grammage_g'] for x in walk(json.load(f))
+                if str(x.get('code', '')).startswith('V0')}
+
+
+def par_ref(spec):
+    """'K071273' -> valeur unique ; 'SRPV0631=K07,SRPV0121=K12' -> dict par ref.
+
+    Retourne (defaut, {ref: valeur}). Une valeur vide laisse un champ a remplir
+    a la main sur la planche imprimee.
+    """
+    if not spec:
+        return '', {}
+    if '=' not in spec:
+        return spec.strip(), {}
+    out = {}
+    for part in spec.split(','):
+        ref, _, val = part.partition('=')
+        out[ref.strip()] = val.strip()
+    return '', out
+
+
 CSS = """
 @page { size: A4 portrait; margin: 0; }
 * { box-sizing: border-box; }
@@ -136,6 +175,11 @@ body { margin: 0; background: #ececec; font-family: "Helvetica Neue", Arial, san
 .colis { font-size: 8.5pt; font-weight: 700; border: 1.1pt solid #000; padding: .7mm 2mm; white-space: nowrap; }
 .prod { font-size: 15pt; font-weight: 700; line-height: 1.12; margin: 1mm 0 0; }
 .unit { font-size: 8.5pt; letter-spacing: .06em; color: #444; margin-top: 1mm; }
+.trace { display: flex; gap: 4mm; font-size: 9pt; margin-top: 1.6mm; }
+.trace > div { flex: 1; display: flex; align-items: baseline; gap: 1.5mm; }
+.trace .k { font-weight: 700; letter-spacing: .04em; white-space: nowrap; }
+.trace .v { flex: 1; font-family: "Courier New", monospace; font-weight: 700;
+            border-bottom: .35mm solid #000; min-height: 3.6mm; padding-left: .5mm; }
 .bcwrap { text-align: center; }
 .bc { display: block; margin: 0 auto; }
 .bc rect { fill: #000; }
@@ -148,8 +192,10 @@ body { margin: 0; background: #ececec; font-family: "Helvetica Neue", Arial, san
 """
 
 
-def render(prods, out, gs1=False):
+def render(prods, out, gs1=False, lot='', lots=None, ddm='', ddms=None):
     cards, skipped, bad_key = [], [], []
+    gram = grammages()
+    lots, ddms = lots or {}, ddms or {}
     for p in prods:
         ref = p['default_code']
         prod, unit = libelle(p['name'])
@@ -161,11 +207,17 @@ def render(prods, out, gs1=False):
             bad_key.append((ref, code, to_gtin14(code)))
         if gs1:
             code = to_gtin14(code)
+        g = gram.get(unit)
+        colis = f'COLIS DE 6 &times; {g} g' if g else 'COLIS DE 6'
         cards.append(f"""<div class="lbl">
   <div>
-    <div class="top"><span class="ref">{ref}</span><span class="colis">COLIS DE 6</span></div>
+    <div class="top"><span class="ref">{ref}</span><span class="colis">{colis}</span></div>
     <div class="prod">{prod}</div>
     <div class="unit">unite : {unit}</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v">{lots.get(ref, lot)}</span></div>
+      <div><span class="k">DDM</span><span class="v">{ddms.get(ref, ddm)}</span></div>
+    </div>
   </div>
   <div class="bcwrap">{itf14_svg(code)}<div class="digits">{human(code)}</div></div>
 </div>""")
@@ -189,14 +241,21 @@ if __name__ == '__main__':
     ap.add_argument('--refs', help='liste SRPVxxxx separee par des virgules')
     ap.add_argument('--gs1', action='store_true',
                     help='imprimer le GTIN-14 a cle recalculee au lieu du barcode Odoo')
-    ap.add_argument('--out', default=os.path.join(os.path.dirname(os.path.dirname(
-        os.path.abspath(__file__))), 'etiquettes', 'Etiquettes_SRP_6x_VRAC.html'))
+    ap.add_argument('--lot', help='lot unique, ou "SRPV0631=K071273,SRPV0121=K07..." ; '
+                                  'vide = champ a remplir a la main')
+    ap.add_argument('--ddm', help='DDM unique (ex. 10/2028), ou "REF=valeur,..." ; '
+                                  'vide = champ a remplir a la main')
+    ap.add_argument('--out', default=os.path.join(ROOT, 'etiquettes',
+                                                  'Etiquettes_SRP_6x_VRAC.html'))
     a = ap.parse_args()
 
     refs = [r.strip() for r in a.refs.split(',')] if a.refs else None
     prods = fetch(refs)
+    lot, lots = par_ref(a.lot)
+    ddm, ddms = par_ref(a.ddm)
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
-    n, skipped, bad_key = render(prods, a.out, gs1=a.gs1)
+    n, skipped, bad_key = render(prods, a.out, gs1=a.gs1,
+                                 lot=lot, lots=lots, ddm=ddm, ddms=ddms)
     src = 'GTIN-14 conforme (cle recalculee)' if a.gs1 else 'barcode Odoo tel quel'
     print(f'{n} etiquettes ecrites ({src}) -> {a.out}')
     for ref, why in skipped:
