@@ -284,6 +284,75 @@ def render(prods, out, gs1=False, lot='', lots=None, ddm='', ddms=None, mixte=Fa
     return len(cards), skipped, bad_key
 
 
+INDEX_CSS = """
+* { box-sizing: border-box; }
+body { margin: 0; background: #f4f4f2; color: #1a1a1a; padding: 28px 20px 60px;
+       font: 15px/1.5 "Helvetica Neue", Arial, sans-serif; }
+.wrap { max-width: 860px; margin: 0 auto; }
+h1 { font-size: 21px; margin: 0 0 4px; letter-spacing: -.01em; }
+.sub { color: #666; font-size: 13.5px; margin: 0 0 22px; }
+ul { list-style: none; margin: 0; padding: 0;
+     display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 9px; }
+a.card { display: block; background: #fff; border: 1px solid #e0e0dc; border-radius: 7px;
+         padding: 11px 13px; text-decoration: none; color: inherit; }
+a.card:hover { border-color: #9a9a92; background: #fffdf5; }
+.r { font-weight: 700; font-size: 14px; letter-spacing: .03em; }
+.n { font-size: 13.5px; margin-top: 1px; }
+.g { font-size: 11.5px; color: #777; margin-top: 3px; letter-spacing: .04em; }
+.note { margin-top: 26px; font-size: 13px; color: #666; border-top: 1px solid #e0e0dc;
+        padding-top: 14px; }
+@media (prefers-color-scheme: dark) {
+  body { background: #17171a; color: #ececec; }
+  a.card { background: #212126; border-color: #34343a; }
+  a.card:hover { border-color: #6a6a76; background: #26262c; }
+  .sub, .g, .note { color: #a0a0a8; }
+  .note { border-top-color: #34343a; }
+}
+"""
+
+
+def write_index(made, path):
+    """Page d'accueil : une carte par planche."""
+    gram = grammages()
+    items = []
+    for p, fname in made:
+        prod, unit = libelle(p['name'])
+        g = gram.get(unit)
+        items.append(
+            f'<li><a class="card" href="{fname}">'
+            f'<div class="r">{p["default_code"]}</div>'
+            f'<div class="n">{prod}</div>'
+            f'<div class="g">unite {unit} &middot; colis de 6'
+            + (f' &times; {g} g' if g else '') + '</div></a></li>')
+    html = (f'<title>Etiquettes SRP 6x VRAC</title>\n<style>{INDEX_CSS}</style>\n'
+            f'<div class="wrap"><h1>Etiquettes SRP 6&times; VRAC</h1>'
+            f'<p class="sub">{len(made)} planches &middot; une reference par planche, '
+            f'8 etiquettes identiques (Avery L7165, 99,1 &times; 67,7 mm)</p>'
+            f'<ul>{"".join(items)}</ul>'
+            f'<p class="note">Ouvrir une planche, cliquer sur <b>Lot</b> et sur <b>DDM</b> '
+            f'pour les saisir &mdash; les 8 etiquettes suivent &mdash; puis imprimer.</p></div>\n')
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(html)
+
+
+def render_split(prods, outdir, **kw):
+    """Un fichier HTML par reference + un index."""
+    os.makedirs(outdir, exist_ok=True)
+    made, skipped, bad_key = [], [], []
+    for p in prods:
+        fname = p['default_code'] + '.html'
+        path = os.path.join(outdir, fname)
+        n, sk, bk = render([p], path, **kw)
+        skipped += sk
+        bad_key += bk
+        if n:
+            made.append((p, fname))
+        elif os.path.exists(path):
+            os.remove(path)
+    write_index(made, os.path.join(outdir, 'index.html'))
+    return made, skipped, bad_key
+
+
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--refs', help='liste SRPVxxxx separee par des virgules')
@@ -296,6 +365,8 @@ if __name__ == '__main__':
     ap.add_argument('--mixte', action='store_true',
                     help='8 references differentes par planche (defaut : 8 etiquettes '
                          'identiques, une seule reference par planche)')
+    ap.add_argument('--split', metavar='DOSSIER',
+                    help='un fichier HTML par reference + index.html dans ce dossier')
     ap.add_argument('--out', default=os.path.join(ROOT, 'etiquettes',
                                                   'Etiquettes_SRP_6x_VRAC.html'))
     a = ap.parse_args()
@@ -304,11 +375,18 @@ if __name__ == '__main__':
     prods = fetch(refs)
     lot, lots = par_ref(a.lot)
     ddm, ddms = par_ref(a.ddm)
-    os.makedirs(os.path.dirname(a.out), exist_ok=True)
-    n, skipped, bad_key = render(prods, a.out, gs1=a.gs1, mixte=a.mixte,
-                                 lot=lot, lots=lots, ddm=ddm, ddms=ddms)
     src = 'GTIN-14 conforme (cle recalculee)' if a.gs1 else 'barcode Odoo tel quel'
-    print(f'{n} etiquettes ecrites ({src}) -> {a.out}')
+    kw = dict(gs1=a.gs1, mixte=a.mixte, lot=lot, lots=lots, ddm=ddm, ddms=ddms)
+
+    if a.split:
+        made, skipped, bad_key = render_split(prods, a.split, **kw)
+        n = len(made)
+        print(f'{n} planches ecrites ({src}) -> {a.split}')
+        print(f'  index -> {os.path.join(a.split, "index.html")}')
+    else:
+        os.makedirs(os.path.dirname(a.out), exist_ok=True)
+        n, skipped, bad_key = render(prods, a.out, **kw)
+        print(f'{n} planches ecrites ({src}) -> {a.out}')
     for ref, why in skipped:
         print(f'  ignore {ref} : {why}')
     if bad_key:

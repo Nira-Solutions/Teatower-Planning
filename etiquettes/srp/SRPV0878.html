@@ -1,0 +1,173 @@
+<title>Etiquettes SRP 6x VRAC</title>
+<style>
+@page { size: A4 portrait; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #ececec; font-family: "Helvetica Neue", Arial, sans-serif; }
+.sheet {
+  width: 210mm; height: 297mm; margin: 0 auto 6mm; background: #fff; padding: 13mm 4.75mm;
+  display: grid; grid-template-columns: repeat(2, 99.1mm); grid-auto-rows: 67.7mm;
+}
+.lbl {
+  padding: 4.5mm 5mm; display: flex; flex-direction: column; justify-content: space-between;
+  overflow: hidden; color: #000;
+}
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 3mm; }
+.ref { font-size: 13pt; font-weight: 700; letter-spacing: .04em; }
+.colis { font-size: 8.5pt; font-weight: 700; border: 1.1pt solid #000; padding: .7mm 2mm; white-space: nowrap; }
+.prod { font-size: 15pt; font-weight: 700; line-height: 1.12; margin: 1mm 0 0; }
+.unit { font-size: 8.5pt; letter-spacing: .06em; color: #444; margin-top: 1mm; }
+.trace { display: flex; gap: 4mm; font-size: 9pt; margin-top: 1.6mm; }
+.trace > div { flex: 1; display: flex; align-items: baseline; gap: 1.5mm; }
+.trace .k { font-weight: 700; letter-spacing: .04em; white-space: nowrap; }
+.trace .v { flex: 1; font-family: "Courier New", monospace; font-weight: 700;
+            border-bottom: .35mm solid #000; min-height: 3.6mm; padding-left: .5mm;
+            outline: none; }
+.trace .v:empty::before { content: attr(data-ph); color: #bbb; font-weight: 400; }
+.trace .v:focus { background: #fff6cc; }
+.bcwrap { text-align: center; }
+.bc { display: block; margin: 0 auto; }
+.bc rect { fill: #000; }
+.digits { font-family: "Courier New", monospace; font-size: 10.5pt; font-weight: 700;
+          letter-spacing: .11em; margin-top: 1.1mm; }
+.warn { font-size: 9pt; font-weight: 700; color: #b00; }
+/* reperes de decoupe : ecran uniquement */
+@media screen { .lbl { outline: .3mm dashed #c9c9c9; outline-offset: -.15mm; } }
+@media print { body { background: #fff; } .sheet { margin: 0; page-break-after: always; } }
+</style>
+<div class="sheet"><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div><div class="lbl">
+  <div>
+    <div class="top"><span class="ref">SRPV0878</span><span class="colis">COLIS DE 6 &times; 100 g</span></div>
+    <div class="prod">Guarana Boost</div>
+    <div class="unit">unite : V0878</div>
+    <div class="trace">
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="SRPV0878" data-ph="a completer"></span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="SRPV0878" data-ph="MM/AAAA"></span></div>
+    </div>
+  </div>
+  <div class="bcwrap"><svg class="bc" viewBox="0 0 140.500 60.00" width="76.0mm" height="19.0mm" preserveAspectRatio="none" shape-rendering="crispEdges"><rect x="0" y="0" width="140.500" height="4.50"/><rect x="0" y="55.50" width="140.500" height="4.50"/><rect x="0" y="0" width="4.50" height="60.00"/><rect x="136.000" y="0" width="4.50" height="60.00"/><rect x="10.000" y="4.50" width="1.000" height="51.00"/><rect x="12.000" y="4.50" width="1.000" height="51.00"/><rect x="14.000" y="4.50" width="2.500" height="51.00"/><rect x="19.000" y="4.50" width="1.000" height="51.00"/><rect x="21.000" y="4.50" width="1.000" height="51.00"/><rect x="24.500" y="4.50" width="1.000" height="51.00"/><rect x="26.500" y="4.50" width="2.500" height="51.00"/><rect x="30.000" y="4.50" width="1.000" height="51.00"/><rect x="33.500" y="4.50" width="1.000" height="51.00"/><rect x="35.500" y="4.50" width="2.500" height="51.00"/><rect x="39.000" y="4.50" width="1.000" height="51.00"/><rect x="41.000" y="4.50" width="2.500" height="51.00"/><rect x="46.000" y="4.50" width="2.500" height="51.00"/><rect x="51.000" y="4.50" width="2.500" height="51.00"/><rect x="56.000" y="4.50" width="1.000" height="51.00"/><rect x="58.000" y="4.50" width="1.000" height="51.00"/><rect x="60.000" y="4.50" width="1.000" height="51.00"/><rect x="62.000" y="4.50" width="1.000" height="51.00"/><rect x="65.500" y="4.50" width="2.500" height="51.00"/><rect x="70.500" y="4.50" width="1.000" height="51.00"/><rect x="72.500" y="4.50" width="2.500" height="51.00"/><rect x="76.000" y="4.50" width="1.000" height="51.00"/><rect x="78.000" y="4.50" width="1.000" height="51.00"/><rect x="80.000" y="4.50" width="1.000" height="51.00"/><rect x="82.000" y="4.50" width="2.500" height="51.00"/><rect x="87.000" y="4.50" width="2.500" height="51.00"/><rect x="92.000" y="4.50" width="1.000" height="51.00"/><rect x="94.000" y="4.50" width="1.000" height="51.00"/><rect x="96.000" y="4.50" width="1.000" height="51.00"/><rect x="99.500" y="4.50" width="2.500" height="51.00"/><rect x="103.000" y="4.50" width="1.000" height="51.00"/><rect x="105.000" y="4.50" width="2.500" height="51.00"/><rect x="110.000" y="4.50" width="2.500" height="51.00"/><rect x="113.500" y="4.50" width="1.000" height="51.00"/><rect x="117.000" y="4.50" width="1.000" height="51.00"/><rect x="119.000" y="4.50" width="2.500" height="51.00"/><rect x="122.500" y="4.50" width="1.000" height="51.00"/><rect x="126.000" y="4.50" width="2.500" height="51.00"/><rect x="129.500" y="4.50" width="1.000" height="51.00"/></svg><div class="digits">1 5413393 00428 2</div></div>
+</div></div>
+<script>
+// Lot et DDM editables : on tape dans une case, les 8 etiquettes de la meme
+// reference suivent. Les valeurs sont gardees dans le navigateur (localStorage)
+// pour survivre a un rechargement ; l'impression les prend telles qu'affichees.
+(function () {
+  var KEY = 'srp-etiquettes-v1', mem = {};
+  try { mem = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { mem = {}; }
+
+  function cells() { return document.querySelectorAll('.trace .v'); }
+  function id(el) { return el.dataset.ref + '|' + el.dataset.f; }
+
+  cells().forEach(function (el) {
+    var v = mem[id(el)];
+    if (v && !el.textContent.trim()) el.textContent = v;
+
+    el.addEventListener('input', function () {
+      var val = el.textContent.replace(/\s+/g, ' ').trim();
+      cells().forEach(function (o) { if (o !== el && id(o) === id(el)) o.textContent = val; });
+      mem[id(el)] = val;
+      try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) {}
+    });
+
+    // pas de retour a la ligne ni de mise en forme collee
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter') e.preventDefault(); });
+    el.addEventListener('paste', function (e) {
+      e.preventDefault();
+      var t = (e.clipboardData || window.clipboardData).getData('text');
+      document.execCommand('insertText', false, t.replace(/\s+/g, ' ').trim());
+    });
+  });
+})();
+</script>
