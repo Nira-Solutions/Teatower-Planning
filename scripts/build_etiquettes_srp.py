@@ -54,12 +54,12 @@ def to_gtin14(code):
     return base + gtin14_key(base)
 
 
-def itf14_svg(code, width_mm=76.0, height_mm=19.0, quiet=10):
-    """SVG ITF-14 : barres + bearer bar (cadre epais impose par la norme)."""
+def itf14_elements(code):
+    """Suite (est_une_barre, largeur en modules) du symbole ITF-14."""
     if len(code) % 2:
         raise ValueError('ITF exige un nombre pair de chiffres')
-    elements = []                                   # (is_bar, largeur en modules)
-    for ch in 'nnnn':                               # start : n b, n s, n b, n s
+    elements = []
+    for _ in range(4):                              # start : n b, n s, n b, n s
         elements.append((len(elements) % 2 == 0, NARROW))
     for i in range(0, len(code), 2):
         bars, spaces = PATTERNS[code[i]], PATTERNS[code[i + 1]]
@@ -68,7 +68,12 @@ def itf14_svg(code, width_mm=76.0, height_mm=19.0, quiet=10):
             elements.append((False, WIDE if spaces[k] == 'w' else NARROW))
     for is_bar, w in ((True, WIDE), (False, NARROW), (True, NARROW)):   # stop
         elements.append((is_bar, w))
+    return elements
 
+
+def itf14_svg(code, width_mm=76.0, height_mm=19.0, quiet=10):
+    """SVG ITF-14 : barres + bearer bar (cadre epais impose par la norme)."""
+    elements = itf14_elements(code)
     modules = sum(w for _, w in elements)
     bearer = 4.5                                    # epaisseur du cadre, en modules
     total_w = modules + 2 * quiet
@@ -179,7 +184,10 @@ body { margin: 0; background: #ececec; font-family: "Helvetica Neue", Arial, san
 .trace > div { flex: 1; display: flex; align-items: baseline; gap: 1.5mm; }
 .trace .k { font-weight: 700; letter-spacing: .04em; white-space: nowrap; }
 .trace .v { flex: 1; font-family: "Courier New", monospace; font-weight: 700;
-            border-bottom: .35mm solid #000; min-height: 3.6mm; padding-left: .5mm; }
+            border-bottom: .35mm solid #000; min-height: 3.6mm; padding-left: .5mm;
+            outline: none; }
+.trace .v:empty::before { content: attr(data-ph); color: #bbb; font-weight: 400; }
+.trace .v:focus { background: #fff6cc; }
 .bcwrap { text-align: center; }
 .bc { display: block; margin: 0 auto; }
 .bc rect { fill: #000; }
@@ -192,7 +200,41 @@ body { margin: 0; background: #ececec; font-family: "Helvetica Neue", Arial, san
 """
 
 
-def render(prods, out, gs1=False, lot='', lots=None, ddm='', ddms=None):
+JS = r"""
+// Lot et DDM editables : on tape dans une case, les 8 etiquettes de la meme
+// reference suivent. Les valeurs sont gardees dans le navigateur (localStorage)
+// pour survivre a un rechargement ; l'impression les prend telles qu'affichees.
+(function () {
+  var KEY = 'srp-etiquettes-v1', mem = {};
+  try { mem = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { mem = {}; }
+
+  function cells() { return document.querySelectorAll('.trace .v'); }
+  function id(el) { return el.dataset.ref + '|' + el.dataset.f; }
+
+  cells().forEach(function (el) {
+    var v = mem[id(el)];
+    if (v && !el.textContent.trim()) el.textContent = v;
+
+    el.addEventListener('input', function () {
+      var val = el.textContent.replace(/\s+/g, ' ').trim();
+      cells().forEach(function (o) { if (o !== el && id(o) === id(el)) o.textContent = val; });
+      mem[id(el)] = val;
+      try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) {}
+    });
+
+    // pas de retour a la ligne ni de mise en forme collee
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter') e.preventDefault(); });
+    el.addEventListener('paste', function (e) {
+      e.preventDefault();
+      var t = (e.clipboardData || window.clipboardData).getData('text');
+      document.execCommand('insertText', false, t.replace(/\s+/g, ' ').trim());
+    });
+  });
+})();
+"""
+
+
+def render(prods, out, gs1=False, lot='', lots=None, ddm='', ddms=None, mixte=False):
     cards, skipped, bad_key = [], [], []
     gram = grammages()
     lots, ddms = lots or {}, ddms or {}
@@ -215,22 +257,28 @@ def render(prods, out, gs1=False, lot='', lots=None, ddm='', ddms=None):
     <div class="prod">{prod}</div>
     <div class="unit">unite : {unit}</div>
     <div class="trace">
-      <div><span class="k">Lot</span><span class="v">{lots.get(ref, lot)}</span></div>
-      <div><span class="k">DDM</span><span class="v">{ddms.get(ref, ddm)}</span></div>
+      <div><span class="k">Lot</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="lot" data-ref="{ref}" data-ph="a completer">{lots.get(ref, lot)}</span></div>
+      <div><span class="k">DDM</span><span class="v" contenteditable="true" spellcheck="false"
+           data-f="ddm" data-ref="{ref}" data-ph="MM/AAAA">{ddms.get(ref, ddm)}</span></div>
     </div>
   </div>
   <div class="bcwrap">{itf14_svg(code)}<div class="digits">{human(code)}</div></div>
 </div>""")
 
     per_page = 8
-    pages = [cards[i:i + per_page] for i in range(0, len(cards), per_page)] or [[]]
+    if mixte:
+        pages = [cards[i:i + per_page] for i in range(0, len(cards), per_page)] or [[]]
+    else:
+        # une reference par planche : 8 etiquettes identiques, prete a coller sur un lot
+        pages = [[c] * per_page for c in cards] or [[]]
     sheets = []
     for page in pages:
         blanks = ['<div class="lbl"></div>'] * (per_page - len(page))
         sheets.append('<div class="sheet">' + ''.join(page + blanks) + '</div>')
 
     html = (f'<title>Etiquettes SRP 6x VRAC</title>\n<style>{CSS}</style>\n'
-            + '\n'.join(sheets) + '\n')
+            + '\n'.join(sheets) + f'\n<script>{JS}</script>\n')
     with open(out, 'w', encoding='utf-8') as f:
         f.write(html)
     return len(cards), skipped, bad_key
@@ -245,6 +293,9 @@ if __name__ == '__main__':
                                   'vide = champ a remplir a la main')
     ap.add_argument('--ddm', help='DDM unique (ex. 10/2028), ou "REF=valeur,..." ; '
                                   'vide = champ a remplir a la main')
+    ap.add_argument('--mixte', action='store_true',
+                    help='8 references differentes par planche (defaut : 8 etiquettes '
+                         'identiques, une seule reference par planche)')
     ap.add_argument('--out', default=os.path.join(ROOT, 'etiquettes',
                                                   'Etiquettes_SRP_6x_VRAC.html'))
     a = ap.parse_args()
@@ -254,7 +305,7 @@ if __name__ == '__main__':
     lot, lots = par_ref(a.lot)
     ddm, ddms = par_ref(a.ddm)
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
-    n, skipped, bad_key = render(prods, a.out, gs1=a.gs1,
+    n, skipped, bad_key = render(prods, a.out, gs1=a.gs1, mixte=a.mixte,
                                  lot=lot, lots=lots, ddm=ddm, ddms=ddms)
     src = 'GTIN-14 conforme (cle recalculee)' if a.gs1 else 'barcode Odoo tel quel'
     print(f'{n} etiquettes ecrites ({src}) -> {a.out}')
