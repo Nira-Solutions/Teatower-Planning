@@ -31,3 +31,8 @@ direction/
 
 # Log du garde-fou Shopify->Odoo (execution locale)
 scripts/reports/shopify_reconcile.log
+
+# Pacte d' actionnaires et documents de gouvernance : CONFIDENTIEL, ce depot est PUBLIC.
+# Destination : repo prive Teatower-Direction.
+*[Pp]acte*.docx
+*[Pp]acte*.pdf
