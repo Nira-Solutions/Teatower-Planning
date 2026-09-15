@@ -322,6 +322,28 @@ for inv_info in created_invoices:
     if DRY:
         print(f"  DRY   POST {inv_info['inv_name']}")
         continue
+    # Garde-fou qty livrees : en mode 'delivered', le wizard facture quand meme les
+    # produits en invoice_policy='order' a la qty COMMANDEE (cas COFFRET TT8 non
+    # expedie sur S06354, 15/09/26). On ramene chaque ligne au livre non encore
+    # facture, et on retire la ligne s'il ne reste rien.
+    for il in call('account.move.line','search_read',
+            [[['move_id','=',inv_id],['display_type','=','product'],['sale_line_ids','!=',False]]],
+            {'fields':['id','quantity','sale_line_ids','name']}):
+        sl = call('sale.order.line','read',[il['sale_line_ids'][:1]],
+                  {'fields':['qty_delivered','qty_invoiced','name']})[0]
+        if _is_transport(sl):
+            continue
+        deja = sl['qty_invoiced'] - il['quantity']   # facture sur d'autres pieces
+        permis = max(sl['qty_delivered'] - deja, 0)
+        if il['quantity'] <= permis + 1e-6:
+            continue
+        if permis <= 1e-6:
+            m.execute_kw(DB,uid,PWD,'account.move','write',[[inv_id],{'invoice_line_ids':[(2, il['id'])]}])
+            print(f"  TRIM  {inv_info['inv_name']} ligne retiree (non livree) : {il['name'][:50]}")
+        else:
+            m.execute_kw(DB,uid,PWD,'account.move','write',[[inv_id],{'invoice_line_ids':[(1, il['id'], {'quantity': permis})]}])
+            print(f"  TRIM  {inv_info['inv_name']} qty {il['quantity']} -> {permis} : {il['name'][:50]}")
+    inv_info['amount'] = call('account.move','read',[[inv_id]],{'fields':['amount_total']})[0]['amount_total']
     if inv_info.get('amount', 0) == 0:
         print(f"  SKIP-0EUR {inv_info['inv_name']} pour {inv_info['so']} - montant 0.00 EUR, laissee en DRAFT (arbitrage manuel, pas d'interet a poster/envoyer un Peppol a 0€)")
         zero_amount.append(inv_info)
