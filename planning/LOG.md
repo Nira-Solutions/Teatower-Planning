@@ -173,3 +173,32 @@
   fuite de couverture. **Solde ouvert à l'arrêt : 295,40 € (INV/2026/02136, échue le 21/05/2026)** — à
   recouvrer, l'arrêt commercial ne solde pas la créance.
 - S37 passe de 33 à **26 stops** : 23 visites + 3 dépôts boutiques.
+
+## 2026-09-16 — Planning S39 (21-25/09) + trois défauts corrigés en amont
+
+- **S39 générée : 40 stops** (37 visites + 3 dépôts boutiques) sur 5 jours. Retours base
+  15:43 / 15:47 / 15:47 / 15:59 / 16:32 — aucun dépassement de la fenêtre 08:30-17:00.
+  Trajets simulés via OSRM (routage réel), retour base compris.
+- **Demandes Nicolas intégrées** : Hyper Carrefour Marche-en-Famenne (#6999) en **1ᵉʳ stop du
+  mardi 22/09, 08:50-09:30**, nouveau display EM0106 + livraison de la commande (fiche :
+  « passage uniquement le mardi », et Hyper = matin) ; **boutiques Teatower** Rocourt + Liège
+  le mercredi 23/09, Namur le jeudi 24/09 — jamais le lundi (§13).
+- **Tournée Liège du 11/09 invisible d'Odoo** : 6 magasins « pas besoin de remplir » sortaient
+  à 13-82 j de retard alors qu'ils avaient été vus 5 jours plus tôt. Tags `[VISITE]` posés
+  depuis Slack (`scripts/slack_visites_vers_odoo_20260916.py`) — Fragnée était 3ᵉ du classement
+  OVERDUE. + Hyper Wépion (16/09, responsable absent).
+- **Deux doublons d'adresse neutralisés** (`scripts/_doublons_nomerch_20260916.py`) :
+  #5916 AD Jambes (Materne) = #113498, et #5591 AD Fernelmont = #2952. La fiche morte était
+  1ʳᵉ du classement OVERDUE à 156 j et les deux allaient basculer en télévente — Vanessa
+  aurait appelé des magasins que Gilles visite. Tag `[NO-MERCH doublon]`, réversible :
+  **la fusion des fiches dans Odoo reste à faire**.
+- **Bug `check_couverture_gms.py`** : il prenait les 2 derniers blocs `Sxx = {` du fichier au
+  lieu des 2 semaines de `WEEKS`. `planning_data.py` n'étant pas écrit dans l'ordre
+  chronologique, il lisait « S37 + S39 » et sautait S38 → Hyper Mons, planifié le jeudi 17/09,
+  ressortait « non casé au planning » et partait en bascule télévente. Corrigé : lecture de `WEEKS`.
+- Garde-fou §12 pools exclusifs : **0 alerte**. `check_couverture_gms.py` : **aucune bascule**,
+  tous les critiques sont au planning. WEEKS = [S39, S38].
+- **Seul OVERDUE non planifié : Intermarché Gerpinnes (#2971, B, 15 j)** — le magasin a dit stop
+  (Gilles 04/08, refus noté par Vanessa 09/07). Ni merch ni télévente : **Jérôme doit reprendre
+  contact** avant tout nouveau passage.
+- Détail et points à statuer : `planning/queue_S39_2026-09-21.md`.

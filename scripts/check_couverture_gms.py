@@ -40,6 +40,8 @@ ISOLEMENT_ZIP  = 2    # <= N magasins merch partageant les 2 premiers chiffres d
 
 PID_RE = re.compile(r"#(\d{3,6})")
 SEM_RE = re.compile(r"^(S\d+)\s*=\s*\{", re.MULTILINE)
+# Les semaines reellement publiees : la liste WEEKS en fin de planning_data.py.
+WEEKS_RE = re.compile(r"^WEEKS\s*=\s*\[([^\]]*)\]", re.MULTILINE)
 
 # FORCE_MERCH_PIDS prime sur l'automatisme : ces magasins ne PEUVENT pas basculer
 # (build_televente_pool.py les exclut du pool Vanessa). Les signaler au lieu
@@ -72,7 +74,17 @@ def pids_planifies(semaines=None):
         keep = {s.upper() for s in semaines}
         sel = [(m, n) for m, n in zip(blocs, noms) if n in keep]
     else:
-        sel = list(zip(blocs, noms))[-2:]
+        # Les semaines publiees sont celles de WEEKS, PAS les deux derniers
+        # blocs du fichier : planning_data.py n'est pas ecrit dans l'ordre
+        # chronologique (S38 est definie AVANT S37, S39 est ajoutee a la fin).
+        # Prendre les deux derniers blocs sautait donc S38 le 16/09/2026, et
+        # Hyper Mons -- planifie le jeudi 17/09 -- ressortait « non case au
+        # planning », donc bascule a tort en televente.
+        keep = {w.strip().upper()
+                for grp in WEEKS_RE.findall(txt) for w in grp.split(",")}
+        sel = [(m, n) for m, n in zip(blocs, noms) if n in keep]
+        if not sel:
+            sel = list(zip(blocs, noms))[-2:]
     pids = set()
     for i, (m, _) in enumerate(sel):
         start = m.start()
