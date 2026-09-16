@@ -153,8 +153,11 @@ for l in lines:
     so_lines[l['order_id'][0]].append(l)
 
 def _is_transport(l):
+    # Tolere une ligne lue sans product_id (le garde-fou de l'ETAPE 7 ne lit que
+    # qty_delivered/qty_invoiced/name/product_id) : .get() au lieu de [].
     name_upper = (l.get('name') or '').upper()
-    prod_name = str(l['product_id'][1] if l['product_id'] else '').upper()
+    prod = l.get('product_id')
+    prod_name = str(prod[1] if prod else '').upper()
     return 'TRANSPORT' in name_upper or 'TRANSPORT' in prod_name
 
 transport_fixed = []
@@ -330,7 +333,7 @@ for inv_info in created_invoices:
             [[['move_id','=',inv_id],['display_type','=','product'],['sale_line_ids','!=',False]]],
             {'fields':['id','quantity','sale_line_ids','name']}):
         sl = call('sale.order.line','read',[il['sale_line_ids'][:1]],
-                  {'fields':['qty_delivered','qty_invoiced','name']})[0]
+                  {'fields':['qty_delivered','qty_invoiced','name','product_id']})[0]
         if _is_transport(sl):
             continue
         deja = sl['qty_invoiced'] - il['quantity']   # facture sur d'autres pieces
