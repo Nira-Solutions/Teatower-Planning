@@ -77,13 +77,12 @@ GMS_NAME_TOKENS = [
 # INCLUSIONS EXPLICITES (hors pattern GMS) - magasins/officines suivis par le
 # merchandiser sur decision de Nicolas. Ils n'ont aucun token d'enseigne GMS dans
 # leur nom, donc `is_gms_partner` ne peut pas les detecter : on les force ici.
-# Nicolas 25/08/2026 - reseau pharmacies Condroz/Famenne :
-EXTRA_MERCH_PIDS = {
-    3183,  # Pharmacie Tilman S.A. - Mikael Tilman (6941 Bomal-sur-Ourthe)
-    3181,  # Pharmacie Haulot-Bauche SRL - Mickael Tilman (5330 Assesse)
-    3182,  # Pharmacie TILMAN HAN SRL (5580 Han-sur-Lesse)
-    3184,  # Ma Pharmacie de Baillonville - Bayet Sarah (5377 Baillonville)
-}
+# Nicolas 17/09/2026 : le reseau pharmacies REPASSE EN TELEVENTE. La camionnette
+# de Gilles ne porte pas tout l'assortiment pharmacie, donc une visite merch ne
+# permet pas de servir la commande -> ces magasins sont suivis par appel (Vanessa),
+# cf. EXTRA_TELEVENTE_PIDS / FORCE_TELEVENTE_PIDS dans build_televente_pool.py.
+# Annule la decision du 25/08/2026 qui les avait bascules en merch.
+EXTRA_MERCH_PIDS = set()
 
 TIER_RULES = [
     (400.0, "A", 21),

@@ -184,13 +184,24 @@ def check_pools_exclusifs(weeks):
     dans le pool televente (Vanessa), SAUF les implantations (k='impl', toujours
     physiques). Extrait le #pid du nom de chaque stop et le compare au dernier
     televente_pool_*.csv. Affiche un WARNING bloquant a l'oeil."""
-    import csv, re
+    import csv, os, re
     from glob import glob
-    data_dir = OUT.resolve().parent.parent.parent / "Teatower" / "data"
-    csvs = sorted(glob(str(data_dir / "televente_pool_*.csv")))
+    # Les pools ont ete ecrits tantot dans Teatower/data, tantot dans
+    # Teatower-Planning/data (2 clones, cf. memoire planning_pull_avant_generation).
+    # Pointer un seul dossier en dur, c'est lire un pool perime sans s'en rendre
+    # compte : le 17/09/2026 le garde-fou validait sur le pool du 11/09 et ne
+    # voyait pas la bascule des pharmacies. On scanne les DEUX et on prend le
+    # fichier le plus recent.
+    repo = OUT.resolve().parent.parent
+    data_dirs = [repo / "data", repo.parent / "Teatower" / "data"]
+    csvs = []
+    for d in data_dirs:
+        csvs += glob(str(d / "televente_pool_*.csv"))
     if not csvs:
         print("[!] pas de televente_pool_*.csv -> garde-fou non applique")
         return
+    # tri sur la date portee par le NOM (televente_pool_YYYY-MM-DD.csv)
+    csvs = sorted(csvs, key=lambda p: os.path.basename(p))
     tv = set()
     with open(csvs[-1], encoding="utf-8") as f:
         for row in csv.DictReader(f):

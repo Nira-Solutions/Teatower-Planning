@@ -57,11 +57,9 @@ FORCE_MERCH_PIDS = {
     #        28/06 n'a jamais pu s'executer (seul magasin du pool en Hainaut
     #        occidental -> aucune tournee ne passe). 45j de retard, dernier
     #        passage 02/07 -> bascule en televente, cf. FORCE_TELEVENTE_PIDS.
-    # Reseau pharmacies Condroz/Famenne bascule en suivi merchandiser (Nicolas 25/08/2026)
-    3183,         # Pharmacie Tilman S.A. (6941 Bomal-sur-Ourthe)
-    3181,         # Pharmacie Haulot-Bauche SRL (5330 Assesse)
-    3182,         # Pharmacie TILMAN HAN SRL (5580 Han-sur-Lesse)
-    3184,         # Ma Pharmacie de Baillonville (5377 Baillonville)
+    # Les 4 pharmacies Tilman ont ete RETIREES le 17/09/2026 : elles repassent en
+    # televente (cf. EXTRA_TELEVENTE_PIDS). La camionnette ne porte pas tout
+    # l'assortiment pharmacie, donc la visite merch ne sert pas la commande.
     114763,       # Lillodis SRL - Proxy Delhaize Lillois : le magasin ne veut PAS de suivi
                   # telephonique -> retour en visite merch (Nicolas 25/08/2026). Annule la
                   # decision 'APPEL ONLY' du 20/05/2026.
@@ -78,6 +76,26 @@ FORCE_TELEVENTE_PIDS = {
              # (431 EUR/mois reel) mais isole en Hainaut occidental, jamais
              # visite depuis le 02/07 -> suivi telephonique Vanessa.
 }
+
+# EXTRA TELEVENTE (Nicolas 17/09/2026) : clients HORS ENSEIGNE GMS suivis par
+# appel. Pendant exact de EXTRA_MERCH_PIDS cote merch : sans cette liste,
+# `is_gms()` les ecarte AVANT la segmentation et ils n'apparaissent dans aucun
+# des deux pools -- donc dans aucun planning, sans la moindre alerte.
+#
+# Reseau pharmacies : « la camionnette ne porte pas tout ». Une visite merch ne
+# permet pas de servir la commande, donc le suivi se fait par telephone et la
+# livraison suit. Les pids sont aussi dans FORCE_TELEVENTE_PIDS ci-dessous pour
+# que la segmentation refs/distance ne puisse pas les renvoyer en merch.
+EXTRA_TELEVENTE_PIDS = {
+    3183,    # Pharmacie Tilman S.A. - Mikael Tilman (6941 Bomal-sur-Ourthe)
+    3184,    # Ma Pharmacie de Baillonville - Bayet Sarah (5377 Baillonville)
+    3181,    # Pharmacie Haulot-Bauche SRL - Mickael Tilman (5330 Assesse)
+    3182,    # Pharmacie TILMAN HAN SRL (5580 Han-sur-Lesse)
+    121026,  # Pharmacie Saint Pierre SA (Morialme) - jamais dans aucun pool
+    3179,    # Pharmacie Badot (Vinalmont) - jamais dans aucun pool
+    3180,    # Pharmacie Bia SRL - Fabienne Bia (Comblain-la-Tour) - idem
+}
+FORCE_TELEVENTE_PIDS |= EXTRA_TELEVENTE_PIDS
 
 # PRIORITE (REGLES §13) : magasins a ne PAS louper. Ils remontent en tete de la
 # file d'appels quel que soit leur retard, et portent un badge rouge sur la page.
@@ -298,6 +316,15 @@ def main():
             if ok:
                 store_pid = bill
                 p = bp
+        # Inclusions explicites hors enseigne GMS (pharmacies...) : sans ce
+        # rattrapage, is_gms() les ecarte ici et elles ne sont dans AUCUN pool.
+        if not ok:
+            for cand in (ship, bill):
+                if cand in EXTRA_TELEVENTE_PIDS:
+                    store_pid = cand
+                    p = pmap.get(cand, {})
+                    ok = True
+                    break
         if not ok:
             continue
         store_dates[store_pid].append(date.fromisoformat(s["date_order"][:10]))
