@@ -2343,13 +2343,20 @@ S37 = {
 S39 = {
     "id": "s39", "nav": "S39 · 21/09-25/09 (à venir)", "active": True,
     "title": "Semaine du 21 au 25 septembre 2026 (S39)",
-    "note": ("40 stops : 37 visites + 3 dépôts boutiques. "
+    "note": ("37 stops : 34 visites + 3 dépôts boutiques. "
              "🆕 MARDI 22/09 — HYPER CARREFOUR MARCHE, 1ᵉʳ stop : NOUVEAU DISPLAY + livraison de la commande "
              "(demande Nicolas). L'ancien display a disparu, les thés ont été poussés sur une TG. "
              "Charger un display EM0106 (Display Teatower GMS 16 produits) la veille. "
+             "📦 VENDREDI 25/09 — DELHAIZE ETALLE : livraison de la commande S06269 (confirmée le 17/09, "
+             "279,92 € HT, demande Nicolas). Charger le jeudi 24/09. Créneau porté à 40 min : pas de réserve "
+             "et pas d'appareil pour rentrer la marchandise. "
              "🏪 Dépôts boutiques Teatower : Liège + Rocourt le mercredi 23/09 (colis préparés le mardi 22/09), "
              "Namur le jeudi 24/09 (colis préparé le mercredi 23/09). Rocourt jamais avant 10:00, "
              "Namur dans le créneau piétonnier libre 9h-11h30. Pas de dépôt le lundi. "
+             "🚚 WATERLOO PART PAR BPOST — la seule tournée qui passe à côté est le lundi 21/09 (Brabant wallon), "
+             "et aucun dépôt boutique n'est possible un lundi (colis à préparer le dimanche, entrepôt fermé). "
+             "Aucune permutation de journée ne tient : mardi est verrouillé par l'implantation de Marche, "
+             "mercredi et jeudi portent déjà des dépôts, et vendredi contient Etalle qui est fermé le lundi matin. "
              "⏱ Fenêtres imposées respectées : Hyper Carrefour Marche (mardi uniquement), "
              "AD Delhaize Fernelmont (mardi ou vendredi à partir de 13h20, demander Marie), "
              "Proxy Maransart (lundi après 10h), Hyper Carrefour Ans (jamais le vendredi), "
@@ -2551,9 +2558,9 @@ S39 = {
              "c": "Emilie ou Dorian — +32 71 78 74 39",
              "note": "Dernier stop, départ 15:15 pour un retour base à 15:59."},
          ]},
-        {"h": "Vendredi 25/09", "sub": "8 stops (8 visites)",
+        {"h": "Vendredi 25/09", "sub": "8 stops (7 visites + 1 livraison)",
          "zone": "Luxembourg (Arlon → Etalle → Neufchâteau → Bertrix → Recogne → Vaux-sur-Sûre → Bastogne)",
-         "km": "280", "ret": "16:32",
+         "km": "280", "ret": "16:47",
          "addrs": ["Rue de Clairefontaine 1, 6700 Arlon", "Rue Belle-Vue 56, 6740 Etalle",
                    "Chaussée de Recogne 88, 6840 Neufchâteau", "Route des Gohineaux 2, 6880 Bertrix",
                    "Rue du Flosse 6, 6800 Libramont-Chevigny", "La Barrière 13, 6640 Vaux-sur-Sûre",
@@ -2565,14 +2572,17 @@ S39 = {
              "c": "M. Duroy (manager) — ou Christopher Kabongo — +32 63 23 06 11",
              "rg": "Hyper — matin obligatoire",
              "note": "1ᵉʳ stop : 82 min de route depuis la base, départ 08:30."},
-            {"t": "10:40 - 11:05", "k": "visite", "b": ["Tier B"],
+            {"t": "10:40 - 11:20", "k": "visite", "b": ["Tier B", "LIVRAISON COMMANDE", "Demande Nicolas"],
              "n": "Affilié 042955 - Delhaize Etalle (#5442)", "ls": "31/08 (16j)", "lsc": "fresh",
              "a": "Rue Belle-Vue 56, 6740 Etalle",
              "c": "accueil / responsable rayon — +32 63 60 82 50",
+             "note": "📦 LIVRER LA COMMANDE S06269 (confirmée le 17/09, 279,92 € HT) — charger le jeudi 24/09. "
+                     "Le magasin n'a pas de réserve et pas d'appareil pour rentrer la marchandise : "
+                     "rentrer le rayon soi-même et faire noter la reprise éventuelle. 40 min sur place au lieu de 25.",
              "st": "pas de réserve magasin",
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "fermé le lundi matin | pas de contrôle marchandise à l'entrée | reprise de marchandises notée"},
-            {"t": "11:30 - 11:55", "k": "visite", "b": ["Tier B"],
+            {"t": "11:45 - 12:10", "k": "visite", "b": ["Tier B"],
              "n": "Affilié 045730 - Delhaize Neufchâteau (#117407)", "ls": "31/08 (16j)", "lsc": "fresh",
              "a": "Chaussée de Recogne 88, 6840 Neufchâteau",
              "c": "Mike Lodriguez — demander Aurélie — +32 61 27 83 88",
@@ -2580,7 +2590,7 @@ S39 = {
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "pas de contrôle marchandise à l'entrée",
              "note": "Pause déjeuner 30 min juste après (11:55-12:25)."},
-            {"t": "12:40 - 13:05", "k": "visite", "b": ["Tier B"],
+            {"t": "12:55 - 13:20", "k": "visite", "b": ["Tier B"],
              "n": "Affilié 41092 - Delhaize Bertrix (#123303)", "ls": "31/08 (16j)", "lsc": "fresh",
              "a": "Route des Gohineaux 2, 6880 Bertrix",
              "c": "Redouane — +32 61 41 27 36",
@@ -2588,25 +2598,25 @@ S39 = {
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "contrôle marchandise OUI à la réception",
              "note": "Reprise de marchandises demandée par Redouane le 31/08 : vérifier qu'elle a bien été enlevée."},
-            {"t": "13:15 - 13:40", "k": "visite", "b": ["Tier B"],
+            {"t": "13:30 - 13:55", "k": "visite", "b": ["Tier B"],
              "n": "Affilié 046780 - Delhaize Recogne (#122091)", "ls": "31/08 (16j)", "lsc": "fresh",
              "a": "Rue du Flosse 6, 6800 Libramont-Chevigny",
              "c": "Mme Levieux ou Emeric — +32 61 23 25 48",
              "st": "pas de réserve magasin — rien à contrôler avant remplissage",
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "contrôle marchandise à l'entrée obligatoire"},
-            {"t": "14:00 - 14:25", "k": "visite", "b": ["Tier B", "5j OVERDUE"],
+            {"t": "14:15 - 14:40", "k": "visite", "b": ["Tier B", "5j OVERDUE"],
              "n": "Spar Vaux-sur-Sûre (#125094)", "ls": "14/08 (33j)", "lsc": "mid",
              "a": "La Barrière 13, 6640 Vaux-sur-Sûre",
              "c": "accueil / responsable rayon — +32 61 31 51 91"},
-            {"t": "14:40 - 15:05", "k": "visite", "b": ["Tier B", "5j OVERDUE"],
+            {"t": "14:55 - 15:20", "k": "visite", "b": ["Tier B", "5j OVERDUE"],
              "n": "SA Marer - AD Delhaize Bastogne (#8558)", "ls": "14/08 (33j)", "lsc": "mid",
              "a": "Route de Marche 112-114, 6660 Bastogne",
              "c": "Dimitri ou Natacha — +32 61 21 70 84",
              "st": "pas de réserve magasin — rien à contrôler avant remplissage",
              "re": "manuel — pas d'appareil pour rentrer la marchandise",
              "rg": "pas de contrôle marchandise à l'entrée"},
-            {"t": "15:15 - 15:40", "k": "visite", "b": ["Tier C", "1j OVERDUE"],
+            {"t": "15:30 - 15:55", "k": "visite", "b": ["Tier C", "1j OVERDUE"],
              "n": "Carrefour Market Bastogne Porte de Trèves (#123189)", "ls": "03/08 (44j)", "lsc": "mid",
              "a": "CC Porte de Trèves - Rue Gustave Delperdange 3, 6600 Bastogne",
              "c": "Mme Neuville — bastogne@orkari.be — +32 61 21 00 50",
