@@ -202,3 +202,34 @@
   (Gilles 04/08, refus noté par Vanessa 09/07). Ni merch ni télévente : **Jérôme doit reprendre
   contact** avant tout nouveau passage.
 - Détail et points à statuer : `planning/queue_S39_2026-09-21.md`.
+
+## 2026-09-19 — Planning S39 v2 : lundi supprimé, les 4 boutiques TT dans la boucle
+
+Demande Nicolas : **pas de tournée le lundi 21/09**, et **Waterloo, Liège, Rocourt et Namur
+servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 181 GMS,
+100 actifs, 27 OVERDUE) — la queue du 16/09 restait valable sur le fond, seule la répartition change.
+
+- **Lundi 21/09 supprimé** (0 stop). `build_planning_page.py` sait désormais rendre une journée
+  sans stop (clé `off` + classe `.dayoff`) : pas de bandeau retour, pas de lien Maps, juste le motif.
+- **Boucle Brabant wallon / Bruxelles reportée au jeudi 24/09** — seul jour libérable : le mardi est
+  verrouillé par Hyper Marche (mardi uniquement + pose du display), le mercredi par les dépôts
+  Rocourt/Liège et les Hypers Ans/Fléron, le vendredi par la livraison Etalle S06269.
+- **Dépôt boutique Waterloo ajouté** (Ch. de Bruxelles 155, jeudi 12:35) — remplace l'envoi Bpost
+  de la v1. Adresse confirmée par la fiche Odoo #7284 (utilisée par les transferts WAT/INT) et
+  teatower.com. Waterloo et Namur ouvrent à 10:00 : aucun dépôt avant cette heure.
+- **Jeudi reconstruit** : Hyper Jambes → Salzinnes → dépôt Namur → Ottignies → dépôt Waterloo →
+  Maransart → Boondael → Kraainem, 8 stops, retour 16:27. Les deux gros stops namurois restent
+  sur la route parce qu'ils précèdent le dépôt Namur (qui ne peut pas commencer avant 10:00).
+- **ITM Naninne (Tier A, 702 €/mois) récupéré le mardi** après Fernelmont — retour 16:22.
+- **7 magasins reportés en S40** : Genval, Uccle Bascule, Woluwe (Bruxelles) ; Bouge, Belgrade,
+  Floriffoux, Spy (Namur ouest). Aucun Tier A/B >14 j de retard laissé sans motif écrit
+  (REGLES §0.5) — détail dans `planning/queue_S39_2026-09-21.md`.
+- **Ottignies un jeudi** : Mme Galletas est absente, exception §4.3 appliquée — demander
+  Jolan Cailleu. Signalé à Nicolas.
+- **Couverture GMS (§14)** : 1 seul critique non planifié, **ITM Gerpinnes #2971** (46 j).
+  `check_couverture_gms.py --apply` voulait le basculer en télévente — **bascule annulée**
+  (`git checkout data/force_televente_auto.json`, pool télévente régénéré sans lui) : le LOG du
+  16/09 acte que le magasin a dit stop et que Jérôme doit reprendre contact. L'automatisme ne
+  connaît pas les refus ; c'est le cas « client à arrêter » prévu au §14, arbitrage Nicolas.
+- Garde-fou pools exclusifs OK sur `televente_pool_2026-09-19.csv`. Tous les retours ≤ 17:00.
+  32 stops sur 4 jours (28 visites + 4 dépôts) contre 38 sur 5 jours. WEEKS = [S39, S38].

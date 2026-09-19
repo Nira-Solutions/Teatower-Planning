@@ -68,6 +68,15 @@ def stop_html(s):
 
 
 def day_html(d):
+    # Journée sans tournée (jour off, férié, permutation) : pas de bandeau retour,
+    # pas de lien Maps — juste le motif, pour que Gilles ne cherche pas une liste.
+    if not d["stops"]:
+        msg = d.get("off", "Pas de tournée ce jour.")
+        return f"""<div class="day">
+  <div class="day-header"><span>{d["h"]} — {d["sub"]}</span></div>
+  <div class="dayoff">{msg}</div>
+</div>
+"""
     stops = "".join(stop_html(s) for s in d["stops"])
     route = ""
     if d.get("addrs"):
@@ -133,6 +142,8 @@ CSS = """  :root { --primary: #2d6a4f; --accent: #40916c; --warn: #e76f51; --bg:
   .route { margin-top: .35rem; font-size: .83rem; }
   .route a { color: var(--primary); font-weight: 600; text-decoration: none; }
   .route a::before { content: "🗺️ "; }
+  .dayoff { padding: .8rem 1rem; font-size: .88rem; color: #495057; background: #f1f3f5; font-weight: 600; }
+  .dayoff::before { content: "🚫 "; }
   .dayroute { background: #e9ecef; padding: .5rem 1rem; font-size: .83rem; margin-top: .3rem; border-radius: 6px; }
   .dayroute a { color: var(--primary); font-weight: 600; text-decoration: none; }
   @media(max-width:600px) { .visit-header { flex-direction: column; align-items: flex-start; } }"""

@@ -2343,79 +2343,47 @@ S37 = {
 S39 = {
     "id": "s39", "nav": "S39 · 21/09-25/09 (à venir)", "active": True,
     "title": "Semaine du 21 au 25 septembre 2026 (S39)",
-    "note": ("37 stops : 34 visites + 3 dépôts boutiques. "
+    "note": ("32 stops sur 4 jours : 28 visites + 4 dépôts boutiques. "
+             "🚫 LUNDI 21/09 — AUCUNE TOURNÉE (demande Nicolas). La boucle Brabant wallon / Bruxelles "
+             "qui était prévue ce jour-là est reportée au jeudi 24/09 : c'est le seul jour libérable "
+             "(mardi verrouillé par l'implantation de Marche, mercredi par les dépôts Liège + Rocourt et "
+             "les Hypers Ans/Fléron, vendredi par la livraison Etalle). "
+             "🏪 LES 4 BOUTIQUES TEATOWER SONT DANS LA BOUCLE (demande Nicolas) : Rocourt + Liège "
+             "le mercredi 23/09 (colis préparés le mardi 22/09), Namur + Waterloo le jeudi 24/09 "
+             "(colis préparés le mercredi 23/09). Waterloo ne part donc plus par Bpost. "
+             "Rocourt jamais avant 10:00 ; Namur ouvre à 10:00 et le créneau piétonnier libre court jusqu'à 11:30 ; "
+             "Waterloo ouvre à 10:00. Aucun dépôt le lundi (REGLES §13). "
              "🆕 MARDI 22/09 — HYPER CARREFOUR MARCHE, 1ᵉʳ stop : NOUVEAU DISPLAY + livraison de la commande "
              "(demande Nicolas). L'ancien display a disparu, les thés ont été poussés sur une TG. "
              "Charger un display EM0106 (Display Teatower GMS 16 produits) la veille. "
              "📦 VENDREDI 25/09 — DELHAIZE ETALLE : livraison de la commande S06269 (confirmée le 17/09, "
              "279,92 € HT, demande Nicolas). Charger le jeudi 24/09. Créneau porté à 40 min : pas de réserve "
              "et pas d'appareil pour rentrer la marchandise. "
-             "🏪 Dépôts boutiques Teatower : Liège + Rocourt le mercredi 23/09 (colis préparés le mardi 22/09), "
-             "Namur le jeudi 24/09 (colis préparé le mercredi 23/09). Rocourt jamais avant 10:00, "
-             "Namur dans le créneau piétonnier libre 9h-11h30. Pas de dépôt le lundi. "
-             "🚚 WATERLOO PART PAR BPOST — la seule tournée qui passe à côté est le lundi 21/09 (Brabant wallon), "
-             "et aucun dépôt boutique n'est possible un lundi (colis à préparer le dimanche, entrepôt fermé). "
-             "Aucune permutation de journée ne tient : mardi est verrouillé par l'implantation de Marche, "
-             "mercredi et jeudi portent déjà des dépôts, et vendredi contient Etalle qui est fermé le lundi matin. "
              "⏱ Fenêtres imposées respectées : Hyper Carrefour Marche (mardi uniquement), "
              "AD Delhaize Fernelmont (mardi ou vendredi à partir de 13h20, demander Marie), "
-             "Proxy Maransart (lundi après 10h), Hyper Carrefour Ans (jamais le vendredi), "
-             "CM Remouchamps (responsable rayon absent le jeudi), Hyper Fléron (30 j minimum entre 2 passages), "
-             "Delhaize Etalle (fermé le lundi matin), Hyper Marche / Ans / Fléron / Jambes / Arlon (Hyper = matin). "
+             "Hyper Carrefour Ans (jamais le vendredi), CM Remouchamps (responsable rayon absent le jeudi), "
+             "Hyper Fléron (30 j minimum entre 2 passages), Delhaize Etalle (fermé le lundi matin), "
+             "Hyper Marche / Ans / Fléron / Jambes / Arlon (Hyper = matin). "
+             "Delhaize Ottignies placé le jeudi : Mme Galletas est absente ce jour-là, demander Jolan Cailleu "
+             "(exception prévue REGLES §4). "
+             "Reportés en S40 faute de la journée du lundi : Delhaize Genval, CM Uccle Bascule, "
+             "CM Shopping Woluwe, ITM Bouge, ITM Belgrade, ITM Floriffoux, ITM Spy. "
              "Aucun jour férié BE cette semaine."),
     "days": [
-        {"h": "Lundi 21/09", "sub": "7 stops (7 visites)",
-         "zone": "Brabant wallon → Bruxelles (Ottignies → Genval → Lasne → Uccle → Ixelles → Woluwe → Kraainem)",
-         "km": "231", "ret": "15:43",
-         "addrs": ["Centre commercial du Douaire 1, 1340 Ottignies", "Avenue Albert 1er 13, 1332 Genval",
-                   "Route de l'Etat 217, 1380 Lasne", "Chaussée de Waterloo 719, 1180 Uccle",
-                   "Avenue du Bois de la Cambre 120, 1050 Ixelles",
-                   "Rue Saint-Lambert 202, 1200 Woluwe-Saint-Lambert",
-                   "Wezembeeklaan 112, 1950 Kraainem"],
-         "stops": [
-            {"t": "09:30 - 09:55", "k": "visite", "b": ["Tier A"],
-             "n": "KAIO Retail invest - Delhaize Ottignies (#6838)", "ls": "26/08 (21j)", "lsc": "fresh",
-             "a": "Centre commercial du Douaire 1, 1340 Ottignies",
-             "c": "Mme Galletas ou Jolan Cailleu",
-             "rg": "Mme Galletas absente le jeudi — visite placée lundi"},
-            {"t": "10:15 - 10:40", "k": "visite", "b": ["Tier B"],
-             "n": "Affilié 043540 - Delhaize Genval (#5582)", "ls": "26/08 (21j)", "lsc": "fresh",
-             "a": "Avenue Albert 1er 13, 1332 Genval",
-             "c": "Mr Zanoni ou Mr Torres — 02 654 17 02"},
-            {"t": "10:55 - 11:20", "k": "visite", "b": ["Tier B", "9j OVERDUE"],
-             "n": "Affilié 045190 - Proxy Delhaize Maransart (#113217)", "ls": "10/08 (37j)", "lsc": "mid",
-             "a": "Route de l'Etat 217, 1380 Lasne",
-             "c": "Marion Delannoy — +32 2 633 13 25",
-             "rg": "visite le lundi uniquement après 10h — autres jours sans préférence"},
-            {"t": "11:55 - 12:20", "k": "visite", "b": ["Tier B"],
-             "n": "Carrefour Market Uccle Bascule (#5484)", "ls": "26/08 (21j)", "lsc": "fresh",
-             "a": "Chaussée de Waterloo 719, 1180 Uccle",
-             "c": "accueil / responsable rayon — 02 343 55 75",
-             "note": "Pause déjeuner 30 min juste après (12:20-12:50)."},
-            {"t": "12:55 - 13:20", "k": "visite", "b": ["Tier B", "9j OVERDUE"],
-             "n": "DELHAIZE BOONDAEL (#5426)", "ls": "17/06 (91j)", "lsc": "stale",
-             "a": "Avenue du Bois de la Cambre 120, 1050 Ixelles",
-             "c": "accueil / responsable rayon"},
-            {"t": "13:35 - 14:00", "k": "visite", "b": ["Tier B", "9j OVERDUE"],
-             "n": "Carrefour Market Shopping Woluwe 1875 (#5825)", "ls": "10/08 (37j)", "lsc": "mid",
-             "a": "Rue Saint-Lambert 202, 1200 Woluwe-Saint-Lambert",
-             "c": "Jordan — 02 261 13 60",
-             "st": "pas de réserve — tout en rayon",
-             "re": "manuel — pas d'appareil de commande sur place",
-             "rg": "contrôle marchandise obligatoire à la réception (voir Jordan)"},
-            {"t": "14:10 - 14:35", "k": "visite", "b": ["Tier B", "9j OVERDUE"],
-             "n": "Affilié 044725 - Delhaize Kraainem (#2914)", "ls": "10/08 (37j)", "lsc": "mid",
-             "a": "Wezembeeklaan 112, 1950 Kraainem",
-             "c": "accueil / responsable rayon — 02 784 36 48",
-             "note": "Gamme plus large qu'ailleurs : vérifier la commande sur place, sinon relancer par téléphone et mail. Dernier stop, départ 14:35 pour un retour base à 15:43."},
-         ]},
-        {"h": "Mardi 22/09", "sub": "7 stops (7 visites, dont 1 pose de display)",
-         "zone": "Famenne → Ourthe → Condroz (Marche → Hotton → Barvaux → Ciney → Fernelmont)",
-         "km": "171", "ret": "15:47",
+        {"h": "Lundi 21/09", "sub": "pas de tournée merchandiser",
+         "zone": "—", "ret": "—", "stops": [],
+         "off": ("Aucune tournée ce lundi (demande Nicolas). La boucle Brabant wallon / Bruxelles "
+                 "qui était prévue est reportée au jeudi 24/09, avec le dépôt de la boutique Waterloo. "
+                 "Aucun dépôt boutique n'est possible un lundi : le colis se prépare la veille et "
+                 "l'entrepôt est fermé le dimanche (REGLES §13).")},
+        {"h": "Mardi 22/09", "sub": "8 stops (1 pose de display + 7 visites)",
+         "zone": "Famenne → Ourthe → Condroz (Marche → Hotton → Barvaux → Ciney → Fernelmont → Naninne)",
+         "km": "179", "ret": "16:22",
          "addrs": ["Chaussée de Liège 41, 6900 Marche-en-Famenne", "Rue de la Jonction 16, 6990 Hotton",
                    "Rue de la Scierie 9, 6990 Hotton", "Route de Marche 26, 6940 Barvaux-sur-Ourthe",
                    "Rue Petit-Barvaux 6, 6940 Barvaux-sur-Ourthe",
-                   "Rue du Commerce 44, 5590 Ciney", "Rue d'Eghezée 16, 5380 Fernelmont"],
+                   "Rue du Commerce 44, 5590 Ciney", "Rue d'Eghezée 16, 5380 Fernelmont",
+                   "Chaussée de Marche 860, 5100 Naninne"],
          "stops": [
             {"t": "08:50 - 09:30", "k": "impl", "b": ["Hyper", "NOUVEAU DISPLAY", "Livraison commande", "Demande Nicolas"],
              "n": "Carrefour Hyper Marche-en-Famenne (#6999)", "ls": "01/09 (15j)", "lsc": "fresh",
@@ -2452,7 +2420,12 @@ S39 = {
              "a": "Rue d'Eghezée 16, 5380 Fernelmont",
              "c": "Tamara Geurts — +32 81 83 04 55",
              "rg": "mardi ou vendredi à partir de 13h20 uniquement — demander Marie",
-             "note": "Laisser un stock tampon de thé glacé Pêche de Vigne (se vide vite). Dernier stop, départ 15:00 pour un retour base à 15:47."},
+             "note": "Laisser un stock tampon de thé glacé Pêche de Vigne (se vide vite)."},
+            {"t": "15:25 - 15:50", "k": "visite", "b": ["Tier A"],
+             "n": "Intermarché Naninne (#5755)", "ls": "14/08 (36j)", "lsc": "mid",
+             "a": "Chaussée de Marche 860, 5100 Naninne",
+             "c": "accueil / responsable rayon — 081 63 36 96",
+             "note": "Repris du jeudi (la journée Namur laisse la place à la boucle Brabant wallon / Bruxelles). Dernier stop, départ 15:50 pour un retour base à 16:22."},
          ]},
         {"h": "Mercredi 23/09", "sub": "8 stops (6 visites + 2 dépôts boutiques)",
          "zone": "Liège (Grâce-Hollogne → Ans → Rocourt → Liège → Fléron → Esneux → Tilff → Aywaille)",
@@ -2509,54 +2482,56 @@ S39 = {
              "rg": "responsable rayon absent le jeudi — visite placée mercredi",
              "note": "Dernier stop, départ 15:00 pour un retour base à 15:47."},
          ]},
-        {"h": "Jeudi 24/09", "sub": "8 stops (7 visites + 1 dépôt boutique)",
-         "zone": "Namur (Namur centre → Salzinnes → Jambes → Bouge → Belgrade → Floriffoux → Spy)",
-         "km": "195", "ret": "15:59",
-         "addrs": ["Rue du Pont 3, 5000 Namur",
-                   "Chaussée de Charleroi 22, 5000 Namur", "Avenue Prince de Liège 57, 5100 Jambes",
-                   "Chaussée de Louvain 257, 5000 Bouge", "Chaussée de Marche 860, 5100 Naninne",
-                   "Allée des Ormes 15, 5001 Belgrade", "Rue Emerée 4, 5150 Floriffoux",
-                   "Route de Saussin 45, 5190 Jemeppe-sur-Sambre"],
+        {"h": "Jeudi 24/09", "sub": "8 stops (6 visites + 2 dépôts boutiques)",
+         "zone": "Namur → Brabant wallon → Bruxelles (Jambes → Salzinnes → Namur → Ottignies → Waterloo → Lasne → Ixelles → Kraainem)",
+         "km": "260", "ret": "16:27",
+         "addrs": ["Avenue Prince de Liège 57-59, 5100 Jambes", "Chaussée de Charleroi 22, 5000 Namur",
+                   "Rue du Pont 3, 5000 Namur", "Centre commercial du Douaire 1, 1340 Ottignies",
+                   "Chaussée de Bruxelles 155, 1410 Waterloo", "Route de l'Etat 217, 1380 Lasne",
+                   "Avenue du Bois de la Cambre 120, 1050 Ixelles", "Wezembeeklaan 112, 1950 Kraainem"],
          "stops": [
-            {"t": "10:15 - 10:35", "k": "livr", "b": ["Dépôt marchandise", "Demande Nicolas"],
-             "n": "Boutique Teatower Namur (#97042)", "ls": "dépôt marchandise", "lsc": "fresh",
-             "a": "Rue du Pont 3, 5000 Namur",
-             "c": "équipe boutique Namur",
-             "note": "DÉPÔT — colis préparé le mercredi 23/09. Créneau piétonnier libre 9h-11h30, accès camionnette OK."},
-            {"t": "10:40 - 11:05", "k": "visite", "b": ["Tier A"],
-             "n": "Affilié 048652 - Delhaize Salzinnes (#114704)", "ls": "04/08 (43j)", "lsc": "mid",
-             "a": "Chaussée de Charleroi 22, 5000 Namur",
-             "c": "Madame Wivine ou Manu — +32 81 40 80 40"},
-            {"t": "11:15 - 11:40", "k": "visite", "b": ["Hyper", "Tier A"],
-             "n": "Carrefour Hyper de Jambes (#9046)", "ls": "28/07 (50j)", "lsc": "mid",
+            {"t": "09:05 - 09:30", "k": "visite", "b": ["Hyper", "Tier A"],
+             "n": "Carrefour Hyper de Jambes (#9046)", "ls": "28/07 (53j)", "lsc": "mid",
              "a": "Avenue Prince de Liège 57-59, 5100 Jambes",
              "c": "accueil / responsable rayon — +32 81 33 20 11",
              "rg": "Hyper — matin obligatoire",
-             "note": "Le magasin demande des balisages à coller sur les languettes et des arrêts de rayon : les emporter. Commande Noël à encoder dès que la gamme est disponible (signalé le 07/09)."},
-            {"t": "11:50 - 12:15", "k": "visite", "b": ["Tier B"],
-             "n": "Windmill SA - Intermarché Bouge (#3297)", "ls": "24/08 (23j)", "lsc": "fresh",
-             "a": "Chaussée de Louvain 257, 5000 Bouge",
-             "c": "Laurence — 081 56 93 46",
-             "re": "manuel, pas d'appareil magasin pour encoder",
-             "rg": "pas de contrôle marchandise ; contact Laurence",
-             "note": "Pause déjeuner 30 min juste après (12:15-12:45)."},
-            {"t": "12:55 - 13:20", "k": "visite", "b": ["Tier A"],
-             "n": "Intermarché Naninne (#5755)", "ls": "14/08 (33j)", "lsc": "mid",
-             "a": "Chaussée de Marche 860, 5100 Naninne",
-             "c": "accueil / responsable rayon — 081 63 36 96"},
-            {"t": "13:40 - 14:05", "k": "visite", "b": ["Tier B"],
-             "n": "Belgradis - Intermarché Belgrade (#2821)", "ls": "24/08 (23j)", "lsc": "fresh",
-             "a": "Allée des Ormes 15, 5001 Belgrade",
-             "c": "Stéphanie — 081 26 01 87"},
-            {"t": "14:15 - 14:40", "k": "visite", "b": ["Tier B", "5j OVERDUE"],
-             "n": "Floridis SA - Intermarché Floriffoux (#2958)", "ls": "14/08 (33j)", "lsc": "mid",
-             "a": "Rue Emerée 4, 5150 Floriffoux",
-             "c": "Loredana — demander Manon — 081 44 05 39"},
-            {"t": "14:50 - 15:15", "k": "visite", "b": ["Tier B", "5j OVERDUE"],
-             "n": "SRL Spydis - Intermarché Spy (#116686)", "ls": "14/08 (33j)", "lsc": "mid",
-             "a": "Route de Saussin 45, 5190 Jemeppe-sur-Sambre",
-             "c": "Emilie ou Dorian — +32 71 78 74 39",
-             "note": "Dernier stop, départ 15:15 pour un retour base à 15:59."},
+             "note": "1ᵉʳ stop. Le magasin demande des balisages à coller sur les languettes et des arrêts de rayon : les emporter. Commande Noël à encoder dès que la gamme est disponible (signalé le 07/09)."},
+            {"t": "09:40 - 10:05", "k": "visite", "b": ["Tier A"],
+             "n": "Affilié 048652 - Delhaize Salzinnes (#114704)", "ls": "04/08 (46j)", "lsc": "mid",
+             "a": "Chaussée de Charleroi 22, 5000 Namur",
+             "c": "Madame Wivine ou Manu — +32 81 40 80 40"},
+            {"t": "10:15 - 10:35", "k": "livr", "b": ["Dépôt marchandise", "Demande Nicolas"],
+             "n": "Boutique Teatower Namur (#97042)", "ls": "dépôt marchandise", "lsc": "fresh",
+             "a": "Rue du Pont 3, 5000 Namur",
+             "c": "équipe boutique Namur — +32 81 66 30 07",
+             "note": "DÉPÔT — colis préparé le mercredi 23/09.",
+             "rg": "boutique ouverte à partir de 10:00 | piétonnier : accès libre 9h-11h30, hors créneau déchargement seul (ne jamais stationner)"},
+            {"t": "11:15 - 11:40", "k": "visite", "b": ["Tier A", "3j OVERDUE"],
+             "n": "KAIO Retail invest - Delhaize Ottignies (#6838)", "ls": "26/08 (24j)", "lsc": "fresh",
+             "a": "Centre commercial du Douaire 1, 1340 Ottignies",
+             "c": "Jolan Cailleu (Mme Galletas absente le jeudi)",
+             "rg": "Mme Galletas absente le jeudi — demander Jolan Cailleu",
+             "note": "Pause déjeuner 30 min juste après (11:40-12:10)."},
+            {"t": "12:35 - 12:55", "k": "livr", "b": ["Dépôt marchandise", "Demande Nicolas"],
+             "n": "Boutique Teatower Waterloo", "ls": "dépôt marchandise", "lsc": "fresh",
+             "a": "Chaussée de Bruxelles 155, 1410 Waterloo",
+             "c": "équipe boutique Waterloo — +32 2 720 36 04",
+             "note": "DÉPÔT — colis préparé le mercredi 23/09. Remplace l'envoi Bpost (demande Nicolas).",
+             "rg": "boutique ouverte à partir de 10:00 | parkings gratuits sur la Chaussée de Bruxelles et les rues adjacentes"},
+            {"t": "13:10 - 13:35", "k": "visite", "b": ["Tier B", "12j OVERDUE"],
+             "n": "Affilié 045190 - Proxy Delhaize Maransart (#113217)", "ls": "10/08 (40j)", "lsc": "mid",
+             "a": "Route de l'Etat 217, 1380 Lasne",
+             "c": "Marion Delannoy — +32 2 633 13 25"},
+            {"t": "14:05 - 14:30", "k": "visite", "b": ["Tier B", "12j OVERDUE"],
+             "n": "DELHAIZE BOONDAEL (#5426)", "ls": "17/06 (94j)", "lsc": "stale",
+             "a": "Avenue du Bois de la Cambre 120, 1050 Ixelles",
+             "c": "accueil / responsable rayon",
+             "note": "Dernière commande le 17/06 ; le passage du 10/08 s'est fait sans réassort. Si le rayon ne tourne toujours pas, le signaler à Jérôme."},
+            {"t": "14:50 - 15:15", "k": "visite", "b": ["Tier B", "12j OVERDUE"],
+             "n": "Affilié 044725 - Delhaize Kraainem (#2914)", "ls": "10/08 (40j)", "lsc": "mid",
+             "a": "Wezembeeklaan 112, 1950 Kraainem",
+             "c": "accueil / responsable rayon — 02 784 36 48",
+             "note": "Gamme plus large qu'ailleurs : vérifier la commande sur place, sinon relancer par téléphone et mail. Dernier stop, départ 15:15 pour un retour base à 16:27."},
          ]},
         {"h": "Vendredi 25/09", "sub": "8 stops (7 visites + 1 livraison)",
          "zone": "Luxembourg (Arlon → Etalle → Neufchâteau → Bertrix → Recogne → Vaux-sur-Sûre → Bastogne)",
