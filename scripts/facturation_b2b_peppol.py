@@ -227,7 +227,15 @@ for s in sos:
         print(f"  SKIP  {s['name']} - rien à facturer (delivered=0 ou tout déjà facturé)")
         continue
 
-    if peppol_state != 'valid' or peppol_eas != '0208':
+    # Le seul critere qui compte est l'etat verifie par l'annuaire Peppol.
+    # L'exigence eas=0208 ne vaut QUE pour la Belgique (schema BCE) : elle
+    # servait de garde-fou contre les fiches BE restees en 9925. Appliquee aux
+    # etrangers elle bloque a tort des clients parfaitement joignables —
+    # cas La The Box (FR), legitimement en 0225 FRCTC, 20/09/26.
+    p_country = p.get('country_id')
+    p_is_be = (p_country and p_country[1] == 'Belgium') or \
+              (p.get('vat') and str(p['vat']).upper().replace(' ', '').startswith('BE'))
+    if peppol_state != 'valid' or (p_is_be and peppol_eas != '0208'):
         so_blocked_peppol.append({'so':s,'partner':p,'inv_pid':inv_pid,'reason':f"state={peppol_state} eas={peppol_eas}"})
         print(f"  BLOCK {s['name']} - {s['partner_id'][1][:35]} - facturation-partner ID={inv_pid} peppol state={peppol_state} eas={peppol_eas}")
         continue
