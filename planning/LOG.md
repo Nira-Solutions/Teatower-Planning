@@ -233,3 +233,16 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
   connaît pas les refus ; c'est le cas « client à arrêter » prévu au §14, arbitrage Nicolas.
 - Garde-fou pools exclusifs OK sur `televente_pool_2026-09-19.csv`. Tous les retours ≤ 17:00.
   32 stops sur 4 jours (28 visites + 4 dépôts) contre 38 sur 5 jours. WEEKS = [S39, S38].
+
+## 2026-09-24 — Planning S40 (28/09-02/10)
+
+- **30 stops sur 4 jours** (lundi-jeudi), vendredi 02/10 off (Noël boutiques + montage C'est bon c'est wallon).
+  Retours 16:14 / 16:36 / 15:56 / 16:27. Mardi départ 09:30 (commandes pas prêtes).
+- Demandes Nicolas : implantation **Proxy Delhaize Fléron #5766** (mer. 1ᵉʳ stop — « Flairon » = Fléron,
+  lead #172 gagné le 22/09, **aucune SO encore**), livraison **Delhaize Materne S06425** + reprise thés glacés
+  (jeu. 1ᵉʳ stop), **installation display Hyper Marche #6999** (mar. 1ᵉʳ stop), 4 dépôts boutiques
+  (Rocourt + Liège mer., Namur + Waterloo jeu.).
+- **Import Slack → Odoo en panne depuis le 18/09** (`token_expired`) : 16 visites du 22-24/09 tagguées à la main
+  (`scripts/slack_visites_vers_odoo_20260924.py`). Jeton à renouveler.
+- Couverture §14 : seul critique non planifié = ITM Gerpinnes #2971 → bascule télévente **annulée** (décision Jérôme en attente).
+- Pools exclusifs OK. WEEKS = [S40, S39]. Télévente régénérée pour la semaine du 28/09. Détail : `planning/queue_S40_2026-09-28.md`.
