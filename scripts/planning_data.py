@@ -2603,15 +2603,17 @@ S39 = {
 S40 = {
     "id": "s40", "nav": "S40 · 28/09-02/10 (à venir)", "active": True,
     "title": "Semaine du 28 septembre au 2 octobre 2026 (S40)",
-    "note": ("30 stops sur 4 jours : 1 implantation, 1 livraison de commande, 1 installation de display, "
-             "23 visites et 4 dépôts boutiques. "
+    "note": ("31 stops sur 5 jours : 2 livraisons de commande (Materne, Newpharma), 1 installation de display, "
+             "23 visites et 5 dépôts boutiques (dont le stock Noël à Liège vendredi). "
              "🛠 MARDI 29/09 — HYPER CARREFOUR MARCHE en 1ᵉʳ stop : installer le display livré le 22/09. "
              "⏰ MARDI 29/09 : DÉPART 09:30 (1 h plus tard) — les commandes ne sont pas prêtes avant. "
-             "🆕 MERCREDI 30/09 — IMPLANTATION PROXY DELHAIZE FLÉRON en 1ᵉʳ stop : charger le display et le stock de lancement le mardi 29/09. "
+             "⏸ PROXY DELHAIZE FLÉRON RETIRÉ de la tournée : encore une visite avec le commercial pour finaliser la commande — "
+             "ne PAS charger le display ni le stock de lancement. "
              "📦 JEUDI 01/10 — DELHAIZE MATERNE en 1ᵉʳ stop : livrer la commande S06425 et REPRENDRE LES THÉS GLACÉS. "
              "🏪 Dépôts boutiques : Rocourt + Liège le mercredi 30/09 (colis préparés le mardi 29/09), "
              "Namur + Waterloo le jeudi 01/10 (colis préparés le mercredi 30/09). "
-             "🚫 VENDREDI 02/10 — AUCUNE VISITE : livraison Noël dans les boutiques Teatower + montage du stand "
+             "📦 VENDREDI 02/10 — LIVRER NEWPHARMA (S06422, coffrets Noël) à Wandre en allant à Liège déposer le stock de Noël ; "
+             "pas de visite magasin : livraison Noël dans les boutiques Teatower + montage du stand "
              "C'est bon c'est wallon (WEX, Marche-en-Famenne)."),
     "days": [
         {"h": "Lundi 28/09", "sub": "8 visites",
@@ -2710,48 +2712,43 @@ S40 = {
              "c": "accueil / responsable — +32 86 21 27 21",
              "note": "Dernier stop, départ 16:20 pour un retour base à 16:36."},
          ]},
-        {"h": "Mercredi 30/09", "sub": "7 stops (1 implantation + 4 visites + 2 dépôts boutiques)",
-         "zone": "Liège → Andenne → Namur ouest (Fléron → Rocourt → Liège → Andenne → Jambes → Floriffoux → Spy)",
-         "km": "242", "ret": "15:56",
-         "addrs": ["Rue du Bureau 2, 4620 Fléron", "Chaussée de Tongres 269, 4000 Rocourt",
+        {"h": "Mercredi 30/09", "sub": "6 stops (4 visites + 2 dépôts boutiques) — départ 09:05",
+         "zone": "Liège → Andenne → Namur ouest (Rocourt → Liège → Andenne → Jambes → Floriffoux → Spy)",
+         "km": "219", "ret": "15:26",
+         "addrs": ["Chaussée de Tongres 269, 4000 Rocourt",
                    "Rue Saint-Paul 7, 4000 Liège", "Avenue Roi Albert 135A, 5300 Andenne",
                    "Rue de la Poudrière 14, 5100 Jambes", "Rue Emerée 4, 5150 Floriffoux",
                    "Route de Saussin 45, 5190 Jemeppe-sur-Sambre"],
          "stops": [
-            {"t": "09:25 - 10:05", "k": "impl", "b": ["NOUVEAU CLIENT", "Demande Nicolas"],
-             "n": "Affilié 043161 - Proxy Delhaize Fléron (Amaudis) (#5766)", "ls": "nouveau client", "lsc": "never",
-             "a": "Rue du Bureau 2, 4620 Fléron",
-             "c": "demander le gérant (Mr Bouchat / Christelle Schoonbroots) — +32 4 228 77 80",
-             "note": "1ᵉʳ stop : IMPLANTATION — display + stock de lancement chargés le mardi 29/09. 40 min sur place."},
-            {"t": "10:30 - 10:50", "k": "livr", "b": ["Dépôt marchandise", "Demande Nicolas"],
+            {"t": "10:00 - 10:20", "k": "livr", "b": ["Dépôt marchandise", "Demande Nicolas"],
              "n": "Boutique Teatower Rocourt", "ls": "dépôt marchandise", "lsc": "fresh",
              "a": "Chaussée de Tongres 269-271, 4000 Rocourt (Shopping Cora Rocourt)",
              "c": "équipe boutique Rocourt",
-             "note": "DÉPÔT — colis préparé le mardi 29/09.",
+             "note": "1ᵉʳ stop — DÉPART BASE 09:05 (Rocourt jamais avant 10:00). DÉPÔT — colis préparé le mardi 29/09.",
              "rg": "jamais avant 10:00"},
-            {"t": "11:05 - 11:25", "k": "livr", "b": ["Dépôt marchandise", "Demande Nicolas"],
+            {"t": "10:35 - 10:55", "k": "livr", "b": ["Dépôt marchandise", "Demande Nicolas"],
              "n": "Boutique Teatower Liège", "ls": "dépôt marchandise", "lsc": "fresh",
              "a": "Rue Saint-Paul 7, 4000 Liège",
              "c": "équipe boutique Liège — 04 343 54 72",
              "note": "DÉPÔT — colis préparé le mardi 29/09."},
-            {"t": "12:05 - 12:30", "k": "visite", "b": ["Tier C", "5j OVERDUE"],
+            {"t": "11:35 - 12:00", "k": "visite", "b": ["Tier C", "5j OVERDUE"],
              "n": "Affilié 040299 - Delhaize Andenne (#115578)", "ls": "14/08 (41j)", "lsc": "mid",
              "a": "Avenue Roi Albert 135A, 5300 Andenne",
              "c": "Mr Goffin — +32 85 41 19 81",
-             "note": "Pause déjeuner 30 min juste après (12:30-13:00)."},
-            {"t": "13:25 - 13:50", "k": "visite", "b": ["Tier B"],
+             "note": "Pause déjeuner 30 min juste après (12:00-12:30)."},
+            {"t": "12:55 - 13:20", "k": "visite", "b": ["Tier B"],
              "n": "JAMBIS SA - Intermarché Jambes (#3000)", "ls": "03/09 (21j)", "lsc": "fresh",
              "a": "Rue de la Poudrière 14, 5100 Jambes",
              "c": "Faustine (patronne) — 081 30 68 78"},
-            {"t": "14:10 - 14:35", "k": "visite", "b": ["Tier B", "19j OVERDUE"],
+            {"t": "13:40 - 14:05", "k": "visite", "b": ["Tier B", "19j OVERDUE"],
              "n": "Floridis SA - Intermarché Floriffoux (#2958)", "ls": "14/08 (41j)", "lsc": "mid",
              "a": "Rue Emerée 4, 5150 Floriffoux",
              "c": "Loredana / Manon — 081 44 05 39"},
-            {"t": "14:45 - 15:10", "k": "visite", "b": ["Tier B", "19j OVERDUE"],
+            {"t": "14:15 - 14:40", "k": "visite", "b": ["Tier B", "19j OVERDUE"],
              "n": "SRL Spydis - Intermarché Spy (#116686)", "ls": "14/08 (41j)", "lsc": "mid",
              "a": "Route de Saussin 45, 5190 Jemeppe-sur-Sambre",
              "c": "Emilie ou Dorian — +32 71 78 74 39",
-             "note": "Dernier stop, départ 15:10 pour un retour base à 15:56."},
+             "note": "Dernier stop, départ 14:40 pour un retour base à 15:26."},
          ]},
         {"h": "Jeudi 01/10", "sub": "8 stops (1 livraison + 5 visites + 2 dépôts boutiques)",
          "zone": "Namur → Brabant wallon → Bruxelles (Jambes → Bouge → Namur → Belgrade → Waterloo → Uccle → Woluwe → Genval)",
@@ -2807,10 +2804,24 @@ S40 = {
              "c": "Mr Zanoni ou Mr Torres — 02 654 17 02",
              "note": "Dernier stop, départ 15:20 pour un retour base à 16:27."},
          ]},
-        {"h": "Vendredi 02/10", "sub": "pas de visite merchandiser",
-         "zone": "—", "ret": "—", "stops": [],
-         "off": ("Aucune visite magasin ce vendredi (demande Nicolas) : livraison de la gamme Noël dans les "
-                 "boutiques Teatower + montage du stand C'est bon c'est wallon (WEX, Marche-en-Famenne).")},
+        {"h": "Vendredi 02/10", "sub": "1 livraison Newpharma en route vers Liège — pas de visite magasin",
+         "zone": "Wandre → Liège (puis livraisons Noël boutiques + stand WEX)",
+         "km": "73 jusqu'à Liège", "ret": "—",
+         "addrs": ["Rue du Charbonnage 9, 4020 Wandre", "Rue Saint-Paul 7, 4000 Liège"],
+         "stops": [
+            {"t": "09:30 - 10:00", "k": "livr", "b": ["LIVRAISON COMMANDE", "Demande Nicolas"], "so": "S06422",
+             "n": "Newpharma logistique (#5742)", "ls": "livraison", "lsc": "fresh",
+             "a": "Rue du Charbonnage 9, 4020 Wandre",
+             "c": "Valentine Pavier — 0489 53 05 58",
+             "note": "📦 DÉPART BASE 08:30. Livrer la commande S06422 (coffrets Noël, réf. client 20260922-TEATOWER SA COFFRETS NOEL) — "
+                     "charger le jeudi 01/10. Faire signer le bon de livraison. 30 min sur place."},
+            {"t": "10:15 - 10:45", "k": "livr", "b": ["Dépôt marchandise", "STOCK NOËL", "Demande Nicolas"],
+             "n": "Boutique Teatower Liège", "ls": "dépôt stock Noël", "lsc": "fresh",
+             "a": "Rue Saint-Paul 7, 4000 Liège",
+             "c": "équipe boutique Liège — 04 343 54 72",
+             "note": "Dépôt du stock de Noël. Ensuite : suite des livraisons Noël dans les boutiques Teatower "
+                     "+ montage du stand C'est bon c'est wallon (WEX, Marche-en-Famenne)."},
+         ]},
     ],
 }
 
