@@ -1,5 +1,24 @@
 # LOG Compta Teatower
 
+## 2026-09-28 - Facturation B2B Peppol (3 factures)
+
+Demande Nicolas : "facture toutes les commandes PRO delivrees via Peppol".
+`scripts/facturation_b2b_peppol.py --exclude S06422,S06425 --apply` (dry-run d'abord).
+Exclues : S06422 Newpharma et S06425 Delhaize Materne, TT/OUT valides mais livraison Gilles prevue en S40 (01-02/10).
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/04459 | S06449 | Brasserie Maziers Srl | 556,50 | processing |
+| INV/2026/04460 | S06447 | CPSP Belgie NV (Sunparks Kempense Meren) | 225,25 | processing |
+| INV/2026/04461 | S06445 | QSLD Srl - Qu'on se le dise | 116,60 | processing |
+
+Transport force sur S06447 et S06445. EAS 9925 -> 0208 + re-verification (tous `valid`) : #2900, #5448 D'ICI, #5601 Coudron, #5769 Livraison Marche-en-Famenne, #7004 ITM Heusy (Caroline Leidgens), #127310 Newpharma (Marie Derwa).
+
+Non factures :
+- S06407 Marissen Margaux : facture 0,00 EUR laissee en brouillon (id 47097).
+- 5 particuliers sans TVA, pas joignables en Peppol : S06418 Otte Thomas, S06410 sabrina carlini, S06409 Laura Hoebeke, S06408 Sarah Belle, S06406 Borremans Charline.
+- 15 SO sans marchandise livree dans Odoo, dont S06450 ITM Heusy (visite du 28/09).
+
 ## 2026-08-14 - Lettrage ING (8 cas) + facturation B2B Peppol (2 factures)
 
 Demande Nicolas : "fais le lettrage de ING, tu sais quoi faire pour les factures clients.
