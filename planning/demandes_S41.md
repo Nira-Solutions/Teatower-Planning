@@ -20,3 +20,21 @@ Demande de Nicolas, 29/09/2026 : « Newpharma, on livrera la commande lundi 05 �
 | **Odoo** | TT/OUT/09668 déjà `done` — rien à modifier |
 
 **Cluster lundi 05/10** : axe Liège / Liège-Est (Wandre). Compléter avec les magasins de la zone dus dans le pool maître (Herstal, Visé, Fléron, Soumagne…). **Pas Embourg** : visité le 30/09 en S40.
+
+---
+
+## Dépôt boutique (à intégrer obligatoirement)
+
+### Boutique Teatower Waterloo : LIVRAISON GAMME NOËL — S41
+
+Demande de Nicolas, 29/09/2026 : « grosse livraison pour Waterloo Teatower de la gamme de Noël, il faut prévoir 30 min pour décharger ».
+
+| Champ | Valeur |
+|---|---|
+| **Adresse** | Chaussée de Bruxelles 155, **1410 Waterloo** |
+| **Contact** | équipe boutique Waterloo — +32 2 720 36 04 |
+| **Durée** | **30 min** sur place (déchargement) — pas les 20 min d'un dépôt standard |
+| **Jour** | **mardi → vendredi** (jamais le lundi : pas de dépôt boutique le lundi) ; jour de la boucle BW/Bruxelles |
+| **Horaire** | boutique ouverte à partir de 10:00 — jamais avant |
+| **Chargement** | colis préparés la veille ; gros volume → vérifier la place dans la camionnette avec les autres livraisons du jour |
+| **Accès** | parkings gratuits sur la Chaussée de Bruxelles et les rues adjacentes |
