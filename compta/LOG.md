@@ -1,5 +1,35 @@
 # LOG Compta Teatower
 
+## 2026-09-29 - Facturation B2B Peppol (12 factures)
+
+Demande Nicolas : "facture les commandes PRO delivrees via PEPPOL".
+`scripts/facturation_b2b_peppol.py --exclude S06422,S06425,S06443 --apply` (dry-run d'abord ; TT/OUT et GMS/OUT verifies `done` le 29/09).
+Exclues : S06422 Newpharma (livraison Gilles reportee au lundi 05/10), S06425 Delhaize Materne (livraison jeudi 01/10), S06443 Newpharma echantillons a 0,00 EUR.
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/04470 | S06417 | ORIGINE SPRL | 171,60 | processing |
+| INV/2026/04471 | S06367 | Ma Pharmacie de Baillonville | 147,01 | processing |
+| INV/2026/04472 | S06359 | Le Pre Vert S.A. | 399,00 | processing |
+| INV/2026/04473 | S06295 | Pharmacie Tilman S.A. | 865,22 | processing |
+| INV/2026/04474 | S06239 | Le Jardin Secret de Jill | 177,90 | processing |
+| INV/2026/04475 | S06219 | Moulins Burette s.a. | 354,20 | processing |
+| INV/2026/04476 | S06217 | Cocon Life store | 1.383,21 | processing |
+| INV/2026/04477 | S06450 | Wonka S.A. - Intermarche Heusy | 126,00 | processing |
+| INV/2026/04478 | S06448 | Centrale Intermarche | 48,10 | processing |
+| INV/2026/04479 | S06444 | D'ICI sprl | 808,50 | processing |
+| INV/2026/04480 | S06438 | Delhaize Bertrix (#2912) | 134,40 | processing |
+| INV/2026/04481 | S06369 | CHEZ HELENE | 482,31 | processing |
+| | | **Total** | **5.097,45** | |
+
+Transport force (qty_delivered 0->1) : S06417, S06239, S06448.
+S06438 : complement seul (16 x V0919 Halloween ajoutes apres INV/2026/04421).
+Lignes non livrees retirees (reliquats TT/PICK ouverts, a facturer a la livraison) : coffret C0198 sur 8 SO ; 5 refs Noel (V0711, V0732, V0917, V0891, V0918) sur S06450.
+
+Non factures :
+- 5 particuliers sans TVA, pas joignables en Peppol : S06418, S06410, S06409, S06408, S06406.
+- Sans livraison : S06274 Pharmacie Saint Pierre, S06211 Pharmacie Badot, S06210 Hello Bio.
+
 ## 2026-09-28 - Facturation B2B Peppol (3 factures)
 
 Demande Nicolas : "facture toutes les commandes PRO delivrees via Peppol".
