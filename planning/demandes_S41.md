@@ -38,3 +38,19 @@ Demande de Nicolas, 29/09/2026 : « grosse livraison pour Waterloo Teatower de l
 | **Horaire** | boutique ouverte à partir de 10:00 — jamais avant |
 | **Chargement** | colis préparés la veille ; gros volume → vérifier la place dans la camionnette avec les autres livraisons du jour |
 | **Accès** | parkings gratuits sur la Chaussée de Bruxelles et les rues adjacentes |
+
+---
+
+## Matinée bloquée (à intégrer obligatoirement)
+
+### MARDI 06/10 — ENVOI MARCHANDISE PRISON DE MARCHE (2h30, le matin)
+
+Demande de Nicolas, 29/09/2026 : « Mardi 06/10, il faut prévoir le matin 2h30 pour envoyer de la marchandise à la prison ».
+
+| Champ | Valeur |
+|---|---|
+| **Partner** | #6395 : Cellmade / Prison de Marche (conditionnement Horeca, cf. envois S28/S30) |
+| **Adresse** | Chaussée de Liège 178, 6900 Marche-en-Famenne (~10 min de la base) |
+| **Créneau** | **08:30 → 11:00** (2h30 bloquées, trajet compris) — 1ᵉʳ bloc du mardi, aucune visite avant |
+| **Après-midi** | tournée courte au départ de Marche (Famenne / Ardenne / Namur sud), retour ≤ 17:00 ; pause 30 min à caser |
+| **Opportunité** | Hyper Carrefour Marche (« mardi uniquement », hyper = matin) : faisable juste après la prison (11:10) s'il est dû au pool |
