@@ -1,5 +1,17 @@
 # LOG Compta Teatower
 
+## 2026-09-29 (2e passe) - Facturation B2B Peppol (2 factures)
+
+`scripts/facturation_b2b_peppol.py --exclude S06422,S06425,S06443 --apply` (dry-run d'abord ; TT/OUT done le 29/09 apres-midi).
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/04483 | S06211 | Pharmacie Badot | 516,60 | processing |
+| INV/2026/04484 | S06210 | Hello Bio sprl (Pure) | 672,05 | processing |
+
+Coffret C0198 non livre retire des 2 factures (reliquat TT/PICK ouvert). EAS 9925 -> 0208 sur #2967 Golf du Sart Tilman (valid).
+Toujours non factures : 5 particuliers sans TVA (S06418, S06410, S06409, S06408, S06406) ; S06422, S06425, S06443 exclues (cf. passe du matin).
+
 ## 2026-09-29 - Facturation B2B Peppol (12 factures)
 
 Demande Nicolas : "facture les commandes PRO delivrees via PEPPOL".
