@@ -2603,8 +2603,8 @@ S39 = {
 S40 = {
     "id": "s40", "nav": "S40 · 28/09-02/10 (à venir)", "active": True,
     "title": "Semaine du 28 septembre au 2 octobre 2026 (S40)",
-    "note": ("31 stops sur 5 jours : 2 livraisons de commande (Materne, Newpharma), 1 installation de display, "
-             "23 visites et 5 dépôts boutiques (dont le stock Noël à Liège vendredi). "
+    "note": ("31 stops sur 5 jours : 1 livraison de commande (Materne), 1 installation de display, "
+             "24 visites et 5 dépôts boutiques (dont le stock Noël à Liège vendredi). "
              "🛠 MARDI 29/09 — HYPER CARREFOUR MARCHE en 1ᵉʳ stop : installer le display livré le 22/09. "
              "⏰ MARDI 29/09 : DÉPART 09:30 (1 h plus tard) — les commandes ne sont pas prêtes avant. "
              "⏸ PROXY DELHAIZE FLÉRON RETIRÉ de la tournée : encore une visite avec le commercial pour finaliser la commande — "
@@ -2612,7 +2612,7 @@ S40 = {
              "📦 JEUDI 01/10 — DELHAIZE MATERNE en 1ᵉʳ stop : livrer la commande S06425 et REPRENDRE LES THÉS GLACÉS. "
              "🏪 Dépôts boutiques : Rocourt + Liège le mercredi 30/09 (colis préparés le mardi 29/09), "
              "Namur + Waterloo le jeudi 01/10 (colis préparés le mercredi 30/09). "
-             "📦 VENDREDI 02/10 — LIVRER NEWPHARMA (S06422, coffrets Noël) à Wandre en allant à Liège déposer le stock de Noël ; "
+             "🎄 VENDREDI 02/10 — dépôt du stock de Noël à Liège ; "
              "pas de visite magasin : livraison Noël dans les boutiques Teatower + montage du stand "
              "C'est bon c'est wallon (WEX, Marche-en-Famenne)."),
     "days": [
@@ -2809,22 +2809,16 @@ S40 = {
              "c": "Mr Zanoni ou Mr Torres — 02 654 17 02",
              "note": "Dernier stop, départ 15:20 pour un retour base à 16:27."},
          ]},
-        {"h": "Vendredi 02/10", "sub": "1 livraison Newpharma en route vers Liège — pas de visite magasin",
-         "zone": "Wandre → Liège (puis livraisons Noël boutiques + stand WEX)",
-         "km": "73 jusqu'à Liège", "ret": "—",
-         "addrs": ["Rue du Charbonnage 9, 4020 Wandre", "Rue Saint-Paul 7, 4000 Liège"],
+        {"h": "Vendredi 02/10", "sub": "Dépôt stock Noël à Liège — pas de visite magasin",
+         "zone": "Liège (puis livraisons Noël boutiques + stand WEX)",
+         "km": "65 jusqu'à Liège", "ret": "—",
+         "addrs": ["Rue Saint-Paul 7, 4000 Liège"],
          "stops": [
-            {"t": "09:30 - 10:00", "k": "livr", "b": ["LIVRAISON COMMANDE", "Demande Nicolas"], "so": "S06422",
-             "n": "Newpharma logistique (#5742)", "ls": "livraison", "lsc": "fresh",
-             "a": "Rue du Charbonnage 9, 4020 Wandre",
-             "c": "Valentine Pavier — 0489 53 05 58",
-             "note": "📦 DÉPART BASE 08:30. Livrer la commande S06422 (coffrets Noël, réf. client 20260922-TEATOWER SA COFFRETS NOEL) — "
-                     "charger le jeudi 01/10. Faire signer le bon de livraison. 30 min sur place."},
-            {"t": "10:15 - 10:45", "k": "livr", "b": ["Dépôt marchandise", "STOCK NOËL", "Demande Nicolas"],
+            {"t": "09:30 - 10:00", "k": "livr", "b": ["Dépôt marchandise", "STOCK NOËL", "Demande Nicolas"],
              "n": "Boutique Teatower Liège", "ls": "dépôt stock Noël", "lsc": "fresh",
              "a": "Rue Saint-Paul 7, 4000 Liège",
              "c": "équipe boutique Liège — 04 343 54 72",
-             "note": "Dépôt du stock de Noël. Ensuite : suite des livraisons Noël dans les boutiques Teatower "
+             "note": "DÉPART BASE 08:30. Dépôt du stock de Noël. Ensuite : suite des livraisons Noël dans les boutiques Teatower "
                      "+ montage du stand C'est bon c'est wallon (WEX, Marche-en-Famenne)."},
          ]},
     ],
