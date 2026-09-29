@@ -19,4 +19,4 @@ Demande de Nicolas, 29/09/2026 : « Newpharma, on livrera la commande lundi 05 �
 | **Chargement** | vendredi 02/10 au retour ou lundi matin avant départ |
 | **Odoo** | TT/OUT/09668 déjà `done` — rien à modifier |
 
-**Cluster lundi 05/10** : axe Liège / Liège-Est (Wandre). Compléter avec les magasins de la zone dus dans le pool maître (Herstal, Visé, Fléron, Soumagne, Embourg…).
+**Cluster lundi 05/10** : axe Liège / Liège-Est (Wandre). Compléter avec les magasins de la zone dus dans le pool maître (Herstal, Visé, Fléron, Soumagne…). **Pas Embourg** : visité le 30/09 en S40.
