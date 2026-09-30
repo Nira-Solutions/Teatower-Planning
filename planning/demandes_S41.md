@@ -73,7 +73,7 @@ Demande de Nicolas, 30/09/2026 : « dans le planning de la semaine prochaine il 
 | **Gamme glacée en rayon** | GI0820, GI0832, GI0634, GI0735, GI0916, GI0912 (+ SRP Kraft Horeca EM0072) |
 | **Sur place** | 1) **Reprendre tous les glacés** : compter par référence et photographier. Les quantités sont à noter dans Odoo pour le retour et l'avoir. 2) **Mettre en place la gamme de Noël** sur le display. 3) Photo du display avant/après. |
 | **Durée** | **45 min** (reprise + comptage + implantation). Ce n'est pas une visite standard. |
-| **Chargement** | gamme de Noël à préparer la veille selon le bon de commande GMS Noël 2026. La composition exacte est à valider avec Nicolas avant le build. Prévoir des bacs vides pour les glacés repris. |
+| **Chargement** | **SO S06470** (30/09, 372,46 € HT) à charger la veille : V0919 Halloween ×12, V0711 ×6, V0732 ×6, V0917 ×6, V0891 ×6, V0918 ×6, V0842 Plaisir chocolaté ×6. Prévoir des bacs vides pour les glacés repris. |
 | **Dernier contact** | appel télévente 14/08/2026 : REFUS |
 
 **Cluster S41** : axe Hainaut (Mons / La Louvière / Charleroi). Choisir le jour où d'autres magasins de la zone sont dus dans le pool maître. S'il n'y en a pas, prévoir une boucle dédiée avec retour ≤ 17:00.
