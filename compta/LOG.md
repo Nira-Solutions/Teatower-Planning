@@ -42,6 +42,30 @@ Non factures :
 - 5 particuliers sans TVA, pas joignables en Peppol : S06418, S06410, S06409, S06408, S06406.
 - Sans livraison : S06274 Pharmacie Saint Pierre, S06211 Pharmacie Badot, S06210 Hello Bio.
 
+## 2026-09-30 - Facturation B2B Peppol (8 factures)
+
+Demande Nicolas : "facture les commandes PRO delivrees via Peppol".
+`scripts/facturation_b2b_peppol.py --exclude S06422,S06425,S06466 --apply`, puis `--exclude S06425 --apply` (Nicolas : "Newpharma tu peux facturer meme si pas encore livre").
+Exclue : S06425 Delhaize Materne (livraison Gilles jeudi 01/10). S06422 Newpharma deja facturee le 25/09 (INV/2026/04409 + 04435).
+
+| Facture | SO | Client | TTC |
+|---|---|---|---:|
+| INV/2026/04498 | S06463 | Wattitude Sprl | 270,00 |
+| INV/2026/04499 | S06461 | SRL LEJER | 291,21 |
+| INV/2026/04500 | S06446 | PIGMENT - Ingrid Lopelli | 87,61 |
+| INV/2026/04501 | S06460 | CABOMA SRL - Galler Woluwe | 277,31 |
+| INV/2026/04502 | S06459 | Brasserie Miroir | 254,40 |
+| INV/2026/04503 | S06454 | GV-AT - Golf du Sart Tilman | 116,60 |
+| INV/2026/04504 | S06274 | Pharmacie Saint Pierre SA | 1.659,00 (partiel, reliquat TT/PICK/11184 non livre) |
+| INV/2026/04505 | S06466 | Newpharma | 191,07 |
+
+Toutes envoyees Peppol, 0 echec. Transport force sur S06446, S06459, S06454. EAS 9925 -> 0208 : #3294 Wattitude (not_verified -> valid), #2789 Anais Michoel.
+
+Non factures :
+- S06443 Newpharma Marie Derwa : facture 0,00 EUR laissee en brouillon (id 47227).
+- 4 particuliers sans TVA : S06410, S06409, S06408, S06406.
+- 17 SO sans marchandise livree dans Odoo.
+
 ## 2026-09-28 - Facturation B2B Peppol (3 factures)
 
 Demande Nicolas : "facture toutes les commandes PRO delivrees via Peppol".
