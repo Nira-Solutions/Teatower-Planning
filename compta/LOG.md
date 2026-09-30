@@ -3092,3 +3092,16 @@ Reconfiguration `peppol_eas` 9925 → 0208 (schéma KBO/BCE, numéro d'entrepris
 Contrôle : contact enfant #5871 "Sunparks Kempense Meren" (parent #2851) vérifié **non modifié** : eas=9925, endpoint=BE0434692830, state=not_verified, invoice_sending_method=False — conforme, la facturation passe par le parent #2851.
 
 Aucune fiche restée `not_valid` après correction (les deux sont `valid`).
+
+## 2026-09-30 - Facturation B2B Peppol, 2e passe (2 factures)
+
+Demande Nicolas : « facture les commandes PRO délivrées, il y en a des supplémentaires ».
+`scripts/facturation_b2b_peppol.py --exclude S06425 --apply`. S06425 Delhaize Materne toujours exclue (livraison Gilles jeudi 01/10).
+
+| Facture | SO | Client | TTC |
+|---|---|---|---:|
+| INV/2026/04513 | S06451 | Cafés Delahaut | 131,60 |
+| INV/2026/04514 | S06455 | Café Ventuno | 1.908,00 |
+
+Envoyées via Peppol, 0 échec. Transport forcé sur S06451.
+Non facturées : les 4 mêmes particuliers sans TVA (S06410, S06409, S06408, S06406) et 16 SO sans marchandise livrée dans Odoo.
