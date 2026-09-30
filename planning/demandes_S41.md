@@ -54,3 +54,26 @@ Demande de Nicolas, 29/09/2026 : « Mardi 06/10, il faut prévoir le matin 2h30 
 | **Créneau** | **08:30 → 11:00** (2h30 bloquées, trajet compris) — 1ᵉʳ bloc du mardi, aucune visite avant |
 | **Après-midi** | tournée courte au départ de Marche (Famenne / Ardenne / Namur sud), retour ≤ 17:00 ; pause 30 min à caser |
 | **Opportunité** | Hyper Carrefour Marche (« mardi uniquement », hyper = matin) : faisable juste après la prison (11:10) s'il est dû au pool |
+
+---
+
+## Passage demandé par Nicolas (à intégrer obligatoirement)
+
+### ITM Mons #123966 : REPRISE GAMME GLACÉE + MISE EN PLACE GAMME NOËL — S41
+
+Demande de Nicolas, 30/09/2026 : « dans le planning de la semaine prochaine il faudra aller à Intermarché Mons pour reprendre la gamme glacée et placer celle de Noël ».
+
+| Champ | Valeur |
+|---|---|
+| **Partner** | **#123966 : Intermarché Mons** (tags Canal GMS / GMS) |
+| **Adresse** | Chemin de la Procession 399, **7000 Mons** |
+| **Contact magasin** | Guerino Bruno : +32 65 39 48 11 / +32 476 94 08 72 (pdv95019@mousquetaires.com) |
+| **Pool** | **Télévente** (Vanessa) : « petit assortiment + éloigné ». Passage merch **ponctuel** sur demande, sans bascule de pool. **Retirer Mons des appels télévente S41** pour éviter un double contact. |
+| **Dernières SO** | S05644 26/05 (implantation display EM0107 + 6 glacés), S05879 25/06 (réassort 36 glacés), S05980 13/07 (2ᵉ display EM0107) |
+| **Gamme glacée en rayon** | GI0820, GI0832, GI0634, GI0735, GI0916, GI0912 (+ SRP Kraft Horeca EM0072) |
+| **Sur place** | 1) **Reprendre tous les glacés** : compter par référence et photographier. Les quantités sont à noter dans Odoo pour le retour et l'avoir. 2) **Mettre en place la gamme de Noël** sur le display. 3) Photo du display avant/après. |
+| **Durée** | **45 min** (reprise + comptage + implantation). Ce n'est pas une visite standard. |
+| **Chargement** | gamme de Noël à préparer la veille selon le bon de commande GMS Noël 2026. La composition exacte est à valider avec Nicolas avant le build. Prévoir des bacs vides pour les glacés repris. |
+| **Dernier contact** | appel télévente 14/08/2026 : REFUS |
+
+**Cluster S41** : axe Hainaut (Mons / La Louvière / Charleroi). Choisir le jour où d'autres magasins de la zone sont dus dans le pool maître. S'il n'y en a pas, prévoir une boucle dédiée avec retour ≤ 17:00.
