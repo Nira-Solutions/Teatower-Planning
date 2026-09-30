@@ -14,5 +14,21 @@
     "shopify_handle": "mug-lorenzo-the-glaces",
     "shopify_variant_id": 51166520705363,
     "created_status": "active"
+  },
+  "C0203": {
+    "odoo_template_id": 10597,
+    "odoo_name": "Wooden gift box 8 references - 32 envelopes",
+    "shopify_product_id": 10879472927059,
+    "shopify_handle": "coffret-en-bois-garni-8-thes-et-infusions-32-enveloppes-teatower",
+    "shopify_variant_id": 55058674155859,
+    "created_status": "active"
+  },
+  "C0195": {
+    "odoo_template_id": 10416,
+    "odoo_name": "Calendrier de l'avent 2026",
+    "shopify_product_id": 10895464038739,
+    "shopify_handle": "calendrier-de-lavent-2026-24-moments-magiques-thes-et-infusions-teatower",
+    "shopify_variant_id": 55116667126099,
+    "created_status": "draft"
   }
 }
