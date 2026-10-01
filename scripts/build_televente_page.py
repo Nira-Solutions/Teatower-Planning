@@ -187,6 +187,25 @@ def render_contacts(rows):
     return "".join(out)
 
 
+def merch_pids_semaine(week_id):
+    """pids (#xxx) des stops du planning merch de la semaine (planning_data.py)."""
+    import re
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import planning_data
+    except ImportError:
+        return set()
+    pids = set()
+    for wk in planning_data.WEEKS:
+        if wk.get("id") != week_id:
+            continue
+        for day in wk["days"]:
+            for s in day.get("stops", []):
+                pids.update(re.findall(r"\(#(\d+)\)", s.get("n", "")))
+    return pids
+
+
 def main():
     cands = sorted(DATA.glob("televente_pool_*.csv"))
     csv_path = cands[-1]
@@ -215,8 +234,16 @@ def main():
     handled = {id(r) for r in commande_wk + refus_wk}
     nrp_ids = {id(r) for r in nrp_wk}
 
+    # Passage merch ponctuel (reprise glaces, mise en place Noel...) sur un magasin
+    # du pool televente : pas d'appel la meme semaine -> pas de double contact.
+    merch_pids = merch_pids_semaine(f"s{iso_week}")
+    passage_merch = [r for r in rows if r["pid"] in merch_pids]
+    if passage_merch:
+        print(f"[*] {len(passage_merch)} magasin(s) visite(s) par le merch S{iso_week}, retire(s) des appels : "
+              + ", ".join(r["magasin"] for r in passage_merch))
     due = [r for r in rows if r["_next"] and r["_next"] <= fri
-           and id(r) not in handled and id(r) not in nrp_ids]
+           and id(r) not in handled and id(r) not in nrp_ids
+           and r["pid"] not in merch_pids]
     # Les magasins PRIORITAIRES (cf. PRIORITE_PIDS) passent devant tout le reste.
     anti = sorted([r for r in due if r["overdue_days"] <= DORMANT_THRESHOLD],
                   key=lambda r: (0 if r.get("priorite") else 1,

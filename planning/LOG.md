@@ -246,3 +246,16 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
   (`scripts/slack_visites_vers_odoo_20260924.py`). Jeton à renouveler.
 - Couverture §14 : seul critique non planifié = ITM Gerpinnes #2971 → bascule télévente **annulée** (décision Jérôme en attente).
 - Pools exclusifs OK. WEEKS = [S40, S39]. Télévente régénérée pour la semaine du 28/09. Détail : `planning/queue_S40_2026-09-28.md`.
+
+## 2026-10-01 — Planning S41 (05/10-09/10)
+
+- **33 stops sur 5 jours** : 26 visites, 4 reprises/mises en place (Huy Quadrilatère + Tihange, ITM Mons, display neuf Sombreffe),
+  Newpharma S06422, envoi prison de Marche, dépôt Noël boutique Waterloo. Retours 15:50 / 16:15 / 16:25 / 16:50 / 16:20.
+- Demande Nicolas du 01/10 : **« Delhaize de Huy »** = 2 Proxy Delhaize à Huy (Quadrilatère #125351 et Tihange #124180),
+  tous deux avec des glacés en rayon → les deux le mercredi 07/10 (préférence magasin Quadrilatère). **Pas de SO Noël** : à créer.
+- Pool 01/10 : 51 dus avant le 16/10 scannés, 26 retenus. Import Slack toujours `token_expired` : 16 visites du 29/09-01/10
+  tagguées à la main (`scripts/slack_visites_vers_odoo_20261001.py`).
+- Retours terrain : Genval stop (Jérôme), Uccle Bascule à refaire en S42, Embourg retire un display, Jambes/Spy non faits → mardi.
+- Couverture §14 : Gerpinnes seul critique non planifié → bascule **non appliquée** (décision Jérôme toujours en attente).
+- `build_televente_page.py` : un magasin télévente visité par le merch dans la semaine n'est plus appelé (Huy ×2, Mons retirés S41).
+- WEEKS = [S41, S40]. Détail : `planning/queue_S41_2026-10-05.md`.

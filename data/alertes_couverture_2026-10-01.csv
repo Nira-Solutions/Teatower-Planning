@@ -1,0 +1,9 @@
+niveau,pid,magasin,zip,city,tier,last_visit,jours_sans_contact,retard_j,avg_mois,isole,au_planning,issue
+CRITIQUE,2971,Gerpidis SA - Intermarché Gerpinnes,6280,Gerpinnes,B,2026-08-04,58,30,173.44,oui,non,BASCULE TELEVENTE
+CRITIQUE,116686,SRL Spydis - Intermarché Spy,5190,Jemeppe-sur-Sambre,B,2026-08-14,48,20,299.49,non,oui,planifié cette semaine — OK
+ALERTE,5752,Intermarché Forest - FREYARVOR,,Forest,C,2026-08-26,36,0,80.17,non,oui,à surveiller
+ALERTE,5830,Proxy Delhaize Bosvoorde - SPRL BROOMCORNER,1170,Watermael-Boitsfort,C,2026-08-26,36,0,77.82,oui,non,à surveiller
+ALERTE,2864,Carrefour Market Bastogne - Pascalino,Bastogne,6600,C,2026-08-31,31,0,97.9,oui,non,à surveiller
+ALERTE,8159,N.B.S. RETAIL - Delhaize de Marche,6900,Marche-en-Famenne,B,2026-09-01,30,2,366.61,non,non,à surveiller
+ALERTE,3120,Mardis - Carrefour Market Marche,6900,Marche-en-Famenne,C,2026-09-01,30,0,59.32,non,non,à surveiller
+ALERTE,7070,Delhaize Ciney - Rochefort - Neuchateau - Bastogne,,,C,2026-09-01,30,0,50.8,non,non,à surveiller
