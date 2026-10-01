@@ -259,3 +259,5 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Couverture §14 : Gerpinnes seul critique non planifié → bascule **non appliquée** (décision Jérôme toujours en attente).
 - `build_televente_page.py` : un magasin télévente visité par le merch dans la semaine n'est plus appelé (Huy ×2, Mons retirés S41).
 - WEEKS = [S41, S40]. Détail : `planning/queue_S41_2026-10-05.md`.
+- **v2 (01/10, demande Nicolas)** : + dépôts boutiques **Rocourt + Liège mercredi 07/10** (colis mardi) et **Namur vendredi 09/10 10:00**
+  (colis jeudi) ; Waterloo Noël reste jeudi. ITM Faimes reporté S42 (dû 13/10). 35 stops, retours 15:50 / 16:15 / 16:50 / 16:50 / 16:50.
