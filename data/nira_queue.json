@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-06T16:11:06",
+  "updated": "2026-10-03T08:28:11",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3436,6 +3436,14 @@
       "started": "2026-07-06T15:59",
       "request": "Plan couverture stock Noel 2026: delais fournisseurs reels + PO deja passes articles Noel",
       "finished": "2026-07-06T16:11"
+    },
+    {
+      "id": "t075",
+      "agent": "compta",
+      "task": "Facturation Peppol PRO livrées + lettrage ING/Belfius",
+      "status": "in_progress",
+      "started": "2026-10-03T08:28",
+      "request": "facture les commandes PRO délivrées via Peppol, ensuite lettre la compta ING et Belfius"
     }
   ]
 }
