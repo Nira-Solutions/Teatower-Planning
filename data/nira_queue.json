@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T08:28:11",
+  "updated": "2026-10-03T08:35:29",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3441,9 +3441,10 @@
       "id": "t075",
       "agent": "compta",
       "task": "Facturation Peppol PRO livrées + lettrage ING/Belfius",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-03T08:28",
-      "request": "facture les commandes PRO délivrées via Peppol, ensuite lettre la compta ING et Belfius"
+      "request": "facture les commandes PRO délivrées via Peppol, ensuite lettre la compta ING et Belfius",
+      "finished": "2026-10-03T08:35"
     }
   ]
 }
