@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<title>Teatower SIAL 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0f363c; --teal2:#174a51; --sage:#8bb0a6; --sage-l:#e6efec;
+    --coral:#e0634f; --navy:#36456b; --green:#a9c08f; --ink:#1d2b2e; --mute:#5f7275;
+  }
+  @page{ size:148mm 210mm; margin:0 }
+  *{ box-sizing:border-box; margin:0; padding:0 }
+  html,body{ background:#fff; font-family:Poppins,Arial,sans-serif; color:var(--ink);
+    -webkit-print-color-adjust:exact; print-color-adjust:exact }
+  .page{ width:148mm; height:210mm; position:relative; overflow:hidden; page-break-after:always; break-after:page }
+  .page:last-child{ page-break-after:auto; break-after:auto }
+  .en{ color:var(--mute); font-style:italic; font-weight:400 }
+  .pill{ display:inline-block; background:var(--sage); color:#fff; font-weight:600; font-size:7.5pt;
+    letter-spacing:.08em; text-transform:uppercase; padding:1.6mm 6mm 1.6mm 5mm; border-radius:0 4mm 4mm 0 }
+
+  /* ---------- P1 cover ---------- */
+  .cover{ background:var(--teal); color:#fff }
+  .cover .photo{ position:absolute; left:0; right:0; bottom:0; height:92mm;
+    background:url(img/g136.jpg) center 40%/cover }
+  .cover .photo::before{ content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg,var(--teal) 0%,rgba(15,54,60,.15) 40%,rgba(15,54,60,0) 100%) }
+  .cover .top{ position:absolute; top:14mm; left:0; right:0; text-align:center }
+  .cover .logo{ width:34mm }
+  .cover .event{ margin-top:7mm; display:inline-block; border:.35mm solid var(--sage); border-radius:3mm;
+    padding:2.2mm 6mm; font-size:8pt; letter-spacing:.06em }
+  .cover .event b{ font-size:11pt; letter-spacing:.1em; display:block }
+  .cover h1{ margin-top:8mm; font-size:22pt; line-height:1.1; font-weight:600 }
+  .cover h1 span{ display:block; font-size:12pt; font-weight:300; font-style:italic; color:var(--sage); margin-top:1.5mm }
+  .cover .base{ margin:5mm auto 0; width:110mm; font-size:8.5pt; line-height:1.45; color:#d6e4e0 }
+  .cover .badge{ position:absolute; bottom:8mm; right:8mm; background:#fff; color:var(--teal);
+    border-radius:3mm; padding:2.5mm 4mm; font-size:7pt; line-height:1.35; text-align:right; box-shadow:0 1mm 4mm rgba(0,0,0,.25) }
+  .cover .badge b{ font-size:9pt; display:block }
+
+  /* ---------- P2 five points ---------- */
+  .p2{ padding:11mm 10mm 0 0 }
+  .p2 h2, .p3 h2, .p4 h2{ font-size:15pt; font-weight:600; color:var(--teal); margin:4mm 0 0 10mm; line-height:1.15 }
+  .p2 h2 .en, .p3 h2 .en, .p4 h2 .en{ font-size:10pt; display:block }
+  .pts{ list-style:none; margin:5mm 0 0 10mm }
+  .pts li{ display:grid; grid-template-columns:10mm 1fr; gap:3mm; padding:3.1mm 0; border-bottom:.25mm solid var(--sage-l) }
+  .pts li:last-child{ border-bottom:0 }
+  .num{ width:10mm; height:10mm; border-radius:50%; background:var(--teal); color:#fff; font-weight:600;
+    font-size:11pt; display:flex; align-items:center; justify-content:center }
+  .pts h3{ font-size:9.6pt; font-weight:600; color:var(--teal); line-height:1.2 }
+  .pts h3 .en{ font-size:8pt; display:block; font-weight:400 }
+  .pts p{ font-size:7.4pt; line-height:1.45; margin-top:1mm; color:#33474a }
+  .chips{ display:flex; gap:1.5mm; flex-wrap:wrap; margin-top:1.4mm }
+  .chip{ font-size:6.8pt; font-weight:600; border-radius:2mm; padding:.7mm 2.4mm; background:var(--sage-l); color:var(--teal) }
+  .p2 .strip{ position:absolute; left:0; right:0; bottom:0; height:27mm; display:grid; grid-template-columns:1fr 1fr 1fr; gap:1mm }
+  .p2 .strip div{ background-size:cover; background-position:center }
+
+  /* ---------- P3 range ---------- */
+  .p3{ padding-top:11mm }
+  .tbl{ margin:4mm 10mm 0; width:calc(100% - 20mm); border-collapse:collapse; font-size:7pt }
+  .tbl th{ font-size:6.3pt; font-weight:600; color:#fff; background:var(--teal); padding:1.6mm 1.5mm; text-align:left }
+  .tbl th.c, .tbl td.c{ text-align:center; width:12mm }
+  .tbl td{ padding:1.05mm 1.5mm; border-bottom:.2mm solid #e3ebe9 }
+  .tbl td.fam{ font-weight:600; color:#fff; font-size:6.4pt; text-transform:uppercase; letter-spacing:.04em; width:17mm; vertical-align:middle }
+  .tbl td.name{ font-weight:500 }
+  .tbl td.fl{ color:var(--mute) }
+  .dot{ display:inline-block; width:2.2mm; height:2.2mm; border-radius:50%; background:var(--teal) }
+  .bio{ font-size:5.6pt; font-weight:700; color:#5a8a3c; border:.2mm solid #5a8a3c; border-radius:1mm; padding:0 .8mm; margin-left:1mm; vertical-align:1px }
+  .f-vert{ background:#8fae7a } .f-noir{ background:var(--navy) } .f-autre{ background:#b98d5a } .f-inf{ background:var(--coral) }
+  .p3 .env{ display:flex; gap:3mm; justify-content:center; margin-top:4mm }
+  .p3 .env img{ width:23mm; height:23mm; object-fit:cover; border-radius:1.5mm }
+  .p3 .note{ text-align:center; font-size:6.6pt; color:var(--mute); margin-top:2mm }
+
+  /* ---------- P4 offer & contact ---------- */
+  .p4{ padding-top:11mm }
+  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:3mm; margin:4.5mm 10mm 0 }
+  .card{ border-radius:3mm; overflow:hidden; background:var(--sage-l) }
+  .card .im{ height:36mm; background-size:cover; background-position:center }
+  .card .tx{ padding:2.4mm 3mm 3mm }
+  .card h4{ font-size:8.4pt; color:var(--teal); font-weight:600; line-height:1.2 }
+  .card h4 .en{ font-size:7pt; display:block; font-weight:400 }
+  .card p{ font-size:6.8pt; line-height:1.4; margin-top:1mm; color:#33474a }
+.fmt{ display:grid; grid-template-columns:repeat(3,1fr); gap:3mm; margin:5mm 10mm 0 }
+  .fmt div{ border:.3mm solid var(--sage); border-radius:3mm; padding:2.6mm 3mm; text-align:center }
+  .fmt b{ display:block; font-size:12pt; color:var(--teal); font-weight:700; line-height:1.1 }
+  .fmt span{ display:block; font-size:6.8pt; color:#33474a; margin-top:.8mm; line-height:1.3 }
+  .fmt i{ display:block; font-size:6.4pt; color:var(--mute); line-height:1.3 }
+  .contact{ position:absolute; left:0; right:0; bottom:0; height:66mm; background:var(--teal); color:#fff; padding:7mm 10mm 0 }
+  .contact .head{ font-size:12pt; font-weight:600 }
+  .contact .head .en{ color:var(--sage); font-size:9pt }
+  .contact .grid{ display:grid; grid-template-columns:1fr 1fr 22mm; gap:4mm; margin-top:4mm; font-size:7.4pt; line-height:1.5 }
+  .contact .grid b{ display:block; font-size:8.4pt; font-weight:600 }
+  .contact .grid .role{ color:var(--sage) }
+  .contact .qr{ background:#fff; border-radius:2mm; padding:2mm; text-align:center; color:var(--teal); font-size:6pt; font-weight:600 }
+  .contact .qr img{ width:100%; display:block; margin-bottom:1mm }
+  .contact .foot{ position:absolute; left:10mm; right:10mm; bottom:6mm; display:flex; justify-content:space-between; align-items:flex-end;
+    border-top:.25mm solid rgba(139,176,166,.5); padding-top:3mm; font-size:7pt; color:#cfe0db }
+  .contact .foot img{ height:9mm }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1 — COUVERTURE ===== -->
+<section class="page cover">
+  <div class="photo"></div>
+  <div class="top">
+    <img class="logo" src="img/logo_white.png" alt="Teatower">
+    <div><div class="event"><b>SIAL PARIS 2026</b>17 – 21.10.2026 · Paris Nord Villepinte</div></div>
+    <h1>Le goût de la découverte<span>The taste of discovery</span></h1>
+    <p class="base">Marque belge créatrice de thés et d'infusions.<br>
+      <span style="color:var(--sage)">Belgian creator of teas &amp; herbal infusions.</span></p>
+  </div>
+  <div class="badge"><b>Pavillon Wallonie</b>Wallonia Pavilion · AWEX</div>
+</section>
+
+<!-- ===== PAGE 2 — TEATOWER EN 5 POINTS ===== -->
+<section class="page p2">
+  <span class="pill">Qui sommes-nous · About us</span>
+  <h2>Teatower en 5 points<span class="en">Teatower at a glance</span></h2>
+  <ul class="pts">
+    <li><div class="num">1</div><div>
+      <h3>Une marque belge de thés et d'infusions<span class="en">A Belgian tea &amp; infusion brand</span></h3>
+      <p>Des recettes imaginées en Belgique, pensées pour faire découvrir.<br><span class="en">Recipes created in Belgium, made for discovery.</span></p></div></li>
+    <li><div class="num">2</div><div>
+      <h3>Des mélanges audacieux, en vrac et en infusettes<span class="en">Bold blends, loose leaf &amp; tea bags</span></h3>
+      <p>Près de 500 références : thés verts, noirs, blancs, maté, rooibos et infusions de fruits et de plantes.<br><span class="en">Nearly 500 references: green, black, white, maté, rooibos, fruit &amp; herbal infusions.</span></p></div></li>
+    <li><div class="num">3</div><div>
+      <h3>Présent en grande distribution en Belgique<span class="en">Listed in Belgian supermarkets</span></h3>
+      <div class="chips"><span class="chip">Delhaize</span><span class="chip">Carrefour</span><span class="chip">Intermarché</span></div>
+      <p>Avec présentoirs dédiés et suivi merchandising en magasin.<br><span class="en">With dedicated displays and in-store merchandising.</span></p></div></li>
+    <li><div class="num">4</div><div>
+      <h3>4 boutiques Teatower en Belgique<span class="en">4 Teatower shops in Belgium</span></h3>
+      <div class="chips"><span class="chip">Namur</span><span class="chip">Liège</span><span class="chip">Rocourt</span><span class="chip">Waterloo</span></div>
+      <p>+ e-shop teatower.com</p></div></li>
+    <li><div class="num">5</div><div>
+      <h3>Un packaging plus responsable<span class="en">More responsible packaging</span></h3>
+      <p>Enveloppes mono-matériau en papier recyclé, infusettes en fibre végétale (amidon de canne à sucre).<br><span class="en">Single-material recycled-paper envelopes, plant-based tea bags (sugar-cane starch).</span></p></div></li>
+  </ul>
+  <div class="strip">
+    <div style="background-image:url(img/g137.jpg)"></div>
+    <div style="background-image:url(img/h115.jpg)"></div>
+    <div style="background-image:url(img/g138.jpg)"></div>
+  </div>
+</section>
+
+<!-- ===== PAGE 3 — BESTSELLERS ===== -->
+<section class="page p3">
+  <span class="pill">Notre gamme · Our range</span>
+  <h2>Nos bestsellers<span class="en">Our best-sellers</span></h2>
+  <table class="tbl">
+    <thead><tr><th></th><th>Référence</th><th>Saveurs · Flavours</th><th class="c">Vrac<br>Loose</th><th class="c">Infusettes<br>Bags</th></tr></thead>
+    <tbody>
+      <tr><td class="fam f-vert" rowspan="7">Thé vert<br><span style="font-weight:400;text-transform:none">Green</span></td><td class="name">Oasis du désert<span class="bio">BIO</span></td><td class="fl">Menthe · Mint</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Le thé des amoureux</td><td class="fl">Fraise, lavande</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Vert jasmin</td><td class="fl">Jasmin · Jasmine</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Sencha<span class="bio">BIO</span></td><td class="fl">Végétal, doux</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Matcha japonais</td><td class="fl">Végétal, umami</td><td class="c"><span class="dot"></span></td><td class="c"></td></tr>
+      <tr><td class="name">Matcha passion</td><td class="fl">Passion</td><td class="c"><span class="dot"></span></td><td class="c"></td></tr>
+      <tr><td class="name">Matcha biscuit</td><td class="fl">Biscuit</td><td class="c"><span class="dot"></span></td><td class="c"></td></tr>
+      <tr><td class="fam f-noir" rowspan="2">Thé noir<br><span style="font-weight:400;text-transform:none">Black</span></td><td class="name">Blue Earl Grey<span class="bio">BIO</span></td><td class="fl">Bergamote, bleuet</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">La lampe merveilleuse</td><td class="fl">Cerise, jasmin</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="fam f-autre" rowspan="3">Blanc · Maté<br><span style="font-weight:400;text-transform:none">White · Maté</span></td><td class="name">I love you</td><td class="fl">Mangue, rose</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Silhouette</td><td class="fl">Menthe, verveine</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Guarana Boost</td><td class="fl">Guarana, pamplemousse</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="fam f-inf" rowspan="8">Infusion<br><span style="font-weight:400;text-transform:none">Herbal &amp; fruit</span></td><td class="name">Étoiles filantes</td><td class="fl">Rooibos · cannelle, vanille</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Pêche de vigne<span class="bio">BIO</span></td><td class="fl">Rooibos · pêche</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Lady Dodo</td><td class="fl">Fenouil, tilleul</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Namasté<span class="bio">BIO</span></td><td class="fl">Orange, citron</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Le panier de grand maman</td><td class="fl">Fraise, mûre</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Tisane tropicale</td><td class="fl">Passion, pêche</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">Citron meringué</td><td class="fl">Citron · Lemon</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+      <tr><td class="name">La nana de Wépion</td><td class="fl">Fraise, ananas</td><td class="c"><span class="dot"></span></td><td class="c"><span class="dot"></span></td></tr>
+    </tbody>
+  </table>
+  <div class="env">
+    <img src="img/h76.jpg" alt=""><img src="img/h77.jpg" alt=""><img src="img/h79.jpg" alt=""><img src="img/h81.jpg" alt="">
+  </div>
+  <p class="note">Infusettes emballées individuellement · boîtes de 25 par référence<br><span class="en">Individually wrapped tea bags · boxes of 25 per reference</span></p>
+</section>
+
+<!-- ===== PAGE 4 — OFFRE + CONTACT ===== -->
+<section class="page p4">
+  <span class="pill">Travaillons ensemble · Let's work together</span>
+  <h2>Une offre pour chaque canal<span class="en">An offer for every channel</span></h2>
+  <div class="cards">
+    <div class="card"><div class="im" style="background-image:url(img/g138.jpg);background-position:center 30%"></div><div class="tx">
+      <h4>Distribution &amp; retail<span class="en">Retail &amp; distribution</span></h4>
+      <p>Doypacks en vrac, présentoirs clé en main et suivi merchandising.<br><span class="en">Loose-leaf pouches, turnkey displays, merchandising support.</span></p></div></div>
+    <div class="card"><div class="im" style="background-image:url(img/h115.jpg)"></div><div class="tx">
+      <h4>Hôtels, restaurants, cafés<span class="en">Hotels, restaurants, cafés</span></h4>
+      <p>Infusettes en enveloppe individuelle, coffret en bois, verres double paroi et menus FR/NL/EN.<br><span class="en">Individually wrapped tea bags, wooden box, double-wall glasses, menus.</span></p></div></div>
+  </div>
+  <div class="fmt">
+    <div><b>100 g</b><span>Vrac en doypack</span><i>Loose-leaf pouch</i></div>
+    <div><b>25</b><span>Infusettes par boîte</span><i>Tea bags per box</i></div>
+    <div><b>8</b><span>Compartiments du coffret bois</span><i>Wooden display box</i></div>
+  </div>
+  <div class="contact">
+    <div class="head">Rencontrons-nous au SIAL <span class="en">· Meet us at SIAL</span></div>
+    <div class="grid">
+      <div><b>Jérôme Carlier</b><span class="role">Délégué commercial · Sales</span><br>jerome.carlier@teatower.com<br>+32 (0)477 48 05 57</div>
+      <div><b>Support des ventes</b><span class="role">Sales support</span><br>info@teatower.com<br>+32 (0)86 21 49 05</div>
+      <div class="qr"><img src="img/qr.png" alt="">teatower.com</div>
+    </div>
+    <div class="foot"><span>SIAL Paris · 17–21.10.2026 · Pavillon Wallonie / AWEX</span><img src="img/logo_white.png" alt="Teatower"></div>
+  </div>
+</section>
+
+</body>
+</html>
