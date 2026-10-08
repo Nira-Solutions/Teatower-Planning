@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T08:44:38",
+  "updated": "2026-10-08T08:51:17",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3450,9 +3450,10 @@
       "id": "t076",
       "agent": "compta",
       "task": "MAJ échéancier trésorerie 08/10",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-08T08:44",
-      "request": "mets la trésorerie à jour"
+      "request": "mets la trésorerie à jour",
+      "finished": "2026-10-08T08:51"
     }
   ]
 }
