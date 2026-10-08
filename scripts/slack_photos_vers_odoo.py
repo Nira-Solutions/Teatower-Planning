@@ -91,7 +91,10 @@ def messages_depuis(token, oldest_ts):
 STOP = {"delhaize","carrefour","intermarche","intermache","spar","proxy","market",
         "hyper","affilie","ad","sa","srl","sprl","passage","livraison","commande",
         "magasin","pas","besoin","besoins","remplir","fait","visite","colis",
-        "display","ok","teatower","retail","dis","food","group","sarl","scrl"}
+        "display","ok","teatower","retail","dis","food","group","sarl","scrl",
+        # « Saint Michel » vs « St Michel » : sans ca, « saint » seul rattachait
+        # Delhaize St Michel et St Lambert a Proxy Saint-Severin (#113445, 08/10/2026).
+        "saint","sint"}
 
 
 def charger_magasins(csv_paths):
@@ -297,6 +300,8 @@ def main():
     ap.add_argument("--depuis", default="2026-07-01", help="date de debut AAAA-MM-JJ")
     ap.add_argument("--apply", action="store_true", help="ecrire dans Odoo")
     ap.add_argument("--max", type=int, default=0, help="limiter le nb de messages (test)")
+    ap.add_argument("--corriger", action="append", default=[],
+                    help="forcer un rattachement : 'JJ/MM|debut du libelle=pid' (repetable)")
     args = ap.parse_args()
 
     token = os.environ.get("SLACK_TOKEN") or token_depuis_claude()
@@ -335,6 +340,12 @@ def main():
         texte = re.sub(r"<@[^>]+>", "", m.get("text") or "").strip()
         libelle = texte.split("\n")[0].strip(" :;-")
         r = resoudre(libelle, magasins)
+        for c in args.corriger:
+            cle, _, cpid = c.rpartition("=")
+            cjour, _, cdebut = cle.partition("|")
+            if cjour == f"{d:%d/%m}" and norm(libelle).startswith(norm(cdebut)):
+                nom_c = dict(magasins).get(int(cpid), f"#{cpid}")
+                r = (int(cpid), nom_c, 99)
         imgs = [f for f in m["files"] if str(f.get("mimetype", "")).startswith("image/")]
         if not imgs:
             continue
@@ -361,7 +372,14 @@ def main():
         atts = []
         for f in imgs:
             raw = slack_download(f["url_private_download"], token)
-            small = compresser(raw)
+            try:
+                small = compresser(raw)
+            except Exception as e:
+                # Une photo illisible (HEIC, fichier tronque, page HTML d'erreur)
+                # ne doit pas couper l'import des visites suivantes : le 07/10/2026
+                # le crash a fait perdre 3 visites (Hannut, Villers, Huy).
+                print(f"{'':7}    photo illisible ({type(e).__name__}) -> ignoree : {f.get('name')}")
+                continue
             octets_avant += len(raw); octets_apres += len(small)
             atts.append(call('ir.attachment', 'create', [{
                 'name': f"visite_{d:%Y-%m-%d}_{f['name']}",

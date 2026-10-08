@@ -261,3 +261,14 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - WEEKS = [S41, S40]. Détail : `planning/queue_S41_2026-10-05.md`.
 - **v2 (01/10, demande Nicolas)** : + dépôts boutiques **Rocourt + Liège mercredi 07/10** (colis mardi) et **Namur vendredi 09/10 10:00**
   (colis jeudi) ; Waterloo Noël reste jeudi. ITM Faimes reporté S42 (dû 13/10). 35 stops, retours 15:50 / 16:15 / 16:50 / 16:50 / 16:50.
+
+## 2026-10-08 — Planning S42 (12/10-16/10)
+
+- Pool 08/10 : 104 actifs, 26 Arret, 8 NoMerch, 44 télévente. 29 stops sur 4 jours (vendredi 16/10 = salon Made in Asia).
+- Slack S41 réimporté : crash HEIC du 07/10 corrigé, faux rattachements « Saint » → St-Séverin corrigés (St Lambert 05/10 déplacé).
+- Non faits S41 repris : Barchon, Jambes, Bouge, Spy, Erezée, Fragnée (tag retiré), Rixensart, Roodebeek, Debroux.
+- Demandes Nicolas : Godinne display x8 (lundi 1ᵉʳ stop), Anthée + Beauraing glacés → Noël (lundi), Genval (mercredi 1ᵉʳ),
+  Hyper Kraainem retrait display (mercredi matin), boutiques Namur mardi / Waterloo mercredi / Liège + Rocourt jeudi.
+- Retraits Odoo : Vielsalm + Spar Manhay ARRET ; Bièvre + Bomerée NO-MERCH (EDI). Kraainem Hyper → FORCE_MERCH.
+- Couverture §14 : Gerpinnes rebasculé par l'automatisme → **annulé** (4ᵉ semaine, à trancher).
+- Retours 16:56 / 16:25 / 16:50 / 15:11. WEEKS = [S42, S41]. Détail : `planning/queue_S42_2026-10-12.md`.

@@ -60,6 +60,8 @@ FORCE_MERCH_PIDS = {
     # Les 4 pharmacies Tilman ont ete RETIREES le 17/09/2026 : elles repassent en
     # televente (cf. EXTRA_TELEVENTE_PIDS). La camionnette ne porte pas tout
     # l'assortiment pharmacie, donc la visite merch ne sert pas la commande.
+    124424,       # Hyper Carrefour Kraainem : ne veut rien faire par telephone,
+                  # passage merch demande (Nicolas 08/10/2026).
     114763,       # Lillodis SRL - Proxy Delhaize Lillois : le magasin ne veut PAS de suivi
                   # telephonique -> retour en visite merch (Nicolas 25/08/2026). Annule la
                   # decision 'APPEL ONLY' du 20/05/2026.
@@ -75,8 +77,8 @@ FORCE_TELEVENTE_PIDS = {
     123144,  # Affilie 040490 - Delhaize Ath (Nicolas 02/09/2026) : bon client
              # (431 EUR/mois reel) mais isole en Hainaut occidental, jamais
              # visite depuis le 02/07 -> suivi telephonique Vanessa.
-    123069,  # Carrefour Market Bievre (5555) (Nicolas 29/09/2026) : sort du
-             # merch, suivi telephonique Vanessa. Derniere visite Gilles 29/09.
+    # 123069 Carrefour Market Bievre : RETIRE le 08/10/2026, le magasin commande
+    #        via l'EDI Carrefour -> tag [NO-MERCH], ni visite ni appel.
 }
 
 # EXTRA TELEVENTE (Nicolas 17/09/2026) : clients HORS ENSEIGNE GMS suivis par

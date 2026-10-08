@@ -1,0 +1,13 @@
+niveau,pid,magasin,zip,city,tier,last_visit,jours_sans_contact,retard_j,avg_mois,isole,au_planning,issue
+CRITIQUE,124424,Hyper Carrefour Kraainem - 5400102606691,1950,Kraainem,C,2026-06-15,115,73,62.74,oui,oui,planifié cette semaine — OK
+CRITIQUE,2971,Gerpidis SA - Intermarché Gerpinnes,6280,Gerpinnes,B,2026-08-04,65,37,173.44,oui,non,BASCULE TELEVENTE
+CRITIQUE,116686,SRL Spydis - Intermarché Spy,5190,Jemeppe-sur-Sambre,B,2026-08-14,55,27,299.49,non,oui,planifié cette semaine — OK
+ALERTE,5830,Proxy Delhaize Bosvoorde - SPRL BROOMCORNER,1170,Watermael-Boitsfort,C,2026-08-26,43,1,77.82,oui,oui,à surveiller
+ALERTE,2864,Carrefour Market Bastogne - Pascalino,Bastogne,6600,C,2026-08-31,38,0,97.9,oui,non,à surveiller
+ALERTE,8159,N.B.S. RETAIL - Delhaize de Marche,6900,Marche-en-Famenne,B,2026-09-01,37,9,366.61,non,non,à surveiller
+ALERTE,3000,JAMBIS SA - Intermarché Jambes,5100,JAMBES,B,2026-09-03,35,7,150.31,non,oui,à surveiller
+ALERTE,7679,Etablissements Schnongs - AD Ciney,5590,Ciney,B,2026-09-07,31,3,140.4,non,oui,à surveiller
+ALERTE,123302,Spar Erezée,6997,Erezée,B,2026-09-07,31,3,130.57,non,oui,à surveiller
+ALERTE,50967,Affilié 046900 - Proxy Delhaize Rixensart,1330,Rixensart,B,2026-09-08,30,2,218.84,non,oui,à surveiller
+ALERTE,5729,Affilié 044010 - Delhaize DEBROUX,,Auderghem,B,2026-09-08,30,2,130.07,non,oui,à surveiller
+ALERTE,123997,AD Delhaize Roodebeek,1200,Bruxelles,B,2026-09-08,30,2,107.69,oui,oui,à surveiller
