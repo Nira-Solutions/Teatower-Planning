@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T08:35:29",
+  "updated": "2026-10-08T08:44:38",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3445,6 +3445,14 @@
       "started": "2026-10-03T08:28",
       "request": "facture les commandes PRO délivrées via Peppol, ensuite lettre la compta ING et Belfius",
       "finished": "2026-10-03T08:35"
+    },
+    {
+      "id": "t076",
+      "agent": "compta",
+      "task": "MAJ échéancier trésorerie 08/10",
+      "status": "in_progress",
+      "started": "2026-10-08T08:44",
+      "request": "mets la trésorerie à jour"
     }
   ]
 }
