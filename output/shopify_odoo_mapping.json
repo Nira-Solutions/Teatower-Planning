@@ -30,5 +30,93 @@
     "shopify_handle": "calendrier-de-lavent-2026-24-moments-magiques-thes-et-infusions-teatower",
     "shopify_variant_id": 55116667126099,
     "created_status": "active"
+  },
+  "A1144": {
+    "odoo_template_id": 10458,
+    "odoo_name": "Boule à thé Carla",
+    "shopify_product_id": 10940423831891,
+    "shopify_handle": "boule-a-the-carla-abeille-acier-inoxydable",
+    "shopify_variant_id": 55330263564627,
+    "created_status": "draft"
+  },
+  "A1149": {
+    "odoo_template_id": 10623,
+    "odoo_name": "Nicolo long-spout teapot - stainless steel 0.85 L",
+    "shopify_product_id": 10940423930195,
+    "shopify_handle": "theiere-nicolo-a-long-bec-verseur-acier-inoxydable-noir-0-85-l",
+    "shopify_variant_id": 55330263794003,
+    "created_status": "draft"
+  },
+  "A1150": {
+    "odoo_template_id": 10624,
+    "odoo_name": "Alva to-go mug - borosilicate glass with stainless steel filter 0.25 L",
+    "shopify_product_id": 10940423962963,
+    "shopify_handle": "gourde-a-the-nomade-alva-verre-borosilicate-et-filtre-inox-0-25-l",
+    "shopify_variant_id": 55330263826771,
+    "created_status": "draft"
+  },
+  "A1151": {
+    "odoo_template_id": 10625,
+    "odoo_name": "Blair mug - stoneware with gold accents 0.3 L (2 assorted)",
+    "shopify_product_id": 10940424028499,
+    "shopify_handle": "mug-blair-en-gres-avec-dorures-0-3-l-decor-assorti",
+    "shopify_variant_id": 55330263859539,
+    "created_status": "draft"
+  },
+  "A1152": {
+    "odoo_template_id": 10626,
+    "odoo_name": "Melchior mug red - soft-touch stoneware with inner decor 0.55 L",
+    "shopify_product_id": 10940424094035,
+    "shopify_handle": "mug-melchior-rouge-pain-depices-gres-soft-touch-0-55-l",
+    "shopify_variant_id": 55330264449363,
+    "created_status": "draft"
+  },
+  "A1153": {
+    "odoo_template_id": 10627,
+    "odoo_name": "Christmas Cat tea ball candy cane - 18/8 stainless steel Ø 5 cm",
+    "shopify_product_id": 10940424159571,
+    "shopify_handle": "boule-a-the-christmas-cat-chat-sucre-dorge-inox-o-5-cm",
+    "shopify_variant_id": 55330264744275,
+    "created_status": "draft"
+  },
+  "A1154": {
+    "odoo_template_id": 10628,
+    "odoo_name": "Winter Forest mug - reactive glaze stoneware 0.45 L (2 assorted)",
+    "shopify_product_id": 10940424323411,
+    "shopify_handle": "mug-winter-forest-gres-a-email-reactif-0-45-l-decor-assorti",
+    "shopify_variant_id": 55330265104723,
+    "created_status": "draft"
+  },
+  "A1155": {
+    "odoo_template_id": 10629,
+    "odoo_name": "Christmas Ornaments tea tin 125 g - matt round metal",
+    "shopify_product_id": 10940424487251,
+    "shopify_handle": "boite-a-the-christmas-ornaments-125-g-metal-mat",
+    "shopify_variant_id": 55330266022227,
+    "created_status": "draft"
+  },
+  "A1156": {
+    "odoo_template_id": 10630,
+    "odoo_name": "Christmas Ornaments mug - matt New Bone China with relief 0.35 L",
+    "shopify_product_id": 10940424585555,
+    "shopify_handle": "mug-christmas-ornaments-new-bone-china-mat-en-relief-0-35-l",
+    "shopify_variant_id": 55330268152147,
+    "created_status": "draft"
+  },
+  "A1157": {
+    "odoo_template_id": 10643,
+    "odoo_name": "Melchior mug green - soft-touch stoneware with inner decor 0.55 L",
+    "shopify_product_id": 10940424618323,
+    "shopify_handle": "mug-melchior-vert-pain-depices-gres-soft-touch-0-55-l",
+    "shopify_variant_id": 55330268184915,
+    "created_status": "draft"
+  },
+  "A1158": {
+    "odoo_template_id": 10644,
+    "odoo_name": "Christmas Cat tea ball reindeer - 18/8 stainless steel Ø 5 cm",
+    "shopify_product_id": 10940424683859,
+    "shopify_handle": "boule-a-the-christmas-cat-chat-renne-inox-o-5-cm",
+    "shopify_variant_id": 55330268250451,
+    "created_status": "draft"
   }
 }
