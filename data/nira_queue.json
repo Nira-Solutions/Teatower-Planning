@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T08:51:17",
+  "updated": "2026-10-12T13:20:04",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3454,6 +3454,14 @@
       "started": "2026-10-08T08:44",
       "request": "mets la trésorerie à jour",
       "finished": "2026-10-08T08:51"
+    },
+    {
+      "id": "t077",
+      "agent": "compta",
+      "task": "Lettrage ING + Belfius (toutes lignes non lettrees)",
+      "status": "in_progress",
+      "started": "2026-10-12T13:20",
+      "request": "lettre tout ce que tu vois sur ING et Belfius"
     }
   ]
 }
