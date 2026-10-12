@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12T14:46:06",
+  "updated": "2026-10-12T14:47:37",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3468,9 +3468,10 @@
       "id": "t078",
       "agent": "support-order",
       "task": "Devis SEBIO top ventes Bio I0/V0 -30%",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-12T14:46",
-      "request": "crée un devis pour le client PRO SEBIO avec les meilleures ventes Bio I0 et V0, 1 unité de chaque, 30% de réduction"
+      "request": "crée un devis pour le client PRO SEBIO avec les meilleures ventes Bio I0 et V0, 1 unité de chaque, 30% de réduction",
+      "finished": "2026-10-12T14:47"
     }
   ]
 }
