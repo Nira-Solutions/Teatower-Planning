@@ -13,8 +13,6 @@ from openpyxl.utils import get_column_letter
 sys.stdout.reconfigure(encoding="utf-8")
 HERE = Path(__file__).parent
 REMISE = 0.40
-# EAN attribués le 13/10/2026 (absents d'Odoo à l'extraction)
-EAN = {"C0191": "5413393004350", "C0192": "5413393004367", "C0193": "5413393004374"}
 # RRP TTC qui corrigent le list_price Odoo (V0905 : 7,00 dans Odoo, 12,00 au tarif Noël)
 RRP = {"V0905": 12.00}
 # Lignes retirées de l'offre
@@ -68,9 +66,9 @@ SAVEURS = {
     "899": ("Infusion de fruits BIO — pomme, orange, fraise, mangue", "Vruchteninfusie BIO — appel, sinaasappel, aardbei, mango"),
     "900": ("Thé noir BIO — pêche, ananas, citronnelle", "Zwarte thee BIO — perzik, ananas, citroengras"),
     "905": ("Oolong, thé blanc & vert — vanille, amande, pomme", "Oolong, witte & groene thee — vanille, amandel, appel"),
-    "C0191": ("Infusion de fruits — chocolat, noisette", "Vruchteninfusie — chocolade, hazelnoot"),
-    "C0192": ("Rooibos — amande, ananas", "Rooibos — amandel, ananas"),
-    "C0193": ("Infusion de fruits — canneberge, orange", "Vruchteninfusie — veenbes, sinaasappel"),
+    "891": ("Infusion de fruits — chocolat, noisette", "Vruchteninfusie — chocolade, hazelnoot"),
+    "732": ("Rooibos — amande, ananas", "Rooibos — amandel, ananas"),
+    "913": ("Infusion de fruits — canneberge, orange", "Vruchteninfusie — veenbes, sinaasappel"),
     "C0187": ("Coffret 25 infusettes : cacao-noisette, rooibos amande, orange-cannelle, oolong vanille, canneberge-orange",
               "Box 25 theezakjes: cacao-hazelnoot, rooibos amandel, sinaasappel-kaneel, oolong vanille, veenbes-sinaasappel"),
     "C0188": ("Coffret 4 × 50 g vrac + pince à thé : cacao-noisette, orange-cannelle, rooibos amande, canneberge-orange",
@@ -99,9 +97,9 @@ def texte(h):
 # Titres Shopify qui ne suivent pas le schéma « Famille saveurs - Nom - Teatower »
 NOMS = {
     "V0905": ("Un Noël Vanillé", "Een Gevanielleerde Kerst"),
-    "C0191": ("Trésor des lutins", "Schat van de elfen"),
-    "C0192": ("Gourmandise de Noël", "Kerstlekkernij"),
-    "C0193": ("Féérie d'Hiver", "Wintersprookje"),
+    "V0891": ("Trésor des lutins", "Schat van de elfen"),
+    "V0732": ("Gourmandise de Noël", "Kerstlekkernij"),
+    "V0913": ("Féérie d'Hiver", "Wintersprookje"),
     "C0187": ("Coffret découverte de Noël", "Kerst ontdekkingsbox"),
     "C0188": ("La hotte de Noël", "De kerstsok"),
     "C0185": ("La petite boîte à infusions", "Het kleine infusiedoosje"),
@@ -119,7 +117,7 @@ def fmt(e):
     m = re.search(r"\(([^)]*(?:infusettes|vrac|g)[^)]*)\)", e.get("odoo_name") or "")
     if m:
         return m.group(1).strip()
-    return {"C0191": "Boîte 50 g", "C0192": "Boîte 50 g", "C0193": "Boîte 50 g", "V0905": "100 g vrac",
+    return {"V0913": "100 g vrac", "V0905": "100 g vrac",
             "C0187": "Coffret 25 infusettes", "C0188": "Coffret 4 × 50 g + pince", "C0185": "Boîte 10 infusettes",
             "C0186": "Boîte 10 infusettes"}.get(e["ref"], e.get("variant", ""))
 
@@ -157,7 +155,7 @@ for e in data:
     vp_ttc = round(ttc * (1 - REMISE), 2) if ttc else None
     vp_ht = round(vp_ttc / (1 + tva / 100), 2) if ttc else None
     nfr, nnl = NOMS.get(e["ref"]) or (nom(e.get("title_fr"), e.get("odoo_name", "")), nom(e.get("title_nl"), ""))
-    ws.append([e["ref"], EAN.get(e["ref"]) or e.get("ean", ""), nfr, nnl,
+    ws.append([e["ref"], e.get("ean", ""), nfr, nnl,
                fmt(e), None, sfr, snl, e["qty"], dlu_min(e.get("dlus")), ttc, (tva / 100) if tva is not None else None,
                round(ttc / (1 + tva / 100), 2) if ttc else None, vp_ttc, vp_ht, e.get("photo", ""), e.get("url", ""),
                texte(e.get("body_fr")), texte(e.get("body_nl"))])
