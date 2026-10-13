@@ -687,37 +687,23 @@ lid.append(f'''<g transform="rotate(180 195.1 104.4)">
 <text x="195.1" y="101.6" font-family="Caveat" font-weight="600" font-size="4.6" fill="{CORALD}" text-anchor="middle">{CFG["back1"]}</text>
 <text x="195.1" y="105.6" font-family="Poppins" font-size="2.1" fill="{BROWN}" text-anchor="middle" letter-spacing=".2">{CFG["back2"]}</text>
 </g>''')
-R = 40
-n = 30
-lid.append(f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="#FFFDF7"/>' + "".join(
-    f'<circle cx="{cx+R*math.cos(2*math.pi*i/n):.2f}" cy="{cy+R*math.sin(2*math.pi*i/n):.2f}" r="4.4" fill="#FFFDF7"/>' for i in range(n)))
-for i in range(n):
-    a = 2 * math.pi * (i + .5) / n
-    lid.append(f'<circle cx="{cx+(R-1.2)*math.cos(a):.2f}" cy="{cy+(R-1.2)*math.sin(a):.2f}" r=".9" fill="{CORALD}" opacity=".4"/>')
-    a = 2 * math.pi * i / n
-    lid.append(f'<circle cx="{cx+(R+1.4)*math.cos(a):.2f}" cy="{cy+(R+1.4)*math.sin(a):.2f}" r="1.25" fill="{CORALD}" opacity=".35"/>')
-for i in range(48):
-    a = 2 * math.pi * i / 48
-    ex, ey = cx + (R - 6) * math.cos(a), cy + (R - 6) * math.sin(a)
-    lid.append(f'<ellipse cx="{ex:.2f}" cy="{ey:.2f}" rx="1.6" ry=".55" fill="{CORALD}" opacity=".3" transform="rotate({math.degrees(a):.1f} {ex:.2f} {ey:.2f})"/>')
-lid.append(f'<circle cx="{cx}" cy="{cy}" r="{R-9}" fill="none" stroke="{CORALD}" stroke-width=".3" stroke-dasharray="1 .9" opacity=".6"/>')
-bw2 = 26
-lx, ly = cx - bw2 / 2, cy - 22
-lid.append(f'<path d="M{lx-1.5},{ly-1.5} h{bw2+3} v{bw2+3} h{-bw2-3+5} a5,5 0 0 1 -5,-5Z" fill="{CORAL}"/>')
-lid.append(f'<path d="M{lx},{ly} h{bw2} v{bw2} h{-bw2+4} a4,4 0 0 1 -4,-4Z" fill="#FFFFFF"/>')
-lg, lh = logo(cx - 11, ly + 4, 22, INK)
+# logo Teatower en grand (sans napperon)
+LB = 56
+lx, ly = cx - LB / 2, FY0 + 7
+lid.append(f'<path d="M{lx-2.4},{ly-2.4} h{LB+4.8} v{LB+4.8} h{-LB-4.8+8} a8,8 0 0 1 -8,-8Z" fill="{CORALL}"/>')
+lid.append(f'<path d="M{lx},{ly} h{LB} v{LB} h{-LB+6} a6,6 0 0 1 -6,-6Z" fill="#FFFFFF"/>')
+lg, lh = logo(cx - LB * .42, ly + LB * .5 - LB * .84 * 1346 / 1573 / 2, LB * .84, INK)
 lid.append(lg)
-lid.append(flag_round(cx, ly - 4.6, 2.4))
-l1, l2 = CFG["lid_lines"] if len(CFG["lid_lines"]) == 2 else (CFG["lid_lines"][0], None)
-if l2:
-    lid.append(f'<text x="{cx}" y="{cy+13.2}" font-family="Caveat" font-weight="600" font-size="8.2" fill="{CORALD}" text-anchor="middle">{l1}</text>')
-    lid.append(f'<text x="{cx}" y="{cy+20.6}" font-family="Caveat" font-weight="600" font-size="8.2" fill="{CORALD}" text-anchor="middle">{l2}</text>')
+lid.append(flag_round(lx + LB - 6, ly + 6, 3.2))
+ll = CFG["lid_lines"]
+if len(ll) == 2:
+    for k, t in enumerate(ll):
+        lid.append(f'<text x="{cx}" y="{ly+LB+8.6+k*7.0:.2f}" font-family="Caveat" font-weight="600" font-size="7.6" fill="{WHITE}" text-anchor="middle">{t}</text>')
+    ty = ly + LB + 21.4
 else:
-    lid.append(f'<text x="{cx}" y="{cy+18.4}" font-family="Caveat" font-weight="600" font-size="10" fill="{CORALD}" text-anchor="middle">{l1}</text>')
-lid.append(f'<text x="{cx}" y="{cy+26.2}" font-family="Playfair Display" font-weight="700" font-size="2.4" letter-spacing=".5" fill="{BROWN}" text-anchor="middle">{CFG["type"]}</text>')
-tw = 2.4 * 0.62 * len(CFG["type"]) / 2 + 3.5
-lid.append(leaf(cx - tw, cy + 26, 200, 3.0) + daisy(cx - tw - 2.8, cy + 25.3, 1.8) + leaf(cx + tw, cy + 26, -20, 3.0) + daisy(cx + tw + 2.8, cy + 25.3, 1.8))
-lid.append(heart(cx - 18, cy - 12, .6, CORAL, .8) + heart(cx + 18, cy - 12, .6, CORAL, .8))
+    lid.append(f'<text x="{cx}" y="{ly+LB+12:.2f}" font-family="Caveat" font-weight="600" font-size="10" fill="{WHITE}" text-anchor="middle">{ll[0]}</text>')
+    ty = ly + LB + 19
+lid.append(f'<text x="{cx}" y="{ty:.2f}" font-family="Playfair Display" font-weight="700" font-size="2.5" letter-spacing=".5" fill="{WHITE}" text-anchor="middle">{CFG["type"]}</text>')
 corner = (fl * 4)[:4]
 for name, (fx, fy) in zip(corner, [(FX0 + 9.5, FY0 + 9.5), (FX1 - 9.5, FY0 + 9.5), (FX0 + 9.5, FY1 - 9.5), (FX1 - 9.5, FY1 - 9.5)]):
     lid.append(f'<circle cx="{fx}" cy="{fy}" r="6.2" fill="#FFFDF7" opacity=".92"/>')
