@@ -13,6 +13,12 @@ from openpyxl.utils import get_column_letter
 sys.stdout.reconfigure(encoding="utf-8")
 HERE = Path(__file__).parent
 REMISE = 0.40
+# EAN attribués le 13/10/2026 (absents d'Odoo à l'extraction)
+EAN = {"C0191": "5413393004350", "C0192": "5413393004367", "C0193": "5413393004374"}
+# RRP TTC qui corrigent le list_price Odoo (V0905 : 7,00 dans Odoo, 12,00 au tarif Noël)
+RRP = {"V0905": 12.00}
+# Lignes retirées de l'offre
+EXCLUS = {"I070"}
 
 # Famille + saveurs dominantes, FR | NL
 SAVEURS = {
@@ -124,14 +130,14 @@ def dlu_min(dlus):
     return min(dlus, key=lambda d: datetime.strptime(d, "%d/%m/%Y"))
 
 
-data = json.loads((HERE / "_veepee_data.json").read_text(encoding="utf-8"))
+data = [e for e in json.loads((HERE / "_veepee_data.json").read_text(encoding="utf-8")) if e["ref"] not in EXCLUS]
 wb = Workbook()
 ws = wb.active
 ws.title = "Stock Veepee"
-COLS = [("Réf.", 9), ("EAN", 15), ("Nom FR", 26), ("Nom NL", 26), ("Format", 18), ("Saveurs FR", 40), ("Saveurs NL", 40),
-        ("Qté dispo", 9), ("DLU la plus proche", 12), ("Prix TTC", 9), ("TVA", 6), ("Prix HTVA", 10),
-        ("Prix Veepee TTC (−40 %)", 12), ("Prix Veepee HTVA", 11), ("Prix Shopify actuel", 10),
-        ("URL photo", 45), ("Fiche web", 40), ("Description FR", 60), ("Description NL", 60), ("Remarque", 40)]
+COLS = [("Réf.", 9), ("EAN", 15), ("Nom FR", 26), ("Nom NL", 26), ("Format", 18), ("PCB", 7), ("Saveurs FR", 40), ("Saveurs NL", 40),
+        ("Qté dispo", 9), ("DLU la plus proche", 12), ("Prix de vente conseillé TTC (RRP)", 13), ("TVA", 6), ("RRP HTVA", 10),
+        ("Prix Veepee TTC (−40 %)", 12), ("Prix Veepee HTVA", 11),
+        ("URL photo", 45), ("Fiche web", 40), ("Description FR", 60), ("Description NL", 60)]
 ws.append([c for c, _ in COLS])
 for i, (_, w) in enumerate(COLS, 1):
     ws.column_dimensions[get_column_letter(i)].width = w
@@ -144,44 +150,29 @@ ws.freeze_panes = "C2"
 
 ORDRE = {"I": 0, "V": 1, "C": 2}
 data.sort(key=lambda e: (ORDRE.get(e["ref"][0], 9), e["ref"]))
-alerte = PatternFill("solid", fgColor="FCE4D6")
+
 for e in data:
-    rq = []
-    if "odoo_name" not in e:
-        rq.append("Référence inconnue dans Odoo : I0700 (Anti Fatigue) ou I0709 (Parfums d'été) ? À confirmer.")
-    shop = float(e["shop_price"]) if e.get("shop_price") else None
-    if shop is not None and e.get("ttc") and abs(shop - e["ttc"]) > 0.01:
-        rq.append(f"Prix Shopify actuel {shop:.2f} € ≠ prix catalogue {e['ttc']:.2f} €")
-    if e.get("lignes", 1) > 1:
-        rq.append(f"{e['lignes']} lignes d'inventaire regroupées")
-    if len(e.get("dlus", [])) > 1:
-        rq.append("DLU : " + ", ".join(e["dlus"]))
-    if e.get("title_fr") and not texte(e.get("body_nl")):
-        rq.append("Pas de description NL sur Shopify")
     sfr, snl = saveurs(e["ref"])
-    ttc, tva = e.get("ttc"), e.get("tva")
+    ttc, tva = RRP.get(e["ref"], e.get("ttc")), e.get("tva")
     vp_ttc = round(ttc * (1 - REMISE), 2) if ttc else None
     vp_ht = round(vp_ttc / (1 + tva / 100), 2) if ttc else None
     nfr, nnl = NOMS.get(e["ref"]) or (nom(e.get("title_fr"), e.get("odoo_name", "")), nom(e.get("title_nl"), ""))
-    ws.append([e["ref"], e.get("ean", ""), nfr, nnl,
-               fmt(e), sfr, snl, e["qty"], dlu_min(e.get("dlus")), ttc, (tva / 100) if tva is not None else None,
-               round(e["ht"], 2) if ttc else None, vp_ttc, vp_ht, shop, e.get("photo", ""), e.get("url", ""),
-               texte(e.get("body_fr")), texte(e.get("body_nl")), " · ".join(rq)])
+    ws.append([e["ref"], EAN.get(e["ref"]) or e.get("ean", ""), nfr, nnl,
+               fmt(e), None, sfr, snl, e["qty"], dlu_min(e.get("dlus")), ttc, (tva / 100) if tva is not None else None,
+               round(ttc / (1 + tva / 100), 2) if ttc else None, vp_ttc, vp_ht, e.get("photo", ""), e.get("url", ""),
+               texte(e.get("body_fr")), texte(e.get("body_nl"))])
     r = ws.max_row
-    for col in (10, 12, 13, 14, 15):
+    for col in (11, 13, 14, 15):
         ws.cell(r, col).number_format = '#,##0.00 "€"'
-    ws.cell(r, 11).number_format = "0%"
+    ws.cell(r, 12).number_format = "0%"
     for col in range(1, len(COLS) + 1):
-        ws.cell(r, col).alignment = Alignment(vertical="top", wrap_text=col in (6, 7, 20))
-    if "odoo_name" not in e:
-        for col in range(1, len(COLS) + 1):
-            ws.cell(r, col).fill = alerte
+        ws.cell(r, col).alignment = Alignment(vertical="top", wrap_text=col in (7, 8))
 
 n = ws.max_row
 ws.append([])
-ws.append(["TOTAL", "", f"{n - 1} références", "", "", "", "", f"=SUM(H2:H{n})"])
+ws.append(["TOTAL", "", f"{n - 1} références", "", "", "", "", "", f"=SUM(I2:I{n})"])
 ws.cell(ws.max_row, 1).font = Font(bold=True)
-ws.cell(ws.max_row, 8).font = Font(bold=True)
+ws.cell(ws.max_row, 9).font = Font(bold=True)
 ws.auto_filter.ref = f"A1:{get_column_letter(len(COLS))}{n}"
 
 out = HERE / "Veepee - stock disponible vente privee.xlsx"
