@@ -28,7 +28,7 @@ R = [
  ('font-size="4.6" fill="{RED}" text-anchor="middle">Comme chez', 'font-size="4.6" fill="{CORALD}" text-anchor="middle">Comme chez'),
  ('lid.append(heart(cx - 18, cy - 12, .6, RED, .6) + heart(cx + 18, cy - 12, .6, RED, .6))', 'lid.append(heart(cx - 18, cy - 12, .6, CORAL, .8) + heart(cx + 18, cy - 12, .6, CORAL, .8))'),
  ('ACC = RED', 'ACC = CORALD'),
- ('font-size="7" fill="{RED}" text-anchor="middle">Dans mon panier', 'font-size="7" fill="{CORALD}" text-anchor="middle">Dans mon panier'),
+ ('TXT = BROWN', 'TXT = WHITE'),
 ]
 for a, b in R:
     n = src.count(a)
