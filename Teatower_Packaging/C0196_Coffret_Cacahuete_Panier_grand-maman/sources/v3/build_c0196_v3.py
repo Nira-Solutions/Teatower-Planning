@@ -438,7 +438,6 @@ body.append(f'<text x="{c4 + bw/2 + 9}" y="{by+15.1}" font-family="Poppins" font
 # petits cœurs épars
 for (x, y, s) in [(PX[0] + 8, 80, .55), (PX[0] + 83, 84, .5), (PX[2] + 82, 79, .5), (PX[1] + 4, 112, .45), (PX[3] + 7, 82, .5), (PX[3] + 82, 92, .5)]:
     body.append(heart(x, y, s, WHITE, .75))
-body.append(tricolore_line(PX[0], PX[3] + PW[3], FOLD - 2.4, 1.0, 3.0))
 # rabats de fond : vichy discret + code-barre (même place que l'original)
 body.append(f'<rect x="0" y="{FOLD}" width="{W1}" height="{H1-FOLD}" fill="{CORAL}"/>')
 body.append(ean13_svg("5413393004060", 125.6, 128.5, 32.4, 19.6, "C0196"))
