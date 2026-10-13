@@ -311,13 +311,15 @@ body.append(f'<g transform="rotate(-1.2 {tagx+tagw/2} {tagy+tagh/2})">')
 body.append(f'<circle cx="{x0+45}" cy="{tagy+3}" r="1.1" fill="{CREAM}" stroke="{KRAFT}" stroke-width=".5"/>')
 body.append(f'<text x="{x0+45}" y="{tagy+11.2}" font-family="Caveat" font-weight="600" font-size="7" fill="{CORALD}" text-anchor="middle">Dans mon panier…</text>')
 body.append(f'<line x1="{tagx+14}" x2="{tagx+tagw-14}" y1="{tagy+13.6}" y2="{tagy+13.6}" stroke="{KRAFT}" stroke-width=".4" stroke-dasharray="1 .8"/>')
-items = [("La nana de Wépion", "I"), ("Le thé des amoureux", "T"), ("Délice de Montélimar", "T"), ("Sérénité · BIO", "I"), ("Masala Chai", "I")]
-for i, (n, t) in enumerate(items):
-    yy = tagy + 18.6 + i * 4.45
-    body.append(heart(tagx + 6.2, yy - 1.0, .42, CORALD))
-    body.append(f'<text x="{tagx+8.4}" y="{yy}" font-family="Poppins" font-size="2.95" fill="{BROWN}">{n} <tspan fill="#8A6A55">({t})</tspan></text>')
-    body.append(f'<text x="{tagx+tagw-6}" y="{yy+0.3}" font-family="Caveat" font-weight="600" font-size="4.4" fill="{CORALD}" text-anchor="end">x2</text>')
-body.append(f'<text x="{x0+45}" y="{tagy+tagh-2.6}" font-family="Playfair Display" font-style="italic" font-weight="500" font-size="2.6" fill="#8A6A55" text-anchor="middle">10 sachets · (T) thé · (I) infusion</text>')
+ACC = CORALD
+mid = x0 + 45
+body.append(f'<text x="{tagx+17}" y="{tagy+29}" font-family="Caveat" font-weight="600" font-size="13" fill="{ACC}" text-anchor="middle">10×</text>')
+body.append(f'<text x="{tagx+30}" y="{tagy+21.4}" font-family="Playfair Display" font-weight="700" font-size="4.3" fill="{BROWN}">Le panier</text>')
+body.append(f'<text x="{tagx+30}" y="{tagy+26.6}" font-family="Playfair Display" font-weight="700" font-size="4.3" fill="{BROWN}">de grand-maman</text>')
+body.append(f'<text x="{tagx+30}" y="{tagy+30.8}" font-family="Poppins" font-size="2.5" fill="#8A6A55" letter-spacing=".15">INFUSION DE FRUITS</text>')
+body.append(strawberry(tagx + 9, tagy + 35.6, .62) + strawberry(tagx + tagw - 9, tagy + 35.6, .62))
+body.append(f'<text x="{mid}" y="{tagy+36.6}" font-family="Poppins" font-size="2.75" fill="{BROWN}" text-anchor="middle">Fraise · Mûre · Cassis · Framboise</text>')
+body.append(f'<text x="{mid}" y="{tagy+tagh-2.6}" font-family="Playfair Display" font-style="italic" font-weight="500" font-size="2.6" fill="#8A6A55" text-anchor="middle">10 sachets d’infusion</text>')
 body.append("</g>")
 # Panneau 3 : théière + tasse
 body.append(teapot_scene(PX[2] + 47, FOLD - 4.5))
@@ -330,7 +332,7 @@ body.append(f'<path d="M{c4-bw/2-1.8},{by-1.8} h{bw+3.6} v{bw+3.6} h{-bw-3.6+5.5
 body.append(f'<path d="M{c4-bw/2},{by} h{bw} v{bw} h{-bw+4} a4,4 0 0 1 -4,-4Z" fill="#FFFFFF"/>')
 lg, lh = logo(c4 - 12.5, by + 4.6, 25, INK)
 body.append(lg)
-body.append(f'<text x="{c4}" y="{by+bw+6.4}" font-family="Playfair Display" font-weight="700" font-size="3.3" letter-spacing=".55" fill="{WHITE}" text-anchor="middle">THÉS &amp; INFUSIONS</text>')
+body.append(f'<text x="{c4}" y="{by+bw+6.4}" font-family="Playfair Display" font-weight="700" font-size="3.3" letter-spacing=".55" fill="{WHITE}" text-anchor="middle">INFUSION DE FRUITS</text>')
 body.append(f'<text x="{c4}" y="{by+bw+13.4}" font-family="Caveat" font-weight="600" font-size="6.2" fill="{WHITE}" text-anchor="middle">Le panier de grand-maman</text>')
 body.append(leaf(c4 - 33, by + bw + 11.5, 200, 4) + daisy(c4 - 36.5, by + bw + 10.5, 2.4))
 body.append(heart(c4 + 34.5, by + bw + 10.8, .9, WHITE, .9))
@@ -366,7 +368,7 @@ lid.append(bow(195.1, 252.1 - SIDE + 13, 1.0))
 lid.append(f'''<g transform="rotate(180 195.1 104.4)">
 <rect x="165.1" y="96.6" width="60" height="11.2" rx="1.4" fill="#FFFDF7" stroke="{KRAFT}" stroke-width=".5"/>
 <text x="195.1" y="101.6" font-family="Caveat" font-weight="600" font-size="4.6" fill="{CORALD}" text-anchor="middle">Comme chez grand-maman</text>
-<text x="195.1" y="105.6" font-family="Poppins" font-size="2.2" fill="{BROWN}" text-anchor="middle" letter-spacing=".2">THÉS &amp; INFUSIONS FAITS AVEC AMOUR</text>
+<text x="195.1" y="105.6" font-family="Poppins" font-size="2.2" fill="{BROWN}" text-anchor="middle" letter-spacing=".2">INFUSION DE FRUITS FAITE AVEC AMOUR</text>
 </g>''')
 # napperon en dentelle sur la face supérieure
 R = 40
@@ -395,8 +397,8 @@ lg, lh = logo(cx - 11, ly + 4, 22, INK)
 lid.append(lg)
 lid.append(f'<text x="{cx}" y="{cy+13.2}" font-family="Caveat" font-weight="600" font-size="8.2" fill="{CORALD}" text-anchor="middle">Le panier</text>')
 lid.append(f'<text x="{cx}" y="{cy+20.6}" font-family="Caveat" font-weight="600" font-size="8.2" fill="{CORALD}" text-anchor="middle">de grand-maman</text>')
-lid.append(f'<text x="{cx}" y="{cy+26.2}" font-family="Playfair Display" font-weight="700" font-size="2.4" letter-spacing=".5" fill="{BROWN}" text-anchor="middle">THÉS &amp; INFUSIONS</text>')
-lid.append(leaf(cx - 17, cy + 26, 200, 3.2) + daisy(cx - 20, cy + 25.3, 1.9) + leaf(cx + 17, cy + 26, -20, 3.2) + daisy(cx + 20, cy + 25.3, 1.9))
+lid.append(f'<text x="{cx}" y="{cy+26.2}" font-family="Playfair Display" font-weight="700" font-size="2.4" letter-spacing=".5" fill="{BROWN}" text-anchor="middle">INFUSION DE FRUITS</text>')
+lid.append(leaf(cx - 21.5, cy + 26, 200, 3.0) + daisy(cx - 24.3, cy + 25.3, 1.8) + leaf(cx + 21.5, cy + 26, -20, 3.0) + daisy(cx + 24.3, cy + 25.3, 1.8))
 lid.append(heart(cx - 18, cy - 12, .6, CORAL, .8) + heart(cx + 18, cy - 12, .6, CORAL, .8))
 
 FONTCSS = open(os.path.join(OUT, "fonts_local.css"), encoding="utf-8").read()
