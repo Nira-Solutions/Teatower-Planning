@@ -286,3 +286,7 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Couverture §14 : Gerpinnes rebasculé par l'automatisme → **non appliqué** (5ᵉ semaine). Saint-Séverin « APPEL ONLY » toujours au pool merch.
 - Reportés S44 : Lierneux, Lillois, Woluwe, Ans, Grâce-Hollogne, Fléron, Longdoz, boucle Luxembourg (Recogne, Neufchâteau, Vaux, Arlon, Etalle).
 - WEEKS = [S43, S42]. Télévente régénérée (S43, Haversin retiré des appels). Détail : `planning/queue_S43_2026-10-19.md`.
+
+## 2026-10-14 — S43 : retrait prison retiré (Nicolas)
+- Jeudi 22/10 : retrait Cellmade / prison de Marche (#6395) supprimé. Reste uniquement la livraison des 2 palettes de coffrets Noël aux Ateliers Saupont (Bertrix, 09:23), retour 10:50, 124 km. Aucune visite ajoutée.
+- Retrait prison reporté au **lundi 26/10 (S44), le matin** → à intégrer dans la queue S44.
