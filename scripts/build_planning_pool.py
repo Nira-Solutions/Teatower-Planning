@@ -82,7 +82,10 @@ GMS_NAME_TOKENS = [
 # permet pas de servir la commande -> ces magasins sont suivis par appel (Vanessa),
 # cf. EXTRA_TELEVENTE_PIDS / FORCE_TELEVENTE_PIDS dans build_televente_pool.py.
 # Annule la decision du 25/08/2026 qui les avait bascules en merch.
-EXTRA_MERCH_PIDS = set()
+# 59928 AD Dolhain (Ets Alpo) : aucun token d'enseigne dans le nom -> absent des
+# deux pools depuis la derniere SO (20/05/2026). Demande de passage merch pour
+# Noel/Halloween (Jerome, Slack 09/10/2026) -> suivi Gilles.
+EXTRA_MERCH_PIDS = {59928}
 
 TIER_RULES = [
     (400.0, "A", 21),

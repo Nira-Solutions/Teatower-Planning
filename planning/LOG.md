@@ -272,3 +272,17 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Retraits Odoo : Vielsalm + Spar Manhay ARRET ; Bièvre + Bomerée NO-MERCH (EDI). Kraainem Hyper → FORCE_MERCH.
 - Couverture §14 : Gerpinnes rebasculé par l'automatisme → **annulé** (4ᵉ semaine, à trancher).
 - Retours 16:56 / 16:25 / 16:50 / 15:11. WEEKS = [S42, S41]. Détail : `planning/queue_S42_2026-10-12.md`.
+
+## 2026-10-14 — Planning S43 (19/10-23/10)
+
+- Pool 14/10 : 107 actifs, 26 Arret, 8 NoMerch, 42 télévente. **30 stops sur 4 jours** ; **jeudi 22/10 bloqué** (demande Nicolas) :
+  retrait marchandise prison de Marche le matin, puis 2 palettes de coffrets de Noël aux Ateliers Saupont (Bertrix). Aucune visite.
+  Nicolas avait écrit « jeudi 21/10 » : le 21/10 est un mercredi → confirmé jeudi 22/10.
+- Retours 16:04 / 16:33 / 16:24 / ≈14:00 / 16:28. Pas de dépôt boutique (non demandé).
+- Slack : visites du 09/10 (Wépion, Hyper Mons, ITM Mons, Fosses) rattrapées dans Odoo (import en `token_expired` ces jours-là).
+- Demandes : livraison S06557 Hyper Jambes (mar. 1ᵉʳ), Haversin reprise glacés + Noël (lun. 1ᵉʳ), Dolhain Noël/Halloween (mer., Jérôme),
+  Visé + Erezée (reports S42), Uccle Bascule reprise + Noël (ven. 1ᵉʳ), Sombreffe display neuf (mar.), Faimes (non fait 13/10).
+- **AD Dolhain #59928 hors de tout pool** (pas de token d'enseigne) depuis le 20/05 → ajouté à `EXTRA_MERCH_PIDS`.
+- Couverture §14 : Gerpinnes rebasculé par l'automatisme → **non appliqué** (5ᵉ semaine). Saint-Séverin « APPEL ONLY » toujours au pool merch.
+- Reportés S44 : Lierneux, Lillois, Woluwe, Ans, Grâce-Hollogne, Fléron, Longdoz, boucle Luxembourg (Recogne, Neufchâteau, Vaux, Arlon, Etalle).
+- WEEKS = [S43, S42]. Télévente régénérée (S43, Haversin retiré des appels). Détail : `planning/queue_S43_2026-10-19.md`.
