@@ -290,3 +290,8 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 ## 2026-10-14 — S43 : retrait prison retiré (Nicolas)
 - Jeudi 22/10 : retrait Cellmade / prison de Marche (#6395) supprimé. Reste uniquement la livraison des 2 palettes de coffrets Noël aux Ateliers Saupont (Bertrix, 09:23), retour 10:50, 124 km. Aucune visite ajoutée.
 - Retrait prison reporté au **lundi 26/10 (S44), le matin** → à intégrer dans la queue S44.
+
+## 2026-10-15 — S43 : 2 nouveaux clients (Nicolas)
+- **Delhaize Frasnes-lez-Gosselies** (lead #368, fiche #5912) : installation display lundi 19/10 11:38. Le merchandiser n'est accepté que lundi et mercredi 11h-14h. CM Bastogne #2864 et AD Bastogne #8558 reportés en S44 (boucle Luxembourg).
+- **Graines de Quartier LLN** (lead #1137, fiche à créer) : implantation display + 8 SRP mardi 20/10 13:18 (pas sur le temps de midi). Spar LLN #113216 reporté en S44.
+- Retours OSRM ×1,15 : lundi 16:27 (219 km), mardi 16:53 (199 km). SO à confirmer avant chargement (REGLES §1).
