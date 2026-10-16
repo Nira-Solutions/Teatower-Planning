@@ -295,3 +295,8 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - **Delhaize Frasnes-lez-Gosselies** (lead #368, fiche #5912) : installation display lundi 19/10 11:38. Le merchandiser n'est accepté que lundi et mercredi 11h-14h. CM Bastogne #2864 et AD Bastogne #8558 reportés en S44 (boucle Luxembourg).
 - **Graines de Quartier LLN** (lead #1137, fiche à créer) : implantation display + 8 SRP mardi 20/10 13:18 (pas sur le temps de midi). Spar LLN #113216 reporté en S44.
 - Retours OSRM ×1,15 : lundi 16:27 (219 km), mardi 16:53 (199 km). SO à confirmer avant chargement (REGLES §1).
+
+## 2026-10-16 — S43 : dépôts boutiques Teatower ajoutés
+
+- Oubli signalé par Nicolas : les 4 dépôts habituels. Namur mardi 20/10 10:00 · Liège mercredi 21/10 10:04 · Rocourt mercredi 11:43 · Waterloo vendredi 23/10 12:17. Colis préparés la veille (lundi / mardi / jeudi).
+- Pour rester sous 17:00 : Delhaize Incourt #2924 (mardi) et Delhaize Embourg #2909 (mercredi) reportés en S44. Retours : mardi 16:27, mercredi 16:44, vendredi 16:53.
