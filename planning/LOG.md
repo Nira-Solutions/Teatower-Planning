@@ -312,3 +312,4 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Pool Odoo 21/10 régénéré après rattrapage Slack (visites du 15 au 20/10 importées).
 - Dépôts boutiques uniquement du mercredi au vendredi (Nicolas à l'entrepôt, Logan en congé de paternité). Lundi : retrait prison de Marche.
 - 39 stops, retours entre 15:10 et 16:50. Détail et reports : `planning/queue_S44_2026-10-26.md`.
+- 21/10 (Nicolas) : S44 vendredi 30/10 — livraison display EM0107 ×16 chez SPRL Ferme de la Princesse / Traiteur Pistral (#114857, Waudrez), commande S06627, dernier stop 13:45. Delhaize Incourt reporté en S45. Retour 16:06.
