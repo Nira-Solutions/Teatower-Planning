@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T12:18:57",
+  "updated": "2026-10-21T12:18:59",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3477,9 +3477,10 @@
       "id": "t079",
       "agent": "nira",
       "task": "Marjane : offre export mise à jour (variantes volume)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-21T12:18",
-      "request": "Reprise dossier Marjane après SIAL"
+      "request": "Reprise dossier Marjane après SIAL",
+      "finished": "2026-10-21T12:18"
     }
   ]
 }
