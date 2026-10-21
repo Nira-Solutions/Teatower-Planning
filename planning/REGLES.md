@@ -196,6 +196,7 @@ Sans le responsable, la visite perd 50 a 80 % de sa valeur. Le merchandiser fait
 |---|---|---|---|---|---|
 | Distriparenthese - Intermarche Gosselies (6041) | 2927 | C | 50j (Tier C) | **28j (4 semaines)** | Nicolas 2026-04-20 |
 | Lambertdis SRL - Spar Manhay (televente) | 122944 | B | 28j | **25j** (espacer les reassorts) | Nicolas 2026-06-10 |
+| Affilie 043380 - Delhaize Frasnes-lez-Gosselies (merch force, lun/mer 11h-14h) | 128635 | - | Tier | **30j (passage mensuel demande par le magasin)** | Nicolas 2026-10-21 |
 
 ### Application
 

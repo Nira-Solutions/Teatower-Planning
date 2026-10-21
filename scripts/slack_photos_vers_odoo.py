@@ -281,6 +281,16 @@ def auteur(m, token=None):
 
 
 # ------------------------------------------------------------------ image
+# Les iPhone et une partie des Android postent en HEIC : sans pillow-heif, PIL
+# les refuse et ~260 photos (mai-oct. 2026) n'etaient jamais arrivees dans Odoo.
+try:
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+except ImportError:
+    print("[!] pillow-heif absent : les photos HEIC seront ignorees "
+          "(python -m pip install --user pillow-heif)")
+
+
 def compresser(raw):
     from PIL import Image, ImageOps
     im = Image.open(io.BytesIO(raw))
@@ -293,15 +303,53 @@ def compresser(raw):
     return buf.getvalue()
 
 
+# ------------------------------------------------------ infos logistiques
+# Le terrain ecrit sous le nom du magasin les contraintes d'acces : jours
+# interdits, personne a demander, appeler avant, frequence acceptee. Elles
+# vont dans le texte complet de la note ET, extraites, dans un tag
+# [LOGISTIQUE date: ...] des notes internes de la fiche.
+LOGI_RE = re.compile(
+    r"jamais|toujours|uniquement|seulement|sonner|appeler|t[ée]l[ée]phon|tel:|"
+    r"\b0\d{3}|demander apr[eè]s|responsable|g[ée]rant|mail|"
+    r"lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|matin|apr[eè]s.?midi|"
+    r"\d{1,2} ?h\b|ouvre|ferm[ée]|horaire|tou(t|s|tes) les \d|semaines|mois|"
+    r"quai|r[ée]ception|parking|livr|r[ée]serve|cong[ée]", re.IGNORECASE)
+
+
+def logistique(texte):
+    lignes = [re.sub(r"<tel:[^|>]+\|([^>]+)>", r"\1", l).strip(" .")
+              for l in (texte or "").split("\n")[1:]]
+    return [l for l in lignes if l and LOGI_RE.search(l)]
+
+
+# Messages qui ne sont PAS un passage magasin : recaps de tournee, planning
+# de la semaine, retours de stock en entrepot, totaux journaliers.
+RECAP_RE = re.compile(r"retour|planning|total journ|j.ai (ramen|remis)|semaine du",
+                      re.IGNORECASE)
+
+
+def est_recap(texte):
+    t = texte or ""
+    return bool(RECAP_RE.search(t.split("\n")[0])) or \
+        len(re.findall(r"(?m)^\s*\d+\.", t)) >= 3
+
+
+def html(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
 # ------------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--depuis", default="2026-07-01", help="date de debut AAAA-MM-JJ")
     ap.add_argument("--apply", action="store_true", help="ecrire dans Odoo")
-    ap.add_argument("--max", type=int, default=0, help="limiter le nb de messages (test)")
+    ap.add_argument("--max", type=int, default=0, help="limiter le nb de passages (test)")
     ap.add_argument("--corriger", action="append", default=[],
                     help="forcer un rattachement : 'JJ/MM|debut du libelle=pid' (repetable)")
+    ap.add_argument("--tag-visite-jours", type=int, default=60,
+                    help="ne poser [VISITE] que pour les passages de moins de N jours "
+                         "(un rattrapage d'historique ne doit pas gonfler les fiches)")
     args = ap.parse_args()
 
     token = os.environ.get("SLACK_TOKEN") or token_depuis_claude()
@@ -327,18 +375,46 @@ def main():
 
     oldest = datetime.strptime(args.depuis, "%Y-%m-%d").replace(tzinfo=timezone.utc).timestamp()
     msgs = messages_depuis(token, oldest)
-    msgs = [m for m in msgs if m.get("files")]
     msgs.sort(key=lambda m: float(m["ts"]))
-    if args.max:
-        msgs = msgs[:args.max]
-    print(f"[*] {len(msgs)} message(s) avec photo\n")
 
-    ok = amb = vide = deja = 0
-    octets_avant = octets_apres = 0
+    # Regroupement : le terrain poste souvent « NOM MAGASIN + commentaire »
+    # puis les photos dans un ou plusieurs messages SANS texte juste apres.
+    # Ces photos orphelines rejoignent le dernier passage du meme auteur
+    # (fenetre 20 min) au lieu d'etre perdues en « aucune correspondance ».
+    passages = []
     for m in msgs:
-        d = datetime.fromtimestamp(float(m["ts"]), tz=timezone(timedelta(hours=2)))
         texte = re.sub(r"<@[^>]+>", "", m.get("text") or "").strip()
-        libelle = texte.split("\n")[0].strip(" :;-")
+        imgs = [f for f in m.get("files") or []
+                if str(f.get("mimetype", "")).startswith("image/")]
+        if not texte and imgs and passages:
+            p = passages[-1]
+            if p["user"] == m.get("user") and float(m["ts"]) - p["ts_last"] < 1200:
+                p["imgs"] += imgs
+                p["ts_last"] = float(m["ts"])
+                continue
+        if not texte and not imgs:
+            continue
+        passages.append({"m": m, "user": m.get("user"), "texte": texte,
+                         "imgs": imgs, "ts_last": float(m["ts"])})
+    if args.max:
+        passages = passages[:args.max]
+    print(f"[*] {len(msgs)} message(s) -> {len(passages)} passage(s) candidat(s)\n")
+
+    ok = amb = vide = deja = compl = 0
+    octets_avant = octets_apres = 0
+    non_resolus = []
+    limite_tag = datetime.now(timezone.utc) - timedelta(days=args.tag_visite_jours)
+    for p in passages:
+        m, texte, imgs = p["m"], p["texte"], p["imgs"]
+        d = datetime.fromtimestamp(float(m["ts"]), tz=timezone(timedelta(hours=2)))
+        if est_recap(texte):
+            continue
+        libelle = texte.split("\n")[0].strip(" :;-.*")
+        # Sans photo, seul un message qui COMMENCE par un nom de magasin et
+        # porte une info terrain est un passage ; « Gilou je n'ai pas eu de
+        # retour sur le Carrefour Naninne ? » est une discussion.
+        if not imgs and (len(libelle.split()) > 6 or len(texte.split("\n")) < 2):
+            continue
         r = resoudre(libelle, magasins)
         for c in args.corriger:
             cle, _, cpid = c.rpartition("=")
@@ -346,41 +422,60 @@ def main():
             if cjour == f"{d:%d/%m}" and norm(libelle).startswith(norm(cdebut)):
                 nom_c = dict(magasins).get(int(cpid), f"#{cpid}")
                 r = (int(cpid), nom_c, 99)
-        imgs = [f for f in m["files"] if str(f.get("mimetype", "")).startswith("image/")]
-        if not imgs:
-            continue
         if not r:
-            print(f"  ?  {d:%d/%m} {libelle[:44]:44} -> AUCUNE correspondance ({len(imgs)} photo(s))")
-            vide += 1
+            if imgs:
+                non_resolus.append(f"{d:%d/%m/%y} {libelle[:50]} ({len(imgs)} ph.)")
+                vide += 1
             continue
         pid, nom, score = r
-        flag = "" if score >= 2 else "  [!] correspondance faible, a verifier"
-        print(f"  {'+' if score>=2 else '~'}  {d:%d/%m} {libelle[:36]:36} -> #{pid:<7} {nom[:32]:32} ({len(imgs)} ph.){flag}")
         if score < 2:
+            # Ambigu : pas de rattachement au hasard. --corriger pour forcer.
+            print(f"  ~  {d:%d/%m/%y} {libelle[:36]:36} -> #{pid} {nom[:30]} AMBIGU, ignore")
             amb += 1
-        # IDEMPOTENCE : le tag [VISITE date] pose lors d'un import precedent fait
-        # office de verrou. Sans lui, une relance re-poste notes et photos en
-        # double (constate le 02/09 : 7 visites importees deux fois).
-        cm0 = call('res.partner', 'read', [[pid]], {'fields': ['comment']})[0]['comment'] or ''
-        if f"[VISITE {d:%Y-%m-%d}" in re.sub(r'<[^>]+>', ' ', cm0):
-            print(f"{'':7}    deja importee — ignore")
+            continue
+
+        # VERROU par message : la reference Slack (ts) figure dans la note.
+        ref = f"slack {m['ts']}"
+        if call('mail.message', 'search_count', [[('model', '=', 'res.partner'),
+                ('res_id', '=', pid), ('body', 'ilike', ref)]]):
             deja += 1
             continue
+        # Imports d'avant le 21/10/2026 : pas de reference, mais le tag [VISITE]
+        # du jour. On ne re-poste alors QUE ce qui manque : photos perdues
+        # (HEIC, orphelines) et texte complet (infos logistiques).
+        cm0 = call('res.partner', 'read', [[pid]], {'fields': ['comment']})[0]['comment'] or ''
+        ancien = f"[VISITE {d:%Y-%m-%d}" in re.sub(r'<[^>]+>', ' ', cm0)
+        if ancien:
+            noms = [f"visite_{d:%Y-%m-%d}_{f['name']}" for f in imgs]
+            presents = set(a['name'] for a in call('ir.attachment', 'search_read',
+                           [[('res_model', '=', 'res.partner'), ('res_id', '=', pid),
+                             ('name', 'in', noms)]], {'fields': ['name']})) if noms else set()
+            imgs = [f for f, n in zip(imgs, noms) if n not in presents]
+            if not imgs and len(texte.split("\n")) < 2:
+                deja += 1
+                continue
+        logi = logistique(texte)
+        print(f"  {'*' if ancien else '+'}  {d:%d/%m/%y} {libelle[:34]:34} -> #{pid:<7} {nom[:30]:30} "
+              f"({len(imgs)} ph.{', logistique' if logi else ''}){' complement' if ancien else ''}")
         if not args.apply:
+            if ancien:
+                compl += 1
+            else:
+                ok += 1
             continue
 
         atts = []
         for f in imgs:
-            raw = slack_download(f["url_private_download"], token)
             try:
+                raw = slack_download(f["url_private_download"], token)
                 small = compresser(raw)
             except Exception as e:
-                # Une photo illisible (HEIC, fichier tronque, page HTML d'erreur)
-                # ne doit pas couper l'import des visites suivantes : le 07/10/2026
-                # le crash a fait perdre 3 visites (Hannut, Villers, Huy).
+                # Une photo illisible ne doit pas couper l'import des visites
+                # suivantes (07/10/2026 : 3 visites perdues sur un crash).
                 print(f"{'':7}    photo illisible ({type(e).__name__}) -> ignoree : {f.get('name')}")
                 continue
-            octets_avant += len(raw); octets_apres += len(small)
+            octets_avant += len(raw)
+            octets_apres += len(small)
             atts.append(call('ir.attachment', 'create', [{
                 'name': f"visite_{d:%Y-%m-%d}_{f['name']}",
                 'datas': base64.b64encode(small).decode(),
@@ -388,36 +483,38 @@ def main():
 
         # --- NOTE INTERNE, JAMAIS UN MESSAGE CLIENT -------------------------
         # subtype mail.mt_note = « Log note » : visible seulement en interne.
-        # Un message_post sans ce subtype prend mail.mt_comment par defaut et
-        # NOTIFIE PAR EMAIL tous les abonnes de la fiche, client compris.
         # Regle Nicolas 02/09/2026 : aucune info de visite ne part au client.
-        body = (f"<p><b>Visite du {d:%d/%m/%Y}</b> — {auteur(m, token)} · {issue(texte)}</p>"
-                f"<p style='color:#888;font-size:11px'>Note interne — source Slack #merchandiser</p>")
+        detail = "<br/>".join(html(l.strip()) for l in texte.split("\n")[1:] if l.strip())
+        titre = "Complément visite" if ancien else "Visite"
+        body = (f"<p><b>{titre} du {d:%d/%m/%Y}</b> — {auteur(m, token)} · {issue(texte)}</p>"
+                + (f"<p>{detail}</p>" if detail else "")
+                + f"<p style='color:#888;font-size:11px'>Note interne — Slack #merchandiser · {ref}</p>")
         mid = call('res.partner', 'message_post', [pid], {
             'body': body, 'attachment_ids': atts,
             'message_type': 'comment', 'subtype_xmlid': 'mail.mt_note'})
         controler_aucun_email(call, mid, pid)      # arrete tout si un mail part
-        # Odoo echappe le HTML d'un body passe par XML-RPC (il n'est pas Markup) :
-        # la note s'afficherait « <p><b>Visite... » en clair. On reecrit le body
-        # apres coup, ce qui ne redeclenche aucune notification.
+        # Odoo echappe le HTML d'un body passe par XML-RPC : on le reecrit.
         call('mail.message', 'write', [[mid], {'body': body}])
 
-        # Tag [VISITE] : c'est lui que build_planning_pool.py lit pour calculer
-        # last_visit. Sans lui, une visite sans reassort reste invisible et le
-        # garde-fou §14 bascule le magasin en televente a tort.
         cm = call('res.partner', 'read', [[pid]], {'fields': ['comment']})[0]['comment'] or ''
-        if f"[VISITE {d:%Y-%m-%d}" not in re.sub(r'<[^>]+>', ' ', cm):
-            call('res.partner', 'write', [[pid], {'comment': cm +
-                 f"<p>[VISITE {d:%Y-%m-%d} {auteur(m, token)}] {issue(texte)}</p>"}])
+        ajout = ""
+        # Tag [VISITE] : lu par build_planning_pool.py pour last_visit. Limite
+        # aux passages recents : l'historique 2025 ne change rien au planning.
+        if not ancien and d >= limite_tag and \
+                f"[VISITE {d:%Y-%m-%d}" not in re.sub(r'<[^>]+>', ' ', cm):
+            ajout += f"<p>[VISITE {d:%Y-%m-%d} {auteur(m, token)}] {issue(texte)}</p>"
+        if logi:
+            ajout += f"<p>[LOGISTIQUE {d:%Y-%m-%d}: {html(' / '.join(logi))[:400]}]</p>"
+        if ajout:
+            call('res.partner', 'write', [[pid], {'comment': cm + ajout}])
 
-        # Bon de commande : la meme photo est rattachee a la SO du jour si elle
-        # existe (piece justificative en cas de litige / rejet EDI). Simple
-        # ir.attachment : aucun message, donc aucune notification possible.
+        # Bon de commande : photo rattachee a la SO du jour si elle existe
+        # (simple ir.attachment : aucun message, aucune notification possible).
         so = call('sale.order', 'search_read',
                   [[('partner_id', 'child_of', pid),
                     ('date_order', '>=', (d - timedelta(days=2)).strftime('%Y-%m-%d 00:00:00')),
                     ('date_order', '<=', (d + timedelta(days=3)).strftime('%Y-%m-%d 23:59:59'))]],
-                  {'fields': ['id', 'name'], 'limit': 1})
+                  {'fields': ['id', 'name'], 'limit': 1}) if atts else []
         if so:
             for a in atts:
                 src = call('ir.attachment', 'read', [[a]], {'fields': ['name', 'datas']})[0]
@@ -425,10 +522,17 @@ def main():
                     'name': f"BDC_{so[0]['name']}_{src['name']}", 'datas': src['datas'],
                     'res_model': 'sale.order', 'res_id': so[0]['id'], 'mimetype': 'image/jpeg'}])
             print(f"{'':7}    -> bon de commande rattache a {so[0]['name']}")
-        ok += 1
+        if ancien:
+            compl += 1
+        else:
+            ok += 1
 
-    print(f"\n{ok} importee(s) | {deja} deja presente(s) | {amb} a verifier "
-          f"| {vide} non resolue(s)")
+    print(f"\n{ok} importee(s) | {compl} complement(s) | {deja} deja presente(s) "
+          f"| {amb} ambigue(s) ignoree(s) | {vide} non resolue(s)")
+    if non_resolus:
+        print("Non resolues (magasin hors pools) :")
+        for n in non_resolus:
+            print("   ?", n)
     if octets_avant:
         print(f"poids : {octets_avant/1e6:.1f} Mo bruts -> {octets_apres/1e6:.1f} Mo dans Odoo "
               f"({100*octets_apres/octets_avant:.0f} %)")

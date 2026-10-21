@@ -53,6 +53,7 @@ REFS_CARVEOUT = 20   # >= 20 refs : reste a Gilles meme si loin
 FORCE_MERCH_PIDS = {
     3016, 5649,   # KAIO Retail invest - Delhaize Ottignies (gros client, +1km au seuil)
     2914,         # Affilie 044725 - Delhaize Kraainem
+    128635,       # Affilie 043380 - Delhaize Frasnes-lez-Gosselies : passage merch mensuel demande par le magasin (Nicolas 21/10/2026)
     # 123144 Delhaize Ath : RETIRE le 02/09/2026. Le merch permanent decide le
     #        28/06 n'a jamais pu s'executer (seul magasin du pool en Hainaut
     #        occidental -> aucune tournee ne passe). 45j de retard, dernier

@@ -121,6 +121,7 @@ CADENCE_OVERRIDE_PID = {
     123144: 15,  # Affilié 040490 - Delhaize Ath : merch permanent, cadence 15j (Nicolas 28/06/2026)
     123297: 30,  # Spar Gembloux (fiche livraison Pascal Gilson) : passage mensuel demandé par le magasin (Nicolas 14/08/2026)
     123346: 30,  # Gemblouxim - Intermarché Gembloux : passage mensuel demandé par le magasin (Nicolas 13/10/2026)
+    128635: 30,  # Affilié 043380 - Delhaize Frasnes-lez-Gosselies : passage mensuel demandé par le magasin (Nicolas 21/10/2026)
 }
 
 

@@ -300,3 +300,10 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 
 - Oubli signalé par Nicolas : les 4 dépôts habituels. Namur mardi 20/10 10:00 · Liège mercredi 21/10 10:04 · Rocourt mercredi 11:43 · Waterloo vendredi 23/10 12:17. Colis préparés la veille (lundi / mardi / jeudi).
 - Pour rester sous 17:00 : Delhaize Incourt #2924 (mardi) et Delhaize Embourg #2909 (mercredi) reportés en S44. Retours : mardi 16:27, mercredi 16:44, vendredi 16:53.
+
+## 2026-10-21 — S43 : jeudi 22/10 rouvert (Nicolas)
+- Livraison Ateliers Saupont (Bertrix) annulée → jeudi rempli en passages merch.
+- **Delhaize Ath** (#123144) 1ᵉʳ stop 10:26 : reprise des glacés + mise en place Noël (S06596 livrée le 16/10). Visite ponctuelle : le magasin reste en télévente (FORCE_TELEVENTE).
+- Puis Intermarché Gerpinnes (50 j de retard, reprise de contact), Proxy Lillois, Proxy Rixensart. Retour 16:13, 347 km.
+- Spar LLN écarté : déjà visité le mardi 20/10 (Slack). Incourt : commande S06598 du 19/10 déjà livrée, et retour 17:03 avec lui → S44.
+- **Delhaize Frasnes-lez-Gosselies** (#128635, fiche active ; #5912 = doublon vide) : passage MENSUEL demandé par le magasin → CADENCE_OVERRIDE_PID 30 j + FORCE_MERCH_PIDS ; [REGLE] lun/mer 11h-14h posé dans Odoo.
