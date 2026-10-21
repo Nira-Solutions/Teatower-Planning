@@ -5,7 +5,7 @@
   - Arret  : 26
   - NoMerch (commande seul, hors planning) : 8
   - Televente (suivi Vanessa, hors visites Gilles) : 41
-- **OVERDUE Actifs** (next_visit < 2026-10-21) : 20
+- **OVERDUE Actifs** (next_visit < 2026-10-21) : 14
 
 ## OVERDUE — par retard décroissant
 
@@ -16,12 +16,8 @@
 | B | **50j** | Gerpidis SA - Intermarché Gerpinnes (#2971) | Route De Philippeville 196, 6280 Gerpinnes | 28j | 05/06/2026 (138j) | 2026-08-04 | comment_tag | 2026-09-01 | 152€ |
 | B | **16j** | Spar Erezée (#123302) | Rue des Chasseurs Ardennais 6 Boite a, 6997 Erezée | 28j | 03/07/2026 (110j) | 2026-09-07 | comment_tag | 2026-10-05 | 131€ |
 | B | **15j** | Affilié 046900 - Proxy Delhaize Rixensart (#50967) | Place du beau site 4, 1330 Rixensart | 28j | 17/07/2026 (96j) | 2026-09-08 | comment_tag | 2026-10-06 | 219€ |
-| B | **12j** | BARCHONEW SRL - Delhaize Barchon (#119815) | Rue Champs de Tignée, 32, 4671 Barchon | 28j | 06/08/2026 (76j) | 2026-09-11 | comment_tag | 2026-10-09 | 299€ |
-| B | **12j** | GIMALEX SA - Delhaize Fragnée (#5580) | Rue de Fragnée, 41, 4000 Liège | 28j | 29/05/2026 (145j) | 2026-09-11 | comment_tag | 2026-10-09 | 248€ |
 | B | **9j** | NIVALIM - Intermarché Nivelles (#3153) | Rue Tienne-à-Deux-Vallées 6/8, 1400 Nivelles | 28j | 14/09/2026 (37j) | 2026-09-14 | picking | 2026-10-12 | 315€ |
 | B | **9j** | Distri-Incourt - Delhaize Incourt (#2924) | chaussée de Namur 89, 1315 INCOURT | 28j | 20/07/2026 (93j) | 2026-09-14 | comment_tag | 2026-10-12 | 288€ |
-| B | **9j** | SRL AD LLN - Delhaize de Louvain La Neuve (#3223) | Place de l'accueil 10, 1348 Louvain La Neuve | 28j | 10/08/2026 (72j) | 2026-09-14 | comment_tag | 2026-10-12 | 195€ |
-| B | **9j** | Dynamic Food SRL - Spar Louvain-La-Neuve (#113216) | rue Charlemagne 7, 1348 Louvain-la-Neuve | 28j | 14/09/2026 (37j) | 2026-09-14 | picking | 2026-10-12 | 161€ |
 | B | **9j** | Sadel Trade - AD Delhaize Jodoigne (#121054) | Chaussée de Wavre 90 c, 1370 Jodoigne | 28j | 17/08/2026 (65j) | 2026-09-14 | comment_tag | 2026-10-12 | 137€ |
 | C | **9j** | Carrefour Market Bastogne - Pascalino (#2864) | route de Marche 149, Bastogne 6600 | 42j | 31/08/2026 (51j) | 2026-08-31 | picking | 2026-10-12 | 98€ |
 | B | **8j** | SA Faimine - Intermarché Faimes (#3210) | Rue De Huy 27, 4317 Faimes | 28j | 09/07/2026 (104j) | 2026-09-15 | comment_tag | 2026-10-13 | 178€ |
@@ -29,8 +25,6 @@
 | A | **6j** | Carrefour Market Remouchamps (#5878) | Avenue de la Porallée  36A,  Aywaille | 21j | 24/09/2026 (27j) | 2026-09-24 | picking | 2026-10-15 | 921€ |
 | B | **5j** | Delhaize Visé (#124638) | Route de Dalhem 15, 4600 Visé | 28j | 18/09/2026 (33j) | 2026-09-18 | picking | 2026-10-16 | 114€ |
 | B | **5j** | Carrefour Market Lierneux (#126498) | Rue du Centre 49, 4990 Lierneux | 28j | 17/09/2026 (34j) | 2026-09-18 | picking | 2026-10-16 | 58€ |
-| B | **1j** | Affilié 040990 - Delhaize Barvaux (#119817) | Rue Petit-Barvaux, 6, 6940 Barvaux-sur-Ourthe | 28j | 22/09/2026 (29j) | 2026-09-22 | picking | 2026-10-20 | 180€ |
-| B | **1j** | BARVO S.A. - Carrefour Market Barvaux (#2811) | Route de Marche, 26, 6940 Barvaux/Ourthe | 28j | 22/09/2026 (29j) | 2026-09-22 | picking | 2026-10-20 | 176€ |
 
 ## Tous Actifs (premiers 50 par retard puis Tier)
 
@@ -41,12 +35,8 @@
 | Actif | B | Gerpidis SA - Intermarché Gerpinnes (#2971) | 05/06/2026 (138j) | 2026-08-04 | 2026-09-01 | 50j | 152€ | 4 |
 | Actif | B | Spar Erezée (#123302) | 03/07/2026 (110j) | 2026-09-07 | 2026-10-05 | 16j | 131€ | 3 |
 | Actif | B | Affilié 046900 - Proxy Delhaize Rixensart (#50967) | 17/07/2026 (96j) | 2026-09-08 | 2026-10-06 | 15j | 219€ | 8 |
-| Actif | B | BARCHONEW SRL - Delhaize Barchon (#119815) | 06/08/2026 (76j) | 2026-09-11 | 2026-10-09 | 12j | 299€ | 9 |
-| Actif | B | GIMALEX SA - Delhaize Fragnée (#5580) | 29/05/2026 (145j) | 2026-09-11 | 2026-10-09 | 12j | 248€ | 8 |
 | Actif | B | NIVALIM - Intermarché Nivelles (#3153) | 14/09/2026 (37j) | 2026-09-14 | 2026-10-12 | 9j | 315€ | 8 |
 | Actif | B | Distri-Incourt - Delhaize Incourt (#2924) | 20/07/2026 (93j) | 2026-09-14 | 2026-10-12 | 9j | 288€ | 8 |
-| Actif | B | SRL AD LLN - Delhaize de Louvain La Neuve (#3223) | 10/08/2026 (72j) | 2026-09-14 | 2026-10-12 | 9j | 195€ | 6 |
-| Actif | B | Dynamic Food SRL - Spar Louvain-La-Neuve (#113216) | 14/09/2026 (37j) | 2026-09-14 | 2026-10-12 | 9j | 161€ | 4 |
 | Actif | B | Sadel Trade - AD Delhaize Jodoigne (#121054) | 17/08/2026 (65j) | 2026-09-14 | 2026-10-12 | 9j | 137€ | 4 |
 | Actif | C | Carrefour Market Bastogne - Pascalino (#2864) | 31/08/2026 (51j) | 2026-08-31 | 2026-10-12 | 9j | 98€ | 4 |
 | Actif | B | SA Faimine - Intermarché Faimes (#3210) | 09/07/2026 (104j) | 2026-09-15 | 2026-10-13 | 8j | 178€ | 5 |
@@ -54,14 +44,12 @@
 | Actif | A | Carrefour Market Remouchamps (#5878) | 24/09/2026 (27j) | 2026-09-24 | 2026-10-15 | 6j | 921€ | 17 |
 | Actif | B | Delhaize Visé (#124638) | 18/09/2026 (33j) | 2026-09-18 | 2026-10-16 | 5j | 114€ | 4 |
 | Actif | B | Carrefour Market Lierneux (#126498) | 17/09/2026 (34j) | 2026-09-18 | 2026-10-16 | 5j | 58€ | 2 |
-| Actif | B | Affilié 040990 - Delhaize Barvaux (#119817) | 22/09/2026 (29j) | 2026-09-22 | 2026-10-20 | 1j | 180€ | 6 |
-| Actif | B | BARVO S.A. - Carrefour Market Barvaux (#2811) | 22/09/2026 (29j) | 2026-09-22 | 2026-10-20 | 1j | 176€ | 6 |
 | Actif | A | Affilié 043366 - AD Fosses-la-Ville (#5441) | 17/09/2026 (34j) | 2026-10-09 | 2026-10-30 | 0j | 747€ | 15 |
 | Actif | A | Intermarché Naninne (#5755) | 13/10/2026 (8j) | 2026-10-13 | 2026-11-03 | 0j | 737€ | 15 |
 | Actif | A | DelEmbourg SRL - Delhaize Embourg (#2909) | 30/09/2026 (21j) | 2026-09-30 | 2026-10-21 | 0j | 714€ | 15 |
-| Actif | A | Carrefour	Hyper Wépion - 5400102606240 (#6597) | 13/10/2026 (8j) | 2026-10-13 | 2026-11-03 | 0j | 668€ | 8 |
+| Actif | A | Carrefour	Hyper Wépion - 5400102606240 (#6597) | 13/10/2026 (8j) | 2026-10-15 | 2026-11-05 | 0j | 668€ | 8 |
 | Actif | A | Affilié 048875 - AD Sombreffe (#5449) | 20/10/2026 (1j) | 2026-10-20 | 2026-11-10 | 0j | 664€ | 14 |
-| Actif | A | Carrefour Hyper de Jambes - 5400102606400 (#9046) | 28/07/2026 (85j) | 2026-10-13 | 2026-11-03 | 0j | 633€ | 12 |
+| Actif | A | Carrefour Hyper de Jambes - 5400102606400 (#9046) | 28/07/2026 (85j) | 2026-10-20 | 2026-11-10 | 0j | 633€ | 12 |
 | Actif | A | AD Delhaize Fernelmont (Fernel-Dis SRL n°43132) (#2952) | 13/10/2026 (8j) | 2026-10-13 | 2026-11-03 | 0j | 545€ | 16 |
 | Actif | A | SA Barthe - Intermarché Assesse (#5750) | 20/10/2026 (1j) | 2026-10-20 | 2026-11-10 | 0j | 532€ | 14 |
 | Actif | A | Affilié 041345 - Delhaize de Bouge (#114681) | 17/09/2026 (34j) | 2026-10-13 | 2026-11-03 | 0j | 516€ | 15 |
@@ -78,6 +66,7 @@
 | Actif | B | Affilié 046780 - Delhaize Recogne (#122091) | 25/09/2026 (26j) | 2026-09-25 | 2026-10-23 | 0j | 338€ | 9 |
 | Actif | B | Affilié 41092 - Delhaize Bertrix (#123303) | 25/09/2026 (26j) | 2026-09-29 | 2026-10-27 | 0j | 326€ | 6 |
 | Actif | B | SA Marer - AD Delhaize Bastogne (#8558) | 25/09/2026 (26j) | 2026-09-25 | 2026-10-23 | 0j | 322€ | 8 |
+| Actif | B | BARCHONEW SRL - Delhaize Barchon (#119815) | 06/08/2026 (76j) | 2026-10-05 | 2026-11-02 | 0j | 299€ | 9 |
 | Actif | B | Windmill SA - Intermarché Bouge (#3297) | 01/10/2026 (20j) | 2026-10-01 | 2026-10-29 | 0j | 292€ | 9 |
 | Actif | B | Affilié 044463 - Delhaize Hotton (#119819) | 20/10/2026 (1j) | 2026-10-20 | 2026-11-17 | 0j | 289€ | 8 |
 | Actif | B | Hyper Carrefour Arlon - 5400102606943 (#113746) | 03/08/2026 (79j) | 2026-09-25 | 2026-10-23 | 0j | 284€ | 5 |
@@ -86,6 +75,11 @@
 | Actif | B | Affilié 042955 - Delhaize Etalle (#5442) | 17/09/2026 (34j) | 2026-09-25 | 2026-10-23 | 0j | 260€ | 6 |
 | Actif | B | Carrefour Market Uccle Bascule (#5484) | 26/08/2026 (56j) | 2026-10-01 | 2026-10-29 | 0j | 260€ | 7 |
 | Actif | B | Affilié 044725 - Delhaize Kraainem (#2914) | 10/08/2026 (72j) | 2026-09-24 | 2026-10-22 | 0j | 258€ | 5 |
+| Actif | B | Affilié 048755 - Delhaize St Lambert (#5653) | 05/10/2026 (16j) | 2026-10-05 | 2026-11-02 | 0j | 257€ | 6 |
+| Actif | B | Wonka S.A. - Intermarché Heusy (#7003) | 28/09/2026 (23j) | 2026-09-28 | 2026-10-26 | 0j | 250€ | 10 |
+| Actif | B | HODICA SA - Carrefour Market Hotton (#2979) | 20/10/2026 (1j) | 2026-10-20 | 2026-11-17 | 0j | 249€ | 8 |
+| Actif | B | GIMALEX SA - Delhaize Fragnée (#5580) | 29/05/2026 (145j) | 2026-10-15 | 2026-11-12 | 0j | 248€ | 8 |
+| Actif | B | Affilié 041335 - Ad Bouffioulx (#7283) | 13/10/2026 (8j) | 2026-10-13 | 2026-11-10 | 0j | 244€ | 6 |
 
 ## NoMerch — EXCLUS du planning (commande en autonomie)
 
@@ -127,7 +121,6 @@
 | Carrefour Market Boondael - 5400102101172 (#6598) | Chaussée de Boondael 444, 1050 Ixelles | 18/06/2026 (125j) | 141€ |
 | Carrefour Market Tomberg - 5400102101219 (#124423) | Tomberg 96, 1200 Woluwe-Saint-Lambert | 12/06/2026 (131j) | 52€ |
 | Affilié 44845 - Delhaize Enghien (#123041) | Square de la Dodane, 7850 Enghien | 15/06/2026 (128j) | 59€ |
-| Louis Delhaize - Haversin (#123844) | Rue de Barvaux 141, 5590 Haversin | 24/06/2026 (119j) | 47€ |
 | Hyper Carrefour Waterloo Mt-St-Jean - 5400102604598 (#8683) | Chaussée de Charleroi 579, 1410 Waterloo | 14/07/2026 (99j) | 105€ |
 | Affilié 049205 - Delhaize Tubize (#124182) | Rue de la Déportation, 61, 1480 Tubize | 14/07/2026 (99j) | 83€ |
 | Delhaize Amay (#124178) | Chaussee Roosevelt 101, 4540 Amay | 04/06/2026 (139j) | 27€ |
@@ -149,3 +142,4 @@
 | Hyper Carrefour Mons Grands Prés - 5400102606004 (#113613) | Place des grands pres, 1, 7000 Mons | 23/07/2026 (90j) | 72€ |
 | Delhaize Montigny (#124727) | Rue de Gozée 400, 6110 Montigny-le-Tilleul | 21/10/2026 (0j) | 70€ |
 | Intermarché Rumes - Hainaut (#123964) | Chaussée de Douai 1bis, 7610 Rumes | 21/10/2026 (0j) | 69€ |
+| Louis Delhaize - Haversin (#123844) | Rue de Barvaux 141, 5590 Haversin | 24/06/2026 (119j) | 47€ |

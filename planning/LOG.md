@@ -307,3 +307,8 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Puis Intermarché Gerpinnes (50 j de retard, reprise de contact), Proxy Lillois, Proxy Rixensart. Retour 16:13, 347 km.
 - Spar LLN écarté : déjà visité le mardi 20/10 (Slack). Incourt : commande S06598 du 19/10 déjà livrée, et retour 17:03 avec lui → S44.
 - **Delhaize Frasnes-lez-Gosselies** (#128635, fiche active ; #5912 = doublon vide) : passage MENSUEL demandé par le magasin → CADENCE_OVERRIDE_PID 30 j + FORCE_MERCH_PIDS ; [REGLE] lun/mer 11h-14h posé dans Odoo.
+
+## 2026-10-21 — S44 générée (26-30/10)
+- Pool Odoo 21/10 régénéré après rattrapage Slack (visites du 15 au 20/10 importées).
+- Dépôts boutiques uniquement du mercredi au vendredi (Nicolas à l'entrepôt, Logan en congé de paternité). Lundi : retrait prison de Marche.
+- 39 stops, retours entre 15:10 et 16:50. Détail et reports : `planning/queue_S44_2026-10-26.md`.
