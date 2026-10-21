@@ -2,9 +2,9 @@
 
 - **Magasins GMS uniques** : 183
   - Actifs : 108 (Tier A=17, B=73, C=18, X=0)
-  - Arret  : 26
+  - Arret  : 27
   - NoMerch (commande seul, hors planning) : 8
-  - Televente (suivi Vanessa, hors visites Gilles) : 41
+  - Televente (suivi Vanessa, hors visites Gilles) : 40
 - **OVERDUE Actifs** (next_visit < 2026-10-21) : 14
 
 ## OVERDUE — par retard décroissant
@@ -119,7 +119,6 @@
 | Hyper Carrefour Gosselies - 5400102606455 (#122466) | Da Vincilaan 3, 6041 Gosselies | 08/06/2026 (135j) | 70€ |
 | Affilié 041895 - Proxy Delhaize Braives (#117130) | Chaussée de Tirlemont 6A, 4260 Braives | 10/06/2026 (133j) | 43€ |
 | Carrefour Market Boondael - 5400102101172 (#6598) | Chaussée de Boondael 444, 1050 Ixelles | 18/06/2026 (125j) | 141€ |
-| Carrefour Market Tomberg - 5400102101219 (#124423) | Tomberg 96, 1200 Woluwe-Saint-Lambert | 12/06/2026 (131j) | 52€ |
 | Affilié 44845 - Delhaize Enghien (#123041) | Square de la Dodane, 7850 Enghien | 15/06/2026 (128j) | 59€ |
 | Hyper Carrefour Waterloo Mt-St-Jean - 5400102604598 (#8683) | Chaussée de Charleroi 579, 1410 Waterloo | 14/07/2026 (99j) | 105€ |
 | Affilié 049205 - Delhaize Tubize (#124182) | Rue de la Déportation, 61, 1480 Tubize | 14/07/2026 (99j) | 83€ |
