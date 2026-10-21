@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T12:18:59",
+  "updated": "2026-10-21T17:00:30",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3481,6 +3481,14 @@
       "started": "2026-10-21T12:18",
       "request": "Reprise dossier Marjane après SIAL",
       "finished": "2026-10-21T12:18"
+    },
+    {
+      "id": "t080",
+      "agent": "product-data",
+      "task": "Dossier Veepee LORESPRESSO172 (photos, données, AGEC/GPSR)",
+      "status": "in_progress",
+      "started": "2026-10-21T17:00",
+      "request": "Nicolas -> deadline jeu 22/10 12:00"
     }
   ]
 }
