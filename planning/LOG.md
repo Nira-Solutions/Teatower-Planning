@@ -314,3 +314,4 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - 39 stops, retours entre 15:10 et 16:50. Détail et reports : `planning/queue_S44_2026-10-26.md`.
 - 21/10 (Nicolas) : S44 vendredi 30/10 — livraison display EM0107 ×16 chez SPRL Ferme de la Princesse / Traiteur Pistral (#114857, Waudrez), commande S06627, dernier stop 13:45. Delhaize Incourt reporté en S45. Retour 16:06.
 - 21/10 (Nicolas) : **Carrefour Market Tomberg** (#124423) en ARRET — le magasin arrête avec Teatower, les produits ne fonctionnent pas. sale_warn=block + [ARRET 2026-10-21] ; sorti du pool télévente.
+- 21/10 (Nicolas) : S44 — installations Noël + reprises S06623 Delhaize Montigny et S06625 Spar Momignies (jeudi 29/10), S06624 Intermarché Rumes (vendredi 30/10). Jeudi/vendredi refaits, Villers + Hannut passent au mercredi ; Namur (Bouge, Belgrade, Floriffoux, Andenne), Bruxelles (Kraainem, Woluwe, St-Michel, CM Waterloo) et Longdoz/Angleur/Bois-de-Breux → S45.
