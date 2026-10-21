@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T17:00:30",
+  "updated": "2026-10-21T17:10:27",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3486,9 +3486,10 @@
       "id": "t080",
       "agent": "product-data",
       "task": "Dossier Veepee LORESPRESSO172 (photos, données, AGEC/GPSR)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-21T17:00",
-      "request": "Nicolas -> deadline jeu 22/10 12:00"
+      "request": "Nicolas -> deadline jeu 22/10 12:00",
+      "finished": "2026-10-21T17:10"
     }
   ]
 }
