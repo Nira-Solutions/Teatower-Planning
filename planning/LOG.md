@@ -316,3 +316,8 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - 21/10 (Nicolas) : **Carrefour Market Tomberg** (#124423) en ARRET — le magasin arrête avec Teatower, les produits ne fonctionnent pas. sale_warn=block + [ARRET 2026-10-21] ; sorti du pool télévente.
 - 21/10 (Nicolas) : S44 — installations Noël + reprises S06623 Delhaize Montigny et S06625 Spar Momignies (jeudi 29/10), S06624 Intermarché Rumes (vendredi 30/10). Jeudi/vendredi refaits, Villers + Hannut passent au mercredi ; Namur (Bouge, Belgrade, Floriffoux, Andenne), Bruxelles (Kraainem, Woluwe, St-Michel, CM Waterloo) et Longdoz/Angleur/Bois-de-Breux → S45.
 - 21/10 (Nicolas) : S44 — CM Arlon Hydrion S06628 (installation Noël, mardi 11:50, Spar Vaux → S45) ; passage Proxy Delhaize Braives #117130 (mercredi 11:46) ; horaires d'ouverture contrôlés : Ferrières placé avant 13:00, Hamoir en fin de lundi.
+
+## 2026-10-21 — S43 : vendredi 23/10 annulé (Nicolas)
+- Les 7 stops du vendredi sont retirés de la page : CM Uccle Bascule (reprise des glacés + gamme Noël), Delhaize Boondael, Delhaize Kraainem, Proxy Maransart, Intermarché Nivelles, AD Jodoigne et le dépôt boutique Waterloo.
+- S44 ne peut pas les absorber : vendredi 30 + Nivelles + Maransart → retour 17:47 ; lundi 26 (après la prison) → 3 stops seulement au lieu de 5. Consigne Nicolas : ne retirer aucun stop qui a une SO. Aucun des 6 magasins n'a de commande ouverte.
+- → Ils passent en tête de S45 (journée Bruxelles/BW), stops conservés dans `REPORT_S43_VENDREDI`. Le dépôt boutique Waterloo est fait le vendredi 30/10.
