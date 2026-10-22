@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T16:18:48",
+  "updated": "2026-10-22T16:21:00",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3504,9 +3504,10 @@
       "id": "t082",
       "agent": "compta",
       "task": "Facturation PRO livrées 22/10 (delivered + Peppol)",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-22T16:18",
-      "request": "Nira, factures les commandes PRO délivrées"
+      "request": "Nira, factures les commandes PRO délivrées",
+      "finished": "2026-10-22T16:21"
     }
   ]
 }
