@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T08:28:52",
+  "updated": "2026-10-22T16:18:48",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3499,6 +3499,14 @@
       "started": "2026-10-22T08:26",
       "request": "Nira lettre ING ET BELFIUS. Attention RESA1435 deja payee x%",
       "finished": "2026-10-22T08:28"
+    },
+    {
+      "id": "t082",
+      "agent": "compta",
+      "task": "Facturation PRO livrées 22/10 (delivered + Peppol)",
+      "status": "in_progress",
+      "started": "2026-10-22T16:18",
+      "request": "Nira, factures les commandes PRO délivrées"
     }
   ]
 }
