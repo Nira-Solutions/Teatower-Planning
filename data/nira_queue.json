@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T17:10:27",
+  "updated": "2026-10-22T08:26:14",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3490,6 +3490,14 @@
       "started": "2026-10-21T17:00",
       "request": "Nicolas -> deadline jeu 22/10 12:00",
       "finished": "2026-10-21T17:10"
+    },
+    {
+      "id": "t081",
+      "agent": "compta",
+      "task": "Lettrage ING + Belfius (passe 52) + RESA1435 partiel",
+      "status": "in_progress",
+      "started": "2026-10-22T08:26",
+      "request": "Nira lettre ING ET BELFIUS. Attention RESA1435 deja payee x%"
     }
   ]
 }
