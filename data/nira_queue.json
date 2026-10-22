@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T08:26:14",
+  "updated": "2026-10-22T08:28:52",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3495,9 +3495,10 @@
       "id": "t081",
       "agent": "compta",
       "task": "Lettrage ING + Belfius (passe 52) + RESA1435 partiel",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-22T08:26",
-      "request": "Nira lettre ING ET BELFIUS. Attention RESA1435 deja payee x%"
+      "request": "Nira lettre ING ET BELFIUS. Attention RESA1435 deja payee x%",
+      "finished": "2026-10-22T08:28"
     }
   ]
 }
