@@ -3105,3 +3105,13 @@ Demande Nicolas : « facture les commandes PRO délivrées, il y en a des suppl�
 
 Envoyées via Peppol, 0 échec. Transport forcé sur S06451.
 Non facturées : les 4 mêmes particuliers sans TVA (S06410, S06409, S06408, S06406) et 16 SO sans marchandise livrée dans Odoo.
+
+## 2026-10-27 - Facturation B2B Peppol (19 factures, 10.099,63 EUR TTC)
+
+Demande Nicolas : « facture toutes les commandes PRO délivrées via Peppol ».
+`scripts/facturation_b2b_peppol.py --exclude S06651 --apply`. S06651 Centrale Intermarché exclue : TT/OUT validé ce matin, livraison prévue le 30/10.
+
+INV/2026/04980 → INV/2026/04998, toutes postées et envoyées via Peppol, 0 échec. Transport forcé sur 7 SO.
+Facturé partiellement (qty livrées seulement) : S06382 Esprit de campagne 2.204,99 (SO 2.372,99), S06607 D'ici Champion 433,32 (SO 538,32).
+Brouillons à 0,00 EUR à arbitrer : S06639 La vie est belge Mons, S06457 Cellmade / Prison de Marche.
+Bloquées Peppol : S06552 SPF Justice, S06557 Carrefour Jambes (not_verified) ; S06595 Graines de Quartier, S06509 Marketing Teatower (not_valid) ; S06626, S06410, S06409, S06408, S06406 particuliers sans TVA.
