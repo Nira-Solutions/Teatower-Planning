@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T17:24:21",
+  "updated": "2026-10-27T18:02:33",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3544,6 +3544,14 @@
       "started": "2026-10-27T17:10",
       "request": "Nira, mets à jour l'échéancier, la trésorerie, la facturation en compta et le lettrage (JN verse 62.500 le 12/11)",
       "finished": "2026-10-27T17:24"
+    },
+    {
+      "id": "t087",
+      "agent": "nira",
+      "task": "P&L T3 FY26-27 : passage Odoo → économique en formules + pont de stock",
+      "status": "in_progress",
+      "started": "2026-10-27T18:02",
+      "request": "P&L formules visibles, plausible avec la variation de stock (JN)"
     }
   ]
 }
