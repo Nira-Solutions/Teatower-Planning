@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T17:10:39",
+  "updated": "2026-10-27T17:10:42",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3522,6 +3522,14 @@
       "id": "t084",
       "agent": "compta",
       "task": "Lettrage ING + Belfius passe 54",
+      "status": "in_progress",
+      "started": "2026-10-27T17:10",
+      "request": "Nira, mets à jour l'échéancier, la trésorerie, la facturation en compta et le lettrage (JN verse 62.500 le 12/11)"
+    },
+    {
+      "id": "t085",
+      "agent": "compta",
+      "task": "Facturation PRO livrées 27/10 (delivered + Peppol)",
       "status": "in_progress",
       "started": "2026-10-27T17:10",
       "request": "Nira, mets à jour l'échéancier, la trésorerie, la facturation en compta et le lettrage (JN verse 62.500 le 12/11)"
