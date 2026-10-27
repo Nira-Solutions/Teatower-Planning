@@ -3115,3 +3115,15 @@ INV/2026/04980 → INV/2026/04998, toutes postées et envoyées via Peppol, 0 é
 Facturé partiellement (qty livrées seulement) : S06382 Esprit de campagne 2.204,99 (SO 2.372,99), S06607 D'ici Champion 433,32 (SO 538,32).
 Brouillons à 0,00 EUR à arbitrer : S06639 La vie est belge Mons, S06457 Cellmade / Prison de Marche.
 Bloquées Peppol : S06552 SPF Justice, S06557 Carrefour Jambes (not_verified) ; S06595 Graines de Quartier, S06509 Marketing Teatower (not_valid) ; S06626, S06410, S06409, S06408, S06406 particuliers sans TVA.
+
+## 2026-10-27 - Facturation anticipée S06651 + S06652, envoi Peppol différé
+
+Demande Nicolas : facturer cette semaine (résultat) des commandes prêtes mais livrées le lundi 02/11 ; Peppol UNIQUEMENT la semaine prochaine.
+
+| Facture | SO | Client | HT | TTC |
+|---|---|---|---:|---:|
+| INV/2026/05004 | S06651 | Centrale Intermarché | 1.132,04 | 1.200,00 |
+| INV/2026/05005 | S06652 | The Torrefactory Project | 11.232,00 | 11.905,92 |
+
+Postées au 27/10, `peppol_move_state=ready` (pas envoyées). S06652 non livrée : facture créée à la main, lignes liées aux lignes SO (`sale_line_ids`) → SO `invoiced`.
+Envoi : tâche Windows « Teatower - Peppol differe S06651-S06652 » (02/11 18:00, rattrapage 03/11 08:00) → `scripts/peppol_envoi_differe.py`, n'envoie que si toutes les livraisons de la SO sont `done`. Log : `scripts/reports/peppol_differe.log`.
