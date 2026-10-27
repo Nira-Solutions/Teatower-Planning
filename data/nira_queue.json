@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T17:10:46",
+  "updated": "2026-10-27T17:24:15",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3522,9 +3522,10 @@
       "id": "t084",
       "agent": "compta",
       "task": "Lettrage ING + Belfius passe 54",
-      "status": "in_progress",
+      "status": "done",
       "started": "2026-10-27T17:10",
-      "request": "Nira, mets à jour l'échéancier, la trésorerie, la facturation en compta et le lettrage (JN verse 62.500 le 12/11)"
+      "request": "Nira, mets à jour l'échéancier, la trésorerie, la facturation en compta et le lettrage (JN verse 62.500 le 12/11)",
+      "finished": "2026-10-27T17:24"
     },
     {
       "id": "t085",
