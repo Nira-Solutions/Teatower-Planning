@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T16:21:00",
+  "updated": "2026-10-27T15:04:27",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3508,6 +3508,14 @@
       "started": "2026-10-22T16:18",
       "request": "Nira, factures les commandes PRO délivrées",
       "finished": "2026-10-22T16:21"
+    },
+    {
+      "id": "t083",
+      "agent": "compta",
+      "task": "Lettrage ING + Belfius (passe 53) + suivi RESA1435",
+      "status": "in_progress",
+      "started": "2026-10-27T15:04",
+      "request": "Nira lettre tout ING et Belfius, tu sais quoi faire pour les factures avec un peu de différence"
     }
   ]
 }
