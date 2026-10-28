@@ -102,6 +102,14 @@ EXTRA_TELEVENTE_PIDS = {
 }
 FORCE_TELEVENTE_PIDS |= EXTRA_TELEVENTE_PIDS
 
+# COMMANDE VIA PLATEFORME : magasins qui commandent seuls via la plateforme
+# Carrefour (EDI) -> pas d'appel Vanessa. Meme traitement que [NO-MERCH] : ils
+# sortent des deux pools (cf. PLATEFORME_PIDS dans build_planning_pool.py, a
+# garder aligne), sinon l'exclusivite les renverrait dans les visites de Gilles.
+PLATEFORME_PIDS = {
+    6598,  # Carrefour Market Boondael - 5400102101172 (Ixelles) (Nicolas 28/10/2026)
+}
+
 # PRIORITE (REGLES §13) : magasins a ne PAS louper. Ils remontent en tete de la
 # file d'appels quel que soit leur retard, et portent un badge rouge sur la page.
 # Cle = pid Odoo, valeur = motif affiche a Vanessa.
@@ -390,7 +398,7 @@ def main():
         comment = p.get("comment") or ""
         arret = p.get("sale_warn") == "block" and "[ARRET" in str(comment)
         no_merch = "[NO-MERCH" in str(comment)
-        if arret or no_merch:
+        if arret or no_merch or sp in PLATEFORME_PIDS:
             continue
         # Force merch : gros clients gardes pour Gilles (jamais en televente)
         pname = p.get("name") or ""

@@ -87,6 +87,12 @@ GMS_NAME_TOKENS = [
 # Noel/Halloween (Jerome, Slack 09/10/2026) -> suivi Gilles.
 EXTRA_MERCH_PIDS = {59928}
 
+# COMMANDE VIA PLATEFORME (EDI Carrefour) : ni appel ni visite, traite comme
+# [NO-MERCH]. Garder aligne avec PLATEFORME_PIDS dans build_televente_pool.py.
+PLATEFORME_PIDS = {
+    6598,  # Carrefour Market Boondael - 5400102101172 (Nicolas 28/10/2026)
+}
+
 TIER_RULES = [
     (400.0, "A", 21),
     (100.0, "B", 28),
@@ -466,7 +472,7 @@ def main():
 
         if has_arret_tag(r["comment"], r["sale_warn"]):
             statut = "Arret"
-        elif has_no_merch_tag(r["comment"]):
+        elif has_no_merch_tag(r["comment"]) or pid in PLATEFORME_PIDS:
             statut = "NoMerch"  # commande en autonomie — exclu des visites/implantations
         elif pid in televente_pids:
             statut = "Televente"  # suivi par Vanessa (appels) — exclu des visites Gilles
