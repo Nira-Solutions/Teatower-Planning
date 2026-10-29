@@ -3127,3 +3127,5 @@ Demande Nicolas : facturer cette semaine (résultat) des commandes prêtes mais 
 
 Postées au 27/10, `peppol_move_state=ready` (pas envoyées). S06652 non livrée : facture créée à la main, lignes liées aux lignes SO (`sale_line_ids`) → SO `invoiced`.
 Envoi : tâche Windows « Teatower - Peppol differe S06651-S06652 » (02/11 18:00, rattrapage 03/11 08:00) → `scripts/peppol_envoi_differe.py`, n'envoie que si toutes les livraisons de la SO sont `done`. Log : `scripts/reports/peppol_differe.log`.
+
+**MAJ 29/10** : S06652 (Torrefactory) livrée par Gilles le mardi 03/11 en fin de journée (planning S45) → 2 déclenchements ajoutés à la tâche Peppol différé : 03/11 18:00 et 04/11 08:00.
