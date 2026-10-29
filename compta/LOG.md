@@ -3129,3 +3129,17 @@ Postées au 27/10, `peppol_move_state=ready` (pas envoyées). S06652 non livrée
 Envoi : tâche Windows « Teatower - Peppol differe S06651-S06652 » (02/11 18:00, rattrapage 03/11 08:00) → `scripts/peppol_envoi_differe.py`, n'envoie que si toutes les livraisons de la SO sont `done`. Log : `scripts/reports/peppol_differe.log`.
 
 **MAJ 29/10** : S06652 (Torrefactory) livrée par Gilles le mardi 03/11 en fin de journée (planning S45) → 2 déclenchements ajoutés à la tâche Peppol différé : 03/11 18:00 et 04/11 08:00.
+
+## 2026-10-29 - Facturation PRO livrées + Peppol
+
+`scripts/facturation_b2b_peppol.py --apply --exclude S06380,S06657,S06679,S06680`
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/05082 | S06599 | Sorescol S.A. | 672,57 | processing (livré partiel : Sencha 50 inf. 8/15, reliquat TT/PICK/11756) |
+| INV/2026/05083 | S06672 | Va.S.Co | 3.816,00 | processing |
+| INV/2026/05084 | S06670 | Newpharma | 219,12 | processing |
+
+Exclues : S06380 Delhaize Visé (livraison Gilles 05/11), S06657 Hyper Carrefour Arlon (installation 04/11), S06679/S06680 Terracotta (pas encore expédiées) — TT/OUT validé ≠ reçu par le client.
+0 € laissées en draft : S06661 Terracotta, S06457 Cellmade.
+Bloquées Peppol (non facturées) : S06595 Graines de Quartier Auderghem (not_valid), S06509 Marketing Teatower (interne), particuliers sans TVA S06677/S06408 Sarah Belle, S06409 Laura Hoebeke, S06406 Borremans, S06410 Carlini, S06626 Alexandre Fiore.
