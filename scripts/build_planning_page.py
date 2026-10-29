@@ -7,10 +7,14 @@ Format épuré (Nicolas 10/06/2026) : PAS de récap/réflexion en haut, ligne ma
 Heure+badge+SO · Nom+dernière SO · Adresse · Contact · [CONTROLE STOCK] · [METHODE
 REASSORT] · [REGLE MAGASIN] (ces 3 uniquement si renseignés) · lien Google Maps.
 Bandeau jour minimal (date, nb stops, zone, retour OK<=17:00).
+Seul récap autorisé en tête de semaine : le tableau préparateur des boutiques Teatower
+(jour de livraison Gilles + jour de préparation, sinon BPOST — demande Nicolas 29/10/2026).
 
 Les 3 champs terrain viennent des tags Odoo (voir build_planning_pool.py) ; ici on
 les passe explicitement par stop quand ils sont connus, sinon vides (=> non affichés).
 """
+import re
+from datetime import date, timedelta
 from urllib.parse import quote
 from pathlib import Path
 
@@ -97,11 +101,38 @@ def day_html(d):
 """
 
 
+BOUTIQUES = ["Namur", "Liège", "Rocourt", "Waterloo"]
+JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+
+
+def boutiques_html(w):
+    """Récap préparateur : jour de livraison de chaque boutique Teatower par Gilles et
+    jour de préparation du colis (jour ouvré précédent). Absente du planning => BPOST."""
+    m = re.search(r"20\d\d", w.get("title", ""))
+    year = int(m.group()) if m else date.today().year
+    rows = []
+    for b in BOUTIQUES:
+        cells = []
+        for d in w["days"]:
+            if any(s["n"].startswith(f"Boutique Teatower {b}") for s in d["stops"]):
+                dd, mm = re.search(r"(\d\d)/(\d\d)", d["h"]).groups()
+                prep = date(year, int(mm), int(dd)) - timedelta(days=1)
+                while prep.weekday() >= 5:
+                    prep -= timedelta(days=1)
+                cells.append(f'livré par Gilles le <strong>{d["h"]}</strong> → préparer le '
+                             f'<strong>{JOURS[prep.weekday()]} {prep:%d/%m}</strong>')
+        txt = " · ".join(cells) if cells else '📮 <strong>Expédition via BPOST</strong>'
+        rows.append(f'<tr><td>Boutique {b}</td><td>{txt}</td></tr>')
+    return ('<div class="boutiques"><div class="bt-title">📦 Boutiques Teatower — préparation des colis</div>'
+            f'<table>{"".join(rows)}</table></div>\n')
+
+
 def week_html(w):
     note = f'<div class="weeknote">{w["note"]}</div>\n' if w.get("note") else ""
     days = "".join(day_html(d) for d in w["days"])
     disp = "" if w.get("active") else ' style="display:none;"'
-    return f'<div id="{w["id"]}"{disp}>\n<h2 class="section-title">{w["title"]}</h2>\n{note}{days}</div><!-- /{w["id"]} -->\n'
+    return (f'<div id="{w["id"]}"{disp}>\n<h2 class="section-title">{w["title"]}</h2>\n'
+            f'{boutiques_html(w)}{note}{days}</div><!-- /{w["id"]} -->\n')
 
 
 CSS = """  :root { --primary: #2d6a4f; --accent: #40916c; --warn: #e76f51; --bg: #f8f9fa; --card: #fff; --text: #212529; }
@@ -113,6 +144,11 @@ CSS = """  :root { --primary: #2d6a4f; --accent: #40916c; --warn: #e76f51; --bg:
   .week-btn { padding: .5rem 1rem; border-radius: 6px; border: 2px solid var(--primary); background: var(--card); color: var(--primary); font-weight: 600; cursor: pointer; text-decoration: none; font-size: .85rem; }
   .week-btn.active { background: var(--primary); color: #fff; }
   .section-title { font-size: 1.2rem; color: var(--primary); margin: 1rem 0 .5rem; border-bottom: 2px solid var(--accent); padding-bottom: .3rem; }
+  .boutiques { background: var(--card); border: 2px solid var(--accent); border-radius: 8px; padding: .5rem .8rem; margin-bottom: .8rem; font-size: .85rem; }
+  .boutiques .bt-title { font-weight: 700; color: var(--primary); margin-bottom: .3rem; }
+  .boutiques table { width: 100%; border-collapse: collapse; }
+  .boutiques td { padding: .25rem .3rem; border-top: 1px solid #eee; vertical-align: top; }
+  .boutiques td:first-child { font-weight: 600; white-space: nowrap; width: 9rem; }
   .weeknote { font-size: .82rem; color: #555; background: #eef6f1; border-left: 3px solid var(--accent); padding: .4rem .7rem; border-radius: 0 4px 4px 0; margin-bottom: 1rem; }
   .day { background: var(--card); border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.1); margin-bottom: 1rem; overflow: hidden; }
   .day-header { background: var(--primary); color: #fff; padding: .6rem 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .3rem; }
