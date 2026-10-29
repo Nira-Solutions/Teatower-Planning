@@ -79,14 +79,21 @@ def day_html(d):
 """
     stops = "".join(stop_html(s) for s in d["stops"])
     route = ""
+    # Journée qui ne finit pas à la base (salon, montage…) : 'end' = (adresse, libellé),
+    # 'off' = motif affiché sous les stops.
+    end = d.get("end")
+    head = f'arrivée {end[1]} {d.get("ret","?")}' if end else f'retour {d.get("ret","?")} OK ≤17:00'
+    off = f'  <div class="dayoff">{d["off"]}</div>\n' if d.get("off") else ""
     if d.get("addrs"):
-        chain = gmaps_chain([BASE] + d["addrs"] + [BASE])
+        chain = gmaps_chain([BASE] + d["addrs"] + [end[0] if end else BASE])
+        fin = (f'arrivée {end[1]} <strong>{d.get("ret","?")}</strong>' if end
+               else f'retour Baillonville <strong>{d.get("ret","?")}</strong> ✓ ≤17:00')
         route = (f'  <div class="dayroute"><strong>Trajet complet :</strong> ~{d.get("km","?")} km · '
-                 f'retour Baillonville <strong>{d.get("ret","?")}</strong> ✓ ≤17:00 · '
+                 f'{fin} · '
                  f'<a href="{chain}" target="_blank">🗺️ Google Maps tournée complète</a></div>\n')
     return f"""<div class="day">
-  <div class="day-header"><span>{d["h"]} — {d["sub"]}</span><span class="zone">{d["zone"]} · retour {d.get("ret","?")} OK ≤17:00</span></div>
-{stops}{route}</div>
+  <div class="day-header"><span>{d["h"]} — {d["sub"]}</span><span class="zone">{d["zone"]} · {head}</span></div>
+{stops}{route}{off}</div>
 """
 
 
