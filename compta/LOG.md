@@ -3143,3 +3143,24 @@ Envoi : tâche Windows « Teatower - Peppol differe S06651-S06652 » (02/11 18:0
 Exclues : S06380 Delhaize Visé (livraison Gilles 05/11), S06657 Hyper Carrefour Arlon (installation 04/11), S06679/S06680 Terracotta (pas encore expédiées) — TT/OUT validé ≠ reçu par le client.
 0 € laissées en draft : S06661 Terracotta, S06457 Cellmade.
 Bloquées Peppol (non facturées) : S06595 Graines de Quartier Auderghem (not_valid), S06509 Marketing Teatower (interne), particuliers sans TVA S06677/S06408 Sarah Belle, S06409 Laura Hoebeke, S06406 Borremans, S06410 Carlini, S06626 Alexandre Fiore.
+
+## 2026-10-30 - Facturation PRO livrées + Peppol
+
+`scripts/facturation_b2b_peppol.py --apply --exclude S06380,S06657,S06679,S06680`
+
+| Facture | SO | Client | TTC | Peppol |
+|---|---|---|---:|---|
+| INV/2026/05093 | S06692 | Ramaut | 417,60 | processing (partiel / 561,60 — reliquat TT/PICK/11788) |
+| INV/2026/05094 | S06688 | Restaurant Emocion | 137,80 | processing |
+| INV/2026/05095 | S06691 | Neo Gusto | 63,60 | processing |
+| INV/2026/05096 | S06689 | AD Soumagne Marvan (Delhaize affilié) | 2.063,70 | processing (partiel / 2.160,30 — reliquat TT/PICK/11787) |
+| INV/2026/05097 | S06690 | Exquando SA | 700,00 | processing (Peppol passé valid après correction EAS ; livré 30/10 11:12) |
+| INV/2026/05098 | S06686 | Le Gang Des Petits Dej | 222,60 | processing |
+| INV/2026/05099 | S06685 | Au Petit Marché | 513,81 | processing (partiel / 555,81 — reliquat TT/PICK/11784) |
+| INV/2026/05100 | S06640 | Café Ventuno | 1.073,25 | processing (partiel / 1.192,50 — reliquat TT/PICK/11779) |
+| INV/2026/05101 | S06684 | Cafés Antillia | 596,25 | processing |
+
+Total 5.788,61 € TTC. Toutes expédiées (aucune dans le planning merch S45).
+Exclues : S06380 Delhaize Visé, S06657 Hyper Carrefour Arlon (livraisons Gilles S45), S06679/S06680 Terracotta (0 €).
+0 € laissée en draft : S06457 Cellmade (DRAFT_48346).
+Bloquées Peppol (non facturées) : S06595 Graines de Quartier Auderghem (not_valid), S06509 Marketing Teatower (interne), particuliers sans TVA S06677/S06408 Sarah Belle, S06409 Laura Hoebeke, S06406 Borremans, S06410 Carlini, S06626 Alexandre Fiore.
