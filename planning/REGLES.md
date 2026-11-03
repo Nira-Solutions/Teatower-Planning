@@ -424,3 +424,15 @@ lu par `build_planning_pool.py`). **Aucune bascule ne se decide avant cette etap
 | Intermarché  Braine l'alleud | Magbraine.SA | 3116 | Nouveau gérant, Jérôme doit reprendre contact avant prochaine visite |
 | Intermarché Andenne | Distrifresh SRL | 2925 | Nouveau gérant ; magasin stop la gamme TT |
 | Intermarché Uccle | VDK FOOD RETAIL | 116724 | Voudrait qu'on reprenne la marchandise ; suivi Jérôme avant prochaine visite |
+
+---
+
+## 15. Livraison centrale Intermarché — chaque VENDREDI AVANT 10:00 (REGLE DURE, 2026-11-03)
+
+**Chaque semaine, le vendredi, 1er stop : livraison de la commande centrale Intermarché** (partner #124363, adresse de livraison #124364 « 439 - ITM Alimentaire Belgique », Rue du Colombier 9, 6041 Gosselies). Arrivée **avant 10:00** (départ 08:30, ~67 min).
+
+1. Stop `k="livr"`, badges `Centrale Intermarché` + `AVANT 10:00`, regle : passer par la LOGE DE GARDE puis livrer à la RÉCEPTION DE L'ENTREPÔT (+32 71 25 72 65).
+2. N° SO : la commande de la semaine (la centrale commande en général le lundi/mardi) — à reporter dès sa création ; colis chargé la veille.
+3. La tournée du vendredi part donc de Gosselies : construire la journée en conséquence (Hypers toujours avant 12:00).
+
+Contexte : Nicolas 03/11/2026 (« prévois le vendredi avant 10H la commande centrale Intermarché. Prévois chaque fois ça »).
