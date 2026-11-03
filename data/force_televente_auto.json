@@ -1,1 +1,26 @@
-{}
+{
+  "2924": {
+    "motif": "sans visite depuis 50j — non casé au planning",
+    "depuis": "2026-09-14",
+    "jours": 50,
+    "date_bascule": "2026-11-03",
+    "magasin": "Distri-Incourt - Delhaize Incourt",
+    "isole": false
+  },
+  "5439": {
+    "motif": "sans visite depuis 53j — non casé au planning",
+    "depuis": "2026-09-11",
+    "jours": 53,
+    "date_bascule": "2026-11-03",
+    "magasin": "Affilié 045015 - Delhaize Longdoz Médiacité",
+    "isole": false
+  },
+  "124642": {
+    "motif": "sans visite depuis 46j — non casé au planning",
+    "depuis": "2026-09-18",
+    "jours": 46,
+    "date_bascule": "2026-11-03",
+    "magasin": "Affilié 043102 - Delhaize Flémalle",
+    "isole": false
+  }
+}

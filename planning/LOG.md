@@ -321,3 +321,10 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Les 7 stops du vendredi sont retirés de la page : CM Uccle Bascule (reprise des glacés + gamme Noël), Delhaize Boondael, Delhaize Kraainem, Proxy Maransart, Intermarché Nivelles, AD Jodoigne et le dépôt boutique Waterloo.
 - S44 ne peut pas les absorber : vendredi 30 + Nivelles + Maransart → retour 17:47 ; lundi 26 (après la prison) → 3 stops seulement au lieu de 5. Consigne Nicolas : ne retirer aucun stop qui a une SO. Aucun des 6 magasins n'a de commande ouverte.
 - → Ils passent en tête de S45 (journée Bruxelles/BW), stops conservés dans `REPORT_S43_VENDREDI`. Le dépôt boutique Waterloo est fait le vendredi 30/10.
+
+## 2026-11-03 — S46 générée (09-13/11, mercredi 11/11 férié) + S45 vendredi corrigé
+- Pool Odoo 03/11 : 107 actifs, 39 OVERDUE. Slack #merchandiser lu (15/10 → 03/11) ; Heusy #7003 tagué `[VISITE 2026-11-02]`.
+- 33 stops sur 4 jours, retours 16:24 → 16:51. Détail : `planning/queue_S46_2026-11-09.md`.
+- Nouvelle règle Nicolas : livraison centrale Intermarché (Gosselies #124364) chaque VENDREDI AVANT 10:00, 1er stop.
+- S45 vendredi 06/11 refait : S06702 à 09:37 en 1er stop ; Delhaize Boondael (#5426, passé en télévente) retiré ; Jodoigne → S46. Retour 16:16.
+- check_couverture_gms --apply : 3 bascules télévente (Longdoz, Incourt, Flémalle).
