@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<title>Starter pack Single Day</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=block" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#f2b63a}
+  .scene{width:1080px;height:1350px;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse at 50% 40%,#f7c552 0%,#f0b032 60%,#e29f22 100%);
+    font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif}
+
+  /* carton */
+  .card{position:absolute;left:110px;top:95px;width:860px;height:1170px;border-radius:44px;
+    background:linear-gradient(160deg,#5fb3bf 0%,#4a9fac 45%,#3f8f9c 100%);
+    box-shadow:0 30px 50px rgba(90,50,0,.35),0 6px 12px rgba(90,50,0,.25),
+      inset 0 3px 0 rgba(255,255,255,.35),inset 0 -6px 12px rgba(0,0,0,.15)}
+  .tab{position:absolute;left:50%;top:-38px;transform:translateX(-50%);width:170px;height:70px;
+    border-radius:22px 22px 10px 10px;background:linear-gradient(180deg,#68bcc7,#4fa5b1);
+    box-shadow:0 -2px 0 rgba(255,255,255,.3) inset,0 6px 10px rgba(0,0,0,.12)}
+  .tab::after{content:"";position:absolute;left:50%;top:18px;transform:translateX(-50%);
+    width:80px;height:16px;border-radius:10px;background:#e9a72a;
+    box-shadow:inset 0 3px 5px rgba(0,0,0,.35)}
+
+  .title{position:absolute;left:0;right:0;top:34px;text-align:center;font-size:132px;line-height:1;
+    color:#f6efdc;letter-spacing:2px;
+    text-shadow:0 3px 0 #2f7682,0 6px 10px rgba(0,0,0,.25)}
+
+  /* blisters */
+  .bub{position:absolute;border-radius:34px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(235,247,247,.72),rgba(205,232,234,.62));
+    border:3px solid rgba(255,255,255,.55);
+    box-shadow:0 14px 22px rgba(0,40,50,.28),inset 0 0 0 8px rgba(255,255,255,.12),
+      inset -14px -18px 34px rgba(0,60,70,.18),inset 10px 10px 24px rgba(255,255,255,.35)}
+  .bub img,.bub .crop{position:absolute;mix-blend-mode:multiply}
+  .gloss{position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+    background:
+      linear-gradient(115deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 18%),
+      linear-gradient(115deg,rgba(255,255,255,0) 62%,rgba(255,255,255,.28) 66%,rgba(255,255,255,0) 72%),
+      linear-gradient(0deg,rgba(255,255,255,.18),rgba(255,255,255,0) 20%)}
+
+  .main{left:40px;top:200px;width:500px;height:820px}
+  .side{left:565px;width:255px;height:190px;border-radius:30px}
+
+  .crop{overflow:hidden}
+  .crop img{position:absolute;mix-blend-mode:normal}
+
+  .label{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);
+    padding:8px 38px 2px;border-radius:16px;font-size:64px;color:#2f7682;letter-spacing:2px;white-space:nowrap;
+    background:linear-gradient(180deg,#f6efdc,#e6dcc2);
+    box-shadow:0 4px 8px rgba(0,0,0,.2),inset 0 2px 0 rgba(255,255,255,.7)}
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="card">
+    <div class="tab"></div>
+    <div class="title">STARTER PACK</div>
+
+    <!-- pièce maîtresse : verre double paroi A0304 -->
+    <div class="bub main">
+      <img src="img/A0304.jpg" style="width:600px;left:-50px;top:100px;filter:saturate(1.5) brightness(1.1) contrast(1.05)">
+      <div class="gloss"></div>
+    </div>
+
+    <!-- A0271 boule à thé (recadrée sur la boule, sans l'emballage fournisseur) -->
+    <div class="bub side" style="top:200px">
+      <div class="crop" style="left:12px;top:6px;width:230px;height:178px;clip-path:circle(84px at 115px 89px)">
+        <img src="img/A0271.jpg" style="width:545px;left:-190px;top:-322px">
+      </div>
+      <div class="gloss"></div>
+    </div>
+
+    <!-- V0617 Liberté -->
+    <div class="bub side" style="top:410px">
+      <img src="img/V0617.jpg" style="width:250px;left:2px;top:-30px">
+      <div class="gloss"></div>
+    </div>
+
+    <!-- V0839 Caramel beurre salé -->
+    <div class="bub side" style="top:620px">
+      <img src="img/V0839.jpg" style="width:250px;left:2px;top:-30px">
+      <div class="gloss"></div>
+    </div>
+
+    <!-- V0841 Lacquemant liégeois -->
+    <div class="bub side" style="top:830px">
+      <img src="img/V0841.jpg" style="width:250px;left:2px;top:-30px">
+      <div class="gloss"></div>
+    </div>
+
+    <div class="label">SINGLE DAY · 11.11</div>
+  </div>
+</div>
+</body>
+</html>

@@ -6,50 +6,53 @@
 <title>Starter pack Single Day</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=block" rel="stylesheet">
 <style>
-  html,body{margin:0;padding:0;background:#f2b63a}
+  html,body{margin:0;padding:0;background:#ececec}
   .scene{width:1080px;height:1350px;position:relative;overflow:hidden;
-    background:radial-gradient(ellipse at 50% 40%,#f7c552 0%,#f0b032 60%,#e29f22 100%);
+    background:radial-gradient(ellipse at 50% 40%,#f6f6f6 0%,#e4e4e4 60%,#cfcfcf 100%);
     font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif}
 
-  /* carton */
+  /* carton noir */
   .card{position:absolute;left:110px;top:95px;width:860px;height:1170px;border-radius:44px;
-    background:linear-gradient(160deg,#5fb3bf 0%,#4a9fac 45%,#3f8f9c 100%);
-    box-shadow:0 30px 50px rgba(90,50,0,.35),0 6px 12px rgba(90,50,0,.25),
-      inset 0 3px 0 rgba(255,255,255,.35),inset 0 -6px 12px rgba(0,0,0,.15)}
+    background:linear-gradient(160deg,#2a2a2a 0%,#151515 50%,#0b0b0b 100%);
+    box-shadow:0 30px 50px rgba(0,0,0,.35),0 6px 12px rgba(0,0,0,.25),
+      inset 0 3px 0 rgba(255,255,255,.18),inset 0 -6px 12px rgba(0,0,0,.4)}
   .tab{position:absolute;left:50%;top:-38px;transform:translateX(-50%);width:170px;height:70px;
-    border-radius:22px 22px 10px 10px;background:linear-gradient(180deg,#68bcc7,#4fa5b1);
-    box-shadow:0 -2px 0 rgba(255,255,255,.3) inset,0 6px 10px rgba(0,0,0,.12)}
+    border-radius:22px 22px 10px 10px;background:linear-gradient(180deg,#333,#1a1a1a);
+    box-shadow:0 -2px 0 rgba(255,255,255,.15) inset,0 6px 10px rgba(0,0,0,.2)}
   .tab::after{content:"";position:absolute;left:50%;top:18px;transform:translateX(-50%);
-    width:80px;height:16px;border-radius:10px;background:#e9a72a;
+    width:80px;height:16px;border-radius:10px;background:#dcdcdc;
     box-shadow:inset 0 3px 5px rgba(0,0,0,.35)}
 
   .title{position:absolute;left:0;right:0;top:34px;text-align:center;font-size:132px;line-height:1;
-    color:#f6efdc;letter-spacing:2px;
-    text-shadow:0 3px 0 #2f7682,0 6px 10px rgba(0,0,0,.25)}
+    color:#fff;letter-spacing:2px;text-shadow:0 4px 0 #000,0 8px 14px rgba(0,0,0,.5)}
 
   /* blisters */
-  .bub{position:absolute;border-radius:34px;overflow:hidden;
-    background:linear-gradient(180deg,rgba(235,247,247,.72),rgba(205,232,234,.62));
-    border:3px solid rgba(255,255,255,.55);
-    box-shadow:0 14px 22px rgba(0,40,50,.28),inset 0 0 0 8px rgba(255,255,255,.12),
-      inset -14px -18px 34px rgba(0,60,70,.18),inset 10px 10px 24px rgba(255,255,255,.35)}
-  .bub img,.bub .crop{position:absolute;mix-blend-mode:multiply}
+  .bub{position:absolute;overflow:hidden;border:3px solid rgba(255,255,255,.45)}
   .gloss{position:absolute;inset:0;pointer-events:none;border-radius:inherit;
     background:
-      linear-gradient(115deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 18%),
-      linear-gradient(115deg,rgba(255,255,255,0) 62%,rgba(255,255,255,.28) 66%,rgba(255,255,255,0) 72%),
-      linear-gradient(0deg,rgba(255,255,255,.18),rgba(255,255,255,0) 20%)}
+      linear-gradient(115deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,0) 18%),
+      linear-gradient(115deg,rgba(255,255,255,0) 62%,rgba(255,255,255,.22) 66%,rgba(255,255,255,0) 72%),
+      linear-gradient(0deg,rgba(255,255,255,.14),rgba(255,255,255,0) 20%)}
 
-  .main{left:40px;top:200px;width:500px;height:820px}
-  .side{left:565px;width:255px;height:190px;border-radius:30px}
+  /* grand compartiment : logo blanc sur plastique fumé */
+  .main{left:40px;top:200px;width:460px;height:820px;border-radius:34px;
+    background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
+    box-shadow:0 14px 22px rgba(0,0,0,.5),inset 0 0 0 8px rgba(255,255,255,.05),
+      inset -14px -18px 34px rgba(0,0,0,.35),inset 10px 10px 24px rgba(255,255,255,.08)}
+  .main .logo{position:absolute;left:40px;top:225px;width:380px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6))}
 
-  .crop{overflow:hidden}
-  .crop img{position:absolute;mix-blend-mode:normal}
+  /* petits compartiments : fond clair, produits en N&B */
+  .side{left:525px;width:295px;height:152px;border-radius:26px;
+    background:linear-gradient(180deg,#f4f4f4,#dadada);
+    box-shadow:0 10px 18px rgba(0,0,0,.5),inset -10px -12px 24px rgba(0,0,0,.14),inset 8px 8px 18px rgba(255,255,255,.6)}
+  .side img,.side .crop{position:absolute;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.1)}
+  .crop{overflow:hidden;left:0;top:0;width:295px;height:152px}
+  .crop img{filter:none;mix-blend-mode:normal}
 
   .label{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);
-    padding:8px 38px 2px;border-radius:16px;font-size:64px;color:#2f7682;letter-spacing:2px;white-space:nowrap;
-    background:linear-gradient(180deg,#f6efdc,#e6dcc2);
-    box-shadow:0 4px 8px rgba(0,0,0,.2),inset 0 2px 0 rgba(255,255,255,.7)}
+    padding:8px 38px 2px;border-radius:16px;font-size:64px;color:#111;letter-spacing:2px;white-space:nowrap;
+    background:linear-gradient(180deg,#fff,#dcdcdc);
+    box-shadow:0 4px 8px rgba(0,0,0,.4),inset 0 2px 0 rgba(255,255,255,.8)}
 </style>
 </head>
 <body>
@@ -58,35 +61,41 @@
     <div class="tab"></div>
     <div class="title">STARTER PACK</div>
 
-    <!-- pièce maîtresse : verre double paroi A0304 -->
+    <!-- logo Teatower -->
     <div class="bub main">
-      <img src="img/A0304.jpg" style="width:600px;left:-50px;top:100px;filter:saturate(1.5) brightness(1.1) contrast(1.05)">
+      <img class="logo" src="img/logo_blanc.svg" alt="Teatower" style="left:60px;width:340px;top:284px">
       <div class="gloss"></div>
     </div>
 
-    <!-- A0271 boule à thé (recadrée sur la boule, sans l'emballage fournisseur) -->
+    <!-- A0304 verre double paroi -->
     <div class="bub side" style="top:200px">
-      <div class="crop" style="left:12px;top:6px;width:230px;height:178px;clip-path:circle(84px at 115px 89px)">
-        <img src="img/A0271.jpg" style="width:545px;left:-190px;top:-322px">
+      <img src="img/A0304.jpg" style="width:198px;left:44px;top:-25px">
+      <div class="gloss"></div>
+    </div>
+
+    <!-- A0271 boule à thé (recadrée sur la boule) -->
+    <div class="bub side" style="top:367px">
+      <div class="crop">
+        <img src="img/A0271.jpg" style="width:395px;left:-42px;top:-212px">
       </div>
       <div class="gloss"></div>
     </div>
 
     <!-- V0617 Liberté -->
-    <div class="bub side" style="top:410px">
-      <img src="img/V0617.jpg" style="width:250px;left:2px;top:-30px">
+    <div class="bub side" style="top:534px">
+      <img src="img/V0617.jpg" style="width:193px;left:51px;top:-18px">
       <div class="gloss"></div>
     </div>
 
     <!-- V0839 Caramel beurre salé -->
-    <div class="bub side" style="top:620px">
-      <img src="img/V0839.jpg" style="width:250px;left:2px;top:-30px">
+    <div class="bub side" style="top:701px">
+      <img src="img/V0839.jpg" style="width:193px;left:51px;top:-18px">
       <div class="gloss"></div>
     </div>
 
     <!-- V0841 Lacquemant liégeois -->
-    <div class="bub side" style="top:830px">
-      <img src="img/V0841.jpg" style="width:250px;left:2px;top:-30px">
+    <div class="bub side" style="top:868px">
+      <img src="img/V0841.jpg" style="width:193px;left:51px;top:-18px">
       <div class="gloss"></div>
     </div>
 
