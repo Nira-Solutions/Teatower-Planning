@@ -26,11 +26,12 @@ OUT = Path(__file__).resolve().parent.parent / "televente" / "index.html"
 DORMANT_THRESHOLD = 90
 DAILY = 6  # capacite Vanessa : 1h/jour @ 10 min/appel (regle Nicolas 09/06/2026)
 JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
-FERIES_BE = {
-    date(2026, 1, 1), date(2026, 4, 6), date(2026, 5, 1), date(2026, 5, 14),
-    date(2026, 5, 25), date(2026, 7, 21), date(2026, 8, 15), date(2026, 11, 1),
-    date(2026, 11, 11), date(2026, 12, 25),
-}
+JOURS_FR = JOURS + ["Samedi", "Dimanche"]
+import sys as _sys  # noqa: E402
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+# Urgences « responsable absent a la visite » -> appel le jour ouvre suivant
+# (regle 04/11/2026, cf. televente_urgences.py). Feries : source unique.
+from televente_urgences import FERIES_BE, charger as charger_urgences  # noqa: E402
 
 CSS = """
   :root { --primary:#7b2d6a; --accent:#b5179e; --warn:#e76f51; --bg:#f8f9fa; --card:#fff; --text:#212529; }
@@ -73,6 +74,12 @@ CSS = """
   .badge-impl { background:#fd7e14; color:#fff; }
   .badge-prio { background:#c1121f; color:#fff; }
   .call.prio { border-left:5px solid #c1121f; background:#fff5f5; }
+  .call.urg { border-left:6px solid #d00000; background:#ffecec; }
+  .badge-urg { background:#d00000; color:#fff; }
+  .urg-why { font-size:.84rem; color:#9d0208; font-weight:600; margin:.25rem 0 .1rem; }
+  .urg-box { background:#ffecec; border:2px solid #d00000; border-radius:8px; padding:.6rem 1rem; margin-bottom:1rem; font-size:.86rem; }
+  .urg-box h3 { color:#d00000; font-size:1rem; margin-bottom:.35rem; }
+  .urg-box li { margin:.15rem 0 .15rem 1.1rem; }
   .prio-why { font-size:.82rem; color:#c1121f; font-weight:600; margin:.2rem 0 .1rem; }
   .meta { font-size:.82rem; color:#555; margin-top:.35rem; line-height:1.5; }
   .meta strong { color:var(--text); }
@@ -166,6 +173,33 @@ def render_call(r, rank):
   </div>"""
 
 
+def render_urgence(u, rank):
+    """Carte d'appel URGENT : le merch n'a pas trouve le responsable."""
+    vis = date.fromisoformat(u["visite"])
+    who = ""
+    if u.get("contact_name"):
+        who = esc(u["contact_name"]) + (
+            f' <span style="font-weight:400">({esc(u["contact_function"])})</span>'
+            if u.get("contact_function") else "") + " — "
+    if u.get("phone") or u.get("email"):
+        contact = (f'<div class="contact-badge">{who}{esc(u.get("phone"))}'
+                   + (f' &nbsp;|&nbsp; {esc(u["email"])}' if u.get("email") else "") + "</div>")
+    else:
+        contact = '<div class="contact-badge" style="color:#c92a2a">☎️ CONTACT MANQUANT — à compléter dans Odoo</div>'
+    retard = '<span class="badge badge-retard">en retard</span>' if u.get("en_retard") else ""
+    adr = ", ".join(x for x in [u.get("street"), u.get("zip"), u.get("city")] if x)
+    return f"""
+  <div class="call urg">
+    <div class="call-header">
+      <span><span class="rank">{rank}.</span> <span class="client">{esc(u['magasin'])}</span> <span style="color:#999;font-size:.78rem">#{u['pid']}</span></span>
+      <span><span class="badge badge-urg">🚨 urgent</span>{retard}</span>
+    </div>
+    <div class="urg-why">🚨 Visite merch du {vis.strftime('%d/%m')} : responsable absent — l'appeler pour la commande / la décision.</div>
+    {contact}
+    <div class="meta">💬 « {esc(u.get('extrait'))} »<br>📍 <a href="{maps_link(u)}" target="_blank">{esc(adr)}</a></div>
+  </div>"""
+
+
 def render_contacts(rows):
     out = ['<input class="filter" id="cfilter" onkeyup="filterContacts()" placeholder="🔎 Filtrer (magasin, contact, ville, tél…)">']
     out.append(f'<p style="font-size:.82rem;color:#666;margin-bottom:.6rem">{len(rows)} magasins GMS suivis par Vanessa (pool télévente).</p>')
@@ -213,8 +247,22 @@ def main():
     today = date.fromisoformat(stamp)
     # Semaine cible : par defaut la semaine du pool ; override par argv[1] (date ISO
     # dans la semaine voulue) -> permet de generer "la semaine a venir".
+    import re
     import sys
-    anchor = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else today
+    if len(sys.argv) > 1 and sys.argv[1] == "--semaine-actuelle":
+        # Regeneration quotidienne (urgences) : on garde la semaine deja publiee.
+        anchor = today
+        try:
+            m = re.search(r"Semaine S\d+ \((\d{2})/(\d{2})–", OUT.read_text(encoding="utf-8"))
+            if m:
+                ref = date.today()
+                anchor = min((date(y, int(m.group(2)), int(m.group(1)))
+                              for y in (ref.year - 1, ref.year, ref.year + 1)),
+                             key=lambda x: abs((x - ref).days))
+        except OSError:
+            pass
+    else:
+        anchor = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else today
     mon = anchor - timedelta(days=anchor.weekday())
     fri = mon + timedelta(days=4)
     iso_week = anchor.isocalendar()[1]
@@ -252,6 +300,12 @@ def main():
     winback = sorted([r for r in due if r["overdue_days"] > DORMANT_THRESHOLD],
                      key=lambda r: (0 if r.get("priorite") else 1,
                                     -r["overdue_days"], -int(r["avg_mois"])))
+    urgences = charger_urgences(DATA / "televente_urgences.json")
+    urg_open = [u for u in urgences if u.get("statut") == "ouverte"]
+    urg_done = [u for u in urgences if u.get("statut") != "ouverte"]
+    urg_pids = {str(u["pid"]) for u in urg_open}
+    anti = [r for r in anti if r["pid"] not in urg_pids]
+    winback = [r for r in winback if r["pid"] not in urg_pids]
     for r in anti:
         r["_nrp_prev"] = r["_nrp"] is not None
     nb_impl = sum(1 for r in anti if r.get("suivi_impl"))
@@ -289,6 +343,7 @@ def main():
 
 <div class="view active" id="view-planning">
 <div class="summary">
+  <div class="summary-card" style="background:#d00000"><div class="num">{len(urg_open)}</div><div class="label">🚨 Urgences</div></div>
   <div class="summary-card"><div class="num">{len(anti)}</div><div class="label">À appeler</div></div>
   <div class="summary-card"><div class="num">{nb_impl}</div><div class="label">📍 Suivi implant.</div></div>
   <div class="summary-card"><div class="num">{len(commande_wk)}</div><div class="label">Commandé S{iso_week}</div></div>
@@ -300,9 +355,28 @@ def main():
   <strong>Issues d'appel — à saisir dans la fiche Odoo du magasin :</strong><br>
   ✅ Commande → encoder la SO.&nbsp; ❌ Refus → <code>[APPEL {today} REFUS]</code>.&nbsp; ☎️ Injoignable → <code>[APPEL {today} NRP]</code>.<br>
   📍 <strong>Suivi implantation</strong> : quand le merch pose <code>[IMPL date]</code> sur la fiche, le magasin arrive ici en appel de suivi à <strong>J+15</strong> (au lieu de 28j) — Vanessa vérifie si réassort nécessaire.<br>
+  🚨 <strong>Urgence</strong> : si le merch passe et que le <strong>responsable n'est pas là</strong> (message #merchandiser), le magasin arrive ici <strong>le jour ouvré suivant</strong>, en tête de journée (hors quota). Elle se clôture seule dès qu'une commande est encodée ou que l'appel est noté dans Odoo.<br>
   Segment : réfs ≤ 10 OU (dist &gt; 60 km ET réfs &lt; 20). Pas de mail/calendrier auto.
 </div>
 """]
+    if urg_open or urg_done:
+        items = []
+        for u in urg_open:
+            j = date.fromisoformat(u["jour"])
+            v = date.fromisoformat(u["visite"])
+            items.append(f'<li><strong>{esc(u["magasin"])}</strong> #{u["pid"]} — à appeler le '
+                         f'<strong>{JOURS_FR[j.weekday()]} {j.strftime("%d/%m")}</strong>'
+                         + (' <span class="badge badge-retard">en retard</span>' if u.get("en_retard") else "")
+                         + f' <span style="color:#666">(visite du {v.strftime("%d/%m")})</span></li>')
+        for u in urg_done:
+            items.append(f'<li style="color:#2b8a3e">✔️ {esc(u["magasin"])} — {esc(u["statut"])}</li>')
+        P.append(f'<div class="urg-box"><h3>🚨 Urgences — responsable absent à la visite ({len(urg_open)})</h3>'
+                 f'<ul>{"".join(items)}</ul></div>')
+        hors = [u for u in urg_open if not (mon <= date.fromisoformat(u["jour"]) <= fri)]
+        if hors:
+            P.append('<h2 class="section-title">🚨 Urgences à traiter (hors semaine affichée)</h2>')
+            for i, u in enumerate(sorted(hors, key=lambda u: u["jour"]), 1):
+                P.append(render_urgence(u, i))
 
     P.append(f'<h2 class="section-title">📞 Semaine S{iso_week} — {len(anti)} appels</h2>')
     if not anti:
@@ -312,10 +386,14 @@ def main():
             P.append(f'<div class="day"><div class="day-header day-ferie">{n} {d.strftime("%d/%m")} '
                      f'<span class="cnt">🚫 JOUR FÉRIÉ</span></div></div>')
             continue
-        P.append(f'<div class="day"><div class="day-header">{n} {d.strftime("%d/%m")} <span class="cnt">{len(chunk)} appels</span></div>')
-        if not chunk:
+        urg_j = [u for u in urg_open if u["jour"] == d.isoformat()]
+        cnt = f"{len(chunk)} appels" + (f" + 🚨 {len(urg_j)} urgent" if urg_j else "")
+        P.append(f'<div class="day"><div class="day-header">{n} {d.strftime("%d/%m")} <span class="cnt">{cnt}</span></div>')
+        if not chunk and not urg_j:
             P.append('<div class="call" style="color:#888">— rien à appeler ce jour —</div>')
-        for i, r in enumerate(chunk, 1):
+        for i, u in enumerate(urg_j, 1):
+            P.append(render_urgence(u, i))
+        for i, r in enumerate(chunk, len(urg_j) + 1):
             P.append(render_call(r, i))
         P.append('</div>')
 
@@ -354,7 +432,7 @@ def main():
     OUT.write_text("".join(P), encoding="utf-8")
     cap = len(open_days) * DAILY
     print(f"[+] Page S{iso_week} : {OUT}")
-    print(f"    A appeler {len(anti)} (dont {nb_impl} suivi-impl, cap {cap}) | cmd {len(commande_wk)} | "
+    print(f"    Urgences ouvertes {len(urg_open)} | A appeler {len(anti)} (dont {nb_impl} suivi-impl, cap {cap}) | cmd {len(commande_wk)} | "
           f"refus {len(refus_wk)} | NRP {len(nrp_wk)} | winback {len(winback)} | overflow {len(overflow)}")
 
 

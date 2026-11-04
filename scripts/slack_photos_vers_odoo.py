@@ -26,6 +26,10 @@ import argparse, base64, io, json, os, re, sys, time, unicodedata
 import urllib.request, urllib.parse, xmlrpc.client
 from datetime import datetime, timezone, timedelta
 
+# Urgence televente J+1 quand le responsable etait absent (regle 04/11/2026)
+from televente_urgences import detecter_absence, jour_ouvre_suivant, tag_urgence, deja_posee
+URGENCE_FENETRE_JOURS = 7   # pas d'urgence pour une visite plus ancienne (rattrapage d'historique)
+
 CHANNEL = "C08LK3W76S1"          # #merchandiser
 MAX_PX, JPEG_Q = 1600, 80
 ODOO_URL = 'https://tea-tree.odoo.com'
@@ -400,7 +404,8 @@ def main():
         passages = passages[:args.max]
     print(f"[*] {len(msgs)} message(s) -> {len(passages)} passage(s) candidat(s)\n")
 
-    ok = amb = vide = deja = compl = 0
+    ok = amb = vide = deja = compl = nb_urg = 0
+    urgence_depuis = (datetime.now() - timedelta(days=URGENCE_FENETRE_JOURS)).date()
     octets_avant = octets_apres = 0
     non_resolus = []
     limite_tag = datetime.now(timezone.utc) - timedelta(days=args.tag_visite_jours)
@@ -410,11 +415,20 @@ def main():
         if est_recap(texte):
             continue
         libelle = texte.split("\n")[0].strip(" :;-.*")
+        # Responsable absent -> urgence televente le jour ouvre suivant.
+        absence = detecter_absence(texte) if d.date() >= urgence_depuis else None
+        urgence_seule = False
         # Sans photo, seul un message qui COMMENCE par un nom de magasin et
         # porte une info terrain est un passage ; « Gilou je n'ai pas eu de
         # retour sur le Carrefour Naninne ? » est une discussion.
         if not imgs and (len(libelle.split()) > 6 or len(texte.split("\n")) < 2):
-            continue
+            if not absence:
+                continue
+            # Message d'une ligne (« Carrefour market bastogne.. pas de
+            # responsable sur place. Pas fait. ») : pas de note de visite, mais
+            # l'urgence doit partir -> on isole le nom du magasin.
+            libelle = re.split(r"\s*(?:\.\.+|[;,]|\. |\s-\s)\s*", texte.split("\n")[0])[0].strip(" :;-.*>")
+            urgence_seule = True
         r = resoudre(libelle, magasins)
         for c in args.corriger:
             cle, _, cpid = c.rpartition("=")
@@ -432,6 +446,23 @@ def main():
             # Ambigu : pas de rattachement au hasard. --corriger pour forcer.
             print(f"  ~  {d:%d/%m/%y} {libelle[:36]:36} -> #{pid} {nom[:30]} AMBIGU, ignore")
             amb += 1
+            continue
+
+        # URGENCE TELEVENTE : avant le verrou « deja importe », pour qu'un
+        # passage importe avant la regle (ou un rattrapage) la recoive aussi.
+        if absence:
+            jour = jour_ouvre_suivant(d.date())
+            cmu = call('res.partner', 'read', [[pid]], {'fields': ['comment']})[0]['comment'] or ''
+            if deja_posee(cmu, d.date()):
+                print(f"  =  {d:%d/%m/%y} {nom[:34]:34} urgence televente deja posee")
+            else:
+                print(f"  !! {d:%d/%m/%y} {nom[:34]:34} -> URGENCE TELEVENTE {jour:%d/%m} "
+                      f"(responsable absent : « {absence[:60]} »)")
+                nb_urg += 1
+                if args.apply:
+                    tag = html(tag_urgence(jour, d.date(), auteur(m, token), absence))
+                    call('res.partner', 'write', [[pid], {'comment': cmu + f"<p>{tag}</p>"}])
+        if urgence_seule:
             continue
 
         # VERROU par message : la reference Slack (ts) figure dans la note.
@@ -528,7 +559,8 @@ def main():
             ok += 1
 
     print(f"\n{ok} importee(s) | {compl} complement(s) | {deja} deja presente(s) "
-          f"| {amb} ambigue(s) ignoree(s) | {vide} non resolue(s)")
+          f"| {amb} ambigue(s) ignoree(s) | {vide} non resolue(s) "
+          f"| {nb_urg} urgence(s) televente")
     if non_resolus:
         print("Non resolues (magasin hors pools) :")
         for n in non_resolus:
