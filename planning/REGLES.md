@@ -436,3 +436,15 @@ lu par `build_planning_pool.py`). **Aucune bascule ne se decide avant cette etap
 3. La tournée du vendredi part donc de Gosselies : construire la journée en conséquence (Hypers toujours avant 12:00).
 
 Contexte : Nicolas 03/11/2026 (« prévois le vendredi avant 10H la commande centrale Intermarché. Prévois chaque fois ça »).
+
+## 16. Responsable absent à la visite merch → urgence télévente le jour ouvré suivant (REGLE DURE, 2026-11-04)
+
+Quand le merch (Gilles/Renato) poste dans **#merchandiser** que le **responsable n'était pas là** (« pas de responsable sur place », « responsable pas là / en réunion / en formation », « Madame X absente », « personne pour valider la commande »…), le magasin doit être **appelé par Vanessa le jour ouvré suivant**, quel que soit son pool (merch ou télévente).
+
+1. Détection automatique à l'import Slack de 18h (`slack_photos_vers_odoo.py` → `televente_urgences.detecter_absence`) ; tag sur la fiche : `[URGENCE TELEVENTE AAAA-MM-JJ visite AAAA-MM-JJ] …` (1re date = jour de l'appel, week-end et fériés sautés).
+2. `televente_urgences.py` → `data/televente_urgences.json` ; `build_televente_page.py` place l'urgence **en tête du jour, hors quota** des 6 appels, + encart 🚨. Le magasin est retiré de la file normale (pas de double appel).
+3. Clôture automatique : commande confirmée depuis la visite, tag `[APPEL date]`, ou note de Vanessa dans le chatter. Non traitée → badge « en retard », visible 7 jours.
+4. Ignoré : consignes conditionnelles (« si Valentin n'est pas là… ») et contraintes permanentes (« responsable jamais là le jeudi » → c'est du `[LOGISTIQUE]`).
+5. Magasin ambigu (2 magasins même commune) : relancer l'import avec `--corriger "JJ/MM|début du libellé=pid"`.
+
+Contexte : Nicolas 04/11/2026 (« si le client a été visité aujourd'hui mais le responsable n'était pas dispo, alors crée l'urgence dans le planning télévente au lendemain »).
