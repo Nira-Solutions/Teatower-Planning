@@ -15,4 +15,6 @@ Je me sens vraiment bien chez Meteora, et j'ai déjà entendu quelques amateurs 
 🎁 **-15 % sur toute votre commande** avec le code **METEORA**
 Valable sans limite sur **teatower.com** et dans nos boutiques de **Namur, Liège et Waterloo**. ✨
 
+Voilà, c'est aussi ma façon de vous donner ma petite contribution. 💜
+
 Et si vous ne savez pas par quoi commencer, écrivez-moi ici ou en MP : je vous conseille avec plaisir 😉
