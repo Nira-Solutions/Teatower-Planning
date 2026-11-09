@@ -342,3 +342,7 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 ## 2026-11-09 — Delhaize Debroux #5729 en ARRET (Nicolas)
 - Fiche Odoo : sale_warn=block + [ARRET 2026-11-09], motif non précisé. Excel Displays : statut Arret.
 - Ne plus livrer ni visiter : annule le report S47 de la visite annulée du 09/11.
+
+## 2026-11-09 — S47 vendredi 20/11 : grosse commande centrale Intermarché S06458 (Nicolas)
+- Livraison Base de Gosselies (Superlog), Rue du Colombier 9, 1er stop avant 10:00. Réservée en REGLES §15.4, date promise Odoo passée du 21/11 au 20/11.
+- 186 colis SRP + 33 displays : vérifier le chargement camionnette.

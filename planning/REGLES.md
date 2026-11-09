@@ -434,6 +434,7 @@ lu par `build_planning_pool.py`). **Aucune bascule ne se decide avant cette etap
 1. Stop `k="livr"`, badges `Centrale Intermarché` + `AVANT 10:00`, regle : passer par la LOGE DE GARDE puis livrer à la RÉCEPTION DE L'ENTREPÔT (+32 71 25 72 65).
 2. N° SO : la commande de la semaine (la centrale commande en général le lundi/mardi) — à reporter dès sa création ; colis chargé la veille.
 3. La tournée du vendredi part donc de Gosselies : construire la journée en conséquence (Hypers toujours avant 12:00).
+4. **À INSCRIRE EN S47 — vendredi 20/11/2026, 1er stop : grosse commande S06458** (réf. centrale 06437447, 186 colis SRP + 33 displays EM0106), Base de Gosselies (Superlog), Rue du Colombier 9, 6041 Gosselies. À ajouter à la main : Odoo la marque déjà livrée, la détection des commandes ouvertes ne la remontera pas. Chargement la veille, à regrouper avec la commande de la semaine.
 
 Contexte : Nicolas 03/11/2026 (« prévois le vendredi avant 10H la commande centrale Intermarché. Prévois chaque fois ça »).
 
