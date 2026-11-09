@@ -328,3 +328,8 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Nouvelle règle Nicolas : livraison centrale Intermarché (Gosselies #124364) chaque VENDREDI AVANT 10:00, 1er stop.
 - S45 vendredi 06/11 refait : S06702 à 09:37 en 1er stop ; Delhaize Boondael (#5426, passé en télévente) retiré ; Jodoigne → S46. Retour 16:16.
 - check_couverture_gms --apply : 3 bascules télévente (Longdoz, Incourt, Flémalle).
+
+## 2026-11-09 — S46 mardi 10/11 : Hyper Marche ajouté en 1er stop (Nicolas)
+- Carrefour Hyper Marche-en-Famenne (#6999) 08:36, sur demande de Nicolas ; ordre des autres stops conservé.
+- Trajet Marche → Sombreffe : tous les stops décalés de 29 min, retour 16:53 (186 km).
+- ⚠️ Hyper Wépion arrive à 12:16 (règle : avant 12:00), conséquence de l'ordre conservé. Sans objet si le dépôt boutique Namur passe après les 2 Hypers (Wépion 11:54).
