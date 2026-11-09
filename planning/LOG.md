@@ -333,3 +333,8 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Carrefour Hyper Marche-en-Famenne (#6999) 08:36, sur demande de Nicolas ; ordre des autres stops conservé.
 - Trajet Marche → Sombreffe : tous les stops décalés de 29 min, retour 16:53 (186 km).
 - ⚠️ Hyper Wépion arrive à 12:16 (règle : avant 12:00), conséquence de l'ordre conservé. Sans objet si le dépôt boutique Namur passe après les 2 Hypers (Wépion 11:54).
+
+## 2026-11-09 — S46 lundi 09/11 raccourci + S06732 (Nicolas)
+- Après la Gare Maritime, 4 visites annulées : CM Shopping Woluwe #5825, AD Roodebeek #123997, Delhaize Debroux #5729, Delhaize Forest #5752 (aucune commande ouverte) → à reprendre en S47.
+- Ajout livraison Intermarché Spy #116686 à 13:36 (aucune SO ouverte trouvée dans Odoo au 09/11). Retour 14:56.
+- Mardi 10/11 : le 1er stop Hyper Marche devient la livraison S06732 (gamme Noël + display), n° de passage via Vanessa.
