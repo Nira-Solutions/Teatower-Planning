@@ -338,3 +338,7 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Après la Gare Maritime, 4 visites annulées : CM Shopping Woluwe #5825, AD Roodebeek #123997, Delhaize Debroux #5729, Delhaize Forest #5752 (aucune commande ouverte) → à reprendre en S47.
 - Ajout livraison Intermarché Spy #116686 à 13:36 (aucune SO ouverte trouvée dans Odoo au 09/11). Retour 14:56.
 - Mardi 10/11 : le 1er stop Hyper Marche devient la livraison S06732 (gamme Noël + display), n° de passage via Vanessa.
+
+## 2026-11-09 — Delhaize Debroux #5729 en ARRET (Nicolas)
+- Fiche Odoo : sale_warn=block + [ARRET 2026-11-09], motif non précisé. Excel Displays : statut Arret.
+- Ne plus livrer ni visiter : annule le report S47 de la visite annulée du 09/11.
