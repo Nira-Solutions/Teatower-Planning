@@ -346,3 +346,10 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 ## 2026-11-09 — S47 vendredi 20/11 : grosse commande centrale Intermarché S06458 (Nicolas)
 - Livraison Base de Gosselies (Superlog), Rue du Colombier 9, 1er stop avant 10:00. Réservée en REGLES §15.4, date promise Odoo passée du 21/11 au 20/11.
 - 186 colis SRP + 33 displays : vérifier le chargement camionnette.
+
+## 2026-11-10 — Carrefour Market La Chasse #59558 en ARRET (Nicolas)
+- Rosy Dis sprl : le magasin arrête la gamme, trop chère pour sa clientèle. Fiche Odoo : sale_warn=block + [ARRET 2026-11-10]. Excel Displays : statut Arret + motif.
+- Retiré des appels de Vanessa du mardi 10/11 et des contacts télévente.
+
+## 2026-11-10 — Passages merch reprise glacés demandés par Vanessa
+- Roi Chevalier #124554, Ma Campagne #124701, Bastogne Porte de Trèves #123189, Courcelles #124365 : voir `planning/demandes_S47.md`.
