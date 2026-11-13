@@ -1,21 +1,4 @@
 {
- "generated": "2026-11-12",
- "urgences": [
-  {
-   "pid": 123189,
-   "magasin": "Carrefour Market - BASTOGNE PORTE DE TREVES - 5400102105231",
-   "jour": "2026-11-05",
-   "visite": "2026-11-04",
-   "extrait": "responsable absent (Renato) : Carrefour market bastogne.. pas de responsable sur place. Pas fait",
-   "statut": "traitée — commande S06720",
-   "en_retard": false,
-   "contact_name": "",
-   "contact_function": "",
-   "phone": "+32 61 21 00 50",
-   "email": "bastogne@orkari.be",
-   "street": "CC Porte de Trèves - Rue Gustave Delperdange 3",
-   "zip": "6600",
-   "city": "Bastogne"
-  }
- ]
+ "generated": "2026-11-13",
+ "urgences": []
 }

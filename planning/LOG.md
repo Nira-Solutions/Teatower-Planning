@@ -353,3 +353,10 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 
 ## 2026-11-10 — Passages merch reprise glacés demandés par Vanessa
 - Roi Chevalier #124554, Ma Campagne #124701, Bastogne Porte de Trèves #123189, Courcelles #124365 : voir `planning/demandes_S47.md`.
+
+## 2026-11-13 — Planning S47 (16-20/11) généré
+- Pool Odoo 13/11 : 106 actifs, 43 OVERDUE ; Slack #merchandiser lu (09/11 → 13/11). 42 stops sur 5 jours, retours 16:12 → 16:52. Détail : `planning/queue_S47_2026-11-16.md`.
+- Consignes Nicolas : dépôts boutiques Namur (mar), Waterloo (mer), Rocourt + Liège (jeu) ; centrale ITM S06458 vendredi 09:40 ; S06756 Hyper Marche mardi 1er stop ; S06758 Hyper Jambes livraison + installation mardi ; ITM Jambes mardi matin ; AD Fernelmont (demande magasin) mardi.
+- Reports S46 : journée Famenne/Luxembourg le lundi (Clavier S06724, Recogne, Wellin, Beauraing, Rochefort, Ciney, Barvaux) ; Roi Chevalier S06750 mercredi ; Hannut à repasser le matin (Ilanna) jeudi.
+- Reprises glacés (demandes_S47) : Bastogne PdT lun, Roi Chevalier + Ma Campagne mer, Courcelles ven ; + Hyper Jambes, Herstal, Spy.
+- Garde-fou pools : 1 alerte justifiée (Roi Chevalier = livraison). Télévente S47 : 20 appels, Roi Chevalier retiré.
