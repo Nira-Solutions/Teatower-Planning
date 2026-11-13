@@ -360,3 +360,5 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Reports S46 : journée Famenne/Luxembourg le lundi (Clavier S06724, Recogne, Wellin, Beauraing, Rochefort, Ciney, Barvaux) ; Roi Chevalier S06750 mercredi ; Hannut à repasser le matin (Ilanna) jeudi.
 - Reprises glacés (demandes_S47) : Bastogne PdT lun, Roi Chevalier + Ma Campagne mer, Courcelles ven ; + Hyper Jambes, Herstal, Spy.
 - Garde-fou pools : 1 alerte justifiée (Roi Chevalier = livraison). Télévente S47 : 20 appels, Roi Chevalier retiré.
+
+- 2026-11-13 : S47 mardi 17/11 — AD Fernelmont #2952 et ITM Naninne #5755 retirés (visités le 13/11 par Gilles), remplacés par ITM Floriffoux #2958 (16j OVERDUE). 8 stops, retour 15:45.
