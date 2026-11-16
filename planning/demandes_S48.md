@@ -16,3 +16,9 @@ Le vendredi 20/11 a été recentré autour de la base : après la livraison de l
 | Spar Gembloux #123297 | Passage mensuel demandé par le magasin |
 
 Une journée Hainaut / Brabant wallon / Gembloux les regroupe (Courcelles → Nivelles → Maransart → Spy → Gembloux).
+
+## Demandes ponctuelles Nicolas
+
+| Magasin | Demande | Contraintes |
+|---|---|---|
+| Affilié 044010 - Delhaize Debroux #5729 (Avenue Hermann Debroux 26, 1160 Auderghem) | **Changer le display : retirer le x16 (EM0106) et installer un x8 (EM0107)** — demande Nicolas 16/11. Charger un EM0107 dans la camionnette, ramener le x16 à l'entrepôt. Ajuster l'assortiment au format 8 références. | Fiche en `[ARRET 2026-11-09]` (sale_warn=block) : passage FORCÉ malgré le statut — ne pas le laisser filtrer par le pool. Contact : M. Da Costa (responsable rayon) / Mr Hebert / Mr Cauchies. Contrôle marchandise obligatoire, pas de réserve, pas d'appareil. |
