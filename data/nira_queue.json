@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03T10:00:00",
+  "updated": "2026-11-16T08:41:37",
   "tasks": [
     {
       "id": "h_odo_000",
@@ -3571,6 +3571,14 @@
       "started": "2026-11-03T09:00",
       "request": "lettre tout ING et BELFIUS",
       "finished": "2026-11-03T10:00"
+    },
+    {
+      "id": "t090",
+      "agent": "compta",
+      "task": "Lettrage complet ING + Belfius",
+      "status": "in_progress",
+      "started": "2026-11-16T08:41",
+      "request": "lette tout dans ING et BELFIUS"
     }
   ]
 }
