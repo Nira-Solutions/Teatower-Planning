@@ -57,6 +57,9 @@ CSS = """
   .day-header { background:var(--primary); color:#fff; padding:.6rem 1rem; font-weight:600; display:flex; justify-content:space-between; align-items:center; }
   .day-header .cnt { font-weight:400; font-size:.85rem; opacity:.85; }
   .day-ferie { background:#495057; }
+  .dispo { background:#fff; color:var(--primary); border-radius:12px; padding:2px 10px; font-size:.8rem; font-weight:700; margin-left:.5rem; white-space:nowrap; }
+  .dispo-box { background:#e8f4fd; border-left:4px solid #1971c2; padding:.6rem 1rem; margin-bottom:1rem; border-radius:0 6px 6px 0; font-size:.88rem; color:#1864ab; }
+  .dispo-box ul { display:flex; flex-wrap:wrap; gap:.3rem 1.2rem; list-style:none; margin-top:.3rem; }
   .call { padding:.6rem 1rem; border-bottom:1px solid #eee; }
   .call:last-child { border-bottom:none; }
   .call.impl { background:#fff7f0; border-left:4px solid #fd7e14; }
@@ -301,6 +304,11 @@ def main():
                      key=lambda r: (0 if r.get("priorite") else 1,
                                     -r["overdue_days"], -int(r["avg_mois"])))
     urgences = charger_urgences(DATA / "televente_urgences.json")
+    try:
+        import json as _json
+        dispo = _json.loads((DATA / "televente_dispo.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        dispo = {}
     urg_open = [u for u in urgences if u.get("statut") == "ouverte"]
     urg_done = [u for u in urgences if u.get("statut") != "ouverte"]
     urg_pids = {str(u["pid"]) for u in urg_open}
@@ -378,6 +386,11 @@ def main():
             for i, u in enumerate(sorted(hors, key=lambda u: u["jour"]), 1):
                 P.append(render_urgence(u, i))
 
+    dispo_wk = [(n, d, dispo[d.isoformat()]) for n, d in work_days if d.isoformat() in dispo]
+    if dispo_wk:
+        P.append('<div class="dispo-box"><strong>🕐 Disponibilités de Vanessa cette semaine</strong><ul>'
+                 + "".join(f'<li><strong>{n} {d.strftime("%d/%m")}</strong> : {esc(h)}</li>' for n, d, h in dispo_wk)
+                 + '</ul></div>')
     P.append(f'<h2 class="section-title">📞 Semaine S{iso_week} — {len(anti)} appels</h2>')
     if not anti:
         P.append('<div class="alert">Aucun magasin dû cette semaine 🎉 — piocher dans le win-back.</div>')
@@ -388,7 +401,8 @@ def main():
             continue
         urg_j = [u for u in urg_open if u["jour"] == d.isoformat()]
         cnt = f"{len(chunk)} appels" + (f" + 🚨 {len(urg_j)} urgent" if urg_j else "")
-        P.append(f'<div class="day"><div class="day-header">{n} {d.strftime("%d/%m")} <span class="cnt">{cnt}</span></div>')
+        dsp = (f' <span class="dispo">🕐 {esc(dispo[d.isoformat()])}</span>' if d.isoformat() in dispo else "")
+        P.append(f'<div class="day"><div class="day-header"><span>{n} {d.strftime("%d/%m")}{dsp}</span> <span class="cnt">{cnt}</span></div>')
         if not chunk and not urg_j:
             P.append('<div class="call" style="color:#888">— rien à appeler ce jour —</div>')
         for i, u in enumerate(urg_j, 1):
