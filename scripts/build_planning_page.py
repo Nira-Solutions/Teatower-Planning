@@ -88,12 +88,16 @@ def day_html(d):
     # Journée qui ne finit pas à la base (salon, montage…) : 'end' = (adresse, libellé),
     # 'off' = motif affiché sous les stops.
     end = d.get("end")
-    head = f'arrivée {end[1]} {d.get("ret","?")}' if end else f'retour {d.get("ret","?")} OK ≤17:00'
+    lim = d.get("lim", "17:00")  # 15:30 dès S49 : camionnette à Marvin (boutiques, fin de journée)
+    head = f'arrivée {end[1]} {d.get("ret","?")}' if end else f'retour {d.get("ret","?")} OK ≤{lim}'
     off = f'  <div class="dayoff">{d["off"]}</div>\n' if d.get("off") else ""
+    if d.get("evening"):
+        off += (f'  <div class="dayoff" style="background:#eef2ff;border-left:4px solid #4c6ef5;'
+                f'color:#364fc7">{d["evening"]}</div>\n')
     if d.get("addrs"):
         chain = gmaps_chain([BASE] + d["addrs"] + [end[0] if end else BASE])
         fin = (f'arrivée {end[1]} <strong>{d.get("ret","?")}</strong>' if end
-               else f'retour Baillonville <strong>{d.get("ret","?")}</strong> ✓ ≤17:00')
+               else f'retour Baillonville <strong>{d.get("ret","?")}</strong> ✓ ≤{lim}')
         route = (f'  <div class="dayroute"><strong>Trajet complet :</strong> ~{d.get("km","?")} km · '
                  f'{fin} · '
                  f'<a href="{chain}" target="_blank">🗺️ Google Maps tournée complète</a></div>\n')
@@ -123,7 +127,8 @@ def boutiques_html(w):
                     prep -= timedelta(days=1)
                 cells.append(f'livré par Gilles le <strong>{d["h"]}</strong> → préparer le '
                              f'<strong>{JOURS[prep.weekday()]} {prep:%d/%m}</strong>')
-        txt = " · ".join(cells) if cells else '📮 <strong>Expédition via BPOST</strong>'
+        txt = (" · ".join(cells) if cells
+               else w.get("bt_txt", {}).get(b) or '📮 <strong>Expédition via BPOST</strong>')
         rows.append(f'<tr><td>Boutique {b}</td><td>{txt}</td></tr>')
     return ('<div class="boutiques"><div class="bt-title">📦 Boutiques Teatower — préparation des colis</div>'
             f'<table>{"".join(rows)}</table></div>\n')
