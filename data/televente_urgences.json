@@ -1,4 +1,21 @@
 {
- "generated": "2026-11-15",
- "urgences": []
+ "generated": "2026-11-16",
+ "urgences": [
+  {
+   "pid": 3000,
+   "magasin": "JAMBIS SA - Intermarché Jambes",
+   "jour": "2026-11-12",
+   "visite": "2026-11-10",
+   "extrait": "responsable absent (Gilles) : Pas de responsable présent",
+   "statut": "ouverte",
+   "en_retard": true,
+   "contact_name": "Faustine",
+   "contact_function": "",
+   "phone": "081306878",
+   "email": "pdv09845@mousquetaires.com",
+   "street": "rue de la Poudrière, 14",
+   "zip": "5100",
+   "city": "JAMBES"
+  }
+ ]
 }
