@@ -37,6 +37,8 @@ def stop_html(s):
         badges += '<span class="badge badge-implantation">Implantation</span>'
     elif kind == "livr":
         badges += '<span class="badge" style="background:#0d6efd;color:#fff;">Livraison</span>'
+    elif kind == "base":
+        badges += '<span class="badge" style="background:#6c757d;color:#fff;">Retour entrepôt</span>'
     else:
         badges += '<span class="badge badge-visite">Visite</span>'
     for b in s.get("b", []):

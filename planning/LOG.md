@@ -362,3 +362,5 @@ servies dans la semaine**. Pool relancé (`build_planning_pool.py` du 19/09 : 18
 - Garde-fou pools : 1 alerte justifiée (Roi Chevalier = livraison). Télévente S47 : 20 appels, Roi Chevalier retiré.
 
 - 2026-11-13 : S47 mardi 17/11 — AD Fernelmont #2952 et ITM Naninne #5755 retirés (visités le 13/11 par Gilles), remplacés par ITM Floriffoux #2958 (16j OVERDUE). 8 stops, retour 15:45.
+
+- 2026-11-16 : S47 vendredi 20/11 revu (Nicolas) — après la centrale ITM Gosselies S06458, camionnette vide → retour entrepôt 12:02 + chargement 30 min, puis CM Marche #3120, CM Hotton #2979, Delhaize Hotton #119819, CM Barvaux #2811, Proxy Saint-Séverin #113445 (7j OVERDUE). Retour 16:54, 255 km. Courcelles, Nivelles, Maransart, Spy, ITM + Spar Gembloux reportés en S48 (demandes_S48.md). Nouveau type de stop « base » (retour entrepôt) dans build_planning_page.py.
