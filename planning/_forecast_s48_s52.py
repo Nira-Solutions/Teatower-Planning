@@ -83,7 +83,7 @@ WEEKS = [
     ("s51", date(2026, 12, 14), M("15:30")),
     ("s52", date(2026, 12, 21), M("15:30")),
 ]
-FERIES = {date(2026, 12, 25)}
+FERIES = {date(2026, 12, 25), date(2026, 12, 9)}  # 09/12 : journee annulee, personne de dispo (Nicolas 17/11)
 
 # visites S47 planifiées (non encore faites) = dernière visite à leur date (§10)
 S47 = {}
