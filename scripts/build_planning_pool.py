@@ -128,6 +128,7 @@ CADENCE_OVERRIDE_PID = {
     123297: 30,  # Spar Gembloux (fiche livraison Pascal Gilson) : passage mensuel demandé par le magasin (Nicolas 14/08/2026)
     123346: 30,  # Gemblouxim - Intermarché Gembloux : passage mensuel demandé par le magasin (Nicolas 13/10/2026)
     128635: 30,  # Affilié 043380 - Delhaize Frasnes-lez-Gosselies : passage mensuel demandé par le magasin (Nicolas 21/10/2026)
+    2952: 21,    # AD Delhaize Fernelmont : REGLE DURE §17 — passage au plus tard tous les 21j, sinon le magasin arrête (Nicolas 17/11/2026)
 }
 
 

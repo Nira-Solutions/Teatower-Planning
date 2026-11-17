@@ -197,6 +197,7 @@ Sans le responsable, la visite perd 50 a 80 % de sa valeur. Le merchandiser fait
 | Distriparenthese - Intermarche Gosselies (6041) | 2927 | C | 50j (Tier C) | **28j (4 semaines)** | Nicolas 2026-04-20 |
 | Lambertdis SRL - Spar Manhay (televente) | 122944 | B | 28j | **25j** (espacer les reassorts) | Nicolas 2026-06-10 |
 | Affilie 043380 - Delhaize Frasnes-lez-Gosselies (merch force, lun/mer 11h-14h) | 128635 | - | Tier | **30j (passage mensuel demande par le magasin)** | Nicolas 2026-10-21 |
+| AD Delhaize Fernelmont (Fernel-Dis SRL, mar/ven >= 13:20) | 2952 | - | Tier | **21j MAXIMUM — REGLE DURE §17** | Nicolas 2026-11-17 |
 
 ### Application
 
@@ -449,3 +450,14 @@ Quand le merch (Gilles/Renato) poste dans **#merchandiser** que le **responsable
 5. Magasin ambigu (2 magasins même commune) : relancer l'import avec `--corriger "JJ/MM|début du libellé=pid"`.
 
 Contexte : Nicolas 04/11/2026 (« si le client a été visité aujourd'hui mais le responsable n'était pas dispo, alors crée l'urgence dans le planning télévente au lendemain »).
+
+## 17. AD Delhaize Fernelmont — passage au plus tard tous les 21 jours (REGLE DURE, 2026-11-17)
+
+**AD Delhaize Fernelmont (Fernel-Dis SRL, Odoo #2952) IMPOSE un passage merch toutes les 3 semaines. Au-delà, le magasin arrête la collaboration** (le dernier intervalle a été jugé trop long). Règle à ne JAMAIS déroger.
+
+1. Écart maximum entre deux visites = **21 jours calendrier** (visite au plus tard à J+21 de la précédente, jamais après). Si la date tombe un jour impossible (férié, journée annulée, hors créneau), on avance la visite, on ne la recule jamais.
+2. Créneau du magasin : **mardi ou vendredi, à partir de 13:20** (contrainte inchangée).
+3. Priorité absolue dans tout planning (hebdo et prévisionnel) : passe avant les remplissages et ne peut jamais être retiré pour faire de la place, ni reporté. Seuls la centrale Intermarché du vendredi (§15) et les reprises forcées le précèdent dans l'ordre de construction.
+4. Code : `CADENCE_OVERRIDE_PID[2952] = 21` dans `scripts/build_planning_pool.py` ; `HARD_CYCLE` dans `planning/_forecast_s48_s52.py` (visite placée au plus tard le jour d'échéance ; alerte `[!!!] REGLE DURE §17` si non placée).
+5. Contrôle à chaque génération : date de la dernière visite (Slack #merchandiser + SO) + 21 j ≥ date de la prochaine visite planifiée.
+

@@ -64,6 +64,8 @@ CONSTR = {
 }
 for p in ("124424", "7760", "125096", "6597", "9046", "113746"):
     CONSTR.setdefault(p, {})["latest"] = HYPER_LATEST
+# REGLE DURE §17 : écart maximum entre deux visites (jours), placé au plus tard le jour d'échéance
+HARD_CYCLE = {"2952": 21}  # AD Delhaize Fernelmont — sinon le magasin arrête (Nicolas 17/11/2026)
 EXCLUDE = {"124364", "7070"}  # centrale (stop fixe vendredi) ; compte de facturation sans magasin
 
 def window(pid, wd):
@@ -132,6 +134,8 @@ def main():
     for p, d in S47.items():
         if p in last: last[p] = max(last[p], d)
     cycle = {p: int(r["cycle_days"]) for p, r in pool.items()}
+    for p, c in HARD_CYCLE.items():
+        if p in cycle: cycle[p] = c
     tier = {p: r["tier"] for p, r in pool.items()}
     # forcés S48 (reports du 20/11) : reprises glacés promises
     forced = {"s48": {"124365": "Reprise des thés glacés (demande Vanessa 10/11, reportée du 20/11) — compter, photo, noter sur le bon. Vérifier la réception de S06721.",
@@ -153,6 +157,18 @@ def main():
                 cands[p] = 100 - (dd - fri).days        # remplissage (avance <= 10 j)
         for p in forced.get(wid, {}):
             cands[p] = 5000
+        # REGLE DURE §17 : visite obligatoire au plus tard à l'échéance (jamais après)
+        saved_constr = {}
+        for p in HARD_CYCLE:
+            if p not in pool: continue
+            dd = due(p)
+            if dd <= fri + timedelta(days=3):
+                cands[p] = 4500
+                base = CONSTR.get(p, {})
+                ok = {d.weekday() for d in days if d <= dd and d.weekday() in base.get("days", ALL)}
+                if ok:
+                    saved_constr[p] = CONSTR.get(p)
+                    CONSTR[p] = dict(base, days=ok)
         cands["TT_WATERLOO"] = 3000
         plans = {}
         remaining = dict(cands)
@@ -197,6 +213,12 @@ def main():
                 plans[d] = r2
                 remaining.pop(p)
                 if q: remaining[q] = cands[q]
+        for p in HARD_CYCLE:
+            if p in remaining:
+                print(f"  [!!!] REGLE DURE §17 : {p} non placé en {wid} (échéance {due(p)}) — À CORRIGER À LA MAIN")
+        for p, c in saved_constr.items():
+            if c is None: CONSTR.pop(p, None)
+            else: CONSTR[p] = c
         # Waterloo obligatoire : si pas placé, forcer dans le jour le moins coûteux
         if "TT_WATERLOO" in remaining:
             print(f"  [!] {wid} Waterloo non placé")

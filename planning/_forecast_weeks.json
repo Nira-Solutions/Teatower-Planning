@@ -906,19 +906,25 @@
        761
       ],
       [
-       "7693",
-       856,
-       881
+       "2952",
+       829,
+       854
       ]
      ],
-     "ret": 914,
+     "ret": 909,
      "lunch": [
       761,
       791
      ]
     }
    ],
-   "missed": [],
+   "missed": [
+    [
+     "7693",
+     "SA Marer - AD Rochefort (cédé à Fernelmont §17, à replacer)",
+     0
+    ]
+   ],
    "forced": {}
   },
   {
