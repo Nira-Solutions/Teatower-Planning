@@ -87,6 +87,15 @@ GMS_NAME_TOKENS = [
 # Noel/Halloween (Jerome, Slack 09/10/2026) -> suivi Gilles.
 EXTRA_MERCH_PIDS = {59928}
 
+# MAINTIEN MERCH SANS SO RECENTE (Nicolas 17/11/2026) : magasins suivis par Gilles
+# meme si leur derniere SO sort de la fenetre de 12 mois (commande via centrale,
+# visites "pas besoin de remplir"...). Sans cette liste ils disparaissent du pool
+# des que la derniere SO a plus d'un an -> plus jamais planifies, sans alerte.
+# 8339 Carrefour Market Braine-l'Alleud : derniere SO S04147 06/11/2025, derniere
+#      visite Gilles 05/03/2026 (Slack), classe televente puis sorti du pool le
+#      16/11/2026 -> remis en merch (Nicolas 17/11/2026).
+KEEP_MERCH_PIDS = {8339}
+
 # COMMANDE VIA PLATEFORME (EDI Carrefour) : ni appel ni visite, traite comme
 # [NO-MERCH]. Garder aligne avec PLATEFORME_PIDS dans build_televente_pool.py.
 PLATEFORME_PIDS = {
@@ -126,6 +135,7 @@ CADENCE_OVERRIDE_PID = {
     8779: 30,    # Affilié 044780 - Proxy Delhaize Le Beau Rivage : cadence 30j (Nicolas 24/06/2026)
     123144: 15,  # Affilié 040490 - Delhaize Ath : merch permanent, cadence 15j (Nicolas 28/06/2026)
     123297: 30,  # Spar Gembloux (fiche livraison Pascal Gilson) : passage mensuel demandé par le magasin (Nicolas 14/08/2026)
+    8339: 42,    # Carrefour Market Braine-l'Alleud : remis en merch, cadence Tier C 42j meme sans SO 12m (Nicolas 17/11/2026)
     123346: 30,  # Gemblouxim - Intermarché Gembloux : passage mensuel demandé par le magasin (Nicolas 13/10/2026)
     128635: 30,  # Affilié 043380 - Delhaize Frasnes-lez-Gosselies : passage mensuel demandé par le magasin (Nicolas 21/10/2026)
     2952: 21,    # AD Delhaize Fernelmont : REGLE DURE §17 — passage au plus tard tous les 21j, sinon le magasin arrête (Nicolas 17/11/2026)
@@ -446,6 +456,32 @@ def main():
         # so_count/total_untaxed/last_so_date restent à 0/None — c'est juste qu'ils
         # n'ont pas de SO sur la fenêtre, mais ils existent
 
+    # 4ter) KEEP_MERCH_PIDS : maintenus dans le pool meme sans SO sur la fenetre
+    keep_missing = [k for k in KEEP_MERCH_PIDS if k not in store_agg]
+    if keep_missing:
+        for kp in models.execute_kw(DB, uid, PASSWORD, "res.partner", "read", [keep_missing],
+                {"fields": ["id", "name", "parent_id", "street", "city", "zip", "phone", "mobile",
+                            "email", "comment", "sale_warn", "category_id"]}):
+            old = models.execute_kw(DB, uid, PASSWORD, "sale.order", "search_read",
+                [[("state", "in", ["sale", "done"]), "|", ("partner_shipping_id", "=", kp["id"]),
+                  ("partner_id", "=", kp["id"])]],
+                {"fields": ["date_order", "partner_id"], "order": "date_order desc", "limit": 1})
+            rec = store_agg[kp["id"]]
+            rec["store_pid"] = kp["id"]
+            rec["store_name"] = kp.get("name") or ""
+            rec["billing_partner"] = old[0]["partner_id"][1] if old and old[0]["partner_id"] else ""
+            rec["city"] = kp.get("city") or ""; rec["zip"] = kp.get("zip") or ""
+            rec["street"] = kp.get("street") or ""
+            rec["phone"] = kp.get("phone") or kp.get("mobile") or ""
+            rec["email"] = kp.get("email") or ""
+            rec["comment"] = kp.get("comment") or ""
+            rec["sale_warn"] = kp.get("sale_warn") or "no-message"
+            rec["parent_name"] = kp["parent_id"][1] if kp.get("parent_id") else ""
+            rec["categories"] = kp.get("category_id") or []
+            if old:
+                rec["last_so_date"] = rec["first_so_date"] = date.fromisoformat(old[0]["date_order"][:10])
+        print(f"    {len(keep_missing)} magasin(s) KEEP_MERCH sans SO 12m reintegre(s)")
+
     # 5) Dernière "visite réassort" = dernier picking done par store_pid
     last_picking = {}
     for pk in pickings:
@@ -475,7 +511,7 @@ def main():
             statut = "Arret"
         elif has_no_merch_tag(r["comment"]) or pid in PLATEFORME_PIDS:
             statut = "NoMerch"  # commande en autonomie — exclu des visites/implantations
-        elif pid in televente_pids:
+        elif pid in televente_pids and pid not in KEEP_MERCH_PIDS:
             statut = "Televente"  # suivi par Vanessa (appels) — exclu des visites Gilles
         else:
             statut = "Actif"

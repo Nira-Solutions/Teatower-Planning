@@ -61,6 +61,8 @@ FORCE_MERCH_PIDS = {
     # Les 4 pharmacies Tilman ont ete RETIREES le 17/09/2026 : elles repassent en
     # televente (cf. EXTRA_TELEVENTE_PIDS). La camionnette ne porte pas tout
     # l'assortiment pharmacie, donc la visite merch ne sert pas la commande.
+    8339,         # Carrefour Market Braine-l'Alleud : remis en visite merch (Nicolas 17/11/2026),
+                  # cf. KEEP_MERCH_PIDS dans build_planning_pool.py.
     124424,       # Hyper Carrefour Kraainem : ne veut rien faire par telephone,
                   # passage merch demande (Nicolas 08/10/2026).
     114763,       # Lillodis SRL - Proxy Delhaize Lillois : le magasin ne veut PAS de suivi
