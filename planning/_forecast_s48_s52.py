@@ -98,10 +98,15 @@ def load_s47():
             m = re.search(r"#(\d+)\)", s["n"])
             if m: S47[m.group(1)] = mon + timedelta(days=i)
 
+BOUTIQUES_TT = {"TT_WATERLOO"}
+
 def schedule(route, wd, limit, start_key="BASE", t0=M("08:30"), fixed_first=None):
     """route = liste de (key, service_min). Renvoie (stops[(key,arr,dep)], retour, lunch) ou None."""
     t, cur, out, lunch = t0, start_key, [], None
     seq = ([fixed_first] if fixed_first else []) + route
+    # REGLE DURE §18 : boutique Teatower en 1er stop, au pire 2ème (Nicolas 19/11/2026)
+    if any(k in BOUTIQUES_TT and i > 1 for i, (k, _) in enumerate(seq)):
+        return None
     for i, (k, svc) in enumerate(seq):
         t += tt(cur, k)
         if fixed_first and i == 0:

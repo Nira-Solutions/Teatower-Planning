@@ -466,3 +466,15 @@ Contexte : Nicolas 04/11/2026 (« si le client a été visité aujourd'hui mais 
 4. Code : `CADENCE_OVERRIDE_PID[2952] = 21` dans `scripts/build_planning_pool.py` ; `HARD_CYCLE` dans `planning/_forecast_s48_s52.py` (visite placée au plus tard le jour d'échéance ; alerte `[!!!] REGLE DURE §17` si non placée).
 5. Contrôle à chaque génération : date de la dernière visite (Slack #merchandiser + SO) + 21 j ≥ date de la prochaine visite planifiée.
 
+
+---
+
+## 18. Boutiques Teatower — 1er stop, au pire 2ème (REGLE DURE, 2026-11-19)
+
+**Tout passage dans une boutique Teatower (Waterloo, Namur, Liège, Rocourt) dans la tournée de Gilles est placé en 1er stop, au pire en 2ème. Jamais plus loin.** (Nicolas 19/11/2026)
+
+1. Le vendredi, la centrale Intermarché (§15) reste le 1er stop → la boutique Waterloo est le **2ème** (Gosselies → Waterloo ≈ 35 min, arrivée ~10:58, la boutique ouvre à 10:00).
+2. Les autres jours, boutique en 1er stop, mais l'arrivée doit respecter l'ouverture (Waterloo 10:00) : si un départ 08:30 la fait arriver trop tôt, mettre un magasin proche en 1er et la boutique en 2ème.
+3. Si l'ordre imposé fait déborder la journée (retour > limite), on retire un remplissage, jamais le dépôt boutique.
+4. Rappels : jamais de dépôt le lundi (§13) ; Namur / Liège / Rocourt sont livrés en fin de journée par Marvin dès S49 (hors tournée Gilles, non concernés).
+5. Code : `planning/_forecast_s48_s52.py` force `TT_WATERLOO` en position 1-2 lors de la construction des journées.
