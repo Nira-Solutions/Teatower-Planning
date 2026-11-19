@@ -100,6 +100,8 @@ KEEP_MERCH_PIDS = {8339}
 # [NO-MERCH]. Garder aligne avec PLATEFORME_PIDS dans build_televente_pool.py.
 PLATEFORME_PIDS = {
     6598,  # Carrefour Market Boondael - 5400102101172 (Nicolas 28/10/2026)
+    124363,  # Centrale Intermarché (facturation, 439 - ITM Alimentaire Belgique) : ni merch ni télévente — livrée le vendredi en stop fixe REGLES §15 (Nicolas 19/11/2026)
+    124364,  # Centrale Intermarché — adresse de livraison Gosselies / Superlog : idem (Nicolas 19/11/2026)
 }
 
 TIER_RULES = [

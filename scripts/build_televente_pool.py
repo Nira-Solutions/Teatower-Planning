@@ -110,6 +110,8 @@ FORCE_TELEVENTE_PIDS |= EXTRA_TELEVENTE_PIDS
 # garder aligne), sinon l'exclusivite les renverrait dans les visites de Gilles.
 PLATEFORME_PIDS = {
     6598,  # Carrefour Market Boondael - 5400102101172 (Ixelles) (Nicolas 28/10/2026)
+    124363,  # Centrale Intermarché (facturation, 439 - ITM Alimentaire Belgique) : ni merch ni télévente — livrée le vendredi en stop fixe REGLES §15 (Nicolas 19/11/2026)
+    124364,  # Centrale Intermarché — adresse de livraison Gosselies / Superlog : idem (Nicolas 19/11/2026)
 }
 
 # PRIORITE (REGLES §13) : magasins a ne PAS louper. Ils remontent en tete de la

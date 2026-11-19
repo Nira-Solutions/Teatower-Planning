@@ -433,6 +433,8 @@ lu par `build_planning_pool.py`). **Aucune bascule ne se decide avant cette etap
 
 **Chaque semaine, le vendredi, 1er stop : livraison de la commande centrale Intermarché** (partner #124363, adresse de livraison #124364 « 439 - ITM Alimentaire Belgique », Rue du Colombier 9, 6041 Gosselies). Arrivée **avant 10:00** (départ 08:30, ~67 min).
 
+**Hors pools (Nicolas 19/11/2026)** : la centrale (#124363 et #124364) n’est **ni dans le pool merchandiser ni dans le pool télévente** (`PLATEFORME_PIDS` dans `build_planning_pool.py` ET `build_televente_pool.py`). Elle n’apparaît que comme stop fixe de livraison du vendredi.
+
 1. Stop `k="livr"`, badges `Centrale Intermarché` + `AVANT 10:00`, regle : passer par la LOGE DE GARDE puis livrer à la RÉCEPTION DE L'ENTREPÔT (+32 71 25 72 65).
 2. N° SO : la commande de la semaine (la centrale commande en général le lundi/mardi) — à reporter dès sa création ; colis chargé la veille.
 3. La tournée du vendredi part donc de Gosselies : construire la journée en conséquence (Hypers toujours avant 12:00).
