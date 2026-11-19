@@ -198,6 +198,7 @@ Sans le responsable, la visite perd 50 a 80 % de sa valeur. Le merchandiser fait
 | Lambertdis SRL - Spar Manhay (televente) | 122944 | B | 28j | **25j** (espacer les reassorts) | Nicolas 2026-06-10 |
 | Affilie 043380 - Delhaize Frasnes-lez-Gosselies (merch force, lun/mer 11h-14h) | 128635 | - | Tier | **30j (passage mensuel demande par le magasin)** | Nicolas 2026-10-21 |
 | AD Delhaize Fernelmont (Fernel-Dis SRL, mar/ven >= 13:20) | 2952 | - | Tier | **21j MAXIMUM — REGLE DURE §17** | Nicolas 2026-11-17 |
+| INTERMADIS SA - Intermarche Hannut (matin uniquement, jamais le mercredi) | 121874 | A | 21j (Tier A) | **14j (passage toutes les 2 semaines demande par le magasin)** | Gilles 2026-11-19 / Nicolas 2026-11-19 |
 
 ### Application
 

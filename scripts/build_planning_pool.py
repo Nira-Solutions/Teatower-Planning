@@ -139,6 +139,7 @@ CADENCE_OVERRIDE_PID = {
     123346: 30,  # Gemblouxim - Intermarché Gembloux : passage mensuel demandé par le magasin (Nicolas 13/10/2026)
     128635: 30,  # Affilié 043380 - Delhaize Frasnes-lez-Gosselies : passage mensuel demandé par le magasin (Nicolas 21/10/2026)
     2952: 21,    # AD Delhaize Fernelmont : REGLE DURE §17 — passage au plus tard tous les 21j, sinon le magasin arrête (Nicolas 17/11/2026)
+    121874: 14,  # INTERMADIS SA - Intermarché Hannut : passage toutes les 2 semaines demandé par le magasin (Gilles 19/11, Nicolas 19/11/2026) — MATIN, jamais le mercredi
 }
 
 
