@@ -16,6 +16,38 @@
    "street": "rue de la Poudrière, 14",
    "zip": "5100",
    "city": "JAMBES"
+  },
+  {
+   "pid": 124701,
+   "magasin": "Affilié 045070 - Proxy Delhaize Ma Campagne",
+   "jour": "2026-11-19",
+   "visite": "2026-11-18",
+   "extrait": "responsable absent (Renato) : Delhaize ma campagne ; responsable pas présent personne pour prendre de décision et n'ont pas pu me dire si la commande était la ! Demande de repasser",
+   "statut": "ouverte",
+   "en_retard": false,
+   "contact_name": "",
+   "contact_function": "",
+   "phone": "+32 2 514 66 48",
+   "email": "david.ficette@gmail.com",
+   "street": "Chaussée de Waterloo 412G",
+   "zip": "1050",
+   "city": "Ixelles"
+  },
+  {
+   "pid": 5580,
+   "magasin": false,
+   "jour": "2026-11-20",
+   "visite": "2026-11-19",
+   "extrait": "responsable absent (Gilles) : Passage pas possible , responsable pas la",
+   "statut": "ouverte",
+   "en_retard": false,
+   "contact_name": "",
+   "contact_function": "",
+   "phone": "",
+   "email": "g.harvie@gimalex.be",
+   "street": "Rue de Fragnée, 41",
+   "zip": "4000",
+   "city": "Liège"
   }
  ]
 }
