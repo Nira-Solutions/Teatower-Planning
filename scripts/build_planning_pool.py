@@ -102,6 +102,7 @@ PLATEFORME_PIDS = {
     6598,  # Carrefour Market Boondael - 5400102101172 (Nicolas 28/10/2026)
     124363,  # Centrale Intermarché (facturation, 439 - ITM Alimentaire Belgique) : ni merch ni télévente — livrée le vendredi en stop fixe REGLES §15 (Nicolas 19/11/2026)
     124364,  # Centrale Intermarché — adresse de livraison Gosselies / Superlog : idem (Nicolas 19/11/2026)
+    2927,  # Distriparenthèse - Intermarché Gosselies : commande via la centrale Intermarché -> retiré de la télévente (Nicolas 19/11/2026)
 }
 
 TIER_RULES = [
