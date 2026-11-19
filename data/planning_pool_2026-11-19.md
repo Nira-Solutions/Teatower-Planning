@@ -5,7 +5,7 @@
   - Arret  : 30
   - NoMerch (commande seul, hors planning) : 12
   - Televente (suivi Vanessa, hors visites Gilles) : 35
-- **OVERDUE Actifs** (next_visit < 2026-11-19) : 39
+- **OVERDUE Actifs** (next_visit < 2026-11-19) : 34
 
 ## OVERDUE — par retard décroissant
 
@@ -20,15 +20,10 @@
 | B | **24j** | Carrefour market LONTZEN (#113675) | Rue Mitoyenne B, 910, 4710 Lontzen | 28j | 06/08/2026 (105j) | 2026-09-28 | comment_tag | 2026-10-26 | 131€ |
 | C | **23j** | Carrefour market Angleur (Belle-Ile) - 5400102102544 (#121196) | Quai des Vennes, 1, 4020 Liège | 42j | 05/08/2026 (106j) | 2026-09-15 | comment_tag | 2026-10-27 | 92€ |
 | B | **22j** | TOLODIS sa - Intermarché Floriffoux (#2958) | Rue Emerée 4, 5150 Floriffoux | 28j | 30/09/2026 (50j) | 2026-09-30 | picking | 2026-10-28 | 241€ |
-| B | **22j** | Affilié 040299 - Delhaize Andenne (#115578) | Av. Roi Albert 135A, 5300 Andenne | 28j | 30/09/2026 (50j) | 2026-09-30 | picking | 2026-10-28 | 105€ |
-| B | **21j** | CARREFOUR MARKET SHOPPING WOLUWE 1875  - Wdistri.SA (#5825) | Rue Saint-Lambert 202,  Woluwe-saint-Lambert | 28j | 01/10/2026 (49j) | 2026-10-01 | picking | 2026-10-29 | 155€ |
 | C | **21j** | Affilié 044780 - Proxy Delhaize Le Beau Rivage (#8779) | Quai de Meuse 1/1, 5500 Dinant | 30j | 17/02/2026 (275j) | 2026-09-29 | comment_tag | 2026-10-29 | 35€ |
 | B | **19j** | Affilié 044471 - Delhaize Materne (#113498) | Av. du Bourgmestre Jean Materne 109, 5100 Namur | 30j | 23/09/2026 (57j) | 2026-10-01 | comment_tag | 2026-10-31 | 151€ |
-| B | **17j** | DFH Market - Intermarché Liège Cointe (#121194) | Bd Gustave Kleyer 3, 4000 Liège | 28j | 15/09/2026 (65j) | 2026-10-05 | comment_tag | 2026-11-02 | 272€ |
 | B | **17j** | SA Beausov New - Delhaize Beauraing (#116008) | 150 rue de Rochefort, 5570 Beauraing | 28j | 01/09/2026 (79j) | 2026-10-05 | comment_tag | 2026-11-02 | 227€ |
-| B | **16j** | Etablissements Schnongs - AD Ciney (#7679) | Chemin de Crahiat 18 A, 5590 Ciney | 28j | 13/04/2026 (220j) | 2026-10-06 | comment_tag | 2026-11-03 | 110€ |
 | B | **14j** | Affilié 048665 - Proxy Delhaize St Michel (#9461) | Rue de l'Escadron 45, 1040 Etterbeek | 28j | 30/07/2026 (112j) | 2026-10-08 | comment_tag | 2026-11-05 | 181€ |
-| B | **14j** | Intermarché Forest - FREYARVOR (#5752) | Chaussée D'alsemberg 303 309,  Forest | 28j | 08/10/2026 (42j) | 2026-10-08 | picking | 2026-11-05 | 105€ |
 | B | **9j** | Affilié 041335 - Ad Bouffioulx (#7283) | 260, av E Vandervelde, 6200 Chatelet | 28j | 13/10/2026 (37j) | 2026-10-13 | picking | 2026-11-10 | 244€ |
 | A | **8j** | Carrefour Market Remouchamps (#5878) | Avenue de la Porallée  36A,  Aywaille | 21j | 21/10/2026 (29j) | 2026-10-21 | picking | 2026-11-11 | 743€ |
 | B | **8j** | Affilié 043540 - Delhaize Genval (#5582) | 13 Avenue Albert 1er,  Genval | 28j | 14/10/2026 (36j) | 2026-10-14 | picking | 2026-11-11 | 340€ |
@@ -64,15 +59,10 @@
 | Actif | B | Carrefour market LONTZEN (#113675) | 06/08/2026 (105j) | 2026-09-28 | 2026-10-26 | 24j | 131€ | 3 |
 | Actif | C | Carrefour market Angleur (Belle-Ile) - 5400102102544 (#121196) | 05/08/2026 (106j) | 2026-09-15 | 2026-10-27 | 23j | 92€ | 3 |
 | Actif | B | TOLODIS sa - Intermarché Floriffoux (#2958) | 30/09/2026 (50j) | 2026-09-30 | 2026-10-28 | 22j | 241€ | 6 |
-| Actif | B | Affilié 040299 - Delhaize Andenne (#115578) | 30/09/2026 (50j) | 2026-09-30 | 2026-10-28 | 22j | 105€ | 3 |
-| Actif | B | CARREFOUR MARKET SHOPPING WOLUWE 1875  - Wdistri.SA (#5825) | 01/10/2026 (49j) | 2026-10-01 | 2026-10-29 | 21j | 155€ | 6 |
 | Actif | C | Affilié 044780 - Proxy Delhaize Le Beau Rivage (#8779) | 17/02/2026 (275j) | 2026-09-29 | 2026-10-29 | 21j | 35€ | 1 |
 | Actif | B | Affilié 044471 - Delhaize Materne (#113498) | 23/09/2026 (57j) | 2026-10-01 | 2026-10-31 | 19j | 151€ | 4 |
-| Actif | B | DFH Market - Intermarché Liège Cointe (#121194) | 15/09/2026 (65j) | 2026-10-05 | 2026-11-02 | 17j | 272€ | 8 |
 | Actif | B | SA Beausov New - Delhaize Beauraing (#116008) | 01/09/2026 (79j) | 2026-10-05 | 2026-11-02 | 17j | 227€ | 7 |
-| Actif | B | Etablissements Schnongs - AD Ciney (#7679) | 13/04/2026 (220j) | 2026-10-06 | 2026-11-03 | 16j | 110€ | 4 |
 | Actif | B | Affilié 048665 - Proxy Delhaize St Michel (#9461) | 30/07/2026 (112j) | 2026-10-08 | 2026-11-05 | 14j | 181€ | 7 |
-| Actif | B | Intermarché Forest - FREYARVOR (#5752) | 08/10/2026 (42j) | 2026-10-08 | 2026-11-05 | 14j | 105€ | 5 |
 | Actif | B | Affilié 041335 - Ad Bouffioulx (#7283) | 13/10/2026 (37j) | 2026-10-13 | 2026-11-10 | 9j | 244€ | 6 |
 | Actif | A | Carrefour Market Remouchamps (#5878) | 21/10/2026 (29j) | 2026-10-21 | 2026-11-11 | 8j | 743€ | 16 |
 | Actif | B | Affilié 043540 - Delhaize Genval (#5582) | 14/10/2026 (36j) | 2026-10-14 | 2026-11-11 | 8j | 340€ | 9 |
@@ -105,6 +95,11 @@
 | Actif | A | INTERMADIS SA - Intermarché Hannut (#121874) | 05/11/2026 (14j) | 2026-11-19 | 2026-12-03 | 0j | 467€ | 8 |
 | Actif | A | KAIO Retail invest - Delhaize Ottignies (#6838) | 20/10/2026 (30j) | 2026-11-13 | 2026-12-04 | 0j | 454€ | 9 |
 | Actif | A | Affilié 048652 - Delhaize Salzinnes (#114704) | 12/11/2026 (7j) | 2026-11-12 | 2026-12-03 | 0j | 444€ | 10 |
+| Actif | A | N.B.S. RETAIL - Delhaize de Marche (#8159) | 09/10/2026 (41j) | 2026-11-17 | 2026-12-08 | 0j | 422€ | 9 |
+| Actif | B | Carrefour Hyper Marche-en-Famenne - 5400102606868 (#6999) | 01/09/2026 (79j) | 2026-11-17 | 2026-12-15 | 0j | 393€ | 6 |
+| Actif | B | Affilié 046780 - Delhaize Recogne (#122091) | 16/11/2026 (3j) | 2026-11-16 | 2026-12-14 | 0j | 392€ | 10 |
+| Actif | B | Hyper Carrefour Arlon - 5400102606943 (#113746) | 27/10/2026 (23j) | 2026-11-04 | 2026-12-02 | 0j | 365€ | 6 |
+| Actif | B | Affilié 41092 - Delhaize Bertrix (#123303) | 27/10/2026 (23j) | 2026-10-27 | 2026-11-24 | 0j | 353€ | 7 |
 
 ## NoMerch — EXCLUS du planning (commande en autonomie)
 

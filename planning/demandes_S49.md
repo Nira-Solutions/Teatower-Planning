@@ -23,3 +23,13 @@
 |---|---|
 | Affilié 044471 - Delhaize Materne #113498 | Pas le mardi, 30 j minimum entre deux passages |
 | Affilié 043366 - AD Fosses-la-Ville #5441 | Jamais le mardi (Tier A, déjà en retard) |
+
+## Passages ratés / non faits remontés de Slack #merchandiser (import du 19/11)
+
+| Magasin | Motif | Statut |
+|---|---|---|
+| Carrefour Market Braine-l'Alleud #8339 | « Pas fait ! À remettre au planning » (Gilles 18/11) | **à placer S49** (absent du prévisionnel) |
+| Proxy Delhaize St Michel #9461 | Pas fait le 18/11 (même message) | prévu S50 jeu 10/12 — avancer en S49 si possible |
+| Proxy Delhaize Ma Campagne #124701 | Responsable absent le 18/11 → urgence télévente 19/11 | prévu S50 jeu 10/12 |
+| GIMALEX SA - Delhaize Fragnée #5580 | Responsable absent le 19/11 → urgence télévente 20/11 | prévu S51 mer 16/12 — avancer en S49 (pas le lundi) |
+| SRL Spydis - Intermarché Spy #116686 | Cédé du ven 27/11 (boutique Waterloo en 2ème stop, REGLES §18) — reprise des glacés promise | **à placer S49** |
