@@ -118,6 +118,7 @@ VISITE_TAG_RE = re.compile(r"\[VISITE (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 # commande ni picking, donc sans ce tag le magasin passe pour jamais visite
 # (REGLES §14, Nicolas 02/09/2026).
 TERRAIN_TAG_RE = re.compile(r"\[TERRAIN (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
+VISITE_RATEE_RE = re.compile(r"non fait|pas fait|pas possible|ferm[ée]", re.IGNORECASE)
 
 # Tags merchandiser terrain (Nicolas 10/06/2026) — parsés depuis res.partner.comment
 # et exposés dans le planning sous chaque magasin (remplacent les "notes" verbeuses).
@@ -244,6 +245,12 @@ def parse_visit_dates_from_comment(comment):
     dates = []
     for regex in (VISITE_TAG_RE, TERRAIN_TAG_RE):
         for m in regex.finditer(text):
+            # Passage RATE ("[VISITE 2026-10-05 Gilles] passage non fait / stop",
+            # libelle pose par slack_photos_vers_odoo.py) : Gilles est passe mais
+            # n'a rien fait -> ce n'est PAS une visite. Sinon le magasin parait
+            # visite et sort des retards (cas Delhaize Barchon, Nicolas 19/11/2026).
+            if VISITE_RATEE_RE.search(text[m.end():m.end() + 80].split("[", 1)[0]):
+                continue
             try:
                 dates.append(date.fromisoformat(m.group(1)))
             except ValueError:

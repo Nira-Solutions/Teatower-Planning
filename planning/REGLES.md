@@ -44,6 +44,8 @@ Le script dérive en temps réel depuis Odoo la liste maître de tous les magasi
 
 Nicolas signale en conversation "Gilles est passé à X le YYYY-MM-DD sans réassort". On patche `res.partner.comment` du magasin avec `[VISITE YYYY-MM-DD Gilles — sans réassort]`. Le script parse ces tags. Voir memory `feedback-planning-visites-sans-reassort`.
 
+**Passage RATÉ ≠ visite (Nicolas 19/11/2026)** : un tag `[VISITE … ] passage non fait / stop` (ou « pas fait », « pas possible », « fermé » juste après le tag) n’est PAS compté comme visite par `build_planning_pool.py`. Avant ce correctif, Delhaize Barchon (05/10, magasin fermé le lundi matin) paraissait visité et sortait des retards.
+
 ### Procédure
 
 1. **Avant toute autre étape** : exécuter `build_planning_pool.py`. Sortie dans `data/planning_pool_<date>.{csv,md}`.
