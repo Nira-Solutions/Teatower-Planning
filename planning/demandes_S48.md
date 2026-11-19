@@ -33,3 +33,7 @@ Retour lundi 16:56 (limite 17:00). Cédés pour la caser → **à replacer S49**
 
 **Placé mer 25/11 09:46-10:11, 1er stop** : le magasin demande le passage du merchandiser le mercredi 25/11 entre 6h et 12h15. Demander **Angela** (+32 2 679 05 11). Fiche Odoo : Mme Josiane Bourcy absente le mardi et le vendredi ; passage merch arrêté depuis le 11/03, le magasin le redemande. Statut pool = télévente → passage FORCÉ.
 Mercredi recalculé avec les temps OSRM : Auderghem → Villers-le-Bouillet (11:14, avant 11:35) → Visé → Dolhain → Heusy ×2 → Remouchamps, retour 16:57 (limite 17:00), 320 km. Cédés → **à replacer S49** : Delhaize Materne #113498 (pas le mardi, 30 j min), AD Fosses-la-Ville #5441 (jamais le mardi).
+
+## ⚠️ OBLIGATOIRE — Delhaize Barchon #119815 (Nicolas 19/11)
+
+Visite **obligatoire en S48** : plus de vraie visite depuis le 11/09 (passage du 05/10 raté, magasin fermé le lundi matin ; S42 non fait ; reporté S44-S47 faute de place). **Placé lun 23/11 14:36-15:01** (après-midi, magasin ouvert). Si la journée déborde, couper Faimes, jamais Barchon. Plan B : mer 25/11 entre Visé et Dolhain (13 min de Visé), en coupant Remouchamps.
