@@ -16,3 +16,10 @@
 |---|---|
 | Carrefour Hyper Boncelles #60001 | Pas le mardi, arrivée avant 11:05 (7h-11h30) |
 | FQMS - Proxy Delhaize Quadrilatère (Huy) #125351 | Pas le mardi, de préférence le mercredi |
+
+## Reportés du mercredi 25/11 (S48) — cédés pour le RDV Carrefour Hyper Auderghem
+
+| Magasin | Contraintes |
+|---|---|
+| Affilié 044471 - Delhaize Materne #113498 | Pas le mardi, 30 j minimum entre deux passages |
+| Affilié 043366 - AD Fosses-la-Ville #5441 | Jamais le mardi (Tier A, déjà en retard) |

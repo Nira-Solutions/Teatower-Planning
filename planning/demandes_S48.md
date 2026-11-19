@@ -28,3 +28,8 @@ Une journée Hainaut / Brabant wallon / Gembloux les regroupe (Courcelles → Ni
 
 **Placée lun 23/11 11:22-12:07** (45 min, entre Fléron et Welkenraedt) : livrer S06828 (931 € HT, commande Noël, 120 pièces, TT/PICK/12279), **installer** en rayon et faire la **reprise des thés glacés** (impossible le 19/11, la réception était fermée — note Gilles). Charger la commande le vendredi 20/11. Contact : Thomas Vrancken (sinon Luc Lemoine / Catherine Dussart), +32 4 240 56 11. Hyper = matin.
 Retour lundi 16:56 (limite 17:00). Cédés pour la caser → **à replacer S49** : Carrefour Hyper Boncelles #60001 (pas le mardi, avant 11:05), Proxy Delhaize Quadrilatère Huy #125351 (pas le mardi, de préférence le mercredi).
+
+## RDV fixe — Carrefour Hyper Auderghem #8062 (demande magasin, Nicolas 19/11)
+
+**Placé mer 25/11 09:46-10:11, 1er stop** : le magasin demande le passage du merchandiser le mercredi 25/11 entre 6h et 12h15. Demander **Angela** (+32 2 679 05 11). Fiche Odoo : Mme Josiane Bourcy absente le mardi et le vendredi ; passage merch arrêté depuis le 11/03, le magasin le redemande. Statut pool = télévente → passage FORCÉ.
+Mercredi recalculé avec les temps OSRM : Auderghem → Villers-le-Bouillet (11:14, avant 11:35) → Visé → Dolhain → Heusy ×2 → Remouchamps, retour 16:57 (limite 17:00), 320 km. Cédés → **à replacer S49** : Delhaize Materne #113498 (pas le mardi, 30 j min), AD Fosses-la-Ville #5441 (jamais le mardi).
