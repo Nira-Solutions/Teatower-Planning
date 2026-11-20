@@ -499,3 +499,21 @@ Contexte : Nicolas 04/11/2026 (« si le client a été visité aujourd'hui mais 
 5. Application : à partir de la génération du planning S49. S48 (déjà publié) n'est pas regénéré.
 6. Points ouverts (décision Nicolas) : AD Soumagne #2915 (n°1 en CA) est [NO-MERCH] depuis le 29/05 ; Carrefour Market Beauraing #2905 (TOP) est en FORCE_TELEVENTE depuis le 15/07 → hors visites tant que ces décisions tiennent.
 
+
+---
+
+## 20. Appels RELAIS télévente pour les MEDIUM et LOW (REGLE DURE, 2026-11-20)
+
+**Les magasins MEDIUM et LOW (§19) sont visités moins souvent par Gilles (60 / 90 j). Entre deux visites, Vanessa les appelle pour vérifier le rayon et prendre une commande.** (Nicolas 20/11/2026)
+
+| Classe | Visite merch | Appels relais Vanessa |
+|---|---|---|
+| MEDIUM | tous les 60 j | 1 appel à **J+30** après la dernière visite |
+| LOW | tous les 90 j | 2 appels, à **J+30** et **J+60** |
+
+1. Les magasins **restent dans le pool merch** (statut Actif) : le relais n'est PAS une bascule en télévente, l'exclusivité des pools (§12) ne change pas.
+2. Pas d'appel relais si une visite merch tombe dans les 7 jours, si le magasin est dans le planning merch de la semaine, ou si un `[APPEL date ...]` a déjà été noté pour ce relais.
+3. Une commande prise par téléphone met à jour la dernière visite (dernière SO) : le cycle repart de là.
+4. Priorité dans la journée de Vanessa : urgences > appels télévente dus > **relais merch** > win-back. Les relais au-delà de la capacité (6/jour) passent en S+1.
+5. Code : `RELAIS_JOURS` + `relais_merch()` dans `scripts/build_televente_page.py` ; la colonne `last_appel` vient de `build_planning_pool.py` (tags `[APPEL AAAA-MM-JJ ...]`). Carte bleue « 🔁 relais MEDIUM / LOW » dans la page télévente.
+6. Charge : ~10 relais par semaine en régime normal ; la 1re semaine (S48) rattrape un stock de 17.

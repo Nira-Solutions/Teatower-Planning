@@ -32,6 +32,8 @@
   .call { padding:.6rem 1rem; border-bottom:1px solid #eee; }
   .call:last-child { border-bottom:none; }
   .call.impl { background:#fff7f0; border-left:4px solid #fd7e14; }
+  .call.relais { background:#eef6ff; border-left:4px solid #1c7ed6; }
+  .badge-relais { background:#1c7ed6; color:#fff; }
   .call-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.3rem; }
   .rank { font-weight:700; color:var(--primary); }
   .client { font-weight:600; }
@@ -82,6 +84,7 @@
   <div class="summary-card" style="background:#d00000"><div class="num">2</div><div class="label">🚨 Urgences</div></div>
   <div class="summary-card"><div class="num">24</div><div class="label">À appeler</div></div>
   <div class="summary-card"><div class="num">0</div><div class="label">📍 Suivi implant.</div></div>
+  <div class="summary-card" style="background:#1c7ed6"><div class="num">17</div><div class="label">🔁 Relais merch</div></div>
   <div class="summary-card"><div class="num">0</div><div class="label">Commandé S48</div></div>
   <div class="summary-card"><div class="num">0</div><div class="label">Refus S48</div></div>
   <div class="summary-card"><div class="num">0</div><div class="label">↪ Reportés S+1</div></div>
@@ -92,6 +95,7 @@
   ✅ Commande → encoder la SO.&nbsp; ❌ Refus → <code>[APPEL 2026-11-23 REFUS]</code>.&nbsp; ☎️ Injoignable → <code>[APPEL 2026-11-23 NRP]</code>.<br>
   📍 <strong>Suivi implantation</strong> : quand le merch pose <code>[IMPL date]</code> sur la fiche, le magasin arrive ici en appel de suivi à <strong>J+15</strong> (au lieu de 28j) — Vanessa vérifie si réassort nécessaire.<br>
   🚨 <strong>Urgence</strong> : si le merch passe et que le <strong>responsable n'est pas là</strong> (message #merchandiser), le magasin arrive ici <strong>le jour ouvré suivant</strong>, en tête de journée (hors quota). Elle se clôture seule dès qu'une commande est encodée ou que l'appel est noté dans Odoo.<br>
+  🔁 <strong>Relais merch</strong> : magasins MEDIUM / LOW visités moins souvent par Gilles (60 / 90 j). Vanessa appelle entre deux visites (MEDIUM à J+30, LOW à J+30 et J+60) : état du rayon + commande. Noter <code>[APPEL date ...]</code> dans Odoo comme d'habitude.<br>
   Segment : réfs ≤ 10 OU (dist &gt; 60 km ET réfs &lt; 20). Pas de mail/calendrier auto.
 </div>
 <div class="urg-box"><h3>🚨 Urgences — responsable absent à la visite (2)</h3><ul><li><strong>Affilié 045070 - Proxy Delhaize Ma Campagne</strong> #124701 — à appeler le <strong>Jeudi 19/11</strong> <span style="color:#666">(visite du 18/11)</span></li><li><strong></strong> #5580 — à appeler le <strong>Vendredi 20/11</strong> <span style="color:#666">(visite du 19/11)</span></li><li style="color:#2b8a3e">✔️ JAMBIS SA - Intermarché Jambes — traitée — commande S06811</li></ul></div><h2 class="section-title">🚨 Urgences à traiter (hors semaine affichée)</h2>
@@ -112,7 +116,7 @@
     <div class="urg-why">🚨 Visite merch du 19/11 : responsable absent — l'appeler pour la commande / la décision.</div>
     <div class="contact-badge"> &nbsp;|&nbsp; g.harvie@gimalex.be</div>
     <div class="meta">💬 « responsable absent (Gilles) : Passage pas possible , responsable pas la »<br>📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+Fragnée,+41,+4000,+Liège" target="_blank">Rue de Fragnée, 41, 4000, Liège</a></div>
-  </div><h2 class="section-title">📞 Semaine S48 — 24 appels</h2><div class="day"><div class="day-header"><span>Lundi 23/11</span> <span class="cnt">5 appels</span></div>
+  </div><h2 class="section-title">📞 Semaine S48 — 24 appels + 17 relais merch</h2><div class="day"><div class="day-header"><span>Lundi 23/11</span> <span class="cnt">6 appels</span></div>
   <div class="call">
     <div class="call-header">
       <span><span class="rank">1.</span> <span class="client">Hyper Carrefour Mons Grands Prés - 5400102606004</span> <span style="color:#999;font-size:.78rem">#113613</span></span>
@@ -182,10 +186,10 @@
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 14 réfs &nbsp;·&nbsp; CA 66€/mois
     </div>
     <div class="refs">[I0735] Pêche de vigne - BIO (20 infusettes) (x14); [I0600] La lampe merveilleuse (20 infusettes) (x13); [I0751] I love you (20 infusettes) (x12); [I0626] Sencha - BIO (20 infusettes) (x10); [I0205] Etoiles filantes (20 infusettes) (x10); [I0631] Le thé des amoureux (20 infusettes) (x9); [I0878] Guarana Boost (20 infusettes) (x8); [I0832] La Nana de Wépion (20 infusettes) (x8)</div>
-  </div></div><div class="day"><div class="day-header"><span>Mardi 24/11</span> <span class="cnt">5 appels</span></div>
+  </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">1.</span> <span class="client">Spar Beauvechain</span> <span style="color:#999;font-size:.78rem">#124148</span></span>
+      <span><span class="rank">6.</span> <span class="client">Spar Beauvechain</span> <span style="color:#999;font-size:.78rem">#124148</span></span>
       <span><span class="badge badge-retard">retard 54j</span><span class="badge badge-loin">68 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -196,10 +200,10 @@
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 12 réfs &nbsp;·&nbsp; CA 74€/mois
     </div>
     <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x18); [GI0735] Pêche de Vigne - BIO glacée (x18); [GI0832] La Nana de Wépion glacée (x18); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x18); [I0832] La Nana de Wépion (20 infusettes) (x12); [I0628] Oasis du désert - BIO (20 infusettes) (x12); [GI0634] Gourmandise glacée (x12); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion (x12)</div>
-  </div>
+  </div></div><div class="day"><div class="day-header"><span>Mardi 24/11</span> <span class="cnt">6 appels</span></div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">2.</span> <span class="client">Pharmacie Saint Pierre SA</span> <span style="color:#999;font-size:.78rem">#121026</span></span>
+      <span><span class="rank">1.</span> <span class="client">Pharmacie Saint Pierre SA</span> <span style="color:#999;font-size:.78rem">#121026</span></span>
       <span><span class="badge badge-retard">retard 37j</span></span>
     </div>
     
@@ -213,7 +217,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">3.</span> <span class="client">Ma Pharmacie de Baillonville - Bayet Sarah</span> <span style="color:#999;font-size:.78rem">#3184</span></span>
+      <span><span class="rank">2.</span> <span class="client">Ma Pharmacie de Baillonville - Bayet Sarah</span> <span style="color:#999;font-size:.78rem">#3184</span></span>
       <span><span class="badge badge-retard">retard 32j</span></span>
     </div>
     
@@ -227,7 +231,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">4.</span> <span class="client">Intermarché Mons</span> <span style="color:#999;font-size:.78rem">#123966</span></span>
+      <span><span class="rank">3.</span> <span class="client">Intermarché Mons</span> <span style="color:#999;font-size:.78rem">#123966</span></span>
       <span><span class="badge badge-retard">retard 32j</span><span class="badge badge-loin">100 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -241,7 +245,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">5.</span> <span class="client">Pharmacie TILMAN HAN SRL</span> <span style="color:#999;font-size:.78rem">#3182</span></span>
+      <span><span class="rank">4.</span> <span class="client">Pharmacie TILMAN HAN SRL</span> <span style="color:#999;font-size:.78rem">#3182</span></span>
       <span><span class="badge badge-retard">retard 26j</span></span>
     </div>
     
@@ -252,10 +256,10 @@
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 26 réfs &nbsp;·&nbsp; CA 61€/mois
     </div>
     <div class="refs">[I0287] Détox (20 infusettes) (x7); [I0635] Silhouette (20 infusettes) (x6); [C0196] Coffret Cacahuète 2026 - 10 tea bags (x4); [I0634] Gourmandise (20 infusettes) (x4); [I0267] Promenade en forêt (20 infusettes) (x4); [I0257] Pomme vanille (20 infusettes) (x4); [I0865] Délice de Barbarie (20 infusettes) (x4); [I0279] Le panier de grand maman (20 infusettes) (x4)</div>
-  </div></div><div class="day"><div class="day-header"><span>Mercredi 25/11</span> <span class="cnt">5 appels</span></div>
+  </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">1.</span> <span class="client">Hyper Carrefour Waterloo Mt-St-Jean - 5400102604598</span> <span style="color:#999;font-size:.78rem">#8683</span></span>
+      <span><span class="rank">5.</span> <span class="client">Hyper Carrefour Waterloo Mt-St-Jean - 5400102604598</span> <span style="color:#999;font-size:.78rem">#8683</span></span>
       <span><span class="badge badge-retard">retard 25j</span><span class="badge badge-loin">81 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -269,7 +273,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">2.</span> <span class="client">Pharmacie Tilman S.A. - Mikael Tilman</span> <span style="color:#999;font-size:.78rem">#3183</span></span>
+      <span><span class="rank">6.</span> <span class="client">Pharmacie Tilman S.A. - Mikael Tilman</span> <span style="color:#999;font-size:.78rem">#3183</span></span>
       <span><span class="badge badge-retard">retard 21j</span></span>
     </div>
     
@@ -280,10 +284,10 @@
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 67 réfs &nbsp;·&nbsp; CA 397€/mois
     </div>
     <div class="refs">[I0279] Le panier de grand maman (20 infusettes) (x41); [C0196] Coffret Cacahuète 2026 - 10 tea bags (x24); [GI0735] Pêche de Vigne - BIO glacée (x24); [I0841] Lacquemant liégeois (20 infusettes) (x24); [V0669] Vert Jasmin (80 g vrac) (x21); [I0820] Marrakech Sunset - BIO (20 infusettes) (x21); [I0856] Sorbet framboise - BIO (20 infusettes) (x19); [I0832] La Nana de Wépion (20 infusettes) (x19)</div>
-  </div>
+  </div></div><div class="day"><div class="day-header"><span>Mercredi 25/11</span> <span class="cnt">6 appels</span></div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">3.</span> <span class="client">Louis Delhaize - Haversin</span> <span style="color:#999;font-size:.78rem">#123844</span></span>
+      <span><span class="rank">1.</span> <span class="client">Louis Delhaize - Haversin</span> <span style="color:#999;font-size:.78rem">#123844</span></span>
       <span><span class="badge badge-retard">retard 20j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -297,7 +301,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">4.</span> <span class="client">Affilié 041920 - AD Chastre Amaudis sa</span> <span style="color:#999;font-size:.78rem">#5906</span></span>
+      <span><span class="rank">2.</span> <span class="client">Affilié 041920 - AD Chastre Amaudis sa</span> <span style="color:#999;font-size:.78rem">#5906</span></span>
       <span><span class="badge badge-retard">retard 14j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">61 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -311,7 +315,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">5.</span> <span class="client">Pharmacie Bia SRL - Fabienne BIA</span> <span style="color:#999;font-size:.78rem">#3180</span></span>
+      <span><span class="rank">3.</span> <span class="client">Pharmacie Bia SRL - Fabienne BIA</span> <span style="color:#999;font-size:.78rem">#3180</span></span>
       <span><span class="badge badge-retard">retard 4j</span></span>
     </div>
     
@@ -322,10 +326,10 @@
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 25 réfs &nbsp;·&nbsp; CA 88€/mois
     </div>
     <div class="refs">[I0617] Liberté (20 infusettes) (x33); [C0195] Calendrier de l&#x27;avent 2026 (x9); [V0617] Liberté (100 g vrac) (x8); [V0631] Le thé des amoureux (80 g vrac) (x8); [V0918] Au coin du feu - 100g (x6); [I0878] Guarana Boost (20 infusettes) (x6); [V0919] Halloween 2026 - 100g (x6); [V0917] Matin enneigé - 100g (x6)</div>
-  </div></div><div class="day"><div class="day-header"><span>Jeudi 26/11</span> <span class="cnt">5 appels</span></div>
+  </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">1.</span> <span class="client">Affilié 44845 - Delhaize Enghien</span> <span style="color:#999;font-size:.78rem">#123041</span></span>
+      <span><span class="rank">4.</span> <span class="client">Affilié 44845 - Delhaize Enghien</span> <span style="color:#999;font-size:.78rem">#123041</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-loin">102 km</span></span>
     </div>
     
@@ -339,7 +343,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">2.</span> <span class="client">Delhaize Montigny</span> <span style="color:#999;font-size:.78rem">#124727</span></span>
+      <span><span class="rank">5.</span> <span class="client">Delhaize Montigny</span> <span style="color:#999;font-size:.78rem">#124727</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-loin">69 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -353,7 +357,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">3.</span> <span class="client">Intermarché Rumes - Hainaut</span> <span style="color:#999;font-size:.78rem">#123964</span></span>
+      <span><span class="rank">6.</span> <span class="client">Intermarché Rumes - Hainaut</span> <span style="color:#999;font-size:.78rem">#123964</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-loin">147 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -364,10 +368,10 @@
       cadence cible : <strong>35j</strong> &nbsp;·&nbsp; 17 réfs &nbsp;·&nbsp; CA 69€/mois
     </div>
     <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x12); [GI0735] Pêche de Vigne - BIO glacée (x12); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x12); [GI0634] Gourmandise glacée (x12); [V0914] Infusion du Printemps 2026 (x12); [EM0072] SRP Kraft Horeca (x8); [V0711] Récolte enchantée (100 g vrac) (x6); [V0732] Gourmandise de Noël (100 g vrac) (x6)</div>
-  </div>
+  </div></div><div class="day"><div class="day-header"><span>Jeudi 26/11</span> <span class="cnt">6 appels</span></div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">4.</span> <span class="client">Gmp La Louvière - Delhaize La Louvière</span> <span style="color:#999;font-size:.78rem">#123035</span></span>
+      <span><span class="rank">1.</span> <span class="client">Gmp La Louvière - Delhaize La Louvière</span> <span style="color:#999;font-size:.78rem">#123035</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-loin">85 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -381,7 +385,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">5.</span> <span class="client">Affilié 045075 - Delhaize Machelen</span> <span style="color:#999;font-size:.78rem">#127589</span></span>
+      <span><span class="rank">2.</span> <span class="client">Affilié 045075 - Delhaize Machelen</span> <span style="color:#999;font-size:.78rem">#127589</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">94 km</span></span>
     </div>
     
@@ -392,10 +396,10 @@
       cadence cible : <strong>28j</strong> &nbsp;·&nbsp; 8 réfs &nbsp;·&nbsp; CA 32€/mois
     </div>
     <div class="refs">[V0711] Récolte enchantée (100 g vrac) (x12); [V0919] Halloween 2026 - 100g (x12); [V0732] Gourmandise de Noël (100 g vrac) (x6); [V0917] Matin enneigé - 100g (x6); [V0891] Trésor des lutins (100 g vrac) (x6); [V0918] Au coin du feu - 100g (x6); [EM0072] SRP Kraft Horeca (x6); [EM0107] Display Teatower GMS - 8 produits 2026 (x1)</div>
-  </div></div><div class="day"><div class="day-header"><span>Vendredi 27/11</span> <span class="cnt">4 appels</span></div>
+  </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">1.</span> <span class="client">Delhaize Amay</span> <span style="color:#999;font-size:.78rem">#124178</span></span>
+      <span><span class="rank">3.</span> <span class="client">Delhaize Amay</span> <span style="color:#999;font-size:.78rem">#124178</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -409,7 +413,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">2.</span> <span class="client">Delhaize Warmonceau</span> <span style="color:#999;font-size:.78rem">#125070</span></span>
+      <span><span class="rank">4.</span> <span class="client">Delhaize Warmonceau</span> <span style="color:#999;font-size:.78rem">#125070</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">65 km</span></span>
     </div>
     
@@ -423,7 +427,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">3.</span> <span class="client">V2V Express Two - Carrefour Express Lasne</span> <span style="color:#999;font-size:.78rem">#3274</span></span>
+      <span><span class="rank">5.</span> <span class="client">V2V Express Two - Carrefour Express Lasne</span> <span style="color:#999;font-size:.78rem">#3274</span></span>
       <span><span class="badge badge-bientot">dû dans 2j</span><span class="badge badge-petit">petit assort.</span><span class="badge badge-loin">75 km</span><span class="badge badge-nrp">déjà NRP</span></span>
     </div>
     
@@ -437,7 +441,7 @@
   </div>
   <div class="call">
     <div class="call-header">
-      <span><span class="rank">4.</span> <span class="client">Pharmacie Badot</span> <span style="color:#999;font-size:.78rem">#3179</span></span>
+      <span><span class="rank">6.</span> <span class="client">Pharmacie Badot</span> <span style="color:#999;font-size:.78rem">#3179</span></span>
       <span><span class="badge badge-bientot">dû dans 3j</span></span>
     </div>
     
@@ -448,7 +452,79 @@
       cadence cible : <strong>29j</strong> &nbsp;·&nbsp; 70 réfs &nbsp;·&nbsp; CA 191€/mois
     </div>
     <div class="refs">[GI0820] Marrakech Sunset - BIO glacé (x17); [GI0832] La Nana de Wépion glacée (x17); [GI0735] Pêche de Vigne - BIO glacée (x17); [V0832] La Nana de Wépion (100 g vrac) (x14); [C0195] Calendrier de l&#x27;avent 2026 (x12); [V0837] Vert Pistache (100 g vrac) (x10); [GI0916] Vergers d’Été: saveurs: Pomme - Poire (x10); [GI0912] Passion Exotique - Infusion de fruits : Mangue - Passion² (x10)</div>
-  </div></div><h2 class="section-title">🔄 Win-back — dormants &gt;90j (11)</h2><div class="alert">Clients perdus de vue. Discours réactivation. À traiter quand la semaine est creuse.</div>
+  </div></div><div class="day"><div class="day-header"><span>Vendredi 27/11</span> <span class="cnt">6 appels</span></div>
+  <div class="call relais">
+    <div class="call-header">
+      <span><span class="rank">1.</span> <span class="client">Affilié 048665 - Proxy Delhaize St Michel</span> <span style="color:#999;font-size:.78rem">#9461</span></span>
+      <span><span class="badge badge-relais">🔁 relais MEDIUM</span></span>
+    </div>
+    <div class="contact-badge">+32 2 733 51 66 &nbsp;|&nbsp; roxy.proxysaintmichel@gmail.com</div>
+    <div class="meta">
+      🔁 <strong>Appel relais merch</strong> — dernier passage il y a <strong>50j</strong>, prochaine visite merch ~07/12.
+      Vérifier le rayon (trous ? ruptures ?) et proposer une commande de réassort.<br>
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+l&#x27;Escadron+45,+1040,+Etterbeek" target="_blank">Rue de l&#x27;Escadron 45, 1040, Etterbeek</a>
+    </div>
+  </div>
+  <div class="call relais">
+    <div class="call-header">
+      <span><span class="rank">2.</span> <span class="client">Affilié 041335 - Ad Bouffioulx</span> <span style="color:#999;font-size:.78rem">#7283</span></span>
+      <span><span class="badge badge-relais">🔁 relais MEDIUM</span></span>
+    </div>
+    <div class="contact-badge">+32 71 38 59 34 &nbsp;|&nbsp; looze24@hotmail.com</div>
+    <div class="meta">
+      🔁 <strong>Appel relais merch</strong> — dernier passage il y a <strong>45j</strong>, prochaine visite merch ~12/12.
+      Vérifier le rayon (trous ? ruptures ?) et proposer une commande de réassort.<br>
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=260,+av+E+Vandervelde,+6200,+Chatelet" target="_blank">260, av E Vandervelde, 6200, Chatelet</a>
+    </div>
+  </div>
+  <div class="call relais">
+    <div class="call-header">
+      <span><span class="rank">3.</span> <span class="client">D-trois SRL - Proxy Delhaize Saint-Séverin</span> <span style="color:#999;font-size:.78rem">#113445</span></span>
+      <span><span class="badge badge-relais">🔁 relais MEDIUM</span></span>
+    </div>
+    <div class="contact-badge">+32 4 372 09 85 &nbsp;|&nbsp; amdessart@proxynandrin.be</div>
+    <div class="meta">
+      🔁 <strong>Appel relais merch</strong> — dernier passage il y a <strong>42j</strong>, prochaine visite merch ~15/12.
+      Vérifier le rayon (trous ? ruptures ?) et proposer une commande de réassort.<br>
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Route+du+Condroz,+243,+4550,+Nandrin" target="_blank">Route du Condroz, 243, 4550, Nandrin</a>
+    </div>
+  </div>
+  <div class="call relais">
+    <div class="call-header">
+      <span><span class="rank">4.</span> <span class="client">BARVO S.A. - Carrefour Market Barvaux</span> <span style="color:#999;font-size:.78rem">#2811</span></span>
+      <span><span class="badge badge-relais">🔁 relais MEDIUM</span></span>
+    </div>
+    <div class="contact-badge">086 21 13 79 &nbsp;|&nbsp; nathalie.warnier@arcadesa.be</div>
+    <div class="meta">
+      🔁 <strong>Appel relais merch</strong> — dernier passage il y a <strong>39j</strong>, prochaine visite merch ~18/12.
+      Vérifier le rayon (trous ? ruptures ?) et proposer une commande de réassort.<br>
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Route+de+Marche,+26,+6940,+Barvaux/Ourthe" target="_blank">Route de Marche, 26, 6940, Barvaux/Ourthe</a>
+    </div>
+  </div>
+  <div class="call relais">
+    <div class="call-header">
+      <span><span class="rank">5.</span> <span class="client">HODICA SA - Carrefour Market Hotton</span> <span style="color:#999;font-size:.78rem">#2979</span></span>
+      <span><span class="badge badge-relais">🔁 relais MEDIUM</span></span>
+    </div>
+    <div class="contact-badge">084 46 73 44 &nbsp;|&nbsp; carrefour.market.hotton@gmail.com</div>
+    <div class="meta">
+      🔁 <strong>Appel relais merch</strong> — dernier passage il y a <strong>38j</strong>, prochaine visite merch ~19/12.
+      Vérifier le rayon (trous ? ruptures ?) et proposer une commande de réassort.<br>
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Rue+de+la+Jonction+16,+6990,+HOTTON" target="_blank">Rue de la Jonction 16, 6990, HOTTON</a>
+    </div>
+  </div>
+  <div class="call relais">
+    <div class="call-header">
+      <span><span class="rank">6.</span> <span class="client">Affilié 046900 - Proxy Delhaize Rixensart</span> <span style="color:#999;font-size:.78rem">#50967</span></span>
+      <span><span class="badge badge-relais">🔁 relais MEDIUM</span></span>
+    </div>
+    <div class="contact-badge">+32 2 653 71 18 &nbsp;|&nbsp; bd.proxyrixensart@gmail.com</div>
+    <div class="meta">
+      🔁 <strong>Appel relais merch</strong> — dernier passage il y a <strong>36j</strong>, prochaine visite merch ~21/12.
+      Vérifier le rayon (trous ? ruptures ?) et proposer une commande de réassort.<br>
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=Place+du+beau+site+4,+1330,+Rixensart" target="_blank">Place du beau site 4, 1330, Rixensart</a>
+    </div>
+  </div></div><div class="alert"><strong>11 appels au-delà de la capacité S48</strong> (report S+1) : Carrefour Hyper Boncelles - 5400102606127, Delhaize Ciney - Rochefort - Neuchateau - Bastogne, Mardis - Carrefour Market Marche, FQMS - Proxy Delhaize Quadrilatere (Huy), JMR RETAIL SRL - Spar Godinne, Antheco SA - Intermarché Anthée, SRL AD LLN - Delhaize de Louvain La Neuve, Proxy Delhaize Bosvoorde - SPRL BROOMCORNER, Dynamic Food SRL - Spar Louvain-La-Neuve, Affilié 42900 - Delhaize Esneux, Lillodis SRL - Proxy Delhaize Lillois.</div><h2 class="section-title">🔄 Win-back — dormants &gt;90j (11)</h2><div class="alert">Clients perdus de vue. Discours réactivation. À traiter quand la semaine est creuse.</div>
   <div class="call prio">
     <div class="call-header">
       <span><span class="rank">1.</span> <span class="client">Affilié 045015 - Delhaize Longdoz Médiacité</span> <span style="color:#999;font-size:.78rem">#5439</span></span>

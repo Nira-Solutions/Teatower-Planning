@@ -63,6 +63,8 @@ CSS = """
   .call { padding:.6rem 1rem; border-bottom:1px solid #eee; }
   .call:last-child { border-bottom:none; }
   .call.impl { background:#fff7f0; border-left:4px solid #fd7e14; }
+  .call.relais { background:#eef6ff; border-left:4px solid #1c7ed6; }
+  .badge-relais { background:#1c7ed6; color:#fff; }
   .call-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.3rem; }
   .rank { font-weight:700; color:var(--primary); }
   .client { font-weight:600; }
@@ -224,6 +226,71 @@ def render_contacts(rows):
     return "".join(out)
 
 
+# APPELS RELAIS (REGLES §20, Nicolas 20/11/2026) : les magasins MEDIUM et LOW
+# restent suivis par le merch (Gilles) mais ne sont plus visites que tous les 60 j
+# (MEDIUM) ou 90 j (LOW). Entre deux visites, Vanessa les appelle pour verifier le
+# rayon et prendre une commande :
+#   MEDIUM -> 1 appel a J+30 apres la derniere visite
+#   LOW    -> 2 appels, a J+30 et J+60
+# Pas d'appel si une visite merch tombe dans les 7 jours, ou si un [APPEL ...] a deja
+# ete note pour ce relais. Les magasins restent dans le pool MERCH (pas de bascule).
+RELAIS_JOURS = {"MEDIUM": (30,), "LOW": (30, 60)}
+
+
+def relais_merch(fri, exclude):
+    pools = sorted(DATA.glob("planning_pool_*.csv"))
+    if not pools:
+        return []
+    out = []
+    for r in csv.DictReader(pools[-1].open(encoding="utf-8")):
+        cl = r.get("classe", "")
+        if r.get("statut") != "Actif" or cl not in RELAIS_JOURS or r["pid"] in exclude:
+            continue
+        lv = pdate(r.get("last_visit"))
+        if not lv:
+            continue
+        nv = pdate(r.get("next_visit"))
+        if nv and nv <= fri + timedelta(days=7):
+            continue  # visite merch imminente : pas de double contact
+        dues = [lv + timedelta(days=j) for j in RELAIS_JOURS[cl] if lv + timedelta(days=j) <= fri]
+        if not dues:
+            continue
+        d = max(dues)
+        la = pdate(r.get("last_appel"))
+        if la and la >= d - timedelta(days=3):
+            continue  # relais deja fait
+        r["_relais_due"] = d
+        r["_relais_n"] = len(dues)
+        r["_since_visit"] = (fri - lv).days
+        out.append(r)
+    out.sort(key=lambda r: (0 if r["classe"] == "MEDIUM" else 1, r["_relais_due"]))
+    return out
+
+
+def render_relais(r, rank):
+    tel = r.get("phone") or ""
+    mail = r.get("email") or ""
+    contact = (f'<div class="contact-badge">{esc(tel)}' + (f' &nbsp;|&nbsp; {esc(mail)}' if mail else '') + '</div>'
+               if tel or mail else
+               '<div class="contact-badge" style="color:#c92a2a">☎️ CONTACT MANQUANT — à compléter dans Odoo</div>')
+    adr = ", ".join(x for x in [r.get("street"), r.get("zip"), r.get("city")] if x)
+    nv = pdate(r.get("next_visit"))
+    lab = f'relais {r["classe"]}' + (f' n°{r["_relais_n"]}' if r["classe"] == "LOW" else "")
+    return f"""
+  <div class="call relais">
+    <div class="call-header">
+      <span><span class="rank">{rank}.</span> <span class="client">{esc(r.get('display_name') or r['store_name'])}</span> <span style="color:#999;font-size:.78rem">#{r['pid']}</span></span>
+      <span><span class="badge badge-relais">🔁 {esc(lab)}</span></span>
+    </div>
+    {contact}
+    <div class="meta">
+      🔁 <strong>Appel relais merch</strong> — dernier passage il y a <strong>{r['_since_visit']}j</strong>, prochaine visite merch ~{nv.strftime('%d/%m') if nv else '?'}.
+      Vérifier le rayon (trous ? ruptures ?) et proposer une commande de réassort.<br>
+      📍 <a href="{maps_link(r)}" target="_blank">{esc(adr)}</a>
+    </div>
+  </div>"""
+
+
 def merch_pids_semaine(week_id):
     """pids (#xxx) des stops du planning merch de la semaine (planning_data.py)."""
     import re
@@ -317,10 +384,11 @@ def main():
     for r in anti:
         r["_nrp_prev"] = r["_nrp"] is not None
     nb_impl = sum(1 for r in anti if r.get("suivi_impl"))
+    relais = relais_merch(fri, merch_pids | urg_pids | {r['pid'] for r in rows})
 
     work_days = [(JOURS[i], mon + timedelta(days=i)) for i in range(5)]
     open_days = [(n, d) for n, d in work_days if d not in FERIES_BE]
-    queue = list(anti)
+    queue = list(anti) + relais  # relais apres les appels televente dus
     # Repartition : DAILY est un PLAFOND, pas une cible. Semaine creuse (file <
     # capacite) -> on lisse sur tous les jours ouvres au lieu de saturer le lundi
     # et de laisser jeudi/vendredi vides. L'ordre de priorite est conserve : les
@@ -354,6 +422,7 @@ def main():
   <div class="summary-card" style="background:#d00000"><div class="num">{len(urg_open)}</div><div class="label">🚨 Urgences</div></div>
   <div class="summary-card"><div class="num">{len(anti)}</div><div class="label">À appeler</div></div>
   <div class="summary-card"><div class="num">{nb_impl}</div><div class="label">📍 Suivi implant.</div></div>
+  <div class="summary-card" style="background:#1c7ed6"><div class="num">{len(relais)}</div><div class="label">🔁 Relais merch</div></div>
   <div class="summary-card"><div class="num">{len(commande_wk)}</div><div class="label">Commandé S{iso_week}</div></div>
   <div class="summary-card"><div class="num">{len(refus_wk)}</div><div class="label">Refus S{iso_week}</div></div>
   <div class="summary-card"><div class="num">{len(nrp_wk)}</div><div class="label">↪ Reportés S+1</div></div>
@@ -364,6 +433,7 @@ def main():
   ✅ Commande → encoder la SO.&nbsp; ❌ Refus → <code>[APPEL {today} REFUS]</code>.&nbsp; ☎️ Injoignable → <code>[APPEL {today} NRP]</code>.<br>
   📍 <strong>Suivi implantation</strong> : quand le merch pose <code>[IMPL date]</code> sur la fiche, le magasin arrive ici en appel de suivi à <strong>J+15</strong> (au lieu de 28j) — Vanessa vérifie si réassort nécessaire.<br>
   🚨 <strong>Urgence</strong> : si le merch passe et que le <strong>responsable n'est pas là</strong> (message #merchandiser), le magasin arrive ici <strong>le jour ouvré suivant</strong>, en tête de journée (hors quota). Elle se clôture seule dès qu'une commande est encodée ou que l'appel est noté dans Odoo.<br>
+  🔁 <strong>Relais merch</strong> : magasins MEDIUM / LOW visités moins souvent par Gilles (60 / 90 j). Vanessa appelle entre deux visites (MEDIUM à J+30, LOW à J+30 et J+60) : état du rayon + commande. Noter <code>[APPEL date ...]</code> dans Odoo comme d'habitude.<br>
   Segment : réfs ≤ 10 OU (dist &gt; 60 km ET réfs &lt; 20). Pas de mail/calendrier auto.
 </div>
 """]
@@ -391,7 +461,7 @@ def main():
         P.append('<div class="dispo-box"><strong>🕐 Disponibilités de Vanessa cette semaine</strong><ul>'
                  + "".join(f'<li><strong>{n} {d.strftime("%d/%m")}</strong> : {esc(h)}</li>' for n, d, h in dispo_wk)
                  + '</ul></div>')
-    P.append(f'<h2 class="section-title">📞 Semaine S{iso_week} — {len(anti)} appels</h2>')
+    P.append(f'<h2 class="section-title">📞 Semaine S{iso_week} — {len(anti)} appels + {len(relais)} relais merch</h2>')
     if not anti:
         P.append('<div class="alert">Aucun magasin dû cette semaine 🎉 — piocher dans le win-back.</div>')
     for n, d, chunk, ferie in day_slots:
@@ -408,12 +478,12 @@ def main():
         for i, u in enumerate(urg_j, 1):
             P.append(render_urgence(u, i))
         for i, r in enumerate(chunk, len(urg_j) + 1):
-            P.append(render_call(r, i))
+            P.append(render_relais(r, i) if '_relais_due' in r else render_call(r, i))
         P.append('</div>')
 
     if overflow:
         P.append(f'<div class="alert"><strong>{len(overflow)} appels au-delà de la capacité S{iso_week}</strong> (report S+1) : '
-                 + ", ".join(esc(r["magasin"]) for r in overflow[:15]) + '.</div>')
+                 + ", ".join(esc(r.get("magasin") or r.get("display_name") or r.get("store_name")) for r in overflow[:15]) + '.</div>')
 
     if nrp_wk:
         P.append(f'<h2 class="section-title">☎️ Injoignables — reportés S+1 ({len(nrp_wk)})</h2>')
@@ -446,7 +516,7 @@ def main():
     OUT.write_text("".join(P), encoding="utf-8")
     cap = len(open_days) * DAILY
     print(f"[+] Page S{iso_week} : {OUT}")
-    print(f"    Urgences ouvertes {len(urg_open)} | A appeler {len(anti)} (dont {nb_impl} suivi-impl, cap {cap}) | cmd {len(commande_wk)} | "
+    print(f"    Urgences ouvertes {len(urg_open)} | A appeler {len(anti)} (dont {nb_impl} suivi-impl, cap {cap}) | relais merch {len(relais)} | cmd {len(commande_wk)} | "
           f"refus {len(refus_wk)} | NRP {len(nrp_wk)} | winback {len(winback)} | overflow {len(overflow)}")
 
 

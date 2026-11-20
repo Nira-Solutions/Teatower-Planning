@@ -130,6 +130,9 @@ NOUVEAU_CLIENT_CYCLE = 28  # implante depuis <= 90 j : suivi rapproche, quelle q
 CADENCE_MAX_PIDS = {2952}  # AD Delhaize Fernelmont : 21 j max (§17) -> 15 j s'il est TOP
 
 VISITE_TAG_RE = re.compile(r"\[VISITE (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
+# [APPEL AAAA-MM-JJ ...] = appel televente (Vanessa), quelle que soit l'issue.
+# Sert aux appels RELAIS des MEDIUM/LOW entre deux visites (REGLES §20).
+APPEL_ANY_RE = re.compile(r"\[APPEL (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 # [TERRAIN AAAA-MM-JJ ...] = passage merchandiser constate sur place. C'est une
 # VISITE au meme titre que [VISITE ...] : une visite sans reassort ne laisse ni
 # commande ni picking, donc sans ce tag le magasin passe pour jamais visite
@@ -602,6 +605,8 @@ def main():
             "controle_stock": controle_stock,
             "methode_reassort": methode_reassort,
             "regle_magasin": regle_magasin,
+            "last_appel": max((m.group(1) for m in APPEL_ANY_RE.finditer(
+                re.sub(r"<[^>]+>", " ", str(r["comment"] or "")))), default=""),
         })
 
     # 6bis) Classes Pareto (REGLES §19) : rang par CA 12 mois, cycle = classe.
