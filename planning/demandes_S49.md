@@ -50,3 +50,12 @@ Annoncés « à replacer S49 » dans `demandes_S48.md`, mais absents de cette li
 
 - AD Delhaize Fernelmont #2952 passe TOP (15 j) : dernière visite 13/11 → **à placer mar 01/12** (mar/ven ≥ 13:20 ; 18 j, sous la limite dure de 21 j).
 - TOP et HIGH dus = jamais reportés : si la semaine déborde, céder un MEDIUM ou un LOW.
+
+## Cédés de S48 pour l'Hyper Carrefour Bierges (mar 24/11) — ajoutés le 20/11
+
+Bierges #8689 ajouté en 1er stop mar 24/11 (fenêtre mar/jeu 6h-11h45) : reprise glacés + anciens Noël, implantation coffrets Noël C0197 + C0198 (commande encodée par Nicolas), réassort. Cédés (classes les plus basses / les plus faciles à replacer près de la base) :
+
+| Magasin | Classe | Dernière visite | Statut |
+|---|---|---|---|
+| Affilié 044780 - Proxy Delhaize Le Beau Rivage (Dinant) #8779 | LOW (90 j) | 29/09 | à placer S49-S50 (règle 30 j min OK) |
+| 2u S.A. - Carrefour Market Ciney #2773 | MEDIUM (60 j) | 20/10 | à placer S49 (sinon garder le passage déjà prévu plus tard) |
