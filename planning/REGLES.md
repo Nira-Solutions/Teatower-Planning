@@ -478,3 +478,24 @@ Contexte : Nicolas 04/11/2026 (« si le client a été visité aujourd'hui mais 
 3. Si l'ordre imposé fait déborder la journée (retour > limite), on retire un remplissage, jamais le dépôt boutique.
 4. Rappels : jamais de dépôt le lundi (§13) ; Namur / Liège / Rocourt sont livrés en fin de journée par Marvin dès S49 (hors tournée Gilles, non concernés).
 5. Code : `planning/_forecast_s48_s52.py` force `TT_WATERLOO` en position 1-2 lors de la construction des journées.
+
+---
+
+## 19. Classes Pareto TOP / HIGH / MEDIUM / LOW — rythme de passage (REGLE DURE, 2026-11-20)
+
+**Le rythme de visite merch vient du rang du magasin en CA 12 mois, plus du Tier A/B/C/X.** Découpage proposé par JN Tilman (mail 17/11/2026), validé par Nicolas le 20/11/2026.
+
+| Classe | Rangs | Rythme | Report |
+|---|---|---|---|
+| **TOP** | 1-11 | **tous les 15 jours** (2 / mois) | **jamais reporté** |
+| **HIGH** | 12-32 | **tous les mois** (30 j) | **jamais reporté** |
+| MEDIUM | 33-70 | tous les 2 mois (60 j) | reportable |
+| LOW | 71 et + | tous les 3 mois (90 j) | reportable, candidat télévente |
+
+1. Le rang est recalculé à chaque run de `build_planning_pool.py` (colonnes `rang` et `classe` du CSV), sur les magasins suivis (Actif + Télévente). Arrêt, [NO-MERCH] et plateforme ne prennent pas de place dans le classement.
+2. Priorités : override magasin (§5) > nouveau client ≤ 90 j (28 j max) > classe. Exception : les overrides « délai maximum » (`CADENCE_MAX_PIDS`, Fernelmont 21 j §17) gardent le plus court des deux → Fernelmont, TOP, passe à 15 j.
+3. Quand une semaine est pleine, on retire d'abord un MEDIUM ou un LOW, jamais un TOP ou un HIGH dû. Code : `planning/_forecast_s48_s52.py` donne 2000 points aux TOP/HIGH dus (1000 aux autres), la réparation les replace en priorité.
+4. Charge attendue : ~79 passages / mois (TOP 19, HIGH 22, MEDIUM 19, LOW 19), contre ~90 aujourd'hui → la capacité libérée va d'abord aux TOP/HIGH en retard.
+5. Application : à partir de la génération du planning S49. S48 (déjà publié) n'est pas regénéré.
+6. Points ouverts (décision Nicolas) : AD Soumagne #2915 (n°1 en CA) est [NO-MERCH] depuis le 29/05 ; Carrefour Market Beauraing #2905 (TOP) est en FORCE_TELEVENTE depuis le 15/07 → hors visites tant que ces décisions tiennent.
+

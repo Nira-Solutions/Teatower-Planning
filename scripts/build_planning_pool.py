@@ -30,11 +30,11 @@ Convention pour Statut :
   - res.partner.sale_warn == 'block' AND comment contient '[ARRET' → Arret
   - sinon → Actif
 
-Convention pour Tier :
-  - avg_mois ≥ 400€        → A (cycle 21j)
-  - avg_mois 100-400€      → B (cycle 28j)
-  - avg_mois 30-100€       → C (cycle 42j)
-  - avg_mois < 30€         → X (cycle 90j)
+Convention pour le cycle (REGLES §19, depuis le 20/11/2026) — classes Pareto :
+  - rang = classement par CA 12 mois des magasins suivis (Actif + Televente)
+  - TOP rangs 1-11 → 15j | HIGH 12-32 → 30j | MEDIUM 33-70 → 60j | LOW 71+ → 90j
+  - nouveau client (<= 90j) → 28j max ; CADENCE_OVERRIDE_PID prime (CADENCE_MAX_PIDS = plafond)
+  - la colonne Tier (A/B/C/X sur avg_mois) reste calculee pour info mais ne fixe plus le cycle
 
 Usage : python build_planning_pool.py [--target-date YYYY-MM-DD]
 """
@@ -111,6 +111,23 @@ TIER_RULES = [
     (30.0, "C", 42),
     (0.0, "X", 90),
 ]
+
+# Classes Pareto (decoupage de JN Tilman, valide par Nicolas le 20/11/2026) — REGLES §19.
+# Rang = classement des magasins GMS suivis (Actif + Televente, hors Arret / NoMerch /
+# plateforme) par CA commande 12 mois decroissant. Le rythme de passage vient de la
+# classe et remplace TIER_RULES. Les overrides CADENCE_OVERRIDE_PID priment toujours.
+# (classe, dernier rang inclus, cycle en jours)
+PARETO_CLASSES = [
+    ("TOP", 11, 15),      # 2 passages / mois — jamais reporte
+    ("HIGH", 32, 30),     # 1 passage / mois — jamais reporte
+    ("MEDIUM", 70, 60),   # 1 passage / 2 mois
+    ("LOW", 10**9, 90),   # 1 passage / 3 mois
+]
+CLASSE_ORDER = {"TOP": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3, "": 9}
+NOUVEAU_CLIENT_CYCLE = 28  # implante depuis <= 90 j : suivi rapproche, quelle que soit la classe
+# Overrides qui sont un delai MAXIMUM (et non un espacement demande) : on garde le plus court
+# des deux entre l'override et la classe.
+CADENCE_MAX_PIDS = {2952}  # AD Delhaize Fernelmont : 21 j max (§17) -> 15 j s'il est TOP
 
 VISITE_TAG_RE = re.compile(r"\[VISITE (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 # [TERRAIN AAAA-MM-JJ ...] = passage merchandiser constate sur place. C'est une
@@ -587,12 +604,38 @@ def main():
             "regle_magasin": regle_magasin,
         })
 
-    # 7) Tri : Actif d'abord, retard décroissant, Tier A>B>C>X, CA total décroissant
-    tier_order = {"A": 0, "B": 1, "C": 2, "X": 3}
+    # 6bis) Classes Pareto (REGLES §19) : rang par CA 12 mois, cycle = classe.
+    # Priorite : override magasin > nouveau client (<= 90 j, 28 j max) > classe.
+    suivis = sorted((r for r in rows if r["statut"] in ("Actif", "Televente")),
+                    key=lambda r: -r["total_untaxed_12m"])
+    rang_of = {r["pid"]: i + 1 for i, r in enumerate(suivis)}
+    for r in rows:
+        rang = rang_of.get(r["pid"])
+        r["rang"] = rang or ""
+        r["classe"] = ""
+        if not rang:
+            continue
+        classe, cycle = next((c, j) for c, last, j in PARETO_CLASSES if rang <= last)
+        r["classe"] = classe
+        first = date.fromisoformat(r["first_so_date"]) if r["first_so_date"] else None
+        if first and (today - first).days <= 90:
+            cycle = min(cycle, NOUVEAU_CLIENT_CYCLE)
+        if r["pid"] in CADENCE_MAX_PIDS:
+            # override = delai MAXIMUM (ex. Fernelmont 21 j, §17) : la classe peut resserrer
+            cycle = min(cycle, CADENCE_OVERRIDE_PID[r["pid"]])
+        elif r["pid"] in CADENCE_OVERRIDE_PID:
+            cycle = CADENCE_OVERRIDE_PID[r["pid"]]
+        r["cycle_days"] = cycle
+        if r["last_visit"]:
+            nv = date.fromisoformat(r["last_visit"]) + timedelta(days=cycle)
+            r["next_visit"] = nv.isoformat()
+            r["retard_j"] = (today - nv).days if nv < today else 0
+
+    # 7) Tri : Actif d'abord, retard décroissant, classe TOP>HIGH>MEDIUM>LOW, CA décroissant
     rows.sort(key=lambda r: (
         0 if r["statut"] == "Actif" else 1,
         -r["retard_j"],
-        tier_order.get(r["tier"], 9),
+        CLASSE_ORDER.get(r["classe"], 9),
         -r["total_untaxed_12m"],
     ))
 
@@ -617,31 +660,31 @@ def main():
     overdue = [r for r in actifs if r["retard_j"] > 0]
     tier_counts = defaultdict(int)
     for r in actifs:
-        tier_counts[r["tier"]] += 1
+        tier_counts[r["classe"]] += 1
 
     with md_path.open("w", encoding="utf-8") as f:
         f.write(f"# Planning pool — GMS (source Odoo, généré {stamp})\n\n")
         f.write(f"- **Magasins GMS uniques** : {len(rows)}\n")
-        f.write(f"  - Actifs : {len(actifs)} (Tier A={tier_counts['A']}, B={tier_counts['B']}, C={tier_counts['C']}, X={tier_counts['X']})\n")
+        f.write(f"  - Actifs : {len(actifs)} (TOP={tier_counts['TOP']}, HIGH={tier_counts['HIGH']}, MEDIUM={tier_counts['MEDIUM']}, LOW={tier_counts['LOW']})\n")
         f.write(f"  - Arret  : {len(arret)}\n")
         f.write(f"  - NoMerch (commande seul, hors planning) : {len(no_merch)}\n")
         f.write(f"  - Televente (suivi Vanessa, hors visites Gilles) : {len(televente)}\n")
         f.write(f"- **OVERDUE Actifs** (next_visit < {stamp}) : {len(overdue)}\n\n")
         f.write(f"## OVERDUE — par retard décroissant\n\n")
-        f.write("| Tier | Retard | Magasin | Adresse | Cycle | Dernière SO | Last visit | Source | Next visit | avg/mois |\n")
+        f.write("| Classe | Retard | Magasin | Adresse | Cycle | Dernière SO | Last visit | Source | Next visit | avg/mois |\n")
         f.write("|---|---|---|---|---|---|---|---|---|---|\n")
         for r in overdue[:200]:
             adresse = f"{r['street']}, {r['zip']} {r['city']}".strip(", ")
             # Règle dure : nom magasin TOUJOURS en clair (display_name) — pid en suffixe seulement
             label = f"{r['display_name']} (#{r['pid']})"
-            f.write(f"| {r['tier']} | **{r['retard_j']}j** | {label} | {adresse} | {r['cycle_days']}j | {r['last_so_label']} | {r['last_visit']} | {r['last_visit_source']} | {r['next_visit']} | {r['avg_mois']:.0f}€ |\n")
+            f.write(f"| {r['classe']} | **{r['retard_j']}j** | {label} | {adresse} | {r['cycle_days']}j | {r['last_so_label']} | {r['last_visit']} | {r['last_visit_source']} | {r['next_visit']} | {r['avg_mois']:.0f}€ |\n")
         f.write("\n")
-        f.write(f"## Tous Actifs (premiers 50 par retard puis Tier)\n\n")
-        f.write("| Statut | Tier | Magasin | Dernière SO | Last visit | Next visit | Retard | avg/mois | SO 12m |\n")
+        f.write(f"## Tous Actifs (premiers 50 par retard puis classe)\n\n")
+        f.write("| Statut | Classe | Magasin | Dernière SO | Last visit | Next visit | Retard | avg/mois | SO 12m |\n")
         f.write("|---|---|---|---|---|---|---|---|---|\n")
         for r in actifs[:50]:
             label = f"{r['display_name']} (#{r['pid']})"
-            f.write(f"| {r['statut']} | {r['tier']} | {label} | {r['last_so_label']} | {r['last_visit']} | {r['next_visit']} | {r['retard_j']}j | {r['avg_mois']:.0f}€ | {r['so_count_12m']} |\n")
+            f.write(f"| {r['statut']} | {r['classe']} | {label} | {r['last_so_label']} | {r['last_visit']} | {r['next_visit']} | {r['retard_j']}j | {r['avg_mois']:.0f}€ | {r['so_count_12m']} |\n")
         if no_merch:
             f.write(f"\n## NoMerch — EXCLUS du planning (commande en autonomie)\n\n")
             f.write("> Le gérant/la gérante passe commande seul(e). Ne JAMAIS inscrire au planning Gilles (tag `[NO-MERCH` dans res.partner.comment Odoo).\n\n")
@@ -664,7 +707,7 @@ def main():
     print(f"\n[*] Synthèse :")
     print(f"    Magasins GMS uniques : {len(rows)}")
     print(f"    Actifs : {len(actifs)} | Arret : {len(arret)} | NoMerch : {len(no_merch)} | Televente : {len(televente)}")
-    print(f"    Distribution Tier (Actifs) : A={tier_counts['A']} B={tier_counts['B']} C={tier_counts['C']} X={tier_counts['X']}")
+    print(f"    Distribution classes (Actifs) : TOP={tier_counts['TOP']} HIGH={tier_counts['HIGH']} MEDIUM={tier_counts['MEDIUM']} LOW={tier_counts['LOW']}")
     print(f"    OVERDUE actifs : {len(overdue)}")
 
 

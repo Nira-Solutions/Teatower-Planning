@@ -140,8 +140,8 @@ def main():
         if p in last: last[p] = max(last[p], d)
     cycle = {p: int(r["cycle_days"]) for p, r in pool.items()}
     for p, c in HARD_CYCLE.items():
-        if p in cycle: cycle[p] = c
-    tier = {p: r["tier"] for p, r in pool.items()}
+        if p in cycle: cycle[p] = min(cycle[p], c)
+    classe = {p: r.get("classe", "") for p, r in pool.items()}
     # forcés S48 (reports du 20/11) : reprises glacés promises
     forced = {"s48": {"124365": "Reprise des thés glacés (demande Vanessa 10/11, reportée du 20/11) — compter, photo, noter sur le bon. Vérifier la réception de S06721.",
                       "116686": "Reprise des thés glacés promise lors de la livraison du 09/11 (reportée du 20/11)."}}
@@ -157,7 +157,9 @@ def main():
             dd = due(p)
             gap = (fri - last[p]).days
             if dd <= fri:
-                cands[p] = 1000 + (fri - dd).days + (15 if tier[p] == "A" else 0)
+                # REGLES §19 : TOP/HIGH dus passent avant tout MEDIUM/LOW (jamais reportés)
+                cands[p] = (2000 if classe[p] in ("TOP", "HIGH") else 1000) + (fri - dd).days \
+                    + (50 if classe[p] == "TOP" else 0)
             elif dd <= fri + timedelta(days=10) and gap >= 21:
                 cands[p] = 100 - (dd - fri).days        # remplissage (avance <= 10 j)
         for p in forced.get(wid, {}):
