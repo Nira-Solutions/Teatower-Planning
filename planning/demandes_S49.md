@@ -17,6 +17,18 @@
 | Carrefour Hyper Boncelles #60001 | Pas le mardi, arrivée avant 11:05 (7h-11h30) |
 | FQMS - Proxy Delhaize Quadrilatère (Huy) #125351 | Pas le mardi, de préférence le mercredi |
 
+## Cédés en S48 pour les dépôts boutiques par Gilles (Nicolas 20/11)
+
+Aucun n'est dû selon les classes Pareto (§19) : à replacer seulement quand ils redeviennent dus.
+
+| Magasin | Classe | Contraintes |
+|---|---|---|
+| Affilié 045190 - Proxy Delhaize Maransart #113217 | MEDIUM | Toujours demander avant de remplir, pas le lundi |
+| Proxy Delhaize Rixensart #50967 | MEDIUM | — |
+| Carrefour Market Angleur (Belle-Île) #121196 | LOW | — |
+| Affilié 049480 - Delhaize Welkenraedt #59514 | MEDIUM | Pas le mercredi |
+| Carrefour Market Lontzen #113675 | LOW | — |
+
 ## Reportés du mercredi 25/11 (S48) — cédés pour le RDV Carrefour Hyper Auderghem
 
 | Magasin | Contraintes |

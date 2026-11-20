@@ -26,7 +26,7 @@ Une journée Hainaut / Brabant wallon / Gembloux les regroupe (Courcelles → Ni
 
 ## Livraison S06828 — Hypermarché Carrefour Herstal #125096 (demande Nicolas 19/11)
 
-**Placée lun 23/11 11:22-12:07** (45 min, entre Fléron et Welkenraedt) : livrer S06828 (931 € HT, commande Noël, 120 pièces, TT/PICK/12279), **installer** en rayon et faire la **reprise des thés glacés** (impossible le 19/11, la réception était fermée — note Gilles). Charger la commande le vendredi 20/11. Contact : Thomas Vrancken (sinon Luc Lemoine / Catherine Dussart), +32 4 240 56 11. Hyper = matin.
+**Placée jeu 26/11 11:11-11:56** (déplacée du lundi avec toute la journée Liège, 20/11 ; après les dépôts Rocourt et Liège) : livrer S06828 (931 € HT, commande Noël, 120 pièces, TT/PICK/12279), **installer** en rayon et faire la **reprise des thés glacés** (impossible le 19/11, la réception était fermée — note Gilles). Charger la commande le mercredi 25/11 (si déjà chargée le 20/11, la laisser dans la camionnette). Contact : Thomas Vrancken (sinon Luc Lemoine / Catherine Dussart), +32 4 240 56 11. Hyper = matin.
 Retour lundi 16:56 (limite 17:00). Cédés pour la caser → **à replacer S49** : Carrefour Hyper Boncelles #60001 (pas le mardi, avant 11:05), Proxy Delhaize Quadrilatère Huy #125351 (pas le mardi, de préférence le mercredi).
 
 ## RDV fixe — Carrefour Hyper Auderghem #8062 (demande magasin, Nicolas 19/11)
@@ -36,4 +36,18 @@ Mercredi recalculé avec les temps OSRM : Auderghem → Villers-le-Bouillet (11:
 
 ## ⚠️ OBLIGATOIRE — Delhaize Barchon #119815 (Nicolas 19/11)
 
-Visite **obligatoire en S48** : plus de vraie visite depuis le 11/09 (passage du 05/10 raté, magasin fermé le lundi matin ; S42 non fait ; reporté S44-S47 faute de place). **Placé lun 23/11 14:36-15:01** (après-midi, magasin ouvert). Si la journée déborde, couper Faimes, jamais Barchon. Plan B : mer 25/11 entre Visé et Dolhain (13 min de Visé), en coupant Remouchamps.
+Visite **obligatoire en S48** : plus de vraie visite depuis le 11/09 (passage du 05/10 raté, magasin fermé le lundi matin ; S42 non fait ; reporté S44-S47 faute de place). **Placé jeu 26/11 14:19-14:44** (journée Liège déplacée du lundi au jeudi le 20/11 ; magasin ouvert). Si la journée déborde, couper Faimes, jamais Barchon. Plan B : mer 25/11 entre Visé et Dolhain (13 min de Visé), en coupant Remouchamps.
+
+## Boutiques Teatower livrées par Gilles (Nicolas 20/11)
+
+La livraison de fin de journée (Marvin) ne démarre qu'en S49 : cette semaine, Gilles livre les 4 boutiques pendant sa tournée.
+
+| Boutique | Placement | Colis préparé |
+|---|---|---|
+| Namur | **mar 24/11 10:00-10:20**, 1er stop (créneau piétonnier 9h-11h30), puis Bierges 10:54 | lundi 23/11 |
+| Rocourt | **jeu 26/11 10:00-10:20**, 1er stop | mercredi 25/11 |
+| Liège | **jeu 26/11 10:34-10:54**, 2e stop | mercredi 25/11 |
+| Waterloo | ven 27/11 10:58-11:18, 2e stop après la centrale (inchangé) | jeudi 26/11 |
+
+Lundi et jeudi permutés en bloc (REGLES §13 : jamais de dépôt le lundi) : Luxembourg passe au lundi, Liège au jeudi.
+Cédés (pas dus selon les classes Pareto) : Proxy Delhaize Maransart #113217 et Proxy Delhaize Rixensart #50967 (mardi), Carrefour Market Angleur #121196, Delhaize Welkenraedt #59514 et Carrefour Market Lontzen #113675 (jeudi).
