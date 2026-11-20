@@ -1,22 +1,6 @@
 {
- "generated": "2026-11-19",
+ "generated": "2026-11-20",
  "urgences": [
-  {
-   "pid": 3000,
-   "magasin": "JAMBIS SA - Intermarché Jambes",
-   "jour": "2026-11-12",
-   "visite": "2026-11-10",
-   "extrait": "responsable absent (Gilles) : Pas de responsable présent",
-   "statut": "traitée — commande S06811",
-   "en_retard": false,
-   "contact_name": "Faustine",
-   "contact_function": "",
-   "phone": "081306878",
-   "email": "pdv09845@mousquetaires.com",
-   "street": "rue de la Poudrière, 14",
-   "zip": "5100",
-   "city": "JAMBES"
-  },
   {
    "pid": 124701,
    "magasin": "Affilié 045070 - Proxy Delhaize Ma Campagne",
@@ -24,7 +8,7 @@
    "visite": "2026-11-18",
    "extrait": "responsable absent (Renato) : Delhaize ma campagne ; responsable pas présent personne pour prendre de décision et n'ont pas pu me dire si la commande était la ! Demande de repasser",
    "statut": "ouverte",
-   "en_retard": false,
+   "en_retard": true,
    "contact_name": "",
    "contact_function": "",
    "phone": "+32 2 514 66 48",
@@ -35,7 +19,7 @@
   },
   {
    "pid": 5580,
-   "magasin": false,
+   "magasin": "GIMALEX SA - Delhaize Fragnée, Delivery Address",
    "jour": "2026-11-20",
    "visite": "2026-11-19",
    "extrait": "responsable absent (Gilles) : Passage pas possible , responsable pas la",
@@ -48,6 +32,38 @@
    "street": "Rue de Fragnée, 41",
    "zip": "4000",
    "city": "Liège"
+  },
+  {
+   "pid": 2811,
+   "magasin": "BARVO S.A. - Carrefour Market Barvaux",
+   "jour": "2026-11-23",
+   "visite": "2026-11-20",
+   "extrait": "responsable absent (Gilles) : Nathalie Warnier pas présente ajd . Réunion toute la journée",
+   "statut": "ouverte",
+   "en_retard": false,
+   "contact_name": "Nathalie Warnier",
+   "contact_function": "",
+   "phone": "0479366620",
+   "email": "nathalie.warnier@arcadesa.be",
+   "street": "Route de Marche, 26",
+   "zip": "6940",
+   "city": "Barvaux/Ourthe"
+  },
+  {
+   "pid": 113445,
+   "magasin": "D-trois SRL - Proxy Delhaize Saint-Séverin",
+   "jour": "2026-11-23",
+   "visite": "2026-11-20",
+   "extrait": "responsable absent (Gilles) : passage pas possible, plus de responsable pour les thés glacés ; reprise glacés + installation Noël à organiser (refs manquantes dans la camionnette : Mammy Granny, cookies)",
+   "statut": "ouverte",
+   "en_retard": false,
+   "contact_name": "",
+   "contact_function": "",
+   "phone": "+32 4 372 09 85",
+   "email": "amdessart@proxynandrin.be",
+   "street": "Route du Condroz, 243",
+   "zip": "4550",
+   "city": "Nandrin"
   }
  ]
 }

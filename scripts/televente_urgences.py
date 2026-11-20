@@ -116,7 +116,7 @@ def collecter(call, today):
     debut = today - timedelta(days=FENETRE_JOURS)
     parts = call("res.partner", "search_read",
                  [[("comment", "ilike", "URGENCE TELEVENTE")]],
-                 {"fields": ["id", "name", "comment", "phone", "mobile", "email",
+                 {"fields": ["id", "name", "display_name", "comment", "phone", "mobile", "email",
                              "street", "zip", "city"], "context": {"active_test": False}})
     out = []
     for p in parts:
@@ -151,7 +151,7 @@ def collecter(call, today):
             0 if (c.get("phone") or c.get("mobile")) else 1))
         c = enfants[0] if enfants else {}
         out.append({
-            "pid": p["id"], "magasin": p["name"],
+            "pid": p["id"], "magasin": p["name"] or p.get("display_name") or f"Magasin #{p['id']}",
             "jour": jour.isoformat(), "visite": visite.isoformat(), "extrait": extrait,
             "statut": statut, "en_retard": statut == "ouverte" and jour < today,
             "contact_name": c.get("name") or "", "contact_function": c.get("function") or "",
@@ -194,7 +194,7 @@ def main():
     ouvertes = [u for u in urg if u["statut"] == "ouverte"]
     print(f"[+] {len(urg)} urgence(s) sur {FENETRE_JOURS} j, dont {len(ouvertes)} ouverte(s) -> {OUT_JSON.name}")
     for u in urg:
-        print(f"   {u['jour']}  {u['magasin'][:40]:40} {u['statut']}"
+        print(f"   {u['jour']}  {(u['magasin'] or '')[:40]:40} {u['statut']}"
               f"{'  (EN RETARD)' if u['en_retard'] else ''}")
 
 
