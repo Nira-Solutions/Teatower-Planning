@@ -72,3 +72,9 @@ Bierges #8689 ajouté en 1er stop mar 24/11 (fenêtre mar/jeu 6h-11h45) : repris
 | Affilié 044780 - Proxy Delhaize Le Beau Rivage (Dinant) #8779 | LOW (90 j) | 29/09 | à placer S49-S50 (règle 30 j min OK) |
 | 2u S.A. - Carrefour Market Ciney #2773 | MEDIUM (60 j) | 20/10 | à placer S49 (sinon garder le passage déjà prévu plus tard) |
 | LSL RETAIL SPRL - Intermarché Chaumont-Gistoux #10134 | MEDIUM (60 j) | 20/10 | cédé pour Delhaize LLN (mar 24/11) — à placer S49 |
+
+## Demandes du 20/11 (Nicolas)
+
+- **BARVO S.A. - Carrefour Market Barvaux #2811** : ✅ placé **lun 30/11 08:55 (1er stop, matin)** — reprise des thés glacés + installation Noël si Nathalie Warnier valide (urgence télévente lun 23/11 pour confirmer). Pas la semaine S48 (décision Nicolas). Visite du lun 14/12 retirée (trop rapprochée).
+  - Cédés du lun 30/11 pour tenir le retour 15:30 : Carrefour Market Grâce-Hollogne #113627 (MEDIUM, dernière 06/11) et Proxy Delhaize Tihange #124180 (LOW, dernière 05/11) — pas dus avant janvier/février, à replacer au fil des semaines.
+- **D-trois SRL - Proxy Delhaize Saint-Séverin #113445** : **passé en télévente** (FORCE_TELEVENTE_PIDS, `build_televente_pool.py`) — plus de responsable sur place, refs absentes de la camionnette. Visite du lun 07/12 retirée. Urgence télévente lun 23/11 pour organiser la reprise des glacés + Noël.

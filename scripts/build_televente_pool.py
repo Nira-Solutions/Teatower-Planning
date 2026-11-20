@@ -80,6 +80,9 @@ FORCE_TELEVENTE_PIDS = {
     123144,  # Affilie 040490 - Delhaize Ath (Nicolas 02/09/2026) : bon client
              # (431 EUR/mois reel) mais isole en Hainaut occidental, jamais
              # visite depuis le 02/07 -> suivi telephonique Vanessa.
+    113445,  # D-trois SRL - Proxy Delhaize Saint-Severin (Nicolas 20/11/2026) : plus de
+             # responsable sur place pour valider, refs absentes de la camionnette
+             # (Mammy Granny, cookies) -> suivi telephonique Vanessa.
     # 123069 Carrefour Market Bievre : RETIRE le 08/10/2026, le magasin commande
     #        via l'EDI Carrefour -> tag [NO-MERCH], ni visite ni appel.
 }
