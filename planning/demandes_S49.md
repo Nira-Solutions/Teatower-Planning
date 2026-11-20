@@ -42,7 +42,7 @@ Annoncés « à replacer S49 » dans `demandes_S48.md`, mais absents de cette li
 |---|---|---|
 | Micamik SRL - Spar Godinne #122995 | Cédé mar 24/11 (changement display Debroux) | **à placer S49** |
 | Antheco SA - Intermarché Anthée #122991 | Cédé mar 24/11 (changement display Debroux) | **à placer S49** |
-| SRL AD LLN - Delhaize de Louvain-la-Neuve #3223 | Cédé ven 27/11 (échange display Ferme de la Princesse) | **à placer S49** |
+| SRL AD LLN - Delhaize de Louvain-la-Neuve #3223 | Cédé ven 27/11 (échange display Ferme de la Princesse) | ✅ replacé S48 mar 24/11 15:00 (demande Nicolas 20/11) |
 | Dynamic Food SRL - Spar Louvain-la-Neuve #113216 | Cédé ven 27/11 (idem) | **à placer S49** |
 | Spar Gembloux #123297 | Cédé ven 27/11 (idem) — passage mensuel demandé par le magasin | **à placer S49** |
 
@@ -59,3 +59,4 @@ Bierges #8689 ajouté en 1er stop mar 24/11 (fenêtre mar/jeu 6h-11h45) : repris
 |---|---|---|---|
 | Affilié 044780 - Proxy Delhaize Le Beau Rivage (Dinant) #8779 | LOW (90 j) | 29/09 | à placer S49-S50 (règle 30 j min OK) |
 | 2u S.A. - Carrefour Market Ciney #2773 | MEDIUM (60 j) | 20/10 | à placer S49 (sinon garder le passage déjà prévu plus tard) |
+| LSL RETAIL SPRL - Intermarché Chaumont-Gistoux #10134 | MEDIUM (60 j) | 20/10 | cédé pour Delhaize LLN (mar 24/11) — à placer S49 |
