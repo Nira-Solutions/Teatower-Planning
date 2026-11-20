@@ -33,3 +33,20 @@
 | Proxy Delhaize Ma Campagne #124701 | Responsable absent le 18/11 → urgence télévente 19/11 | prévu S50 jeu 10/12 |
 | GIMALEX SA - Delhaize Fragnée #5580 | Responsable absent le 19/11 → urgence télévente 20/11 | prévu S51 mer 16/12 — avancer en S49 (pas le lundi) |
 | SRL Spydis - Intermarché Spy #116686 | Cédé du ven 27/11 (boutique Waterloo en 2ème stop, REGLES §18) — reprise des glacés promise | **à placer S49** |
+
+## Cédés de S48 pour les RDV Debroux (mar 24/11) et Ferme de la Princesse (ven 27/11) — ajoutés le 20/11
+
+Annoncés « à replacer S49 » dans `demandes_S48.md`, mais absents de cette liste jusqu'ici.
+
+| Magasin | Origine | Statut |
+|---|---|---|
+| Micamik SRL - Spar Godinne #122995 | Cédé mar 24/11 (changement display Debroux) | **à placer S49** |
+| Antheco SA - Intermarché Anthée #122991 | Cédé mar 24/11 (changement display Debroux) | **à placer S49** |
+| SRL AD LLN - Delhaize de Louvain-la-Neuve #3223 | Cédé ven 27/11 (échange display Ferme de la Princesse) | **à placer S49** |
+| Dynamic Food SRL - Spar Louvain-la-Neuve #113216 | Cédé ven 27/11 (idem) | **à placer S49** |
+| Spar Gembloux #123297 | Cédé ven 27/11 (idem) — passage mensuel demandé par le magasin | **à placer S49** |
+
+## Classes Pareto (REGLES §19) — 1re semaine d'application
+
+- AD Delhaize Fernelmont #2952 passe TOP (15 j) : dernière visite 13/11 → **à placer mar 01/12** (mar/ven ≥ 13:20 ; 18 j, sous la limite dure de 21 j).
+- TOP et HIGH dus = jamais reportés : si la semaine déborde, céder un MEDIUM ou un LOW.
