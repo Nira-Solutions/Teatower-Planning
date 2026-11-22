@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20",
+ "generated": "2026-11-22",
  "urgences": [
   {
    "pid": 124701,
@@ -24,7 +24,7 @@
    "visite": "2026-11-19",
    "extrait": "responsable absent (Gilles) : Passage pas possible , responsable pas la",
    "statut": "ouverte",
-   "en_retard": false,
+   "en_retard": true,
    "contact_name": "",
    "contact_function": "",
    "phone": "",
