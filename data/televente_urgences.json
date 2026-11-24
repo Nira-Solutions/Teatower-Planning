@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-24",
  "urgences": [
   {
    "pid": 124701,
@@ -7,8 +7,8 @@
    "jour": "2026-11-19",
    "visite": "2026-11-18",
    "extrait": "responsable absent (Renato) : Delhaize ma campagne ; responsable pas présent personne pour prendre de décision et n'ont pas pu me dire si la commande était la ! Demande de repasser",
-   "statut": "ouverte",
-   "en_retard": true,
+   "statut": "traitée — note Vanessa",
+   "en_retard": false,
    "contact_name": "",
    "contact_function": "",
    "phone": "+32 2 514 66 48",
@@ -39,7 +39,7 @@
    "jour": "2026-11-23",
    "visite": "2026-11-20",
    "extrait": "responsable absent (Gilles) : Nathalie Warnier pas présente ajd . Réunion toute la journée",
-   "statut": "ouverte",
+   "statut": "traitée — note Vanessa",
    "en_retard": false,
    "contact_name": "Nathalie Warnier",
    "contact_function": "",
@@ -56,7 +56,7 @@
    "visite": "2026-11-20",
    "extrait": "responsable absent (Gilles) : passage pas possible, plus de responsable pour les thés glacés ; reprise glacés + installation Noël à organiser (refs manquantes dans la camionnette : Mammy Granny, cookies)",
    "statut": "ouverte",
-   "en_retard": false,
+   "en_retard": true,
    "contact_name": "",
    "contact_function": "",
    "phone": "+32 4 372 09 85",
