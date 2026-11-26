@@ -517,3 +517,14 @@ Contexte : Nicolas 04/11/2026 (« si le client a été visité aujourd'hui mais 
 4. Priorité dans la journée de Vanessa : urgences > appels télévente dus > **relais merch** > win-back. Les relais au-delà de la capacité (6/jour) passent en S+1.
 5. Code : `RELAIS_JOURS` + `relais_merch()` dans `scripts/build_televente_page.py` ; la colonne `last_appel` vient de `build_planning_pool.py` (tags `[APPEL AAAA-MM-JJ ...]`). Carte bleue « 🔁 relais MEDIUM / LOW » dans la page télévente.
 6. Charge : ~10 relais par semaine en régime normal ; la 1re semaine (S48) rattrape un stock de 17.
+
+## 21. Delhaize Embourg (#2909) — passage le LUNDI UNIQUEMENT (REGLE DURE, 2026-11-26)
+
+Consigne de Nicolas du 26/11/2026 : les passages merchandiser chez Delhaize Embourg
+(DelEmbourg SRL, Voie de l'Ardenne 57, 4053 Embourg) se font **uniquement le lundi**.
+Jamais un autre jour, même en rattrapage ou pour boucher un trou de tournée.
+
+- Odoo : tag `[REGLE: passage merchandiser LE LUNDI UNIQUEMENT (Nicolas 26/11/2026)]`
+  dans `res.partner.comment` → remonte dans la colonne `regle_magasin` du pool.
+- Générateur prévisionnel : `CONSTR["2909"] = dict(days={0})` dans `_forecast_s48_s52.py`.
+- Contrôle au 26/11 : S49-S52 → seul passage prévu le lundi 14/12 (S51), conforme.

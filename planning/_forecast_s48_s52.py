@@ -58,6 +58,7 @@ CONSTR = {
     "125351": dict(days=ALL - {1}),                                # Quadrilatère : pas mardi
     "128635": dict(days={0, 2}, earliest=M("11:00"), latest=M("13:35")),  # Frasnes-lez-Gosselies
     "2952":   dict(days={1, 4}, earliest=M("13:20")),              # Fernelmont : mar/ven >= 13:20
+    "2909":   dict(days={0}),                                    # Delhaize Embourg : LUNDI UNIQUEMENT (Nicolas 26/11)
     "5442":   dict(earliest=M("12:30")),                           # Etalle : après 12:30
     "119818": dict(days=ALL - {2}, latest=M("12:30")),             # Ferrières : pas mercredi, tôt
     "TT_WATERLOO": dict(days={1, 2, 3, 4}, earliest=M("10:00")),
