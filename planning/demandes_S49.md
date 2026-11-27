@@ -78,3 +78,21 @@ Bierges #8689 ajouté en 1er stop mar 24/11 (fenêtre mar/jeu 6h-11h45) : repris
 - **BARVO S.A. - Carrefour Market Barvaux #2811** : ✅ placé **lun 30/11 08:55 (1er stop, matin)** — reprise des thés glacés + installation Noël si Nathalie Warnier valide (urgence télévente lun 23/11 pour confirmer). Pas la semaine S48 (décision Nicolas). Visite du lun 14/12 retirée (trop rapprochée).
   - Cédés du lun 30/11 pour tenir le retour 15:30 : Carrefour Market Grâce-Hollogne #113627 (MEDIUM, dernière 06/11) et Proxy Delhaize Tihange #124180 (LOW, dernière 05/11) — pas dus avant janvier/février, à replacer au fil des semaines.
 - **D-trois SRL - Proxy Delhaize Saint-Séverin #113445** : **passé en télévente** (FORCE_TELEVENTE_PIDS, `build_televente_pool.py`) — plus de responsable sur place, refs absentes de la camionnette. Visite du lun 07/12 retirée. Urgence télévente lun 23/11 pour organiser la reprise des glacés + Noël.
+
+## Recalage du ven 27/11 (Nicolas 27/11) — tournée changée sur le terrain
+
+Tournée réelle du ven 27/11 : centrale Intermarché Gosselies → boutique Waterloo → **Intermarché Naninne #5755 → Delhaize Salzinnes #114704 → Delhaize Bouge #114681** (avancés du ven 04/12) → **boutique Teatower Namur**. Tag `[VISITE 2026-11-27 Gilles]` posé dans Odoo sur les 3 magasins.
+
+| Magasin | Statut |
+|---|---|
+| Intermarché Naninne #5755, Delhaize Salzinnes #114704, Delhaize Bouge #114681 | ✅ visités le 27/11 → **retirés du ven 04/12** |
+| NIVALIM - Intermarché Nivelles #3153 (HIGH) | non visité le 27/11 → ✅ **ven 04/12 12:12** |
+| Gemblouxim - Intermarché Gembloux #123346 | non visité le 27/11 → ✅ **ven 04/12 13:36** (retiré du jeu 17/12, passage mensuel) |
+| Spar Gembloux #123297 | ✅ **ven 04/12 14:06** |
+| Carrefour Market Braine-l'Alleud #8339 | ✅ **ven 04/12 11:29** (à la place de Proxy Lillois, LOW pas dû) |
+| SPRL Ferme de la Princesse - Traiteur Pistral #114857 (échange display EM0107 ×8 → EM0106 ×16) | non fait le 27/11 → **à placer S50** (cf. `demandes_S50.md`) |
+| Carrefour Market Courcelles #124365 (reprise glacés) | non fait le 27/11 → **à placer S50** (cf. `demandes_S50.md`) |
+| Affilié 043366 - AD Fosses-la-Ville #5441 (TOP) | ✅ **mer 02/12 13:10** |
+| FQMS - Proxy Delhaize Quadrilatère (Huy) #125351 | ✅ **mer 02/12 11:24** |
+| INTERMADIS SA - Intermarché Hannut #121874 (14 j) | ✅ **jeu 03/12 09:35 (1er stop, matin)** → Bierges passe 2ème stop 10:50 (fenêtre 11:45 OK) ; retiré du lun 07/12 |
+| AD Spa, CM Lierneux, Spar Erezée (mer 02/12) · CM Waterloo, Proxy Bosvoorde (jeu 03/12) · Proxy Lillois (ven 04/12) | retirés : pas encore dus selon les classes Pareto (§19) |
