@@ -96,3 +96,4 @@ Tournée réelle du ven 27/11 : centrale Intermarché Gosselies → boutique Wat
 | FQMS - Proxy Delhaize Quadrilatère (Huy) #125351 | ✅ **mer 02/12 11:24** |
 | INTERMADIS SA - Intermarché Hannut #121874 (14 j) | ✅ **jeu 03/12 09:35 (1er stop, matin)** → Bierges passe 2ème stop 10:50 (fenêtre 11:45 OK) ; retiré du lun 07/12 |
 | AD Spa, CM Lierneux, Spar Erezée (mer 02/12) · CM Waterloo, Proxy Bosvoorde (jeu 03/12) · Proxy Lillois (ven 04/12) | retirés : pas encore dus selon les classes Pareto (§19) |
+| SRL Spydis - Intermarché Spy #116686 (HIGH, reprise glacés) | ✅ **mer 02/12 13:56** après Fosses (retour 15:11) — demande Nicolas 27/11 ; retiré du lun 21/12 |

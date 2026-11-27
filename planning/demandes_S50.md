@@ -15,7 +15,7 @@
 
 | Magasin | Classe | Échéance | Statut |
 |---|---|---|---|
-| SRL Spydis - Intermarché Spy #116686 | HIGH | 09/12 (reprise glacés promise) | absent du prévisionnel S50 → **à placer** |
+| SRL Spydis - Intermarché Spy #116686 | HIGH | 09/12 (reprise glacés promise) | ✅ placé S49 mer 02/12 13:56 (après Fosses) ; retiré du lun 21/12 |
 | Intermarché Naninne #5755 | TOP | 12/12 (vu le 27/11) | prévu S52 jeu 24/12 seulement → **placer S51** |
 | Delhaize Salzinnes #114704 / Delhaize Bouge #114681 | HIGH | 27/12 (vus le 27/11) | S52 lun 21/12 / jeu 24/12 : OK |
 | KAIO Retail invest - Delhaize Ottignies #6838 | HIGH | 13/12 | ✅ S49 mar 01/12 |
